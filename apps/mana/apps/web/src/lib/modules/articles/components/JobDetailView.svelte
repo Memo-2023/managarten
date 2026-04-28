@@ -161,13 +161,34 @@
 			</div>
 		</header>
 
+		{#if j.warningCount > 0}
+			<aside class="consent-hint" role="note">
+				<strong>Cookie-Wand erkannt</strong>: {j.warningCount}
+				{j.warningCount === 1 ? 'Artikel' : 'Artikel'} hat nur den Cookie-Zustimmungs-Dialog gespeichert
+				(der Server sieht keine Cookies). Mit dem
+				<a href="/articles/settings">Browser-HTML-Bookmarklet</a> aus dem Tab in dem du dem Cookie zugestimmt
+				hast überschreibst du den Teaser durch den echten Artikel.
+			</aside>
+		{/if}
+
 		<ul class="items">
 			{#each items as item (item.id)}
 				{@const pill = statePill(item.state)}
 				<li class="item">
 					<span class="pill {pill.klass}">{pill.label}</span>
 					<span class="url" title={item.url}>{shortUrl(item)}</span>
-					{#if item.articleId && (item.state === 'saved' || item.state === 'consent-wall' || item.state === 'duplicate')}
+					{#if item.state === 'consent-wall' && item.articleId}
+						<span class="action-group">
+							<a class="action" href="/articles/{item.articleId}">Teaser ansehen</a>
+							<a
+								class="action action-rescue"
+								href={`/articles/add?source=bookmarklet&url=${encodeURIComponent(item.url)}`}
+								title="Mit Bookmarklet erneut speichern — überschreibt den Teaser durch den echten Artikel"
+							>
+								Erneut speichern
+							</a>
+						</span>
+					{:else if item.articleId && (item.state === 'saved' || item.state === 'duplicate')}
 						<a class="action" href="/articles/{item.articleId}">Öffnen</a>
 					{:else if item.state === 'error' && item.error}
 						<span class="error-msg" title={item.error}>{item.error}</span>
@@ -363,6 +384,26 @@
 		text-decoration: none;
 	}
 	.action:hover {
+		text-decoration: underline;
+	}
+	.action-group {
+		display: inline-flex;
+		gap: 0.65rem;
+	}
+	.action-rescue {
+		color: #b45309;
+	}
+	.consent-hint {
+		margin: 0 0 0.75rem 0;
+		padding: 0.55rem 0.85rem;
+		border-radius: 0.5rem;
+		border: 1px solid color-mix(in srgb, #f59e0b 35%, transparent);
+		background: color-mix(in srgb, #f59e0b 8%, transparent);
+		font-size: 0.85rem;
+		line-height: 1.5;
+	}
+	.consent-hint a {
+		color: #b45309;
 		text-decoration: underline;
 	}
 	.error-msg {

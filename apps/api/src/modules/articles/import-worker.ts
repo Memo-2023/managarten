@@ -272,7 +272,7 @@ async function processOneJob(job: ImportJobRow): Promise<number> {
 	return claimable.length;
 }
 
-interface StateCounts {
+export interface StateCounts {
 	saved: number;
 	duplicate: number;
 	error: number;
@@ -281,7 +281,7 @@ interface StateCounts {
 	allTerminal: boolean;
 }
 
-function countByState(items: readonly ImportItemRow[]): StateCounts {
+export function countByState(items: readonly ImportItemRow[]): StateCounts {
 	let saved = 0;
 	let duplicate = 0;
 	let error = 0;
