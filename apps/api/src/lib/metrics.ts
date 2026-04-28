@@ -104,3 +104,71 @@ export const websitePublicReadAge = new Histogram({
 	buckets: [1, 10, 60, 300, 1800, 3600, 21600, 86400],
 	registers: [register],
 });
+
+// ── Articles bulk-import worker ─────────────────────────
+
+/**
+ * Every worker tick, regardless of outcome. `result`:
+ *   - `processed` — lock acquired, jobs scanned
+ *   - `skipped`   — advisory lock taken by another instance
+ *   - `error`     — tick threw (logged + rethrown)
+ */
+export const articlesImportTicksTotal = new Counter({
+	name: 'mana_api_articles_import_ticks_total',
+	help: 'Articles bulk-import worker tick outcomes.',
+	labelNames: ['result'] as const,
+	registers: [register],
+});
+
+/**
+ * Each per-item terminal-state transition the worker observes.
+ * `result`:
+ *   - `extracted`    — server fetch + Readability succeeded, pickup row written
+ *   - `error`        — 3 attempts exhausted, item parked as 'error'
+ *   - `consent_wall` — extracted but flagged probable_consent_wall
+ *   - `cancelled`    — flipped from pending → cancelled because parent
+ *                      job was cancelled mid-flight
+ */
+export const articlesImportItemsTotal = new Counter({
+	name: 'mana_api_articles_import_items_total',
+	help: 'Articles bulk-import items by terminal-from-worker state.',
+	labelNames: ['result'] as const,
+	registers: [register],
+});
+
+/**
+ * End-to-end latency of one extractFromUrl call (network fetch +
+ * JSDOM parse + Readability). Exclude consent-wall flagging — that's
+ * a synchronous post-process. Buckets cover anything from a snappy
+ * blog (250ms) to the shared-rss timeout ceiling (15s).
+ */
+export const articlesImportExtractDuration = new Histogram({
+	name: 'mana_api_articles_import_extract_duration_seconds',
+	help: 'extractFromUrl roundtrip time inside the bulk-import worker.',
+	buckets: [0.25, 0.5, 1, 2, 4, 8, 15, 30],
+	registers: [register],
+});
+
+/**
+ * Job-completion counter. `result`:
+ *   - `done`      — every item terminal, status flipped to done
+ *   - `cancelled` — user cancelled before completion
+ */
+export const articlesImportJobsCompletedTotal = new Counter({
+	name: 'mana_api_articles_import_jobs_completed_total',
+	help: 'Articles bulk-import jobs by terminal status.',
+	labelNames: ['result'] as const,
+	registers: [register],
+});
+
+/**
+ * Pickup-row GC sweep — how many stale rows were hard-deleted on each
+ * 30-tick run. Steady-state should be 0 (consumer drains them within
+ * seconds); a non-zero value over time signals a stuck consumer
+ * somewhere (closed tabs, broken Web-Lock).
+ */
+export const articlesImportPickupGcRows = new Counter({
+	name: 'mana_api_articles_import_pickup_gc_rows_total',
+	help: 'articleExtractPickup rows hard-deleted by the worker GC sweep.',
+	registers: [register],
+});

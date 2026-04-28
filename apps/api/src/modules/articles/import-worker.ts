@@ -22,7 +22,12 @@
  * Plan: docs/plans/articles-bulk-import.md.
  */
 
-import { getSyncConnection } from '../../mcp/sync-db';
+import { getSyncConnection } from '../../lib/sync-db';
+import {
+	articlesImportJobsCompletedTotal,
+	articlesImportPickupGcRows,
+	articlesImportTicksTotal,
+} from '../../lib/metrics';
 import {
 	listClaimableJobs,
 	listItemsForJob,
@@ -94,8 +99,13 @@ async function runTickGuarded(): Promise<void> {
 	if (running) return;
 	running = true;
 	try {
-		await runTickOnce();
+		const result = await runTickOnce();
+		articlesImportTicksTotal.inc({ result: result.skipped ? 'skipped' : 'processed' });
+		if (typeof result.pickupGcRows === 'number' && result.pickupGcRows > 0) {
+			articlesImportPickupGcRows.inc(result.pickupGcRows);
+		}
 	} catch (err) {
+		articlesImportTicksTotal.inc({ result: 'error' });
 		console.error('[articles-import] tick error:', err);
 	} finally {
 		running = false;
@@ -229,6 +239,7 @@ async function processOneJob(job: ImportJobRow): Promise<number> {
 		counterPatch.status = 'done';
 		counterPatch.finishedAt = new Date().toISOString();
 		dirty = true;
+		articlesImportJobsCompletedTotal.inc({ result: 'done' });
 	}
 	if (dirty) {
 		await writeJobUpdate(job.userId, job.id, counterPatch);

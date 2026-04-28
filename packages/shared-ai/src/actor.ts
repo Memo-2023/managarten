@@ -42,6 +42,17 @@ export const SYSTEM_MISSION_RUNNER = 'system:mission-runner';
  * it from the user-write codepath.
  */
 export const SYSTEM_BOOTSTRAP = 'system:bootstrap';
+/**
+ * Server-side bulk-article-import worker (apps/api). Picks up
+ * articleImportItems with state='pending', runs Readability, drops
+ * the extracted payload into articleExtractPickup, flips item state.
+ * Every state-transition write the worker does is attributed to this
+ * principal so the Workbench timeline + revert path can group
+ * background-import writes under one identity.
+ *
+ * Plan: docs/plans/articles-bulk-import.md.
+ */
+export const SYSTEM_ARTICLES_IMPORT_WORKER = 'system:articles-import-worker';
 
 export type SystemSource =
 	| typeof SYSTEM_PROJECTION
@@ -49,7 +60,8 @@ export type SystemSource =
 	| typeof SYSTEM_MIGRATION
 	| typeof SYSTEM_STREAM
 	| typeof SYSTEM_MISSION_RUNNER
-	| typeof SYSTEM_BOOTSTRAP;
+	| typeof SYSTEM_BOOTSTRAP
+	| typeof SYSTEM_ARTICLES_IMPORT_WORKER;
 
 /** Legacy sentinels for records that pre-date the identity-aware actor
  *  shape. Read-path normalization maps missing fields to these. */
@@ -153,6 +165,8 @@ function defaultSystemDisplayName(source: SystemSource): string {
 			return 'Mission-Runner';
 		case SYSTEM_BOOTSTRAP:
 			return 'Bootstrap';
+		case SYSTEM_ARTICLES_IMPORT_WORKER:
+			return 'Artikel-Import';
 	}
 }
 

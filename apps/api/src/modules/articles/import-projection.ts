@@ -2,7 +2,7 @@
  * Articles Bulk-Import — sync_changes → live record projection.
  *
  * Mirror of `services/mana-ai/src/db/missions-projection.ts` and
- * `apps/api/src/mcp/sync-db.ts:readLatestRecords()`, specialised for the
+ * `apps/api/src/lib/sync-db.ts:readLatestRecords()`, specialised for the
  * two tables the import-worker tick reads each cycle:
  *
  *   articleImportJobs   — to find running jobs whose lease is free
@@ -18,7 +18,7 @@
  * Plan: docs/plans/articles-bulk-import.md.
  */
 
-import { getSyncConnection } from '../../mcp/sync-db';
+import { getSyncConnection } from '../../lib/sync-db';
 import { fieldMetaTime } from './field-meta';
 
 type Row = Record<string, unknown>;

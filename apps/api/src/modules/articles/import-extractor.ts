@@ -25,24 +25,27 @@
  */
 
 import { extractFromUrl } from '@mana/shared-rss';
-import { makeFieldMeta, type Actor, type FieldOrigin } from '@mana/shared-ai';
-import { getSyncConnection } from '../../mcp/sync-db';
+import {
+	makeFieldMeta,
+	makeSystemActor,
+	originFromActor,
+	SYSTEM_ARTICLES_IMPORT_WORKER,
+	type Actor,
+	type FieldOrigin,
+} from '@mana/shared-ai';
+import { getSyncConnection } from '../../lib/sync-db';
+import { articlesImportExtractDuration, articlesImportItemsTotal } from '../../lib/metrics';
 import { looksLikeConsentWall } from './consent-wall';
 import type { ImportItemRow } from './import-projection';
 
 const MAX_ATTEMPTS = 3;
 const CLIENT_ID = 'articles-import-worker';
 
-/** System-actor blob stamped on every worker write. Built inline because
- *  the underlying SystemSource union in @mana/shared-ai isn't extended
- *  here — both fields are runtime values, not type discriminators, so
- *  this composes cleanly without a shared-ai change. */
-const WORKER_ACTOR: Actor = Object.freeze({
-	kind: 'system' as const,
-	principalId: 'system:articles-import-worker',
-	displayName: 'Artikel-Import',
-});
-const WORKER_ORIGIN: FieldOrigin = 'system';
+/** System-actor blob stamped on every worker write — sourced from the
+ *  blessed SystemSource union in @mana/shared-ai so the actor.ts audit
+ *  + Workbench filters know about it. */
+const WORKER_ACTOR: Actor = makeSystemActor(SYSTEM_ARTICLES_IMPORT_WORKER);
+const WORKER_ORIGIN: FieldOrigin = originFromActor(WORKER_ACTOR);
 
 export interface ExtractStats {
 	itemId: string;
@@ -73,7 +76,9 @@ export async function extractOneItem(item: ImportItemRow): Promise<ExtractStats>
 
 	// Step 2 — fetch + parse. Hard-failure path returns null; we treat
 	// that as a single failed attempt and recycle.
+	const extractStart = Date.now();
 	const extracted = await extractFromUrl(item.url);
+	articlesImportExtractDuration.observe((Date.now() - extractStart) / 1000);
 	const nowDone = new Date().toISOString();
 
 	if (!extracted) {
@@ -84,6 +89,9 @@ export async function extractOneItem(item: ImportItemRow): Promise<ExtractStats>
 			error: nextState === 'error' ? 'Extraktion fehlgeschlagen nach mehreren Versuchen.' : null,
 			lastAttemptAt: nowDone,
 		});
+		if (nextState === 'error') {
+			articlesImportItemsTotal.inc({ result: 'error' });
+		}
 		return { itemId: item.id, terminal: nextState === 'error' ? 'error' : 'pending' };
 	}
 
@@ -122,6 +130,7 @@ export async function extractOneItem(item: ImportItemRow): Promise<ExtractStats>
 		lastAttemptAt: nowDone,
 	});
 
+	articlesImportItemsTotal.inc({ result: warning ? 'consent_wall' : 'extracted' });
 	return { itemId: item.id, terminal: 'extracted' };
 }
 
