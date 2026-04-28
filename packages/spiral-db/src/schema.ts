@@ -185,7 +185,6 @@ export const MANA_APP_INDEX: Record<string, number> = {
 	storage: 7,
 	music: 8,
 	presi: 9,
-	context: 10,
 	cards: 11,
 	photos: 12,
 	skilltree: 13,

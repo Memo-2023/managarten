@@ -42,7 +42,6 @@ export const PLAINTEXT_ALLOWLIST: readonly string[] = [
 	'customQuotes', // TODO: audit
 	'dashboardConfigs', // TODO: audit
 	'deckTags', // TODO: audit
-	'documentTags', // TODO: audit
 	'dreamTags', // TODO: audit
 	'entryTags', // TODO: audit
 	'eventInvitations', // TODO: audit

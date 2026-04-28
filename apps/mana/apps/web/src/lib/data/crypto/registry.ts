@@ -237,13 +237,6 @@ export const ENCRYPTION_REGISTRY: Record<string, EncryptionConfig> = {
 	presiDecks: { enabled: true, fields: ['title', 'description'] },
 	slides: { enabled: true, fields: ['content'] },
 
-	// ─── Context ─────────────────────────────────────────────
-	// LocalDocument has `title` + `content` (no `body` column on the
-	// schema). DocumentType (text/context/prompt) and the spaceId
-	// foreign key stay plaintext so the workspace tree still groups
-	// documents per space without a key.
-	documents: { enabled: true, fields: ['title', 'content'] },
-
 	// ─── Storage ─────────────────────────────────────────────
 	// `name` IS indexed but no .where('name') call site exists in the
 	// app — encryption is safe, the index just becomes a no-op for

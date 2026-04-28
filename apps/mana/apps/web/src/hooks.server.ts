@@ -160,7 +160,6 @@ const APP_SUBDOMAINS = new Set([
 	'times',
 	'uload',
 	'memoro',
-	'context',
 	'questions',
 	'moodlit',
 ]);

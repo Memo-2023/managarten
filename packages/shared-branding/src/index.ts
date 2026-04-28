@@ -36,7 +36,6 @@ export {
 	PlantsLogo,
 	LightWriteLogo,
 	MusicLogo,
-	ContextLogo,
 	CitycornersLogo,
 } from './logos';
 

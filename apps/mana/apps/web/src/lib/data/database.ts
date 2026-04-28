@@ -1269,7 +1269,6 @@ db.version(53)
 		songs: 'id, artist, album, genre, favorite, title, _updatedAtIndex',
 		mukkePlaylists: 'id, name, _updatedAtIndex',
 		presiDecks: 'id, isPublic, _updatedAtIndex',
-		documents: 'id, contextSpaceId, type, pinned, title, [contextSpaceId+type], _updatedAtIndex',
 		playgroundConversations: 'id, model, isPinned, _updatedAtIndex',
 		journalEntries: 'id, entryDate, mood, isPinned, isArchived, isFavorite, _updatedAtIndex',
 		dreams: 'id, dreamDate, mood, isLucid, isPinned, isArchived, _updatedAtIndex',
@@ -1297,7 +1296,6 @@ db.version(53)
 			'songs',
 			'mukkePlaylists',
 			'presiDecks',
-			'documents',
 			'playgroundConversations',
 			'journalEntries',
 			'dreams',
@@ -1455,6 +1453,16 @@ db.version(57).stores({
 db.version(58).stores({
 	notes: 'id, isPinned, isArchived, isSpaceContext, color, title, _updatedAtIndex',
 	kontextDoc: null,
+});
+
+// v59 — Drop the legacy context module's Dexie tables (no users, no
+// data). Cleans up any orphan tables left in local dev IndexedDB
+// instances that ran an earlier schema. The module's UI + registry
+// refs were removed in this same commit; v59 is the schema-side drop.
+db.version(59).stores({
+	contextSpaces: null,
+	documents: null,
+	documentTags: null,
 });
 
 // ─── Sync Routing ──────────────────────────────────────────

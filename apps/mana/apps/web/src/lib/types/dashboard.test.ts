@@ -51,7 +51,6 @@ describe('WIDGET_REGISTRY', () => {
 			'storage',
 			'music',
 			'presi',
-			'context',
 			'mana-auth',
 			'food',
 			'plants',

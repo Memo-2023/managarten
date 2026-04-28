@@ -111,14 +111,6 @@
 			"create": "Deck erstellen",
 			"open": "Presi öffnen"
 		},
-		"context": {
-			"title": "Context",
-			"description": "Deine Dokumente & Spaces",
-			"spaces": "Spaces",
-			"documents": "Dokumente",
-			"empty": "Keine Dokumente",
-			"open": "Context öffnen"
-		},
 		"contacts_recent": {
 			"title": "Letzte Kontakte",
 			"description": "Kürzlich aktualisierte Kontakte"

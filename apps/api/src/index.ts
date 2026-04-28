@@ -96,6 +96,7 @@ const RESOURCE_MODULES = [
 	'chat',
 	'food',
 	'guides',
+	'kontext',
 	'news-research',
 	'notes',
 	'picture',

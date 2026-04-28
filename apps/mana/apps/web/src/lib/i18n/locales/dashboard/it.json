@@ -111,14 +111,6 @@
 			"create": "Crea deck",
 			"open": "Apri Presi"
 		},
-		"context": {
-			"title": "Context",
-			"description": "I tuoi documenti e spazi",
-			"spaces": "Spazi",
-			"documents": "Documenti",
-			"empty": "Nessun documento",
-			"open": "Apri Context"
-		},
 		"contacts_recent": {
 			"title": "Contatti recenti",
 			"description": "Contatti aggiornati di recente"

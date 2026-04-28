@@ -445,23 +445,6 @@ export const MANA_APPS: ManaApp[] = [
 		requiredTier: 'guest',
 	},
 	{
-		id: 'context',
-		name: 'Context',
-		description: {
-			de: 'Wissensmanagement',
-			en: 'Knowledge Management',
-		},
-		longDescription: {
-			de: 'AI-gestütztes Dokumenten- und Wissensmanagement mit Spaces, Kontextreferenzen und KI-Generierung.',
-			en: 'AI-powered document and knowledge management with spaces, context references, and AI generation.',
-		},
-		icon: APP_ICONS.context,
-		color: '#0ea5e9',
-		comingSoon: false,
-		status: 'beta',
-		requiredTier: 'guest',
-	},
-	{
 		id: 'times',
 		name: 'Times',
 		description: {

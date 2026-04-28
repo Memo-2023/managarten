@@ -22,7 +22,6 @@ const SPLIT_APP_ID_LIST = [
 	'skilltree',
 	'citycorners',
 	'times',
-	'context',
 	'questions',
 	'food',
 	'plants',

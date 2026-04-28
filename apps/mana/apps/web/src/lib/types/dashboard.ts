@@ -130,7 +130,6 @@ export interface WidgetMeta {
 		| 'storage'
 		| 'music'
 		| 'presi'
-		| 'context'
 		| 'times'
 		| 'food'
 		| 'plants'

@@ -111,14 +111,6 @@
 			"create": "Create deck",
 			"open": "Open Presi"
 		},
-		"context": {
-			"title": "Context",
-			"description": "Your documents & spaces",
-			"spaces": "Spaces",
-			"documents": "Documents",
-			"empty": "No documents",
-			"open": "Open Context"
-		},
 		"contacts_recent": {
 			"title": "Recent Contacts",
 			"description": "Recently updated contacts"
