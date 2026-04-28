@@ -1,3 +1,6 @@
+import { readdirSync, readFileSync, statSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, it, expect } from 'vitest';
 import { MANA_APPS } from '@mana/shared-branding';
 // Side-effect import: registers every workbench app via ./apps.
@@ -32,9 +35,7 @@ const WORKBENCH_ONLY = new Set([
 	'spiral',
 	// User-facing modules that don't yet have MANA_APPS branding.
 	// Add them to MANA_APPS when they ship a marketing surface.
-	'kontext',
 	'rituals',
-	'wishes',
 	// AI Studio surfaces. Open question whether to expose each one in
 	// MANA_APPS or consolidate into a single "AI Studio" branding entry.
 	// Keeping them workbench-only until that decision lands.
@@ -96,5 +97,60 @@ describe('app registry ↔ MANA_APPS consistency', () => {
 		// silently goes back to fail-open for that module.
 		const allIds = [...getAllApps().map((a) => a.id), ...MANA_APPS.map((a) => a.id)];
 		expect(allIds).not.toContain('inventar');
+	});
+
+	/**
+	 * Catches the kind of drift that produced the `appId="broadcasts"` vs
+	 * registered id `'broadcast'` bug — RoutePage looks up the workbench
+	 * app-registry by appId for title/icon/color, so a mismatch silently
+	 * falls back to the raw id string and breaks navigation styling.
+	 */
+	it('every <RoutePage appId="…"> in routes/(app) resolves to a registered workbench app', () => {
+		const __dirname = dirname(fileURLToPath(import.meta.url));
+		const ROUTES_DIR = join(__dirname, '../../routes/(app)');
+		const workbenchIds = new Set(getAllApps().map((a) => a.id));
+
+		// Routes that surface a feature without a workbench module — they
+		// pass an `appId` to RoutePage purely for telemetry/back-button
+		// scoping, not for icon/color lookup. Adding here = "this route
+		// is intentionally not backed by a workbench app".
+		const ROUTE_ONLY_APP_IDS = new Set([
+			'gifts', // /gifts — credit gifting flow, backed by mana-credits API
+			'llm-test', // DEV-only LLM playground
+			'milestones', // cross-module aggregator over firsts + lasts
+			'organizations', // Spaces/membership management
+			'teams', // Spaces/teams management
+			'tags', // global tag browser
+		]);
+
+		function* findPageFiles(dir: string): Generator<string> {
+			for (const entry of readdirSync(dir)) {
+				const full = join(dir, entry);
+				if (statSync(full).isDirectory()) {
+					yield* findPageFiles(full);
+				} else if (entry === '+page.svelte') {
+					yield full;
+				}
+			}
+		}
+
+		const violations: { file: string; appId: string }[] = [];
+		for (const file of findPageFiles(ROUTES_DIR)) {
+			const body = readFileSync(file, 'utf8');
+			const matches = body.matchAll(/<RoutePage[^>]+appId="([a-z0-9-]+)"/g);
+			for (const m of matches) {
+				const appId = m[1];
+				if (!workbenchIds.has(appId) && !ROUTE_ONLY_APP_IDS.has(appId)) {
+					violations.push({ file: file.replace(ROUTES_DIR, ''), appId });
+				}
+			}
+		}
+
+		expect(
+			violations,
+			`Routes referencing unregistered appIds:\n${violations
+				.map((v) => `  ${v.file} → "${v.appId}"`)
+				.join('\n')}`
+		).toEqual([]);
 	});
 });

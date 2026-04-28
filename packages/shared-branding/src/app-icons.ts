@@ -297,12 +297,32 @@ export const APP_ICONS = {
 		// family) but leaning more towards the creative-publishing cluster.
 		`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="wb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#6366f1"/><stop offset="100%" style="stop-color:#8b5cf6"/></linearGradient></defs><rect width="100" height="100" rx="22" fill="url(#wb)"/><rect x="18" y="22" width="64" height="56" rx="5" fill="white"/><rect x="18" y="22" width="64" height="10" rx="5" fill="white" fill-opacity="0.75"/><circle cx="25" cy="27" r="1.8" fill="#6366f1" fill-opacity="0.5"/><circle cx="31" cy="27" r="1.8" fill="#6366f1" fill-opacity="0.5"/><circle cx="37" cy="27" r="1.8" fill="#6366f1" fill-opacity="0.5"/><rect x="24" y="38" width="52" height="12" rx="2" fill="#6366f1" fill-opacity="0.85"/><rect x="24" y="54" width="24" height="18" rx="2" fill="#6366f1" fill-opacity="0.35"/><rect x="52" y="54" width="24" height="8" rx="2" fill="#6366f1" fill-opacity="0.55"/><rect x="52" y="64" width="24" height="8" rx="2" fill="#6366f1" fill-opacity="0.45"/></svg>`
 	),
+	forms: svgToDataUrl(
+		// Clipboard with a checkmark + two filled rows — represents a generic
+		// form / questionnaire. Teal→cyan gradient sits next to writing (sky)
+		// and broadcasts (indigo) in the input/communication family while
+		// staying distinct from website (indigo→violet) and quiz (pink).
+		`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="fr" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#14b8a6"/><stop offset="100%" style="stop-color:#06b6d4"/></linearGradient></defs><rect width="100" height="100" rx="22" fill="url(#fr)"/><rect x="26" y="22" width="48" height="62" rx="5" fill="white"/><rect x="38" y="14" width="24" height="14" rx="3" fill="white"/><rect x="42" y="18" width="16" height="6" rx="2" fill="#14b8a6" fill-opacity="0.85"/><circle cx="36" cy="44" r="3" fill="#14b8a6"/><path d="M34 44l1.6 1.8 3.4-3.4" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/><rect x="44" y="42" width="22" height="3" rx="1.5" fill="#14b8a6" fill-opacity="0.6"/><circle cx="36" cy="58" r="3" fill="#14b8a6" fill-opacity="0.4"/><rect x="44" y="56" width="22" height="3" rx="1.5" fill="#14b8a6" fill-opacity="0.55"/><rect x="34" y="68" width="32" height="8" rx="2" fill="#14b8a6" fill-opacity="0.85"/></svg>`
+	),
 	spaces: svgToDataUrl(
 		// Three people-silhouettes clustered in the tile — the Spaces primitive
 		// is about shared workspaces, so the icon emphasises "group". Teal→indigo
 		// gradient sits next to contacts (green) and chat (indigo) in the
 		// communication family without competing with either.
 		`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="sp" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#14b8a6"/><stop offset="100%" style="stop-color:#6366f1"/></linearGradient></defs><rect width="100" height="100" rx="22" fill="url(#sp)"/><circle cx="30" cy="38" r="9" fill="white" fill-opacity="0.85"/><path d="M14 70c0-9 7-16 16-16s16 7 16 16v4H14v-4z" fill="white" fill-opacity="0.85"/><circle cx="70" cy="38" r="9" fill="white" fill-opacity="0.85"/><path d="M54 70c0-9 7-16 16-16s16 7 16 16v4H54v-4z" fill="white" fill-opacity="0.85"/><circle cx="50" cy="32" r="11" fill="white"/><path d="M30 76c0-11 9-20 20-20s20 9 20 20v4H30v-4z" fill="white"/></svg>`
+	),
+	kontext: svgToDataUrl(
+		// Globe with three horizontal text-lines — represents the Web-Context
+		// crawler that pulls URLs into the user's profile context. Tan→ochre
+		// gradient (#a78b6f → #c79a64) sits in the documents family but warmer
+		// than the cool blues of notes/storage.
+		`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="kx" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#a78b6f"/><stop offset="100%" style="stop-color:#c79a64"/></linearGradient></defs><rect width="100" height="100" rx="22" fill="url(#kx)"/><circle cx="50" cy="38" r="18" fill="none" stroke="white" stroke-width="2.5"/><ellipse cx="50" cy="38" rx="9" ry="18" fill="none" stroke="white" stroke-width="2"/><path d="M32 38h36" stroke="white" stroke-width="2"/><rect x="28" y="62" width="44" height="3" rx="1.5" fill="white" fill-opacity="0.9"/><rect x="28" y="70" width="34" height="3" rx="1.5" fill="white" fill-opacity="0.7"/><rect x="28" y="78" width="40" height="3" rx="1.5" fill="white" fill-opacity="0.55"/></svg>`
+	),
+	wishes: svgToDataUrl(
+		// Shooting star with sparkle trail — the wishes module is about
+		// hopes/aspirations. Amber→rose gradient distinguishes it from the
+		// cool-blue quotes (also a "daily inspiration" feel).
+		`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="wi" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#f59e0b"/><stop offset="100%" style="stop-color:#f43f5e"/></linearGradient></defs><rect width="100" height="100" rx="22" fill="url(#wi)"/><path d="M62 28l5 12 12 5-12 5-5 12-5-12-12-5 12-5z" fill="white"/><circle cx="32" cy="64" r="3.5" fill="white" fill-opacity="0.85"/><circle cx="44" cy="76" r="2.5" fill="white" fill-opacity="0.7"/><circle cx="22" cy="80" r="2" fill="white" fill-opacity="0.55"/><path d="M48 50l-22 22" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.55"/></svg>`
 	),
 } as const;
 

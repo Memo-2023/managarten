@@ -1,9 +1,13 @@
-import type { AppBranding, AppId } from './types';
+import type { AppBranding } from './types';
 
 /**
- * Branding configuration for all Mana ecosystem apps
+ * Branding configuration for all Mana ecosystem apps.
+ *
+ * `satisfies` enforces each entry matches AppBranding while keeping the
+ * literal keys narrow, so `keyof typeof APP_BRANDING` derives the AppId
+ * union automatically.
  */
-export const APP_BRANDING: Record<AppId, AppBranding> = {
+export const APP_BRANDING = {
 	memoro: {
 		id: 'memoro',
 		name: 'Memoro',
@@ -311,7 +315,10 @@ export const APP_BRANDING: Record<AppId, AppBranding> = {
 		logoStroke: true,
 		logoStrokeWidth: 1.5,
 	},
-};
+} satisfies Record<string, AppBranding>;
+
+/** Derived from `APP_BRANDING` keys — single source of truth. */
+export type AppId = keyof typeof APP_BRANDING;
 
 /**
  * Get branding config for an app

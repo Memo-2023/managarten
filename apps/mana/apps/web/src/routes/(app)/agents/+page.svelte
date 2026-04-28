@@ -12,6 +12,6 @@
 	import { RoutePage } from '$lib/components/shell';
 </script>
 
-<RoutePage appId="ai-agents">
+<RoutePage appId="agents">
 	<ListView />
 </RoutePage>

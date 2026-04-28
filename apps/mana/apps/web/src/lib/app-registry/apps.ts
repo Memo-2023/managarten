@@ -88,9 +88,45 @@ import {
 	Megaphone,
 	Receipt,
 	ClockCounterClockwise,
+	ClipboardText,
 } from '@mana/shared-icons';
 
-// ── Apps with entity capabilities ───────────────────────────
+// ─── INDEX ──────────────────────────────────────────────────────
+//
+// Apps are grouped by their workbench role. Inside each group the
+// order is roughly chronological (by when they were added) — search
+// by id or use your editor outline to jump to a specific app.
+//
+//   §1  Apps with entity capabilities (DnD sources/targets)
+//       todo · calendar · contacts
+//
+//   §2  Apps without entity capabilities — module surfaces
+//       Daily-use:    habits · notes · journal · myday · drink ·
+//                     mood · sleep · activity · times · finance
+//       Knowledge:    chat · kontext · cards · quiz · guides ·
+//                     news · news-research · research-lab · articles ·
+//                     library · writing · comic · presi
+//       Body & life:  body · food · meditate · stretch · period ·
+//                     dreams · firsts · lasts · habits · recipes
+//       Places & ev.: places · citycorners · events · who
+//       Creative:     picture · music · photos · wardrobe · moodlit
+//       Tools:        memoro · uload · calc · plants · inventory ·
+//                     storage · skilltree · questions
+//       Long-tail:    quotes · automations · companion · wetter ·
+//                     goals · website · spaces · augur ·
+//                     broadcasts · invoices · timeline
+//
+//   §3  AI Workbench surfaces
+//       agents · ai-missions · ai-workbench · ai-policy ·
+//       ai-insights · ai-health · rituals
+//
+//   §4  System / Settings family
+//       settings · themes · profile · credits · api-keys · admin ·
+//       complexity · spiral · wishes · help · feedback · playground
+//
+// ────────────────────────────────────────────────────────────────
+
+// ── §1 · Apps with entity capabilities ──────────────────────
 
 registerApp({
 	id: 'todo',
@@ -1564,5 +1600,17 @@ registerApp({
 		// Cross-module read-only view — reads timeBlocks owned by core.
 		// /timeline/analytics navigates via goto() from the route page.
 		list: { load: () => import('$lib/modules/timeline/ListView.svelte') },
+	},
+});
+
+registerApp({
+	id: 'forms',
+	name: 'Forms',
+	color: '#14b8a6',
+	icon: ClipboardText,
+	views: {
+		// /forms/[id]/edit (builder) and /forms/[id]/responses (analytics)
+		// live as SvelteKit routes; the workbench card hosts the ListView.
+		list: { load: () => import('$lib/modules/forms/ListView.svelte') },
 	},
 });

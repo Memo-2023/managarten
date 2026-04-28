@@ -1,38 +1,24 @@
 /**
- * App identifiers for branding
+ * App identifiers for branding.
+ *
+ * Derived from `APP_BRANDING` keys so `<AppLogo app={…}>` accepts exactly
+ * the apps that have a branding entry — adding/removing one in config.ts
+ * automatically updates the union, no hand-maintenance.
  */
-export type AppId =
-	| 'memoro'
-	| 'mana'
-	| 'cards'
-	| 'uload'
-	| 'chat'
-	| 'presi'
-	| 'food'
-	| 'quotes'
-	| 'picture'
-	| 'contacts'
-	| 'calendar'
-	| 'storage'
-	| 'clock'
-	| 'todo'
-	| 'mail'
-	| 'moodlit'
-	| 'inventory'
-	| 'questions'
-	| 'skilltree'
-	| 'plants'
-	| 'lightwrite'
-	| 'context'
-	| 'music'
-	| 'citycorners';
+import type { AppId } from './config';
+export type { AppId };
 
 /**
- * App branding configuration
+ * App branding configuration.
+ *
+ * `id` is `string` (not `AppId`) because `AppId` is derived from the keys
+ * of `APP_BRANDING`, and constraining `id` to `AppId` would create a
+ * circular type reference. Each entry's key in `APP_BRANDING` is the
+ * authoritative id; the `id` field is a redundant convenience.
  */
 export interface AppBranding {
 	/** Unique app identifier */
-	id: AppId;
+	id: string;
 	/** Display name */
 	name: string;
 	/** Short description/tagline */

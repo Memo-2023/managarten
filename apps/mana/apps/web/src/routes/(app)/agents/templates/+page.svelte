@@ -140,7 +140,7 @@
 	</button>
 {/snippet}
 
-<RoutePage appId="ai-agents" backHref="/agents">
+<RoutePage appId="agents" backHref="/agents">
 	<div class="page">
 		<header class="header">
 			<button type="button" class="back" onclick={() => goto('/')}>

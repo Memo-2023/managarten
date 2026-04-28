@@ -188,6 +188,23 @@ export const MANA_APPS: ManaApp[] = [
 		requiredTier: 'guest',
 	},
 	{
+		id: 'forms',
+		name: 'Forms',
+		description: {
+			de: 'Formulare bauen',
+			en: 'Build forms',
+		},
+		longDescription: {
+			de: 'Eigene Formulare bauen, öffentlich teilen und Antworten sammeln. Anmeldungen, Umfragen, Lead-Capture, wiederkehrende Pulse-Checks. Mit AI-Builder, Conditional Branching und Auto-Sync zu Kontakten, Events und Spaces.',
+			en: 'Build your own forms, share them publicly, and collect responses. Sign-ups, surveys, lead capture, recurring pulse checks. With AI builder, conditional branching, and auto-sync to contacts, events, and Spaces.',
+		},
+		icon: APP_ICONS.forms,
+		color: '#14b8a6',
+		comingSoon: false,
+		status: 'development',
+		requiredTier: 'guest', // LOCAL TIER PATCH — revert to 'beta' before release (see project_tier_patch_resolved memory)
+	},
+	{
 		id: 'picture',
 		name: 'ManaPicture',
 		description: {
@@ -1205,6 +1222,40 @@ export const MANA_APPS: ManaApp[] = [
 		comingSoon: false,
 		status: 'beta',
 		requiredTier: 'guest', // LOCAL TIER PATCH — revert to 'beta' before release
+	},
+	{
+		id: 'kontext',
+		name: 'Web-Context',
+		description: {
+			de: 'URLs in deinen Kontext crawlen',
+			en: 'Crawl URLs into your context',
+		},
+		longDescription: {
+			de: 'Webseiten und Artikel als persönlichen Kontext sammeln — crawlt eine URL (oder eine ganze Site bis 20 Seiten), optional KI-zusammengefasst, und hängt das Ergebnis an dein Profil-Kontext-Dokument an. Der Companion sieht das beim nächsten Planen automatisch mit.',
+			en: 'Pull web pages and articles into your personal context — crawl a URL (or up to 20 pages of a site), optionally AI-summarised, and append the result to your profile context document. The companion picks it up automatically on the next plan call.',
+		},
+		icon: APP_ICONS.kontext,
+		color: '#a78b6f',
+		comingSoon: false,
+		status: 'beta',
+		requiredTier: 'guest',
+	},
+	{
+		id: 'wishes',
+		name: 'Wünsche',
+		description: {
+			de: 'Wunschliste & Inspiration',
+			en: 'Wishlist & inspiration',
+		},
+		longDescription: {
+			de: 'Halte fest, was du dir wünschst — Geschenkideen, Reiseziele, Lebensziele. Ein leichter, freundlicher Ort für die Dinge, die noch keine Aufgabe sind, dich aber begleiten.',
+			en: 'Capture what you wish for — gift ideas, travel destinations, life goals. A light, friendly place for the things that are not yet tasks but stay with you.',
+		},
+		icon: APP_ICONS.wishes,
+		color: '#f59e0b',
+		comingSoon: false,
+		status: 'development',
+		requiredTier: 'guest',
 	},
 ];
 
