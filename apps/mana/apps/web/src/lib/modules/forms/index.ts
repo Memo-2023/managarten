@@ -20,6 +20,7 @@ export { formTable, formResponseTable } from './collections';
 export { makeDefaultField } from './lib/field-defaults';
 export { resolveVisibleFields } from './lib/branching';
 export { buildResponsesCsv, downloadResponsesCsv } from './lib/csv';
+export { buildContactFromAnswers, applyAutoSync, runAutoSyncSweep } from './lib/auto-sync';
 
 // ─── Types ───────────────────────────────────────────────
 export {

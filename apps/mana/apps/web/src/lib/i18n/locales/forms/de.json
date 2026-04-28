@@ -75,6 +75,17 @@
 			"title": "Sichtbarkeit & Teilen",
 			"publishHint": "Setze den Status auf \"Veröffentlicht\", um zu teilen."
 		},
+		"autoSync": {
+			"title": "Auto-Sync — bei Antwort erzeugen",
+			"targetNone": "Nichts",
+			"targetContacts": "Kontakt",
+			"contactsHint": "Wähle für jedes Form-Feld, welches Kontakt-Feld es füllen soll. Leerlassen = ignorieren.",
+			"needFields": "Lege mindestens ein Antwortfeld an, um Mapping zu konfigurieren.",
+			"ignore": "Ignorieren",
+			"contactKey": {
+				"name": "Vor- + Nachname (auto split)"
+			}
+		},
 		"viewResponses": "Antworten ({n})"
 	},
 	"responses": {

@@ -7,8 +7,10 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { _ } from 'svelte-i18n';
+	import { onMount } from 'svelte';
 	import { useFormResponses } from '../queries';
 	import { downloadResponsesCsv } from '../lib/csv';
+	import { runAutoSyncSweep } from '../lib/auto-sync';
 	import { RESPONSE_STATUS_LABELS } from '../types';
 	import type { Form, FormResponse, ResponseStatus } from '../types';
 	import ResponseDetailModal from '../components/ResponseDetailModal.svelte';
@@ -17,6 +19,35 @@
 
 	const responses$ = useFormResponses(form.id);
 	const responses = $derived(responses$.value);
+
+	let autoSyncSummary = $state<string | null>(null);
+
+	// Auto-sync sweep on mount + every time the response list updates.
+	// Idempotent — runs only on responses without syncedTargets entry
+	// for the configured target. See lib/auto-sync.ts.
+	onMount(() => {
+		void triggerAutoSync();
+	});
+
+	$effect(() => {
+		// Recompute on response-list change. The sweep itself is a
+		// no-op when nothing is unsynced.
+		void responses;
+		void triggerAutoSync();
+	});
+
+	async function triggerAutoSync() {
+		if (!form.settings.autoSync?.target) return;
+		try {
+			const result = await runAutoSyncSweep();
+			if (result.synced > 0) {
+				autoSyncSummary = `${result.synced} Antwort(en) automatisch synchronisiert.`;
+				setTimeout(() => (autoSyncSummary = null), 4000);
+			}
+		} catch (err) {
+			autoSyncSummary = `Auto-Sync-Fehler: ${(err as Error).message}`;
+		}
+	}
 
 	type FilterTab = 'all' | ResponseStatus;
 	let activeTab = $state<FilterTab>('all');
@@ -86,6 +117,10 @@
 			{$_('forms.responses.export', { default: 'CSV-Export' })}
 		</button>
 	</header>
+
+	{#if autoSyncSummary}
+		<p class="auto-sync-toast">{autoSyncSummary}</p>
+	{/if}
 
 	<nav class="tabs" role="tablist">
 		{#each [['all', counts.all], ['new', counts.new], ['reviewed', counts.reviewed], ['archived', counts.archived], ['spam', counts.spam]] as const as [tab, count]}
@@ -224,6 +259,16 @@
 	.export:disabled {
 		opacity: 0.4;
 		cursor: not-allowed;
+	}
+
+	.auto-sync-toast {
+		margin: 0;
+		padding: 0.5rem 0.75rem;
+		background: rgb(20 184 166 / 0.14);
+		border: 1px solid rgb(20 184 166 / 0.3);
+		border-radius: 0.375rem;
+		color: rgb(94 234 212);
+		font-size: 0.8125rem;
 	}
 
 	.tabs {

@@ -75,6 +75,17 @@
 			"title": "Visibility & Sharing",
 			"publishHint": "Set the status to \"Published\" to share."
 		},
+		"autoSync": {
+			"title": "Auto-sync — create on submit",
+			"targetNone": "None",
+			"targetContacts": "Contact",
+			"contactsHint": "For each form field, pick which contact field it should fill. Leave empty to ignore.",
+			"needFields": "Add at least one answer field to configure mapping.",
+			"ignore": "Ignore",
+			"contactKey": {
+				"name": "First + last name (auto split)"
+			}
+		},
 		"viewResponses": "Responses ({n})"
 	},
 	"responses": {

@@ -75,6 +75,17 @@
 			"title": "Visibilità e condivisione",
 			"publishHint": "Imposta lo stato su \"Pubblicato\" per condividere."
 		},
+		"autoSync": {
+			"title": "Auto-sync — crea al ricevere risposta",
+			"targetNone": "Nessuno",
+			"targetContacts": "Contatto",
+			"contactsHint": "Per ogni campo del modulo, scegli quale campo del contatto deve riempire. Lascia vuoto per ignorare.",
+			"needFields": "Aggiungi almeno un campo di risposta per configurare il mapping.",
+			"ignore": "Ignora",
+			"contactKey": {
+				"name": "Nome + cognome (auto split)"
+			}
+		},
 		"viewResponses": "Risposte ({n})"
 	},
 	"responses": {

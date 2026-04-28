@@ -296,7 +296,7 @@
 	</section>
 
 	<section class="settings-section">
-		<SettingsPanel settings={entry.settings} onchange={patchSettings} />
+		<SettingsPanel settings={entry.settings} fields={items} onchange={patchSettings} />
 	</section>
 </div>
 

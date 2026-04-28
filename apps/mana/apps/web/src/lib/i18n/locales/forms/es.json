@@ -75,6 +75,17 @@
 			"title": "Visibilidad y compartir",
 			"publishHint": "Pon el estado en \"Publicado\" para compartir."
 		},
+		"autoSync": {
+			"title": "Auto-sync — crear al recibir respuesta",
+			"targetNone": "Nada",
+			"targetContacts": "Contacto",
+			"contactsHint": "Para cada campo del formulario, elige qué campo del contacto debe rellenar. Deja vacío para ignorar.",
+			"needFields": "Añade al menos un campo de respuesta para configurar el mapeo.",
+			"ignore": "Ignorar",
+			"contactKey": {
+				"name": "Nombre + apellido (auto split)"
+			}
+		},
 		"viewResponses": "Respuestas ({n})"
 	},
 	"responses": {
