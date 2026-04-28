@@ -2494,6 +2494,156 @@ export const AI_TOOL_CATALOG: readonly ToolSchema[] = [
 		defaultPolicy: 'auto',
 		parameters: [],
 	},
+
+	// ── Forms ───────────────────────────────────────────────────
+	// Eigenes Modul fuer Typeform-aehnliche Formulare. Plan:
+	// docs/plans/forms-module.md M5.
+	{
+		name: 'forms_create',
+		module: 'forms',
+		description:
+			'Legt ein neues Formular an. Status ist immer "draft" (publishen via forms_publish). Felder optional als Array — der Planner kann z.B. fuer eine Vereins-Anmeldung mehrere short_text + email + consent Felder auf einmal vorschlagen.',
+		defaultPolicy: 'propose',
+		parameters: [
+			{
+				name: 'title',
+				type: 'string',
+				description: 'Titel des Formulars (z.B. "Anmeldung Sommerfest")',
+				required: true,
+			},
+			{
+				name: 'description',
+				type: 'string',
+				description: 'Optionaler Beschreibungstext oben im Formular',
+				required: false,
+			},
+			{
+				name: 'fields',
+				type: 'array',
+				description:
+					'Optionales Array von Feld-Definitionen. Jedes Feld: { type, label, required?, helpText?, options?: [{label}] }. Erlaubte type-Werte: short_text | long_text | single_choice | multi_choice | number | date | email | yes_no | rating | section | consent.',
+				required: false,
+			},
+		],
+	},
+	{
+		name: 'forms_add_field',
+		module: 'forms',
+		description:
+			'Fuegt einem bestehenden Formular ein einzelnes Feld hinzu. Ans Ende der Feldliste angehaengt — Reorder ist nicht ueber dieses Tool moeglich (User macht das per Drag im Builder).',
+		defaultPolicy: 'propose',
+		parameters: [
+			{ name: 'formId', type: 'string', description: 'ID des Formulars', required: true },
+			{
+				name: 'type',
+				type: 'string',
+				description: 'Feldtyp',
+				required: true,
+				enum: [
+					'short_text',
+					'long_text',
+					'single_choice',
+					'multi_choice',
+					'number',
+					'date',
+					'email',
+					'yes_no',
+					'rating',
+					'section',
+					'consent',
+				],
+			},
+			{ name: 'label', type: 'string', description: 'Label / Frage des Feldes', required: true },
+			{ name: 'helpText', type: 'string', description: 'Hilfetext (optional)', required: false },
+			{
+				name: 'required',
+				type: 'boolean',
+				description: 'Pflichtfeld (Standard false)',
+				required: false,
+			},
+			{
+				name: 'options',
+				type: 'array',
+				description:
+					'Bei single_choice / multi_choice: Array von { label: string } — IDs werden generiert.',
+				required: false,
+			},
+		],
+	},
+	{
+		name: 'forms_publish',
+		module: 'forms',
+		description:
+			'Bewegt ein Formular von "draft" auf "published". Erst nach diesem Schritt kann der User die Sichtbarkeit auf "unlisted" setzen und einen Share-Link erzeugen. Wirft, wenn das Formular keine Antwortfelder hat (nur section/consent).',
+		defaultPolicy: 'propose',
+		parameters: [
+			{ name: 'formId', type: 'string', description: 'ID des Formulars', required: true },
+		],
+	},
+	{
+		name: 'forms_close',
+		module: 'forms',
+		description:
+			'Setzt ein veroeffentlichtes Formular auf "closed" — keine neuen Antworten mehr. Existierende Antworten und der Share-Link bleiben erhalten; das Formular wird aber im SharedFormView nicht mehr submitbar gerendert.',
+		defaultPolicy: 'propose',
+		parameters: [
+			{ name: 'formId', type: 'string', description: 'ID des Formulars', required: true },
+		],
+	},
+	{
+		name: 'forms_list',
+		module: 'forms',
+		description:
+			'Listet Formulare im aktiven Space (id, title, status, fieldCount, responseCount, visibility). Optional nach Status filterbar.',
+		defaultPolicy: 'auto',
+		parameters: [
+			{
+				name: 'status',
+				type: 'string',
+				description: 'Nur einen Status zeigen',
+				required: false,
+				enum: ['draft', 'published', 'closed'],
+			},
+			{
+				name: 'limit',
+				type: 'number',
+				description: 'Maximale Anzahl (Standard 50)',
+				required: false,
+			},
+		],
+	},
+	{
+		name: 'forms_get_responses',
+		module: 'forms',
+		description:
+			'Liefert Aggregate ueber die Antworten eines Formulars: responseCount pro Status, pro Choice-Feld eine Histogramm-Map (option-label → count), pro Text-Feld eine Liste der ersten N Antworten. Antworten werden client-side entschluesselt; vault-locked → leerer Antwort-Vector.',
+		defaultPolicy: 'auto',
+		parameters: [
+			{ name: 'formId', type: 'string', description: 'ID des Formulars', required: true },
+			{
+				name: 'limit',
+				type: 'number',
+				description: 'Max. Text-Antworten pro Feld (Standard 50)',
+				required: false,
+			},
+		],
+	},
+	{
+		name: 'forms_summarize_responses',
+		module: 'forms',
+		description:
+			'Sammelt rohe Text-Antworten + Choice-Histogramme eines Formulars und gibt sie als strukturierte Payload zurueck, damit der naechste Planner-Schritt thematisch clustern kann (Augur-style). Reine Daten-Extraktion — keine eigene LLM-Roundtrip. Ideal in einer Mission "Fasse die Pulse-Check-Antworten der Woche zusammen".',
+		defaultPolicy: 'auto',
+		parameters: [
+			{ name: 'formId', type: 'string', description: 'ID des Formulars', required: true },
+			{
+				name: 'sinceDays',
+				type: 'number',
+				description: 'Nur Antworten der letzten N Tage einbeziehen (Standard: alle)',
+				required: false,
+			},
+		],
+	},
 ];
 
 // ═══════════════════════════════════════════════════════════════

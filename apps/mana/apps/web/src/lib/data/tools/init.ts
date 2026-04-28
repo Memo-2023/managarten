@@ -50,6 +50,7 @@ import { websiteTools } from '$lib/modules/website/tools';
 import { writingTools } from '$lib/modules/writing/tools';
 import { comicTools } from '$lib/modules/comic/tools';
 import { augurTools } from '$lib/modules/augur/tools';
+import { formsTools } from '$lib/modules/forms/tools';
 
 let initialized = false;
 
@@ -101,5 +102,6 @@ export function initTools(): void {
 	registerTools(writingTools);
 	registerTools(comicTools);
 	registerTools(augurTools);
+	registerTools(formsTools);
 	initialized = true;
 }
