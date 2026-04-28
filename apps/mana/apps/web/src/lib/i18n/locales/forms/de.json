@@ -70,6 +70,36 @@
 			"requireEmail": "E-Mail-Adresse vom Absender abfragen",
 			"allowMultiple": "Mehrere Antworten pro Person erlauben",
 			"anonymous": "Anonym — Submitter-Daten nicht speichern"
+		},
+		"viewResponses": "Antworten ({n})"
+	},
+	"responses": {
+		"routeTitle": "Antworten",
+		"back": "← Zum Builder",
+		"title": "Antworten — {form}",
+		"export": "CSV-Export",
+		"exportTitle": "CSV herunterladen",
+		"loading": "Lade Antworten ...",
+		"emptyAll": "Noch keine Antworten.",
+		"emptyHint": "Veröffentliche das Formular und teile den Link, um Antworten zu sammeln.",
+		"emptyTab": "Keine Antworten in dieser Ansicht.",
+		"anonymous": "Anonym",
+		"tabs": {
+			"all": "Alle"
+		},
+		"col": {
+			"submittedAt": "Eingegangen",
+			"status": "Status",
+			"submitter": "Absender",
+			"snippet": "Antwort"
+		},
+		"detail": {
+			"title": "Antwort",
+			"closeAria": "Modal schließen",
+			"deleteConfirm": "Diese Antwort wirklich löschen?",
+			"delete": "Löschen",
+			"yes": "Ja",
+			"no": "Nein"
 		}
 	}
 }

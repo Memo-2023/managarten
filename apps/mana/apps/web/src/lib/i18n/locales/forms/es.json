@@ -70,6 +70,36 @@
 			"requireEmail": "Pedir correo electrónico al remitente",
 			"allowMultiple": "Permitir varias respuestas por persona",
 			"anonymous": "Anónimo — no guardar datos del remitente"
+		},
+		"viewResponses": "Respuestas ({n})"
+	},
+	"responses": {
+		"routeTitle": "Respuestas",
+		"back": "← Al constructor",
+		"title": "Respuestas — {form}",
+		"export": "Exportar CSV",
+		"exportTitle": "Descargar CSV",
+		"loading": "Cargando respuestas ...",
+		"emptyAll": "Aún no hay respuestas.",
+		"emptyHint": "Publica el formulario y comparte el enlace para empezar a recibir respuestas.",
+		"emptyTab": "Sin respuestas en esta vista.",
+		"anonymous": "Anónimo",
+		"tabs": {
+			"all": "Todas"
+		},
+		"col": {
+			"submittedAt": "Recibida",
+			"status": "Estado",
+			"submitter": "Remitente",
+			"snippet": "Respuesta"
+		},
+		"detail": {
+			"title": "Respuesta",
+			"closeAria": "Cerrar ventana",
+			"deleteConfirm": "¿Eliminar esta respuesta?",
+			"delete": "Eliminar",
+			"yes": "Sí",
+			"no": "No"
 		}
 	}
 }

@@ -70,6 +70,36 @@
 			"requireEmail": "Ask submitter for email address",
 			"allowMultiple": "Allow multiple submissions per person",
 			"anonymous": "Anonymous — don't store submitter data"
+		},
+		"viewResponses": "Responses ({n})"
+	},
+	"responses": {
+		"routeTitle": "Responses",
+		"back": "← To builder",
+		"title": "Responses — {form}",
+		"export": "Export CSV",
+		"exportTitle": "Download CSV",
+		"loading": "Loading responses ...",
+		"emptyAll": "No responses yet.",
+		"emptyHint": "Publish the form and share the link to start collecting responses.",
+		"emptyTab": "No responses in this view.",
+		"anonymous": "Anonymous",
+		"tabs": {
+			"all": "All"
+		},
+		"col": {
+			"submittedAt": "Received",
+			"status": "Status",
+			"submitter": "Submitter",
+			"snippet": "Answer"
+		},
+		"detail": {
+			"title": "Response",
+			"closeAria": "Close modal",
+			"deleteConfirm": "Really delete this response?",
+			"delete": "Delete",
+			"yes": "Yes",
+			"no": "No"
 		}
 	}
 }

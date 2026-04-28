@@ -149,6 +149,13 @@
 			{/each}
 		</div>
 
+		<a class="responses-link" href="/forms/{entry.id}/responses">
+			{$_('forms.builder.viewResponses', {
+				default: 'Antworten ({n})',
+				values: { n: entry.responseCount },
+			})}
+		</a>
+
 		<button type="button" class="delete" onclick={deleteForm}>
 			{$_('forms.builder.delete', { default: 'Löschen' })}
 		</button>
@@ -287,8 +294,22 @@
 		border-color: rgb(255 255 255 / 0.12);
 	}
 
-	.delete {
+	.responses-link {
 		margin-left: auto;
+		padding: 0.375rem 0.625rem;
+		background: rgb(255 255 255 / 0.04);
+		border: 1px solid rgb(255 255 255 / 0.08);
+		border-radius: 0.375rem;
+		color: inherit;
+		font-size: 0.8125rem;
+		text-decoration: none;
+	}
+
+	.responses-link:hover {
+		background: rgb(255 255 255 / 0.07);
+	}
+
+	.delete {
 		padding: 0.375rem 0.625rem;
 		background: transparent;
 		border: 1px solid rgb(255 255 255 / 0.08);
