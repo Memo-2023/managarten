@@ -887,28 +887,6 @@ export const MANA_APPS: ManaApp[] = [
 		requiredTier: 'guest',
 	},
 	{
-		id: 'who',
-		name: 'Who',
-		description: {
-			de: 'Errate wer ich bin',
-			en: 'Guess who I am',
-		},
-		longDescription: {
-			de: 'Chatte mit einer historischen Persönlichkeit. Eine KI verkörpert sie ohne den Namen zu verraten — du musst durch geschickte Fragen herausfinden, mit wem du sprichst. Vier Decks: Historisch, Frauen der Geschichte, Antike, Erfinder & Pioniere.',
-			en: 'Chat with a historical figure. An AI roleplays them without revealing their name — you have to figure out who you are talking to. Four decks: Historical, Women in History, Antiquity, Inventors & Pioneers.',
-		},
-		icon: APP_ICONS.who,
-		color: '#a855f7',
-		comingSoon: false,
-		status: 'beta',
-		// Open to all signed-in users (Standard / public tier and up).
-		// The initial 'beta' here was an arbitrary RFC default — it
-		// matched the status='beta' badge but the gate was more friction
-		// than value while the module is finding its audience. The LLM
-		// calls behind it are credit-gated server-side regardless.
-		requiredTier: 'guest',
-	},
-	{
 		id: 'meditate',
 		name: 'Meditate',
 		description: {
@@ -1205,23 +1183,6 @@ export const MANA_APPS: ManaApp[] = [
 		comingSoon: false,
 		status: 'beta',
 		requiredTier: 'guest', // LOCAL TIER PATCH — revert to 'beta' before release
-	},
-	{
-		id: 'kontext',
-		name: 'Web-Context',
-		description: {
-			de: 'URLs in deinen Kontext crawlen',
-			en: 'Crawl URLs into your context',
-		},
-		longDescription: {
-			de: 'Webseiten und Artikel als persönlichen Kontext sammeln — crawlt eine URL (oder eine ganze Site bis 20 Seiten), optional KI-zusammengefasst, und hängt das Ergebnis an dein Profil-Kontext-Dokument an. Der Companion sieht das beim nächsten Planen automatisch mit.',
-			en: 'Pull web pages and articles into your personal context — crawl a URL (or up to 20 pages of a site), optionally AI-summarised, and append the result to your profile context document. The companion picks it up automatically on the next plan call.',
-		},
-		icon: APP_ICONS.kontext,
-		color: '#a78b6f',
-		comingSoon: false,
-		status: 'beta',
-		requiredTier: 'guest',
 	},
 	{
 		id: 'wishes',

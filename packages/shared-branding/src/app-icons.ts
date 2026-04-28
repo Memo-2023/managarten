@@ -197,11 +197,6 @@ export const APP_ICONS = {
 		// Blue→cyan gradient for the hydration theme.
 		`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="dk" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3b82f6"/><stop offset="100%" style="stop-color:#06b6d4"/></linearGradient></defs><rect width="100" height="100" rx="22" fill="url(#dk)"/><path d="M35 28h30l-4 48a10 10 0 0 1-10 9h-2a10 10 0 0 1-10-9L35 28z" fill="white" fill-opacity="0.9"/><path d="M39 52c0-4 5-6 11-6s11 2 11 6v12a8 8 0 0 1-8 7h-6a8 8 0 0 1-8-7V52z" fill="#3b82f6" fill-opacity="0.35"/><path d="M33 28h34" stroke="white" stroke-width="4" stroke-linecap="round"/><circle cx="72" cy="36" r="3" fill="white" fill-opacity="0.6"/><circle cx="68" cy="46" r="2" fill="white" fill-opacity="0.4"/><circle cx="74" cy="54" r="2.5" fill="white" fill-opacity="0.3"/></svg>`
 	),
-	who: svgToDataUrl(
-		// Theatre mask silhouette in front of a question mark — references
-		// the "guess who's behind the disguise" mechanic. Purple gradient.
-		`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="wh" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#a855f7"/><stop offset="100%" style="stop-color:#7c3aed"/></linearGradient></defs><rect width="100" height="100" rx="22" fill="url(#wh)"/><path d="M58 30c-3-2-7-3-11-3-12 0-22 9-22 21 0 7 4 13 9 17l-3 11 11-5c2 0 3 1 5 1 12 0 22-9 22-21 0-7-4-13-11-21z" fill="white" fill-opacity="0.18"/><path d="M50 28c-4 0-8 1-11 3-7 8-11 14-11 21 0 12 10 21 22 21 12 0 22-9 22-21s-10-24-22-24z" fill="white"/><circle cx="44" cy="48" r="2.6" fill="#7c3aed"/><circle cx="60" cy="48" r="2.6" fill="#7c3aed"/><path d="M44 60c2 3 4 4 6 4s4-1 6-4" stroke="#7c3aed" stroke-width="2.5" stroke-linecap="round" fill="none"/><text x="76" y="42" font-family="system-ui" font-size="22" font-weight="700" fill="white" fill-opacity="0.85">?</text></svg>`
-	),
 	recipes: svgToDataUrl(
 		// Cooking pot with steam — represents recipe collection.
 		// Orange→amber gradient for a warm kitchen feel.
@@ -306,13 +301,6 @@ export const APP_ICONS = {
 		// gradient sits next to contacts (green) and chat (indigo) in the
 		// communication family without competing with either.
 		`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="sp" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#14b8a6"/><stop offset="100%" style="stop-color:#6366f1"/></linearGradient></defs><rect width="100" height="100" rx="22" fill="url(#sp)"/><circle cx="30" cy="38" r="9" fill="white" fill-opacity="0.85"/><path d="M14 70c0-9 7-16 16-16s16 7 16 16v4H14v-4z" fill="white" fill-opacity="0.85"/><circle cx="70" cy="38" r="9" fill="white" fill-opacity="0.85"/><path d="M54 70c0-9 7-16 16-16s16 7 16 16v4H54v-4z" fill="white" fill-opacity="0.85"/><circle cx="50" cy="32" r="11" fill="white"/><path d="M30 76c0-11 9-20 20-20s20 9 20 20v4H30v-4z" fill="white"/></svg>`
-	),
-	kontext: svgToDataUrl(
-		// Globe with three horizontal text-lines — represents the Web-Context
-		// crawler that pulls URLs into the user's profile context. Tan→ochre
-		// gradient (#a78b6f → #c79a64) sits in the documents family but warmer
-		// than the cool blues of notes/storage.
-		`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="kx" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#a78b6f"/><stop offset="100%" style="stop-color:#c79a64"/></linearGradient></defs><rect width="100" height="100" rx="22" fill="url(#kx)"/><circle cx="50" cy="38" r="18" fill="none" stroke="white" stroke-width="2.5"/><ellipse cx="50" cy="38" rx="9" ry="18" fill="none" stroke="white" stroke-width="2"/><path d="M32 38h36" stroke="white" stroke-width="2"/><rect x="28" y="62" width="44" height="3" rx="1.5" fill="white" fill-opacity="0.9"/><rect x="28" y="70" width="34" height="3" rx="1.5" fill="white" fill-opacity="0.7"/><rect x="28" y="78" width="40" height="3" rx="1.5" fill="white" fill-opacity="0.55"/></svg>`
 	),
 	wishes: svgToDataUrl(
 		// Shooting star with sparkle trail — the wishes module is about

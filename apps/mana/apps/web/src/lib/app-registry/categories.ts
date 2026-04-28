@@ -79,7 +79,6 @@ export const APP_CATEGORY_MAP: Record<string, AppCategory> = {
 	wetter: 'life',
 	inventory: 'life',
 	storage: 'life',
-	who: 'life',
 	firsts: 'life',
 	memoro: 'life',
 	questions: 'life',

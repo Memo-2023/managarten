@@ -448,21 +448,6 @@ export const MODULE_HELP: Record<string, ModuleHelp> = {
 			'Bring-Listen-Items können von Gästen "reserviert" werden',
 		],
 	},
-	who: {
-		description:
-			'Rate-Spiel — erkenne Persönlichkeiten anhand von Hinweisen. Die AI gibt dir Schritt für Schritt mehr Informationen.',
-		features: [
-			'AI gibt dir Hinweise, du rätst die Person',
-			'Verschiedene Schwierigkeitsgrade',
-			'Spiel-Verlauf mit Statistiken',
-			'Chat-basierte Interaktion',
-			'Historische und aktuelle Persönlichkeiten',
-		],
-		tips: [
-			'Stelle gezielte Ja/Nein-Fragen um die Person schneller einzugrenzen',
-			'Schwierigere Modi geben weniger offensichtliche Hinweise',
-		],
-	},
 	firsts: {
 		description:
 			'Erste Male festhalten — eine Bucket-List für Dinge die du erleben möchtest, und ein Archiv erlebter Momente.',
