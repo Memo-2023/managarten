@@ -19,32 +19,18 @@
  */
 
 import { getSyncConnection } from '../../mcp/sync-db';
+import { fieldMetaTime } from './field-meta';
 
 type Row = Record<string, unknown>;
-/**
- * `field_meta` is one of two shapes on the wire:
- *   - Legacy plaintext writes: `{[fieldName]: ISOString}`
- *   - Field-meta-overhaul writes: `{[fieldName]: {at, actor, origin}}`
- * `fieldMetaTime()` below normalises both into the comparable ISO string.
- */
 interface ChangeRow {
 	user_id: string;
 	record_id: string;
 	op: string;
 	data: Row | null;
+	/** See `./field-meta.ts` — wire shape is two-tone (legacy ISO string
+	 *  vs. F3 `{at, actor, origin}` object). */
 	field_meta: Record<string, unknown> | null;
 	created_at: Date;
-}
-
-/** Pull the timestamp out of either shape. Falls back to empty string
- *  so the LWW comparison never throws on undefined. */
-function fieldMetaTime(meta: unknown): string {
-	if (typeof meta === 'string') return meta;
-	if (meta && typeof meta === 'object') {
-		const at = (meta as { at?: unknown }).at;
-		if (typeof at === 'string') return at;
-	}
-	return '';
 }
 
 export interface ImportJobRow {

@@ -27,6 +27,7 @@
 import { extractFromUrl } from '@mana/shared-rss';
 import { makeFieldMeta, type Actor, type FieldOrigin } from '@mana/shared-ai';
 import { getSyncConnection } from '../../mcp/sync-db';
+import { looksLikeConsentWall } from './consent-wall';
 import type { ImportItemRow } from './import-projection';
 
 const MAX_ATTEMPTS = 3;
@@ -213,25 +214,4 @@ async function insertSyncChange(params: InsertParams): Promise<void> {
 	});
 }
 
-// ─── Consent-wall heuristic (mirror of routes.ts) ────────────
-
-const CONSENT_KEYWORDS = [
-	'cookies zustimmen',
-	'cookie consent',
-	'zustimmung',
-	'accept all cookies',
-	'consent to the use',
-	'enable javascript',
-	'javascript is disabled',
-	'please enable',
-	'privacy center',
-	'datenschutz­einstellungen',
-	'datenschutzeinstellungen',
-];
-const CONSENT_WORDCOUNT_THRESHOLD = 300;
-
-function looksLikeConsentWall(content: string, wordCount: number): boolean {
-	if (wordCount >= CONSENT_WORDCOUNT_THRESHOLD) return false;
-	const haystack = content.toLowerCase();
-	return CONSENT_KEYWORDS.some((needle) => haystack.includes(needle));
-}
+// looksLikeConsentWall lives in ./consent-wall.ts — shared with routes.ts.

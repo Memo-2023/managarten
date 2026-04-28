@@ -12,6 +12,7 @@
 
 import type { MissionGrant } from '@mana/shared-ai';
 import type { Sql } from './connection';
+import { fieldMetaTime } from './field-meta';
 
 /**
  * Subset of the Mission shape the server needs. Matches
@@ -44,9 +45,17 @@ interface ChangeRow {
 	user_id: string;
 	op: string;
 	data: Record<string, unknown> | null;
-	field_meta: Record<string, string> | null;
+	/**
+	 * Two-shaped on the wire:
+	 *   - Legacy plaintext writes:   { state: 'ISO-8601' }
+	 *   - F3 field-meta-overhaul:    { state: { at, actor, origin } }
+	 * The merge uses `fieldMetaTime` to fold both into a comparable string.
+	 */
+	field_meta: Record<string, unknown> | null;
 	created_at: Date;
 }
+
+// fieldMetaTime imported from ./field-meta — see comment in that file.
 
 /**
  * Return all currently-active missions whose `nextRunAt` has passed.
@@ -120,8 +129,9 @@ export function mergeAndFilter(
 		const prevFM = (existing.__fieldMeta as Record<string, string> | undefined) ?? {};
 		const nextFM = { ...prevFM };
 		if (row.data) {
+			const rowCreatedAt = row.created_at.toISOString();
 			for (const [k, v] of Object.entries(row.data)) {
-				const serverTime = row.field_meta?.[k] ?? row.created_at.toISOString();
+				const serverTime = fieldMetaTime(row.field_meta?.[k]) || rowCreatedAt;
 				const localTime = prevFM[k] ?? '';
 				if (serverTime >= localTime) {
 					existing[k] = v;

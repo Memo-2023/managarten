@@ -26,29 +26,9 @@
 
 import { Hono } from 'hono';
 import { extractFromUrl, extractFromHtml } from '@mana/shared-rss';
+import { looksLikeConsentWall } from './consent-wall';
 
 const routes = new Hono();
-
-const CONSENT_KEYWORDS = [
-	'cookies zustimmen',
-	'cookie consent',
-	'zustimmung',
-	'accept all cookies',
-	'consent to the use',
-	'enable javascript',
-	'javascript is disabled',
-	'please enable',
-	'privacy center',
-	'datenschutz­einstellungen',
-	'datenschutzeinstellungen',
-];
-const CONSENT_WORDCOUNT_THRESHOLD = 300;
-
-function looksLikeConsentWall(content: string, wordCount: number): boolean {
-	if (wordCount >= CONSENT_WORDCOUNT_THRESHOLD) return false;
-	const haystack = content.toLowerCase();
-	return CONSENT_KEYWORDS.some((needle) => haystack.includes(needle));
-}
 
 function isValidHttpUrl(url: string): boolean {
 	try {

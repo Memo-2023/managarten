@@ -31,8 +31,30 @@ import {
 } from './import-projection';
 import { extractOneItem, writeItemUpdate, writeJobUpdate } from './import-extractor';
 
+/** Counts ticks so the pickup-GC sweep can run every Nth one rather
+ *  than on every 2-second cycle (the DELETE is cheap but not free). */
+let tickCount = 0;
+/** Run pickup-GC every 30 ticks ≈ once per minute. */
+const PICKUP_GC_EVERY_N_TICKS = 30;
+
 const TICK_INTERVAL_MS = 2_000;
 const PER_JOB_CONCURRENCY = 3;
+/**
+ * If an item has been in `state='extracting'` longer than this without
+ * a follow-up state-write, it's orphaned (worker crashed mid-fetch,
+ * pod restart, OOM, …) and gets bounced back to `pending` so the next
+ * tick can re-claim it.
+ *
+ * Tuned so a slow but live extraction (15 s shared-rss fetch timeout +
+ * a few seconds of JSDOM parse on a 2 MB page) doesn't reset
+ * prematurely — 5 minutes is comfortable headroom.
+ */
+const STALE_EXTRACTING_MS = 5 * 60 * 1000;
+/** TTL for `articleExtractPickup` rows. The pickup-consumer normally
+ *  deletes them seconds after the worker writes them; anything older
+ *  than this is garbage from a stuck consumer (all tabs closed,
+ *  Web-Lock mismatch, …) and would otherwise accumulate without bound. */
+const PICKUP_TTL_MS = 24 * 60 * 60 * 1000;
 /** Fixed int8 lock key — derived from the ASCII bytes of 'ARTI'. */
 const ADVISORY_LOCK_KEY = 0x4152_5449;
 
@@ -88,16 +110,51 @@ export async function runTickOnce(): Promise<{
 	skipped: boolean;
 	jobsConsidered: number;
 	itemsProcessed: number;
+	pickupGcRows?: number;
 }> {
 	if (!(await tryAcquireLock())) {
 		return { skipped: true, jobsConsidered: 0, itemsProcessed: 0 };
+	}
+	tickCount++;
+	let pickupGcRows: number | undefined;
+	if (tickCount % PICKUP_GC_EVERY_N_TICKS === 0) {
+		pickupGcRows = await runPickupGc();
 	}
 	const jobs = await listClaimableJobs();
 	let itemsProcessed = 0;
 	for (const job of jobs) {
 		itemsProcessed += await processOneJob(job);
 	}
-	return { skipped: false, jobsConsidered: jobs.length, itemsProcessed };
+	return { skipped: false, jobsConsidered: jobs.length, itemsProcessed, pickupGcRows };
+}
+
+/**
+ * Hard-delete pickup rows older than `PICKUP_TTL_MS`. The
+ * pickup-consumer on a healthy client removes each row seconds after
+ * the worker writes it; anything older is residue from a stuck
+ * consumer (all tabs closed, Web-Lock mismatch). Without this sweep
+ * the rows would accumulate without bound in sync_changes.
+ *
+ * Runs against `sync_changes` directly, not via a soft-delete on the
+ * row data — pickup rows are server-write inbox only, never editable
+ * by users; a hard DELETE keeps the table tight.
+ */
+async function runPickupGc(): Promise<number> {
+	const sql = getSyncConnection();
+	const cutoff = new Date(Date.now() - PICKUP_TTL_MS).toISOString();
+	const rows = await sql<{ count: string }[]>`
+		WITH deleted AS (
+			DELETE FROM sync_changes
+			WHERE app_id = 'articles'
+			  AND table_name = 'articleExtractPickup'
+			  AND created_at < ${cutoff}
+			RETURNING 1
+		)
+		SELECT count(*)::text AS count FROM deleted
+	`;
+	const n = parseInt(rows[0]?.count ?? '0', 10);
+	if (n > 0) console.log(`[articles-import] pickup-gc: removed ${n} rows older than 24h`);
+	return n;
 }
 
 /**
@@ -122,6 +179,23 @@ async function tryAcquireLock(): Promise<boolean> {
 
 async function processOneJob(job: ImportJobRow): Promise<number> {
 	const items = await listItemsForJob(job.userId, job.id);
+
+	// Crash-recovery sweep — bounce items that have been 'extracting'
+	// for too long back to 'pending'. Without this, a worker that
+	// crashed (or got OOM'd, restarted mid-extract) leaves orphaned
+	// items in 'extracting' forever; the job never completes. Worker
+	// re-attribution happens via the next tick's claim path.
+	const now = Date.now();
+	for (const it of items) {
+		if (it.state !== 'extracting') continue;
+		const since = it.lastAttemptAt ? Date.parse(it.lastAttemptAt) : 0;
+		if (!Number.isFinite(since)) continue;
+		if (now - since < STALE_EXTRACTING_MS) continue;
+		console.warn(
+			`[articles-import] resetting stale extracting item ${it.id} (job=${job.id}) — ${Math.round((now - since) / 1000)}s old`
+		);
+		await writeItemUpdate(it.userId, it.id, { state: 'pending' });
+	}
 
 	// Flip 'queued' → 'running' so the UI shows progress.
 	if (job.status === 'queued') {

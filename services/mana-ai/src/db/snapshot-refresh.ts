@@ -16,6 +16,7 @@
 
 import type { Sql } from './connection';
 import { withUser } from './connection';
+import { fieldMetaTime } from './field-meta';
 
 interface SnapshotRow {
 	user_id: string;
@@ -29,7 +30,9 @@ interface ChangeRow {
 	record_id: string;
 	op: string;
 	data: Record<string, unknown> | null;
-	field_meta: Record<string, string> | null;
+	/** See `./field-meta.ts` — wire shape is two-tone (legacy ISO string
+	 *  vs. F3 `{at, actor, origin}` object). */
+	field_meta: Record<string, unknown> | null;
 	created_at: Date;
 }
 
@@ -170,15 +173,20 @@ function mergeRaw(rows: readonly ChangeRow[]): Record<string, unknown> | null {
 
 	for (const row of rows) {
 		if (row.op === 'delete') return null;
+		const rowCreatedAt = row.created_at.toISOString();
 		if (!record) {
 			record = row.data ? { id: row.record_id, ...row.data } : { id: row.record_id };
-			fm = { ...(row.field_meta ?? {}) };
+			const initFM = row.field_meta ?? {};
+			fm = {};
+			for (const k of Object.keys(initFM)) {
+				fm[k] = fieldMetaTime(initFM[k]) || rowCreatedAt;
+			}
 			continue;
 		}
 		if (!row.data) continue;
 		const rowFM = row.field_meta ?? {};
 		for (const [k, v] of Object.entries(row.data)) {
-			const serverTime = rowFM[k] ?? row.created_at.toISOString();
+			const serverTime = fieldMetaTime(rowFM[k]) || rowCreatedAt;
 			const localTime = fm[k] ?? '';
 			if (serverTime >= localTime) {
 				record[k] = v;
