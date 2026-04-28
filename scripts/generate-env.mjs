@@ -392,32 +392,6 @@ const APP_CONFIGS = [
 		},
 	},
 
-	// Context Server (Hono/Bun)
-	{
-		path: 'apps/context/apps/server/.env',
-		vars: {
-			NODE_ENV: () => 'development',
-			PORT: (env) => env.CONTEXT_BACKEND_PORT || '3020',
-			DATABASE_URL: (env) => env.CONTEXT_DATABASE_URL,
-			MANA_AUTH_URL: (env) => env.MANA_AUTH_URL,
-			DEV_BYPASS_AUTH: () => 'true',
-			DEV_USER_ID: (env) => env.DEV_USER_ID || '00000000-0000-0000-0000-000000000000',
-			AZURE_OPENAI_API_KEY: (env) => env.CONTEXT_AZURE_OPENAI_API_KEY || '',
-			AZURE_OPENAI_ENDPOINT: (env) => env.CONTEXT_AZURE_OPENAI_ENDPOINT || '',
-			GOOGLE_API_KEY: (env) => env.CONTEXT_GOOGLE_API_KEY || '',
-			CORS_ORIGINS: (env) => env.CORS_ORIGINS,
-		},
-	},
-
-	// Context Web (SvelteKit)
-	{
-		path: 'apps/context/apps/web/.env',
-		vars: {
-			PUBLIC_BACKEND_URL: (env) => `http://localhost:${env.CONTEXT_BACKEND_PORT || '3020'}`,
-			PUBLIC_MANA_AUTH_URL: (env) => env.MANA_AUTH_URL,
-		},
-	},
-
 	// Calendar Server (Hono/Bun)
 	{
 		path: 'apps/calendar/apps/server/.env',

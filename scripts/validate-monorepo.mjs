@@ -145,7 +145,6 @@ function checkWorkspaceProtocol(packagePath, packageJson) {
 		'@mana-games/',
 		'@figgos/',
 		'@worldream/',
-		'@context/',
 	];
 
 	for (const [depName, depVersion] of Object.entries(deps)) {
