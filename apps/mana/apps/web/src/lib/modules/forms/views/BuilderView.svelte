@@ -13,11 +13,12 @@
 	import { flip } from 'svelte/animate';
 	import { formsStore } from '../stores/forms.svelte';
 	import { FORM_STATUS_LABELS } from '../types';
-	import type { Form, FormField, FormSettings, FormStatus } from '../types';
+	import type { BranchingRule, Form, FormField, FormSettings, FormStatus } from '../types';
 	import { makeDefaultField } from '../lib/field-defaults';
 	import FieldEditor from '../components/FieldEditor.svelte';
 	import FieldPalette from '../components/FieldPalette.svelte';
 	import SettingsPanel from '../components/SettingsPanel.svelte';
+	import BranchingEditor from '../components/BranchingEditor.svelte';
 
 	let { entry }: { entry: Form } = $props();
 
@@ -106,6 +107,10 @@
 		await formsStore.updateForm(entry.id, {
 			settings: { ...entry.settings, ...patch },
 		});
+	}
+
+	async function patchBranching(next: BranchingRule[]) {
+		await formsStore.updateBranching(entry.id, next);
 	}
 
 	async function setStatus(status: FormStatus) {
@@ -219,6 +224,10 @@
 		{/if}
 
 		<FieldPalette onpick={pickField} />
+	</section>
+
+	<section class="branching-section">
+		<BranchingEditor fields={items} branching={entry.branching} onchange={patchBranching} />
 	</section>
 
 	<section class="settings-section">
@@ -362,7 +371,8 @@
 	}
 
 	.fields-section,
-	.settings-section {
+	.settings-section,
+	.branching-section {
 		display: flex;
 		flex-direction: column;
 		gap: 0.625rem;

@@ -101,5 +101,27 @@
 			"yes": "Ja",
 			"no": "Nein"
 		}
+	},
+	"branching": {
+		"title": "Logik (Wenn → Dann)",
+		"addRule": "+ Regel",
+		"empty": "Keine Regeln. Klick \"+ Regel\" um eine Bedingung zu bauen.",
+		"emptyNeedFields": "Lege mindestens zwei Antwortfelder an, um Logik zu bauen.",
+		"if": "Wenn",
+		"then": "Dann",
+		"valuePlaceholder": "Wert ...",
+		"pickField": "Feld wählen ...",
+		"removeAria": "Regel löschen",
+		"op": {
+			"equals": "gleich",
+			"notEquals": "ungleich",
+			"contains": "enthält",
+			"isEmpty": "ist leer"
+		},
+		"action": {
+			"show": "zeige",
+			"hide": "verstecke",
+			"skipTo": "springe zu"
+		}
 	}
 }

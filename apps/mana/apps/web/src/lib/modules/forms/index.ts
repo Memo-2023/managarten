@@ -18,6 +18,8 @@ export { formTable, formResponseTable } from './collections';
 
 // ─── Lib ─────────────────────────────────────────────────
 export { makeDefaultField } from './lib/field-defaults';
+export { resolveVisibleFields } from './lib/branching';
+export { buildResponsesCsv, downloadResponsesCsv } from './lib/csv';
 
 // ─── Types ───────────────────────────────────────────────
 export {

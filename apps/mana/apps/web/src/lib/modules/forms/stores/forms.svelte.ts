@@ -48,6 +48,12 @@ export const formsStore = {
 		await formTable.update(id, { status });
 	},
 
+	async updateBranching(id: string, branching: BranchingRule[]) {
+		const diff: Partial<LocalForm> = { branching };
+		await encryptRecord('forms', diff);
+		await formTable.update(id, diff);
+	},
+
 	async deleteForm(id: string) {
 		await formTable.update(id, { deletedAt: nowIso() });
 	},

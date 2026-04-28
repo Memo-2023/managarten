@@ -101,5 +101,27 @@
 			"yes": "Sí",
 			"no": "No"
 		}
+	},
+	"branching": {
+		"title": "Lógica (Si → Entonces)",
+		"addRule": "+ Regla",
+		"empty": "Sin reglas. Pulsa \"+ Regla\" para añadir una condición.",
+		"emptyNeedFields": "Añade al menos dos campos de respuesta para construir lógica.",
+		"if": "Si",
+		"then": "Entonces",
+		"valuePlaceholder": "Valor ...",
+		"pickField": "Elegir campo ...",
+		"removeAria": "Eliminar regla",
+		"op": {
+			"equals": "es igual a",
+			"notEquals": "no es igual a",
+			"contains": "contiene",
+			"isEmpty": "está vacío"
+		},
+		"action": {
+			"show": "mostrar",
+			"hide": "ocultar",
+			"skipTo": "saltar a"
+		}
 	}
 }

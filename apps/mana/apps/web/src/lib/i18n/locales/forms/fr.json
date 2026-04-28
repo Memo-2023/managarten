@@ -101,5 +101,27 @@
 			"yes": "Oui",
 			"no": "Non"
 		}
+	},
+	"branching": {
+		"title": "Logique (Si → Alors)",
+		"addRule": "+ Règle",
+		"empty": "Aucune règle. Clique \"+ Règle\" pour ajouter une condition.",
+		"emptyNeedFields": "Ajoute au moins deux champs de réponse pour construire la logique.",
+		"if": "Si",
+		"then": "Alors",
+		"valuePlaceholder": "Valeur ...",
+		"pickField": "Choisir un champ ...",
+		"removeAria": "Supprimer la règle",
+		"op": {
+			"equals": "égal",
+			"notEquals": "différent",
+			"contains": "contient",
+			"isEmpty": "est vide"
+		},
+		"action": {
+			"show": "afficher",
+			"hide": "masquer",
+			"skipTo": "sauter à"
+		}
 	}
 }

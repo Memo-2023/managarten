@@ -101,5 +101,27 @@
 			"yes": "Yes",
 			"no": "No"
 		}
+	},
+	"branching": {
+		"title": "Logic (If → Then)",
+		"addRule": "+ Rule",
+		"empty": "No rules. Click \"+ Rule\" to add a condition.",
+		"emptyNeedFields": "Add at least two answer fields to build logic.",
+		"if": "If",
+		"then": "Then",
+		"valuePlaceholder": "Value ...",
+		"pickField": "Pick field ...",
+		"removeAria": "Delete rule",
+		"op": {
+			"equals": "equals",
+			"notEquals": "does not equal",
+			"contains": "contains",
+			"isEmpty": "is empty"
+		},
+		"action": {
+			"show": "show",
+			"hide": "hide",
+			"skipTo": "skip to"
+		}
 	}
 }

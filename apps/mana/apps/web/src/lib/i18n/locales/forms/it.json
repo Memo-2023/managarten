@@ -101,5 +101,27 @@
 			"yes": "Sì",
 			"no": "No"
 		}
+	},
+	"branching": {
+		"title": "Logica (Se → Allora)",
+		"addRule": "+ Regola",
+		"empty": "Nessuna regola. Clicca \"+ Regola\" per aggiungere una condizione.",
+		"emptyNeedFields": "Aggiungi almeno due campi di risposta per costruire la logica.",
+		"if": "Se",
+		"then": "Allora",
+		"valuePlaceholder": "Valore ...",
+		"pickField": "Scegli campo ...",
+		"removeAria": "Elimina regola",
+		"op": {
+			"equals": "uguale a",
+			"notEquals": "diverso da",
+			"contains": "contiene",
+			"isEmpty": "è vuoto"
+		},
+		"action": {
+			"show": "mostra",
+			"hide": "nascondi",
+			"skipTo": "salta a"
+		}
 	}
 }
