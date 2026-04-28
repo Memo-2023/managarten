@@ -763,8 +763,8 @@ describe('applyServerChanges (Dexie integration)', () => {
 
 		it('bootstrap-twin race: local SYSTEM_BOOTSTRAP row + later server insert → no conflict, LWW wins', async () => {
 			// 1. Client-side fallback creates an empty row stamped origin='system'.
-			//    This is what `getOrCreateLocalDoc()` does in userContextStore /
-			//    kontextStore when a write lands before the first sync pull.
+			//    This is what `getOrCreateLocalDoc()` does in userContextStore
+			//    when a write lands before the first sync pull.
 			const bootstrapActor = makeSystemActor(SYSTEM_BOOTSTRAP);
 			await runAsAsync(bootstrapActor, async () => {
 				await db.table('tasks').add({

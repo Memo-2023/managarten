@@ -1,8 +1,10 @@
 /**
- * Kontext API client — talks to apps/api `POST /api/v1/context/import-url`.
+ * Notes API client — talks to apps/api `POST /api/v1/notes/import-url`.
  *
- * The server route lives under /context for historical reasons (shared
- * crawler + LLM wrapper). Only the kontext singleton consumes it.
+ * Crawls a URL via mana-crawler, optionally summarises the result with
+ * mana-llm, and returns the markdown payload. The caller decides what
+ * to do with the result — typically `notesStore.createNote({ title,
+ * content })` to materialise it as a Note.
  */
 
 import { authStore } from '$lib/stores/auth.svelte';
@@ -25,10 +27,10 @@ export interface ImportResponse {
 	pageCount: number;
 }
 
-export async function crawlUrlViaApi(input: ImportInput): Promise<ImportResponse> {
+export async function crawlUrl(input: ImportInput): Promise<ImportResponse> {
 	const token = await authStore.getValidToken();
 	if (!token) throw new Error('not authenticated');
-	const res = await fetch(`${getManaApiUrl()}/api/v1/context/import-url`, {
+	const res = await fetch(`${getManaApiUrl()}/api/v1/notes/import-url`, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',

@@ -121,4 +121,41 @@ export const notesStore = {
 			isArchived: true,
 		});
 	},
+
+	/**
+	 * Mark `id` as the active Space's standing-context note for AI-Runner
+	 * auto-injection. Mutex: clears `isSpaceContext` on every other note
+	 * in the same Space first so the index can assume at most one `true`
+	 * row per `spaceId`. Pass `null` to unmark without setting a new one.
+	 *
+	 * The mutex sweep deliberately writes to *every* currently-flagged
+	 * row even though there should only ever be one — that way a sync
+	 * race that briefly let two rows hold the flag self-heals on the
+	 * next mark.
+	 */
+	async markAsSpaceContext(id: string | null): Promise<void> {
+		const target = id ? await noteTable.get(id) : null;
+		const targetSpaceId = (target as { spaceId?: string } | undefined)?.spaceId;
+
+		// Clear the flag on every currently-flagged note. If we have a target
+		// Space, restrict to that Space; if not (id === null), the caller
+		// asked for an unset of the active Space's flagged note(s) — same query
+		// scoped via Dexie filter. spaceId is auto-stamped by the Dexie
+		// creating-hook so it's always present at runtime even though the
+		// LocalNote interface doesn't declare it.
+		const flagged = await noteTable
+			.filter((n) => {
+				const noteSpaceId = (n as { spaceId?: string }).spaceId;
+				return n.isSpaceContext === true && (!targetSpaceId || noteSpaceId === targetSpaceId);
+			})
+			.toArray();
+		for (const n of flagged) {
+			if (n.id === id) continue;
+			await noteTable.update(n.id, { isSpaceContext: false });
+		}
+
+		if (id) {
+			await noteTable.update(id, { isSpaceContext: true });
+		}
+	},
 };

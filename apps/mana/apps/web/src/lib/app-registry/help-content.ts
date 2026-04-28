@@ -175,18 +175,6 @@ export const MODULE_HELP: Record<string, ModuleHelp> = {
 			'Nutze Vorlagen für wiederkehrende Aufgaben',
 		],
 	},
-	kontext: {
-		description: 'Persönliches Markdown-Dokument das der AI als Hintergrundwissen mitgegeben wird.',
-		features: [
-			'Freitext-Markdown',
-			'Wird automatisch in AI-Missionen als Kontext injiziert',
-			'Pro Agent individuell konfigurierbar',
-		],
-		tips: [
-			'Schreibe hier Dinge die die AI über dich wissen sollte: Vorlieben, Arbeitsweise, Projekte',
-			'Jeder Agent kann ein eigenes Kontext-Dokument haben',
-		],
-	},
 	context: {
 		description:
 			'Strukturiertes Profil — Interessen, Tagesablauf, Ziele, Ernährung. Hilft der AI dich besser zu verstehen.',

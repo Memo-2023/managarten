@@ -559,9 +559,6 @@ export const ENCRYPTION_REGISTRY: Record<string, EncryptionConfig> = {
 	moodEntries: { enabled: true, fields: ['withWhom', 'notes'] },
 	moodSettings: { enabled: false, fields: [] },
 
-	// ─── Kontext (legacy — now web-context, URL-crawl only) ──
-	kontextDoc: { enabled: true, fields: ['content'] },
-
 	// ─── User Context (profile hub) ──────────────────────────
 	// Structured profile sections + freeform markdown. Everything
 	// except the fixed id and interview progress is user-typed content.
@@ -690,8 +687,9 @@ export const ENCRYPTION_REGISTRY: Record<string, EncryptionConfig> = {
 		'livingOracleSnapshot',
 	]),
 
-	// Per-agent kontext documents — same schema as kontextDoc but keyed
-	// per agent. Content is free-form markdown.
+	// Per-agent kontext documents — free-form markdown, keyed per agent.
+	// Distinct from the (retired) per-Space kontextDoc; this one stays
+	// because per-agent context is still injected by the persona-runner.
 	agentKontextDocs: { enabled: true, fields: ['content'] },
 
 	// ─── Quiz ────────────────────────────────────────────────

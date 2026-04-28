@@ -41,10 +41,6 @@ vi.mock('$lib/modules/library/queries', () => ({
 		...local,
 	})),
 }));
-vi.mock('$lib/modules/kontext/queries', () => ({
-	toKontextDoc: vi.fn((local) => ({ ...local })),
-}));
-
 import { scopedGet, scopedForModule } from '$lib/data/scope';
 import { decryptRecords } from '$lib/data/crypto';
 import { db } from '$lib/data/database';
@@ -242,14 +238,25 @@ describe('resolveReference - url', () => {
 	});
 });
 
-describe('resolveReference - kontext (singleton)', () => {
-	it('reads the singleton via scopedForModule and ignores the targetId', async () => {
-		const toArrayMock = vi
-			.fn()
-			.mockResolvedValue([{ id: 'kontext-uuid', content: 'mein laufender kontext' }]);
+describe('resolveReference - kontext (Space-Kontext Note)', () => {
+	it('reads the isSpaceContext-flagged Note via scopedForModule and ignores the targetId', async () => {
+		const toArrayMock = vi.fn().mockResolvedValue([
+			{ id: 'note-1', title: 'Random', content: 'no flag', isSpaceContext: false },
+			{
+				id: 'note-2',
+				title: 'Brand-Profil',
+				content: 'mein laufender kontext',
+				isSpaceContext: true,
+			},
+		]);
 		mockScopedForModule.mockReturnValue({ toArray: toArrayMock });
 		mockDecryptRecords.mockResolvedValue([
-			{ id: 'kontext-uuid', content: 'mein laufender kontext' },
+			{
+				id: 'note-2',
+				title: 'Brand-Profil',
+				content: 'mein laufender kontext',
+				isSpaceContext: true,
+			},
 		]);
 
 		const result = await resolveReference({
@@ -257,16 +264,30 @@ describe('resolveReference - kontext (singleton)', () => {
 			targetId: 'irrelevant',
 			note: null,
 		});
-		expect(result?.sourceLabel).toBe('Kontext-Dokument des Spaces');
+		expect(result?.sourceLabel).toBe('Space-Kontext (Notiz)');
+		expect(result?.title).toBe('Brand-Profil');
 		expect(result?.content).toBe('mein laufender kontext');
 	});
 
-	it('skips deleted singleton rows', async () => {
+	it('returns null when no Note is flagged as Space-Kontext', async () => {
 		const toArrayMock = vi
 			.fn()
-			.mockResolvedValue([
-				{ id: 'kontext-uuid', content: 'old', deletedAt: '2026-01-01T00:00:00Z' },
-			]);
+			.mockResolvedValue([{ id: 'note-1', title: 'Random', content: 'no flag' }]);
+		mockScopedForModule.mockReturnValue({ toArray: toArrayMock });
+		const result = await resolveReference({ kind: 'kontext', targetId: 'x', note: null });
+		expect(result).toBeNull();
+	});
+
+	it('skips deleted Space-Kontext Notes', async () => {
+		const toArrayMock = vi.fn().mockResolvedValue([
+			{
+				id: 'note-1',
+				title: 'old context',
+				content: 'old',
+				isSpaceContext: true,
+				deletedAt: '2026-01-01T00:00:00Z',
+			},
+		]);
 		mockScopedForModule.mockReturnValue({ toArray: toArrayMock });
 		const result = await resolveReference({ kind: 'kontext', targetId: 'x', note: null });
 		expect(result).toBeNull();

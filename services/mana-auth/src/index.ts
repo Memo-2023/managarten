@@ -149,10 +149,10 @@ app.route('/api/v1/me/ai-mission-grant', createAiMissionGrantRoutes(missionGrant
 app.route('/api/v1/me/onboarding', createOnboardingRoutes(db));
 
 // ─── Singleton Bootstrap ────────────────────────────────────
-// Idempotent reconciliation endpoint for per-user + per-Space sync
-// singletons (userContext, kontextDoc). Webapp boot calls this once;
-// signup-time hooks remain the happy path. See
-// docs/plans/sync-field-meta-overhaul.md and routes/me-bootstrap.ts.
+// Idempotent reconciliation endpoint for the per-user `userContext`
+// singleton. Webapp boot calls this once; the signup-time hook remains
+// the happy path. See docs/plans/sync-field-meta-overhaul.md and
+// routes/me-bootstrap.ts.
 app.route('/api/v1/me/bootstrap-singletons', createMeBootstrapRoutes(db, config.syncDatabaseUrl));
 
 // ─── Settings ──────────────────────────────────────────────

@@ -36,13 +36,7 @@
 	 * sync with `services/mana-ai/src/db/resolvers/index.ts`. A mission
 	 * referencing any of these tables triggers the dialog.
 	 */
-	const ENCRYPTED_SERVER_TABLES = new Set([
-		'notes',
-		'tasks',
-		'events',
-		'journalEntries',
-		'kontextDoc',
-	]);
+	const ENCRYPTED_SERVER_TABLES = new Set(['notes', 'tasks', 'events', 'journalEntries']);
 
 	interface Props {
 		/** Mission to issue the grant for. Required — the dialog reads

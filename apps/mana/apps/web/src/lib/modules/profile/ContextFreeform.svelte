@@ -7,7 +7,7 @@
 	import { useUserContext } from './queries';
 	import { userContextStore } from './stores/user-context.svelte';
 	import { PencilSimple, Eye, LinkSimple, X } from '@mana/shared-icons';
-	import { crawlUrlViaApi, type CrawlMode } from '$lib/modules/kontext/api';
+	import { crawlUrl, type CrawlMode } from '$lib/modules/notes/api';
 	import { requireAuth } from '$lib/auth/require-auth.svelte';
 	import { _ } from 'svelte-i18n';
 
@@ -116,7 +116,7 @@
 			);
 		}
 		try {
-			const result = await crawlUrlViaApi({
+			const result = await crawlUrl({
 				url: trimmed,
 				mode: importMode,
 				summarize: importSummarize,

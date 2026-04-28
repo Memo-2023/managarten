@@ -149,7 +149,7 @@
 	}
 
 	// ── Policy editor ───────────────────────────────────────
-	const POLICY_MODULES = ['todo', 'calendar', 'notes', 'kontext', 'finance', 'drink', 'food'];
+	const POLICY_MODULES = ['todo', 'calendar', 'notes', 'finance', 'drink', 'food'];
 	const POLICY_CHOICES: PolicyDecision[] = ['auto', 'propose', 'deny'];
 	function policyLabel(c: PolicyDecision): string {
 		return $_('ai-agents.list_view.policy_label_' + c);

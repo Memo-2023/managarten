@@ -10,11 +10,13 @@
 	import type { ViewProps } from '$lib/app-registry';
 	import { ContextMenu, type ContextMenuItem } from '@mana/shared-ui';
 	import { useItemContextMenu } from '$lib/data/item-context-menu.svelte';
-	import { PencilSimple, Trash, PushPin } from '@mana/shared-icons';
+	import { PencilSimple, Trash, PushPin, LinkSimple, Scroll } from '@mana/shared-icons';
 	import FloatingInputBar from '$lib/components/FloatingInputBar.svelte';
 	import AgentDot from '$lib/components/ai/AgentDot.svelte';
 	import ScopeEmptyState from '$lib/components/workbench/ScopeEmptyState.svelte';
 	import { hasActiveSceneScope } from '$lib/stores/scene-scope.svelte';
+	import { crawlUrl, type CrawlMode } from './api';
+	import { requireAuth } from '$lib/auth/require-auth.svelte';
 
 	let { navigate, goBack, params }: ViewProps = $props();
 
@@ -100,6 +102,60 @@
 		await notesStore.togglePin(id);
 	}
 
+	// ─── URL Import ──────────────────────────────────────────
+	let urlImportOpen = $state(false);
+	let importUrl = $state('');
+	let importMode = $state<CrawlMode>('single');
+	let importSummarize = $state(false);
+	let importing = $state(false);
+	let importError = $state<string | null>(null);
+
+	function resetImport() {
+		importUrl = '';
+		importMode = 'single';
+		importSummarize = false;
+		importError = null;
+	}
+
+	async function handleImport(e: Event) {
+		e.preventDefault();
+		const trimmed = importUrl.trim();
+		if (!trimmed) return;
+		const ok = await requireAuth({
+			feature: 'notes-url-import',
+			reason:
+				'Das Crawlen einer Web-Seite läuft serverseitig (robots.txt, Rate-Limits, optionale KI-Zusammenfassung) und erfordert ein Mana-Konto.',
+		});
+		if (!ok) return;
+		importing = true;
+		importError = null;
+		try {
+			const result = await crawlUrl({
+				url: trimmed,
+				mode: importMode,
+				summarize: importSummarize,
+			});
+			const header = `_Quelle: ${result.sourceUrl}_\n\n`;
+			const note = await notesStore.createNote({
+				title: result.title,
+				content: header + result.content,
+			});
+			urlImportOpen = false;
+			resetImport();
+			startEdit(note);
+		} catch (err) {
+			importError = err instanceof Error ? err.message : 'Import fehlgeschlagen';
+		} finally {
+			importing = false;
+		}
+	}
+
+	// ─── Space-Kontext Mutex ─────────────────────────────────
+	async function handleToggleSpaceContext(note: Note) {
+		// Mutex enforced inside the store; flagged → unset, unflagged → set.
+		await notesStore.markAsSpaceContext(note.isSpaceContext ? null : note.id);
+	}
+
 	const ctxMenu = useItemContextMenu<Note>();
 
 	let ctxMenuItems = $derived<ContextMenuItem[]>(
@@ -123,6 +179,17 @@
 							if (target) notesStore.togglePin(target.id);
 						},
 					},
+					{
+						id: 'space-context',
+						label: ctxMenu.state.target.isSpaceContext
+							? 'Space-Kontext lösen'
+							: 'Als Space-Kontext markieren',
+						icon: Scroll,
+						action: () => {
+							const target = ctxMenu.state.target;
+							if (target) handleToggleSpaceContext(target);
+						},
+					},
 					{ id: 'div', label: '', type: 'divider' as const },
 					{
 						id: 'delete',
@@ -140,6 +207,67 @@
 </script>
 
 <div class="app-view">
+	<!-- URL import: collapsed pill, expands to inline form on click -->
+	<div class="url-import">
+		{#if !urlImportOpen}
+			<button
+				type="button"
+				class="url-import-toggle"
+				onclick={() => (urlImportOpen = true)}
+				aria-label="Notiz aus URL erstellen"
+			>
+				<LinkSimple size={14} />
+				<span>Aus URL importieren</span>
+			</button>
+		{:else}
+			<form class="url-import-form" onsubmit={handleImport}>
+				<div class="url-import-row">
+					<input
+						type="url"
+						bind:value={importUrl}
+						required
+						placeholder="https://example.com/article"
+						disabled={importing}
+						class="url-import-input"
+					/>
+					<button type="submit" class="url-import-submit" disabled={importing || !importUrl.trim()}>
+						{importing ? 'Lade…' : 'Importieren'}
+					</button>
+					<button
+						type="button"
+						class="url-import-cancel"
+						onclick={() => {
+							urlImportOpen = false;
+							resetImport();
+						}}
+						disabled={importing}
+						aria-label="Abbrechen"
+					>
+						×
+					</button>
+				</div>
+				<div class="url-import-opts">
+					<label class:disabled={importing}>
+						<input type="radio" bind:group={importMode} value="single" disabled={importing} />
+						Nur diese Seite
+					</label>
+					<label class:disabled={importing}>
+						<input type="radio" bind:group={importMode} value="deep" disabled={importing} />
+						Ganze Website (max. 20)
+					</label>
+					<span class="sep">·</span>
+					<label class:disabled={importing}>
+						<input type="checkbox" bind:checked={importSummarize} disabled={importing} />
+						KI-Zusammenfassung
+					</label>
+				</div>
+				{#if importError}
+					<p class="url-import-error">{importError}</p>
+				{/if}
+			</form>
+		{/if}
+	</div>
+
 	<!-- Search -->
 	{#if notes.length > 5}
 		<input class="search-input" type="text" placeholder="Suchen..." bind:value={searchQuery} />
@@ -192,6 +320,14 @@
 						<div class="note-top">
 							<span class="note-title">{note.title || 'Unbenannt'}</span>
 							<AgentDot record={note} />
+							{#if note.isSpaceContext}
+								<span
+									class="space-context-badge"
+									title="Space-Kontext — Quelle für AI-Referenzen in diesem Space"
+								>
+									<Scroll size={12} />
+								</span>
+							{/if}
 							{#if note.isPinned}<span class="pin">&#x1f4cc;</span>{/if}
 						</div>
 						{#if note.content}
@@ -248,6 +384,116 @@
 		padding: 1rem;
 		height: 100%;
 		position: relative;
+	}
+
+	.url-import {
+		display: flex;
+		flex-direction: column;
+	}
+	.url-import-toggle {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.375rem;
+		align-self: flex-start;
+		padding: 0.3rem 0.5rem;
+		border: 1px dashed hsl(var(--color-border));
+		border-radius: 0.375rem;
+		background: transparent;
+		color: hsl(var(--color-muted-foreground));
+		font-size: 0.75rem;
+		cursor: pointer;
+		transition:
+			color 0.15s,
+			border-color 0.15s;
+	}
+	.url-import-toggle:hover {
+		color: hsl(var(--color-foreground));
+		border-color: hsl(var(--color-ring));
+	}
+	.url-import-form {
+		display: flex;
+		flex-direction: column;
+		gap: 0.375rem;
+		padding: 0.5rem;
+		border: 1px solid hsl(var(--color-border));
+		border-radius: 0.5rem;
+		background: hsl(var(--color-card));
+	}
+	.url-import-row {
+		display: flex;
+		align-items: stretch;
+		gap: 0.25rem;
+	}
+	.url-import-input {
+		flex: 1;
+		min-width: 0;
+		padding: 0.3rem 0.5rem;
+		border: 1px solid hsl(var(--color-border));
+		border-radius: 0.375rem;
+		background: transparent;
+		color: hsl(var(--color-foreground));
+		font-size: 0.8125rem;
+		outline: none;
+	}
+	.url-import-input:focus {
+		border-color: hsl(var(--color-ring));
+	}
+	.url-import-submit {
+		padding: 0.3rem 0.75rem;
+		border: none;
+		border-radius: 0.375rem;
+		background: hsl(var(--color-primary));
+		color: hsl(var(--color-primary-foreground));
+		font-size: 0.75rem;
+		font-weight: 500;
+		cursor: pointer;
+	}
+	.url-import-submit:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+	.url-import-cancel {
+		padding: 0.3rem 0.5rem;
+		border: 1px solid hsl(var(--color-border));
+		border-radius: 0.375rem;
+		background: transparent;
+		color: hsl(var(--color-muted-foreground));
+		font-size: 1rem;
+		line-height: 1;
+		cursor: pointer;
+	}
+	.url-import-opts {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 0.75rem;
+		color: hsl(var(--color-muted-foreground));
+	}
+	.url-import-opts label {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.25rem;
+		cursor: pointer;
+	}
+	.url-import-opts label.disabled {
+		opacity: 0.5;
+	}
+	.url-import-opts .sep {
+		opacity: 0.4;
+	}
+	.url-import-error {
+		margin: 0;
+		font-size: 0.75rem;
+		color: hsl(var(--color-destructive, 0 84% 60%));
+	}
+
+	.space-context-badge {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		color: hsl(var(--color-primary));
+		opacity: 0.8;
 	}
 
 	.search-input {

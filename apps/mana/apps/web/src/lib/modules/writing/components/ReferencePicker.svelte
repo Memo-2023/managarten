@@ -8,7 +8,7 @@
     - note      → searchable list of notes
     - library   → searchable list of library entries
     - url       → freeform URL input + optional context note
-    - kontext   → space's kontext-doc singleton (one-click add)
+    - kontext   → space's standing-context Note (one-click add; the Note flagged isSpaceContext)
     - goal      → searchable list of goals
     - me-image  → searchable list of profile reference images
 
@@ -18,9 +18,8 @@
 <script lang="ts">
 	import { _ } from 'svelte-i18n';
 	import { useAllArticles } from '$lib/modules/articles/queries';
-	import { useAllNotes } from '$lib/modules/notes/queries';
+	import { useAllNotes, useSpaceContextNote } from '$lib/modules/notes/queries';
 	import { useAllEntries as useAllLibraryEntries } from '$lib/modules/library/queries';
-	import { useKontextDoc } from '$lib/modules/kontext/queries';
 	import { useAllMeImages } from '$lib/modules/profile/queries';
 	import { useAllGoals } from '$lib/companion/goals/queries';
 	import ReferenceChip from './ReferenceChip.svelte';
@@ -36,8 +35,8 @@
 		'me-image',
 	];
 	const MAX_REFERENCES = 6;
-	/** Sentinel targetId for the kontext-singleton — the resolver doesn't
-	 *  use it, but a non-null id keeps the de-dupe + chip-key logic uniform. */
+	/** Sentinel targetId — the resolver finds the flagged note by scope-scan,
+	 *  not by id, but a non-null id keeps the de-dupe + chip-key logic uniform. */
 	const KONTEXT_SINGLETON_ID = 'kontext:singleton';
 
 	let {
@@ -51,7 +50,7 @@
 	const articles$ = useAllArticles();
 	const notes$ = useAllNotes();
 	const library$ = useAllLibraryEntries();
-	const kontext$ = useKontextDoc();
+	const kontext$ = useSpaceContextNote();
 	const meImages$ = useAllMeImages();
 	const goals$ = useAllGoals();
 
@@ -374,7 +373,7 @@
 		<div class="search">
 			{#if !kontextDoc}
 				<p class="muted small">
-					{$_('writing.reference_picker.kontext_empty_pre')}<a href="/kontext">/kontext</a>{$_(
+					{$_('writing.reference_picker.kontext_empty_pre')}<a href="/notes">/notes</a>{$_(
 						'writing.reference_picker.kontext_empty_post'
 					)}
 				</p>

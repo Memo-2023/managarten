@@ -1445,6 +1445,18 @@ db.version(57).stores({
 	formResponses: 'id, formId, status, submittedAt, _updatedAtIndex, [formId+status]',
 });
 
+// v58 — Replace the per-Space `kontextDoc` singleton with a flagged
+// Note. The `notes` table gets an `isSpaceContext` index so the AI
+// Mission Runner's resolver can find the flagged row without scanning
+// every note; the kontextDoc table is dropped entirely (the kontext
+// module's UI was a write-only shell, the table was never edit-able
+// from a real surface). Mutex (max 1 flagged note per Space) is
+// enforced by `notesStore.markAsSpaceContext`, not by Dexie.
+db.version(58).stores({
+	notes: 'id, isPinned, isArchived, isSpaceContext, color, title, _updatedAtIndex',
+	kontextDoc: null,
+});
+
 // ─── Sync Routing ──────────────────────────────────────────
 // SYNC_APP_MAP, TABLE_TO_SYNC_NAME, TABLE_TO_APP, SYNC_NAME_TO_TABLE,
 // toSyncName() and fromSyncName() are now derived from per-module

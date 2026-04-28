@@ -113,13 +113,7 @@
 	}
 
 	// ── Key-Grant (server-side execution) ──────────────────
-	const ENCRYPTED_SERVER_TABLES = new Set([
-		'notes',
-		'tasks',
-		'events',
-		'journalEntries',
-		'kontextDoc',
-	]);
+	const ENCRYPTED_SERVER_TABLES = new Set(['notes', 'tasks', 'events', 'journalEntries']);
 	function hasEncryptedInputs(m: Mission): boolean {
 		return m.inputs.some((i) => ENCRYPTED_SERVER_TABLES.has(i.table));
 	}

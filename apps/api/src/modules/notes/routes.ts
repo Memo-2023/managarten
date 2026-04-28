@@ -1,8 +1,11 @@
 /**
- * Context module — AI text generation + token estimation
- * Ported from apps/context/apps/server
+ * Notes module — server-side helpers.
  *
- * CRUD for spaces/documents handled by mana-sync.
+ * Today: a single `POST /import-url` endpoint that crawls a URL via
+ * mana-crawler and optionally summarises the result with mana-llm. The
+ * client treats the response as the body of a new Note (title +
+ * markdown content). The same endpoint is reused by the (planned)
+ * Brand/Firma-Space onboarding wizard to seed the Space-context note.
  */
 
 import { Hono } from 'hono';
@@ -16,8 +19,6 @@ const DEFAULT_SUMMARY_MODEL = MANA_LLM.FAST_TEXT;
 
 const routes = new Hono<{ Variables: AuthVariables }>();
 
-// ─── URL Import (crawler → optional LLM summary → document) ──
-
 const DEEP_MAX_PAGES = 20;
 const CRAWL_POLL_INTERVAL_MS = 1500;
 const CRAWL_TIMEOUT_MS = 90_000;
@@ -25,20 +26,16 @@ const CRAWL_TIMEOUT_MS = 90_000;
 /**
  * Local LLMs love to wrap Markdown in ```markdown fences or prepend
  * a "Hier ist die Zusammenfassung:" preamble. Strip those so the
- * output renders correctly when dropped into the Kontext document.
+ * output renders correctly when dropped into a Note body.
  */
 function sanitizeSummary(raw: string): string {
 	let s = raw.trim();
-	// Strip a leading ```markdown / ```md / ``` fence and its closing ```.
 	const fenceMatch = s.match(/^```(?:markdown|md)?\s*\n([\s\S]*?)\n?```\s*$/i);
 	if (fenceMatch) s = fenceMatch[1].trim();
-	// Drop a single-line preamble that ends with a colon (LLM chatter).
 	const lines = s.split('\n');
 	if (lines.length > 2 && /^[^#\n].{0,80}:\s*$/.test(lines[0].trim())) {
 		s = lines.slice(1).join('\n').trim();
 	}
-	// Demote a solitary leading H1 to H2 so it doesn't clash with our
-	// section header that the frontend prepends.
 	s = s.replace(/^#\s+/, '## ');
 	return s;
 }
@@ -73,7 +70,7 @@ routes.post('/import-url', async (c) => {
 	}
 
 	const creditCost = summarize ? 5 : 1;
-	const validation = await validateCredits(userId, 'AI_CONTEXT_IMPORT_URL', creditCost);
+	const validation = await validateCredits(userId, 'NOTES_IMPORT_URL', creditCost);
 	if (!validation.hasCredits) {
 		return c.json(
 			{
@@ -147,7 +144,7 @@ routes.post('/import-url', async (c) => {
 						{
 							role: 'system',
 							content:
-								'Du bist ein Assistent, der Web-Inhalte in strukturierte Kontext-Dokumente zusammenfasst. ' +
+								'Du bist ein Assistent, der Web-Inhalte in strukturierte Notiz-Dokumente zusammenfasst. ' +
 								'Antworte ausschließlich in sauberem Markdown. Gliedere in H2-Abschnitte: ' +
 								'"## Überblick", "## Kernaussagen", "## Details". Nutze die Sprache der Quelle. ' +
 								'Schreibe die Antwort direkt, ohne Einleitung ("Hier ist…"), ohne Schlussformel, ' +
@@ -175,7 +172,7 @@ routes.post('/import-url', async (c) => {
 
 		await consumeCredits(
 			userId,
-			'AI_CONTEXT_IMPORT_URL',
+			'NOTES_IMPORT_URL',
 			creditCost,
 			`URL import (${mode}${summarize ? ' + summary' : ''})`
 		);
@@ -194,74 +191,4 @@ routes.post('/import-url', async (c) => {
 	}
 });
 
-// ─── AI Generation (server-only: mana-llm) ──────────────────
-
-routes.post('/ai/generate', async (c) => {
-	const userId = c.get('userId');
-	const { prompt, documents, model, maxTokens } = await c.req.json();
-
-	if (!prompt) return c.json({ error: 'prompt required' }, 400);
-
-	// Validate credits
-	const validation = await validateCredits(userId, 'AI_CONTEXT_GENERATE', 5);
-	if (!validation.hasCredits) {
-		return c.json(
-			{ error: 'Insufficient credits', required: 5, available: validation.availableCredits },
-			402
-		);
-	}
-
-	try {
-		// Build messages with document context
-		const messages: Array<{ role: string; content: string }> = [];
-
-		if (documents?.length) {
-			const contextText = documents
-				.map((d: { title: string; content: string }) => `--- ${d.title} ---\n${d.content}`)
-				.join('\n\n');
-			messages.push({
-				role: 'system',
-				content: `Verwende diese Dokumente als Kontext:\n\n${contextText}`,
-			});
-		}
-
-		messages.push({ role: 'user', content: prompt });
-
-		const res = await fetch(`${LLM_URL}/api/v1/chat/completions`, {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({
-				messages,
-				model: model || MANA_LLM.FAST_TEXT,
-				max_tokens: maxTokens || 2000,
-			}),
-		});
-
-		if (!res.ok) return c.json({ error: 'AI generation failed' }, 502);
-
-		const data = await res.json();
-		const content = data.choices?.[0]?.message?.content || '';
-		const tokensUsed = data.usage?.total_tokens || 0;
-
-		// Consume credits
-		await consumeCredits(userId, 'AI_CONTEXT_GENERATE', 5, `AI generation (${tokensUsed} tokens)`);
-
-		return c.json({ content, tokensUsed, model: model || MANA_LLM.FAST_TEXT });
-	} catch (_err) {
-		return c.json({ error: 'Generation failed' }, 500);
-	}
-});
-
-routes.post('/ai/estimate', async (c) => {
-	const { prompt, documents } = await c.req.json();
-	const charCount =
-		(prompt?.length || 0) +
-		(documents || []).reduce(
-			(sum: number, d: { content: string }) => sum + (d.content?.length || 0),
-			0
-		);
-	const estimatedTokens = Math.ceil(charCount / 4);
-	return c.json({ estimatedTokens, estimatedCost: 5 });
-});
-
-export { routes as contextRoutes };
+export { routes as notesRoutes };

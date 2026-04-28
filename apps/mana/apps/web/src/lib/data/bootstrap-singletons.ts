@@ -3,8 +3,8 @@
  *
  * Calls `POST /api/v1/me/bootstrap-singletons` on every authenticated
  * boot. The server-side endpoint provisions any missing per-user
- * (`userContext`) and per-Space (`kontextDoc`) singletons in
- * `mana_sync.sync_changes`. Idempotent — a second call is a no-op.
+ * `userContext` singleton in `mana_sync.sync_changes`. Idempotent — a
+ * second call is a no-op.
  *
  * Why call it on boot when the signup-time hooks already do this work:
  * the hooks are fire-and-forget and a transient mana_sync outage during
@@ -14,9 +14,9 @@
  * the first write.
  *
  * Best-effort: failures are swallowed and logged. The webapp's
- * fallback paths (`getOrCreateLocalDoc()` in `userContextStore` /
- * `kontextStore`) still cover the rare race where a write happens
- * before the bootstrap row arrives.
+ * fallback path (`getOrCreateLocalDoc()` in `userContextStore`) still
+ * covers the rare race where a write happens before the bootstrap row
+ * arrives.
  */
 
 import { browser } from '$app/environment';

@@ -2,14 +2,19 @@
  * Default input resolvers.
  *
  * Registered from `setup.ts` so the production MissionRunner can load
- * notes / kontext / goals without every module having to know about the
- * AI subsystem. Modules that need special projection logic register their
- * own resolver on init and override these defaults.
+ * notes / goals / profile / todo / calendar without every module having
+ * to know about the AI subsystem. Modules that need special projection
+ * logic register their own resolver on init and override these defaults.
+ *
+ * Space-Kontext: since the kontextDoc table was retired in favour of a
+ * `notes.isSpaceContext` flag, the "this is the standing context for
+ * this Space" candidate is just a regular Note marked with the flag.
+ * The notesResolver handles it like any other note; the notesIndexer
+ * surfaces it with a star prefix so the picker bubbles it to the top.
  */
 
 import { db } from '../../database';
 import { decryptRecords } from '../../crypto';
-import { scopedTable } from '../../scope/scoped-db';
 import { registerInputResolver } from './input-resolvers';
 import { registerInputIndexer } from './input-index';
 import type { InputResolver } from './input-resolvers';
@@ -20,6 +25,7 @@ interface NoteLike {
 	title?: string;
 	content?: string;
 	deletedAt?: string;
+	isSpaceContext?: boolean;
 }
 
 const notesResolver: InputResolver = async (ref) => {
@@ -31,24 +37,6 @@ const notesResolver: InputResolver = async (ref) => {
 		module: ref.module,
 		table: ref.table,
 		title: decrypted.title,
-		content: decrypted.content ?? '',
-	};
-};
-
-interface KontextDocLike {
-	id: string;
-	content?: string;
-}
-
-const kontextResolver: InputResolver = async (ref) => {
-	const doc = await db.table<KontextDocLike>('kontextDoc').get(ref.id);
-	if (!doc) return null;
-	const [decrypted] = await decryptRecords('kontextDoc', [doc]);
-	return {
-		id: ref.id,
-		module: ref.module,
-		table: ref.table,
-		title: 'Kontext',
 		content: decrypted.content ?? '',
 	};
 };
@@ -155,35 +143,25 @@ const notesIndexer: InputIndexer = async () => {
 	const all = await db.table<NoteLike>('notes').toArray();
 	const visible = all.filter((n) => !n.deletedAt);
 	const decrypted = await decryptRecords('notes', visible);
-	return decrypted
-		.map<InputCandidate>((n) => ({
-			module: 'notes',
-			table: 'notes',
-			id: n.id,
-			label: (n.title && n.title.trim()) || '(ohne Titel)',
-			hint: n.content ? `${n.content.slice(0, 60).replace(/\s+/g, ' ')}…` : undefined,
-		}))
-		.slice(0, 200); // cap — Mission picker isn't meant to list thousands
-};
-
-const kontextIndexer: InputIndexer = async () => {
-	// Per-Space since Phase 2d.2: the kontextDoc for the active Space is
-	// the only candidate we surface to the picker. Personal-Space's legacy
-	// singleton row is matched via the `_personal:<userId>` sentinel in
-	// scopedTable's getInScopeSpaceIds(); Shared/Brand/Family Spaces that
-	// haven't yet authored a kontextDoc simply return an empty list.
-	const rows = await scopedTable<KontextDocLike, string>('kontextDoc').toArray();
-	const match = rows[0];
-	if (!match) return [];
-	return [
-		{
-			module: 'kontext',
-			table: 'kontextDoc',
-			id: match.id,
-			label: 'Kontext-Dokument',
-			hint: 'Dein zentrales Markdown-Dokument für diesen Space',
-		},
-	];
+	const candidates = decrypted.map<InputCandidate>((n) => ({
+		module: 'notes',
+		table: 'notes',
+		id: n.id,
+		label: (n.isSpaceContext ? '★ ' : '') + ((n.title && n.title.trim()) || '(ohne Titel)'),
+		hint: n.isSpaceContext
+			? 'Space-Kontext (auto-injected)'
+			: n.content
+				? `${n.content.slice(0, 60).replace(/\s+/g, ' ')}…`
+				: undefined,
+	}));
+	// Sort: space-context-flagged notes first, then alphabetical.
+	candidates.sort((a, b) => {
+		const aFirst = a.label.startsWith('★ ');
+		const bFirst = b.label.startsWith('★ ');
+		if (aFirst !== bFirst) return aFirst ? -1 : 1;
+		return a.label.localeCompare(b.label);
+	});
+	return candidates.slice(0, 200); // cap — Mission picker isn't meant to list thousands
 };
 
 const goalsIndexer: InputIndexer = async () => {
@@ -303,13 +281,11 @@ let registered = false;
 export function registerDefaultInputResolvers(): void {
 	if (registered) return;
 	registerInputResolver('notes', notesResolver);
-	registerInputResolver('kontext', kontextResolver);
 	registerInputResolver('profile', userContextResolver);
 	registerInputResolver('goals', goalsResolver);
 	registerInputResolver('todo', tasksResolver);
 	registerInputResolver('calendar', calendarResolver);
 	registerInputIndexer('notes', notesIndexer);
-	registerInputIndexer('kontext', kontextIndexer);
 	registerInputIndexer('profile', userContextIndexer);
 	registerInputIndexer('goals', goalsIndexer);
 	registerInputIndexer('todo', tasksIndexer);

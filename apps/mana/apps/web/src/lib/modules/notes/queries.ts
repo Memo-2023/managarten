@@ -35,6 +35,7 @@ export function toNote(local: LocalNote): Note {
 		transcriptModel: local.transcriptModel ?? null,
 		isPinned: local.isPinned,
 		isArchived: local.isArchived,
+		isSpaceContext: local.isSpaceContext ?? false,
 		createdAt: local.createdAt ?? new Date().toISOString(),
 		updatedAt: deriveUpdatedAt(local),
 	};
@@ -61,6 +62,25 @@ export function useAllNotes() {
 			return b.updatedAt.localeCompare(a.updatedAt);
 		});
 	}, [] as Note[]);
+}
+
+/**
+ * The single note marked `isSpaceContext: true` in the active Space, or
+ * null if no note holds that flag yet. Used by the AI Mission Runner to
+ * auto-inject "what's this Space about" into every planner call. The
+ * store guarantees mutex (max 1 per Space), so `find` is enough.
+ */
+export function useSpaceContextNote() {
+	return useScopedLiveQuery(
+		async () => {
+			const raw = await scopedForModule<LocalNote, string>('notes', 'notes').toArray();
+			const match = raw.find((n) => !n.deletedAt && n.isSpaceContext === true);
+			if (!match) return null;
+			const [decrypted] = await decryptRecords('notes', [match]);
+			return decrypted ? toNote(decrypted) : null;
+		},
+		null as Note | null
+	);
 }
 
 /** Single note by id, decrypted. Used by detail views. */

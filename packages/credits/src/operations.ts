@@ -50,8 +50,8 @@ export enum CreditOperationType {
 	// Traces - City guide generation
 	AI_GUIDE_GENERATION = 'ai_guide_generation',
 
-	// Context - AI text generation
-	AI_CONTEXT_GENERATION = 'ai_context_generation',
+	// Notes - URL crawl + optional summary into a Note
+	NOTES_IMPORT_URL = 'notes_import_url',
 
 	// General AI features
 	AI_SMART_SCHEDULING = 'ai_smart_scheduling',
@@ -104,7 +104,7 @@ export const CREDIT_COSTS: Record<CreditOperationType, number> = {
 
 	[CreditOperationType.AI_PLANT_ANALYSIS]: 2,
 	[CreditOperationType.AI_GUIDE_GENERATION]: 5,
-	[CreditOperationType.AI_CONTEXT_GENERATION]: 2,
+	[CreditOperationType.NOTES_IMPORT_URL]: 1,
 
 	[CreditOperationType.AI_SMART_SCHEDULING]: 2,
 	[CreditOperationType.AI_SUGGESTIONS]: 2,
@@ -259,12 +259,12 @@ export const OPERATION_METADATA: Record<CreditOperationType, OperationMetadata> 
 		app: 'traces',
 	},
 
-	// Context
-	[CreditOperationType.AI_CONTEXT_GENERATION]: {
-		name: 'AI Text Generation',
-		description: 'Generate or transform text with AI',
+	// Notes
+	[CreditOperationType.NOTES_IMPORT_URL]: {
+		name: 'URL Import (Note)',
+		description: 'Crawl a URL and create a Markdown Note (optional AI summary)',
 		category: CreditCategory.AI,
-		app: 'context',
+		app: 'notes',
 	},
 
 	// General AI

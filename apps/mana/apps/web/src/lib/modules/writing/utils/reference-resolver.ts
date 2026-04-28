@@ -21,11 +21,9 @@ import { db } from '$lib/data/database';
 import { toArticle } from '$lib/modules/articles/queries';
 import { toNote } from '$lib/modules/notes/queries';
 import { toLibraryEntry } from '$lib/modules/library/queries';
-import { toKontextDoc } from '$lib/modules/kontext/queries';
 import type { LocalArticle } from '$lib/modules/articles/types';
 import type { LocalNote } from '$lib/modules/notes/types';
 import type { LocalLibraryEntry } from '$lib/modules/library/types';
-import type { LocalKontextDoc } from '$lib/modules/kontext/types';
 import type { LocalMeImage } from '$lib/modules/profile/types';
 import type { LocalGoal } from '$lib/companion/goals/types';
 import type { DraftReference } from '../types';
@@ -134,23 +132,23 @@ function resolveUrl(ref: DraftReference): Omit<ResolvedReference, 'kind' | 'note
 }
 
 /**
- * Kontext is a per-space singleton — the picker stores a sentinel
- * targetId ('singleton'), and the resolver ignores it and picks the
- * first non-deleted row scoped to the active space. Legacy rows use
- * id='singleton' explicitly; fresh rows use a uuid but are still
- * singular per space.
+ * Kontext = the active Space's standing-context Note (the one with
+ * `isSpaceContext: true`). Picker stores a sentinel targetId since the
+ * resolver ignores it and finds the flagged note via scope-scan.
+ * Replaces the retired per-space `kontextDoc` singleton table — same
+ * concept, regular Note as the storage.
  */
 async function resolveKontext(): Promise<Omit<ResolvedReference, 'kind' | 'note'> | null> {
-	const rows = await scopedForModule<LocalKontextDoc, string>('kontext', 'kontextDoc').toArray();
-	const local = rows.find((r) => !r.deletedAt);
+	const rows = await scopedForModule<LocalNote, string>('notes', 'notes').toArray();
+	const local = rows.find((r) => !r.deletedAt && r.isSpaceContext === true);
 	if (!local) return null;
-	const [decrypted] = await decryptRecords('kontextDoc', [local]);
+	const [decrypted] = await decryptRecords('notes', [local]);
 	if (!decrypted) return null;
-	const doc = toKontextDoc(decrypted);
+	const note = toNote(decrypted);
 	return {
-		sourceLabel: 'Kontext-Dokument des Spaces',
-		title: 'Kontext',
-		content: truncate(doc.content ?? ''),
+		sourceLabel: 'Space-Kontext (Notiz)',
+		title: note.title || 'Kontext',
+		content: truncate(note.content ?? ''),
 	};
 }
 

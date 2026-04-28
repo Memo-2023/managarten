@@ -153,7 +153,6 @@ const track = {
 	contacts: createModuleTracker('contacts'),
 	cards: createModuleTracker('cards'),
 	mana: createModuleTracker('mana'),
-	context: createModuleTracker('context'),
 	skilltree: createModuleTracker('skilltree'),
 	food: createModuleTracker('food'),
 	plants: createModuleTracker('plants'),
@@ -350,18 +349,6 @@ export const ManaEvents = {
 	 */
 	featureBlockedByAuth: (params: { feature: string; action: 'login' | 'cancel' }) =>
 		track.mana('feature_blocked_by_auth', params),
-};
-
-/**
- * Context App Events
- */
-export const ContextEvents = {
-	documentCreated: (type: string) => track.context('document_created', { type }),
-	documentDeleted: () => track.context('document_deleted'),
-	documentPinned: (pinned: boolean) => track.context('document_pinned', { pinned }),
-	spaceCreated: () => track.context('space_created'),
-	spaceDeleted: () => track.context('space_deleted'),
-	aiGenerated: () => track.context('ai_generated'),
 };
 
 /**

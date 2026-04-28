@@ -35,9 +35,9 @@ export const SYSTEM_STREAM = 'system:stream';
 export const SYSTEM_MISSION_RUNNER = 'system:mission-runner';
 /**
  * Client-side singleton bootstrap. Stamped on the rare race-window
- * `getOrCreateLocalDoc()` insert in `userContextStore` / `kontextStore`
- * — a structural twin of mana-auth's server-side bootstrap (which uses
- * the `'system:bootstrap'` principalId on the wire). Maps to
+ * `getOrCreateLocalDoc()` insert in `userContextStore` — a structural
+ * twin of mana-auth's server-side bootstrap (which uses the
+ * `'system:bootstrap'` principalId on the wire). Maps to
  * `origin='system'` via `originFromActor`, so the conflict-gate exempts
  * it from the user-write codepath.
  */

@@ -68,7 +68,6 @@ import {
 	Question,
 	ChatCircleDots,
 	SquaresFour,
-	Scroll,
 	Spiral,
 	Crown,
 	ShootingStar,
@@ -574,16 +573,6 @@ registerApp({
 	},
 	collection: 'conversations',
 	paramKey: 'conversationId',
-});
-
-registerApp({
-	id: 'kontext',
-	name: 'Web-Context',
-	color: '#A78B6F',
-	icon: Scroll,
-	views: {
-		list: { load: () => import('$lib/modules/kontext/KontextView.svelte') },
-	},
 });
 
 registerApp({
