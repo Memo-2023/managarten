@@ -9,6 +9,7 @@
 	import SharedPlaceView from '$lib/modules/places/SharedPlaceView.svelte';
 	import SharedAugurEntryView from '$lib/modules/augur/SharedAugurEntryView.svelte';
 	import SharedLastView from '$lib/modules/lasts/SharedLastView.svelte';
+	import SharedFormView from '$lib/modules/forms/SharedFormView.svelte';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
@@ -24,6 +25,8 @@
 	<SharedAugurEntryView blob={data.blob} token={data.token} expiresAt={data.expiresAt} />
 {:else if data.collection === 'lasts'}
 	<SharedLastView blob={data.blob} token={data.token} expiresAt={data.expiresAt} />
+{:else if data.collection === 'forms'}
+	<SharedFormView blob={data.blob} token={data.token} expiresAt={data.expiresAt} />
 {:else}
 	<div class="unknown">
 		<h1>Unbekannter Link-Typ</h1>

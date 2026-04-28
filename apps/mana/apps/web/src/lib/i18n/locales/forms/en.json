@@ -71,6 +71,10 @@
 			"allowMultiple": "Allow multiple submissions per person",
 			"anonymous": "Anonymous — don't store submitter data"
 		},
+		"visibility": {
+			"title": "Visibility & Sharing",
+			"publishHint": "Set the status to \"Published\" to share."
+		},
 		"viewResponses": "Responses ({n})"
 	},
 	"responses": {

@@ -23,6 +23,7 @@ import type { LocalPlace } from '$lib/modules/places/types';
 import type { LocalTimeBlock } from '$lib/data/time-blocks/types';
 import type { LocalAugurEntry } from '$lib/modules/augur/types';
 import type { LocalLast } from '$lib/modules/lasts/types';
+import type { LocalForm } from '$lib/modules/forms/types';
 
 export class UnsupportedCollectionError extends Error {
 	constructor(collection: string) {
@@ -57,6 +58,8 @@ export async function buildUnlistedBlob(
 			return buildAugurEntryBlob(recordId);
 		case 'lasts':
 			return buildLastBlob(recordId);
+		case 'forms':
+			return buildFormBlob(recordId);
 		default:
 			throw new UnsupportedCollectionError(collection);
 	}
@@ -266,5 +269,61 @@ async function buildLastBlob(recordId: string): Promise<Record<string, unknown>>
 		whatIKnowNow: decrypted.whatIKnowNow ?? null,
 		tenderness: decrypted.tenderness ?? null,
 		wouldReclaim: decrypted.wouldReclaim ?? null,
+	};
+}
+
+/**
+ * Form → public-submit snapshot blob.
+ *
+ * Whitelist: title, description, fields, branching,
+ * settings.submitButtonLabel, settings.successMessage. The blob is
+ * what an unauthenticated submitter sees when they hit
+ * `/forms/<token>` — it's the form schema plus the two pieces of
+ * settings copy that surface in the public UI.
+ *
+ * Hard-blocked from the snapshot:
+ *   - `responseCount`        — internal counter, leaks scale
+ *   - `settings.requireEmail`/`allowMultipleSubmissions`/`anonymous`/
+ *     `zkMode`/`autoSync`/`responseLimit`/`closedAt` — these are
+ *     authoritative server-side checks in the public-submit endpoint
+ *     (M3.b) and should not be discoverable via the public blob;
+ *     leaking them invites enumeration probes.
+ *   - `responsesPublic` — explicitly omitted; the public view shows
+ *     the form, not the answers. M-future will need a separate share
+ *     token + endpoint for response-aggregate publication.
+ *
+ * Refuses to serialise closed forms (status === 'closed') so revoked
+ * tokens can't be brought back via a snapshot replay. Draft forms are
+ * also refused — only `published` forms have a public surface.
+ */
+async function buildFormBlob(recordId: string): Promise<Record<string, unknown>> {
+	const raw = await db.table<LocalForm>('forms').get(recordId);
+	if (!raw || raw.deletedAt) {
+		throw new RecordNotFoundError('forms', recordId);
+	}
+	if (raw.status !== 'published') {
+		throw new RecordNotFoundError('forms', recordId);
+	}
+
+	const decrypted = (await decryptRecord('forms', { ...raw })) as LocalForm;
+
+	const settings = decrypted.settings ?? {
+		submitButtonLabel: 'Senden',
+		successMessage: 'Danke! Deine Antwort wurde übermittelt.',
+		allowMultipleSubmissions: false,
+		requireEmail: false,
+		anonymous: false,
+		zkMode: false,
+	};
+
+	return {
+		title: decrypted.title,
+		description: decrypted.description ?? null,
+		fields: decrypted.fields ?? [],
+		branching: decrypted.branching ?? [],
+		settings: {
+			submitButtonLabel: settings.submitButtonLabel,
+			successMessage: settings.successMessage,
+		},
 	};
 }

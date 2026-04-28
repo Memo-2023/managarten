@@ -19,6 +19,12 @@
 	import FieldPalette from '../components/FieldPalette.svelte';
 	import SettingsPanel from '../components/SettingsPanel.svelte';
 	import BranchingEditor from '../components/BranchingEditor.svelte';
+	import {
+		VisibilityPicker,
+		SharedLinkControls,
+		buildShareUrl,
+		type VisibilityLevel,
+	} from '@mana/shared-privacy';
 
 	let { entry }: { entry: Form } = $props();
 
@@ -112,6 +118,36 @@
 	async function patchBranching(next: BranchingRule[]) {
 		await formsStore.updateBranching(entry.id, next);
 	}
+
+	// ── Visibility / Share-Link ────────────────────────────
+	let visibilityError = $state<string | null>(null);
+
+	async function onVisibilityChange(next: VisibilityLevel) {
+		visibilityError = null;
+		try {
+			await formsStore.setVisibility(entry.id, next);
+		} catch (err) {
+			visibilityError = err instanceof Error ? err.message : String(err);
+		}
+	}
+
+	async function handleRegenerate() {
+		await formsStore.regenerateUnlistedToken(entry.id);
+	}
+
+	async function handleRevoke() {
+		await formsStore.setVisibility(entry.id, 'private');
+	}
+
+	async function handleExpiryChange(expiresAt: Date | null) {
+		await formsStore.setUnlistedExpiry(entry.id, expiresAt);
+	}
+
+	const shareUrl = $derived.by(() => {
+		if (!entry.unlistedToken) return '';
+		const origin = typeof window === 'undefined' ? 'https://mana.how' : window.location.origin;
+		return buildShareUrl(origin, entry.unlistedToken);
+	});
 
 	async function setStatus(status: FormStatus) {
 		await formsStore.setStatus(entry.id, status);
@@ -224,6 +260,35 @@
 		{/if}
 
 		<FieldPalette onpick={pickField} />
+	</section>
+
+	<section class="visibility-section">
+		<header class="vis-header">
+			<p class="panel-title">
+				{$_('forms.builder.visibility.title', { default: 'Sichtbarkeit & Teilen' })}
+			</p>
+			{#if entry.status !== 'published' && entry.visibility !== 'unlisted'}
+				<span class="vis-hint">
+					{$_('forms.builder.visibility.publishHint', {
+						default: 'Setze den Status auf "Veröffentlicht", um zu teilen.',
+					})}
+				</span>
+			{/if}
+		</header>
+		<VisibilityPicker level={entry.visibility} onChange={onVisibilityChange} />
+		{#if visibilityError}
+			<p class="vis-error">{visibilityError}</p>
+		{/if}
+		{#if entry.visibility === 'unlisted' && entry.unlistedToken && shareUrl}
+			<SharedLinkControls
+				token={entry.unlistedToken}
+				url={shareUrl}
+				expiresAt={entry.unlistedExpiresAt}
+				onRegenerate={handleRegenerate}
+				onRevoke={handleRevoke}
+				onExpiryChange={handleExpiryChange}
+			/>
+		{/if}
 	</section>
 
 	<section class="branching-section">
@@ -372,10 +437,45 @@
 
 	.fields-section,
 	.settings-section,
-	.branching-section {
+	.branching-section,
+	.visibility-section {
 		display: flex;
 		flex-direction: column;
 		gap: 0.625rem;
+	}
+
+	.visibility-section {
+		padding: 0.875rem;
+		background: rgb(255 255 255 / 0.03);
+		border: 1px solid rgb(255 255 255 / 0.06);
+		border-radius: 0.5rem;
+	}
+
+	.vis-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+	}
+
+	.panel-title {
+		margin: 0;
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		color: rgb(255 255 255 / 0.5);
+	}
+
+	.vis-hint {
+		font-size: 0.75rem;
+		color: rgb(255 255 255 / 0.45);
+	}
+
+	.vis-error {
+		margin: 0;
+		font-size: 0.8125rem;
+		color: rgb(252 165 165);
 	}
 
 	.section-header {

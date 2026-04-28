@@ -71,6 +71,10 @@
 			"allowMultiple": "Mehrere Antworten pro Person erlauben",
 			"anonymous": "Anonym — Submitter-Daten nicht speichern"
 		},
+		"visibility": {
+			"title": "Sichtbarkeit & Teilen",
+			"publishHint": "Setze den Status auf \"Veröffentlicht\", um zu teilen."
+		},
 		"viewResponses": "Antworten ({n})"
 	},
 	"responses": {
