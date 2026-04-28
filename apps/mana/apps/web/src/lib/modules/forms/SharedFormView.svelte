@@ -22,7 +22,7 @@
 
 	let {
 		blob,
-		token: _token,
+		token,
 		expiresAt,
 	}: {
 		blob: Record<string, unknown>;
@@ -33,7 +33,26 @@
 	const form = $derived(blob as unknown as FormBlob);
 
 	let answers = $state<Record<string, AnswerValue>>({});
+	let submitterEmail = $state('');
+	let submitterName = $state('');
 	let submitted = $state(false);
+	let submitting = $state(false);
+	let submitError = $state<string | null>(null);
+
+	function apiBaseUrl(): string {
+		// Public-form view is served from the same SvelteKit origin as
+		// the Mana webapp, but mana-api is a separate service. The
+		// PUBLIC_MANA_API_URL build-var carries the absolute URL in
+		// production; for local dev fallback to the conventional
+		// :3060 origin used by apps/api.
+		const env = import.meta.env as Record<string, string | undefined>;
+		const fromEnv = env.PUBLIC_MANA_API_URL;
+		if (fromEnv) return fromEnv.replace(/\/$/, '');
+		if (typeof window !== 'undefined') {
+			return window.location.origin.replace(/:5173/, ':3060');
+		}
+		return 'http://localhost:3060';
+	}
 
 	const visibleFields = $derived(resolveVisibleFields(form.fields, form.branching ?? [], answers));
 
@@ -69,12 +88,40 @@
 
 	const allRequiredFilled = $derived(visibleFields.filter(isFieldRequired).every(isFieldFilled));
 
-	function handleSubmit(e: SubmitEvent) {
+	async function handleSubmit(e: SubmitEvent) {
 		e.preventDefault();
-		// Public-Submit endpoint not yet wired (M3.b). Once it lands, this
-		// posts answers to /api/v1/forms/public/<token>/submit and shows
-		// the success message.
-		submitted = true;
+		if (submitting) return;
+		submitting = true;
+		submitError = null;
+
+		try {
+			const url = `${apiBaseUrl()}/api/v1/forms/public/${encodeURIComponent(token)}/submit`;
+			const res = await fetch(url, {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					answers,
+					submitterEmail: submitterEmail.trim() || null,
+					submitterName: submitterName.trim() || null,
+				}),
+			});
+			if (!res.ok) {
+				const txt = await res.text().catch(() => '');
+				let msg: string | undefined;
+				try {
+					msg = JSON.parse(txt)?.message;
+				} catch {
+					msg = txt;
+				}
+				submitError = msg || `Übertragung fehlgeschlagen (${res.status})`;
+				return;
+			}
+			submitted = true;
+		} catch (err) {
+			submitError = err instanceof Error ? err.message : 'Verbindung zum Server fehlgeschlagen.';
+		} finally {
+			submitting = false;
+		}
 	}
 
 	function fmtExpiry(iso: string | null): string {
@@ -98,12 +145,6 @@
 	{#if submitted}
 		<div class="thanks">
 			<p class="thanks-message">{form.settings.successMessage}</p>
-			<p class="dev-note">
-				<em
-					>Hinweis: Public-Submit ist im aktuellen Mana-Build noch nicht serverseitig verdrahtet —
-					deine Antwort wurde nicht übermittelt.</em
-				>
-			</p>
 		</div>
 	{:else}
 		<form class="form-body" onsubmit={handleSubmit}>
@@ -233,16 +274,34 @@
 				</div>
 			{/each}
 
+			<div class="submitter-block">
+				<label class="field-label">
+					Dein Name <span class="optional">(optional)</span>
+				</label>
+				<input
+					type="text"
+					value={submitterName}
+					oninput={(e) => (submitterName = (e.currentTarget as HTMLInputElement).value)}
+					placeholder="Anna Mustermann"
+				/>
+				<label class="field-label">
+					Deine E-Mail <span class="optional">(optional)</span>
+				</label>
+				<input
+					type="email"
+					value={submitterEmail}
+					oninput={(e) => (submitterEmail = (e.currentTarget as HTMLInputElement).value)}
+					placeholder="anna@example.com"
+				/>
+			</div>
+
 			<footer class="form-footer">
-				<button type="submit" class="submit" disabled={!allRequiredFilled}>
-					{form.settings.submitButtonLabel}
+				<button type="submit" class="submit" disabled={!allRequiredFilled || submitting}>
+					{submitting ? 'Sende ...' : form.settings.submitButtonLabel}
 				</button>
-				<p class="dev-note">
-					<em
-						>Public-Submit landet im nächsten Mana-Schritt — vorerst zeigt der Klick nur die
-						Bestätigungsnachricht.</em
-					>
-				</p>
+				{#if submitError}
+					<p class="error">{submitError}</p>
+				{/if}
 				{#if expiresAt}
 					<p class="expiry">Dieser Link läuft am {fmtExpiry(expiresAt)} ab.</p>
 				{/if}
@@ -434,16 +493,34 @@
 		cursor: not-allowed;
 	}
 
-	.dev-note {
-		margin: 0;
-		font-size: 0.75rem;
-		color: #9ca3af;
-	}
-
 	.expiry {
 		margin: 0;
 		font-size: 0.75rem;
 		color: #6b7280;
+	}
+
+	.error {
+		margin: 0;
+		padding: 0.5rem 0.75rem;
+		background: #fee2e2;
+		border: 1px solid #fca5a5;
+		border-radius: 0.375rem;
+		font-size: 0.8125rem;
+		color: #991b1b;
+	}
+
+	.submitter-block {
+		display: flex;
+		flex-direction: column;
+		gap: 0.375rem;
+		padding-top: 0.5rem;
+		border-top: 1px solid #e5e7eb;
+	}
+
+	.optional {
+		font-size: 0.75rem;
+		color: #6b7280;
+		font-weight: normal;
 	}
 
 	.thanks {

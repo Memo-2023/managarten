@@ -52,6 +52,7 @@ import { websiteRoutes } from './modules/website/routes';
 import { websitePublicRoutes } from './modules/website/public-routes';
 import { unlistedRoutes } from './modules/unlisted/routes';
 import { unlistedPublicRoutes } from './modules/unlisted/public-routes';
+import { formsPublicRoutes } from './modules/forms/public-routes';
 import { wetterRoutes } from './modules/wetter/routes';
 
 const PORT = parseInt(process.env.PORT || '3060', 10);
@@ -81,6 +82,7 @@ app.use('/api/*', rateLimitMiddleware({ max: 200, windowMs: 60_000 }));
 app.route('/api/v1/wetter', wetterRoutes);
 app.route('/api/v1/website/public', websitePublicRoutes);
 app.route('/api/v1/unlisted/public', unlistedPublicRoutes);
+app.route('/api/v1/forms/public', formsPublicRoutes);
 
 app.use('/api/*', authMiddleware());
 
