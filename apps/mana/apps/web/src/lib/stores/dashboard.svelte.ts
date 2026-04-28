@@ -235,7 +235,6 @@ export const dashboardStore = {
 				'quotes-quote',
 				'music-library',
 				'presi-decks',
-				'context-docs',
 			] as WidgetType[]
 		).filter((type) => {
 			const meta = getWidgetMeta(type);

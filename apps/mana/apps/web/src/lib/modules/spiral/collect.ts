@@ -39,7 +39,6 @@ export async function collectAppSnapshots(): Promise<AppSnapshot[]> {
 		files,
 		songs,
 		decks,
-		spaces,
 		cardDecks,
 		cards,
 	] = await Promise.all([
@@ -53,7 +52,6 @@ export async function collectAppSnapshots(): Promise<AppSnapshot[]> {
 		safeGetAll('files'),
 		safeGetAll('songs'),
 		safeGetAll('presiDecks'),
-		safeGetAll('contextSpaces'),
 		safeGetAll('cardDecks'),
 		safeGetAll('cards'),
 	]);
@@ -178,18 +176,6 @@ export async function collectAppSnapshots(): Promise<AppSnapshot[]> {
 			completedItems: 0,
 			favoriteItems: 0,
 			label: `${decks.length} Präsentationen`,
-		});
-	}
-
-	// Context
-	if (spaces.length > 0) {
-		snapshots.push({
-			app: 'Context',
-			appIndex: MANA_APP_INDEX.context,
-			totalItems: spaces.length,
-			completedItems: 0,
-			favoriteItems: 0,
-			label: `${spaces.length} Spaces`,
 		});
 	}
 

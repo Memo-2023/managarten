@@ -81,7 +81,6 @@ describe('WIDGET_REGISTRY', () => {
 		expect(types).toContain('storage-usage');
 		expect(types).toContain('music-library');
 		expect(types).toContain('presi-decks');
-		expect(types).toContain('context-docs');
 	});
 
 	it('should have i18n-style name keys', () => {

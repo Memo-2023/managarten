@@ -20,7 +20,6 @@ import {
 	MoneyWavy,
 	MapPin,
 	ChatCircle,
-	File,
 	Clock,
 	Quotes,
 	Cards,
@@ -588,16 +587,6 @@ registerApp({
 });
 
 registerApp({
-	id: 'context',
-	name: 'Context',
-	color: '#7C3AED',
-	icon: File,
-	views: {
-		list: { load: () => import('$lib/modules/context/ListView.svelte') },
-	},
-});
-
-registerApp({
 	id: 'times',
 	name: 'Times',
 	color: '#F59E0B',
@@ -853,16 +842,6 @@ registerApp({
 		detail: { load: () => import('$lib/modules/events/views/DetailView.svelte') },
 	},
 	paramKey: 'eventId',
-});
-
-registerApp({
-	id: 'who',
-	name: 'Who',
-	color: '#a855f7',
-	icon: PersonSimpleCircle,
-	views: {
-		list: { load: () => import('$lib/modules/who/ListView.svelte') },
-	},
 });
 
 registerApp({

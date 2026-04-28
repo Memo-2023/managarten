@@ -24,7 +24,6 @@ export type WidgetType =
 	| 'storage-usage' // Storage: file storage stats
 	| 'music-library' // Music: music library stats
 	| 'presi-decks' // Presi: recent presentations
-	| 'context-docs' // Context: recent documents & spaces
 	| 'active-timer' // Times: running timer
 	| 'nutrition-progress' // Food: today's calorie progress
 	| 'plant-watering' // Plants: plants due for watering
@@ -277,15 +276,6 @@ export const WIDGET_REGISTRY: WidgetMeta[] = [
 		defaultSize: 'medium',
 		allowMultiple: false,
 		requiredBackend: 'presi',
-	},
-	{
-		type: 'context-docs',
-		nameKey: 'dashboard.widgets.context.title',
-		descriptionKey: 'dashboard.widgets.context.description',
-		icon: '📝',
-		defaultSize: 'medium',
-		allowMultiple: false,
-		requiredBackend: 'context',
 	},
 	{
 		type: 'contacts-recent',

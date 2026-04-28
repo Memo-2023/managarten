@@ -38,7 +38,6 @@ export const PLAINTEXT_ALLOWLIST: readonly string[] = [
 	'companionGoals', // TODO: audit
 	'companionMessages', // TODO: audit
 	'contactTags', // TODO: audit
-	'contextSpaces', // TODO: audit
 	'conversationTags', // TODO: audit
 	'customQuotes', // TODO: audit
 	'dashboardConfigs', // TODO: audit

@@ -21,13 +21,30 @@
 import { getSyncConnection } from '../../mcp/sync-db';
 
 type Row = Record<string, unknown>;
+/**
+ * `field_meta` is one of two shapes on the wire:
+ *   - Legacy plaintext writes: `{[fieldName]: ISOString}`
+ *   - Field-meta-overhaul writes: `{[fieldName]: {at, actor, origin}}`
+ * `fieldMetaTime()` below normalises both into the comparable ISO string.
+ */
 interface ChangeRow {
 	user_id: string;
 	record_id: string;
 	op: string;
 	data: Row | null;
-	field_meta: Record<string, string> | null;
+	field_meta: Record<string, unknown> | null;
 	created_at: Date;
+}
+
+/** Pull the timestamp out of either shape. Falls back to empty string
+ *  so the LWW comparison never throws on undefined. */
+function fieldMetaTime(meta: unknown): string {
+	if (typeof meta === 'string') return meta;
+	if (meta && typeof meta === 'object') {
+		const at = (meta as { at?: unknown }).at;
+		if (typeof at === 'string') return at;
+	}
+	return '';
 }
 
 export interface ImportJobRow {
@@ -134,6 +151,9 @@ function mergeByUserAndRecord(rows: readonly ChangeRow[]): Map<string, MergedEnt
 		userId: string;
 		recordId: string;
 		record: Row | null;
+		/** Per-field LWW timestamps (normalised to ISO strings — see
+		 *  fieldMetaTime). Both wire shapes are folded down to plain
+		 *  strings here so the projection comparison stays trivial. */
 		fm: Record<string, string>;
 	};
 	let current: Cur | null = null;
@@ -151,14 +171,19 @@ function mergeByUserAndRecord(rows: readonly ChangeRow[]): Map<string, MergedEnt
 			continue;
 		}
 		if (!r.data) continue;
+		const rowCreatedAt = r.created_at.toISOString();
 		if (!current.record) {
 			current.record = { id: r.record_id, ...r.data };
-			current.fm = { ...(r.field_meta ?? {}) };
+			const initFM = r.field_meta ?? {};
+			current.fm = {};
+			for (const k of Object.keys(initFM)) {
+				current.fm[k] = fieldMetaTime(initFM[k]) || rowCreatedAt;
+			}
 			continue;
 		}
 		const rowFM = r.field_meta ?? {};
 		for (const [k, v] of Object.entries(r.data)) {
-			const serverTime = rowFM[k] ?? r.created_at.toISOString();
+			const serverTime = fieldMetaTime(rowFM[k]) || rowCreatedAt;
 			const localTime = current.fm[k] ?? '';
 			if (serverTime >= localTime) {
 				current.record[k] = v;

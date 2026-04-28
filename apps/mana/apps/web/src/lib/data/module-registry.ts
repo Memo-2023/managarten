@@ -66,7 +66,6 @@ import { photosModuleConfig } from '$lib/modules/photos/module.config';
 import { skilltreeModuleConfig } from '$lib/modules/skilltree/module.config';
 import { citycornersModuleConfig } from '$lib/modules/citycorners/module.config';
 import { timesModuleConfig } from '$lib/modules/times/module.config';
-import { contextModuleConfig } from '$lib/modules/context/module.config';
 import { questionsModuleConfig } from '$lib/modules/questions/module.config';
 import { foodModuleConfig } from '$lib/modules/food/module.config';
 import { plantsModuleConfig } from '$lib/modules/plants/module.config';
@@ -84,7 +83,6 @@ import { eventsModuleConfig } from '$lib/modules/events/module.config';
 import { financeModuleConfig } from '$lib/modules/finance/module.config';
 import { placesModuleConfig } from '$lib/modules/places/module.config';
 import { playgroundModuleConfig } from '$lib/modules/playground/module.config';
-import { whoModuleConfig } from '$lib/modules/who/module.config';
 import { newsModuleConfig } from '$lib/modules/news/module.config';
 import { bodyModuleConfig } from '$lib/modules/body/module.config';
 import { firstsModuleConfig } from '$lib/modules/firsts/module.config';
@@ -132,7 +130,6 @@ export const MODULE_CONFIGS: readonly ModuleConfig[] = [
 	skilltreeModuleConfig,
 	citycornersModuleConfig,
 	timesModuleConfig,
-	contextModuleConfig,
 	questionsModuleConfig,
 	foodModuleConfig,
 	plantsModuleConfig,
@@ -150,7 +147,6 @@ export const MODULE_CONFIGS: readonly ModuleConfig[] = [
 	financeModuleConfig,
 	placesModuleConfig,
 	playgroundModuleConfig,
-	whoModuleConfig,
 	newsModuleConfig,
 	bodyModuleConfig,
 	firstsModuleConfig,

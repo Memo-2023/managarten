@@ -19,7 +19,6 @@ import type { LocalAlarm, LocalCountdownTimer } from '$lib/modules/times/types';
 import type { LocalFile } from '$lib/modules/storage/types';
 import type { LocalSong, LocalPlaylist } from '$lib/modules/music/types';
 import type { LocalDeck as LocalPresiDeck } from '$lib/modules/presi/types';
-import type { LocalDocument, LocalContextSpace } from '$lib/modules/context/types';
 import type { LocalDeck as LocalCardDeck, LocalCard } from '$lib/modules/cards/types';
 
 // ─── Todo Queries ───────────────────────────────────────────
@@ -276,38 +275,6 @@ export function useRecentDecks(limit = 5) {
 		const { decryptRecords } = await import('./crypto');
 		return decryptRecords('presiDecks', visible);
 	}, [] as LocalPresiDeck[]);
-}
-
-// ─── Context Queries ────────────────────────────────────────
-
-/** Recent documents + spaces. */
-export function useRecentDocuments(limit = 5) {
-	return useLiveQueryWithDefault(async () => {
-		// title + content are encrypted on disk; the dashboard surfaces the
-		// title so we have to decrypt before returning. limit is applied
-		// pre-decrypt to keep the batch small.
-		const visible = await db
-			.table<LocalDocument>('documents')
-			.orderBy('updatedAt')
-			.reverse()
-			.filter((d) => !d.deletedAt)
-			.limit(limit)
-			.toArray();
-		return decryptRecords('documents', visible);
-	}, [] as LocalDocument[]);
-}
-
-export function useSpaces() {
-	return useLiveQueryWithDefault(async () => {
-		const all = await db.table<LocalContextSpace>('contextSpaces').toArray();
-		return all
-			.filter((s) => !s.deletedAt)
-			.sort((a, b) => {
-				if (a.pinned && !b.pinned) return -1;
-				if (!a.pinned && b.pinned) return 1;
-				return 0;
-			});
-	}, [] as LocalContextSpace[]);
 }
 
 // ─── Cards Queries ─────────────────────────────────────────

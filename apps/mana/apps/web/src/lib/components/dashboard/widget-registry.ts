@@ -23,7 +23,6 @@ import ClockTimersWidget from './widgets/ClockTimersWidget.svelte';
 import StorageUsageWidget from './widgets/StorageUsageWidget.svelte';
 import MusicLibraryWidget from './widgets/MusicLibraryWidget.svelte';
 import PresiDecksWidget from './widgets/PresiDecksWidget.svelte';
-import ContextDocsWidget from './widgets/ContextDocsWidget.svelte';
 
 // Phase 4: Unified app widgets (direct Dexie queries, internal routing)
 import RecentContactsWidget from '$lib/modules/core/widgets/RecentContactsWidget.svelte';
@@ -56,7 +55,6 @@ export const widgetComponents: Record<WidgetType, Component> = {
 	'storage-usage': StorageUsageWidget,
 	'music-library': MusicLibraryWidget,
 	'presi-decks': PresiDecksWidget,
-	'context-docs': ContextDocsWidget,
 	'active-timer': ActiveTimerWidget,
 	'nutrition-progress': NutritionProgressWidget,
 	'plant-watering': PlantWateringWidget,
