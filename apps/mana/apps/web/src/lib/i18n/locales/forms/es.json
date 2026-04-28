@@ -1,0 +1,27 @@
+{
+	"app": {
+		"title": "Formularios",
+		"tagline": "Crea formularios y recoge respuestas."
+	},
+	"list": {
+		"emptyAll": "Todavía no hay formularios.",
+		"emptyHint": "Sugerencia: escribe un título arriba y pulsa Enter.",
+		"emptySearch": "Sin resultados para tu búsqueda.",
+		"searchPlaceholder": "Buscar formularios ...",
+		"fieldCount": "{n} campos",
+		"responseCount": "{n} respuestas",
+		"justNow": "ahora mismo",
+		"minutesAgo": "hace {n} min",
+		"hoursAgo": "hace {n} h",
+		"daysAgo": "hace {n} días"
+	},
+	"quickAdd": {
+		"placeholder": "Nuevo formulario ... (Enter)",
+		"ariaLabel": "Título del formulario"
+	},
+	"status": {
+		"draft": "Borrador",
+		"published": "Publicado",
+		"closed": "Cerrado"
+	}
+}

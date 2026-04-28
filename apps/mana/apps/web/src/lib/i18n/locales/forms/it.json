@@ -1,0 +1,27 @@
+{
+	"app": {
+		"title": "Moduli",
+		"tagline": "Crea i tuoi moduli e raccogli risposte."
+	},
+	"list": {
+		"emptyAll": "Ancora nessun modulo.",
+		"emptyHint": "Suggerimento: digita un titolo sopra e premi Invio.",
+		"emptySearch": "Nessun risultato per la tua ricerca.",
+		"searchPlaceholder": "Cerca moduli ...",
+		"fieldCount": "{n} campi",
+		"responseCount": "{n} risposte",
+		"justNow": "proprio adesso",
+		"minutesAgo": "{n} min fa",
+		"hoursAgo": "{n} h fa",
+		"daysAgo": "{n} giorni fa"
+	},
+	"quickAdd": {
+		"placeholder": "Nuovo modulo ... (Invio)",
+		"ariaLabel": "Titolo del modulo"
+	},
+	"status": {
+		"draft": "Bozza",
+		"published": "Pubblicato",
+		"closed": "Chiuso"
+	}
+}

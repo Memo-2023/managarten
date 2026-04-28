@@ -99,6 +99,7 @@ import type {
 } from '../../modules/writing/types';
 import type { LocalComicStory, LocalComicCharacter } from '../../modules/comic/types';
 import type { LocalAugurEntry } from '../../modules/augur/types';
+import type { LocalForm, LocalFormResponse } from '../../modules/forms/types';
 
 export const ENCRYPTION_REGISTRY: Record<string, EncryptionConfig> = {
 	// ─── Chat ────────────────────────────────────────────────
@@ -958,6 +959,30 @@ export const ENCRYPTION_REGISTRY: Record<string, EncryptionConfig> = {
 		'senderBic',
 		'footer',
 		'defaultTerms',
+	]),
+
+	// ─── Forms ──────────────────────────────────────────────
+	// User-defined questionnaires + the answers people submit. Plan: see
+	// docs/plans/forms-module.md. The schema (title, description, fields,
+	// branching, settings) carries the full text of every prompt the user
+	// wrote — encrypted. Plaintext (intentional): status drives the
+	// draft/published/closed filter; responseCount is a denormalized UI
+	// counter; visibility/visibilityChanged*/unlistedToken/unlistedExpiresAt
+	// are the share-routing surface the server-side public-submit
+	// endpoint must read without the master key.
+	forms: entry<LocalForm>(['title', 'description', 'fields', 'branching', 'settings']),
+
+	// Answers travel encrypted as one blob — `answers` is a free-form
+	// Record<fieldId, value> that may carry PII (names, emails, free text).
+	// `submitterEmail` / `submitterName` / `submitterMeta` are encrypted
+	// separately so the audit log can selectively decrypt only what the
+	// owner asked for. Plaintext: formId (FK), submittedAt (sort), status
+	// (review filter), syncedTargets (no PII, just internal IDs).
+	formResponses: entry<LocalFormResponse>([
+		'answers',
+		'submitterEmail',
+		'submitterName',
+		'submitterMeta',
 	]),
 };
 

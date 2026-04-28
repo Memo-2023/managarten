@@ -1,0 +1,27 @@
+{
+	"app": {
+		"title": "Formulare",
+		"tagline": "Eigene Formulare bauen und Antworten sammeln."
+	},
+	"list": {
+		"emptyAll": "Noch keine Formulare angelegt.",
+		"emptyHint": "Tipp: Tippe oben einen Titel und drücke Enter.",
+		"emptySearch": "Keine Treffer für deine Suche.",
+		"searchPlaceholder": "Formulare durchsuchen ...",
+		"fieldCount": "{n} Felder",
+		"responseCount": "{n} Antworten",
+		"justNow": "gerade eben",
+		"minutesAgo": "vor {n} min",
+		"hoursAgo": "vor {n} h",
+		"daysAgo": "vor {n} Tagen"
+	},
+	"quickAdd": {
+		"placeholder": "Neues Formular ... (Enter)",
+		"ariaLabel": "Formular-Titel"
+	},
+	"status": {
+		"draft": "Entwurf",
+		"published": "Veröffentlicht",
+		"closed": "Geschlossen"
+	}
+}

@@ -1430,6 +1430,21 @@ db.version(56).stores({
 	articleExtractPickup: 'id, itemId, _updatedAtIndex',
 });
 
+// v57 — Forms module M1 skeleton (docs/plans/forms-module.md).
+// Two tables: `forms` carries the schema definition (fields, branching,
+// settings) plus the visibility/unlisted-token surface so the public
+// share endpoint can resolve a token to a form without decrypting; the
+// indexed `status` powers the draft/published/closed filter and
+// `_updatedAtIndex` keeps the workbench sort cheap. `formResponses`
+// holds one row per submission — `[formId+status]` is the hot index for
+// the responses tab (per-form, filtered by review state); `formId`
+// alone is needed for the cross-status response feed; `submittedAt`
+// drives the chronological default sort.
+db.version(57).stores({
+	forms: 'id, status, _updatedAtIndex',
+	formResponses: 'id, formId, status, submittedAt, _updatedAtIndex, [formId+status]',
+});
+
 // ─── Sync Routing ──────────────────────────────────────────
 // SYNC_APP_MAP, TABLE_TO_SYNC_NAME, TABLE_TO_APP, SYNC_NAME_TO_TABLE,
 // toSyncName() and fromSyncName() are now derived from per-module

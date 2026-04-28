@@ -1,0 +1,27 @@
+{
+	"app": {
+		"title": "Formulaires",
+		"tagline": "Crée tes propres formulaires et collecte des réponses."
+	},
+	"list": {
+		"emptyAll": "Aucun formulaire pour le moment.",
+		"emptyHint": "Astuce : tape un titre ci-dessus et appuie sur Entrée.",
+		"emptySearch": "Aucun résultat pour ta recherche.",
+		"searchPlaceholder": "Rechercher des formulaires ...",
+		"fieldCount": "{n} champs",
+		"responseCount": "{n} réponses",
+		"justNow": "à l'instant",
+		"minutesAgo": "il y a {n} min",
+		"hoursAgo": "il y a {n} h",
+		"daysAgo": "il y a {n} jours"
+	},
+	"quickAdd": {
+		"placeholder": "Nouveau formulaire ... (Entrée)",
+		"ariaLabel": "Titre du formulaire"
+	},
+	"status": {
+		"draft": "Brouillon",
+		"published": "Publié",
+		"closed": "Clôturé"
+	}
+}

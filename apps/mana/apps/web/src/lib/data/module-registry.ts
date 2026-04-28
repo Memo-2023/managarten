@@ -109,6 +109,7 @@ import { wardrobeModuleConfig } from '$lib/modules/wardrobe/module.config';
 import { writingModuleConfig } from '$lib/modules/writing/module.config';
 import { comicModuleConfig } from '$lib/modules/comic/module.config';
 import { augurModuleConfig } from '$lib/modules/augur/module.config';
+import { formsModuleConfig } from '$lib/modules/forms/module.config';
 import { aiModuleConfig } from '$lib/data/ai/module.config';
 
 export const MODULE_CONFIGS: readonly ModuleConfig[] = [
@@ -174,6 +175,7 @@ export const MODULE_CONFIGS: readonly ModuleConfig[] = [
 	writingModuleConfig,
 	comicModuleConfig,
 	augurModuleConfig,
+	formsModuleConfig,
 	aiModuleConfig,
 ];
 

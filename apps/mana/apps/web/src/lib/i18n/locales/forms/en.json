@@ -1,0 +1,27 @@
+{
+	"app": {
+		"title": "Forms",
+		"tagline": "Build your own forms and collect responses."
+	},
+	"list": {
+		"emptyAll": "No forms yet.",
+		"emptyHint": "Tip: type a title above and hit Enter.",
+		"emptySearch": "No matches for your search.",
+		"searchPlaceholder": "Search forms ...",
+		"fieldCount": "{n} fields",
+		"responseCount": "{n} responses",
+		"justNow": "just now",
+		"minutesAgo": "{n} min ago",
+		"hoursAgo": "{n} h ago",
+		"daysAgo": "{n} days ago"
+	},
+	"quickAdd": {
+		"placeholder": "New form ... (Enter)",
+		"ariaLabel": "Form title"
+	},
+	"status": {
+		"draft": "Draft",
+		"published": "Published",
+		"closed": "Closed"
+	}
+}

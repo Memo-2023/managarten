@@ -19,3 +19,6 @@ import './workbench-home';
 
 // Side-effect: registers `lasts-welcome` per-space-seed.
 import './lasts';
+
+// Side-effect: registers `forms-welcome` per-space-seed.
+import './forms';
