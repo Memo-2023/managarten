@@ -23,5 +23,53 @@
 		"draft": "Entwurf",
 		"published": "Veröffentlicht",
 		"closed": "Geschlossen"
+	},
+	"builder": {
+		"routeTitle": "Formular bearbeiten",
+		"loading": "Lade ...",
+		"notFound": "Formular nicht gefunden.",
+		"backLink": "← Zurück zur Liste",
+		"back": "← Zurück",
+		"delete": "Löschen",
+		"deleteConfirm": "Formular \"{title}\" wirklich löschen?",
+		"statusGroupAria": "Status",
+		"titlePlaceholder": "Formular-Titel",
+		"titleAria": "Formular-Titel",
+		"descriptionPlaceholder": "Beschreibung (optional)",
+		"fields": {
+			"title": "Felder",
+			"count": "{n} Felder",
+			"empty": "Noch keine Felder. Wähle unten einen Typ."
+		},
+		"palette": {
+			"title": "Feld hinzufügen"
+		},
+		"field": {
+			"labelPlaceholder": "Feldfrage ...",
+			"labelAria": "Feldlabel",
+			"removeAria": "Feld löschen",
+			"required": "Pflichtfeld",
+			"lessOptions": "− weniger",
+			"moreOptions": "+ mehr",
+			"helpPlaceholder": "Hilfetext (optional)",
+			"options": "Optionen",
+			"optionPlaceholder": "Option ...",
+			"optionRemoveAria": "Option löschen",
+			"addOption": "+ Option hinzufügen",
+			"ratingScale": "Skala",
+			"scale5": "1–5",
+			"scale10": "1–10",
+			"min": "Minimum",
+			"max": "Maximum",
+			"maxLength": "Max. Länge"
+		},
+		"settings": {
+			"title": "Einstellungen",
+			"submitLabel": "Beschriftung Absenden-Button",
+			"successMessage": "Bestätigungstext nach Absenden",
+			"requireEmail": "E-Mail-Adresse vom Absender abfragen",
+			"allowMultiple": "Mehrere Antworten pro Person erlauben",
+			"anonymous": "Anonym — Submitter-Daten nicht speichern"
+		}
 	}
 }

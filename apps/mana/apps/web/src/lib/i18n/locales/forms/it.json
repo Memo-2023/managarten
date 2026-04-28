@@ -23,5 +23,53 @@
 		"draft": "Bozza",
 		"published": "Pubblicato",
 		"closed": "Chiuso"
+	},
+	"builder": {
+		"routeTitle": "Modifica modulo",
+		"loading": "Caricamento ...",
+		"notFound": "Modulo non trovato.",
+		"backLink": "← Torna alla lista",
+		"back": "← Indietro",
+		"delete": "Elimina",
+		"deleteConfirm": "Eliminare davvero il modulo \"{title}\"?",
+		"statusGroupAria": "Stato",
+		"titlePlaceholder": "Titolo del modulo",
+		"titleAria": "Titolo del modulo",
+		"descriptionPlaceholder": "Descrizione (facoltativa)",
+		"fields": {
+			"title": "Campi",
+			"count": "{n} campi",
+			"empty": "Ancora nessun campo. Scegli un tipo sotto."
+		},
+		"palette": {
+			"title": "Aggiungi campo"
+		},
+		"field": {
+			"labelPlaceholder": "Domanda del campo ...",
+			"labelAria": "Etichetta del campo",
+			"removeAria": "Elimina campo",
+			"required": "Obbligatorio",
+			"lessOptions": "− meno",
+			"moreOptions": "+ altro",
+			"helpPlaceholder": "Testo di aiuto (facoltativo)",
+			"options": "Opzioni",
+			"optionPlaceholder": "Opzione ...",
+			"optionRemoveAria": "Elimina opzione",
+			"addOption": "+ Aggiungi opzione",
+			"ratingScale": "Scala",
+			"scale5": "1–5",
+			"scale10": "1–10",
+			"min": "Minimo",
+			"max": "Massimo",
+			"maxLength": "Lunghezza max."
+		},
+		"settings": {
+			"title": "Impostazioni",
+			"submitLabel": "Testo del pulsante di invio",
+			"successMessage": "Messaggio di conferma dopo l'invio",
+			"requireEmail": "Chiedi l'indirizzo e-mail al mittente",
+			"allowMultiple": "Permetti più risposte per persona",
+			"anonymous": "Anonimo — non memorizzare i dati del mittente"
+		}
 	}
 }

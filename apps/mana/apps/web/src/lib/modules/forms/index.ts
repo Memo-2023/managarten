@@ -16,6 +16,9 @@ export {
 // ─── Collections ─────────────────────────────────────────
 export { formTable, formResponseTable } from './collections';
 
+// ─── Lib ─────────────────────────────────────────────────
+export { makeDefaultField } from './lib/field-defaults';
+
 // ─── Types ───────────────────────────────────────────────
 export {
 	FIELD_TYPE_LABELS,

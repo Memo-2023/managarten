@@ -23,5 +23,53 @@
 		"draft": "Borrador",
 		"published": "Publicado",
 		"closed": "Cerrado"
+	},
+	"builder": {
+		"routeTitle": "Editar formulario",
+		"loading": "Cargando ...",
+		"notFound": "Formulario no encontrado.",
+		"backLink": "← Volver a la lista",
+		"back": "← Atrás",
+		"delete": "Eliminar",
+		"deleteConfirm": "¿Eliminar el formulario \"{title}\"?",
+		"statusGroupAria": "Estado",
+		"titlePlaceholder": "Título del formulario",
+		"titleAria": "Título del formulario",
+		"descriptionPlaceholder": "Descripción (opcional)",
+		"fields": {
+			"title": "Campos",
+			"count": "{n} campos",
+			"empty": "Aún sin campos. Elige un tipo abajo."
+		},
+		"palette": {
+			"title": "Añadir campo"
+		},
+		"field": {
+			"labelPlaceholder": "Pregunta del campo ...",
+			"labelAria": "Etiqueta del campo",
+			"removeAria": "Eliminar campo",
+			"required": "Obligatorio",
+			"lessOptions": "− menos",
+			"moreOptions": "+ más",
+			"helpPlaceholder": "Texto de ayuda (opcional)",
+			"options": "Opciones",
+			"optionPlaceholder": "Opción ...",
+			"optionRemoveAria": "Eliminar opción",
+			"addOption": "+ Añadir opción",
+			"ratingScale": "Escala",
+			"scale5": "1–5",
+			"scale10": "1–10",
+			"min": "Mínimo",
+			"max": "Máximo",
+			"maxLength": "Longitud máx."
+		},
+		"settings": {
+			"title": "Ajustes",
+			"submitLabel": "Texto del botón de envío",
+			"successMessage": "Mensaje de confirmación tras el envío",
+			"requireEmail": "Pedir correo electrónico al remitente",
+			"allowMultiple": "Permitir varias respuestas por persona",
+			"anonymous": "Anónimo — no guardar datos del remitente"
+		}
 	}
 }

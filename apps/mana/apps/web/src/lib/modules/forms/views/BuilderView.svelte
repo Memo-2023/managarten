@@ -1,0 +1,382 @@
+<!--
+  Forms — BuilderView (M2)
+
+  Edits the title, description, fields, and settings of a single form.
+  Saves on blur (text fields) or change (settings, field-edits, drag-
+  reorder). The store is the source of truth — local state mirrors
+  `entry` and re-syncs whenever a different form id loads in.
+-->
+<script lang="ts">
+	import { goto } from '$app/navigation';
+	import { _ } from 'svelte-i18n';
+	import { dndzone, SOURCES } from 'svelte-dnd-action';
+	import { flip } from 'svelte/animate';
+	import { formsStore } from '../stores/forms.svelte';
+	import { FORM_STATUS_LABELS } from '../types';
+	import type { Form, FormField, FormSettings, FormStatus } from '../types';
+	import { makeDefaultField } from '../lib/field-defaults';
+	import FieldEditor from '../components/FieldEditor.svelte';
+	import FieldPalette from '../components/FieldPalette.svelte';
+	import SettingsPanel from '../components/SettingsPanel.svelte';
+
+	let { entry }: { entry: Form } = $props();
+
+	/* svelte-ignore state_referenced_locally */
+	let title = $state(entry.title);
+	/* svelte-ignore state_referenced_locally */
+	let description = $state(entry.description ?? '');
+	/* svelte-ignore state_referenced_locally */
+	let items = $state<FormField[]>(entry.fields.slice());
+
+	/* svelte-ignore state_referenced_locally */
+	let lastSeenId = $state(entry.id);
+	$effect(() => {
+		if (entry.id !== lastSeenId) {
+			lastSeenId = entry.id;
+			title = entry.title;
+			description = entry.description ?? '';
+			items = entry.fields.slice();
+		}
+	});
+
+	// Re-sync the field array when an upstream change rewrites it
+	// (server pull, autosave from another tab) — guard against
+	// clobbering an in-progress drag by comparing ids only.
+	$effect(() => {
+		const upstreamIds = entry.fields.map((f) => f.id).join(',');
+		const localIds = items.map((f) => f.id).join(',');
+		if (upstreamIds !== localIds) {
+			items = entry.fields.slice();
+		}
+	});
+
+	async function saveTitle() {
+		const next = title.trim();
+		if (next && next !== entry.title) {
+			await formsStore.updateForm(entry.id, { title: next });
+		} else if (!next) {
+			title = entry.title;
+		}
+	}
+
+	async function saveDescription() {
+		const next = description.trim();
+		const current = entry.description ?? '';
+		if (next !== current) {
+			await formsStore.updateForm(entry.id, { description: next.length > 0 ? next : null });
+		}
+	}
+
+	async function patchField(fieldId: string, patch: Partial<FormField>) {
+		// Update local state optimistically so type-changes etc. render
+		// without round-tripping through the store. The store update
+		// then lands in the next live-query tick.
+		items = items.map((f) => (f.id === fieldId ? { ...f, ...patch, id: f.id } : f));
+		await formsStore.updateField(entry.id, fieldId, patch);
+	}
+
+	async function removeField(fieldId: string) {
+		items = items.filter((f) => f.id !== fieldId);
+		await formsStore.removeField(entry.id, fieldId);
+	}
+
+	async function pickField(type: FormField['type']) {
+		const field = makeDefaultField(type);
+		items = [...items, field];
+		await formsStore.addField(entry.id, field);
+	}
+
+	function handleDndConsider(e: CustomEvent<{ items: FormField[] }>) {
+		items = e.detail.items;
+	}
+
+	async function handleDndFinalize(
+		e: CustomEvent<{ items: FormField[]; info: { source: string } }>
+	) {
+		items = e.detail.items;
+		if (e.detail.info.source === SOURCES.POINTER) {
+			await formsStore.reorderFields(
+				entry.id,
+				items.map((f) => f.id)
+			);
+		}
+	}
+
+	async function patchSettings(patch: Partial<FormSettings>) {
+		await formsStore.updateForm(entry.id, {
+			settings: { ...entry.settings, ...patch },
+		});
+	}
+
+	async function setStatus(status: FormStatus) {
+		await formsStore.setStatus(entry.id, status);
+	}
+
+	async function deleteForm() {
+		const ok = confirm(
+			$_('forms.builder.deleteConfirm', {
+				default: 'Formular "{title}" wirklich löschen?',
+				values: { title: entry.title },
+			})
+		);
+		if (!ok) return;
+		await formsStore.deleteForm(entry.id);
+		goto('/forms');
+	}
+</script>
+
+<div class="builder">
+	<div class="top-bar">
+		<button type="button" class="back" onclick={() => goto('/forms')}>
+			{$_('forms.builder.back', { default: '← Zurück' })}
+		</button>
+
+		<div
+			class="status-pills"
+			role="group"
+			aria-label={$_('forms.builder.statusGroupAria', { default: 'Status' })}
+		>
+			{#each Object.keys(FORM_STATUS_LABELS) as st}
+				<button
+					type="button"
+					class="status-pill"
+					class:active={entry.status === st}
+					data-status={st}
+					onclick={() => setStatus(st as FormStatus)}
+				>
+					{FORM_STATUS_LABELS[st as FormStatus].de}
+				</button>
+			{/each}
+		</div>
+
+		<button type="button" class="delete" onclick={deleteForm}>
+			{$_('forms.builder.delete', { default: 'Löschen' })}
+		</button>
+	</div>
+
+	<div class="meta">
+		<input
+			type="text"
+			class="title-input"
+			bind:value={title}
+			onblur={saveTitle}
+			placeholder={$_('forms.builder.titlePlaceholder', { default: 'Formular-Titel' })}
+			aria-label={$_('forms.builder.titleAria', { default: 'Formular-Titel' })}
+		/>
+		<textarea
+			class="description-input"
+			rows="2"
+			bind:value={description}
+			onblur={saveDescription}
+			placeholder={$_('forms.builder.descriptionPlaceholder', {
+				default: 'Beschreibung (optional)',
+			})}
+		></textarea>
+	</div>
+
+	<section class="fields-section">
+		<header class="section-header">
+			<h2>{$_('forms.builder.fields.title', { default: 'Felder' })}</h2>
+			<span class="count">
+				{$_('forms.builder.fields.count', {
+					default: '{n} Felder',
+					values: { n: items.length },
+				})}
+			</span>
+		</header>
+
+		{#if items.length === 0}
+			<p class="empty-fields">
+				{$_('forms.builder.fields.empty', {
+					default: 'Noch keine Felder. Wähle unten einen Typ.',
+				})}
+			</p>
+		{:else}
+			<div
+				use:dndzone={{ items, flipDurationMs: 180, dropTargetStyle: {} }}
+				onconsider={handleDndConsider}
+				onfinalize={handleDndFinalize}
+				class="fields-list"
+			>
+				{#each items as field, i (field.id)}
+					<div animate:flip={{ duration: 180 }}>
+						<FieldEditor
+							{field}
+							index={i}
+							onchange={(patch) => patchField(field.id, patch)}
+							onremove={() => removeField(field.id)}
+						/>
+					</div>
+				{/each}
+			</div>
+		{/if}
+
+		<FieldPalette onpick={pickField} />
+	</section>
+
+	<section class="settings-section">
+		<SettingsPanel settings={entry.settings} onchange={patchSettings} />
+	</section>
+</div>
+
+<style>
+	.builder {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		padding: 1rem;
+		max-width: 880px;
+		margin: 0 auto;
+	}
+
+	.top-bar {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+	}
+
+	.back {
+		padding: 0.375rem 0.625rem;
+		background: rgb(255 255 255 / 0.04);
+		border: 1px solid rgb(255 255 255 / 0.08);
+		border-radius: 0.375rem;
+		color: inherit;
+		font-size: 0.8125rem;
+		cursor: pointer;
+	}
+
+	.back:hover {
+		background: rgb(255 255 255 / 0.07);
+	}
+
+	.status-pills {
+		display: inline-flex;
+		gap: 0.25rem;
+	}
+
+	.status-pill {
+		padding: 0.375rem 0.625rem;
+		background: rgb(255 255 255 / 0.04);
+		border: 1px solid rgb(255 255 255 / 0.08);
+		border-radius: 0.375rem;
+		color: rgb(255 255 255 / 0.55);
+		font-size: 0.8125rem;
+		cursor: pointer;
+	}
+
+	.status-pill:hover {
+		background: rgb(255 255 255 / 0.07);
+	}
+
+	.status-pill.active[data-status='draft'] {
+		background: rgb(255 255 255 / 0.08);
+		color: rgb(255 255 255 / 0.85);
+		border-color: rgb(255 255 255 / 0.18);
+	}
+
+	.status-pill.active[data-status='published'] {
+		background: rgb(20 184 166 / 0.18);
+		color: rgb(94 234 212);
+		border-color: rgb(20 184 166 / 0.4);
+	}
+
+	.status-pill.active[data-status='closed'] {
+		background: rgb(255 255 255 / 0.04);
+		color: rgb(255 255 255 / 0.45);
+		border-color: rgb(255 255 255 / 0.12);
+	}
+
+	.delete {
+		margin-left: auto;
+		padding: 0.375rem 0.625rem;
+		background: transparent;
+		border: 1px solid rgb(255 255 255 / 0.08);
+		border-radius: 0.375rem;
+		color: rgb(255 255 255 / 0.5);
+		font-size: 0.8125rem;
+		cursor: pointer;
+	}
+
+	.delete:hover {
+		color: rgb(248 113 113);
+		border-color: rgb(248 113 113 / 0.4);
+	}
+
+	.meta {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.title-input {
+		padding: 0.625rem 0.875rem;
+		background: rgb(255 255 255 / 0.04);
+		border: 1px solid rgb(255 255 255 / 0.08);
+		border-radius: 0.5rem;
+		color: inherit;
+		font-size: 1.125rem;
+		font-weight: 600;
+	}
+
+	.title-input:focus {
+		outline: none;
+		border-color: rgb(20 184 166 / 0.5);
+	}
+
+	.description-input {
+		padding: 0.5rem 0.875rem;
+		background: rgb(255 255 255 / 0.04);
+		border: 1px solid rgb(255 255 255 / 0.08);
+		border-radius: 0.5rem;
+		color: inherit;
+		font-size: 0.875rem;
+		font-family: inherit;
+		resize: vertical;
+	}
+
+	.description-input:focus {
+		outline: none;
+		border-color: rgb(255 255 255 / 0.18);
+	}
+
+	.fields-section,
+	.settings-section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.625rem;
+	}
+
+	.section-header {
+		display: flex;
+		align-items: baseline;
+		gap: 0.625rem;
+	}
+
+	.section-header h2 {
+		margin: 0;
+		font-size: 0.875rem;
+		font-weight: 600;
+	}
+
+	.count {
+		font-size: 0.75rem;
+		color: rgb(255 255 255 / 0.45);
+	}
+
+	.empty-fields {
+		padding: 1rem;
+		text-align: center;
+		color: rgb(255 255 255 / 0.45);
+		background: rgb(255 255 255 / 0.02);
+		border: 1px dashed rgb(255 255 255 / 0.1);
+		border-radius: 0.5rem;
+		font-size: 0.875rem;
+	}
+
+	.fields-list {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+</style>

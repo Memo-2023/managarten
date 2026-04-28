@@ -23,5 +23,53 @@
 		"draft": "Brouillon",
 		"published": "Publié",
 		"closed": "Clôturé"
+	},
+	"builder": {
+		"routeTitle": "Modifier le formulaire",
+		"loading": "Chargement ...",
+		"notFound": "Formulaire introuvable.",
+		"backLink": "← Retour à la liste",
+		"back": "← Retour",
+		"delete": "Supprimer",
+		"deleteConfirm": "Vraiment supprimer le formulaire \"{title}\" ?",
+		"statusGroupAria": "Statut",
+		"titlePlaceholder": "Titre du formulaire",
+		"titleAria": "Titre du formulaire",
+		"descriptionPlaceholder": "Description (facultatif)",
+		"fields": {
+			"title": "Champs",
+			"count": "{n} champs",
+			"empty": "Pas encore de champs. Choisis un type ci-dessous."
+		},
+		"palette": {
+			"title": "Ajouter un champ"
+		},
+		"field": {
+			"labelPlaceholder": "Question du champ ...",
+			"labelAria": "Libellé du champ",
+			"removeAria": "Supprimer le champ",
+			"required": "Obligatoire",
+			"lessOptions": "− moins",
+			"moreOptions": "+ plus",
+			"helpPlaceholder": "Texte d'aide (facultatif)",
+			"options": "Options",
+			"optionPlaceholder": "Option ...",
+			"optionRemoveAria": "Supprimer l'option",
+			"addOption": "+ Ajouter une option",
+			"ratingScale": "Échelle",
+			"scale5": "1–5",
+			"scale10": "1–10",
+			"min": "Minimum",
+			"max": "Maximum",
+			"maxLength": "Longueur max."
+		},
+		"settings": {
+			"title": "Paramètres",
+			"submitLabel": "Libellé du bouton d'envoi",
+			"successMessage": "Message de confirmation après envoi",
+			"requireEmail": "Demander l'adresse e-mail au destinataire",
+			"allowMultiple": "Autoriser plusieurs réponses par personne",
+			"anonymous": "Anonyme — ne pas conserver les données du destinataire"
+		}
 	}
 }

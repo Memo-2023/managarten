@@ -23,5 +23,53 @@
 		"draft": "Draft",
 		"published": "Published",
 		"closed": "Closed"
+	},
+	"builder": {
+		"routeTitle": "Edit form",
+		"loading": "Loading ...",
+		"notFound": "Form not found.",
+		"backLink": "← Back to list",
+		"back": "← Back",
+		"delete": "Delete",
+		"deleteConfirm": "Really delete form \"{title}\"?",
+		"statusGroupAria": "Status",
+		"titlePlaceholder": "Form title",
+		"titleAria": "Form title",
+		"descriptionPlaceholder": "Description (optional)",
+		"fields": {
+			"title": "Fields",
+			"count": "{n} fields",
+			"empty": "No fields yet. Pick a type below."
+		},
+		"palette": {
+			"title": "Add field"
+		},
+		"field": {
+			"labelPlaceholder": "Field question ...",
+			"labelAria": "Field label",
+			"removeAria": "Delete field",
+			"required": "Required",
+			"lessOptions": "− less",
+			"moreOptions": "+ more",
+			"helpPlaceholder": "Help text (optional)",
+			"options": "Options",
+			"optionPlaceholder": "Option ...",
+			"optionRemoveAria": "Delete option",
+			"addOption": "+ Add option",
+			"ratingScale": "Scale",
+			"scale5": "1–5",
+			"scale10": "1–10",
+			"min": "Minimum",
+			"max": "Maximum",
+			"maxLength": "Max length"
+		},
+		"settings": {
+			"title": "Settings",
+			"submitLabel": "Submit button label",
+			"successMessage": "Confirmation text after submit",
+			"requireEmail": "Ask submitter for email address",
+			"allowMultiple": "Allow multiple submissions per person",
+			"anonymous": "Anonymous — don't store submitter data"
+		}
 	}
 }
