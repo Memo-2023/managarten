@@ -17,6 +17,7 @@
 import { getManaApiUrl } from '$lib/api/config';
 import { websitesTable, websitePagesTable, websiteBlocksTable } from './collections';
 import { resolveEmbed } from './embeds';
+import { resolveFormEmbed } from './forms-embeds';
 import type {
 	LocalWebsite,
 	LocalWebsiteBlock,
@@ -26,7 +27,7 @@ import type {
 	SiteSettings,
 	PageSeo,
 } from './types';
-import type { ModuleEmbedProps } from '@mana/website-blocks';
+import type { FormEmbedProps, ModuleEmbedProps } from '@mana/website-blocks';
 
 // ─── Snapshot shape ──────────────────────────────────────
 
@@ -148,6 +149,10 @@ async function resolveEmbedsInTree(nodes: SnapshotBlockNode[]): Promise<void> {
 		if (node.type === 'moduleEmbed') {
 			const props = node.props as ModuleEmbedProps;
 			const resolved = await resolveEmbed(props);
+			node.props = { ...props, resolved };
+		} else if (node.type === 'formEmbed') {
+			const props = node.props as FormEmbedProps;
+			const resolved = await resolveFormEmbed(props);
 			node.props = { ...props, resolved };
 		}
 		if (node.children.length > 0) {

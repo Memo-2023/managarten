@@ -8,6 +8,7 @@ import { faqBlockSpec } from './faq';
 import { columnsBlockSpec } from './columns';
 import { galleryBlockSpec } from './gallery';
 import { formBlockSpec } from './form';
+import { formEmbedBlockSpec } from './formEmbed';
 import { moduleEmbedBlockSpec } from './moduleEmbed';
 import { analyticsBlockSpec } from './analytics';
 
@@ -27,6 +28,7 @@ export const BLOCK_SPECS: readonly BlockSpec<unknown>[] = [
 	galleryBlockSpec,
 	faqBlockSpec,
 	formBlockSpec,
+	formEmbedBlockSpec,
 	moduleEmbedBlockSpec,
 	analyticsBlockSpec,
 	columnsBlockSpec,

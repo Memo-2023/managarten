@@ -12,7 +12,7 @@ import { describe, it, expect } from 'vitest';
 import { BLOCK_SCHEMAS, BLOCK_DEFAULTS, safeValidateSchema } from './schemas';
 
 describe('registry shape', () => {
-	it('has the expected 11 block types', () => {
+	it('has the expected 12 block types', () => {
 		const types = Object.keys(BLOCK_SCHEMAS).sort();
 		expect(types).toEqual([
 			'analytics',
@@ -20,6 +20,7 @@ describe('registry shape', () => {
 			'cta',
 			'faq',
 			'form',
+			'formEmbed',
 			'gallery',
 			'hero',
 			'image',

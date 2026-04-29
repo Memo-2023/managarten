@@ -16,6 +16,7 @@ import { ImageSchema, IMAGE_DEFAULTS } from './image/schema';
 import { GallerySchema, GALLERY_DEFAULTS } from './gallery/schema';
 import { FaqSchema, FAQ_DEFAULTS } from './faq/schema';
 import { FormSchema, FORM_DEFAULTS } from './form/schema';
+import { FormEmbedSchema, FORM_EMBED_DEFAULTS } from './formEmbed/schema';
 import { ModuleEmbedSchema, MODULE_EMBED_DEFAULTS } from './moduleEmbed/schema';
 import { AnalyticsSchema, ANALYTICS_DEFAULTS } from './analytics/schema';
 import { ColumnsSchema, COLUMNS_DEFAULTS } from './columns/schema';
@@ -30,6 +31,7 @@ export const BLOCK_SCHEMAS: Record<string, ZodTypeAny> = {
 	gallery: GallerySchema,
 	faq: FaqSchema,
 	form: FormSchema,
+	formEmbed: FormEmbedSchema,
 	moduleEmbed: ModuleEmbedSchema,
 	analytics: AnalyticsSchema,
 	columns: ColumnsSchema,
@@ -44,6 +46,7 @@ export const BLOCK_DEFAULTS: Record<string, unknown> = {
 	gallery: GALLERY_DEFAULTS,
 	faq: FAQ_DEFAULTS,
 	form: FORM_DEFAULTS,
+	formEmbed: FORM_EMBED_DEFAULTS,
 	moduleEmbed: MODULE_EMBED_DEFAULTS,
 	analytics: ANALYTICS_DEFAULTS,
 	columns: COLUMNS_DEFAULTS,

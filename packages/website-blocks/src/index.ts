@@ -45,6 +45,14 @@ export {
 } from './gallery';
 export { formBlockSpec, FormSchema, FORM_DEFAULTS, type FormProps, type FormField } from './form';
 export {
+	formEmbedBlockSpec,
+	FormEmbedSchema,
+	FORM_EMBED_DEFAULTS,
+	type FormEmbedProps,
+	type FormEmbedField,
+	type FormEmbedBranching,
+} from './formEmbed';
+export {
 	moduleEmbedBlockSpec,
 	ModuleEmbedSchema,
 	MODULE_EMBED_DEFAULTS,
