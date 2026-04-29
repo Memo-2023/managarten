@@ -275,6 +275,7 @@ Agents interact with the app through tools — each one either auto (executes si
 | food | — | `nutrition_summary`, `log_meal` |
 | news | `save_news_article` | — |
 | news-research | `research_news` | — |
+| articles | `save_article`, `archive_article`, `tag_article`, `add_article_highlight`, `import_articles_from_urls` (auto) | `list_articles` |
 | journal | `create_journal_entry` | — |
 | habits | `create_habit`, `log_habit` | `get_habits` |
 | contacts | `create_contact` | `get_contacts` |
@@ -303,6 +304,36 @@ Pre-configured starter-kits at `/agents/templates` — two sections:
 Each template bundles: optional agent + optional scene layout + optional starter missions (paused) + optional per-module seeds. Template shape: `WorkbenchTemplate` in `@mana/shared-ai/src/agents/templates/types.ts`. Applicator: `src/lib/data/ai/agents/apply-template.ts`. Seed-handler registry: `src/lib/data/ai/agents/seed-registry.ts` — modules register via side-effect imports in `missions/setup.ts`. Current handlers: meditate, habits, goals. Plan: [`docs/plans/workbench-templates.md`](../../docs/plans/workbench-templates.md).
 
 Full architecture (Planner prompt + parser in `@mana/shared-ai`, server-side runner, Postgres actor column, materialized snapshots, Multi-Agent gating, server-side web-research, Prometheus metrics + status.mana.how integration): [`docs/architecture/COMPANION_BRAIN_ARCHITECTURE.md`](../../docs/architecture/COMPANION_BRAIN_ARCHITECTURE.md) §20 (AI Workbench) + §21 (Mission Grants) + §22 (Multi-Agent Workbench).
+
+## Articles bulk-import
+
+Background pipeline that ingests N URLs into a user's reading list as
+one Job, with the same encryption + scope semantics as a single-URL
+save. Same shape as the AI mission runner: state lives in
+`sync_changes`, a server-side worker projects + writes back, the
+client encrypts the final article.
+
+```
+client createJob(urls)
+  → bulkAdd articleImportItems(state='pending') + articleImportJobs(queued)
+  → sync push → mana_sync.sync_changes
+  → apps/api worker tick (every 2s, advisory-lock-gated)
+  → extractFromUrl (shared-rss / Readability)
+  → write articleExtractPickup row + flip item → 'extracted'
+  → sync pull → liveQuery
+  → consume-pickup encryptRecord + articleTable.add
+  → flip item → 'saved' (or 'duplicate' / 'consent-wall')
+  → delete pickup row
+  → server flips job → 'done', emits ArticleImportFinished
+```
+
+Tables: `articleImportJobs`, `articleImportItems`, `articleExtractPickup`
+(all plaintext-allowlisted — see `data/crypto/plaintext-allowlist.ts`).
+Actor on every server-write: `system:articles-import-worker`. Worker
+metrics under `mana_api_articles_import_*`. Hard cap of 200 URLs per
+job (`MAX_URLS_PER_JOB` in `modules/articles/stores/imports.svelte`).
+
+Plan: [`docs/plans/articles-bulk-import.md`](../../docs/plans/articles-bulk-import.md).
 
 ## Reference Documents
 

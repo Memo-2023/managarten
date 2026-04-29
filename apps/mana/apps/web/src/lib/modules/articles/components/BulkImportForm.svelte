@@ -7,18 +7,23 @@
 -->
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { articleImportsStore, parseUrls } from '../stores/imports.svelte';
+	import { articleImportsStore, MAX_URLS_PER_JOB, parseUrls } from '../stores/imports.svelte';
 
 	let raw = $state('');
 	let busy = $state(false);
 	let error = $state<string | null>(null);
 
 	const parsed = $derived(parseUrls(raw));
+	const overLimit = $derived(parsed.valid.length > MAX_URLS_PER_JOB);
 
 	async function handleSubmit() {
 		if (busy) return;
 		if (parsed.valid.length === 0) {
 			error = 'Mindestens eine gültige URL einfügen.';
+			return;
+		}
+		if (overLimit) {
+			error = `Maximal ${MAX_URLS_PER_JOB} URLs pro Job. Splitte den Import in mehrere Jobs.`;
 			return;
 		}
 		busy = true;
@@ -51,7 +56,9 @@
 	></textarea>
 
 	<div class="counter-row" aria-live="polite">
-		<span class="counter counter-valid">{parsed.valid.length} gültig</span>
+		<span class="counter counter-valid" class:counter-overlimit={overLimit}>
+			{parsed.valid.length} gültig{overLimit ? ` / max ${MAX_URLS_PER_JOB}` : ''}
+		</span>
 		{#if parsed.duplicates.length > 0}
 			<span class="counter counter-dup">{parsed.duplicates.length} doppelt (übersprungen)</span>
 		{/if}
@@ -59,6 +66,12 @@
 			<span class="counter counter-invalid">{parsed.invalid.length} ungültig</span>
 		{/if}
 	</div>
+
+	{#if overLimit}
+		<p class="error" role="alert">
+			Zu viele URLs ({parsed.valid.length}). Maximal {MAX_URLS_PER_JOB} pro Job — splitte den Import.
+		</p>
+	{/if}
 
 	{#if parsed.invalid.length > 0}
 		<details class="invalid-details">
@@ -80,7 +93,7 @@
 			type="button"
 			class="primary"
 			onclick={handleSubmit}
-			disabled={busy || parsed.valid.length === 0}
+			disabled={busy || parsed.valid.length === 0 || overLimit}
 		>
 			{#if busy}Erstelle Job…{:else}{parsed.valid.length} URLs importieren{/if}
 		</button>
@@ -143,6 +156,10 @@
 	.counter-valid {
 		background: color-mix(in srgb, #16a34a 12%, transparent);
 		color: #16a34a;
+	}
+	.counter-overlimit {
+		background: rgba(239, 68, 68, 0.12);
+		color: #ef4444;
 	}
 	.counter-dup {
 		background: color-mix(in srgb, #f59e0b 12%, transparent);

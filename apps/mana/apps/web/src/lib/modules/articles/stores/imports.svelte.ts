@@ -26,6 +26,17 @@ import type {
 // (BulkImportForm, tools.ts) keep working unchanged.
 export { parseUrls, type ParsedUrls };
 
+/**
+ * Hard cap on the URL count per job. The worker can chew through any
+ * number of items, but at very high counts the UI becomes unwieldy
+ * (JobDetailView is a flat list, no virtualisation yet) and the
+ * worst-case wall-clock duration climbs into the multi-hour range
+ * (50 URLs ≈ 5–10 min at concurrency 3, scales linearly). 200 is a
+ * pragmatic ceiling — real reading-list dumps from Pocket exports
+ * average 50–150 items.
+ */
+export const MAX_URLS_PER_JOB = 200;
+
 export const articleImportsStore = {
 	/**
 	 * Create a job with N items, all in state='pending'. Returns the
@@ -39,14 +50,17 @@ export const articleImportsStore = {
 		if (urls.length === 0) {
 			throw new Error('createJob: empty url list');
 		}
+		if (urls.length > MAX_URLS_PER_JOB) {
+			throw new Error(
+				`createJob: too many URLs (${urls.length}). Max ${MAX_URLS_PER_JOB} pro Job — splitte den Import in mehrere Jobs.`
+			);
+		}
 		const jobId = crypto.randomUUID();
 
 		const job: LocalArticleImportJob = {
 			id: jobId,
 			totalUrls: urls.length,
 			status: 'queued',
-			leasedBy: null,
-			leasedUntil: null,
 			startedAt: null,
 			finishedAt: null,
 			savedCount: 0,

@@ -285,8 +285,6 @@ export function toImportJob(local: LocalArticleImportJob): ArticleImportJob {
 		id: local.id,
 		totalUrls: local.totalUrls,
 		status: local.status,
-		leasedBy: local.leasedBy ?? null,
-		leasedUntil: local.leasedUntil ?? null,
 		startedAt: local.startedAt ?? null,
 		finishedAt: local.finishedAt ?? null,
 		savedCount: local.savedCount ?? 0,

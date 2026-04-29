@@ -39,8 +39,6 @@ export interface ImportJobRow {
 	spaceId: string | null;
 	totalUrls: number;
 	status: 'queued' | 'running' | 'paused' | 'done' | 'cancelled';
-	leasedBy: string | null;
-	leasedUntil: string | null;
 	startedAt: string | null;
 	finishedAt: string | null;
 	savedCount: number;
@@ -192,8 +190,6 @@ function projectJob(userId: string, recordId: string, merged: Row | null): Impor
 		spaceId: optStr(merged.spaceId),
 		totalUrls,
 		status,
-		leasedBy: optStr(merged.leasedBy),
-		leasedUntil: optStr(merged.leasedUntil),
 		startedAt: optStr(merged.startedAt),
 		finishedAt: optStr(merged.finishedAt),
 		savedCount: num(merged.savedCount) ?? 0,

@@ -9,8 +9,30 @@
 	import { useImportJobs } from '../queries';
 	import type { ArticleImportJob } from '../types';
 
+	type Filter = 'all' | 'active' | 'done' | 'errors';
+
 	const jobs$ = useImportJobs();
-	const jobs = $derived(jobs$.value);
+	const allJobs = $derived(jobs$.value);
+	let filter = $state<Filter>('all');
+
+	const activeCount = $derived(
+		allJobs.filter((j) => j.status === 'queued' || j.status === 'running' || j.status === 'paused')
+			.length
+	);
+	const doneCount = $derived(allJobs.filter((j) => j.status === 'done').length);
+	const errorCount = $derived(allJobs.filter((j) => j.errorCount > 0).length);
+
+	const visibleJobs = $derived(
+		filter === 'all'
+			? allJobs
+			: filter === 'active'
+				? allJobs.filter(
+						(j) => j.status === 'queued' || j.status === 'running' || j.status === 'paused'
+					)
+				: filter === 'done'
+					? allJobs.filter((j) => j.status === 'done')
+					: allJobs.filter((j) => j.errorCount > 0)
+	);
 
 	function progress(job: ArticleImportJob): string {
 		const done = job.savedCount + job.duplicateCount + job.errorCount;
@@ -33,11 +55,53 @@
 	}
 </script>
 
-{#if jobs.length > 0}
+{#if allJobs.length > 0}
 	<section class="jobs-list">
-		<h2>Bisherige Imports</h2>
+		<header class="list-header">
+			<h2>Bisherige Imports</h2>
+			<nav class="filter-tabs" aria-label="Filter">
+				<button
+					type="button"
+					class="tab"
+					class:tab-active={filter === 'all'}
+					onclick={() => (filter = 'all')}
+				>
+					Alle ({allJobs.length})
+				</button>
+				<button
+					type="button"
+					class="tab"
+					class:tab-active={filter === 'active'}
+					onclick={() => (filter = 'active')}
+					disabled={activeCount === 0}
+				>
+					Aktiv ({activeCount})
+				</button>
+				<button
+					type="button"
+					class="tab"
+					class:tab-active={filter === 'done'}
+					onclick={() => (filter = 'done')}
+					disabled={doneCount === 0}
+				>
+					Fertig ({doneCount})
+				</button>
+				<button
+					type="button"
+					class="tab"
+					class:tab-active={filter === 'errors'}
+					onclick={() => (filter = 'errors')}
+					disabled={errorCount === 0}
+				>
+					Mit Fehlern ({errorCount})
+				</button>
+			</nav>
+		</header>
+		{#if visibleJobs.length === 0}
+			<p class="empty-filter">Keine Jobs in dieser Ansicht.</p>
+		{/if}
 		<ul>
-			{#each jobs as job (job.id)}
+			{#each visibleJobs as job (job.id)}
 				<button type="button" class="row" onclick={() => goto(`/articles/import/${job.id}`)}>
 					<span class="status status-{job.status}">{statusLabel(job.status)}</span>
 					<span class="progress">{progress(job)}</span>
@@ -63,9 +127,53 @@
 		margin: 1.5rem auto 0;
 		padding: 0 1.5rem;
 	}
+	.list-header {
+		display: flex;
+		gap: 0.85rem;
+		align-items: baseline;
+		flex-wrap: wrap;
+		margin-bottom: 0.65rem;
+	}
 	.jobs-list h2 {
-		margin: 0 0 0.65rem 0;
+		margin: 0;
 		font-size: 1.05rem;
+	}
+	.filter-tabs {
+		display: flex;
+		gap: 0.25rem;
+		flex-wrap: wrap;
+	}
+	.tab {
+		padding: 0.18rem 0.55rem;
+		border-radius: 999px;
+		border: 1px solid var(--color-border, rgba(0, 0, 0, 0.12));
+		background: transparent;
+		color: var(--color-text-muted, #64748b);
+		font: inherit;
+		font-size: 0.78rem;
+		cursor: pointer;
+	}
+	.tab:hover:not(:disabled) {
+		border-color: color-mix(in srgb, #f97316 60%, transparent);
+		color: inherit;
+	}
+	.tab:disabled {
+		opacity: 0.4;
+		cursor: not-allowed;
+	}
+	.tab-active {
+		background: #f97316;
+		color: white;
+		border-color: #f97316;
+	}
+	.tab-active:hover:not(:disabled) {
+		background: #ea580c;
+		color: white;
+	}
+	.empty-filter {
+		margin: 0.5rem 0 0 0;
+		color: var(--color-text-muted, #64748b);
+		font-size: 0.85rem;
 	}
 	.jobs-list ul {
 		list-style: none;

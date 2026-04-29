@@ -165,10 +165,6 @@ export type ArticleImportItemState =
 export interface LocalArticleImportJob extends BaseRecord {
 	totalUrls: number;
 	status: ArticleImportJobStatus;
-	/** Worker lease — workerId of the apps/api instance that claimed the job. */
-	leasedBy: string | null;
-	/** ISO timestamp; lease is dead once `leasedUntil < now`. */
-	leasedUntil: string | null;
 	startedAt: string | null;
 	finishedAt: string | null;
 	/** Counters mirror the per-item terminal states. Cache for fast list
@@ -178,6 +174,10 @@ export interface LocalArticleImportJob extends BaseRecord {
 	duplicateCount: number;
 	errorCount: number;
 	warningCount: number;
+	// NOTE: `leasedBy` + `leasedUntil` were defined on the original
+	// schema as a soft-lease handshake but the worker uses
+	// pg_try_advisory_xact_lock instead, so they were never written.
+	// Removed in Dexie v58 — see database.ts.
 }
 
 export interface LocalArticleImportItem extends BaseRecord {
@@ -227,8 +227,6 @@ export interface ArticleImportJob {
 	id: string;
 	totalUrls: number;
 	status: ArticleImportJobStatus;
-	leasedBy: string | null;
-	leasedUntil: string | null;
 	startedAt: string | null;
 	finishedAt: string | null;
 	savedCount: number;

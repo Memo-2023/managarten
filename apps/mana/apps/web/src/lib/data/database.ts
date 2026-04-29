@@ -1465,6 +1465,34 @@ db.version(59).stores({
 	documentTags: null,
 });
 
+// v60 — Articles bulk-import schema cleanup.
+// Two changes, both lossless:
+//
+//   1. articleImportJobs: drop the unused `leasedBy`/`leasedUntil`
+//      columns. They were on the original v57 schema as a soft-lease
+//      handshake, but the worker uses pg_try_advisory_xact_lock
+//      instead and never wrote them. Dexie's index list shrinks but
+//      no data is migrated — the columns simply disappear from
+//      future writes; existing rows still carry them as zombies (a
+//      one-shot row-rewrite to delete the field would be a hard-
+//      migration; not worth it for two never-written nulls).
+//   2. articleImportItems: drop the standalone `state` index.
+//      `[jobId+state]` covers the only hot query (worker's per-job
+//      pending scan). The state-solo index had no call site —
+//      retryFailed uses [jobId+state]. Trimming the index list saves
+//      a bit of write amplification.
+//
+// Kept on the schema (not dropped here): `idx` standalone index on
+// articleImportItems. It's also unused right now, but the
+// JobDetailView currently sorts items in JS via .sort((a,b)=>a.idx-b.idx);
+// if that view ever switches to a server-side ordered scan we'd want
+// the index back, and re-adding indexes after the fact is more
+// painful than keeping a small one around.
+db.version(60).stores({
+	articleImportJobs: 'id, status, [spaceId+status], _updatedAtIndex',
+	articleImportItems: 'id, jobId, [jobId+state], idx',
+});
+
 // ─── Sync Routing ──────────────────────────────────────────
 // SYNC_APP_MAP, TABLE_TO_SYNC_NAME, TABLE_TO_APP, SYNC_NAME_TO_TABLE,
 // toSyncName() and fromSyncName() are now derived from per-module
