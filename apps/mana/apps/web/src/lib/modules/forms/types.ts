@@ -72,6 +72,8 @@ export type AutoSyncTarget = 'contacts' | 'events' | 'feedback' | 'library' | 's
 
 export interface AutoSyncConfig {
 	target: AutoSyncTarget;
+	/** Optional anchor — for `events` this is the eventId the response RSVPs to. */
+	targetId?: string;
 	mapping: Record<string, string>;
 }
 

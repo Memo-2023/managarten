@@ -22,10 +22,11 @@
  */
 
 import { contactsStore } from '$lib/modules/contacts/stores/contacts.svelte';
+import { eventGuestsStore } from '$lib/modules/events/stores/guests.svelte';
 import { decryptRecords, isVaultUnlocked } from '$lib/data/crypto';
 import { formResponseTable, formTable } from '../collections';
 import { toForm, toFormResponse } from '../queries';
-import type { AnswerValue, AutoSyncTarget, Form, FormResponse } from '../types';
+import type { AnswerValue, AutoSyncConfig, Form, FormResponse } from '../types';
 
 /**
  * Build a contact-record patch from a form response, given the
@@ -81,7 +82,7 @@ export async function applyAutoSync(
 	const already = (response.syncedTargets ?? []).find((t) => t.target === cfg.target);
 	if (already) return { synced: false, recordId: already.recordId };
 
-	const recordId = await dispatchTarget(cfg.target, cfg.mapping, response.answers);
+	const recordId = await dispatchTarget(cfg, response.answers);
 	if (!recordId) return { synced: false };
 
 	const next = [...(response.syncedTargets ?? []), { target: cfg.target, recordId }];
@@ -89,14 +90,62 @@ export async function applyAutoSync(
 	return { synced: true, recordId };
 }
 
+/**
+ * Build an event-guest patch from a form response. Pure. The `name`
+ * key is the synthetic auto-split target (firstName + lastName joined
+ * with whitespace) — guest records carry a single `name` field, so we
+ * collapse the contact-style split here.
+ */
+export function buildEventGuestFromAnswers(
+	answers: Record<string, AnswerValue>,
+	mapping: Record<string, string>
+): {
+	name?: string;
+	email?: string;
+	phone?: string;
+	note?: string;
+	plusOnes?: number;
+} {
+	const guest: { name?: string; email?: string; phone?: string; note?: string; plusOnes?: number } =
+		{};
+
+	for (const [fieldId, key] of Object.entries(mapping)) {
+		const value = answers[fieldId];
+		if (value === null || value === undefined) continue;
+		const str = typeof value === 'string' ? value.trim() : String(value);
+		if (!str) continue;
+
+		switch (key) {
+			case 'name':
+				guest.name = str;
+				break;
+			case 'email':
+				guest.email = str;
+				break;
+			case 'phone':
+				guest.phone = str;
+				break;
+			case 'note':
+				guest.note = str;
+				break;
+			case 'plusOnes': {
+				const n = Number(str);
+				if (Number.isFinite(n) && n >= 0) guest.plusOnes = Math.floor(n);
+				break;
+			}
+		}
+	}
+
+	return guest;
+}
+
 async function dispatchTarget(
-	target: AutoSyncTarget,
-	mapping: Record<string, string>,
+	cfg: AutoSyncConfig,
 	answers: Record<string, AnswerValue>
 ): Promise<string | null> {
-	switch (target) {
+	switch (cfg.target) {
 		case 'contacts': {
-			const data = buildContactFromAnswers(answers, mapping);
+			const data = buildContactFromAnswers(answers, cfg.mapping);
 			// Need at least a name or email to create a contact — anything
 			// less leaks empty rows into /contacts.
 			if (!data.firstName && !data.lastName && !data.email) {
@@ -105,13 +154,35 @@ async function dispatchTarget(
 			const contact = await contactsStore.createContact(data);
 			return contact?.id ?? null;
 		}
-		case 'events':
+		case 'events': {
+			if (!cfg.targetId) {
+				throw new Error('autoSync.targetId (eventId) ist erforderlich für target=events');
+			}
+			const guest = buildEventGuestFromAnswers(answers, cfg.mapping);
+			// Need at least a name to create a guest entry. Without one
+			// the RSVP list collects empty rows.
+			if (!guest.name) return null;
+			const result = await eventGuestsStore.addGuest({
+				eventId: cfg.targetId,
+				name: guest.name,
+				email: guest.email ?? null,
+				phone: guest.phone ?? null,
+				note: guest.note ?? null,
+				plusOnes: guest.plusOnes ?? 0,
+				rsvpStatus: 'yes',
+			});
+			return result.success ? result.id : null;
+		}
 		case 'feedback':
 		case 'library':
 		case 'space_member':
-			// Future M7b — surfaces left wired so the planner doesn't
-			// silently no-op when the user picks an unsupported target.
-			throw new Error(`autoSync target "${target}" is not yet implemented (M7b)`);
+			// Out of M7b scope. feedback ist zentraler Public-Hub (eigene
+			// Domain, keine Dexie), library + space_member brauchen mehr
+			// Architektur (target-id picker für library, invite-flow für
+			// space_member). Bleibt explicit "not yet" damit der UI-Filter
+			// im SettingsPanel keine option-Werte vergibt, die runtime
+			// brechen wuerden.
+			throw new Error(`autoSync target "${cfg.target}" ist noch nicht implementiert`);
 	}
 }
 

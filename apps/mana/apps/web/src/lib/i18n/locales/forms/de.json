@@ -79,11 +79,21 @@
 			"title": "Auto-Sync — bei Antwort erzeugen",
 			"targetNone": "Nichts",
 			"targetContacts": "Kontakt",
+			"targetEvents": "Event-RSVP",
 			"contactsHint": "Wähle für jedes Form-Feld, welches Kontakt-Feld es füllen soll. Leerlassen = ignorieren.",
+			"eventsHint": "Wähle für jedes Form-Feld, welches Gast-Feld es füllen soll. RSVPs werden auf \"Zusage\" gesetzt.",
+			"eventPicker": "Welches Event?",
+			"eventPickerNone": "Bitte wählen ...",
+			"eventNeeded": "Wähle das Event, zu dem die RSVPs angelegt werden sollen.",
 			"needFields": "Lege mindestens ein Antwortfeld an, um Mapping zu konfigurieren.",
 			"ignore": "Ignorieren",
 			"contactKey": {
 				"name": "Vor- + Nachname (auto split)"
+			},
+			"guestKey": {
+				"name": "Name",
+				"note": "Notiz",
+				"plusOnes": "Begleitpersonen"
 			}
 		},
 		"viewResponses": "Antworten ({n})"

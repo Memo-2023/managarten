@@ -79,11 +79,21 @@
 			"title": "Auto-sync — crear al recibir respuesta",
 			"targetNone": "Nada",
 			"targetContacts": "Contacto",
+			"targetEvents": "RSVP de evento",
 			"contactsHint": "Para cada campo del formulario, elige qué campo del contacto debe rellenar. Deja vacío para ignorar.",
+			"eventsHint": "Para cada campo del formulario, elige qué campo del invitado debe rellenar. Los RSVPs se ponen en \"asistiré\".",
+			"eventPicker": "¿Qué evento?",
+			"eventPickerNone": "Selecciona ...",
+			"eventNeeded": "Elige el evento al que se van a crear los RSVPs.",
 			"needFields": "Añade al menos un campo de respuesta para configurar el mapeo.",
 			"ignore": "Ignorar",
 			"contactKey": {
 				"name": "Nombre + apellido (auto split)"
+			},
+			"guestKey": {
+				"name": "Nombre",
+				"note": "Nota",
+				"plusOnes": "Acompañantes"
 			}
 		},
 		"viewResponses": "Respuestas ({n})"

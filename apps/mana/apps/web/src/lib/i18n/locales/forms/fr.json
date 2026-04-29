@@ -79,11 +79,21 @@
 			"title": "Auto-sync — créer à la soumission",
 			"targetNone": "Rien",
 			"targetContacts": "Contact",
+			"targetEvents": "RSVP événement",
 			"contactsHint": "Pour chaque champ du formulaire, choisis quel champ de contact remplir. Laisse vide pour ignorer.",
+			"eventsHint": "Pour chaque champ du formulaire, choisis quel champ d'invité remplir. Les RSVPs sont mis sur \"présent\".",
+			"eventPicker": "Quel événement ?",
+			"eventPickerNone": "Choisir ...",
+			"eventNeeded": "Choisis l'événement pour lequel les RSVPs seront créés.",
 			"needFields": "Ajoute au moins un champ de réponse pour configurer le mapping.",
 			"ignore": "Ignorer",
 			"contactKey": {
 				"name": "Prénom + nom (auto split)"
+			},
+			"guestKey": {
+				"name": "Nom",
+				"note": "Note",
+				"plusOnes": "Accompagnants"
 			}
 		},
 		"viewResponses": "Réponses ({n})"

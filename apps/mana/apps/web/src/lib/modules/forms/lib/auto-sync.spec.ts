@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { buildContactFromAnswers } from './auto-sync';
+import { buildContactFromAnswers, buildEventGuestFromAnswers } from './auto-sync';
 
 describe('buildContactFromAnswers', () => {
 	it('maps form-fields to contact-fields directly', () => {
@@ -49,5 +49,55 @@ describe('buildContactFromAnswers', () => {
 			{ 'f-name': 'firstName' }
 		);
 		expect(result).toEqual({ firstName: 'Anna' });
+	});
+});
+
+describe('buildEventGuestFromAnswers', () => {
+	it('maps name/email/phone/note straight through', () => {
+		const result = buildEventGuestFromAnswers(
+			{
+				'f-name': 'Anna Mustermann',
+				'f-email': 'anna@example.com',
+				'f-phone': '+49 30 12345',
+				'f-note': 'Bringe Salat mit',
+			},
+			{ 'f-name': 'name', 'f-email': 'email', 'f-phone': 'phone', 'f-note': 'note' }
+		);
+		expect(result).toEqual({
+			name: 'Anna Mustermann',
+			email: 'anna@example.com',
+			phone: '+49 30 12345',
+			note: 'Bringe Salat mit',
+		});
+	});
+
+	it('parses plusOnes as a non-negative integer', () => {
+		expect(buildEventGuestFromAnswers({ 'f-plus': '2' }, { 'f-plus': 'plusOnes' })).toEqual({
+			plusOnes: 2,
+		});
+		expect(
+			buildEventGuestFromAnswers({ 'f-plus': '2.7' as unknown as string }, { 'f-plus': 'plusOnes' })
+		).toEqual({ plusOnes: 2 });
+		// Negative + non-numeric → drop silently
+		expect(buildEventGuestFromAnswers({ 'f-plus': '-1' }, { 'f-plus': 'plusOnes' })).toEqual({});
+		expect(buildEventGuestFromAnswers({ 'f-plus': 'abc' }, { 'f-plus': 'plusOnes' })).toEqual({});
+	});
+
+	it('skips empty / null / undefined answers', () => {
+		const result = buildEventGuestFromAnswers(
+			{ 'f-name': '', 'f-email': null },
+			{ 'f-name': 'name', 'f-email': 'email' }
+		);
+		expect(result).toEqual({});
+	});
+
+	it('ignores unknown contact-style keys (firstName/lastName)', () => {
+		// guest model has no firstName — only `name`. Mappings to non-
+		// guest keys are silently dropped.
+		const result = buildEventGuestFromAnswers(
+			{ 'f-fn': 'Anna', 'f-name': 'Anna Mustermann' },
+			{ 'f-fn': 'firstName', 'f-name': 'name' }
+		);
+		expect(result).toEqual({ name: 'Anna Mustermann' });
 	});
 });

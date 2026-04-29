@@ -79,11 +79,21 @@
 			"title": "Auto-sync — create on submit",
 			"targetNone": "None",
 			"targetContacts": "Contact",
+			"targetEvents": "Event RSVP",
 			"contactsHint": "For each form field, pick which contact field it should fill. Leave empty to ignore.",
+			"eventsHint": "For each form field, pick which guest field it should fill. RSVPs are set to \"attending\".",
+			"eventPicker": "Which event?",
+			"eventPickerNone": "Please pick ...",
+			"eventNeeded": "Pick the event the RSVPs should be created for.",
 			"needFields": "Add at least one answer field to configure mapping.",
 			"ignore": "Ignore",
 			"contactKey": {
 				"name": "First + last name (auto split)"
+			},
+			"guestKey": {
+				"name": "Name",
+				"note": "Note",
+				"plusOnes": "Plus-ones"
 			}
 		},
 		"viewResponses": "Responses ({n})"

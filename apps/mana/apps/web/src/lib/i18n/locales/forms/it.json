@@ -79,11 +79,21 @@
 			"title": "Auto-sync — crea al ricevere risposta",
 			"targetNone": "Nessuno",
 			"targetContacts": "Contatto",
+			"targetEvents": "RSVP evento",
 			"contactsHint": "Per ogni campo del modulo, scegli quale campo del contatto deve riempire. Lascia vuoto per ignorare.",
+			"eventsHint": "Per ogni campo del modulo, scegli quale campo dell'ospite deve riempire. Gli RSVP vengono impostati su \"presente\".",
+			"eventPicker": "Quale evento?",
+			"eventPickerNone": "Seleziona ...",
+			"eventNeeded": "Scegli l'evento per cui creare gli RSVP.",
 			"needFields": "Aggiungi almeno un campo di risposta per configurare il mapping.",
 			"ignore": "Ignora",
 			"contactKey": {
 				"name": "Nome + cognome (auto split)"
+			},
+			"guestKey": {
+				"name": "Nome",
+				"note": "Nota",
+				"plusOnes": "Accompagnatori"
 			}
 		},
 		"viewResponses": "Risposte ({n})"

@@ -5,6 +5,7 @@
 -->
 <script lang="ts">
 	import { _ } from 'svelte-i18n';
+	import { useAllEvents } from '$lib/modules/events/queries';
 	import type { AutoSyncTarget, FormField, FormSettings } from '../types';
 
 	let {
@@ -17,10 +18,13 @@
 		onchange: (patch: Partial<FormSettings>) => void;
 	} = $props();
 
-	// v1: nur 'contacts' implementiert (M7a). Andere Targets sind
-	// strukturell vorgesehen, aber die dispatchTarget-Branch wirft —
-	// wir filtern sie aus dem UI raus, bis M7b sie scharfschaltet.
-	const SUPPORTED_TARGETS: AutoSyncTarget[] = ['contacts'];
+	// M7a: contacts. M7b: events (RSVP). Andere Targets (feedback,
+	// library, space_member) bleiben strukturell — dispatchTarget wirft,
+	// UI filtert sie aus, bis sie scharfgeschaltet werden.
+	const SUPPORTED_TARGETS: AutoSyncTarget[] = ['contacts', 'events'];
+
+	const events$ = useAllEvents();
+	const events = $derived(events$.value);
 
 	const CONTACT_KEYS = [
 		'name',
@@ -78,35 +82,74 @@
 		}
 	}
 
+	const GUEST_KEYS = ['name', 'email', 'phone', 'note', 'plusOnes'] as const;
+	type GuestKey = (typeof GUEST_KEYS)[number];
+
+	function guestKeyLabel(key: GuestKey): string {
+		switch (key) {
+			case 'name':
+				return $_('forms.builder.autoSync.guestKey.name', { default: 'Name' });
+			case 'email':
+				return 'E-Mail';
+			case 'phone':
+				return 'Telefon';
+			case 'note':
+				return $_('forms.builder.autoSync.guestKey.note', { default: 'Notiz' });
+			case 'plusOnes':
+				return $_('forms.builder.autoSync.guestKey.plusOnes', { default: 'Begleitpersonen' });
+		}
+	}
+
 	const ANSWER_FIELDS = $derived(
 		fields.filter((f) => f.type !== 'section' && f.type !== 'consent')
 	);
 
 	const target = $derived<AutoSyncTarget | 'none'>(settings.autoSync?.target ?? 'none');
+	const targetId = $derived(settings.autoSync?.targetId ?? '');
 	const mapping = $derived(settings.autoSync?.mapping ?? {});
 
 	function setTarget(next: AutoSyncTarget | 'none') {
 		if (next === 'none') {
 			onchange({ autoSync: undefined });
 		} else {
+			// Switching target → drop mapping (different target, different
+			// allowed keys). targetId is only meaningful for events.
 			onchange({
 				autoSync: {
 					target: next,
-					mapping: settings.autoSync?.mapping ?? {},
+					mapping: {},
+					...(next === 'events' && targetId ? { targetId } : {}),
 				},
 			});
 		}
 	}
 
-	function setMappingFor(fieldId: string, contactKey: ContactKey | '') {
+	function setTargetId(eventId: string) {
+		onchange({
+			autoSync: {
+				target: 'events',
+				targetId: eventId || undefined,
+				mapping,
+			},
+		});
+	}
+
+	function setMappingFor(fieldId: string, key: string) {
 		const next = { ...mapping };
-		if (!contactKey) {
+		if (!key) {
 			delete next[fieldId];
 		} else {
-			next[fieldId] = contactKey;
+			next[fieldId] = key;
 		}
 		const t = settings.autoSync?.target ?? 'contacts';
-		onchange({ autoSync: { target: t, mapping: next } });
+		const tid = settings.autoSync?.targetId;
+		onchange({
+			autoSync: {
+				target: t,
+				mapping: next,
+				...(tid ? { targetId: tid } : {}),
+			},
+		});
 	}
 </script>
 
@@ -205,12 +248,40 @@
 				<option value={t}>
 					{t === 'contacts'
 						? $_('forms.builder.autoSync.targetContacts', { default: 'Kontakt' })
-						: t}
+						: t === 'events'
+							? $_('forms.builder.autoSync.targetEvents', { default: 'Event-RSVP' })
+							: t}
 				</option>
 			{/each}
 		</select>
 
-		{#if target === 'contacts'}
+		{#if target === 'events'}
+			<label class="setting-row">
+				<span class="setting-label">
+					{$_('forms.builder.autoSync.eventPicker', { default: 'Welches Event?' })}
+				</span>
+				<select
+					value={targetId}
+					onchange={(e) => setTargetId((e.currentTarget as HTMLSelectElement).value)}
+				>
+					<option value=""
+						>{$_('forms.builder.autoSync.eventPickerNone', { default: 'Bitte wählen ...' })}</option
+					>
+					{#each events as ev (ev.id)}
+						<option value={ev.id}>{ev.title}</option>
+					{/each}
+				</select>
+			</label>
+			{#if !targetId}
+				<p class="hint">
+					{$_('forms.builder.autoSync.eventNeeded', {
+						default: 'Wähle das Event, zu dem die RSVPs angelegt werden sollen.',
+					})}
+				</p>
+			{/if}
+		{/if}
+
+		{#if target !== 'none' && (target !== 'events' || targetId)}
 			{#if ANSWER_FIELDS.length === 0}
 				<p class="hint">
 					{$_('forms.builder.autoSync.needFields', {
@@ -219,10 +290,15 @@
 				</p>
 			{:else}
 				<p class="hint">
-					{$_('forms.builder.autoSync.contactsHint', {
-						default:
-							'Wähle für jedes Form-Feld, welches Kontakt-Feld es füllen soll. Leerlassen = ignorieren.',
-					})}
+					{target === 'events'
+						? $_('forms.builder.autoSync.eventsHint', {
+								default:
+									'Wähle für jedes Form-Feld, welches Gast-Feld es füllen soll. RSVPs werden auf "Zusage" gesetzt.',
+							})
+						: $_('forms.builder.autoSync.contactsHint', {
+								default:
+									'Wähle für jedes Form-Feld, welches Kontakt-Feld es füllen soll. Leerlassen = ignorieren.',
+							})}
 				</p>
 				<div class="mapping-grid">
 					{#each ANSWER_FIELDS as f (f.id)}
@@ -231,18 +307,20 @@
 							<select
 								class="contact-key-select"
 								value={mapping[f.id] ?? ''}
-								onchange={(e) =>
-									setMappingFor(
-										f.id,
-										(e.currentTarget as HTMLSelectElement).value as ContactKey | ''
-									)}
+								onchange={(e) => setMappingFor(f.id, (e.currentTarget as HTMLSelectElement).value)}
 							>
 								<option value="">
 									{$_('forms.builder.autoSync.ignore', { default: 'Ignorieren' })}
 								</option>
-								{#each CONTACT_KEYS as ck}
-									<option value={ck}>{contactKeyLabel(ck)}</option>
-								{/each}
+								{#if target === 'events'}
+									{#each GUEST_KEYS as gk}
+										<option value={gk}>{guestKeyLabel(gk)}</option>
+									{/each}
+								{:else}
+									{#each CONTACT_KEYS as ck}
+										<option value={ck}>{contactKeyLabel(ck)}</option>
+									{/each}
+								{/if}
 							</select>
 						</div>
 					{/each}
