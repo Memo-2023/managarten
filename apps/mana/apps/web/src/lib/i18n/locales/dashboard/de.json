@@ -154,6 +154,10 @@
 		"body_stats": {
 			"title": "Body",
 			"description": "Aktuelles Gewicht und Trainings-Status"
+		},
+		"forms": {
+			"title": "Formulare",
+			"description": "Status-Übersicht und letzte Antworten"
 		}
 	}
 }

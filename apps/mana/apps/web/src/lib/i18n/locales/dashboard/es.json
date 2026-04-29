@@ -154,6 +154,10 @@
 		"articles_unread": {
 			"title": "Artículos",
 			"description": "Artículos no leídos de tu lista de lectura"
+		},
+		"forms": {
+			"title": "Formularios",
+			"description": "Resumen de estado y últimas respuestas"
 		}
 	}
 }

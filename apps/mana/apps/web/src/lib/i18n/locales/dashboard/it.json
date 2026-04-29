@@ -154,6 +154,10 @@
 		"articles_unread": {
 			"title": "Articoli",
 			"description": "Articoli non letti dalla tua lista di lettura"
+		},
+		"forms": {
+			"title": "Moduli",
+			"description": "Panoramica degli stati e ultime risposte"
 		}
 	}
 }

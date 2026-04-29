@@ -154,6 +154,10 @@
 		"body_stats": {
 			"title": "Body",
 			"description": "Latest weight and training status"
+		},
+		"forms": {
+			"title": "Forms",
+			"description": "Status overview and latest responses"
 		}
 	}
 }

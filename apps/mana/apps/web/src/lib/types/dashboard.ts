@@ -34,7 +34,8 @@ export type WidgetType =
 	| 'articles-unread' // Articles: saved read-it-later articles
 	| 'body-stats' // Body: latest weight + active workout summary
 	| 'invoices-open' // Invoices: open/overdue totals + oldest overdue
-	| 'broadcasts'; // Broadcast: YTD counts + last sent + next scheduled
+	| 'broadcasts' // Broadcast: YTD counts + last sent + next scheduled
+	| 'forms'; // Forms: status counts + last forms + recent response count
 
 /**
  * Widget size - maps to CSS Grid columns
@@ -375,6 +376,14 @@ export const WIDGET_REGISTRY: WidgetMeta[] = [
 		nameKey: 'dashboard.widgets.broadcasts.title',
 		descriptionKey: 'dashboard.widgets.broadcasts.description',
 		icon: '📣',
+		defaultSize: 'medium',
+		allowMultiple: false,
+	},
+	{
+		type: 'forms',
+		nameKey: 'dashboard.widgets.forms.title',
+		descriptionKey: 'dashboard.widgets.forms.description',
+		icon: '📋',
 		defaultSize: 'medium',
 		allowMultiple: false,
 	},

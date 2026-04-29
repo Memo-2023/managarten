@@ -35,6 +35,7 @@ import ArticlesUnreadWidget from '$lib/modules/articles/widgets/ArticlesUnreadWi
 import BodyStatsWidget from '$lib/modules/body/widgets/BodyStatsWidget.svelte';
 import InvoicesOpenWidget from '$lib/modules/invoices/widgets/InvoicesOpenWidget.svelte';
 import BroadcastsWidget from '$lib/modules/broadcasts/widgets/BroadcastsWidget.svelte';
+import FormsWidget from '$lib/modules/forms/widgets/FormsWidget.svelte';
 import DayTimelineWidget from './widgets/DayTimelineWidget.svelte';
 import ActivityFeedWidget from './widgets/ActivityFeedWidget.svelte';
 
@@ -66,4 +67,5 @@ export const widgetComponents: Record<WidgetType, Component> = {
 	'body-stats': BodyStatsWidget,
 	'invoices-open': InvoicesOpenWidget,
 	broadcasts: BroadcastsWidget,
+	forms: FormsWidget,
 };
