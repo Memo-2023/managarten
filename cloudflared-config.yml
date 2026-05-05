@@ -152,6 +152,16 @@ ingress:
     service: http://localhost:3064
 
   # ============================================
+  # mana e.V. platform (Code/mana, separate repo)
+  # Lives under ~/projects/mana-platform/ on the Mac Mini, deployed via
+  # infrastructure/docker-compose.macmini.yml. Coexists with this stack.
+  # ============================================
+  - hostname: admin.mana.how
+    service: http://localhost:3071
+  - hostname: npm.mana.how
+    service: http://localhost:4873
+
+  # ============================================
   # Standalone web apps (separate containers)
   # ============================================
   - hostname: playground.mana.how
