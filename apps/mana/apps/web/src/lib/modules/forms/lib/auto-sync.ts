@@ -23,6 +23,8 @@
 
 import { contactsStore } from '$lib/modules/contacts/stores/contacts.svelte';
 import { eventGuestsStore } from '$lib/modules/events/stores/guests.svelte';
+import { libraryEntriesStore } from '$lib/modules/library/stores/entries.svelte';
+import { authFetch } from '$lib/data/scope';
 import { decryptRecords, isVaultUnlocked } from '$lib/data/crypto';
 import { formResponseTable, formTable } from '../collections';
 import { toForm, toFormResponse } from '../queries';
@@ -82,7 +84,7 @@ export async function applyAutoSync(
 	const already = (response.syncedTargets ?? []).find((t) => t.target === cfg.target);
 	if (already) return { synced: false, recordId: already.recordId };
 
-	const recordId = await dispatchTarget(cfg, response.answers);
+	const recordId = await dispatchTarget(cfg, response.answers, form);
 	if (!recordId) return { synced: false };
 
 	const next = [...(response.syncedTargets ?? []), { target: cfg.target, recordId }];
@@ -139,9 +141,79 @@ export function buildEventGuestFromAnswers(
 	return guest;
 }
 
+/**
+ * Build a library-entry patch from a form response. The mapping is
+ * narrower than for contacts: library entries are dominated by `title`,
+ * with optional creators / year / review. Pure.
+ */
+export function buildLibraryEntryFromAnswers(
+	answers: Record<string, AnswerValue>,
+	mapping: Record<string, string>
+): {
+	title?: string;
+	creators?: string[];
+	year?: number;
+	review?: string;
+} {
+	const out: { title?: string; creators?: string[]; year?: number; review?: string } = {};
+	for (const [fieldId, key] of Object.entries(mapping)) {
+		const value = answers[fieldId];
+		if (value === null || value === undefined) continue;
+		const str = typeof value === 'string' ? value.trim() : String(value);
+		if (!str) continue;
+		switch (key) {
+			case 'title':
+				out.title = str;
+				break;
+			case 'creator':
+			case 'creators': {
+				const arr = str
+					.split(/[,;\n]+/)
+					.map((s) => s.trim())
+					.filter(Boolean);
+				if (arr.length > 0) out.creators = arr;
+				break;
+			}
+			case 'year': {
+				const n = Number(str);
+				if (Number.isFinite(n) && n >= 1900 && n <= 2100) out.year = Math.round(n);
+				break;
+			}
+			case 'review':
+				out.review = str;
+				break;
+		}
+	}
+	return out;
+}
+
+/**
+ * Build a space-invite payload from a form response. Just the email —
+ * the role lives on the autoSync config, not on the form-fields.
+ */
+export function buildSpaceInviteFromAnswers(
+	answers: Record<string, AnswerValue>,
+	mapping: Record<string, string>
+): { email?: string } {
+	const out: { email?: string } = {};
+	for (const [fieldId, key] of Object.entries(mapping)) {
+		if (key !== 'email') continue;
+		const value = answers[fieldId];
+		if (typeof value !== 'string') continue;
+		const trimmed = value.trim();
+		if (!trimmed) continue;
+		// Loose email shape — better-auth validates strictly server-side.
+		if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)) continue;
+		out.email = trimmed;
+		break;
+	}
+	return out;
+}
+
 async function dispatchTarget(
 	cfg: AutoSyncConfig,
-	answers: Record<string, AnswerValue>
+	answers: Record<string, AnswerValue>,
+	form: Form
 ): Promise<string | null> {
 	switch (cfg.target) {
 		case 'contacts': {
@@ -173,16 +245,56 @@ async function dispatchTarget(
 			});
 			return result.success ? result.id : null;
 		}
+		case 'library': {
+			if (!cfg.libraryKind) {
+				throw new Error('autoSync.libraryKind ist erforderlich für target=library');
+			}
+			const data = buildLibraryEntryFromAnswers(answers, cfg.mapping);
+			// Library entries need a title — a creator-only or year-only
+			// row would be useless.
+			if (!data.title) return null;
+			const entry = await libraryEntriesStore.createEntry({
+				kind: cfg.libraryKind,
+				title: data.title,
+				creators: data.creators,
+				year: data.year ?? null,
+				review: data.review ?? null,
+			});
+			return entry?.id ?? null;
+		}
+		case 'space_member': {
+			const invite = buildSpaceInviteFromAnswers(answers, cfg.mapping);
+			if (!invite.email) return null;
+			if (!form.spaceId) {
+				throw new Error('Form hat keine spaceId — Space-Invite kann nicht gesendet werden');
+			}
+			const role = cfg.spaceMemberRole ?? 'member';
+			const res = await authFetch('/api/auth/organization/invite-member', {
+				method: 'POST',
+				body: JSON.stringify({
+					email: invite.email,
+					role,
+					organizationId: form.spaceId,
+				}),
+			});
+			if (!res.ok) {
+				const text = await res.text().catch(() => '');
+				throw new Error(`Invite fehlgeschlagen (${res.status}): ${text.slice(0, 200)}`);
+			}
+			const data = (await res.json().catch(() => ({}))) as { invitation?: { id?: string } };
+			return data.invitation?.id ?? `invite:${invite.email}`;
+		}
 		case 'feedback':
-		case 'library':
-		case 'space_member':
-			// Out of M7b scope. feedback ist zentraler Public-Hub (eigene
-			// Domain, keine Dexie), library + space_member brauchen mehr
-			// Architektur (target-id picker für library, invite-flow für
-			// space_member). Bleibt explicit "not yet" damit der UI-Filter
-			// im SettingsPanel keine option-Werte vergibt, die runtime
-			// brechen wuerden.
-			throw new Error(`autoSync target "${cfg.target}" ist noch nicht implementiert`);
+			// Architektur-Mismatch: @mana/feedback ist ein zentraler
+			// Public-Hub mit eigener Domain (feedback.mana.how), keine
+			// per-User Dexie-Tabelle. Form-Antworten dort einzukippen würde
+			// bedeuten, im Namen des Submitters eine Public-Feedback zu
+			// erzeugen — semantisch falsch (das Owner-Form sammelt die
+			// Antworten _für sich_, nicht zur Veröffentlichung). Bleibt
+			// explicit unsupported. UI filtert die Option raus.
+			throw new Error(
+				'autoSync target "feedback" ist nicht supportet — feedback ist zentraler Public-Hub'
+			);
 	}
 }
 

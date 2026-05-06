@@ -102,6 +102,27 @@
 			"targetNone": "Nessuno",
 			"targetContacts": "Contatto",
 			"targetEvents": "RSVP evento",
+			"targetLibrary": "Voce di Library",
+			"targetSpaceMember": "Invito allo Space",
+			"libraryKindPicker": "Che tipo di voce?",
+			"libraryKind": {
+				"book": "Libro",
+				"movie": "Film",
+				"series": "Serie",
+				"comic": "Fumetto"
+			},
+			"libraryKey": {
+				"title": "Titolo",
+				"creators": "Autori / creatori",
+				"year": "Anno",
+				"review": "Nota"
+			},
+			"libraryHint": "Mappa un campo del modulo su \"Titolo\" — il resto è opzionale. Consigliato: anche autori + anno.",
+			"spaceMemberRolePicker": "Ruolo all'invito",
+			"spaceMemberRoleMember": "Membro",
+			"spaceMemberRoleAdmin": "Admin",
+			"spaceMemberHint": "Ogni risposta crea un invito Mana all'email indicata. Mappa esattamente un campo su \"Email\".",
+			"spaceMemberMappingHint": "Mappa esattamente un campo su \"Email\". Gli altri vengono ignorati.",
 			"contactsHint": "Per ogni campo del modulo, scegli quale campo del contatto deve riempire. Lascia vuoto per ignorare.",
 			"eventsHint": "Per ogni campo del modulo, scegli quale campo dell'ospite deve riempire. Gli RSVP vengono impostati su \"presente\".",
 			"eventPicker": "Quale evento?",

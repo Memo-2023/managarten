@@ -17,6 +17,7 @@ import type {
 export function toForm(local: LocalForm): Form {
 	return {
 		id: local.id,
+		spaceId: (local as unknown as { spaceId?: string }).spaceId ?? '',
 		title: local.title,
 		description: local.description,
 		fields: local.fields ?? [],

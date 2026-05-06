@@ -1,5 +1,10 @@
 import { describe, it, expect } from 'vitest';
-import { buildContactFromAnswers, buildEventGuestFromAnswers } from './auto-sync';
+import {
+	buildContactFromAnswers,
+	buildEventGuestFromAnswers,
+	buildLibraryEntryFromAnswers,
+	buildSpaceInviteFromAnswers,
+} from './auto-sync';
 
 describe('buildContactFromAnswers', () => {
 	it('maps form-fields to contact-fields directly', () => {
@@ -99,5 +104,93 @@ describe('buildEventGuestFromAnswers', () => {
 			{ 'f-fn': 'firstName', 'f-name': 'name' }
 		);
 		expect(result).toEqual({ name: 'Anna Mustermann' });
+	});
+});
+
+describe('buildLibraryEntryFromAnswers', () => {
+	it('maps title / creators / year / review', () => {
+		expect(
+			buildLibraryEntryFromAnswers(
+				{
+					'f-title': 'Dune',
+					'f-creators': 'Frank Herbert',
+					'f-year': '1965',
+					'f-review': 'Tolles Buch',
+				},
+				{
+					'f-title': 'title',
+					'f-creators': 'creators',
+					'f-year': 'year',
+					'f-review': 'review',
+				}
+			)
+		).toEqual({
+			title: 'Dune',
+			creators: ['Frank Herbert'],
+			year: 1965,
+			review: 'Tolles Buch',
+		});
+	});
+
+	it('splits multi-creator strings on comma/semicolon/newline', () => {
+		expect(
+			buildLibraryEntryFromAnswers(
+				{ 'f-c': 'Frank Herbert; Brian Herbert\nKevin J. Anderson' },
+				{ 'f-c': 'creators' }
+			)
+		).toEqual({ creators: ['Frank Herbert', 'Brian Herbert', 'Kevin J. Anderson'] });
+	});
+
+	it('rejects out-of-range years', () => {
+		expect(buildLibraryEntryFromAnswers({ 'f-y': '1800' }, { 'f-y': 'year' })).toEqual({});
+		expect(buildLibraryEntryFromAnswers({ 'f-y': '2200' }, { 'f-y': 'year' })).toEqual({});
+		expect(buildLibraryEntryFromAnswers({ 'f-y': '2026' }, { 'f-y': 'year' })).toEqual({
+			year: 2026,
+		});
+	});
+
+	it('skips empty / non-string values gracefully', () => {
+		expect(
+			buildLibraryEntryFromAnswers(
+				{ 'f-title': '', 'f-year': null },
+				{ 'f-title': 'title', 'f-year': 'year' }
+			)
+		).toEqual({});
+	});
+});
+
+describe('buildSpaceInviteFromAnswers', () => {
+	it('extracts the first valid email mapped to "email"', () => {
+		expect(
+			buildSpaceInviteFromAnswers({ 'f-mail': 'anna@example.com' }, { 'f-mail': 'email' })
+		).toEqual({ email: 'anna@example.com' });
+	});
+
+	it('rejects malformed emails', () => {
+		expect(
+			buildSpaceInviteFromAnswers({ 'f-mail': 'not-an-email' }, { 'f-mail': 'email' })
+		).toEqual({});
+		expect(buildSpaceInviteFromAnswers({ 'f-mail': 'foo@' }, { 'f-mail': 'email' })).toEqual({});
+	});
+
+	it('ignores fields not mapped to "email"', () => {
+		expect(
+			buildSpaceInviteFromAnswers(
+				{ 'f-name': 'Anna', 'f-mail': 'anna@example.com' },
+				{ 'f-name': 'name', 'f-mail': 'email' }
+			)
+		).toEqual({ email: 'anna@example.com' });
+	});
+
+	it('returns empty when no mapping has key=email', () => {
+		expect(buildSpaceInviteFromAnswers({ 'f-name': 'Anna' }, { 'f-name': 'firstName' })).toEqual(
+			{}
+		);
+	});
+
+	it('returns empty for non-string answers', () => {
+		expect(
+			buildSpaceInviteFromAnswers({ 'f-mail': null as unknown as string }, { 'f-mail': 'email' })
+		).toEqual({});
 	});
 });

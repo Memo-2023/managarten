@@ -102,6 +102,27 @@
 			"targetNone": "Nichts",
 			"targetContacts": "Kontakt",
 			"targetEvents": "Event-RSVP",
+			"targetLibrary": "Library-Eintrag",
+			"targetSpaceMember": "Space-Einladung",
+			"libraryKindPicker": "Welche Art von Eintrag?",
+			"libraryKind": {
+				"book": "Buch",
+				"movie": "Film",
+				"series": "Serie",
+				"comic": "Comic"
+			},
+			"libraryKey": {
+				"title": "Titel",
+				"creators": "Autor:innen / Creator",
+				"year": "Jahr",
+				"review": "Notiz"
+			},
+			"libraryHint": "Mappe ein Form-Feld auf \"Titel\" — der Rest ist optional. Empfohlen: zusätzlich Autor:innen + Jahr.",
+			"spaceMemberRolePicker": "Rolle bei Einladung",
+			"spaceMemberRoleMember": "Mitglied",
+			"spaceMemberRoleAdmin": "Admin",
+			"spaceMemberHint": "Antworten erzeugen eine Mana-Einladung an die angegebene E-Mail. Mappe genau ein Form-Feld auf \"E-Mail\".",
+			"spaceMemberMappingHint": "Mappe genau ein Feld auf \"E-Mail\". Andere Felder werden ignoriert.",
 			"contactsHint": "Wähle für jedes Form-Feld, welches Kontakt-Feld es füllen soll. Leerlassen = ignorieren.",
 			"eventsHint": "Wähle für jedes Form-Feld, welches Gast-Feld es füllen soll. RSVPs werden auf \"Zusage\" gesetzt.",
 			"eventPicker": "Welches Event?",

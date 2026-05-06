@@ -6,6 +6,7 @@ import type { Form, FormResponse } from '../types';
 function makeForm(): Form {
 	return {
 		id: 'f1',
+		spaceId: 's1',
 		title: 'Pulse Check',
 		description: null,
 		fields: [

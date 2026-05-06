@@ -102,6 +102,27 @@
 			"targetNone": "Nada",
 			"targetContacts": "Contacto",
 			"targetEvents": "RSVP de evento",
+			"targetLibrary": "Entrada de Library",
+			"targetSpaceMember": "Invitación al Space",
+			"libraryKindPicker": "¿Qué tipo de entrada?",
+			"libraryKind": {
+				"book": "Libro",
+				"movie": "Película",
+				"series": "Serie",
+				"comic": "Cómic"
+			},
+			"libraryKey": {
+				"title": "Título",
+				"creators": "Autores / creadores",
+				"year": "Año",
+				"review": "Nota"
+			},
+			"libraryHint": "Mapea un campo del formulario a \"Título\" — el resto es opcional. Recomendado: también autores + año.",
+			"spaceMemberRolePicker": "Rol al invitar",
+			"spaceMemberRoleMember": "Miembro",
+			"spaceMemberRoleAdmin": "Admin",
+			"spaceMemberHint": "Cada respuesta genera una invitación de Mana al correo indicado. Mapea exactamente un campo a \"Email\".",
+			"spaceMemberMappingHint": "Mapea exactamente un campo a \"Email\". Los demás se ignoran.",
 			"contactsHint": "Para cada campo del formulario, elige qué campo del contacto debe rellenar. Deja vacío para ignorar.",
 			"eventsHint": "Para cada campo del formulario, elige qué campo del invitado debe rellenar. Los RSVPs se ponen en \"asistiré\".",
 			"eventPicker": "¿Qué evento?",

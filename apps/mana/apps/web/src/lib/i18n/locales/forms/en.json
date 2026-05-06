@@ -102,6 +102,27 @@
 			"targetNone": "None",
 			"targetContacts": "Contact",
 			"targetEvents": "Event RSVP",
+			"targetLibrary": "Library entry",
+			"targetSpaceMember": "Space invite",
+			"libraryKindPicker": "What kind of entry?",
+			"libraryKind": {
+				"book": "Book",
+				"movie": "Movie",
+				"series": "Series",
+				"comic": "Comic"
+			},
+			"libraryKey": {
+				"title": "Title",
+				"creators": "Authors / creators",
+				"year": "Year",
+				"review": "Note"
+			},
+			"libraryHint": "Map one form-field to \"Title\" — the rest is optional. Recommended: also creators + year.",
+			"spaceMemberRolePicker": "Role on invite",
+			"spaceMemberRoleMember": "Member",
+			"spaceMemberRoleAdmin": "Admin",
+			"spaceMemberHint": "Each submission triggers a Mana invite to the given email. Map exactly one form-field to \"Email\".",
+			"spaceMemberMappingHint": "Map exactly one field to \"Email\". Other fields are ignored.",
 			"contactsHint": "For each form field, pick which contact field it should fill. Leave empty to ignore.",
 			"eventsHint": "For each form field, pick which guest field it should fill. RSVPs are set to \"attending\".",
 			"eventPicker": "Which event?",

@@ -544,7 +544,7 @@
 								class="conv-input"
 								type="text"
 								bind:value={freeTextDraft}
-								placeholder="z.B. "der zweite Vorschlag""
+								placeholder={'z.B. „der zweite Vorschlag“'}
 								disabled={extracting}
 								onkeydown={(e) => {
 									if (e.key === 'Enter' && !extracting && freeTextDraft.trim()) {
