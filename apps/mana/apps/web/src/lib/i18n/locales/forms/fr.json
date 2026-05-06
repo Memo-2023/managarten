@@ -75,6 +75,13 @@
 			"title": "Visibilité et partage",
 			"publishHint": "Mets le statut sur \"Publié\" pour partager."
 		},
+		"recurrence": {
+			"title": "Récurrence — regroupe les réponses en vagues",
+			"none": "Ponctuel",
+			"weekly": "Hebdomadaire",
+			"monthly": "Mensuel",
+			"hint": "Les réponses entrantes reçoivent automatiquement un tag de vague (p. ex. « S19 / 2026 ») pour comparer les tendances. L'envoi par broadcast arrive à l'étape suivante."
+		},
 		"autoSync": {
 			"title": "Auto-sync — créer à la soumission",
 			"targetNone": "Rien",
@@ -111,6 +118,9 @@
 		"anonymous": "Anonyme",
 		"tabs": {
 			"all": "Toutes"
+		},
+		"cohort": {
+			"all": "Toutes les vagues"
 		},
 		"col": {
 			"submittedAt": "Reçue",

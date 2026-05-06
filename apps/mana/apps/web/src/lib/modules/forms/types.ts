@@ -77,6 +77,23 @@ export interface AutoSyncConfig {
 	mapping: Record<string, string>;
 }
 
+/**
+ * Recurring-form configuration (M10). When set, public-submit attaches
+ * a cohort label (`YYYY-WNN` for weekly, `YYYY-MM` for monthly) to
+ * each response so the ResponsesView can group + compare waves.
+ *
+ * The `sendVia` field anchors a future cron-worker (M10b) that will
+ * blast the share-link via broadcasts; today the field is recorded
+ * but the cron is not yet implemented.
+ */
+export interface RecurrenceConfig {
+	frequency: 'weekly' | 'monthly';
+	/** ISO timestamp the recurrence started — informational only today. */
+	startedAt?: string;
+	/** Future M10b — currently no-op. */
+	sendVia?: 'broadcast' | 'manual';
+}
+
 export interface FormSettings {
 	submitButtonLabel: string;
 	successMessage: string;
@@ -88,6 +105,7 @@ export interface FormSettings {
 	responseLimit?: number;
 	autoSync?: AutoSyncConfig;
 	responsesPublic?: boolean;
+	recurrence?: RecurrenceConfig;
 }
 
 export type FormStatus = 'draft' | 'published' | 'closed';
@@ -133,6 +151,8 @@ export interface LocalFormResponse extends BaseRecord {
 	submitterMeta?: SubmitterMeta;
 	status: ResponseStatus;
 	syncedTargets?: SyncedTarget[];
+	/** Recurrence bucket label (M10). Empty/undefined = ungrouped. */
+	cohort?: string;
 }
 
 // ─── Domain Types ───────────────────────────────────────────
@@ -163,6 +183,7 @@ export interface FormResponse {
 	submitterMeta: SubmitterMeta | null;
 	status: ResponseStatus;
 	syncedTargets: SyncedTarget[];
+	cohort: string | null;
 	createdAt: string;
 	updatedAt: string;
 }

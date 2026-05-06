@@ -43,6 +43,7 @@ export function toFormResponse(local: LocalFormResponse): FormResponse {
 		submitterMeta: local.submitterMeta ?? null,
 		status: local.status,
 		syncedTargets: local.syncedTargets ?? [],
+		cohort: local.cohort ?? null,
 		createdAt: local.createdAt ?? new Date().toISOString(),
 		updatedAt: deriveUpdatedAt(local),
 	};

@@ -11,6 +11,7 @@
 	import { useFormResponses } from '../queries';
 	import { downloadResponsesCsv } from '../lib/csv';
 	import { runAutoSyncSweep } from '../lib/auto-sync';
+	import { cohortLabel, sortCohortsDesc } from '../lib/cohort';
 	import { RESPONSE_STATUS_LABELS } from '../types';
 	import type { Form, FormResponse, ResponseStatus } from '../types';
 	import ResponseDetailModal from '../components/ResponseDetailModal.svelte';
@@ -51,18 +52,38 @@
 
 	type FilterTab = 'all' | ResponseStatus;
 	let activeTab = $state<FilterTab>('all');
+	let activeCohort = $state<string | null>(null);
+
+	const recurrenceFrequency = $derived(form.settings.recurrence?.frequency ?? null);
+
+	/** Distinct cohorts present on the response set, newest-first. */
+	const cohorts = $derived(
+		recurrenceFrequency
+			? sortCohortsDesc(
+					Array.from(new Set(responses.map((r) => r.cohort).filter((c): c is string => !!c)))
+				)
+			: []
+	);
+
+	const cohortFiltered = $derived(
+		activeCohort ? responses.filter((r) => r.cohort === activeCohort) : responses
+	);
 
 	const counts = $derived({
-		all: responses.length,
-		new: responses.filter((r) => r.status === 'new').length,
-		reviewed: responses.filter((r) => r.status === 'reviewed').length,
-		archived: responses.filter((r) => r.status === 'archived').length,
-		spam: responses.filter((r) => r.status === 'spam').length,
+		all: cohortFiltered.length,
+		new: cohortFiltered.filter((r) => r.status === 'new').length,
+		reviewed: cohortFiltered.filter((r) => r.status === 'reviewed').length,
+		archived: cohortFiltered.filter((r) => r.status === 'archived').length,
+		spam: cohortFiltered.filter((r) => r.status === 'spam').length,
 	});
 
 	const filtered = $derived(
-		activeTab === 'all' ? responses : responses.filter((r) => r.status === activeTab)
+		activeTab === 'all' ? cohortFiltered : cohortFiltered.filter((r) => r.status === activeTab)
 	);
+
+	function selectCohort(cohort: string | null) {
+		activeCohort = cohort;
+	}
 
 	let detailResponseId = $state<string | null>(null);
 	const detailResponse = $derived(
@@ -120,6 +141,32 @@
 
 	{#if autoSyncSummary}
 		<p class="auto-sync-toast">{autoSyncSummary}</p>
+	{/if}
+
+	{#if recurrenceFrequency && cohorts.length > 0}
+		<div class="cohort-bar" role="group" aria-label="Wellen">
+			<button
+				type="button"
+				class="cohort-chip"
+				class:active={activeCohort === null}
+				onclick={() => selectCohort(null)}
+			>
+				{$_('forms.responses.cohort.all', { default: 'Alle Wellen' })}
+				<span class="cohort-count">{responses.length}</span>
+			</button>
+			{#each cohorts as c (c)}
+				{@const cCount = responses.filter((r) => r.cohort === c).length}
+				<button
+					type="button"
+					class="cohort-chip"
+					class:active={activeCohort === c}
+					onclick={() => selectCohort(c)}
+				>
+					{cohortLabel(c, recurrenceFrequency)}
+					<span class="cohort-count">{cCount}</span>
+				</button>
+			{/each}
+		</div>
 	{/if}
 
 	<nav class="tabs" role="tablist">
@@ -269,6 +316,43 @@
 		border-radius: 0.375rem;
 		color: rgb(94 234 212);
 		font-size: 0.8125rem;
+	}
+
+	.cohort-bar {
+		display: flex;
+		gap: 0.25rem;
+		flex-wrap: wrap;
+	}
+
+	.cohort-chip {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.375rem;
+		padding: 0.25rem 0.625rem;
+		background: rgb(255 255 255 / 0.04);
+		border: 1px solid rgb(255 255 255 / 0.08);
+		border-radius: 999px;
+		color: rgb(255 255 255 / 0.55);
+		font-size: 0.75rem;
+		cursor: pointer;
+	}
+
+	.cohort-chip:hover {
+		background: rgb(255 255 255 / 0.07);
+	}
+
+	.cohort-chip.active {
+		background: rgb(20 184 166 / 0.18);
+		color: rgb(94 234 212);
+		border-color: rgb(20 184 166 / 0.4);
+	}
+
+	.cohort-count {
+		min-width: 0.875rem;
+		text-align: center;
+		font-variant-numeric: tabular-nums;
+		font-size: 0.6875rem;
+		opacity: 0.7;
 	}
 
 	.tabs {

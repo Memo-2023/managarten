@@ -39,6 +39,7 @@ function makeResponse(overrides: Partial<FormResponse> = {}): FormResponse {
 		submitterMeta: null,
 		status: 'new',
 		syncedTargets: [],
+		cohort: null,
 		createdAt: '2026-04-28T12:00:00Z',
 		updatedAt: '2026-04-28T12:00:00Z',
 		...overrides,

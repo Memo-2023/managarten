@@ -316,7 +316,11 @@ async function buildFormBlob(recordId: string): Promise<Record<string, unknown>>
 		zkMode: false,
 	};
 
-	return {
+	// Whitelisted snapshot fields. `recurrence` is intentionally
+	// included even though most settings are redacted: the server-side
+	// public-submit endpoint reads it to compute the response cohort
+	// (M10), and the frequency itself is not sensitive metadata.
+	const blob: Record<string, unknown> = {
 		title: decrypted.title,
 		description: decrypted.description ?? null,
 		fields: decrypted.fields ?? [],
@@ -326,4 +330,8 @@ async function buildFormBlob(recordId: string): Promise<Record<string, unknown>>
 			successMessage: settings.successMessage,
 		},
 	};
+	if (settings.recurrence?.frequency) {
+		blob.recurrence = { frequency: settings.recurrence.frequency };
+	}
+	return blob;
 }

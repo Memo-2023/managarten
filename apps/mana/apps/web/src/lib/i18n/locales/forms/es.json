@@ -75,6 +75,13 @@
 			"title": "Visibilidad y compartir",
 			"publishHint": "Pon el estado en \"Publicado\" para compartir."
 		},
+		"recurrence": {
+			"title": "Recurrencia — agrupa respuestas en olas",
+			"none": "Una vez",
+			"weekly": "Semanal",
+			"monthly": "Mensual",
+			"hint": "Las respuestas recibidas se etiquetan automáticamente con la ola (p. ej. \"S19 / 2026\") para comparar tendencias. El envío automático por broadcast llegará en un paso posterior."
+		},
 		"autoSync": {
 			"title": "Auto-sync — crear al recibir respuesta",
 			"targetNone": "Nada",
@@ -111,6 +118,9 @@
 		"anonymous": "Anónimo",
 		"tabs": {
 			"all": "Todas"
+		},
+		"cohort": {
+			"all": "Todas las olas"
 		},
 		"col": {
 			"submittedAt": "Recibida",

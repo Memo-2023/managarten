@@ -151,6 +151,24 @@
 			},
 		});
 	}
+
+	// ── Recurrence (M10) ─────────────────────────────────
+	const recurrenceFrequency = $derived<'none' | 'weekly' | 'monthly'>(
+		settings.recurrence?.frequency ?? 'none'
+	);
+
+	function setRecurrence(next: 'none' | 'weekly' | 'monthly') {
+		if (next === 'none') {
+			onchange({ recurrence: undefined });
+		} else {
+			onchange({
+				recurrence: {
+					frequency: next,
+					startedAt: settings.recurrence?.startedAt ?? new Date().toISOString(),
+				},
+			});
+		}
+	}
 </script>
 
 <div class="settings-panel">
@@ -229,6 +247,38 @@
 			})}
 		</span>
 	</label>
+
+	<div class="recurrence-block">
+		<p class="block-title">
+			{$_('forms.builder.recurrence.title', { default: 'Wiederkehr — Antworten in Wellen' })}
+		</p>
+		<select
+			class="target-select"
+			value={recurrenceFrequency}
+			onchange={(e) =>
+				setRecurrence(
+					(e.currentTarget as HTMLSelectElement).value as 'none' | 'weekly' | 'monthly'
+				)}
+		>
+			<option value="none">
+				{$_('forms.builder.recurrence.none', { default: 'Einmalig' })}
+			</option>
+			<option value="weekly">
+				{$_('forms.builder.recurrence.weekly', { default: 'Wöchentlich' })}
+			</option>
+			<option value="monthly">
+				{$_('forms.builder.recurrence.monthly', { default: 'Monatlich' })}
+			</option>
+		</select>
+		{#if recurrenceFrequency !== 'none'}
+			<p class="hint">
+				{$_('forms.builder.recurrence.hint', {
+					default:
+						'Eingehende Antworten bekommen automatisch einen Wellen-Tag (z.B. "KW 19 / 2026") für Trend-Vergleich. Versand des Links via Broadcast kommt im nächsten Schritt.',
+				})}
+			</p>
+		{/if}
+	</div>
 
 	<div class="auto-sync-block">
 		<p class="block-title">
@@ -381,7 +431,8 @@
 		cursor: pointer;
 	}
 
-	.auto-sync-block {
+	.auto-sync-block,
+	.recurrence-block {
 		display: flex;
 		flex-direction: column;
 		gap: 0.5rem;

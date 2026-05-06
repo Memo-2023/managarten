@@ -75,6 +75,13 @@
 			"title": "Visibility & Sharing",
 			"publishHint": "Set the status to \"Published\" to share."
 		},
+		"recurrence": {
+			"title": "Recurrence — group responses into waves",
+			"none": "One-off",
+			"weekly": "Weekly",
+			"monthly": "Monthly",
+			"hint": "Incoming responses are auto-tagged with a wave label (e.g. \"W19 / 2026\") for trend comparison. Broadcast-based sending will come in a follow-up step."
+		},
 		"autoSync": {
 			"title": "Auto-sync — create on submit",
 			"targetNone": "None",
@@ -111,6 +118,9 @@
 		"anonymous": "Anonymous",
 		"tabs": {
 			"all": "All"
+		},
+		"cohort": {
+			"all": "All waves"
 		},
 		"col": {
 			"submittedAt": "Received",

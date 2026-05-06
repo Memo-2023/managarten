@@ -75,6 +75,13 @@
 			"title": "Sichtbarkeit & Teilen",
 			"publishHint": "Setze den Status auf \"Veröffentlicht\", um zu teilen."
 		},
+		"recurrence": {
+			"title": "Wiederkehr — Antworten in Wellen",
+			"none": "Einmalig",
+			"weekly": "Wöchentlich",
+			"monthly": "Monatlich",
+			"hint": "Eingehende Antworten bekommen automatisch einen Wellen-Tag (z.B. \"KW 19 / 2026\") für Trend-Vergleich. Versand des Links via Broadcast kommt im nächsten Schritt."
+		},
 		"autoSync": {
 			"title": "Auto-Sync — bei Antwort erzeugen",
 			"targetNone": "Nichts",
@@ -111,6 +118,9 @@
 		"anonymous": "Anonym",
 		"tabs": {
 			"all": "Alle"
+		},
+		"cohort": {
+			"all": "Alle Wellen"
 		},
 		"col": {
 			"submittedAt": "Eingegangen",

@@ -88,6 +88,30 @@ interface FormSnapshotBlob {
 	}>;
 	branching?: unknown[];
 	settings?: { submitButtonLabel?: string; successMessage?: string };
+	recurrence?: { frequency?: 'weekly' | 'monthly' };
+}
+
+/**
+ * Compute the cohort label for a response based on the form's
+ * recurrence frequency. Mirror of `lib/cohort.ts` in the webapp —
+ * duplicated here because the apps/api surface can't import from
+ * apps/mana/. ISO 8601 week math.
+ */
+function computeCohort(submittedAtIso: string, frequency: 'weekly' | 'monthly'): string {
+	const date = new Date(submittedAtIso);
+	if (Number.isNaN(date.getTime())) return '';
+	if (frequency === 'monthly') {
+		const year = date.getUTCFullYear();
+		const month = date.getUTCMonth() + 1;
+		return `${year}-${String(month).padStart(2, '0')}`;
+	}
+	const utc = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()));
+	const dayOfWeek = utc.getUTCDay() || 7;
+	utc.setUTCDate(utc.getUTCDate() + 4 - dayOfWeek);
+	const year = utc.getUTCFullYear();
+	const yearStart = Date.UTC(year, 0, 1);
+	const week = Math.ceil(((utc.getTime() - yearStart) / 86_400_000 + 1) / 7);
+	return `${year}-W${String(week).padStart(2, '0')}`;
 }
 
 interface SubmitBody {
@@ -168,7 +192,7 @@ routes.post('/:token/submit', async (c) => {
 			) {
 				return errorResponse(c, `Feld "${field.label ?? field.id}" ist erforderlich`, 400, {
 					code: 'REQUIRED_MISSING',
-					field: field.id,
+					details: { field: field.id },
 				});
 			}
 		}
@@ -177,7 +201,7 @@ routes.post('/:token/submit', async (c) => {
 			if (cleanAnswers[field.id] !== true) {
 				return errorResponse(c, `Einwilligung "${field.label ?? field.id}" ist erforderlich`, 400, {
 					code: 'CONSENT_REQUIRED',
-					field: field.id,
+					details: { field: field.id },
 				});
 			}
 		}
@@ -214,6 +238,10 @@ routes.post('/:token/submit', async (c) => {
 	};
 	if (submitterEmail) data.submitterEmail = submitterEmail;
 	if (submitterName) data.submitterName = submitterName;
+	if (blob.recurrence?.frequency) {
+		const cohort = computeCohort(submittedAt, blob.recurrence.frequency);
+		if (cohort) data.cohort = cohort;
+	}
 	if (ipHash || userAgent || referrer) {
 		data.submitterMeta = {
 			...(ipHash ? { ipHash } : {}),

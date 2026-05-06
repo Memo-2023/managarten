@@ -75,6 +75,13 @@
 			"title": "Visibilità e condivisione",
 			"publishHint": "Imposta lo stato su \"Pubblicato\" per condividere."
 		},
+		"recurrence": {
+			"title": "Ricorrenza — raggruppa le risposte in ondate",
+			"none": "Una tantum",
+			"weekly": "Settimanale",
+			"monthly": "Mensile",
+			"hint": "Le risposte in arrivo vengono etichettate automaticamente con l'ondata (es. \"Sett. 19 / 2026\") per confronti di trend. L'invio via broadcast arriva nel passo successivo."
+		},
 		"autoSync": {
 			"title": "Auto-sync — crea al ricevere risposta",
 			"targetNone": "Nessuno",
@@ -111,6 +118,9 @@
 		"anonymous": "Anonimo",
 		"tabs": {
 			"all": "Tutte"
+		},
+		"cohort": {
+			"all": "Tutte le ondate"
 		},
 		"col": {
 			"submittedAt": "Ricevuta",
