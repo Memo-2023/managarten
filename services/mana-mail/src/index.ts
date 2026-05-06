@@ -88,7 +88,14 @@ app.route('/api/v1/mail/messages', createMessageRoutes(mailService));
 
 // Service-to-service routes (X-Service-Key auth)
 app.use('/api/v1/internal/*', serviceAuth(config.serviceKey));
-app.route('/api/v1/internal', createInternalRoutes(accountService));
+app.route(
+	'/api/v1/internal',
+	createInternalRoutes(
+		accountService,
+		broadcastOrchestrator,
+		config.broadcast.maxRecipientsPerCampaign
+	)
+);
 
 // ─── Start ──────────────────────────────────────────────────
 

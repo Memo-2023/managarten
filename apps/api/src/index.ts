@@ -53,7 +53,10 @@ import { websitePublicRoutes } from './modules/website/public-routes';
 import { unlistedRoutes } from './modules/unlisted/routes';
 import { unlistedPublicRoutes } from './modules/unlisted/public-routes';
 import { formsPublicRoutes } from './modules/forms/public-routes';
+import { startFormsWaveWorker } from './modules/forms/wave-worker';
 import { wetterRoutes } from './modules/wetter/routes';
+import { personasInternalRoutes } from './modules/personas/internal-routes';
+import { personasAdminRoutes } from './modules/personas/admin-routes';
 
 const PORT = parseInt(process.env.PORT || '3060', 10);
 const CORS_ORIGINS = (process.env.CORS_ORIGINS || 'http://localhost:5173').split(',');
@@ -83,6 +86,11 @@ app.route('/api/v1/wetter', wetterRoutes);
 app.route('/api/v1/website/public', websitePublicRoutes);
 app.route('/api/v1/unlisted/public', unlistedPublicRoutes);
 app.route('/api/v1/forms/public', formsPublicRoutes);
+
+// Service-key gated — mounted before the JWT-required global authMiddleware
+// because the persona-runner has no JWT, only X-Service-Key. The route
+// file enforces serviceAuthMiddleware internally.
+app.route('/api/v1/personas/internal', personasInternalRoutes);
 
 app.use('/api/*', authMiddleware());
 
@@ -145,12 +153,19 @@ app.route('/api/v1/unlisted', unlistedRoutes);
 app.route('/api/v1/who', whoRoutes);
 app.route('/api/v1/writing', writingRoutes);
 app.route('/api/v1/comic', comicRoutes);
+app.route('/api/v1/personas/admin', personasAdminRoutes);
 
 // ─── Background Workers ─────────────────────────────────────
 // Articles bulk-import: ticks every 2s, advisory-lock-gated so multiple
 // apps/api replicas never double-process. See
 // docs/plans/articles-bulk-import.md.
 startArticleImportWorker();
+
+// Forms wave-cron (M10d): scans unlisted snapshots with internal_meta
+// for forms-recurrence configs, fires due waves via mana-mail's
+// internal bulk-send route. Advisory-lock-gated. See
+// docs/plans/forms-module.md M10d.
+startFormsWaveWorker();
 
 // ─── Server Info ────────────────────────────────────────────
 console.log(`mana-api starting on port ${PORT}...`);

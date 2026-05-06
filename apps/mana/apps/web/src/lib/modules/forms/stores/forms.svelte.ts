@@ -1,6 +1,6 @@
 import { formTable } from '../collections';
 import { toForm } from '../queries';
-import { encryptRecord } from '$lib/data/crypto';
+import { decryptRecord, encryptRecord } from '$lib/data/crypto';
 import { DEFAULT_FORM_SETTINGS } from '../types';
 import type { BranchingRule, Form, FormField, FormSettings, FormStatus, LocalForm } from '../types';
 import {
@@ -13,9 +13,30 @@ import { authStore } from '$lib/stores/auth.svelte';
 import { getManaApiUrl } from '$lib/api/config';
 import { getActiveSpace } from '$lib/data/scope';
 import { getEffectiveUserId } from '$lib/data/current-user';
+import { settingsTable, BROADCAST_SETTINGS_ID, toSettings } from '$lib/modules/broadcasts/queries';
+import type { LocalBroadcastSettings } from '$lib/modules/broadcasts/types';
+import { buildFormInternalMeta } from '../lib/wave-mail';
 
 function nowIso(): string {
 	return new Date().toISOString();
+}
+
+/**
+ * Build the internal_meta payload for an unlisted forms snapshot
+ * (M10d). Reads broadcast-settings via Dexie, decrypts, returns
+ * null when the form isn't ready for headless wave-send.
+ */
+async function loadFormInternalMeta(form: Form): Promise<Record<string, unknown> | null> {
+	const raw = await settingsTable.get(BROADCAST_SETTINGS_ID);
+	if (!raw) return buildFormInternalMeta(form, null);
+	try {
+		const decrypted = (await decryptRecord('broadcastSettings', {
+			...raw,
+		})) as LocalBroadcastSettings;
+		return buildFormInternalMeta(form, toSettings(decrypted));
+	} catch {
+		return buildFormInternalMeta(form, null);
+	}
 }
 
 export const formsStore = {
@@ -161,6 +182,10 @@ export const formsStore = {
 			const blob = await buildUnlistedBlob('forms', id);
 			const spaceId =
 				(existing as unknown as { spaceId?: string }).spaceId ?? getActiveSpace()?.id ?? '';
+			// M10d — attach owner-private wave-send config so the headless
+			// cron can fire without owner-tab being open.
+			const decryptedExisting = (await decryptRecord('forms', { ...existing })) as LocalForm;
+			const internalMeta = await loadFormInternalMeta(toForm(decryptedExisting));
 			const { token } = await publishUnlistedSnapshot({
 				apiUrl: getManaApiUrl(),
 				jwt,
@@ -168,6 +193,7 @@ export const formsStore = {
 				recordId: id,
 				spaceId,
 				blob,
+				internalMeta,
 			});
 			patch.unlistedToken = token;
 			patch.unlistedExpiresAt = null;
@@ -216,6 +242,8 @@ export const formsStore = {
 		const blob = await buildUnlistedBlob('forms', id);
 		const spaceId =
 			(existing as unknown as { spaceId?: string }).spaceId ?? getActiveSpace()?.id ?? '';
+		const decryptedExisting = (await decryptRecord('forms', { ...existing })) as LocalForm;
+		const internalMeta = await loadFormInternalMeta(toForm(decryptedExisting));
 		const { token } = await publishUnlistedSnapshot({
 			apiUrl: getManaApiUrl(),
 			jwt,
@@ -224,6 +252,7 @@ export const formsStore = {
 			spaceId,
 			blob,
 			expiresAt: existing.unlistedExpiresAt ? new Date(existing.unlistedExpiresAt) : undefined,
+			internalMeta,
 		});
 		await formTable.update(id, { unlistedToken: token });
 		return token;
@@ -242,6 +271,8 @@ export const formsStore = {
 		const blob = await buildUnlistedBlob('forms', id);
 		const spaceId =
 			(existing as unknown as { spaceId?: string }).spaceId ?? getActiveSpace()?.id ?? '';
+		const decryptedExisting = (await decryptRecord('forms', { ...existing })) as LocalForm;
+		const internalMeta = await loadFormInternalMeta(toForm(decryptedExisting));
 		const { token } = await publishUnlistedSnapshot({
 			apiUrl: getManaApiUrl(),
 			jwt,
@@ -250,6 +281,7 @@ export const formsStore = {
 			spaceId,
 			blob,
 			expiresAt: expiresAt ?? undefined,
+			internalMeta,
 		});
 		await formTable.update(id, {
 			unlistedToken: token,

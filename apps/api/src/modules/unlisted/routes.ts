@@ -32,12 +32,26 @@ const routes = new Hono<{ Variables: AuthVariables }>();
  * honest about what it accepts (a confused client trying to publish
  * an arbitrary collection gets 400).
  */
-const ALLOWED_COLLECTIONS = new Set<string>(['events', 'libraryEntries', 'places', 'augurEntries']);
+const ALLOWED_COLLECTIONS = new Set<string>([
+	'events',
+	'libraryEntries',
+	'places',
+	'augurEntries',
+	'lasts',
+	'forms',
+]);
 
 const PublishBodySchema = z.object({
 	spaceId: z.string().min(1).max(64),
 	blob: z.record(z.string(), z.unknown()),
 	expiresAt: z.string().datetime().optional(),
+	/**
+	 * Owner-private metadata for headless server-side jobs (M10d forms
+	 * wave-cron). Stored on a separate column the public GET strips —
+	 * recipients + sender details. Optional; omitted blobs leave the
+	 * column NULL.
+	 */
+	internalMeta: z.record(z.string(), z.unknown()).nullable().optional(),
 });
 
 const TOKEN_BYTES = 24; // 24 random bytes → 32 base64url chars (~192 bits)
@@ -85,7 +99,7 @@ routes.post('/:collection/:recordId', async (c) => {
 
 	const parsed = PublishBodySchema.safeParse(await c.req.json().catch(() => null));
 	if (!parsed.success) return validationError(c, parsed.error.issues);
-	const { spaceId, blob, expiresAt } = parsed.data;
+	const { spaceId, blob, expiresAt, internalMeta } = parsed.data;
 
 	// Is there already an active snapshot for this record? Re-publish
 	// should reuse the existing token so link-shares don't break on edit.
@@ -111,6 +125,7 @@ routes.post('/:collection/:recordId', async (c) => {
 				blob,
 				expiresAt: expiresAt ? new Date(expiresAt) : null,
 				updatedAt: now,
+				...(internalMeta !== undefined ? { internalMeta } : {}),
 			})
 			.where(eq(snapshots.token, existing[0].token));
 		return c.json({ token: existing[0].token, url: buildShareUrl(existing[0].token, c) }, 200);
@@ -127,6 +142,7 @@ routes.post('/:collection/:recordId', async (c) => {
 		expiresAt: expiresAt ? new Date(expiresAt) : null,
 		createdAt: now,
 		updatedAt: now,
+		...(internalMeta !== undefined ? { internalMeta } : {}),
 	});
 	return c.json({ token, url: buildShareUrl(token, c) }, 201);
 });

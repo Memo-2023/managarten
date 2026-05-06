@@ -36,6 +36,48 @@ export class WavePreconditionError extends Error {
 	}
 }
 
+/**
+ * Owner-private blob that gets stored on the snapshot row's
+ * `internal_meta` column at publish-time (M10d). The headless wave-
+ * worker reads it server-side to fire due waves. The public unlisted
+ * GET endpoint MUST strip this column — it carries recipient emails
+ * and sender details that would leak via the share-link otherwise.
+ *
+ * Returns null when the form isn't ready for headless sending yet
+ * (no recurrence, no recipients, missing broadcast settings). The
+ * snapshot still gets published; the worker just skips it.
+ */
+export function buildFormInternalMeta(
+	form: Form,
+	settings: BroadcastSettings | null
+): Record<string, unknown> | null {
+	const recurrence = form.settings.recurrence;
+	if (!recurrence?.frequency) return null;
+	const recipients = recurrence.recipientEmails ?? [];
+	if (recipients.length === 0) return null;
+	if (!settings?.defaultFromEmail?.trim() || !settings.defaultFromName?.trim()) return null;
+	if (!settings.legalAddress?.trim()) return null;
+
+	return {
+		kind: 'forms-recurrence',
+		recurrence: {
+			frequency: recurrence.frequency,
+			recipientEmails: recipients.slice(0, 50),
+			lastSentAt: recurrence.lastSentAt ?? null,
+		},
+		sender: {
+			fromEmail: settings.defaultFromEmail.trim(),
+			fromName: settings.defaultFromName.trim(),
+			replyTo: settings.defaultReplyTo?.trim() || null,
+			legalAddress: settings.legalAddress.trim(),
+		},
+		formMeta: {
+			title: form.title,
+			description: form.description ?? null,
+		},
+	};
+}
+
 function getMailUrl(): string {
 	if (browser) {
 		const fromWindow = (window as unknown as { __PUBLIC_MANA_MAIL_URL__?: string })

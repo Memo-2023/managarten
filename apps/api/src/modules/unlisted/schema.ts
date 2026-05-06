@@ -34,6 +34,21 @@ export const snapshots = unlistedSchema.table(
 		recordId: uuid('record_id').notNull(),
 		/** Whitelist-filtered plaintext blob built by the client resolver. */
 		blob: jsonb('blob').notNull(),
+		/**
+		 * Owner-private metadata that the public GET endpoint MUST strip
+		 * before returning. Used today by the M10d forms wave-cron to
+		 * carry recipient-emails + sender-details for headless sends —
+		 * those would leak via `blob` (anyone with the link could
+		 * enumerate the contact list), so they live here in a separate
+		 * column that the unlisted public-routes never serialises.
+		 *
+		 * Shape per consumer:
+		 *   forms recurrence → {
+		 *     recurrence: { frequency, recipientEmails[], lastSentAt },
+		 *     sender: { fromEmail, fromName, replyTo?, legalAddress }
+		 *   }
+		 */
+		internalMeta: jsonb('internal_meta'),
 		createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
 		updatedAt: timestamp('updated_at', { withTimezone: true }).defaultNow().notNull(),
 		/** Optional expiry. `null` = never expires. */

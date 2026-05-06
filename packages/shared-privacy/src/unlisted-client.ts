@@ -32,6 +32,13 @@ export interface PublishUnlistedOptions {
 	blob: Record<string, unknown>;
 	/** Optional expiry. `null` or `undefined` = never expires. */
 	expiresAt?: Date | null;
+	/**
+	 * Owner-private metadata for headless server-side jobs (M10d forms
+	 * wave-cron). The server stores it on a separate column that the
+	 * public GET endpoint MUST NOT serialise — recipients + sender
+	 * details belong here so they don't leak via the share-link.
+	 */
+	internalMeta?: Record<string, unknown> | null;
 }
 
 export interface PublishUnlistedResult {
@@ -82,6 +89,7 @@ export async function publishUnlistedSnapshot(
 			spaceId: opts.spaceId,
 			blob: opts.blob,
 			expiresAt: opts.expiresAt ? opts.expiresAt.toISOString() : undefined,
+			...(opts.internalMeta !== undefined ? { internalMeta: opts.internalMeta } : {}),
 		}),
 	});
 
