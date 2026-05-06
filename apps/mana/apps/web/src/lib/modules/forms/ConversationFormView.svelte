@@ -55,6 +55,19 @@
 	let submitted = $state(false);
 	let submitError = $state<string | null>(null);
 
+	// M9b — free-text "Beschreib's mir" input for choice/yes_no/rating
+	// fields. The /conversation/extract endpoint maps it to a typed
+	// answer via mana-llm. Result lands in extractedDraft so the user
+	// can confirm or override before commit.
+	let freeTextDraft = $state('');
+	let extracting = $state(false);
+	let extractedDraft = $state<{
+		extracted: AnswerValue;
+		confidence: 'high' | 'low';
+		displayText: string;
+	} | null>(null);
+	let extractError = $state<string | null>(null);
+
 	// Conversation history — pairs of (questionFieldId, displayValue)
 	// rendered as chat bubbles above the active step.
 	type Bubble = { kind: 'q'; text: string } | { kind: 'a'; text: string };
@@ -99,8 +112,82 @@
 		pushAnswerBubble(displayText || '—');
 		textDraft = '';
 		multiDraft = [];
+		freeTextDraft = '';
+		extractedDraft = null;
+		extractError = null;
 		stepIndex += 1;
 	}
+
+	async function runExtract() {
+		if (!currentField) return;
+		const text = freeTextDraft.trim();
+		if (!text) return;
+		extracting = true;
+		extractError = null;
+		try {
+			const url = `${apiBaseUrl()}/api/v1/forms/public/${encodeURIComponent(token)}/conversation/extract`;
+			const res = await fetch(url, {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ fieldId: currentField.id, freeText: text }),
+			});
+			if (!res.ok) {
+				const txt = await res.text().catch(() => '');
+				let msg: string | undefined;
+				try {
+					msg = JSON.parse(txt)?.message;
+				} catch {
+					msg = txt.slice(0, 200);
+				}
+				extractError = msg || `Extraktion fehlgeschlagen (${res.status})`;
+				return;
+			}
+			const json = (await res.json()) as {
+				extracted: AnswerValue;
+				confidence: 'high' | 'low';
+			};
+			extractedDraft = {
+				extracted: json.extracted,
+				confidence: json.confidence,
+				displayText: extractedDisplayText(currentField, json.extracted),
+			};
+		} catch (err) {
+			extractError =
+				err instanceof Error ? err.message : 'Verbindung zur Extraktion fehlgeschlagen.';
+		} finally {
+			extracting = false;
+		}
+	}
+
+	function extractedDisplayText(field: FormField, value: AnswerValue): string {
+		if (value === null || value === undefined) return '(unklar)';
+		if (typeof value === 'boolean') return value ? 'Ja' : 'Nein';
+		if (typeof value === 'number') return String(value);
+		if (Array.isArray(value)) {
+			return value.map((id) => field.options?.find((o) => o.id === id)?.label ?? id).join(', ');
+		}
+		// single_choice option-id
+		return field.options?.find((o) => o.id === value)?.label ?? String(value);
+	}
+
+	function commitExtract() {
+		if (!currentField || !extractedDraft) return;
+		setAnswerAndAdvance(extractedDraft.extracted, extractedDraft.displayText);
+	}
+
+	function cancelExtract() {
+		freeTextDraft = '';
+		extractedDraft = null;
+		extractError = null;
+	}
+
+	const showFreeTextOption = $derived(
+		!!currentField &&
+			(currentField.type === 'single_choice' ||
+				currentField.type === 'multi_choice' ||
+				currentField.type === 'yes_no' ||
+				currentField.type === 'rating')
+	);
 
 	function handleTextSubmit() {
 		if (!currentField) return;
@@ -429,6 +516,59 @@
 				</div>
 			{/if}
 
+			{#if showFreeTextOption}
+				<details class="conv-freetext">
+					<summary>Lieber in eigenen Worten antworten?</summary>
+					{#if extractedDraft}
+						<div
+							class="conv-extract-preview"
+							class:low-confidence={extractedDraft.confidence === 'low'}
+						>
+							<p class="conv-extract-label">Verstanden als:</p>
+							<p class="conv-extract-value">{extractedDraft.displayText}</p>
+							{#if extractedDraft.confidence === 'low'}
+								<p class="conv-extract-hint">
+									Klingt nicht eindeutig — bitte prüfe oder wähle direkt einen Button oben.
+								</p>
+							{/if}
+							<div class="conv-extract-actions">
+								<button type="button" class="conv-next" onclick={commitExtract}>
+									Übernehmen
+								</button>
+								<button type="button" class="conv-back" onclick={cancelExtract}> Abbrechen </button>
+							</div>
+						</div>
+					{:else}
+						<div class="conv-input-row">
+							<input
+								class="conv-input"
+								type="text"
+								bind:value={freeTextDraft}
+								placeholder="z.B. "der zweite Vorschlag""
+								disabled={extracting}
+								onkeydown={(e) => {
+									if (e.key === 'Enter' && !extracting && freeTextDraft.trim()) {
+										e.preventDefault();
+										void runExtract();
+									}
+								}}
+							/>
+							<button
+								type="button"
+								class="conv-next"
+								onclick={runExtract}
+								disabled={extracting || !freeTextDraft.trim()}
+							>
+								{extracting ? 'Verstehe …' : 'Verstehen'}
+							</button>
+						</div>
+						{#if extractError}
+							<p class="conv-extract-error">{extractError}</p>
+						{/if}
+					{/if}
+				</details>
+			{/if}
+
 			{#if stepIndex > 0 && currentField.type !== 'section'}
 				<button type="button" class="conv-back" onclick={back}>← Vorherige</button>
 			{/if}
@@ -667,6 +807,66 @@
 		border-radius: 0.375rem;
 		color: #991b1b;
 		font-size: 0.8125rem;
+	}
+
+	.conv-freetext {
+		margin-top: 0.25rem;
+		padding: 0.5rem 0;
+		border-top: 1px dashed #e5e7eb;
+	}
+	.conv-freetext summary {
+		font-size: 0.8125rem;
+		color: #6b7280;
+		cursor: pointer;
+		padding: 0.25rem 0;
+	}
+	.conv-freetext summary:hover {
+		color: #14b8a6;
+	}
+	.conv-freetext[open] summary {
+		margin-bottom: 0.5rem;
+		color: #374151;
+	}
+
+	.conv-extract-preview {
+		display: flex;
+		flex-direction: column;
+		gap: 0.375rem;
+		padding: 0.625rem 0.875rem;
+		background: rgba(20, 184, 166, 0.1);
+		border: 1px solid rgba(20, 184, 166, 0.3);
+		border-radius: 0.5rem;
+	}
+	.conv-extract-preview.low-confidence {
+		background: rgba(245, 158, 11, 0.1);
+		border-color: rgba(245, 158, 11, 0.4);
+	}
+	.conv-extract-label {
+		margin: 0;
+		font-size: 0.6875rem;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		color: #6b7280;
+	}
+	.conv-extract-value {
+		margin: 0;
+		font-size: 0.9375rem;
+		font-weight: 500;
+	}
+	.conv-extract-hint {
+		margin: 0;
+		font-size: 0.75rem;
+		color: #92400e;
+	}
+	.conv-extract-actions {
+		display: flex;
+		gap: 0.375rem;
+		margin-top: 0.25rem;
+	}
+	.conv-extract-error {
+		margin: 0.375rem 0 0;
+		font-size: 0.8125rem;
+		color: #991b1b;
 	}
 
 	.conv-thanks {

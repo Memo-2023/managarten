@@ -283,4 +283,272 @@ async function sha256Hex(input: string): Promise<string> {
 		.join('');
 }
 
+// ─── Conversation LLM-extract (M9b) ─────────────────────────
+// POST /:token/conversation/extract
+// Body: { fieldId, freeText }
+// Response: { extracted: AnswerValue, confidence: 'high'|'low',
+//             alternatives?: string[] }
+//
+// Maps a free-text natural-language answer ("ich nehme den zweiten") to
+// a strict typed answer (option-id) for choice/yes_no fields. Calls
+// mana-llm with the cheapest model (haiku) + structured-output prompt.
+//
+// Costs are owner-side: any visitor with the share-link can spend
+// haiku tokens, so rate-limits stack (token + IP) and freeText is
+// hard-capped at 1000 chars.
+
+const MANA_LLM_URL = process.env.MANA_LLM_URL ?? 'http://localhost:3030';
+
+routes.use(
+	'/:token/conversation/extract',
+	rateLimitMiddleware({
+		max: 30,
+		windowMs: 60_000,
+		keyFn: (c) => `forms:extract:token:${c.req.param('token')}`,
+	})
+);
+
+routes.use(
+	'/:token/conversation/extract',
+	rateLimitMiddleware({
+		max: 60,
+		windowMs: 60_000,
+		keyFn: (c) => {
+			const ip =
+				c.req.header('x-forwarded-for')?.split(',')[0]?.trim() ||
+				c.req.header('x-real-ip') ||
+				'unknown';
+			return `forms:extract:ip:${ip}`;
+		},
+	})
+);
+
+interface ExtractBody {
+	fieldId?: string;
+	freeText?: string;
+}
+
+routes.post('/:token/conversation/extract', async (c) => {
+	const token = c.req.param('token');
+	if (!TOKEN_REGEX.test(token)) {
+		return errorResponse(c, 'Invalid token format', 400, { code: 'INVALID_TOKEN' });
+	}
+
+	const rows = await db
+		.select({
+			collection: snapshots.collection,
+			blob: snapshots.blob,
+			expiresAt: snapshots.expiresAt,
+			revokedAt: snapshots.revokedAt,
+		})
+		.from(snapshots)
+		.where(eq(snapshots.token, token))
+		.limit(1);
+
+	const row = rows[0];
+	if (!row || row.collection !== 'forms') {
+		return errorResponse(c, 'Link nicht gefunden', 404, { code: 'NOT_FOUND' });
+	}
+	if (row.revokedAt) {
+		return errorResponse(c, 'Link wurde widerrufen', 410, { code: 'REVOKED' });
+	}
+	if (row.expiresAt && row.expiresAt.getTime() < Date.now()) {
+		return errorResponse(c, 'Link ist abgelaufen', 410, { code: 'EXPIRED' });
+	}
+
+	let body: ExtractBody;
+	try {
+		body = (await c.req.json()) as ExtractBody;
+	} catch {
+		return errorResponse(c, 'Body muss valid JSON sein', 400, { code: 'INVALID_JSON' });
+	}
+
+	const fieldId = typeof body.fieldId === 'string' ? body.fieldId : '';
+	const freeText = typeof body.freeText === 'string' ? body.freeText.trim() : '';
+	if (!fieldId || !freeText) {
+		return errorResponse(c, 'fieldId und freeText sind erforderlich', 400, {
+			code: 'BAD_INPUT',
+		});
+	}
+	if (freeText.length > 1000) {
+		return errorResponse(c, 'freeText zu lang (max 1000 Zeichen)', 400, {
+			code: 'TOO_LONG',
+		});
+	}
+
+	const blob = (row.blob ?? {}) as FormSnapshotBlob;
+	const field = (blob.fields ?? []).find((f) => f.id === fieldId);
+	if (!field) {
+		return errorResponse(c, 'Feld nicht im veröffentlichten Schema', 400, {
+			code: 'UNKNOWN_FIELD',
+		});
+	}
+
+	if (
+		field.type !== 'single_choice' &&
+		field.type !== 'multi_choice' &&
+		field.type !== 'yes_no' &&
+		field.type !== 'rating'
+	) {
+		// For text/email/number/date the free-text IS the answer — no
+		// LLM extraction needed. Return as-is so the client treats it
+		// the same as a typed widget answer.
+		return c.json({ extracted: freeText, confidence: 'high' as const });
+	}
+
+	const { systemPrompt, userPrompt } = buildExtractPrompt(field, freeText);
+
+	let llmContent: string;
+	try {
+		const llmRes = await fetch(`${MANA_LLM_URL}/api/v1/chat`, {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({
+				messages: [
+					{ role: 'system', content: systemPrompt },
+					{ role: 'user', content: userPrompt },
+				],
+				model: 'claude-haiku-4-5-20251001',
+				temperature: 0,
+				maxTokens: 200,
+			}),
+		});
+		if (!llmRes.ok) {
+			throw new Error(`LLM error: ${llmRes.status}`);
+		}
+		const data = (await llmRes.json()) as { content: string };
+		llmContent = data.content.trim();
+	} catch (err) {
+		return errorResponse(c, `LLM-Extraktion fehlgeschlagen: ${(err as Error).message}`, 502, {
+			code: 'LLM_ERROR',
+		});
+	}
+
+	// Extract JSON from potential markdown code fences
+	const jsonMatch = llmContent.match(/```(?:json)?\s*([\s\S]*?)\s*```/) ?? [null, llmContent];
+	let parsed: unknown;
+	try {
+		parsed = JSON.parse(jsonMatch[1] ?? llmContent);
+	} catch {
+		return errorResponse(c, 'LLM lieferte invalides JSON', 502, { code: 'LLM_BAD_JSON' });
+	}
+
+	const result = parseExtractResult(field, parsed);
+	if (!result) {
+		return errorResponse(c, 'LLM-Antwort passt nicht zum Feld', 502, {
+			code: 'LLM_BAD_SHAPE',
+		});
+	}
+	return c.json(result);
+});
+
+function buildExtractPrompt(
+	field: NonNullable<FormSnapshotBlob['fields']>[number],
+	freeText: string
+): { systemPrompt: string; userPrompt: string } {
+	const opts = field.options ?? [];
+	const optionsList = opts.map((o) => `  - id="${o.id}", label="${o.label}"`).join('\n');
+
+	if (field.type === 'single_choice') {
+		return {
+			systemPrompt: `Du mappst eine freitext-Antwort eines Form-Submitters auf genau eine der vorgegebenen Options-IDs.
+
+Feld-Frage: "${field.label ?? ''}"
+Mögliche Optionen:
+${optionsList}
+
+Antworte AUSSCHLIESSLICH mit einem JSON-Objekt der Form:
+{ "optionId": "<id>", "confidence": "high" | "low" }
+
+- "high" wenn die Zuordnung eindeutig ist
+- "low" wenn die Antwort zu mehreren Optionen passt oder gar nicht
+- Wenn keine Option passt: { "optionId": null, "confidence": "low" }`,
+			userPrompt: freeText,
+		};
+	}
+	if (field.type === 'multi_choice') {
+		return {
+			systemPrompt: `Du mappst eine freitext-Antwort auf eine Auswahl mehrerer Options-IDs.
+
+Feld-Frage: "${field.label ?? ''}"
+Mögliche Optionen:
+${optionsList}
+
+Antworte AUSSCHLIESSLICH mit einem JSON-Objekt der Form:
+{ "optionIds": ["<id1>", "<id2>"], "confidence": "high" | "low" }
+
+- "high" wenn die Zuordnung eindeutig ist
+- "low" wenn unklar
+- Leeres Array wenn keine Option passt`,
+			userPrompt: freeText,
+		};
+	}
+	if (field.type === 'yes_no') {
+		return {
+			systemPrompt: `Du klassifizierst eine freitext-Antwort als Ja/Nein.
+
+Feld-Frage: "${field.label ?? ''}"
+
+Antworte AUSSCHLIESSLICH mit einem JSON-Objekt:
+{ "value": true | false | null, "confidence": "high" | "low" }
+
+- value=null + low wenn die Antwort weder klar Ja noch klar Nein ist`,
+			userPrompt: freeText,
+		};
+	}
+	// rating
+	const max = field.config?.ratingScale ?? 5;
+	return {
+		systemPrompt: `Du extrahierst eine Bewertung im Bereich 1..${max} aus einer freitext-Antwort.
+
+Feld-Frage: "${field.label ?? ''}"
+
+Antworte AUSSCHLIESSLICH mit JSON:
+{ "value": <integer 1..${max} oder null>, "confidence": "high" | "low" }`,
+		userPrompt: freeText,
+	};
+}
+
+function parseExtractResult(
+	field: NonNullable<FormSnapshotBlob['fields']>[number],
+	raw: unknown
+): { extracted: unknown; confidence: 'high' | 'low' } | null {
+	if (!raw || typeof raw !== 'object') return null;
+	const obj = raw as Record<string, unknown>;
+	const confidence = obj.confidence === 'high' || obj.confidence === 'low' ? obj.confidence : 'low';
+	const opts = field.options ?? [];
+
+	if (field.type === 'single_choice') {
+		const id = obj.optionId;
+		if (id === null) return { extracted: null, confidence: 'low' };
+		if (typeof id !== 'string') return null;
+		if (!opts.some((o) => o.id === id)) return null;
+		return { extracted: id, confidence };
+	}
+	if (field.type === 'multi_choice') {
+		const ids = obj.optionIds;
+		if (!Array.isArray(ids)) return null;
+		const filtered = ids.filter(
+			(id): id is string => typeof id === 'string' && opts.some((o) => o.id === id)
+		);
+		return { extracted: filtered, confidence };
+	}
+	if (field.type === 'yes_no') {
+		const v = obj.value;
+		if (v === true || v === false) return { extracted: v, confidence };
+		if (v === null) return { extracted: null, confidence: 'low' };
+		return null;
+	}
+	if (field.type === 'rating') {
+		const v = obj.value;
+		const max = field.config?.ratingScale ?? 5;
+		if (v === null) return { extracted: null, confidence: 'low' };
+		if (typeof v !== 'number') return null;
+		const n = Math.round(v);
+		if (n < 1 || n > max) return null;
+		return { extracted: n, confidence };
+	}
+	return null;
+}
+
 export const formsPublicRoutes = routes;
