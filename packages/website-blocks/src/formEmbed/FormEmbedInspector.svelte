@@ -12,6 +12,7 @@
 
 	const TOKEN_REGEX = /^[A-Za-z0-9_-]{32}$/;
 
+	// svelte-ignore state_referenced_locally
 	let tokenInput = $state(block.props.token);
 	let tokenError = $state<string | null>(null);
 

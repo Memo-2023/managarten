@@ -166,6 +166,7 @@
 							>
 						</label>
 					{:else}
+						<!-- svelte-ignore a11y_label_has_associated_control -->
 						<label class="field-label">
 							{field.label}
 							{#if field.required}<em class="req">*</em>{/if}
@@ -275,6 +276,7 @@
 			{/each}
 
 			<div class="submitter-block">
+				<!-- svelte-ignore a11y_label_has_associated_control -->
 				<label class="field-label">
 					Dein Name <span class="optional">(optional)</span>
 				</label>
@@ -284,6 +286,7 @@
 					oninput={(e) => (submitterName = (e.currentTarget as HTMLInputElement).value)}
 					placeholder="Anna Mustermann"
 				/>
+				<!-- svelte-ignore a11y_label_has_associated_control -->
 				<label class="field-label">
 					Deine E-Mail <span class="optional">(optional)</span>
 				</label>

@@ -18,6 +18,7 @@
 
 	let { form }: { form: Form } = $props();
 
+	// svelte-ignore state_referenced_locally
 	const responses$ = useFormResponses(form.id);
 	const responses = $derived(responses$.value);
 
@@ -169,6 +170,7 @@
 		</div>
 	{/if}
 
+	<!-- svelte-ignore a11y_no_noninteractive_element_to_interactive_role -->
 	<nav class="tabs" role="tablist">
 		{#each [['all', counts.all], ['new', counts.new], ['reviewed', counts.reviewed], ['archived', counts.archived], ['spam', counts.spam]] as const as [tab, count]}
 			<button

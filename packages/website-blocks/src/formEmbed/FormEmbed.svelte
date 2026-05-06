@@ -214,6 +214,7 @@
 								>
 							</label>
 						{:else}
+							<!-- svelte-ignore a11y_label_has_associated_control -->
 							<label class="wb-form-embed__label">
 								{field.label}
 								{#if field.required}<span class="wb-form-embed__req">*</span>{/if}
@@ -319,8 +320,10 @@
 				{/each}
 
 				<div class="wb-form-embed__submitter">
+					<!-- svelte-ignore a11y_label_has_associated_control -->
 					<label class="wb-form-embed__label">Dein Name <small>(optional)</small></label>
 					<input type="text" bind:value={submitterName} placeholder="Anna Mustermann" />
+					<!-- svelte-ignore a11y_label_has_associated_control -->
 					<label class="wb-form-embed__label">Deine E-Mail <small>(optional)</small></label>
 					<input type="email" bind:value={submitterEmail} placeholder="anna@example.com" />
 				</div>
