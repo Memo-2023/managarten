@@ -91,7 +91,8 @@
 			"needsRecipients": "Trage Empfänger-Emails in den Settings ein.",
 			"mailSubject": "Bitte ausfüllen: {title}",
 			"mailBody": "{description}Hier kannst du antworten:\n{url}\n\nDanke!",
-			"confirmSend": "Welle an {n} Empfänger senden? Dein Mail-Programm öffnet sich mit BCC-Liste und Link. Nach dem Versand stempeln wir den Zeitpunkt."
+			"confirmSend": "Welle an {n} Empfänger senden? Dein Mail-Programm öffnet sich mit BCC-Liste und Link. Nach dem Versand stempeln wir den Zeitpunkt.",
+			"confirmBulk": "Welle an {n} Empfänger via Mana-Mail senden? Antworten landen direkt in deinem Forms-Inbox."
 		},
 		"autoSync": {
 			"title": "Auto-Sync — bei Antwort erzeugen",

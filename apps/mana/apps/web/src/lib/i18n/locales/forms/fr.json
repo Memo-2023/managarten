@@ -91,7 +91,8 @@
 			"needsRecipients": "Ajoute des emails de destinataires dans les paramètres.",
 			"mailSubject": "Merci de remplir : {title}",
 			"mailBody": "{description}Réponds ici :\n{url}\n\nMerci !",
-			"confirmSend": "Envoyer la vague à {n} destinataires ? Ton client mail s'ouvre avec la liste BCC et le lien préremplis. On marque l'horodatage ensuite."
+			"confirmSend": "Envoyer la vague à {n} destinataires ? Ton client mail s'ouvre avec la liste BCC et le lien préremplis. On marque l'horodatage ensuite.",
+			"confirmBulk": "Envoyer la vague à {n} destinataires via Mana-Mail ? Les réponses arrivent directement dans ta boîte Forms."
 		},
 		"autoSync": {
 			"title": "Auto-sync — créer à la soumission",

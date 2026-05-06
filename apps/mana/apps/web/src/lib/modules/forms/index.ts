@@ -29,6 +29,9 @@ export {
 export { computeCohort, cohortLabel, sortCohortsDesc } from './lib/cohort';
 export type { RecurrenceFrequency } from './lib/cohort';
 export { nextWaveDueAt, isWaveDue, buildWaveMailto, parseRecipientEmails } from './lib/wave';
+export { sendWaveViaBulkMail, WavePreconditionError } from './lib/wave-mail';
+export type { WaveBulkSendResult } from './lib/wave-mail';
+export { startWaveScheduler, stopWaveScheduler } from './lib/wave-scheduler';
 
 // ─── Types ───────────────────────────────────────────────
 export {

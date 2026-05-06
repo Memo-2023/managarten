@@ -20,6 +20,15 @@
 	import SettingsPanel from '../components/SettingsPanel.svelte';
 	import BranchingEditor from '../components/BranchingEditor.svelte';
 	import { buildWaveMailto, isWaveDue, nextWaveDueAt } from '../lib/wave';
+	import { sendWaveViaBulkMail, WavePreconditionError } from '../lib/wave-mail';
+	import { computeCohort } from '../lib/cohort';
+	import { decryptRecord } from '$lib/data/crypto';
+	import {
+		settingsTable,
+		BROADCAST_SETTINGS_ID,
+		toSettings,
+	} from '$lib/modules/broadcasts/queries';
+	import type { LocalBroadcastSettings, BroadcastSettings } from '$lib/modules/broadcasts/types';
 	import {
 		VisibilityPicker,
 		SharedLinkControls,
@@ -161,11 +170,52 @@
 			(recurrence.recipientEmails ?? []).length > 0
 	);
 
+	let waveError = $state<string | null>(null);
+
 	async function sendWave() {
 		if (!canSendWave || !shareUrl) return;
 		const recipients = entry.settings.recurrence?.recipientEmails ?? [];
 		if (recipients.length === 0) return;
+		waveError = null;
 
+		// Try bulk-send first (M10c) — needs broadcasts settings configured.
+		// Fallback to mailto bridge (M10b) if bulk-send preconditions miss.
+		const bulkSettings = await loadBulkMailSettings();
+
+		if (bulkSettings) {
+			const ok = confirm(
+				$_('forms.builder.recurrence.confirmBulk', {
+					default:
+						'Welle an {n} Empfänger via Mana-Mail senden? Antworten landen direkt in deinem Forms-Inbox.',
+					values: { n: recipients.length },
+				})
+			);
+			if (!ok) return;
+			try {
+				const cohort = computeCohort(
+					new Date().toISOString(),
+					entry.settings.recurrence!.frequency
+				);
+				await sendWaveViaBulkMail({
+					form: entry,
+					shareUrl,
+					settings: bulkSettings,
+					cohort,
+				});
+				await formsStore.markWaveSent(entry.id);
+				return;
+			} catch (err) {
+				if (err instanceof WavePreconditionError) {
+					// Fall through to mailto bridge — settings have a gap.
+					waveError = err.message;
+				} else {
+					waveError = err instanceof Error ? err.message : 'Bulk-Send fehlgeschlagen.';
+					return;
+				}
+			}
+		}
+
+		// Mailto bridge path (M10b)
 		const subject = $_('forms.builder.recurrence.mailSubject', {
 			default: 'Bitte ausfüllen: {title}',
 			values: { title: entry.title },
@@ -188,6 +238,19 @@
 
 		window.open(mailto, '_blank');
 		await formsStore.markWaveSent(entry.id);
+	}
+
+	async function loadBulkMailSettings(): Promise<BroadcastSettings | null> {
+		const raw = await settingsTable.get(BROADCAST_SETTINGS_ID);
+		if (!raw) return null;
+		const decrypted = (await decryptRecord('broadcastSettings', {
+			...raw,
+		})) as LocalBroadcastSettings;
+		const settings = toSettings(decrypted);
+		if (!settings.defaultFromEmail?.trim() || !settings.legalAddress?.trim()) {
+			return null; // missing precondition — caller falls back to mailto
+		}
+		return settings;
 	}
 
 	function formatDueAt(d: Date | null): string {
@@ -373,6 +436,9 @@
 									default: 'Trage Empfänger-Emails in den Settings ein.',
 								})}
 					</p>
+				{/if}
+				{#if waveError}
+					<p class="vis-error">{waveError}</p>
 				{/if}
 			</div>
 		{/if}

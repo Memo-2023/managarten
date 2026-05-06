@@ -91,7 +91,8 @@
 			"needsRecipients": "Add recipient emails in the settings.",
 			"mailSubject": "Please fill in: {title}",
 			"mailBody": "{description}Reply here:\n{url}\n\nThanks!",
-			"confirmSend": "Send wave to {n} recipients? Your mail client opens with the BCC list and link prefilled. We'll stamp the timestamp after."
+			"confirmSend": "Send wave to {n} recipients? Your mail client opens with the BCC list and link prefilled. We'll stamp the timestamp after.",
+			"confirmBulk": "Send wave to {n} recipients via Mana Mail? Replies land directly in your forms inbox."
 		},
 		"autoSync": {
 			"title": "Auto-sync — create on submit",

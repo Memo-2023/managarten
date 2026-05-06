@@ -91,7 +91,8 @@
 			"needsRecipients": "Añade emails de destinatarios en los ajustes.",
 			"mailSubject": "Por favor rellena: {title}",
 			"mailBody": "{description}Responde aquí:\n{url}\n\n¡Gracias!",
-			"confirmSend": "¿Enviar ola a {n} destinatarios? Tu cliente de correo se abrirá con la lista BCC y el enlace prellenado. Marcamos la marca de tiempo después."
+			"confirmSend": "¿Enviar ola a {n} destinatarios? Tu cliente de correo se abrirá con la lista BCC y el enlace prellenado. Marcamos la marca de tiempo después.",
+			"confirmBulk": "¿Enviar ola a {n} destinatarios vía Mana-Mail? Las respuestas llegan directamente a tu bandeja de Forms."
 		},
 		"autoSync": {
 			"title": "Auto-sync — crear al recibir respuesta",

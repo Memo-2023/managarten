@@ -23,6 +23,7 @@
 	import { initTools } from '$lib/data/tools/init';
 	import { startEventBridge, stopEventBridge } from '$lib/triggers/event-bridge';
 	import { startStreakTracker, stopStreakTracker } from '$lib/data/projections/streaks';
+	import { startWaveScheduler, stopWaveScheduler } from '$lib/modules/forms/lib/wave-scheduler';
 	import { startGoalTracker, stopGoalTracker } from '$lib/companion/goals';
 	import {
 		startFeedbackToaster,
@@ -594,6 +595,11 @@
 			// interval and runs any that are due. Safe idempotent; see
 			// data/ai/missions/setup.ts.
 			startMissionTick();
+			// Forms wave-scheduler (M10c) — auto-fires due recurring-form
+			// waves via mana-mail bulk-send while the tab is open. No-op
+			// without broadcasts settings configured. Headless cron is
+			// M10d (server-side worker in mana-ai or mana-notify).
+			startWaveScheduler();
 			// Apply server-planned iterations locally on sync — see
 			// data/ai/missions/server-iteration-executor.ts.
 			startServerIterationExecutor();
@@ -747,6 +753,7 @@
 		stopGoalTracker();
 		stopFeedbackToaster();
 		stopMissionTick();
+		stopWaveScheduler();
 		stopServerIterationExecutor();
 		guestMode?.destroy();
 		// Fire-and-forget — we don't need to await; the in-flight task

@@ -91,7 +91,8 @@
 			"needsRecipients": "Aggiungi email dei destinatari nelle impostazioni.",
 			"mailSubject": "Per favore compila: {title}",
 			"mailBody": "{description}Rispondi qui:\n{url}\n\nGrazie!",
-			"confirmSend": "Invia l'ondata a {n} destinatari? Il tuo client di posta si apre con la lista BCC e il link precompilati. Marchiamo l'orario dopo."
+			"confirmSend": "Invia l'ondata a {n} destinatari? Il tuo client di posta si apre con la lista BCC e il link precompilati. Marchiamo l'orario dopo.",
+			"confirmBulk": "Invia l'ondata a {n} destinatari via Mana-Mail? Le risposte arrivano direttamente nella tua casella Forms."
 		},
 		"autoSync": {
 			"title": "Auto-sync — crea al ricevere risposta",
