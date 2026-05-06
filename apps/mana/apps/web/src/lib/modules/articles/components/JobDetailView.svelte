@@ -9,6 +9,7 @@
 -->
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import { _ } from 'svelte-i18n';
 	import { articleImportsStore } from '../stores/imports.svelte';
 	import { useImportItems, useImportJob } from '../queries';
 	import type { ArticleImportItem, ArticleImportItemState } from '../types';
@@ -42,21 +43,21 @@
 	function statePill(state: ArticleImportItemState): { label: string; klass: string } {
 		switch (state) {
 			case 'pending':
-				return { label: 'Wartet', klass: 'pill-pending' };
+				return { label: $_('articles.import.item_pending'), klass: 'pill-pending' };
 			case 'extracting':
-				return { label: 'Extrahiert…', klass: 'pill-extracting' };
+				return { label: $_('articles.import.item_extracting'), klass: 'pill-extracting' };
 			case 'extracted':
-				return { label: 'Server fertig', klass: 'pill-extracted' };
+				return { label: $_('articles.import.item_extracted'), klass: 'pill-extracted' };
 			case 'saved':
-				return { label: '✓ Gespeichert', klass: 'pill-saved' };
+				return { label: $_('articles.import.item_saved'), klass: 'pill-saved' };
 			case 'duplicate':
-				return { label: '· Duplikat', klass: 'pill-dup' };
+				return { label: $_('articles.import.item_duplicate'), klass: 'pill-dup' };
 			case 'consent-wall':
-				return { label: '⚠ Cookie-Wand', klass: 'pill-warn' };
+				return { label: $_('articles.import.item_consent_wall'), klass: 'pill-warn' };
 			case 'error':
-				return { label: '✗ Fehler', klass: 'pill-error' };
+				return { label: $_('articles.import.item_error'), klass: 'pill-error' };
 			case 'cancelled':
-				return { label: 'Abgebrochen', klass: 'pill-cancelled' };
+				return { label: $_('articles.import.item_cancelled'), klass: 'pill-cancelled' };
 		}
 	}
 
@@ -72,29 +73,43 @@
 
 <div class="job-shell">
 	{#if !job}
-		<p class="empty">Job nicht gefunden.</p>
+		<p class="empty">{$_('articles.import.detail_not_found')}</p>
 	{:else}
 		{@const j = job}
 		<header class="header">
 			<div class="title-row">
-				<h1>Import-Job</h1>
+				<h1>{$_('articles.import.detail_title')}</h1>
 				<span class="status status-{j.status}">{j.status}</span>
 			</div>
-			<div class="progress-bar" aria-label="Fortschritt">
+			<div class="progress-bar" aria-label={$_('articles.import.detail_progress_aria')}>
 				<div class="progress-fill" style="width: {progressPct}%"></div>
 			</div>
 			<div class="counters">
 				<span class="counter">
-					<strong>{totalDone}</strong> / {j.totalUrls} verarbeitet
+					{$_('articles.import.detail_counter_total', {
+						values: { done: totalDone, total: j.totalUrls },
+					})}
 				</span>
-				{#if j.savedCount > 0}<span class="counter ok">{j.savedCount} gespeichert</span>{/if}
+				{#if j.savedCount > 0}
+					<span class="counter ok">
+						{$_('articles.import.detail_counter_saved', { values: { n: j.savedCount } })}
+					</span>
+				{/if}
 				{#if j.duplicateCount > 0}
-					<span class="counter dup">{j.duplicateCount} Duplikate</span>
+					<span class="counter dup">
+						{$_('articles.import.detail_counter_dups', { values: { n: j.duplicateCount } })}
+					</span>
 				{/if}
 				{#if j.warningCount > 0}
-					<span class="counter warn">{j.warningCount} mit Cookie-Wand</span>
+					<span class="counter warn">
+						{$_('articles.import.detail_counter_warns', { values: { n: j.warningCount } })}
+					</span>
 				{/if}
-				{#if j.errorCount > 0}<span class="counter err">{j.errorCount} Fehler</span>{/if}
+				{#if j.errorCount > 0}
+					<span class="counter err">
+						{$_('articles.import.detail_counter_errors', { values: { n: j.errorCount } })}
+					</span>
+				{/if}
 			</div>
 
 			<div class="actions">
@@ -105,7 +120,7 @@
 						disabled={busyAction !== null}
 						onclick={() => withBusy('pause', () => articleImportsStore.pauseJob(jobId))}
 					>
-						Pause
+						{$_('articles.import.action_pause')}
 					</button>
 				{/if}
 				{#if j.status === 'paused'}
@@ -115,7 +130,7 @@
 						disabled={busyAction !== null}
 						onclick={() => withBusy('resume', () => articleImportsStore.resumeJob(jobId))}
 					>
-						Fortsetzen
+						{$_('articles.import.action_resume')}
 					</button>
 				{/if}
 				{#if j.status === 'running' || j.status === 'queued' || j.status === 'paused'}
@@ -124,11 +139,11 @@
 						class="danger"
 						disabled={busyAction !== null}
 						onclick={() => {
-							if (confirm('Job wirklich abbrechen? Bisherige Artikel bleiben gespeichert.'))
+							if (confirm($_('articles.import.confirm_cancel')))
 								void withBusy('cancel', () => articleImportsStore.cancelJob(jobId));
 						}}
 					>
-						Abbrechen
+						{$_('articles.import.action_cancel')}
 					</button>
 				{/if}
 				{#if j.errorCount > 0}
@@ -138,7 +153,7 @@
 						disabled={busyAction !== null}
 						onclick={() => withBusy('retry', () => articleImportsStore.retryFailed(jobId))}
 					>
-						Fehler wiederholen
+						{$_('articles.import.action_retry')}
 					</button>
 				{/if}
 				{#if j.status === 'done' || j.status === 'cancelled'}
@@ -147,7 +162,7 @@
 						class="ghost"
 						disabled={busyAction !== null}
 						onclick={() => {
-							if (confirm('Job-Historie löschen? Artikel bleiben.')) {
+							if (confirm($_('articles.import.confirm_delete'))) {
 								void withBusy('delete', async () => {
 									await articleImportsStore.deleteJob(jobId);
 									goto('/articles/import');
@@ -155,7 +170,7 @@
 							}
 						}}
 					>
-						Löschen
+						{$_('articles.import.action_delete')}
 					</button>
 				{/if}
 			</div>
@@ -163,11 +178,10 @@
 
 		{#if j.warningCount > 0}
 			<aside class="consent-hint" role="note">
-				<strong>Cookie-Wand erkannt</strong>: {j.warningCount}
-				{j.warningCount === 1 ? 'Artikel' : 'Artikel'} hat nur den Cookie-Zustimmungs-Dialog gespeichert
-				(der Server sieht keine Cookies). Mit dem
-				<a href="/articles/settings">Browser-HTML-Bookmarklet</a> aus dem Tab in dem du dem Cookie zugestimmt
-				hast überschreibst du den Teaser durch den echten Artikel.
+				<strong>{$_('articles.import.consent_hint_strong')}</strong>:
+				{$_('articles.import.consent_hint_body', { values: { n: j.warningCount } })}
+				<a href="/articles/settings">{$_('articles.import.consent_hint_link')}</a>
+				{$_('articles.import.consent_hint_after_link')}
 			</aside>
 		{/if}
 
@@ -179,17 +193,21 @@
 					<span class="url" title={item.url}>{shortUrl(item)}</span>
 					{#if item.state === 'consent-wall' && item.articleId}
 						<span class="action-group">
-							<a class="action" href="/articles/{item.articleId}">Teaser ansehen</a>
+							<a class="action" href="/articles/{item.articleId}">
+								{$_('articles.import.item_action_view_teaser')}
+							</a>
 							<a
 								class="action action-rescue"
 								href={`/articles/add?source=bookmarklet&url=${encodeURIComponent(item.url)}`}
-								title="Mit Bookmarklet erneut speichern — überschreibt den Teaser durch den echten Artikel"
+								title={$_('articles.import.item_action_rescue_tip')}
 							>
-								Erneut speichern
+								{$_('articles.import.item_action_rescue')}
 							</a>
 						</span>
 					{:else if item.articleId && (item.state === 'saved' || item.state === 'duplicate')}
-						<a class="action" href="/articles/{item.articleId}">Öffnen</a>
+						<a class="action" href="/articles/{item.articleId}">
+							{$_('articles.import.item_action_open')}
+						</a>
 					{:else if item.state === 'error' && item.error}
 						<span class="error-msg" title={item.error}>{item.error}</span>
 					{/if}

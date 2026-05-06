@@ -22,6 +22,12 @@
  * Plan: docs/plans/articles-bulk-import.md.
  */
 
+// Operational logs (boot, tick errors, GC summary, stale-recovery
+// sweep) go to console intentionally — same pattern as
+// services/mana-ai/src/cron/tick.ts. Captured by the apps/api stdout
+// aggregator; structured signal lives in Prometheus counters.
+/* eslint-disable no-console */
+
 import { getSyncConnection } from '../../lib/sync-db';
 import {
 	articlesImportJobsCompletedTotal,

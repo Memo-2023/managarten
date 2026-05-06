@@ -1016,4 +1016,25 @@ export const MODULE_HELP: Record<string, ModuleHelp> = {
 			'Eigene API-Keys unter "🔑 API-Keys" — überschreiben den Server-Key und kosten dich keine Credits',
 		],
 	},
+	articles: {
+		description:
+			'Pocket-Style Read-it-Later — speichere Web-Artikel zum späteren Lesen. URLs werden serverseitig per Readability extrahiert, landen verschlüsselt in deiner IndexedDB und sind danach offline lesbar im Reader-View. Mit Highlights, Tags und Reading-Progress.',
+		features: [
+			'URL einfügen → Server extrahiert via Readability → verschlüsselt gespeichert',
+			'Reader-View mit Serif/Sans-Auswahl, Light/Sepia/Dark, Schriftgröße',
+			'Highlights mit 4 Farben + optionalen Notizen pro Selektion',
+			'Tags aus dem globalen Tag-Pool',
+			'Reading-Progress wird automatisch beim Scrollen gespeichert',
+			'Bookmarklet (URL + HTML-Variante für Cookie-gewallte Seiten)',
+			'Share-Target auf Android/Chromium PWA',
+			'Bulk-Import: Mehrere URLs auf einmal über /articles/import — Server arbeitet im Hintergrund, Tab-Close-resistent, Multi-Device-sichtbar',
+			'AI-Tools: Artikel speichern, archivieren, taggen, Highlight setzen, Bulk-Import starten',
+		],
+		tips: [
+			'Cookie-Wand erkannt? → /articles/settings → "Browser-HTML-Bookmarklet" benutzt deine bestehende Browser-Session',
+			'Mehrere URLs gleichzeitig? → /articles/import — eine pro Zeile oder durch Komma getrennt, max 200 pro Job',
+			'Im Bulk-Import-Detail zeigt jede Cookie-Wand-Zeile einen "Erneut speichern"-Link der direkt zum Bookmarklet-Flow springt',
+			'Teaser stellt sich raus dass der Server nur den Cookie-Banner extrahiert hat? → einfach mit dem HTML-Bookmarklet überschreiben — die Article-ID bleibt',
+		],
+	},
 };

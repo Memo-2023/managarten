@@ -6,6 +6,7 @@
 -->
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import { _ } from 'svelte-i18n';
 	import { useImportJobs } from '../queries';
 	import type { ArticleImportJob } from '../types';
 
@@ -42,15 +43,15 @@
 	function statusLabel(s: ArticleImportJob['status']): string {
 		switch (s) {
 			case 'queued':
-				return 'Wartet';
+				return $_('articles.import.status_queued');
 			case 'running':
-				return 'Läuft';
+				return $_('articles.import.status_running');
 			case 'paused':
-				return 'Pausiert';
+				return $_('articles.import.status_paused');
 			case 'done':
-				return 'Fertig';
+				return $_('articles.import.status_done');
 			case 'cancelled':
-				return 'Abgebrochen';
+				return $_('articles.import.status_cancelled');
 		}
 	}
 </script>
@@ -58,7 +59,7 @@
 {#if allJobs.length > 0}
 	<section class="jobs-list">
 		<header class="list-header">
-			<h2>Bisherige Imports</h2>
+			<h2>{$_('articles.import.jobs_heading')}</h2>
 			<nav class="filter-tabs" aria-label="Filter">
 				<button
 					type="button"
@@ -66,7 +67,7 @@
 					class:tab-active={filter === 'all'}
 					onclick={() => (filter = 'all')}
 				>
-					Alle ({allJobs.length})
+					{$_('articles.import.filter_all', { values: { n: allJobs.length } })}
 				</button>
 				<button
 					type="button"
@@ -75,7 +76,7 @@
 					onclick={() => (filter = 'active')}
 					disabled={activeCount === 0}
 				>
-					Aktiv ({activeCount})
+					{$_('articles.import.filter_active', { values: { n: activeCount } })}
 				</button>
 				<button
 					type="button"
@@ -84,7 +85,7 @@
 					onclick={() => (filter = 'done')}
 					disabled={doneCount === 0}
 				>
-					Fertig ({doneCount})
+					{$_('articles.import.filter_done', { values: { n: doneCount } })}
 				</button>
 				<button
 					type="button"
@@ -93,12 +94,12 @@
 					onclick={() => (filter = 'errors')}
 					disabled={errorCount === 0}
 				>
-					Mit Fehlern ({errorCount})
+					{$_('articles.import.filter_errors', { values: { n: errorCount } })}
 				</button>
 			</nav>
 		</header>
 		{#if visibleJobs.length === 0}
-			<p class="empty-filter">Keine Jobs in dieser Ansicht.</p>
+			<p class="empty-filter">{$_('articles.import.empty_filter')}</p>
 		{/if}
 		<ul>
 			{#each visibleJobs as job (job.id)}
@@ -106,15 +107,23 @@
 					<span class="status status-{job.status}">{statusLabel(job.status)}</span>
 					<span class="progress">{progress(job)}</span>
 					<span class="meta">
-						{#if job.errorCount > 0}<span class="meta-err">{job.errorCount} Fehler</span>{/if}
+						{#if job.errorCount > 0}
+							<span class="meta-err">
+								{$_('articles.import.jobs_meta_errors', { values: { n: job.errorCount } })}
+							</span>
+						{/if}
 						{#if job.duplicateCount > 0}
-							<span class="meta-dup">{job.duplicateCount} Duplikate</span>
+							<span class="meta-dup">
+								{$_('articles.import.jobs_meta_dups', { values: { n: job.duplicateCount } })}
+							</span>
 						{/if}
 						{#if job.warningCount > 0}
-							<span class="meta-warn">{job.warningCount} Warnungen</span>
+							<span class="meta-warn">
+								{$_('articles.import.jobs_meta_warnings', { values: { n: job.warningCount } })}
+							</span>
 						{/if}
 					</span>
-					<span class="when">{new Date(job.createdAt).toLocaleString('de-DE')}</span>
+					<span class="when">{new Date(job.createdAt).toLocaleString()}</span>
 				</button>
 			{/each}
 		</ul>

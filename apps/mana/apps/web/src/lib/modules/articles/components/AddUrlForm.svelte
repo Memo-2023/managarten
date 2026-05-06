@@ -18,6 +18,7 @@
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { onMount, onDestroy } from 'svelte';
+	import { _ } from 'svelte-i18n';
 	import { articlesStore } from '../stores/articles.svelte';
 	import { extractArticle, extractFromHtml, type ExtractedArticle } from '../api';
 	import type { Article } from '../types';
@@ -258,7 +259,7 @@
 	</div>
 
 	<p class="bulk-link">
-		Mehrere URLs auf einmal? <a href="/articles/import">Bulk-Import →</a>
+		<a href="/articles/import">{$_('articles.import.bulk_link')}</a>
 	</p>
 
 	{#if (loading || saving) && !error && !preview && !duplicate}

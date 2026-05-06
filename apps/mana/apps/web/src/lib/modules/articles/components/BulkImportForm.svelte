@@ -7,6 +7,7 @@
 -->
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import { _ } from 'svelte-i18n';
 	import { articleImportsStore, MAX_URLS_PER_JOB, parseUrls } from '../stores/imports.svelte';
 
 	let raw = $state('');
@@ -19,11 +20,13 @@
 	async function handleSubmit() {
 		if (busy) return;
 		if (parsed.valid.length === 0) {
-			error = 'Mindestens eine gültige URL einfügen.';
+			error = $_('articles.import.error_no_urls');
 			return;
 		}
 		if (overLimit) {
-			error = `Maximal ${MAX_URLS_PER_JOB} URLs pro Job. Splitte den Import in mehrere Jobs.`;
+			error = $_('articles.import.error_overlimit', {
+				values: { n: parsed.valid.length, max: MAX_URLS_PER_JOB },
+			});
 			return;
 		}
 		busy = true;
@@ -32,7 +35,7 @@
 			const jobId = await articleImportsStore.createJob(parsed.valid);
 			goto(`/articles/import/${jobId}`);
 		} catch (e) {
-			error = e instanceof Error ? e.message : 'Job konnte nicht erstellt werden.';
+			error = e instanceof Error ? e.message : $_('articles.import.error_failed');
 			busy = false;
 		}
 	}
@@ -40,42 +43,49 @@
 
 <div class="bulk-shell">
 	<header class="header">
-		<h1>Mehrere Artikel importieren</h1>
-		<p class="subtitle">
-			Eine URL pro Zeile (oder durch Leerzeichen / Komma getrennt). Mana extrahiert sie nacheinander
-			im Hintergrund.
-		</p>
+		<h1>{$_('articles.import.form_title')}</h1>
+		<p class="subtitle">{$_('articles.import.form_subtitle')}</p>
 	</header>
 
 	<textarea
 		class="url-area"
 		bind:value={raw}
-		placeholder={'https://example.com/article-1\nhttps://example.com/article-2\n…'}
+		placeholder={$_('articles.import.form_placeholder')}
 		rows="10"
 		disabled={busy}
 	></textarea>
 
 	<div class="counter-row" aria-live="polite">
 		<span class="counter counter-valid" class:counter-overlimit={overLimit}>
-			{parsed.valid.length} gültig{overLimit ? ` / max ${MAX_URLS_PER_JOB}` : ''}
+			{$_('articles.import.count_valid', { values: { n: parsed.valid.length } })}{overLimit
+				? $_('articles.import.count_overlimit_suffix', { values: { max: MAX_URLS_PER_JOB } })
+				: ''}
 		</span>
 		{#if parsed.duplicates.length > 0}
-			<span class="counter counter-dup">{parsed.duplicates.length} doppelt (übersprungen)</span>
+			<span class="counter counter-dup">
+				{$_('articles.import.count_dup', { values: { n: parsed.duplicates.length } })}
+			</span>
 		{/if}
 		{#if parsed.invalid.length > 0}
-			<span class="counter counter-invalid">{parsed.invalid.length} ungültig</span>
+			<span class="counter counter-invalid">
+				{$_('articles.import.count_invalid', { values: { n: parsed.invalid.length } })}
+			</span>
 		{/if}
 	</div>
 
 	{#if overLimit}
 		<p class="error" role="alert">
-			Zu viele URLs ({parsed.valid.length}). Maximal {MAX_URLS_PER_JOB} pro Job — splitte den Import.
+			{$_('articles.import.error_overlimit', {
+				values: { n: parsed.valid.length, max: MAX_URLS_PER_JOB },
+			})}
 		</p>
 	{/if}
 
 	{#if parsed.invalid.length > 0}
 		<details class="invalid-details">
-			<summary>Ungültige Zeilen anzeigen ({parsed.invalid.length})</summary>
+			<summary>
+				{$_('articles.import.invalid_details_summary', { values: { n: parsed.invalid.length } })}
+			</summary>
 			<ul class="invalid-list">
 				{#each parsed.invalid as bad (bad)}
 					<li><code>{bad}</code></li>
@@ -95,14 +105,15 @@
 			onclick={handleSubmit}
 			disabled={busy || parsed.valid.length === 0 || overLimit}
 		>
-			{#if busy}Erstelle Job…{:else}{parsed.valid.length} URLs importieren{/if}
+			{#if busy}
+				{$_('articles.import.submit_busy')}
+			{:else}
+				{$_('articles.import.submit_label', { values: { n: parsed.valid.length } })}
+			{/if}
 		</button>
 	</div>
 
-	<p class="hint">
-		Im Hintergrund — du kannst den Tab schließen und später zurückkommen. Bei 50 URLs dauert es grob
-		5–10 Minuten. Den Fortschritt siehst du auf der Detailseite.
-	</p>
+	<p class="hint">{$_('articles.import.hint')}</p>
 </div>
 
 <style>
