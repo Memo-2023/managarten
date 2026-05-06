@@ -290,6 +290,10 @@ services:
       # returns 503 GRANT_NOT_CONFIGURED (graceful degrade).
       MANA_AI_PUBLIC_KEY_PEM: ${MANA_AI_PUBLIC_KEY_PEM:-}
       MANA_NOTIFY_URL: http://mana-notify:3013
+      # Glitchtip error reporting (Phase 2d, 2026-05-07). DSN is the
+      # mana-platform project on glitchtip.mana.how; per-service env so
+      # each service ends up tagged with its serverName.
+      GLITCHTIP_DSN: ${GLITCHTIP_DSN_MANA_PLATFORM:-}
       MAX_DAILY_SIGNUPS: ${MAX_DAILY_SIGNUPS:-0}
       # Must be a superset of TRUSTED_ORIGINS in
       # services/mana-auth/src/auth/better-auth.config.ts.

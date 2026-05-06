@@ -5,6 +5,17 @@
  * Uses Better Auth natively (fetch-based handler, no Express conversion).
  */
 
+// Sentry/Glitchtip — must run before the rest of the module loads so
+// uncaughtException + unhandledRejection get hooked. No-op when
+// GLITCHTIP_DSN is unset (e.g. local dev).
+import { initErrorTracking, captureException } from '@mana/shared-error-tracking';
+initErrorTracking({
+	serviceName: 'mana-auth',
+	dsn: process.env.GLITCHTIP_DSN,
+	environment: process.env.NODE_ENV,
+	release: process.env.GIT_SHA,
+});
+
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import { trimTrailingSlash } from 'hono/trailing-slash';
@@ -77,7 +88,19 @@ const missionGrantService = new MissionGrantService(
 
 const app = new Hono();
 
-app.onError(errorHandler);
+app.onError((err, c) => {
+	// Surface non-HTTPException errors to Glitchtip with request context.
+	// HTTPException is intentional 4xx/422 etc. — not an "error" worth alerting on.
+	const isHttpException = err.constructor.name === 'HTTPException';
+	if (!isHttpException) {
+		captureException(err, {
+			path: c.req.path,
+			method: c.req.method,
+			query: Object.fromEntries(new URL(c.req.url).searchParams),
+		});
+	}
+	return errorHandler(err, c);
+});
 app.use('*', requestLogger());
 // Defense-in-depth for clients that accidentally request the trailing-slash
 // form of a route (e.g. `/api/v1/me/onboarding/`). Hono's nested-router root
