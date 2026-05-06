@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
 	import { deckStore } from '$lib/modules/cards/stores/decks.svelte';
 	import { cardStore } from '$lib/modules/cards/stores/cards.svelte';
-	import { useDeck, useCardsByDeck } from '$lib/modules/cards/queries';
-	import type { Deck, Card } from '$lib/modules/cards/types';
+	import { useDeck, useCardsByDeck, useDueReviews } from '$lib/modules/cards/queries';
+	import type { Deck, Card, CardType } from '$lib/modules/cards/types';
+	import { renderMarkdown } from '$lib/modules/cards/render';
 	import { ArrowLeft, Trash, Plus, ShareNetwork } from '@mana/shared-icons';
 	import { ShareModal } from '@mana/shared-uload';
 	import { RoutePage } from '$lib/components/shell';
@@ -20,18 +20,35 @@
 
 	// New card form
 	let showNewCardForm = $state(false);
+	let newCardType = $state<CardType>('basic');
 	let newCardFront = $state('');
 	let newCardBack = $state('');
+	let newCardCloze = $state('');
 
-	// Live queries for this deck's data
 	// svelte-ignore state_referenced_locally
 	const currentDeck = useDeck(deckId);
 	// svelte-ignore state_referenced_locally
 	const deckCards = useCardsByDeck(deckId);
+	// svelte-ignore state_referenced_locally
+	const dueReviews = useDueReviews(deckId);
 
-	// Reactively read values
 	let deck = $derived(($currentDeck as Deck | null | undefined) ?? null);
 	let cards = $derived(($deckCards as Card[] | undefined) ?? []);
+	let dueCount = $derived(
+		($dueReviews as { review: unknown; card: unknown }[] | undefined)?.length ?? 0
+	);
+
+	const cardTypeOptions: { value: CardType; label: string; hint: string }[] = [
+		{ value: 'basic', label: 'Standard', hint: 'Vorderseite → Rückseite' },
+		{ value: 'basic-reverse', label: 'Beidseitig', hint: 'Lernt in beide Richtungen' },
+		{ value: 'cloze', label: 'Lückentext', hint: 'Markiere mit {{c1::Wort}}' },
+		{ value: 'type-in', label: 'Eintippen', hint: 'Antwort wird verglichen' },
+	];
+
+	function canSubmit(): boolean {
+		if (newCardType === 'cloze') return newCardCloze.trim().length > 0;
+		return newCardFront.trim().length > 0 && newCardBack.trim().length > 0;
+	}
 
 	async function handleDelete() {
 		if (!deckId) return;
@@ -42,40 +59,74 @@
 	}
 
 	async function handleCreateCard() {
-		if (!newCardFront.trim() || !newCardBack.trim()) return;
-		await cardStore.createCard(
-			{
-				deckId,
-				front: newCardFront.trim(),
-				back: newCardBack.trim(),
-			},
-			cards.length
-		);
+		if (!canSubmit()) return;
+		if (newCardType === 'cloze') {
+			await cardStore.createCard(
+				{ deckId, type: 'cloze', fields: { text: newCardCloze.trim() } },
+				cards.length
+			);
+		} else {
+			await cardStore.createCard(
+				{
+					deckId,
+					type: newCardType,
+					front: newCardFront.trim(),
+					back: newCardBack.trim(),
+				},
+				cards.length
+			);
+		}
 		newCardFront = '';
 		newCardBack = '';
+		newCardCloze = '';
 		showNewCardForm = false;
 	}
 
 	async function handleDeleteCard(cardId: string) {
-		if (!confirm('Karte wirklich loschen?')) return;
+		if (!confirm('Karte wirklich löschen?')) return;
 		await cardStore.deleteCard(cardId, deckId);
+	}
+
+	function typeBadge(type: CardType): string {
+		switch (type) {
+			case 'basic':
+				return 'Standard';
+			case 'basic-reverse':
+				return 'Beidseitig';
+			case 'cloze':
+				return 'Lückentext';
+			case 'type-in':
+				return 'Eintippen';
+			default:
+				return type;
+		}
+	}
+
+	function previewSummary(card: Card): { primary: string; secondary: string } {
+		if (card.type === 'cloze') {
+			const text = card.fields.text ?? '';
+			return { primary: text.slice(0, 140), secondary: '' };
+		}
+		return {
+			primary: card.fields.front ?? card.front ?? '',
+			secondary: card.fields.back ?? card.back ?? '',
+		};
 	}
 </script>
 
 <svelte:head>
-	<title>{deck?.title || 'Deck'} - Cards - Mana</title>
+	<title>{deck?.title || 'Deck'} — Cards — Mana</title>
 </svelte:head>
 
 <RoutePage appId="cards" backHref="/cards/decks" title="Deck">
 	{#if deck}
 		<div class="mx-auto max-w-5xl space-y-6">
-			<!-- Back Button -->
 			<button
 				onclick={() => goto('/cards/decks')}
 				class="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
 			>
 				<ArrowLeft size={16} />
-				Zuruck zu Decks
+				Zurück zu Decks
 			</button>
 
 			<!-- Deck Header -->
@@ -92,9 +143,8 @@
 
 				<div class="flex items-center gap-2">
 					{#if deck.visibility === 'public'}
-						<span class="rounded-full bg-primary/10 px-3 py-1 text-xs text-primary">
-							Offentlich
-						</span>
+						<span class="rounded-full bg-primary/10 px-3 py-1 text-xs text-primary">Öffentlich</span
+						>
 					{/if}
 					<button
 						onclick={() => (showShare = true)}
@@ -106,30 +156,41 @@
 					<button
 						class="rounded-lg border border-destructive/30 p-2 text-destructive transition-colors hover:bg-destructive/10"
 						onclick={() => (showDeleteConfirm = true)}
-						aria-label="Deck loschen"
+						aria-label="Deck löschen"
 					>
 						<Trash size={16} />
 					</button>
 				</div>
 			</div>
 
+			<!-- Action row: Lernen + Stats -->
+			<div class="flex flex-wrap items-center gap-3">
+				<button
+					class="flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-white hover:opacity-90 disabled:opacity-50"
+					onclick={() => goto(`/cards/learn/${deckId}`)}
+					disabled={dueCount === 0}
+				>
+					Lernen
+					{#if dueCount > 0}
+						<span class="rounded-full bg-background/20 px-2 py-0.5 text-xs">{dueCount} fällig</span>
+					{/if}
+				</button>
+				{#if dueCount === 0 && cards.length > 0}
+					<span class="text-sm text-muted-foreground">
+						Heute alles gelernt — schau später wieder rein.
+					</span>
+				{/if}
+			</div>
+
 			<!-- Stats -->
-			<div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+			<div class="grid grid-cols-2 gap-4 md:grid-cols-3">
 				<div class="rounded-xl border border-border bg-card p-4 text-center">
 					<div class="text-3xl font-bold text-foreground">{cards.length}</div>
 					<div class="text-sm text-muted-foreground">Karten gesamt</div>
 				</div>
 				<div class="rounded-xl border border-border bg-card p-4 text-center">
-					<div class="text-3xl font-bold text-green-500">
-						{cards.filter((c) => c.difficulty <= 2).length}
-					</div>
-					<div class="text-sm text-muted-foreground">Einfach</div>
-				</div>
-				<div class="rounded-xl border border-border bg-card p-4 text-center">
-					<div class="text-3xl font-bold text-orange-500">
-						{cards.filter((c) => c.difficulty >= 4).length}
-					</div>
-					<div class="text-sm text-muted-foreground">Schwierig</div>
+					<div class="text-3xl font-bold text-amber-500">{dueCount}</div>
+					<div class="text-sm text-muted-foreground">Fällig</div>
 				</div>
 			</div>
 
@@ -148,32 +209,71 @@
 			{#if showNewCardForm}
 				<div class="rounded-xl border border-primary bg-card p-4">
 					<h3 class="mb-3 font-medium text-foreground">Neue Karte</h3>
+
+					<!-- Type picker -->
+					<div class="mb-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
+						{#each cardTypeOptions as opt}
+							<button
+								type="button"
+								onclick={() => (newCardType = opt.value)}
+								class="rounded-lg border p-2 text-left text-sm transition-colors {newCardType ===
+								opt.value
+									? 'border-primary bg-primary/10 text-primary'
+									: 'border-border hover:bg-muted/50'}"
+							>
+								<div class="font-medium">{opt.label}</div>
+								<div class="text-xs text-muted-foreground">{opt.hint}</div>
+							</button>
+						{/each}
+					</div>
+
 					<div class="space-y-3">
-						<div>
-							<label for="card-front" class="mb-1 block text-sm text-muted-foreground">
-								Vorderseite
-							</label>
-							<!-- svelte-ignore a11y_autofocus -->
-							<input
-								id="card-front"
-								type="text"
-								bind:value={newCardFront}
-								placeholder="Frage oder Begriff..."
-								class="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-primary"
-								autofocus
-							/>
-						</div>
-						<div>
-							<label for="card-back" class="mb-1 block text-sm text-muted-foreground">
-								Ruckseite
-							</label>
-							<textarea
-								id="card-back"
-								bind:value={newCardBack}
-								placeholder="Antwort oder Erklarung..."
-								class="min-h-[80px] w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-primary"
-							></textarea>
-						</div>
+						{#if newCardType === 'cloze'}
+							<div>
+								<label for="card-cloze" class="mb-1 block text-sm text-muted-foreground">
+									Text mit Lücken
+								</label>
+								<!-- svelte-ignore a11y_autofocus -->
+								<textarea
+									id="card-cloze"
+									bind:value={newCardCloze}
+									placeholder="Berlin ist die Hauptstadt von &#123;&#123;c1::Deutschland&#125;&#125;."
+									class="min-h-[100px] w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-primary"
+									autofocus
+								></textarea>
+								<p class="mt-1 text-xs text-muted-foreground">
+									Markiere mit
+									<code class="rounded bg-muted px-1">&#123;&#123;c1::Wort&#125;&#125;</code>
+									— optional Hinweis: <code class="rounded bg-muted px-1">::Hinweis</code>.
+								</p>
+							</div>
+						{:else}
+							<div>
+								<label for="card-front" class="mb-1 block text-sm text-muted-foreground">
+									Vorderseite
+								</label>
+								<!-- svelte-ignore a11y_autofocus -->
+								<input
+									id="card-front"
+									type="text"
+									bind:value={newCardFront}
+									placeholder="Frage oder Begriff…"
+									class="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-primary"
+									autofocus
+								/>
+							</div>
+							<div>
+								<label for="card-back" class="mb-1 block text-sm text-muted-foreground">
+									Rückseite
+								</label>
+								<textarea
+									id="card-back"
+									bind:value={newCardBack}
+									placeholder="Antwort oder Erklärung…"
+									class="min-h-[80px] w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-primary"
+								></textarea>
+							</div>
+						{/if}
 						<div class="flex justify-end gap-2">
 							<button
 								class="rounded-lg px-3 py-1.5 text-sm text-muted-foreground hover:text-foreground"
@@ -181,6 +281,7 @@
 									showNewCardForm = false;
 									newCardFront = '';
 									newCardBack = '';
+									newCardCloze = '';
 								}}
 							>
 								Abbrechen
@@ -188,7 +289,7 @@
 							<button
 								class="rounded-lg bg-primary px-4 py-1.5 text-sm text-white disabled:opacity-50"
 								onclick={handleCreateCard}
-								disabled={!newCardFront.trim() || !newCardBack.trim()}
+								disabled={!canSubmit()}
 							>
 								Karte erstellen
 							</button>
@@ -210,32 +311,33 @@
 							class="mt-4 rounded-lg bg-primary px-4 py-2 text-sm text-white"
 							onclick={() => (showNewCardForm = true)}
 						>
-							Karte hinzufugen
+							Karte hinzufügen
 						</button>
 					</div>
 				{:else}
 					<div class="divide-y divide-border">
 						{#each cards as card, i (card.id)}
+							{@const preview = previewSummary(card)}
 							<div class="flex items-start gap-4 p-4">
 								<span class="mt-1 text-xs text-muted-foreground">{i + 1}.</span>
-								<div class="min-w-0 flex-1">
-									<div class="font-medium text-foreground">{card.front}</div>
-									<div class="mt-1 text-sm text-muted-foreground">{card.back}</div>
+								<div class="min-w-0 flex-1 space-y-1">
+									<div class="prose prose-sm max-w-none text-foreground dark:prose-invert">
+										{@html renderMarkdown(preview.primary)}
+									</div>
+									{#if preview.secondary}
+										<div class="prose prose-sm max-w-none text-muted-foreground dark:prose-invert">
+											{@html renderMarkdown(preview.secondary)}
+										</div>
+									{/if}
 								</div>
 								<div class="flex items-center gap-2">
-									<span
-										class="rounded-full px-2 py-0.5 text-xs {card.difficulty < 3
-											? 'bg-green-500/10 text-green-600'
-											: card.difficulty === 3
-												? 'bg-amber-500/10 text-amber-600'
-												: 'bg-red-500/10 text-red-600'}"
-									>
-										{card.difficulty}/5
+									<span class="rounded-full bg-muted px-2 py-0.5 text-xs text-muted-foreground">
+										{typeBadge(card.type)}
 									</span>
 									<button
 										class="rounded p-1 text-muted-foreground hover:text-destructive"
 										onclick={() => handleDeleteCard(card.id)}
-										aria-label="Karte loschen"
+										aria-label="Karte löschen"
 									>
 										<Trash size={14} />
 									</button>
@@ -261,10 +363,10 @@
 						class="mx-4 w-full max-w-md rounded-xl border border-border bg-card p-6 shadow-xl"
 						onclick={(e) => e.stopPropagation()}
 					>
-						<h3 class="mb-2 text-xl font-semibold text-foreground">Deck loschen?</h3>
+						<h3 class="mb-2 text-xl font-semibold text-foreground">Deck löschen?</h3>
 						<p class="mb-6 text-muted-foreground">
-							Mochtest du "{deck.title}" wirklich loschen? Diese Aktion kann nicht ruckgangig
-							gemacht werden und loscht auch alle Karten in diesem Deck.
+							Möchtest du "{deck.title}" wirklich löschen? Diese Aktion kann nicht rückgängig
+							gemacht werden und löscht auch alle Karten in diesem Deck.
 						</p>
 						<div class="flex justify-end gap-3">
 							<button
@@ -278,7 +380,7 @@
 								disabled={deleting}
 								onclick={handleDelete}
 							>
-								{deleting ? 'Losche...' : 'Deck loschen'}
+								{deleting ? 'Lösche…' : 'Deck löschen'}
 							</button>
 						</div>
 					</div>
@@ -292,12 +394,11 @@
 				class="mt-4 rounded-lg bg-primary px-4 py-2 text-sm text-white"
 				onclick={() => goto('/cards/decks')}
 			>
-				Zuruck zu Decks
+				Zurück zu Decks
 			</button>
 		</div>
 	{/if}
 
-	<!-- Share Modal (uLoad integration) -->
 	<ShareModal
 		visible={showShare}
 		onClose={() => (showShare = false)}

@@ -224,10 +224,13 @@ export const ENCRYPTION_REGISTRY: Record<string, EncryptionConfig> = {
 	plants: { enabled: true, fields: ['name', 'careNotes', 'temperature', 'soilType'] },
 
 	// ─── Cards ───────────────────────────────────────────────
-	// `cards` has no `notes` column on LocalCard — only front + back are
-	// user content. cardDecks uses `name` (not `title`) on the schema
-	// even though the public DTO translates it to `title`.
-	cards: { enabled: true, fields: ['front', 'back'] },
+	// User-typed content lives in three places on LocalCard:
+	//   - legacy `front`/`back` columns (pre-Phase-0 rows still use them)
+	//   - new `fields` map (Phase 0+, holds basic.{front,back} or cloze.{text,extra})
+	// All three encrypt; wrapValue handles object payloads transparently.
+	// cardDecks uses `name` (not `title`) on the schema even though the
+	// public DTO translates it to `title`.
+	cards: { enabled: true, fields: ['front', 'back', 'fields'] },
 	cardDecks: { enabled: true, fields: ['name', 'description'] },
 
 	// ─── Presi ───────────────────────────────────────────────

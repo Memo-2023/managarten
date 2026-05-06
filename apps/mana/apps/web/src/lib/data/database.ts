@@ -1493,6 +1493,28 @@ db.version(60).stores({
 	articleImportItems: 'id, jobId, [jobId+state], idx',
 });
 
+// Schema version 61 — Cards Phase 0: FSRS scheduling.
+//
+// Two new tables back the new spaced-repetition pipeline:
+//
+//   - `cardReviews`: FSRS state per learnable unit. A basic card has one
+//     row (subIndex=0); basic-reverse has two; cloze has one per cluster.
+//     Indexes: `cardId` for "all reviews of this card", `due` for the
+//     hot "what's fällig now" query, `[cardId+subIndex]` for the
+//     direct lookup the scheduler needs after a rating, `state` for
+//     deck-stats panels.
+//   - `cardStudyBlocks`: per-day aggregate (cardsReviewed + durationMs).
+//     `date` is the only secondary index — the streak query scans the
+//     last N days.
+//
+// `cards` itself doesn't change — `type` and `fields` are non-indexed
+// columns. Existing v1 indexes (`difficulty`, `nextReview`, `order`,
+// `[deckId+order]`) stay for backwards-compat with the legacy renderer.
+db.version(61).stores({
+	cardReviews: 'id, cardId, due, [cardId+subIndex], state',
+	cardStudyBlocks: 'id, date',
+});
+
 // ─── Sync Routing ──────────────────────────────────────────
 // SYNC_APP_MAP, TABLE_TO_SYNC_NAME, TABLE_TO_APP, SYNC_NAME_TO_TABLE,
 // toSyncName() and fromSyncName() are now derived from per-module

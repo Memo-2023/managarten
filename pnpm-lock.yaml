@@ -183,36 +183,89 @@ importers:
         specifier: ~5.9.2
         version: 5.9.3
 
-  apps/cards/apps/landing:
+  apps/cards: {}
+
+  apps/cards/apps/web:
     dependencies:
-      '@astrojs/check':
-        specifier: ^0.9.0
-        version: 0.9.8(prettier-plugin-astro@0.14.1)(prettier@3.8.1)(typescript@5.9.3)
-      '@astrojs/sitemap':
-        specifier: ^3.2.1
-        version: 3.7.2
-      '@mana/shared-landing-ui':
+      '@mana/cards-core':
         specifier: workspace:*
-        version: link:../../../../packages/shared-landing-ui
-      astro:
-        specifier: ^5.16.0
-        version: 5.18.1(@azure/storage-blob@12.31.0)(@types/node@24.12.2)(ioredis@5.10.1)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.1)(terser@5.46.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.3)
-      astro-icon:
-        specifier: ^1.1.5
-        version: 1.1.5
-      typescript:
-        specifier: ^5.0.0
-        version: 5.9.3
+        version: link:../../../../packages/cards-core
+      '@mana/local-store':
+        specifier: workspace:*
+        version: link:../../../../packages/local-store
+      '@mana/shared-auth':
+        specifier: workspace:*
+        version: link:../../../../packages/shared-auth
+      '@mana/shared-auth-ui':
+        specifier: workspace:*
+        version: link:../../../../packages/shared-auth-ui
+      '@mana/shared-branding':
+        specifier: workspace:*
+        version: link:../../../../packages/shared-branding
+      '@mana/shared-crypto':
+        specifier: workspace:*
+        version: link:../../../../packages/shared-crypto
+      '@mana/shared-icons':
+        specifier: workspace:*
+        version: link:../../../../packages/shared-icons
+      '@mana/shared-privacy':
+        specifier: workspace:*
+        version: link:../../../../packages/shared-privacy
+      '@mana/shared-pwa':
+        specifier: workspace:*
+        version: link:../../../../packages/shared-pwa
+      '@mana/shared-stores':
+        specifier: workspace:*
+        version: link:../../../../packages/shared-stores
+      '@mana/shared-tailwind':
+        specifier: workspace:*
+        version: link:../../../../packages/shared-tailwind
+      '@mana/shared-theme':
+        specifier: workspace:*
+        version: link:../../../../packages/shared-theme
+      '@mana/shared-types':
+        specifier: workspace:*
+        version: link:../../../../packages/shared-types
+      '@mana/shared-utils':
+        specifier: workspace:*
+        version: link:../../../../packages/shared-utils
+      dexie:
+        specifier: ^4.4.1
+        version: 4.4.2
     devDependencies:
-      '@astrojs/tailwind':
-        specifier: ^6.0.0
-        version: 6.0.2(astro@5.18.1(@azure/storage-blob@12.31.0)(@types/node@24.12.2)(ioredis@5.10.1)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.1)(terser@5.46.1)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.3))(tailwindcss@3.4.19(tsx@4.21.0)(yaml@2.8.3))
-      '@tailwindcss/typography':
-        specifier: ^0.5.16
-        version: 0.5.19(tailwindcss@3.4.19(tsx@4.21.0)(yaml@2.8.3))
+      '@mana/shared-vite-config':
+        specifier: workspace:*
+        version: link:../../../../packages/shared-vite-config
+      '@sveltejs/adapter-node':
+        specifier: ^5.0.0
+        version: 5.5.4(@sveltejs/kit@2.56.1(@opentelemetry/api@1.9.1)(@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.55.1)(vite@6.4.2(@types/node@22.19.17)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.3)))(svelte@5.55.1)(typescript@5.9.3)(vite@6.4.2(@types/node@22.19.17)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.3)))
+      '@sveltejs/kit':
+        specifier: ^2.47.1
+        version: 2.56.1(@opentelemetry/api@1.9.1)(@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.55.1)(vite@6.4.2(@types/node@22.19.17)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.3)))(svelte@5.55.1)(typescript@5.9.3)(vite@6.4.2(@types/node@22.19.17)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.3))
+      '@sveltejs/vite-plugin-svelte':
+        specifier: ^5.0.4
+        version: 5.1.1(svelte@5.55.1)(vite@6.4.2(@types/node@22.19.17)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.3))
+      '@tailwindcss/vite':
+        specifier: ^4.1.7
+        version: 4.2.2(vite@6.4.2(@types/node@22.19.17)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.3))
+      '@types/node':
+        specifier: ^22.10.5
+        version: 22.19.17
+      svelte:
+        specifier: ^5.41.0
+        version: 5.55.1
+      svelte-check:
+        specifier: ^4.3.3
+        version: 4.4.6(picomatch@4.0.4)(svelte@5.55.1)(typescript@5.9.3)
       tailwindcss:
-        specifier: ^3.4.17
-        version: 3.4.19(tsx@4.21.0)(yaml@2.8.3)
+        specifier: ^4.1.17
+        version: 4.2.2
+      typescript:
+        specifier: ^5.7.2
+        version: 5.9.3
+      vite:
+        specifier: ^6.0.7
+        version: 6.4.2(@types/node@22.19.17)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.3)
 
   apps/chat: {}
 
@@ -318,8 +371,6 @@ importers:
       tailwindcss:
         specifier: ^3.4.0
         version: 3.4.19(tsx@4.21.0)(yaml@2.8.3)
-
-  apps/context: {}
 
   apps/docs:
     dependencies:
@@ -495,6 +546,9 @@ importers:
       '@huggingface/transformers':
         specifier: ^4.0.0
         version: 4.0.1
+      '@mana/cards-core':
+        specifier: workspace:*
+        version: link:../../../../packages/cards-core
       '@mana/credits':
         specifier: workspace:^
         version: link:../../../../packages/credits
@@ -615,6 +669,9 @@ importers:
       dexie:
         specifier: ^4.0.11
         version: 4.4.2
+      isomorphic-dompurify:
+        specifier: ^3.7.1
+        version: 3.7.1(@noble/hashes@2.0.1)
       marked:
         specifier: ^17.0.5
         version: 17.0.6
@@ -642,6 +699,9 @@ importers:
       swissqrbill:
         specifier: ^4.3.0
         version: 4.3.0(typescript@5.9.3)
+      ts-fsrs:
+        specifier: ^5.3.2
+        version: 5.3.2
       zod:
         specifier: ^3.25.76
         version: 3.25.76
@@ -1670,6 +1730,34 @@ importers:
         specifier: ^5.0.0
         version: 5.9.3
 
+  packages/cards-core:
+    dependencies:
+      '@mana/local-store':
+        specifier: workspace:*
+        version: link:../local-store
+      '@mana/shared-privacy':
+        specifier: workspace:*
+        version: link:../shared-privacy
+      isomorphic-dompurify:
+        specifier: ^3.7.1
+        version: 3.7.1(@noble/hashes@2.0.1)
+      marked:
+        specifier: ^17.0.5
+        version: 17.0.6
+      ts-fsrs:
+        specifier: ^5.3.2
+        version: 5.3.2
+    devDependencies:
+      '@types/node':
+        specifier: ^24.10.1
+        version: 24.12.2
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
+      vitest:
+        specifier: ^4.1.3
+        version: 4.1.3(@opentelemetry/api@1.9.1)(@types/node@24.12.2)(@vitest/coverage-v8@4.1.3)(@vitest/ui@4.1.3)(jsdom@29.0.2(@noble/hashes@2.0.1))(vite@6.4.2(@types/node@24.12.2)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.3))
+
   packages/credits:
     devDependencies:
       svelte:
@@ -1737,7 +1825,7 @@ importers:
         version: 4.0.3
       isomorphic-dompurify:
         specifier: ^3.7.1
-        version: 3.7.1
+        version: 3.7.1(@noble/hashes@2.0.1)
       marked:
         specifier: ^17.0.0
         version: 17.0.6
@@ -8410,6 +8498,7 @@ packages:
 
   '@ungap/structured-clone@1.3.0':
     resolution: {integrity: sha512-WmoN8qaIAo7WTYWbAZuG8PYEhn5fkz7dZrqTBZ7dtt//lL2Gwms1IcnQ5yHqjDfX8Ft5j4YzDM23f87zBfDe9g==}
+    deprecated: Potential CWE-502 - Update to 1.3.1 or higher
 
   '@urql/core@5.2.0':
     resolution: {integrity: sha512-/n0ieD0mvvDnVAXEQgX/7qJiVcvYvNkOHeBvkwtylfjydar123caCXcl58PXFY11oU1oquJocVXHxLAbtv4x1A==}
@@ -8599,6 +8688,7 @@ packages:
   '@xmldom/xmldom@0.8.12':
     resolution: {integrity: sha512-9k/gHF6n/pAi/9tqr3m3aqkuiNosYTurLLUtc7xQ9sxB/wm7WPygCv8GYa6mS0fLJEHhqMC1ATYhz++U/lRHqg==}
     engines: {node: '>=10.0.0'}
+    deprecated: this version has critical issues, please update to the latest version
 
   '@xtuc/ieee754@1.2.0':
     resolution: {integrity: sha512-DX8nKgqcGwsc0eJSqYt5lwP4DH5FlHnmuWWBRy7X0NcaGR0ZtuyeESgMwTYVEtxmsNGY+qit4QYT/MIYTOTPeA==}
@@ -15654,6 +15744,10 @@ packages:
     peerDependencies:
       typescript: '>=4.0.0'
 
+  ts-fsrs@5.3.2:
+    resolution: {integrity: sha512-moJJfYAeG9ynyyGCNaQPUloi0sspTMHFtgCvsx2wDchELu3O2c513/7fp+6PxsGth0ztxNjEtG8d85gX4ce0og==}
+    engines: {node: '>=20.0.0'}
+
   ts-interface-checker@0.1.13:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
 
@@ -16045,6 +16139,7 @@ packages:
 
   uuid@7.0.3:
     resolution: {integrity: sha512-DPSke0pXhTZgoF/d+WSt2QaKMCFSfx7QegxEWT+JOuHF5aWrKEn0G+ztjuJg/gG8/ItK+rbPCD/yNv8yyih6Cg==}
+    deprecated: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
     hasBin: true
 
   v8-to-istanbul@9.3.0:
@@ -28730,7 +28825,7 @@ snapshots:
 
   iso-639-1@2.1.15: {}
 
-  isomorphic-dompurify@3.7.1:
+  isomorphic-dompurify@3.7.1(@noble/hashes@2.0.1):
     dependencies:
       dompurify: 3.3.3
       jsdom: 29.0.2(@noble/hashes@2.0.1)
@@ -33348,6 +33443,8 @@ snapshots:
     dependencies:
       picomatch: 4.0.4
       typescript: 5.9.3
+
+  ts-fsrs@5.3.2: {}
 
   ts-interface-checker@0.1.13: {}
 

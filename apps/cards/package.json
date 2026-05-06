@@ -1,0 +1,9 @@
+{
+	"name": "cards",
+	"version": "0.1.0",
+	"private": true,
+	"description": "Cards — Spaced-Repetition flashcards on cards.mana.how. Standalone Phase-1 frontend; data shared with the mana cards module via mana-sync.",
+	"scripts": {
+		"dev": "pnpm run --filter=@cards/* --parallel dev"
+	}
+}

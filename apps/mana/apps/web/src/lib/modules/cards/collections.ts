@@ -1,16 +1,18 @@
 /**
  * Cards module — collection accessors and guest seed data.
  *
- * Uses table names from the unified DB: cardDecks, cards.
+ * Tables in the unified DB: cardDecks, cards, cardReviews, cardStudyBlocks.
  */
 
 import { db } from '$lib/data/database';
-import type { LocalDeck, LocalCard } from './types';
+import type { LocalDeck, LocalCard, LocalCardReview, LocalCardStudyBlock } from './types';
 
 // ─── Collection Accessors ──────────────────────────────────
 
 export const cardDeckTable = db.table<LocalDeck>('cardDecks');
 export const cardTable = db.table<LocalCard>('cards');
+export const cardReviewTable = db.table<LocalCardReview>('cardReviews');
+export const cardStudyBlockTable = db.table<LocalCardStudyBlock>('cardStudyBlocks');
 
 // ─── Guest Seed ────────────────────────────────────────────
 

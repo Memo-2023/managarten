@@ -1,0 +1,64 @@
+@import 'tailwindcss';
+
+/* Phase-1 placeholder palette. Will swap for @mana/shared-theme tokens
+   once the theming pass lands in Etappe 3c. */
+@theme {
+	--color-cards-bg: #0a0a0a;
+	--color-cards-surface: #161616;
+	--color-cards-border: #2a2a2a;
+	--color-cards-fg: #f5f5f5;
+	--color-cards-muted: #a3a3a3;
+	--color-cards-accent: #6366f1;
+}
+
+/* Cloze rendering classes — produced by @mana/cards-core/render. */
+.cloze-blank {
+	background: rgba(99, 102, 241, 0.15);
+	border-radius: 0.25rem;
+	padding: 0.05rem 0.4rem;
+	color: #a5b4fc;
+	font-style: italic;
+}
+
+mark.cloze-active {
+	background: rgba(34, 197, 94, 0.2);
+	color: #86efac;
+	padding: 0.05rem 0.25rem;
+	border-radius: 0.25rem;
+}
+
+/* Minimal styling for HTML produced by marked() — Tailwind 4 ships
+   without typography plugin so we set the basics by hand. */
+.card-content :where(p, ul, ol) {
+	margin-block: 0.5rem;
+}
+.card-content :where(ul) {
+	list-style: disc;
+	padding-inline-start: 1.25rem;
+}
+.card-content :where(ol) {
+	list-style: decimal;
+	padding-inline-start: 1.25rem;
+}
+.card-content :where(code) {
+	background: rgba(255, 255, 255, 0.06);
+	padding: 0.1rem 0.3rem;
+	border-radius: 0.25rem;
+	font-size: 0.95em;
+}
+.card-content :where(pre) {
+	background: rgba(255, 255, 255, 0.04);
+	padding: 0.75rem;
+	border-radius: 0.5rem;
+	overflow-x: auto;
+}
+.card-content :where(a) {
+	color: #818cf8;
+	text-decoration: underline;
+}
+.card-content :where(strong) {
+	font-weight: 600;
+}
+.card-content :where(em) {
+	font-style: italic;
+}

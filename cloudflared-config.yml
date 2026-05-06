@@ -56,8 +56,11 @@ ingress:
     service: http://localhost:5000
   - hostname: plants.mana.how
     service: http://localhost:5000
+  # cards.mana.how → standalone Cards SvelteKit container (apps/cards/apps/web).
+  # Was pointed at :5000 (the unified mana-web) until the standalone spinoff
+  # landed. mana.how/cards still serves the in-mana cards module.
   - hostname: cards.mana.how
-    service: http://localhost:5000
+    service: http://localhost:5180
   - hostname: storage.mana.how
     service: http://localhost:5000
   - hostname: presi.mana.how

@@ -30,6 +30,8 @@ export const PLAINTEXT_ALLOWLIST: readonly string[] = [
 	'budgets', // TODO: audit
 	'calculations', // TODO: audit
 	'calendars', // TODO: audit
+	'cardReviews', // FSRS scheduling state (numbers + due timestamp). No user-typed text — query path scans by `due` to find what's fällig today.
+	'cardStudyBlocks', // Daily activity aggregate (date + counters). No user-typed content.
 	'ccFavorites', // TODO: audit
 	'ccLocationTags', // TODO: audit
 	'ccLocations', // TODO: audit

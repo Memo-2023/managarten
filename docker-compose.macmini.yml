@@ -296,7 +296,7 @@ services:
       # Enforced by services/mana-auth/src/auth/sso-config.spec.ts.
       # All productivity modules now live under mana.how (path-based) —
       # no per-module subdomain entries required here.
-      CORS_ORIGINS: https://mana.how,https://auth.mana.how,https://whopxl.mana.how
+      CORS_ORIGINS: https://mana.how,https://auth.mana.how,https://whopxl.mana.how,https://cards.mana.how
     ports:
       - "3001:3001"
     healthcheck:
@@ -1052,6 +1052,36 @@ services:
       - "5028:5028"
     healthcheck:
       test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://127.0.0.1:5028/health"]
+      interval: 180s
+      timeout: 10s
+      retries: 3
+      start_period: 45s
+
+  cards-web:
+    # Standalone Cards frontend on cards.mana.how — separate SvelteKit
+    # container that consumes the same mana-sync 'cards' app-id as the
+    # in-mana cards module. See apps/cards/GUIDELINES.md.
+    build:
+      context: .
+      dockerfile: apps/cards/apps/web/Dockerfile
+    image: cards-web:local
+    container_name: mana-app-cards-web
+    restart: always
+    mem_limit: 128m
+    depends_on:
+      mana-auth:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      PORT: 5180
+      PUBLIC_MANA_AUTH_URL: http://mana-auth:3001
+      PUBLIC_MANA_AUTH_URL_CLIENT: https://auth.mana.how
+      PUBLIC_MANA_SYNC_URL: http://mana-sync:3050
+      PUBLIC_MANA_SYNC_URL_CLIENT: https://sync.mana.how
+    ports:
+      - "5180:5180"
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://127.0.0.1:5180/"]
       interval: 180s
       timeout: 10s
       retries: 3
