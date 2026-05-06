@@ -29,7 +29,6 @@
 		"@mana/shared-auth": "workspace:*",
 		"@mana/shared-auth-ui": "workspace:*",
 		"@mana/shared-branding": "workspace:*",
-		"@mana/shared-crypto": "workspace:*",
 		"@mana/shared-icons": "workspace:*",
 		"@mana/shared-privacy": "workspace:*",
 		"@mana/shared-pwa": "workspace:*",

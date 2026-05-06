@@ -202,9 +202,6 @@ importers:
       '@mana/shared-branding':
         specifier: workspace:*
         version: link:../../../../packages/shared-branding
-      '@mana/shared-crypto':
-        specifier: workspace:*
-        version: link:../../../../packages/shared-crypto
       '@mana/shared-icons':
         specifier: workspace:*
         version: link:../../../../packages/shared-icons
