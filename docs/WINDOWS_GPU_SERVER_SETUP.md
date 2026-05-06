@@ -5,6 +5,30 @@ Ziel: SSH + Grundkonfiguration, damit der Rechner remote steuerbar ist.
 
 Danach kann alles Weitere (Ollama, AI-Services, Cloudflare Tunnel) per SSH erledigt werden.
 
+## Hardware (Stand 2026-05-06)
+
+| | |
+|---|---|
+| Hostname | `mana-server-gpu` |
+| LAN-IP | `192.168.178.11` |
+| OS | Windows 10 Pro (Build 2009), 64-bit |
+| CPU | AMD Ryzen 9 **5950X** — 16 Cores / 32 Threads, 3.4 GHz Base |
+| RAM | **64 GB** DDR4-3200 (2× 32 GB Kingston, Dual-Channel, DIMM_A2 + DIMM_B2) |
+| GPU | NVIDIA **RTX 3090** — 24 GB VRAM, Treiber 591.86 |
+| Disk C: | ~930 GB total, ~660 GB frei |
+| Mainboard / PSU | (nicht remote auslesbar — bei Vor-Ort-Wartung ergänzen) |
+
+### Zusatz-Workloads neben den AI-Services
+
+Seit 2026-05-06 läuft auf der Box zusätzlich ein **WSL2-Docker-Stack** für
+nicht-zeitkritische Hilfsdienste (Monitoring, Forgejo, Glitchtip, Umami) —
+siehe [`PLAN_OPTION_C.md`](./PLAN_OPTION_C.md). WSL2 ist auf 24 GB RAM /
+12 vCPUs / 8 GB Swap begrenzt (`C:\Users\tills\.wslconfig`), sodass die
+AI-Scheduled-Tasks bei 64 GB Host-RAM > 30 GB Reserve behalten.
+
+Bestand 2026-05-06: ein **Photon-Geocoder** (eclipse-temurin Java, Port 2322)
+läuft unter Docker in WSL2 als Backend für `mana-geocoding` auf dem Mac Mini.
+
 ---
 
 ## Checkliste: Nach jedem Neustart
