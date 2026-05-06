@@ -64,6 +64,26 @@ export const formsStore = {
 		await formTable.update(id, diff);
 	},
 
+	/**
+	 * Stamp the recurrence lastSentAt timestamp after the user fired a
+	 * wave (M10b). The whole settings-blob travels encrypted, so we
+	 * read the current settings, patch lastSentAt, then re-encrypt the
+	 * full blob. Other settings stay untouched.
+	 */
+	async markWaveSent(id: string, sentAtIso: string = new Date().toISOString()) {
+		const form = await formTable.get(id);
+		if (!form) return;
+		const settings = form.settings ?? DEFAULT_FORM_SETTINGS;
+		if (!settings.recurrence) return;
+		const nextSettings: typeof settings = {
+			...settings,
+			recurrence: { ...settings.recurrence, lastSentAt: sentAtIso },
+		};
+		const diff: Partial<LocalForm> = { settings: nextSettings };
+		await encryptRecord('forms', diff);
+		await formTable.update(id, diff);
+	},
+
 	async deleteForm(id: string) {
 		await formTable.update(id, { deletedAt: nowIso() });
 	},

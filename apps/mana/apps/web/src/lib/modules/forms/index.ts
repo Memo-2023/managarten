@@ -28,6 +28,7 @@ export {
 } from './lib/auto-sync';
 export { computeCohort, cohortLabel, sortCohortsDesc } from './lib/cohort';
 export type { RecurrenceFrequency } from './lib/cohort';
+export { nextWaveDueAt, isWaveDue, buildWaveMailto, parseRecipientEmails } from './lib/wave';
 
 // ─── Types ───────────────────────────────────────────────
 export {

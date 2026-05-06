@@ -80,7 +80,18 @@
 			"none": "Una tantum",
 			"weekly": "Settimanale",
 			"monthly": "Mensile",
-			"hint": "Le risposte in arrivo vengono etichettate automaticamente con l'ondata (es. \"Sett. 19 / 2026\") per confronti di trend. L'invio via broadcast arriva nel passo successivo."
+			"hint": "Le risposte in arrivo vengono etichettate automaticamente con l'ondata (es. \"Sett. 19 / 2026\") per confronti di trend.",
+			"recipientsLabel": "Email dei destinatari (max. 50, uno per riga)",
+			"recipientsCount": "{n} destinatari validi rilevati",
+			"lastSent": "Ultimo invio: {date}",
+			"waveDue": "La prossima ondata è in scadenza — invia il link ai destinatari.",
+			"nextWaveAt": "Prossima ondata: {date}",
+			"sendNow": "Invia l'ondata ora",
+			"needsUnlisted": "Imposta la visibilità su \"unlisted\" per creare il link.",
+			"needsRecipients": "Aggiungi email dei destinatari nelle impostazioni.",
+			"mailSubject": "Per favore compila: {title}",
+			"mailBody": "{description}Rispondi qui:\n{url}\n\nGrazie!",
+			"confirmSend": "Invia l'ondata a {n} destinatari? Il tuo client di posta si apre con la lista BCC e il link precompilati. Marchiamo l'orario dopo."
 		},
 		"autoSync": {
 			"title": "Auto-sync — crea al ricevere risposta",

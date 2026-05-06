@@ -80,7 +80,18 @@
 			"none": "Ponctuel",
 			"weekly": "Hebdomadaire",
 			"monthly": "Mensuel",
-			"hint": "Les réponses entrantes reçoivent automatiquement un tag de vague (p. ex. « S19 / 2026 ») pour comparer les tendances. L'envoi par broadcast arrive à l'étape suivante."
+			"hint": "Les réponses entrantes reçoivent automatiquement un tag de vague (p. ex. « S19 / 2026 ») pour comparer les tendances.",
+			"recipientsLabel": "Emails des destinataires (max. 50, un par ligne)",
+			"recipientsCount": "{n} destinataires valides détectés",
+			"lastSent": "Dernier envoi : {date}",
+			"waveDue": "La prochaine vague est due — envoie le lien à tes destinataires.",
+			"nextWaveAt": "Prochaine vague : {date}",
+			"sendNow": "Envoyer la vague",
+			"needsUnlisted": "Mets la visibilité sur « unlisted » pour créer le lien.",
+			"needsRecipients": "Ajoute des emails de destinataires dans les paramètres.",
+			"mailSubject": "Merci de remplir : {title}",
+			"mailBody": "{description}Réponds ici :\n{url}\n\nMerci !",
+			"confirmSend": "Envoyer la vague à {n} destinataires ? Ton client mail s'ouvre avec la liste BCC et le lien préremplis. On marque l'horodatage ensuite."
 		},
 		"autoSync": {
 			"title": "Auto-sync — créer à la soumission",

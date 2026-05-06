@@ -80,7 +80,18 @@
 			"none": "One-off",
 			"weekly": "Weekly",
 			"monthly": "Monthly",
-			"hint": "Incoming responses are auto-tagged with a wave label (e.g. \"W19 / 2026\") for trend comparison. Broadcast-based sending will come in a follow-up step."
+			"hint": "Incoming responses are auto-tagged with a wave label (e.g. \"W19 / 2026\") for trend comparison.",
+			"recipientsLabel": "Recipient emails (max. 50, one per line)",
+			"recipientsCount": "{n} valid recipients detected",
+			"lastSent": "Last sent: {date}",
+			"waveDue": "Next wave is due — send the link to your recipients.",
+			"nextWaveAt": "Next wave: {date}",
+			"sendNow": "Send wave now",
+			"needsUnlisted": "Set visibility to \"unlisted\" to create the link.",
+			"needsRecipients": "Add recipient emails in the settings.",
+			"mailSubject": "Please fill in: {title}",
+			"mailBody": "{description}Reply here:\n{url}\n\nThanks!",
+			"confirmSend": "Send wave to {n} recipients? Your mail client opens with the BCC list and link prefilled. We'll stamp the timestamp after."
 		},
 		"autoSync": {
 			"title": "Auto-sync — create on submit",

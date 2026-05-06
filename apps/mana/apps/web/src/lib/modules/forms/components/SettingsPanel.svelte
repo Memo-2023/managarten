@@ -157,6 +157,12 @@
 		settings.recurrence?.frequency ?? 'none'
 	);
 
+	let recipientEmailsRaw = $state('');
+	$effect(() => {
+		// Re-sync when settings change upstream (clone, undo, etc.).
+		recipientEmailsRaw = (settings.recurrence?.recipientEmails ?? []).join('\n');
+	});
+
 	function setRecurrence(next: 'none' | 'weekly' | 'monthly') {
 		if (next === 'none') {
 			onchange({ recurrence: undefined });
@@ -165,9 +171,24 @@
 				recurrence: {
 					frequency: next,
 					startedAt: settings.recurrence?.startedAt ?? new Date().toISOString(),
+					recipientEmails: settings.recurrence?.recipientEmails,
+					lastSentAt: settings.recurrence?.lastSentAt,
 				},
 			});
 		}
+	}
+
+	async function commitRecipientEmails() {
+		const { parseRecipientEmails } = await import('../lib/wave');
+		const parsed = parseRecipientEmails(recipientEmailsRaw).slice(0, 50);
+		const current = settings.recurrence;
+		if (!current) return;
+		onchange({
+			recurrence: {
+				...current,
+				recipientEmails: parsed.length > 0 ? parsed : undefined,
+			},
+		});
 	}
 </script>
 
@@ -274,9 +295,43 @@
 			<p class="hint">
 				{$_('forms.builder.recurrence.hint', {
 					default:
-						'Eingehende Antworten bekommen automatisch einen Wellen-Tag (z.B. "KW 19 / 2026") für Trend-Vergleich. Versand des Links via Broadcast kommt im nächsten Schritt.',
+						'Eingehende Antworten bekommen automatisch einen Wellen-Tag (z.B. "KW 19 / 2026") für Trend-Vergleich.',
 				})}
 			</p>
+
+			<label class="setting-row">
+				<span class="setting-label">
+					{$_('forms.builder.recurrence.recipientsLabel', {
+						default: 'Empfänger-Emails (max. 50, eine pro Zeile)',
+					})}
+				</span>
+				<textarea
+					rows="3"
+					bind:value={recipientEmailsRaw}
+					onblur={commitRecipientEmails}
+					placeholder="anna@example.com&#10;bob@example.com"
+					class="recipients-input"
+				></textarea>
+				{#if settings.recurrence?.recipientEmails?.length}
+					<small class="hint">
+						{$_('forms.builder.recurrence.recipientsCount', {
+							default: '{n} valide Empfänger erkannt',
+							values: { n: settings.recurrence.recipientEmails.length },
+						})}
+					</small>
+				{/if}
+			</label>
+
+			{#if settings.recurrence?.lastSentAt}
+				<p class="hint">
+					{$_('forms.builder.recurrence.lastSent', {
+						default: 'Letzter Versand: {date}',
+						values: {
+							date: new Date(settings.recurrence.lastSentAt).toLocaleString(),
+						},
+					})}
+				</p>
+			{/if}
 		{/if}
 	</div>
 
@@ -447,6 +502,19 @@
 		text-transform: uppercase;
 		letter-spacing: 0.06em;
 		color: rgb(255 255 255 / 0.45);
+	}
+
+	.recipients-input {
+		width: 100%;
+		padding: 0.5rem 0.625rem;
+		background: rgb(255 255 255 / 0.04);
+		border: 1px solid rgb(255 255 255 / 0.08);
+		border-radius: 0.375rem;
+		color: inherit;
+		font-size: 0.8125rem;
+		font-family: ui-monospace, monospace;
+		resize: vertical;
+		min-height: 4rem;
 	}
 
 	.target-select {

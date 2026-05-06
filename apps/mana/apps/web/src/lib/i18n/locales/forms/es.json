@@ -80,7 +80,18 @@
 			"none": "Una vez",
 			"weekly": "Semanal",
 			"monthly": "Mensual",
-			"hint": "Las respuestas recibidas se etiquetan automáticamente con la ola (p. ej. \"S19 / 2026\") para comparar tendencias. El envío automático por broadcast llegará en un paso posterior."
+			"hint": "Las respuestas recibidas se etiquetan automáticamente con la ola (p. ej. \"S19 / 2026\") para comparar tendencias.",
+			"recipientsLabel": "Emails de destinatarios (máx. 50, uno por línea)",
+			"recipientsCount": "{n} destinatarios válidos detectados",
+			"lastSent": "Último envío: {date}",
+			"waveDue": "La próxima ola está pendiente — envía el enlace a tus destinatarios.",
+			"nextWaveAt": "Próxima ola: {date}",
+			"sendNow": "Enviar ola ahora",
+			"needsUnlisted": "Pon la visibilidad en \"unlisted\" para crear el enlace.",
+			"needsRecipients": "Añade emails de destinatarios en los ajustes.",
+			"mailSubject": "Por favor rellena: {title}",
+			"mailBody": "{description}Responde aquí:\n{url}\n\n¡Gracias!",
+			"confirmSend": "¿Enviar ola a {n} destinatarios? Tu cliente de correo se abrirá con la lista BCC y el enlace prellenado. Marcamos la marca de tiempo después."
 		},
 		"autoSync": {
 			"title": "Auto-sync — crear al recibir respuesta",

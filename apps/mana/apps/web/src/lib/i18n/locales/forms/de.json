@@ -80,7 +80,18 @@
 			"none": "Einmalig",
 			"weekly": "Wöchentlich",
 			"monthly": "Monatlich",
-			"hint": "Eingehende Antworten bekommen automatisch einen Wellen-Tag (z.B. \"KW 19 / 2026\") für Trend-Vergleich. Versand des Links via Broadcast kommt im nächsten Schritt."
+			"hint": "Eingehende Antworten bekommen automatisch einen Wellen-Tag (z.B. \"KW 19 / 2026\") für Trend-Vergleich.",
+			"recipientsLabel": "Empfänger-Emails (max. 50, eine pro Zeile)",
+			"recipientsCount": "{n} valide Empfänger erkannt",
+			"lastSent": "Letzter Versand: {date}",
+			"waveDue": "Nächste Welle ist fällig — schicke den Link an deine Empfänger.",
+			"nextWaveAt": "Nächste Welle: {date}",
+			"sendNow": "Welle jetzt senden",
+			"needsUnlisted": "Setze die Sichtbarkeit auf \"unlisted\", um den Link zu erzeugen.",
+			"needsRecipients": "Trage Empfänger-Emails in den Settings ein.",
+			"mailSubject": "Bitte ausfüllen: {title}",
+			"mailBody": "{description}Hier kannst du antworten:\n{url}\n\nDanke!",
+			"confirmSend": "Welle an {n} Empfänger senden? Dein Mail-Programm öffnet sich mit BCC-Liste und Link. Nach dem Versand stempeln wir den Zeitpunkt."
 		},
 		"autoSync": {
 			"title": "Auto-Sync — bei Antwort erzeugen",

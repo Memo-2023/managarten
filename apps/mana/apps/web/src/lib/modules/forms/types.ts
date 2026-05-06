@@ -90,8 +90,16 @@ export interface RecurrenceConfig {
 	frequency: 'weekly' | 'monthly';
 	/** ISO timestamp the recurrence started — informational only today. */
 	startedAt?: string;
-	/** Future M10b — currently no-op. */
+	/** M10b: how the share-link gets distributed when a wave is due. */
 	sendVia?: 'broadcast' | 'manual';
+	/**
+	 * M10b — recipient emails, one per element. Capped at 50 (mailto-bridge
+	 * realism). For larger groups the user copies the link manually until a
+	 * proper bulk-send integration lands (M10c).
+	 */
+	recipientEmails?: string[];
+	/** ISO timestamp of the last wave the user fired. Drives the due-banner. */
+	lastSentAt?: string;
 }
 
 export interface FormSettings {

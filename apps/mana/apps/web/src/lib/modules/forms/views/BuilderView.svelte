@@ -19,6 +19,7 @@
 	import FieldPalette from '../components/FieldPalette.svelte';
 	import SettingsPanel from '../components/SettingsPanel.svelte';
 	import BranchingEditor from '../components/BranchingEditor.svelte';
+	import { buildWaveMailto, isWaveDue, nextWaveDueAt } from '../lib/wave';
 	import {
 		VisibilityPicker,
 		SharedLinkControls,
@@ -148,6 +149,51 @@
 		const origin = typeof window === 'undefined' ? 'https://mana.how' : window.location.origin;
 		return buildShareUrl(origin, entry.unlistedToken);
 	});
+
+	// ── Wave-Send (M10b) ──────────────────────────────────
+	const recurrence = $derived(entry.settings.recurrence);
+	const waveDue = $derived(isWaveDue(recurrence));
+	const waveDueAt = $derived(nextWaveDueAt(recurrence));
+	const canSendWave = $derived(
+		!!recurrence &&
+			!!entry.unlistedToken &&
+			!!shareUrl &&
+			(recurrence.recipientEmails ?? []).length > 0
+	);
+
+	async function sendWave() {
+		if (!canSendWave || !shareUrl) return;
+		const recipients = entry.settings.recurrence?.recipientEmails ?? [];
+		if (recipients.length === 0) return;
+
+		const subject = $_('forms.builder.recurrence.mailSubject', {
+			default: 'Bitte ausfüllen: {title}',
+			values: { title: entry.title },
+		});
+		const description = entry.description ? `${entry.description}\n\n` : '';
+		const body = $_('forms.builder.recurrence.mailBody', {
+			default: '{description}Hier kannst du antworten:\n{url}\n\nDanke!',
+			values: { description, url: shareUrl },
+		});
+		const mailto = buildWaveMailto({ recipientEmails: recipients, subject, body });
+
+		const ok = confirm(
+			$_('forms.builder.recurrence.confirmSend', {
+				default:
+					'Welle an {n} Empfänger senden? Dein Mail-Programm öffnet sich mit BCC-Liste und Link. Nach dem Versand stempeln wir den Zeitpunkt.',
+				values: { n: recipients.length },
+			})
+		);
+		if (!ok) return;
+
+		window.open(mailto, '_blank');
+		await formsStore.markWaveSent(entry.id);
+	}
+
+	function formatDueAt(d: Date | null): string {
+		if (!d) return '';
+		return d.toLocaleString();
+	}
 
 	async function setStatus(status: FormStatus) {
 		await formsStore.setStatus(entry.id, status);
@@ -288,6 +334,47 @@
 				onRevoke={handleRevoke}
 				onExpiryChange={handleExpiryChange}
 			/>
+		{/if}
+
+		{#if recurrence}
+			<div class="wave-block">
+				{#if waveDue}
+					<p class="wave-due-banner">
+						{$_('forms.builder.recurrence.waveDue', {
+							default: 'Nächste Welle ist fällig — schicke den Link an deine Empfänger.',
+						})}
+					</p>
+				{:else if waveDueAt && entry.settings.recurrence?.lastSentAt}
+					<p class="wave-hint">
+						{$_('forms.builder.recurrence.nextWaveAt', {
+							default: 'Nächste Welle: {date}',
+							values: { date: formatDueAt(waveDueAt) },
+						})}
+					</p>
+				{/if}
+				<button
+					type="button"
+					class="wave-send"
+					onclick={sendWave}
+					disabled={!canSendWave}
+					class:due={waveDue}
+				>
+					{$_('forms.builder.recurrence.sendNow', {
+						default: 'Welle jetzt senden',
+					})}
+				</button>
+				{#if !canSendWave}
+					<p class="wave-hint">
+						{!entry.unlistedToken
+							? $_('forms.builder.recurrence.needsUnlisted', {
+									default: 'Setze die Sichtbarkeit auf "unlisted", um den Link zu erzeugen.',
+								})
+							: $_('forms.builder.recurrence.needsRecipients', {
+									default: 'Trage Empfänger-Emails in den Settings ein.',
+								})}
+					</p>
+				{/if}
+			</div>
 		{/if}
 	</section>
 
@@ -476,6 +563,60 @@
 		margin: 0;
 		font-size: 0.8125rem;
 		color: rgb(252 165 165);
+	}
+
+	.wave-block {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		padding-top: 0.625rem;
+		border-top: 1px solid rgb(255 255 255 / 0.06);
+	}
+
+	.wave-due-banner {
+		margin: 0;
+		padding: 0.5rem 0.75rem;
+		background: rgb(245 158 11 / 0.16);
+		border: 1px solid rgb(245 158 11 / 0.4);
+		border-radius: 0.375rem;
+		color: rgb(252 211 77);
+		font-size: 0.8125rem;
+	}
+
+	.wave-hint {
+		margin: 0;
+		font-size: 0.75rem;
+		color: rgb(255 255 255 / 0.5);
+	}
+
+	.wave-send {
+		align-self: flex-start;
+		padding: 0.5rem 0.875rem;
+		background: rgb(20 184 166 / 0.16);
+		border: 1px solid rgb(20 184 166 / 0.4);
+		border-radius: 0.375rem;
+		color: rgb(94 234 212);
+		font-size: 0.8125rem;
+		cursor: pointer;
+	}
+
+	.wave-send:hover:not(:disabled) {
+		background: rgb(20 184 166 / 0.24);
+	}
+
+	.wave-send:disabled {
+		opacity: 0.45;
+		cursor: not-allowed;
+	}
+
+	.wave-send.due {
+		background: rgb(245 158 11 / 0.18);
+		border-color: rgb(245 158 11 / 0.5);
+		color: rgb(252 211 77);
+	}
+
+	.wave-send.due:hover:not(:disabled) {
+		background: rgb(245 158 11 / 0.26);
 	}
 
 	.section-header {
