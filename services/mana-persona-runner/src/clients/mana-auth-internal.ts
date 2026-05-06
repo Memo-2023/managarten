@@ -1,8 +1,13 @@
 /**
- * Service-to-service client for mana-auth's internal persona endpoints.
+ * Service-to-service client for the personas internal endpoints.
  *
  * Three calls: list due personas, post actions batch, post feedback
  * batch. All gated by `X-Service-Key` (not a user JWT).
+ *
+ * After the platform/product split, personas live in apps/api
+ * (`mana-monorepo/apps/api`), not in mana-auth. The constructor takes
+ * the apps/api URL — the file name stays the same to keep the
+ * callsite diff small (one import path), but the destination changed.
  */
 
 import type { ActionRow, FeedbackRow } from '../runner/types.ts';
@@ -19,7 +24,7 @@ export interface DuePersona {
 
 export class ManaAuthInternalClient {
 	constructor(
-		private readonly authUrl: string,
+		private readonly apiUrl: string,
 		private readonly serviceKey: string
 	) {
 		if (!serviceKey) {
@@ -35,7 +40,7 @@ export class ManaAuthInternalClient {
 	}
 
 	async listDuePersonas(): Promise<DuePersona[]> {
-		const res = await fetch(`${this.authUrl}/api/v1/internal/personas/due`, {
+		const res = await fetch(`${this.apiUrl}/api/v1/personas/internal/due`, {
 			headers: this.headers(),
 		});
 		if (!res.ok) {
@@ -47,7 +52,7 @@ export class ManaAuthInternalClient {
 
 	async postActions(personaId: string, actions: ActionRow[]): Promise<void> {
 		if (actions.length === 0) return;
-		const res = await fetch(`${this.authUrl}/api/v1/internal/personas/${personaId}/actions`, {
+		const res = await fetch(`${this.apiUrl}/api/v1/personas/internal/${personaId}/actions`, {
 			method: 'POST',
 			headers: this.headers(),
 			body: JSON.stringify({ actions }),
@@ -59,7 +64,7 @@ export class ManaAuthInternalClient {
 
 	async postFeedback(personaId: string, feedback: FeedbackRow[]): Promise<void> {
 		if (feedback.length === 0) return;
-		const res = await fetch(`${this.authUrl}/api/v1/internal/personas/${personaId}/feedback`, {
+		const res = await fetch(`${this.apiUrl}/api/v1/personas/internal/${personaId}/feedback`, {
 			method: 'POST',
 			headers: this.headers(),
 			body: JSON.stringify({ feedback }),

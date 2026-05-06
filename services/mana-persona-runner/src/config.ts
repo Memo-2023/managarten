@@ -6,12 +6,16 @@
 export interface Config {
 	port: number;
 
-	/** mana-auth base URL — for login, spaces list, persistence callbacks. */
+	/** mana-auth base URL — for login + spaces list. */
 	authUrl: string;
+	/** apps/api base URL — for /api/v1/personas/internal/* callbacks
+	 *  (due, actions, feedback). Personas live in mana_platform now,
+	 *  not in mana-auth. */
+	apiUrl: string;
 	/** mana-mcp base URL — where Claude talks to the tool registry. */
 	mcpUrl: string;
 
-	/** Service key for /api/v1/internal/* callbacks into mana-auth. */
+	/** Service key for /api/v1/personas/internal/* callbacks into apps/api. */
 	serviceKey: string;
 
 	/** Anthropic API key that drives each persona's Claude call. */
@@ -60,6 +64,7 @@ export function loadConfig(): Config {
 	return {
 		port: intEnv('PORT', 3070),
 		authUrl: process.env.MANA_AUTH_URL ?? 'http://localhost:3001',
+		apiUrl: process.env.MANA_API_URL ?? 'http://localhost:3060',
 		mcpUrl: process.env.MANA_MCP_URL ?? 'http://localhost:3069',
 		serviceKey: process.env.MANA_SERVICE_KEY ?? '',
 		anthropicApiKey: process.env.ANTHROPIC_API_KEY ?? '',

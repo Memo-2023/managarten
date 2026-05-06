@@ -23,7 +23,7 @@ assertProductionSecrets(config);
 
 const authClient = new AuthClient(config.authUrl);
 const internalClient = config.serviceKey
-	? new ManaAuthInternalClient(config.authUrl, config.serviceKey)
+	? new ManaAuthInternalClient(config.apiUrl, config.serviceKey)
 	: null;
 
 const app = new Hono();

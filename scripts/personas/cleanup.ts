@@ -12,13 +12,13 @@
  *
  * Usage:
  *   pnpm seed:personas:cleanup
- *   pnpm seed:personas:cleanup --auth=https://auth.mana.how --jwt=eyJ…
+ *   pnpm seed:personas:cleanup --api=https://api.mana.how --jwt=eyJ…
  */
 
 import { loadCatalog } from './catalog';
 
 interface CliOptions {
-	authUrl: string;
+	apiUrl: string;
 	adminJwt: string;
 }
 
@@ -29,14 +29,14 @@ function parseArgs(): CliOptions {
 		return found?.slice(`--${key}=`.length);
 	};
 
-	const authUrl = get('auth') ?? process.env.MANA_AUTH_URL ?? 'http://localhost:3001';
+	const apiUrl = get('api') ?? get('auth') ?? process.env.MANA_API_URL ?? 'http://localhost:3060';
 	const adminJwt = get('jwt') ?? process.env.MANA_ADMIN_JWT ?? '';
 
 	if (!adminJwt) {
 		console.error('❌ Missing admin JWT. Set MANA_ADMIN_JWT or pass --jwt=…');
 		process.exit(1);
 	}
-	return { authUrl, adminJwt };
+	return { apiUrl, adminJwt };
 }
 
 interface PersonaListEntry {
@@ -46,7 +46,7 @@ interface PersonaListEntry {
 }
 
 async function listPersonas(opts: CliOptions): Promise<PersonaListEntry[]> {
-	const res = await fetch(`${opts.authUrl}/api/v1/admin/personas`, {
+	const res = await fetch(`${opts.apiUrl}/api/v1/personas/admin`, {
 		headers: { authorization: `Bearer ${opts.adminJwt}` },
 	});
 	if (!res.ok) {
@@ -57,7 +57,7 @@ async function listPersonas(opts: CliOptions): Promise<PersonaListEntry[]> {
 }
 
 async function deletePersona(opts: CliOptions, userId: string, email: string): Promise<void> {
-	const res = await fetch(`${opts.authUrl}/api/v1/admin/personas/${userId}`, {
+	const res = await fetch(`${opts.apiUrl}/api/v1/personas/admin/${userId}`, {
 		method: 'DELETE',
 		headers: { authorization: `Bearer ${opts.adminJwt}` },
 	});
