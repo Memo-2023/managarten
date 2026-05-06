@@ -80,8 +80,11 @@ ingress:
     service: http://localhost:5000
   - hostname: uload.mana.how
     service: http://localhost:5000
-  - hostname: memoro.mana.how
-    service: http://localhost:5000
+  # memoro.mana.how moved off the unified mana web app (5000) to the
+  # Memoro Astro landing container (Code/memoro/apps/landing → :3120) on
+  # 2026-05-06. The standalone Memoro stack lives at memoro-api/audio
+  # below; the landing is the public marketing site.
+  # NB: keep this entry in the Memoro section, not the unified-app block.
   - hostname: context.mana.how
     service: http://localhost:5000
   - hostname: questions.mana.how
@@ -160,6 +163,21 @@ ingress:
     service: http://localhost:3071
   - hostname: npm.mana.how
     service: http://localhost:4873
+
+  # ============================================
+  # Memoro (Code/memoro, separate repo)
+  # ~/projects/memoro-deploy/ on the Mac Mini.
+  # ============================================
+  - hostname: memoro.mana.how
+    service: http://localhost:3120
+  # Web-App (SvelteKit static SPA). Lives next to memoro-api/memoro-audio
+  # at first-level subdomain depth so Cloudflare Universal SSL covers it.
+  - hostname: memoro-app.mana.how
+    service: http://localhost:3130
+  - hostname: memoro-api.mana.how
+    service: http://localhost:3110
+  - hostname: memoro-audio.mana.how
+    service: http://localhost:3101
 
   # ============================================
   # Standalone web apps (separate containers)
