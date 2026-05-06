@@ -10,7 +10,7 @@ import type { PageServerLoad } from './$types';
 const EVENTS_URL =
 	process.env.PUBLIC_MANA_EVENTS_URL_CLIENT ||
 	process.env.PUBLIC_MANA_EVENTS_URL ||
-	'http://localhost:3065';
+	'http://localhost:3115';
 
 type Lang = 'de' | 'en' | 'it' | 'fr' | 'es';
 

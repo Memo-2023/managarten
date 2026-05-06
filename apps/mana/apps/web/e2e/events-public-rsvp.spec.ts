@@ -14,7 +14,7 @@ import postgres from 'postgres';
 
 const DATABASE_URL =
 	process.env.DATABASE_URL || 'postgresql://mana:devpassword@localhost:5432/mana_platform';
-const EVENTS_URL = process.env.PUBLIC_MANA_EVENTS_URL || 'http://localhost:3065';
+const EVENTS_URL = process.env.PUBLIC_MANA_EVENTS_URL || 'http://localhost:3115';
 
 const sql = postgres(DATABASE_URL, { max: 2 });
 

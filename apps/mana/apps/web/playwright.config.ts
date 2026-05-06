@@ -59,11 +59,11 @@ export default defineConfig({
 				},
 				{
 					command: 'cd ../../../../services/mana-events && bun run src/index.ts',
-					url: 'http://localhost:3065/health',
+					url: 'http://localhost:3115/health',
 					reuseExistingServer: true,
 					timeout: 60_000,
 					env: {
-						PORT: '3065',
+						PORT: '3115',
 						DATABASE_URL:
 							process.env.DATABASE_URL ||
 							'postgresql://mana:devpassword@localhost:5432/mana_platform',

@@ -26,7 +26,9 @@
 > - mana-mail `3042`
 > - mana-sync `3050`
 > - mana-credits `3061`, mana-user `3062`, mana-subscriptions `3063`,
->   mana-analytics `3064`, mana-events `3065`, mana-research `3068`
+>   mana-analytics `3064`, mana-events `3115` (moved from 3065 on
+>   2026-05-06 because the platform mana-media reserves 3065 — see
+>   `Code/mana/docs/PORTS.md`), mana-research `3068`
 >   (new 2026-04-17, Bun/Hono, public: `research.mana.how`),
 >   mana-mcp `3069` (new 2026-04-22, Bun/Hono, MCP gateway over
 >   Streamable HTTP — see `services/mana-mcp/CLAUDE.md`),

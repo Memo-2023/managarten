@@ -11,7 +11,7 @@ Public RSVP and event-sharing service. Hosts publish event snapshots from the Ma
 | **Database** | PostgreSQL + Drizzle ORM |
 | **Auth** | EdDSA JWT validation via JWKS from mana-auth (`jose`) — host-side only; RSVP endpoints are intentionally unauthenticated |
 
-## Port: 3065
+## Port: 3115
 
 ## Quick Start
 
@@ -81,7 +81,7 @@ The Hono app lives in `app.ts` (exporting a `createApp(db, config)` factory) so 
 ## Configuration
 
 ```env
-PORT=3065
+PORT=3115
 DATABASE_URL=postgresql://...
 MANA_AUTH_URL=http://localhost:3001
 CORS_ORIGINS=http://localhost:5173,https://mana.how
