@@ -18,6 +18,7 @@ COPY packages/local-llm ./packages/local-llm
 COPY packages/local-stt ./packages/local-stt
 COPY packages/shared-llm ./packages/shared-llm
 COPY packages/shared-ai ./packages/shared-ai
+COPY packages/cards-core ./packages/cards-core
 COPY packages/shared-crypto ./packages/shared-crypto
 COPY packages/website-blocks ./packages/website-blocks
 

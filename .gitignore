@@ -21,6 +21,10 @@ ios/
 # MCP config (contains API keys)
 .mcp.json
 
+# Credentials docs (must NEVER be committed)
+docs/*_CREDENTIALS.md
+docs/CREDENTIALS_*.md
+
 # Environment files
 .env
 .env.local

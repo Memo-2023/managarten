@@ -14,10 +14,31 @@ Production-Hot-Path bleibt unverändert auf dem Mini.
 | Phase 1 — WSL2 + Docker | ✅ | War schon eingerichtet (Ubuntu 24.04, Docker 29.4.1, systemd). `.wslconfig` erweitert um `memory=24GB`, `processors=12`, `swap=8GB`, `vmIdleTimeout=-1` |
 | Phase 2a — Grafana auf GPU-Box | ✅ | Container `mana-mon-grafana` läuft auf `:8000`, Cross-Box-Datasources testen erfolgreich (Prometheus/VM, Loki, Business Metrics). DB-Datasources schlagen fehl wegen Pre-existing-Mis-config (DBs heißen `mana_admin`, nicht `mana`; keine `glitchtip` DB) |
 | Phase 2b — Umami + Forgejo | ✅ | Beide healthy auf GPU-Box. Glitchtip übersprungen — Mini-Glitchtip ist bereits im Broken-State (DB `glitchtip` existiert nicht in Postgres, läuft nur in Degraded-Mode), Migration würde Bug nicht heilen |
-| Phase 2c — VM + Loki + Alerts | ⏳ | Erfordert `prometheus.yml`-Rewrite mit ~30 Mini-IP-Targets — eigene Session |
+| Phase 2c — VM + Loki + Alerts | ✅ | Komplett auf GPU-Box. 11 Container neu (VM, Loki, Pushgateway, Blackbox, Vmalert, Alertmanager, Alert-notifier, GPU-eigenes Node-Exporter+Cadvisor+Promtail). VM scrapt 76 Targets, **69 UP / 7 DOWN** (DOWN sind alle pre-existing wrong /metrics endpoints auf Mana-Services, nicht durch Migration). Konfig-Pfade: `monitoring/{prometheus,loki,blackbox,alertmanager,alert-notifier}/`. Bekannte Limits siehe unten. |
+| Phase 2d — Glitchtip mit dediziertem DB-Stack | ✅ | 4 Container neu (mana-mon-glitchtip + worker + dedizierte glitchtip-postgres + glitchtip-redis). Mini-Postgres scheiterte bei `logs.0001_initial`-Partition-Creation mit OS-level "Permission denied" (macOS-Docker-Storage-Quirk auf externer SSD). Auf der GPU-Box mit Linux-ext4 saubere 333-Tabellen-Migration. Worker enqueuet UND finished Tasks → DB-Writes funktional (vorher hingen sie ewig). Public-Hostname `glitchtip.mana.how` → mana-gpu-server-Tunnel (config v23). |
 | Phase 3 — Daten-Migration | n/a | Alle migrierten Apps lesen Mini-Postgres direkt — keine separate Datenmigration |
-| Phase 4 — Cloudflare-Cutover | ⏳ | User-action: `grafana.mana.how` als Public-Hostname im `mana-gpu-server`-Tunnel via Dashboard, dann DNS umrouten |
-| Phase 5 — Mini-Compose aufräumen | ⏳ | Erst nach Cutover |
+| Phase 4 — Cloudflare-Cutover | ✅ | API-Approach via `cert.pem` apiToken: PUT `/accounts/.../cfd_tunnel/.../configurations` für GPU-Tunnel, dann `cloudflared tunnel route dns --overwrite-dns`. Kein Dashboard-Klick nötig. 3 Hostnames live (grafana/git/stats) |
+| Phase 5 — Mini-Compose aufräumen | ✅ | 3 Blöcke in `cloudflared-config.yml` auskommentiert (Backup angelegt), cloudflared neu geladen, Mini-Container `mana-mon-grafana` + `mana-mon-umami` gestoppt (nicht entfernt — Rollback bleibt möglich) |
+
+### Cloudflare-API-Approach (für nachvollziehbares Re-Run / weitere Cutover)
+
+`~/.cloudflared/cert.pem` ist ein Argo-Tunnel-Token mit eingebettetem `accountID` + `apiToken`. Damit ist Tunnel-Ingress-Management vollständig automatisierbar — kein Dashboard-Klick, kein separater Cloudflare-API-Token nötig:
+
+```python
+import json, urllib.request, base64, subprocess
+cert = json.loads(subprocess.check_output(
+    "awk '/BEGIN ARGO/{f=1;next}/END ARGO/{f=0}f' ~/.cloudflared/cert.pem | tr -d '\\n' | base64 -d", shell=True))
+TOKEN, ACCOUNT_ID = cert['apiToken'], cert['accountID']
+TUNNEL_ID = '83454e8e-d7f5-4954-b2cb-0307c2dba7a6'  # mana-gpu-server
+# GET → modify ingress → PUT
+```
+
+Workflow für weitere Migrationen (Phase 2c o. ä.):
+1. GET aktuelle Ingress-Liste
+2. Lokal mergen (neue Hostnames vor dem `http_status:404`-Catchall)
+3. PUT zurück → erhöht `version`
+4. `cloudflared tunnel route dns --overwrite-dns <tunnel-id> <hostname>` für jeden neuen Hostname
+5. Mini-`cloudflared-config.yml` entsprechend bereinigen + `launchctl kickstart -k gui/501/com.cloudflare.cloudflared`
 
 ### Was läuft heute (2026-05-06) auf der GPU-Box
 
@@ -25,18 +46,54 @@ Production-Hot-Path bleibt unverändert auf dem Mini.
 WSL2 (Ubuntu 24.04, 24 GB RAM-Limit, 12 vCPU, vmIdleTimeout=-1)
 └── Docker (systemd-managed, auto-start)
     ├── photon (eclipse-temurin:21-jre, port 2322) — Geocoder-Backend für Mini-mana-geocoding (Pre-existing)
-    ├── mana-mon-grafana (grafana:10.4.1, port 8000) — Phase 2a
-    │    ├── volume: mana-grafana-data
-    │    ├── bind: /srv/mana/monitoring/grafana/{provisioning,dashboards}
-    │    └── datasources: alle URLs rewritten auf 192.168.178.131
-    ├── mana-core-forgejo (forgejo:11, port 3041) — Phase 2b
-    │    ├── bind: /srv/mana/forgejo-data:/data
-    │    ├── DB-host: 192.168.178.131:5432 (LAN → Mini-Postgres)
-    │    └── app.ini frisch generiert mit INSTALL_LOCK + neuen Secret-Keys
-    └── mana-mon-umami (umami:postgresql-v2.18.0, port 8010) — Phase 2b
-         ├── DB: 192.168.178.131:5432/umami
-         └── APP_SECRET: identisch mit Mini-Setup (Sessions kompatibel)
+    ├── Phase 2a — Grafana
+    │   └── mana-mon-grafana (grafana:10.4.1, :8000)
+    │       ├── volume: mana-grafana-data
+    │       └── datasources jetzt LOKAL (victoriametrics:9090, loki:3100, tempo:3200)
+    ├── Phase 2b — Apps
+    │   ├── mana-core-forgejo (forgejo:11, :3041) — DB → Mini-Postgres
+    │   └── mana-mon-umami (umami:2.18.0, :8010) — DB → Mini-Postgres
+    ├── Phase 2d — Glitchtip mit eigener DB-Insel
+    │   ├── mana-mon-glitchtip (glitchtip:latest, :8020) — DB → glitchtip-postgres
+    │   ├── mana-mon-glitchtip-worker — Celery + Beat
+    │   ├── mana-mon-glitchtip-postgres (postgres:16-alpine) — eigene DB-Instanz
+    │   │   └── volume: glitchtip-pg-data (333 Tabellen, alle Migrationen sauber)
+    │   └── mana-mon-glitchtip-redis (redis:7-alpine) — eigene Cache+Queue
+    └── Phase 2c — Metrics-Stack
+        ├── mana-mon-victoria (VM v1.99.0, :9090) — scrapt Mini-Services via 192.168.178.131:<port>
+        │   ├── extra_hosts: host.docker.internal:host-gateway
+        │   └── volume: victoriametrics-data
+        ├── mana-mon-loki (loki:3.0.0, :3100) — empfängt von gpu-promtail (Mini-side blockiert via LAN)
+        ├── mana-mon-gpu-promtail — sammelt GPU-Box-Container-Logs
+        ├── mana-mon-pushgateway (:9091)
+        ├── mana-mon-blackbox (:9115)
+        ├── mana-mon-vmalert (:8880)
+        ├── mana-mon-alertmanager (:9093)
+        ├── mana-mon-alert-notifier (:9095) — Telegram-Bot, lokal gebaut
+        ├── mana-mon-gpu-node-exporter — eigenes Host-Metric-Endpoint
+        └── mana-mon-gpu-cadvisor — eigenes Container-Metric-Endpoint
 ```
+
+### Cloudflare-API-Approach + Tunnel-Routes
+
+| Hostname | Tunnel | Origin |
+|---|---|---|
+| grafana.mana.how | mana-gpu-server | http://localhost:8000 |
+| git.mana.how | mana-gpu-server | http://localhost:3041 |
+| stats.mana.how | mana-gpu-server | http://localhost:8010 |
+| glitchtip.mana.how | mana-gpu-server | http://localhost:8020 |
+| (interne) gpu-box-eigene VM/Loki | – | nur LAN, via Mini-Promtail blockiert |
+
+### Bekannte Limits / Pre-Existing Issues nach Phase 2c
+
+1. **Mini-Container-Logs werden nicht zu GPU-Loki geshipped.** Mini-Promtail kann GPU-Box `192.168.178.11:3100` aus Colima-Container-Network nicht erreichen, obwohl der Mini-Host es kann (Colima-NAT-Routing-Quirk). Ports 3100/9090/9091 sind via Windows-Firewall + `netsh interface portproxy` von der LAN-IP erreichbar. Mini-Promtail war ohnehin schon vor der Migration aus, ist also keine Regression — aktuell sind nur GPU-Box-Logs in Loki. Als Workaround später möglich: Loki-HTTP-Push via Cloudflare-Tunnel.
+2. **gpu-* direct scrape jobs deaktiviert.** Aus Docker-Container in WSL2 ist `host.docker.internal:port` (= host-gateway 172.18.0.1) nicht in der Lage, Windows-Host-Services zu erreichen (die binden auf 127.0.0.1). Workaround: blackbox-exporter probt `gpu-stt.mana.how/health` etc. öffentlich → grobe Up/Down-Visibility ist erhalten, nur App-interne Metriken (Token-Counts etc.) fehlen.
+3. **7 Pre-Existing-DOWN-Targets:** `mana-auth`, `mana-credits`, `mana-user`, `mana-subscriptions`, `mana-analytics`, `memoro-server`, `uload-server` geben non-2xx auf `/metrics` zurück (entweder kein Endpoint oder Auth-protected). Waren auf dem Mini schon DOWN, nicht durch Migration verursacht.
+4. **2 Scrape-Jobs übersprungen:** `mana-mcp` und `mana-crawler` exposen keine Host-Ports (nur Container-internal), daher von der GPU-Box nicht erreichbar. Auskommentiert in prometheus.yml.
+
+### Mac Mini nach Phase 2c
+
+Mini hat nun **46 laufende Container** (von vorher 53). Gestoppt: `mana-mon-{victoria,loki,promtail,vmalert,alertmanager,blackbox,pushgateway,alert-notifier}`. Im Compose drin gelassen für Rollback.
 
 **WSL-Keepalive:** Scheduled Task `MANA_WSL_Keepalive` (Trigger: AtLogOn + AtStartup,
 Restart bei Failure) hält `wsl.exe -d Ubuntu-24.04 --exec /bin/sleep infinity`

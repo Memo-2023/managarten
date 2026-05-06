@@ -69,6 +69,7 @@ COPY packages/wallpaper-generator ./packages/wallpaper-generator
 COPY packages/local-llm ./packages/local-llm
 COPY packages/shared-llm ./packages/shared-llm
 COPY packages/shared-ai ./packages/shared-ai
+COPY packages/cards-core ./packages/cards-core
 
 # Install dependencies (shared packages only - app deps added later)
 RUN --mount=type=cache,id=pnpm,target=/root/.local/share/pnpm/store \
