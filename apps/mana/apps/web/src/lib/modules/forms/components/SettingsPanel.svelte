@@ -269,6 +269,30 @@
 		</span>
 	</label>
 
+	<label class="setting-row">
+		<span class="setting-label">
+			{$_('forms.builder.settings.experience', { default: 'Public-Render-Modus' })}
+		</span>
+		<select
+			value={settings.experience ?? 'classic'}
+			onchange={(e) =>
+				onchange({
+					experience: (e.currentTarget as HTMLSelectElement).value as 'classic' | 'conversation',
+				})}
+		>
+			<option value="classic">
+				{$_('forms.builder.settings.experienceClassic', {
+					default: 'Klassisch — alle Felder gleichzeitig',
+				})}
+			</option>
+			<option value="conversation">
+				{$_('forms.builder.settings.experienceConversation', {
+					default: 'Conversation — Chat, eine Frage nach der anderen (KI-Hilfe)',
+				})}
+			</option>
+		</select>
+	</label>
+
 	<div class="recurrence-block">
 		<p class="block-title">
 			{$_('forms.builder.recurrence.title', { default: 'Wiederkehr — Antworten in Wellen' })}

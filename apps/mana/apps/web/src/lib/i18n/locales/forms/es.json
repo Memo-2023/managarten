@@ -69,7 +69,10 @@
 			"successMessage": "Mensaje de confirmación tras el envío",
 			"requireEmail": "Pedir correo electrónico al remitente",
 			"allowMultiple": "Permitir varias respuestas por persona",
-			"anonymous": "Anónimo — no guardar datos del remitente"
+			"anonymous": "Anónimo — no guardar datos del remitente",
+			"experience": "Modo de visualización pública",
+			"experienceClassic": "Clásico — todos los campos a la vez",
+			"experienceConversation": "Conversación — chat, una pregunta a la vez"
 		},
 		"visibility": {
 			"title": "Visibilidad y compartir",

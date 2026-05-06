@@ -69,7 +69,10 @@
 			"successMessage": "Bestätigungstext nach Absenden",
 			"requireEmail": "E-Mail-Adresse vom Absender abfragen",
 			"allowMultiple": "Mehrere Antworten pro Person erlauben",
-			"anonymous": "Anonym — Submitter-Daten nicht speichern"
+			"anonymous": "Anonym — Submitter-Daten nicht speichern",
+			"experience": "Public-Render-Modus",
+			"experienceClassic": "Klassisch — alle Felder gleichzeitig",
+			"experienceConversation": "Conversation — Chat, eine Frage nach der anderen"
 		},
 		"visibility": {
 			"title": "Sichtbarkeit & Teilen",

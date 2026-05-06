@@ -333,5 +333,11 @@ async function buildFormBlob(recordId: string): Promise<Record<string, unknown>>
 	if (settings.recurrence?.frequency) {
 		blob.recurrence = { frequency: settings.recurrence.frequency };
 	}
+	// M9 — `experience` controls the public render mode (classic vs
+	// conversation). Whitelisted so the public dispatcher can pick the
+	// right view; the value is just an enum, no PII.
+	if (settings.experience) {
+		blob.experience = settings.experience;
+	}
 	return blob;
 }

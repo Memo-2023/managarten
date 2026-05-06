@@ -114,6 +114,12 @@ export interface FormSettings {
 	autoSync?: AutoSyncConfig;
 	responsesPublic?: boolean;
 	recurrence?: RecurrenceConfig;
+	/**
+	 * M9 — render the public form as a Typeform-style chat conversation
+	 * (one question at a time, free-text + LLM-extraction) instead of
+	 * the classic side-by-side fields layout. Default 'classic'.
+	 */
+	experience?: 'classic' | 'conversation';
 }
 
 export type FormStatus = 'draft' | 'published' | 'closed';

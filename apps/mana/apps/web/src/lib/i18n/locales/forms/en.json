@@ -69,7 +69,10 @@
 			"successMessage": "Confirmation text after submit",
 			"requireEmail": "Ask submitter for email address",
 			"allowMultiple": "Allow multiple submissions per person",
-			"anonymous": "Anonymous — don't store submitter data"
+			"anonymous": "Anonymous — don't store submitter data",
+			"experience": "Public render mode",
+			"experienceClassic": "Classic — all fields at once",
+			"experienceConversation": "Conversation — chat, one question at a time"
 		},
 		"visibility": {
 			"title": "Visibility & Sharing",

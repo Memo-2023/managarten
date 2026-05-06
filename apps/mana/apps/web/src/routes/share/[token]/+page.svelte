@@ -10,9 +10,21 @@
 	import SharedAugurEntryView from '$lib/modules/augur/SharedAugurEntryView.svelte';
 	import SharedLastView from '$lib/modules/lasts/SharedLastView.svelte';
 	import SharedFormView from '$lib/modules/forms/SharedFormView.svelte';
+	import ConversationFormView from '$lib/modules/forms/ConversationFormView.svelte';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
+
+	// M9 — pick the form-render variant from the snapshot's experience
+	// flag. Default 'classic' so existing forms keep their look.
+	const formExperience = $derived(
+		data.collection === 'forms'
+			? (((data.blob as Record<string, unknown> | undefined)?.experience as
+					| 'classic'
+					| 'conversation'
+					| undefined) ?? 'classic')
+			: 'classic'
+	);
 </script>
 
 {#if data.collection === 'events'}
@@ -26,7 +38,11 @@
 {:else if data.collection === 'lasts'}
 	<SharedLastView blob={data.blob} token={data.token} expiresAt={data.expiresAt} />
 {:else if data.collection === 'forms'}
-	<SharedFormView blob={data.blob} token={data.token} expiresAt={data.expiresAt} />
+	{#if formExperience === 'conversation'}
+		<ConversationFormView blob={data.blob} token={data.token} expiresAt={data.expiresAt} />
+	{:else}
+		<SharedFormView blob={data.blob} token={data.token} expiresAt={data.expiresAt} />
+	{/if}
 {:else}
 	<div class="unknown">
 		<h1>Unbekannter Link-Typ</h1>
