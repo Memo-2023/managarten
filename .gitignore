@@ -125,6 +125,9 @@ yarn.lock
 .env.macmini
 ssh-key-command.txt
 
+# GPU-Box deployment — live .env, copy of infrastructure/.env.gpu-box.example
+infrastructure/.env.gpu-box
+
 # Python
 .venv/
 __pycache__/

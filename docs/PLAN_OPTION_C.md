@@ -16,6 +16,7 @@ Production-Hot-Path bleibt unverändert auf dem Mini.
 | Phase 2b — Umami + Forgejo | ✅ | Beide healthy auf GPU-Box. Glitchtip übersprungen — Mini-Glitchtip ist bereits im Broken-State (DB `glitchtip` existiert nicht in Postgres, läuft nur in Degraded-Mode), Migration würde Bug nicht heilen |
 | Phase 2c — VM + Loki + Alerts | ✅ | Komplett auf GPU-Box. 11 Container neu (VM, Loki, Pushgateway, Blackbox, Vmalert, Alertmanager, Alert-notifier, GPU-eigenes Node-Exporter+Cadvisor+Promtail). VM scrapt 76 Targets, **69 UP / 7 DOWN** (DOWN sind alle pre-existing wrong /metrics endpoints auf Mana-Services, nicht durch Migration). Konfig-Pfade: `monitoring/{prometheus,loki,blackbox,alertmanager,alert-notifier}/`. Bekannte Limits siehe unten. |
 | Phase 2d — Glitchtip mit dediziertem DB-Stack | ✅ | 4 Container neu (mana-mon-glitchtip + worker + dedizierte glitchtip-postgres + glitchtip-redis). Mini-Postgres scheiterte bei `logs.0001_initial`-Partition-Creation mit OS-level "Permission denied" (macOS-Docker-Storage-Quirk auf externer SSD). Auf der GPU-Box mit Linux-ext4 saubere 333-Tabellen-Migration. Worker enqueuet UND finished Tasks → DB-Writes funktional (vorher hingen sie ewig). Public-Hostname `glitchtip.mana.how` → mana-gpu-server-Tunnel (config v23). |
+| Phase 2e — Status-Page auf GPU-Box | ✅ | 2 Container neu (`mana-mon-status-gen` + `mana-mon-status-nginx`). Sparse `/srv/mana/source` mit `mana-source-pull.timer` (stündlich) hostet das `generate-status-page.sh` und `mana-apps.ts`. status-gen schreibt in das Docker-Volume `status-output`, das status-nginx auf `:8090` ausliefert. Public-Hostname `status.mana.how` → mana-gpu-server-Tunnel (config v25). Bonus: behebt den Inode-Stale-Bind-Mount-Bug, der auf dem Mini bei jedem CD-`git checkout -f` die Status-Page kaputt machte. `vm.mana.how` (Phase-2c-Workaround für Mini→GPU-VM-Routing) wurde wieder aus dem Tunnel entfernt — VM ist nicht mehr public. |
 | Phase 3 — Daten-Migration | n/a | Alle migrierten Apps lesen Mini-Postgres direkt — keine separate Datenmigration |
 | Phase 4 — Cloudflare-Cutover | ✅ | API-Approach via `cert.pem` apiToken: PUT `/accounts/.../cfd_tunnel/.../configurations` für GPU-Tunnel, dann `cloudflared tunnel route dns --overwrite-dns`. Kein Dashboard-Klick nötig. 3 Hostnames live (grafana/git/stats) |
 | Phase 5 — Mini-Compose aufräumen | ✅ | 3 Blöcke in `cloudflared-config.yml` auskommentiert (Backup angelegt), cloudflared neu geladen, Mini-Container `mana-mon-grafana` + `mana-mon-umami` gestoppt (nicht entfernt — Rollback bleibt möglich) |
@@ -59,6 +60,12 @@ WSL2 (Ubuntu 24.04, 24 GB RAM-Limit, 12 vCPU, vmIdleTimeout=-1)
     │   ├── mana-mon-glitchtip-postgres (postgres:16-alpine) — eigene DB-Instanz
     │   │   └── volume: glitchtip-pg-data (333 Tabellen, alle Migrationen sauber)
     │   └── mana-mon-glitchtip-redis (redis:7-alpine) — eigene Cache+Queue
+    ├── Phase 2e — Status-Page (eigener Stack)
+    │   ├── mana-mon-status-gen (alpine:3.20) — Generator-Loop, queryt VM lokal
+    │   ├── mana-mon-status-nginx (nginx:alpine, :8090) — serviert HTML+JSON
+    │   └── volume: status-output (geteilt zwischen den beiden)
+    └── /srv/mana/source/ — Sparse mana-monorepo-clone (scripts/ + packages/shared-branding/src/)
+        └── systemd-timer: mana-source-pull.timer (stündlich `git pull --ff-only`)
     └── Phase 2c — Metrics-Stack
         ├── mana-mon-victoria (VM v1.99.0, :9090) — scrapt Mini-Services via 192.168.178.131:<port>
         │   ├── extra_hosts: host.docker.internal:host-gateway
