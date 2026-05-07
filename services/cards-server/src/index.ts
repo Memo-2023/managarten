@@ -14,11 +14,16 @@ import { serviceErrorHandler as errorHandler } from '@mana/shared-hono';
 import { loadConfig } from './config';
 import { getDb } from './db/connection';
 import { jwtAuth, type AuthUser } from './middleware/jwt-auth';
+import { optionalAuth } from './middleware/optional-auth';
 import { healthRoutes } from './routes/health';
 import { AuthorService } from './services/authors';
 import { DeckService } from './services/decks';
+import { ExploreService } from './services/explore';
+import { EngagementService } from './services/engagement';
 import { createAuthorRoutes } from './routes/authors';
 import { createDeckRoutes } from './routes/decks';
+import { createExploreRoutes } from './routes/explore';
+import { createEngagementRoutes } from './routes/engagement';
 
 // ─── Bootstrap ──────────────────────────────────────────────
 
@@ -27,10 +32,12 @@ const db = getDb(config.databaseUrl);
 
 const authorService = new AuthorService(db);
 const deckService = new DeckService(db, config.manaLlmUrl);
+const exploreService = new ExploreService(db);
+const engagementService = new EngagementService(db);
 
 // ─── App ────────────────────────────────────────────────────
 
-const app = new Hono<{ Variables: { user: AuthUser } }>();
+const app = new Hono<{ Variables: { user?: AuthUser } }>();
 
 app.onError(errorHandler);
 app.use(
@@ -46,16 +53,26 @@ app.route('/health', healthRoutes);
 
 // Versioned API surface — additive-only changes within v1, breaking
 // changes go to /v2 (MARKETPLACE_PLAN §3 architecture principle 1).
-const v1 = new Hono<{ Variables: { user: AuthUser } }>();
+//
+// Two auth tiers:
+//   - jwtAuth: strict, used on writes (publish, profile updates,
+//     star/follow). 401 if missing/invalid token.
+//   - optionalAuth: opportunistic, used on every read. Sets
+//     c.get('user') if a token validates, otherwise leaves it
+//     undefined and lets the route serve anonymous content.
+const v1 = new Hono<{ Variables: { user?: AuthUser } }>();
 
-// Public reads on author + deck profiles allow anonymous access; the
-// mutating endpoints in the same routers gate themselves by checking
-// for `c.get('user')`. Until we have that anonymous-aware middleware
-// (Phase γ adds optionalAuth), every /v1 route gates on JWT — public
-// reads still work for any signed-in user, which covers the only
-// surface we have right now (author dashboard + deck CRUD).
-v1.use('/*', jwtAuth(config.manaAuthUrl));
+// Phase γ: public reads first — explore + browse + tags + author
+// profile lookup + deck profile lookup. All read-only, no token
+// required, but a present token enables logged-in extras (star
+// state, follow state) once those flags land in the responses
+// (MARKETPLACE_PLAN phase γ.3).
+v1.use('/*', optionalAuth(config.manaAuthUrl));
 
+// Mounted routers handle their own per-route auth requirements
+// via requireUser() helpers when needed.
+v1.route('/', createExploreRoutes(exploreService));
+v1.route('/', createEngagementRoutes(engagementService));
 v1.route('/authors', createAuthorRoutes(authorService));
 v1.route('/decks', createDeckRoutes(authorService, deckService));
 
@@ -66,7 +83,13 @@ v1.get('/', (c) =>
 		message: 'See apps/cards/docs/MARKETPLACE_PLAN.md for the full plan.',
 	})
 );
+
 app.route('/v1', v1);
+
+// Keep jwtAuth around — re-exported for callers that need to wrap
+// individual mutating subroutes by hand. Not currently used at the
+// app-level since we moved to optionalAuth + requireUser per route.
+void jwtAuth;
 
 // ─── Listen ────────────────────────────────────────────────
 
