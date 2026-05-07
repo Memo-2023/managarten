@@ -1,6 +1,6 @@
 # Install stage: use node + pnpm to resolve workspace dependencies.
 # Build context must be the monorepo root (see docker-compose.macmini.yml).
-FROM node:22-alpine AS installer
+FROM node:26-alpine AS installer
 
 RUN corepack enable && corepack prepare pnpm@9.15.0 --activate
 
