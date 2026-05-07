@@ -256,7 +256,7 @@ scrape_configs:
           - https://mana.how/citycorners
           - https://mana.how/memoro
           - https://mana.how/moodlit
-          - https://mana.how/context
+          # mana.how/context: Modul wurde 2026-04-29 gedropt (Commit 1815139dc) — Probe entfernt
           - https://mana.how/questions
           - https://mana.how/uload
           - https://mana.how/notes
@@ -271,12 +271,21 @@ scrape_configs:
           - https://mana.how/events
           - https://mana.how/finance
           - https://mana.how/places
-          - https://mana.how/who
+          # mana.how/who: existiert nicht im unified-app — Who läuft als Standalone-Stack auf who.mana.how
           - https://mana.how/news
           - https://mana.how/mail
           - https://mana.how/playground
-          # Standalone games (separate containers)
+          # ─── Standalone Apps / Games (separate Container, eigene Tunnel-Hostnames) ───
           - https://whopxl.mana.how
+          - https://manavoxel.mana.how
+          # Memoro Standalone-Stack (Phase 2 mana e.V. Plattform-Migration)
+          - https://memoro.mana.how
+          # Cards Standalone (Phase-1 Spinoff vom Unified-mana-Modul, 2026-05-06)
+          - https://cards.mana.how
+          # Who? Game (Standalone-Bun-Stack auf Mac Mini, native unter PM2)
+          - https://who.mana.how/cantina
+          # npm-Registry (mana e.V. Plattform-Repo, Verdaccio)
+          - https://npm.mana.how
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
@@ -294,6 +303,13 @@ scrape_configs:
       - targets:
           - https://auth.mana.how/health
           - https://api.mana.how/health
+          # Memoro standalone API + Audio (Phase 2 platform migration)
+          - https://memoro-api.mana.how/health
+          - https://memoro-audio.mana.how/health
+          # who.mana.how API on /api/decks — root is 404 by design (Phaser-Cantina mounts at /cantina)
+          - https://who.mana.how/api/decks
+          # Verein backoffice (mana e.V. Plattform); only /health returns 200, root is auth-walled
+          - https://admin.mana.how/health
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
@@ -360,6 +376,7 @@ scrape_configs:
           - https://gpu-tts.mana.how/health
           - https://gpu-img.mana.how/health
           - https://gpu-video.mana.how/health
+          - https://gpu-llm.mana.how/health
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
