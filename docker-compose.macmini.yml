@@ -684,6 +684,9 @@ services:
       CORS_ORIGINS: "https://mana.how,https://*.mana.how"
       MANA_CREDITS_URL: http://mana-credits:3002
       MANA_SERVICE_KEY: ${MANA_SERVICE_KEY}
+      # Apps that bypass the sync-subscription billing gate. Cards
+      # promises free Sync per its Phase-1 GUIDELINES.
+      BILLING_EXEMPT_APPS: cards
     ports:
       - "3010:3010"
     healthcheck:

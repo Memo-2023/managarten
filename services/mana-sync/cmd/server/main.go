@@ -52,7 +52,9 @@ func main() {
 	hub := ws.NewHub(validator)
 
 	// Initialize billing checker (verifies sync subscription via mana-credits)
-	billingChecker := billing.NewChecker(cfg.ManaCreditsURL, cfg.ServiceKey)
+	// Exempt apps bypass the gate entirely — used for products that promise
+	// free Sync (e.g. Cards).
+	billingChecker := billing.NewChecker(cfg.ManaCreditsURL, cfg.ServiceKey, cfg.BillingExemptApps)
 	billingMiddleware := billingChecker.Middleware(validator)
 
 	// Initialize Space-membership lookup against mana-auth. The handler
