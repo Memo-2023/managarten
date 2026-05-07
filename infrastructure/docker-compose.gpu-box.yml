@@ -99,6 +99,43 @@ services:
       start_period: 30s
 
   # ============================================
+  # Photon Geocoder (pre-existing user container, adopted into compose
+  # 2026-05-07 to gain a healthcheck). Backs mana-geocoding's
+  # `privacy:'local'` provider via photon.mana.how (GPU-tunnel).
+  # OSM index lives in /opt/photon-data on the WSL2 host — survives
+  # container recreation.
+  # ============================================
+  photon:
+    image: eclipse-temurin:21-jre
+    container_name: photon
+    restart: unless-stopped
+    working_dir: /photon
+    environment:
+      LC_ALL: en_US.UTF-8
+    ports:
+      - '2322:2322'
+    volumes:
+      - /opt/photon-data/photon.jar:/photon/photon.jar:ro
+      - /opt/photon-data/photon_data:/photon/photon_data
+    command:
+      - java
+      - -jar
+      - photon.jar
+      - serve
+      - -listen-ip
+      - 0.0.0.0
+      - -listen-port
+      - '2322'
+    healthcheck:
+      # Photon hat keinen /health-Endpoint — kanonische Probe ist eine
+      # winzige Geocoding-Query. Limit=1 hält den Response klein.
+      test: ['CMD-SHELL', 'curl -sf -o /dev/null "http://127.0.0.1:2322/api?q=Berlin&limit=1" || exit 1']
+      interval: 60s
+      timeout: 10s
+      retries: 3
+      start_period: 120s
+
+  # ============================================
   # Phase 2c — Metrics-Stack
   # ============================================
   victoriametrics:
