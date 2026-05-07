@@ -305,6 +305,7 @@ scrape_configs:
           # Memoro standalone API + Audio (Phase 2 platform migration)
           - https://memoro-api.mana.how/health
           - https://memoro-audio.mana.how/health
+          - https://mana-ai.mana.how/health
           # who.mana.how API on /api/decks — root is 404 by design (Phaser-Cantina mounts at /cantina)
           - https://who-api.mana.how/api/decks
           # Verein backoffice (mana e.V. Plattform); only /health returns 200, root is auth-walled
@@ -331,8 +332,7 @@ scrape_configs:
           # Upstream photon-self health, proxied through the wrapper so the
           # blackbox-exporter doesn't need host.docker.internal access.
           - http://mana-geocoding:3018/health/photon-self
-          # mana-ai (Mission Runner) — internal-only, no CF tunnel.
-          - http://mana-ai:3066/health
+          # mana-ai (Mission Runner) probe via public hostname seit Phase 2f-3 — auf GPU-Box
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
