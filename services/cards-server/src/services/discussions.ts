@@ -9,7 +9,7 @@
  * if we want full nesting later it's already there.
  */
 
-import { and, asc, eq } from 'drizzle-orm';
+import { and, asc, eq, sql } from 'drizzle-orm';
 import type { Database } from '../db/connection';
 import { cardDiscussions, publicDecks } from '../db/schema';
 import { ForbiddenError, NotFoundError } from '../lib/errors';
@@ -50,6 +50,31 @@ export class DiscussionService {
 			})
 			.returning();
 		return row;
+	}
+
+	/**
+	 * Bulk count of (visible) comments per card-content-hash for one
+	 * deck — powers the "Karten" overview on the public deck page so
+	 * we don't fan out one request per card.
+	 */
+	async countsForDeck(deckSlug: string): Promise<Record<string, number>> {
+		const deck = await this.db.query.publicDecks.findFirst({
+			where: eq(publicDecks.slug, deckSlug),
+		});
+		if (!deck) throw new NotFoundError('Deck not found');
+
+		const rows = await this.db
+			.select({
+				contentHash: cardDiscussions.cardContentHash,
+				count: sql<number>`count(*)::int`.as('count'),
+			})
+			.from(cardDiscussions)
+			.where(and(eq(cardDiscussions.deckId, deck.id), eq(cardDiscussions.hidden, false)))
+			.groupBy(cardDiscussions.cardContentHash);
+
+		const out: Record<string, number> = {};
+		for (const r of rows) out[r.contentHash] = r.count;
+		return out;
 	}
 
 	async listForCard(cardContentHash: string) {

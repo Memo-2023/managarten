@@ -11,6 +11,7 @@
 	import { isSubscribedLocally, subscribeAndPull, unsubscribe } from '$lib/services/subscribe';
 	import { cardDeckTable } from '$lib/data/database';
 	import PullRequestsSection from '$lib/components/PullRequestsSection.svelte';
+	import DeckCardList from '$lib/components/DeckCardList.svelte';
 
 	const slug = $derived(page.params.slug as string);
 
@@ -203,6 +204,10 @@
 			<p class="mt-10 text-xs text-neutral-500">
 				Veröffentlicht: {new Date(deck.createdAt).toLocaleDateString('de-DE')}
 			</p>
+
+			{#if version}
+				<DeckCardList deckSlug={deck.slug} semver={version.semver} />
+			{/if}
 
 			<PullRequestsSection deckSlug={deck.slug} ownerUserId={deck.ownerUserId} onMerged={load} />
 		</article>

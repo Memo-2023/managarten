@@ -23,6 +23,11 @@ export function createDiscussionRoutes(service: DiscussionService) {
 		return c.json(list);
 	});
 
+	router.get('/decks/:slug/discussion-counts', async (c) => {
+		const counts = await service.countsForDeck(c.req.param('slug'));
+		return c.json(counts);
+	});
+
 	router.post('/cards/:contentHash/discussions', async (c) => {
 		const user = requireUser(c.get('user'));
 		const parsed = postSchema.safeParse(await c.req.json().catch(() => ({})));

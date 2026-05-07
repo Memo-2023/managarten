@@ -241,6 +241,11 @@ export const cardsApi = {
 			request<{ ok: true }>(`/v1/pull-requests/${id}/reject`, { method: 'POST' }),
 	},
 	discussions: {
+		countsForDeck: (deckSlug: string) =>
+			request<Record<string, number>>(
+				`/v1/decks/${encodeURIComponent(deckSlug)}/discussion-counts`,
+				{ auth: 'optional' }
+			),
 		listForCard: (contentHash: string) =>
 			request<CardDiscussion[]>(`/v1/cards/${encodeURIComponent(contentHash)}/discussions`, {
 				auth: 'optional',
