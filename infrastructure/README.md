@@ -63,7 +63,7 @@ Ingress-Konfiguration via API + Cloudflare-Dashboard, NICHT in
 `grafana`, `git`, `stats`, `glitchtip`, `status` (alles `*.mana.how`,
 für die Phase-2-Container hier).
 
-Aktive Public-Hostnames (Stand 2026-05-07, config v26):
+Aktive Public-Hostnames (Stand 2026-05-07, config v28):
 
 | Hostname | Service | Zweck |
 |---|---|---|
@@ -79,6 +79,8 @@ Aktive Public-Hostnames (Stand 2026-05-07, config v26):
 | `glitchtip.mana.how` | `:8020` | Glitchtip (Phase 2d) |
 | `status.mana.how` | `:8090` | Status-Page (Phase 2e) |
 | `photon.mana.how` | `:2322` | Photon Geocoder (cross-LAN-Workaround für mana-geocoding's Probe + privacy-local Provider) |
+| `npm.mana.how` | `:4873` | Verdaccio @mana/* npm-Registry (Phase 2f-1) |
+| `mana-ai.mana.how` | `:3067` | AI Mission Runner (Phase 2f-3) |
 
 API-Update (idempotent):
 

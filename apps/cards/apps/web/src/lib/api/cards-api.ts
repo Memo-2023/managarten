@@ -37,14 +37,22 @@ interface RequestOptions {
 	method?: 'GET' | 'POST' | 'PATCH' | 'DELETE';
 	body?: unknown;
 	signal?: AbortSignal;
-	/** When false, send the request without an Authorization header. */
-	auth?: boolean;
+	/**
+	 * - `true` (default): require an Authorization header — throws 401 if no token.
+	 * - `'optional'`: include token if available, otherwise send anonymously.
+	 * - `false`: never send a token.
+	 */
+	auth?: boolean | 'optional';
 }
 
 async function request<T>(path: string, opts: RequestOptions = {}): Promise<T> {
 	const headers: Record<string, string> = {};
 	if (opts.body !== undefined) headers['Content-Type'] = 'application/json';
-	if (opts.auth !== false) {
+	if (opts.auth === 'optional') {
+		// Best-effort: include token if present, otherwise anonymous.
+		const token = await authStore.getValidToken?.();
+		if (token) headers['Authorization'] = `Bearer ${token}`;
+	} else if (opts.auth !== false) {
 		const token = await authStore.getValidToken?.();
 		if (!token) throw new CardsApiError(401, 'Not signed in');
 		headers['Authorization'] = `Bearer ${token}`;
@@ -126,7 +134,8 @@ export const cardsApi = {
 		}) => request<PublicDeck>('/v1/decks', { method: 'POST', body: input }),
 		bySlug: (slug: string) =>
 			request<{ deck: PublicDeck; latestVersion: PublicDeckVersion | null }>(
-				`/v1/decks/${encodeURIComponent(slug)}`
+				`/v1/decks/${encodeURIComponent(slug)}`,
+				{ auth: 'optional' }
 			),
 		publish: (
 			slug: string,
@@ -140,8 +149,79 @@ export const cardsApi = {
 				method: 'POST',
 				body: input,
 			}),
+		star: (slug: string) =>
+			request<{ ok: true }>(`/v1/decks/${encodeURIComponent(slug)}/star`, { method: 'POST' }),
+		unstar: (slug: string) =>
+			request<{ ok: true }>(`/v1/decks/${encodeURIComponent(slug)}/star`, { method: 'DELETE' }),
+	},
+	explore: {
+		landing: () =>
+			request<{ featured: DeckSummary[]; trending: DeckSummary[] }>('/v1/explore', {
+				auth: 'optional',
+			}),
+		browse: (params: {
+			q?: string;
+			tag?: string;
+			lang?: string;
+			author?: string;
+			sort?: 'recent' | 'popular' | 'trending';
+			limit?: number;
+			offset?: number;
+		}) => {
+			const qs = new URLSearchParams();
+			for (const [k, v] of Object.entries(params)) {
+				if (v !== undefined && v !== null && v !== '') qs.set(k, String(v));
+			}
+			const path = `/v1/decks${qs.toString() ? '?' + qs.toString() : ''}`;
+			return request<{ items: DeckSummary[]; total: number }>(path, { auth: 'optional' });
+		},
+		tags: () => request<TagDefinition[]>('/v1/tags', { auth: 'optional' }),
+	},
+	follows: {
+		follow: (authorSlug: string) =>
+			request<{ ok: true }>(`/v1/authors/${encodeURIComponent(authorSlug)}/follow`, {
+				method: 'POST',
+			}),
+		unfollow: (authorSlug: string) =>
+			request<{ ok: true }>(`/v1/authors/${encodeURIComponent(authorSlug)}/follow`, {
+				method: 'DELETE',
+			}),
 	},
 };
+
+// Override author lookup to send token opportunistically — public reads.
+cardsApi.authors.bySlug = (slug: string) =>
+	request<PublicAuthor>(`/v1/authors/${encodeURIComponent(slug)}`, { auth: 'optional' });
+
+export interface DeckSummary {
+	slug: string;
+	title: string;
+	description: string | null;
+	language: string | null;
+	license: string;
+	priceCredits: number;
+	cardCount: number;
+	starCount: number;
+	subscriberCount: number;
+	isFeatured: boolean;
+	createdAt: string;
+	owner: {
+		slug: string;
+		displayName: string;
+		verifiedMana: boolean;
+		verifiedCommunity: boolean;
+	};
+}
+
+export interface TagDefinition {
+	id: string;
+	slug: string;
+	name: string;
+	parentId: string | null;
+	description: string | null;
+	curated: boolean;
+	createdAt: string;
+}
 
 export interface PublicDeck {
 	id: string;
