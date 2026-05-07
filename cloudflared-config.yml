@@ -152,6 +152,8 @@ ingress:
     service: http://localhost:3065
   - hostname: research.mana.how
     service: http://localhost:3068
+  - hostname: cards-api.mana.how
+    service: http://localhost:3072
   - hostname: feedback.mana.how
     service: http://localhost:3064
 

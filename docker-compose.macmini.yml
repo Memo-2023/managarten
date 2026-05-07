@@ -250,7 +250,7 @@ services:
       # Enforced by services/mana-auth/src/auth/sso-config.spec.ts.
       # All productivity modules now live under mana.how (path-based) —
       # no per-module subdomain entries required here.
-      CORS_ORIGINS: https://mana.how,https://auth.mana.how,https://cards.mana.how
+      CORS_ORIGINS: https://mana.how,https://auth.mana.how,https://whopxl.mana.how,https://cards.mana.how,https://cards-api.mana.how
     ports:
       - "3001:3001"
     healthcheck:
@@ -349,6 +349,46 @@ services:
       - "traefik.http.routers.mana-credits.rule=Host(`credits.mana.how`)"
       - "traefik.http.routers.mana-credits.tls=true"
       - "traefik.http.services.mana-credits.loadbalancer.server.port=3002"
+
+  cards-server:
+    # Cards-Marketplace + Community backend. See
+    # apps/cards/docs/MARKETPLACE_PLAN.md for the full design.
+    build:
+      context: .
+      dockerfile: services/cards-server/Dockerfile
+    image: cards-server:local
+    container_name: mana-app-cards-server
+    restart: always
+    mem_limit: 128m
+    depends_on:
+      postgres:
+        condition: service_healthy
+      mana-auth:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      PORT: 3072
+      DATABASE_URL: postgresql://postgres:${POSTGRES_PASSWORD:-mana123}@postgres:5432/mana_platform
+      MANA_AUTH_URL: http://mana-auth:3001
+      MANA_CREDITS_URL: http://mana-credits:3002
+      MANA_LLM_URL: http://mana-llm:3025
+      MANA_MEDIA_URL: http://mana-media:3015
+      MANA_NOTIFY_URL: http://mana-notify:3040
+      MANA_SERVICE_KEY: ${MANA_SERVICE_KEY}
+      CORS_ORIGINS: https://cards.mana.how,https://mana.how
+      AUTHOR_PAYOUT_STANDARD_BPS: 8000
+      AUTHOR_PAYOUT_VERIFIED_BPS: 9000
+      COMMUNITY_VERIFY_STARS: 500
+      COMMUNITY_VERIFY_FEATURED: 3
+      COMMUNITY_VERIFY_SUBSCRIBERS: 200
+    ports:
+      - "3072:3072"
+    healthcheck:
+      test: ["CMD", "bun", "-e", "fetch('http://127.0.0.1:3072/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 120s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
 
   mana-research:
     build:

@@ -26,6 +26,7 @@ export const PRODUCTION_TRUSTED_ORIGINS = [
 	// Separate apps (not part of the unified app)
 	'https://whopxl.mana.how', // Games
 	'https://cards.mana.how', // Cards spaced-repetition spinoff (own SvelteKit container, not the unified app)
+	'https://cards-api.mana.how', // Cards marketplace + community backend (cards-server)
 ] as const;
 
 /** Local dev origins — web dev server + the auth server itself. */
