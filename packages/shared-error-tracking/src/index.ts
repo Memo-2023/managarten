@@ -46,14 +46,22 @@ let initialized = false;
 export function initErrorTracking(options: ErrorTrackingOptions): void {
 	if (initialized) return;
 
-	const dsn = options.dsn || process.env.GLITCHTIP_DSN || process.env.SENTRY_DSN;
+	const rawDsn = options.dsn || process.env.GLITCHTIP_DSN || process.env.SENTRY_DSN;
 
-	if (!dsn) {
+	if (!rawDsn) {
 		if (options.debug) {
 			console.log(`[ErrorTracking] No DSN configured for ${options.serviceName} - disabled`);
 		}
 		return;
 	}
+
+	// Glitchtip projects use UUID-format public_keys (`556fbd2e-a720-...`)
+	// but @sentry/node v9's DSN parser only accepts alphanumeric — dashes
+	// trip "Invalid Sentry Dsn" and silently disable transport. Strip them
+	// from the user/key portion only; the wire format accepts both.
+	const dsn = rawDsn.replace(/^(https?:\/\/)([\w-]+)(@.+)$/, (_, proto, key, rest) => {
+		return proto + key.replace(/-/g, '') + rest;
+	});
 
 	Sentry.init({
 		dsn,

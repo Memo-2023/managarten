@@ -2,25 +2,13 @@
 	"name": "@mana/shared-error-tracking",
 	"version": "1.0.0",
 	"description": "Error tracking integration for Mana apps (GlitchTip/Sentry-compatible)",
-	"main": "dist/index.js",
-	"types": "dist/index.d.ts",
+	"main": "./src/index.ts",
+	"types": "./src/index.ts",
 	"exports": {
-		".": {
-			"types": "./dist/index.d.ts",
-			"default": "./dist/index.js"
-		},
-		"./nestjs": {
-			"types": "./dist/nestjs.d.ts",
-			"default": "./dist/nestjs.js"
-		},
-		"./browser": {
-			"types": "./dist/browser.d.ts",
-			"default": "./dist/browser.js"
-		}
+		".": "./src/index.ts",
+		"./nestjs": "./src/nestjs.ts",
+		"./browser": "./src/browser.ts"
 	},
-	"files": [
-		"dist"
-	],
 	"scripts": {
 		"build": "tsc",
 		"type-check": "tsc --noEmit"

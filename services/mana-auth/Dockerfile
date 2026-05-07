@@ -14,6 +14,10 @@ COPY packages/shared-ai ./packages/shared-ai
 COPY packages/shared-logger ./packages/shared-logger
 COPY packages/shared-types ./packages/shared-types
 COPY packages/shared-error-tracking ./packages/shared-error-tracking
+# Root package.json devDeps reference @mana/eslint-config; pnpm filter
+# install still resolves the root, so the package needs to be present
+# even though mana-auth itself doesn't import from it.
+COPY packages/eslint-config ./packages/eslint-config
 
 # Install only mana-auth and its workspace deps
 RUN pnpm install --filter @mana/auth... --no-frozen-lockfile --ignore-scripts
