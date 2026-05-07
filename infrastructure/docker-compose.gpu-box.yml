@@ -493,6 +493,36 @@ services:
   # lebt jetzt in mana-monorepo's infrastructure/verdaccio/config.yaml,
   # sparse-clone trägt das Verzeichnis auf der GPU-Box ein.
   # ============================================
+  # ============================================
+  # Phase 2f-2 — news-ingester (2026-05-07)
+  # Background article-ingester — Bun-Service mit 15-min-Tick. Schreibt
+  # in Mini-Postgres mana_platform via LAN. Reine Background-Last,
+  # null Hot-Path-Coupling.
+  # ============================================
+  news-ingester:
+    # GPU-Box-spezifischer Build (services/news-ingester/Dockerfile ist
+    # nicht workspace-aware; der hier vendored shared-rss als file: ref).
+    # Cross-arch: GPU-Box ist x86_64, Mini ist arm64 — Image-Transfer
+    # via docker save/load würde "exec format error" werfen.
+    build:
+      context: /srv/mana/source
+      dockerfile: infrastructure/news-ingester/Dockerfile
+    image: news-ingester:gpu-box
+    container_name: news-ingester
+    restart: unless-stopped
+    environment:
+      TZ: Europe/Berlin
+      PORT: 3066
+      DATABASE_URL: postgresql://postgres:${POSTGRES_PASSWORD}@192.168.178.131:5432/mana_platform
+      TICK_INTERVAL_MS: '900000'
+      RUN_ON_STARTUP: 'true'
+    healthcheck:
+      test: ['CMD', 'bun', '-e', "fetch('http://127.0.0.1:3066/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 120s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
   verdaccio:
     image: verdaccio/verdaccio:6
     container_name: mana-verdaccio

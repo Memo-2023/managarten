@@ -1436,39 +1436,6 @@ services:
   # from the same table to serve /api/v1/news/feed; user reading lists
   # remain client-side in the unified Mana app's local IndexedDB.
 
-  news-ingester:
-    build:
-      context: services/news-ingester
-      dockerfile: Dockerfile
-    image: news-ingester:local
-    container_name: news-ingester
-    restart: always
-    mem_limit: 256m
-    depends_on:
-      postgres: { condition: service_healthy }
-    environment:
-      TZ: Europe/Berlin
-      PORT: 3066
-      DATABASE_URL: postgresql://postgres:${POSTGRES_PASSWORD:-mana123}@postgres:5432/mana_platform
-      TICK_INTERVAL_MS: "900000"
-      RUN_ON_STARTUP: "true"
-    ports:
-      - "3066:3066"
-    healthcheck:
-      test: ["CMD", "bun", "-e", "fetch('http://127.0.0.1:3066/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
-      interval: 120s
-      timeout: 10s
-      retries: 3
-      start_period: 30s
-
-  # ============================================
-  # Games
-  # ============================================
-  # whopixels was removed 2026-04-09 — its core mechanic (LLM-driven
-  # historical figure guessing) lives now as the `who` module inside
-  # apps/mana/apps/web. The standalone Phaser/Node container is gone;
-  # see docs/WHO_MODULE.md for the migration rationale.
-
 volumes:
   redis_data:
     name: mana-redis-data
