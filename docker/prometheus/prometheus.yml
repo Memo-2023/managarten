@@ -300,6 +300,7 @@ scrape_configs:
           - https://memoro-api.mana.how/health
           - https://memoro-audio.mana.how/health
           - https://mana-ai.mana.how/health
+          - https://research.mana.how/health
           # who.mana.how API on /api/decks — root is 404 by design (Phaser-Cantina mounts at /cantina)
           - https://who-api.mana.how/api/decks
           # Verein backoffice (mana e.V. Plattform); only /health returns 200, root is auth-walled

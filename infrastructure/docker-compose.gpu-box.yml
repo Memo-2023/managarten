@@ -524,6 +524,55 @@ services:
       start_period: 30s
 
   # ============================================
+  # Phase 2g — mana-research (Web Research Orchestrator, 2026-05-07)
+  # 16+ search-providers + LLM-Pipeline. User-facing aber latenztolerant
+  # (5-30s queries). Schreibt in mana_platform.research-Tabellen, nutzt
+  # Redis-Cache + ruft mana-credits + mana-search auf. Geographische Nähe
+  # zu gpu-llm/gpu-ollama wie bei mana-ai.
+  # ============================================
+  mana-research:
+    build:
+      context: /srv/mana/source
+      dockerfile: services/mana-research/Dockerfile
+    image: mana-research:gpu-box
+    container_name: mana-research
+    restart: unless-stopped
+    environment:
+      TZ: Europe/Berlin
+      NODE_ENV: production
+      PORT: 3068
+      DATABASE_URL: postgresql://postgres:${POSTGRES_PASSWORD}@192.168.178.131:5432/mana_platform
+      REDIS_URL: redis://:${REDIS_PASSWORD}@192.168.178.131:6379
+      CACHE_TTL_SECONDS: '3600'
+      CORS_ORIGINS: https://mana.how,https://chat.mana.how,https://research.mana.how
+      # Cross-LAN service deps
+      MANA_AUTH_URL: http://192.168.178.131:3001
+      MANA_CREDITS_URL: http://192.168.178.131:3002
+      MANA_LLM_URL: http://192.168.178.131:3025
+      MANA_SEARCH_URL: http://192.168.178.131:3012
+      MANA_SERVICE_KEY: ${MANA_SERVICE_KEY}
+      # LLM + Search provider keys (most empty, only Google active currently)
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      GOOGLE_GENAI_API_KEY: ${GOOGLE_GENAI_API_KEY:-}
+      PERPLEXITY_API_KEY: ${PERPLEXITY_API_KEY:-}
+      EXA_API_KEY: ${EXA_API_KEY:-}
+      TAVILY_API_KEY: ${TAVILY_API_KEY:-}
+      BRAVE_API_KEY: ${BRAVE_API_KEY:-}
+      SERPER_API_KEY: ${SERPER_API_KEY:-}
+      JINA_API_KEY: ${JINA_API_KEY:-}
+      FIRECRAWL_API_KEY: ${FIRECRAWL_API_KEY:-}
+      SCRAPINGBEE_API_KEY: ${SCRAPINGBEE_API_KEY:-}
+    ports:
+      - '3068:3068'
+    healthcheck:
+      test: ['CMD', 'bun', '-e', "fetch('http://localhost:3068/health').then(r => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+  # ============================================
   # Phase 2f-3 — mana-ai (AI Mission Runner, 2026-05-07)
   # Background tick-loop (60s default), queryt mana-api + mana-llm +
   # mana-research, persistiert via mana_sync. Geographische Nähe zum
