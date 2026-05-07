@@ -23,6 +23,7 @@ import { EngagementService } from './services/engagement';
 import { SubscriptionService } from './services/subscriptions';
 import { PullRequestService } from './services/pull-requests';
 import { DiscussionService } from './services/discussions';
+import { PurchaseService } from './services/purchases';
 import { createAuthorRoutes } from './routes/authors';
 import { createDeckRoutes } from './routes/decks';
 import { createExploreRoutes } from './routes/explore';
@@ -30,7 +31,9 @@ import { createEngagementRoutes } from './routes/engagement';
 import { createSubscriptionRoutes } from './routes/subscriptions';
 import { createPullRequestRoutes } from './routes/pull-requests';
 import { createDiscussionRoutes } from './routes/discussions';
+import { createPurchaseRoutes } from './routes/purchases';
 import { createNotifyClient } from './lib/notify';
+import { createCreditsClient } from './lib/credits';
 
 // ─── Bootstrap ──────────────────────────────────────────────
 
@@ -42,6 +45,11 @@ const notify = createNotifyClient({
 	serviceKey: config.serviceKey,
 });
 
+const credits = createCreditsClient({
+	url: config.manaCreditsUrl,
+	serviceKey: config.serviceKey,
+});
+
 const authorService = new AuthorService(db);
 const deckService = new DeckService(db, config.manaLlmUrl);
 const exploreService = new ExploreService(db);
@@ -49,6 +57,15 @@ const engagementService = new EngagementService(db);
 const subscriptionService = new SubscriptionService(db);
 const pullRequestService = new PullRequestService(db, notify);
 const discussionService = new DiscussionService(db);
+const purchaseService = new PurchaseService(
+	db,
+	credits,
+	{
+		standardAuthorBps: config.authorPayout.standardAuthorBps,
+		verifiedAuthorBps: config.authorPayout.verifiedAuthorBps,
+	},
+	notify
+);
 
 // ─── App ────────────────────────────────────────────────────
 
@@ -91,8 +108,9 @@ v1.route('/', createEngagementRoutes(engagementService));
 v1.route('/', createSubscriptionRoutes(subscriptionService));
 v1.route('/', createPullRequestRoutes(pullRequestService));
 v1.route('/', createDiscussionRoutes(discussionService));
+v1.route('/', createPurchaseRoutes(purchaseService));
 v1.route('/authors', createAuthorRoutes(authorService));
-v1.route('/decks', createDeckRoutes(authorService, deckService));
+v1.route('/decks', createDeckRoutes(authorService, deckService, purchaseService));
 
 v1.get('/', (c) =>
 	c.json({

@@ -23,7 +23,13 @@
 	let subscribed = $state(false);
 	let subscribeBusy = $state(false);
 	let subscribedDeckId = $state<string | null>(null);
+	let hasPurchased = $state<boolean | null>(null);
+	let purchaseBusy = $state(false);
 	let error = $state<string | null>(null);
+
+	const isPaid = $derived(!!deck && deck.priceCredits > 0);
+	const canSubscribeNow = $derived(!isPaid || hasPurchased === true);
+	const isOwner = $derived(!!deck && authStore.user?.id === deck.ownerUserId);
 
 	$effect(() => {
 		if (!slug) return;
@@ -36,6 +42,7 @@
 			const r = await cardsApi.decks.bySlug(slug);
 			deck = r.deck;
 			version = r.latestVersion;
+			hasPurchased = r.hasPurchased;
 			subscribed = await isSubscribedLocally(slug);
 			if (subscribed) {
 				const local = await cardDeckTable
@@ -72,6 +79,21 @@
 			error = (e as Error).message;
 		} finally {
 			starBusy = false;
+		}
+	}
+
+	async function buy() {
+		if (!deck || purchaseBusy) return;
+		if (!confirm(`Deck „${deck.title}" für ${deck.priceCredits} Credits kaufen?`)) return;
+		purchaseBusy = true;
+		error = null;
+		try {
+			await cardsApi.purchases.buy(deck.slug);
+			hasPurchased = true;
+		} catch (e) {
+			error = e instanceof CardsApiError ? e.message : (e as Error).message;
+		} finally {
+			purchaseBusy = false;
 		}
 	}
 
@@ -177,6 +199,14 @@
 								Lernen
 							</button>
 						{/if}
+					{:else if isPaid && !canSubscribeNow && !isOwner}
+						<button
+							class="rounded-lg bg-amber-500 px-4 py-2 text-sm font-medium text-amber-950 hover:bg-amber-400 disabled:opacity-50"
+							onclick={buy}
+							disabled={purchaseBusy || !version}
+						>
+							{purchaseBusy ? 'Verarbeite…' : `Kaufen für ${deck.priceCredits} 💎`}
+						</button>
 					{:else}
 						<button
 							class="rounded-lg bg-indigo-500 px-4 py-2 text-sm text-white hover:bg-indigo-400 disabled:opacity-50"
@@ -186,6 +216,14 @@
 						>
 							{subscribeBusy ? 'Abonniere…' : 'Abonnieren'}
 						</button>
+						{#if isPaid && hasPurchased}
+							<span
+								class="rounded-full bg-emerald-500/15 px-2 py-1 text-xs text-emerald-300"
+								title="Du besitzt dieses Deck"
+							>
+								✓ Gekauft
+							</span>
+						{/if}
 					{/if}
 				{:else}
 					<a

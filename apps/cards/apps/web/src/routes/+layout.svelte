@@ -54,6 +54,7 @@
 				<nav class="flex items-center gap-4 text-xs text-neutral-400">
 					<a href="/" class="hover:text-neutral-100">Meine Decks</a>
 					<a href="/explore" class="hover:text-neutral-100">Entdecken</a>
+					<a href="/me/purchases" class="hover:text-neutral-100">Käufe</a>
 				</nav>
 				<div class="flex items-center gap-3 text-xs text-neutral-500">
 					{#if streak > 0}

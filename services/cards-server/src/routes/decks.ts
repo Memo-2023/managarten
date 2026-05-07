@@ -3,6 +3,7 @@ import { z } from 'zod';
 import type { AuthUser } from '../middleware/jwt-auth';
 import type { AuthorService } from '../services/authors';
 import type { DeckService } from '../services/decks';
+import type { PurchaseService } from '../services/purchases';
 import { BadRequestError, UnauthorizedError } from '../lib/errors';
 
 const cardTypes = [
@@ -43,7 +44,11 @@ function requireUser(user: AuthUser | undefined): AuthUser {
 	return user;
 }
 
-export function createDeckRoutes(authorService: AuthorService, deckService: DeckService) {
+export function createDeckRoutes(
+	authorService: AuthorService,
+	deckService: DeckService,
+	purchaseService?: PurchaseService
+) {
 	const router = new Hono<{ Variables: { user?: AuthUser } }>();
 
 	// Init = write, auth required.
@@ -56,10 +61,17 @@ export function createDeckRoutes(authorService: AuthorService, deckService: Deck
 		return c.json(deck, 201);
 	});
 
-	// GET deck-by-slug is public — anyone can preview a deck.
+	// GET deck-by-slug is public — anyone can preview a deck. If a
+	// JWT is present we also annotate `hasPurchased` so the buy
+	// button can be hidden for owners.
 	router.get('/:slug', async (c) => {
 		const result = await deckService.getBySlug(c.req.param('slug'));
-		return c.json(result);
+		const user = c.get('user');
+		const hasPurchased =
+			user?.userId && purchaseService
+				? await purchaseService.hasPurchased(user.userId, result.deck.id)
+				: null;
+		return c.json({ ...result, hasPurchased });
 	});
 
 	router.post('/:slug/publish', async (c) => {

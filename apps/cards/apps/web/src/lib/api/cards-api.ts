@@ -133,10 +133,11 @@ export const cardsApi = {
 			priceCredits?: number;
 		}) => request<PublicDeck>('/v1/decks', { method: 'POST', body: input }),
 		bySlug: (slug: string) =>
-			request<{ deck: PublicDeck; latestVersion: PublicDeckVersion | null }>(
-				`/v1/decks/${encodeURIComponent(slug)}`,
-				{ auth: 'optional' }
-			),
+			request<{
+				deck: PublicDeck;
+				latestVersion: PublicDeckVersion | null;
+				hasPurchased: boolean | null;
+			}>(`/v1/decks/${encodeURIComponent(slug)}`, { auth: 'optional' }),
 		publish: (
 			slug: string,
 			input: {
@@ -239,6 +240,17 @@ export const cardsApi = {
 			request<{ ok: true }>(`/v1/pull-requests/${id}/close`, { method: 'POST' }),
 		reject: (id: string) =>
 			request<{ ok: true }>(`/v1/pull-requests/${id}/reject`, { method: 'POST' }),
+	},
+	purchases: {
+		buy: (deckSlug: string) =>
+			request<PurchaseResult>(`/v1/decks/${encodeURIComponent(deckSlug)}/purchase`, {
+				method: 'POST',
+				body: {},
+			}),
+		listMine: () => request<BuyerPurchase[]>('/v1/me/purchases'),
+	},
+	payouts: {
+		listMine: () => request<AuthorPayout[]>('/v1/authors/me/payouts'),
 	},
 	discussions: {
 		countsForDeck: (deckSlug: string) =>
@@ -384,6 +396,49 @@ export interface PullRequest {
 	mergedIntoVersionId: string | null;
 	createdAt: string;
 	resolvedAt: string | null;
+}
+
+export interface PurchaseResult {
+	purchase: {
+		id: string;
+		buyerUserId: string;
+		deckId: string;
+		versionId: string;
+		priceCredits: number;
+		authorShare: number;
+		manaShare: number;
+		purchasedAt: string;
+		refundedAt: string | null;
+	};
+	payout: {
+		id: string;
+		authorUserId: string;
+		creditsGranted: number;
+		grantedAt: string;
+	} | null;
+	alreadyOwned: boolean;
+}
+
+export interface BuyerPurchase {
+	id: string;
+	deckId: string;
+	deckSlug: string;
+	deckTitle: string;
+	priceCredits: number;
+	purchasedAt: string;
+	refundedAt: string | null;
+	versionId: string;
+	versionSemver: string;
+}
+
+export interface AuthorPayout {
+	id: string;
+	purchaseId: string;
+	creditsGranted: number;
+	grantedAt: string;
+	deckSlug: string;
+	deckTitle: string;
+	priceCredits: number;
 }
 
 export interface CardDiscussion {

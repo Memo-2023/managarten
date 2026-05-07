@@ -18,7 +18,13 @@
 
 import { and, asc, eq } from 'drizzle-orm';
 import type { Database } from '../db/connection';
-import { deckSubscriptions, publicDeckCards, publicDeckVersions, publicDecks } from '../db/schema';
+import {
+	deckPurchases,
+	deckSubscriptions,
+	publicDeckCards,
+	publicDeckVersions,
+	publicDecks,
+} from '../db/schema';
 import { ConflictError, ForbiddenError, NotFoundError } from '../lib/errors';
 
 export interface VersionPayload {
@@ -56,9 +62,16 @@ export class SubscriptionService {
 		if (!deck) throw new NotFoundError('Deck not found');
 		if (deck.isTakedown) throw new ForbiddenError('Deck under takedown');
 		if (!deck.latestVersionId) throw new ConflictError('Deck has no published version yet');
-		// Paid decks need a purchase first — Phase ζ. For now: refuse.
-		if (deck.priceCredits > 0) {
-			throw new ForbiddenError('Paid decks require a purchase before subscribing (Phase ζ)');
+		// Paid decks need a non-refunded purchase before the user can
+		// subscribe (= pull the cards). The author themselves can
+		// always subscribe to their own paid deck for testing.
+		if (deck.priceCredits > 0 && deck.ownerUserId !== userId) {
+			const purchase = await this.db.query.deckPurchases.findFirst({
+				where: and(eq(deckPurchases.buyerUserId, userId), eq(deckPurchases.deckId, deck.id)),
+			});
+			if (!purchase || purchase.refundedAt) {
+				throw new ForbiddenError('Paid deck — purchase required before subscribing');
+			}
 		}
 
 		await this.db
