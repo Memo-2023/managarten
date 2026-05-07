@@ -24,6 +24,7 @@ import { SubscriptionService } from './services/subscriptions';
 import { PullRequestService } from './services/pull-requests';
 import { DiscussionService } from './services/discussions';
 import { PurchaseService } from './services/purchases';
+import { ModerationService } from './services/moderation';
 import { createAuthorRoutes } from './routes/authors';
 import { createDeckRoutes } from './routes/decks';
 import { createExploreRoutes } from './routes/explore';
@@ -32,6 +33,7 @@ import { createSubscriptionRoutes } from './routes/subscriptions';
 import { createPullRequestRoutes } from './routes/pull-requests';
 import { createDiscussionRoutes } from './routes/discussions';
 import { createPurchaseRoutes } from './routes/purchases';
+import { createModerationRoutes } from './routes/moderation';
 import { createNotifyClient } from './lib/notify';
 import { createCreditsClient } from './lib/credits';
 
@@ -66,6 +68,7 @@ const purchaseService = new PurchaseService(
 	},
 	notify
 );
+const moderationService = new ModerationService(db, notify);
 
 // ─── App ────────────────────────────────────────────────────
 
@@ -109,6 +112,7 @@ v1.route('/', createSubscriptionRoutes(subscriptionService));
 v1.route('/', createPullRequestRoutes(pullRequestService));
 v1.route('/', createDiscussionRoutes(discussionService));
 v1.route('/', createPurchaseRoutes(purchaseService));
+v1.route('/', createModerationRoutes(moderationService));
 v1.route('/authors', createAuthorRoutes(authorService));
 v1.route('/decks', createDeckRoutes(authorService, deckService, purchaseService));
 

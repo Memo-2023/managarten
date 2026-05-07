@@ -12,6 +12,7 @@
 	import { cardDeckTable } from '$lib/data/database';
 	import PullRequestsSection from '$lib/components/PullRequestsSection.svelte';
 	import DeckCardList from '$lib/components/DeckCardList.svelte';
+	import ReportButton from '$lib/components/ReportButton.svelte';
 
 	const slug = $derived(page.params.slug as string);
 
@@ -239,9 +240,18 @@
 				<p class="mt-3 text-sm text-red-400">{error}</p>
 			{/if}
 
-			<p class="mt-10 text-xs text-neutral-500">
-				Veröffentlicht: {new Date(deck.createdAt).toLocaleDateString('de-DE')}
-			</p>
+			<div class="mt-10 flex items-center justify-between text-xs text-neutral-500">
+				<span>Veröffentlicht: {new Date(deck.createdAt).toLocaleDateString('de-DE')}</span>
+				{#if !isOwner}
+					<ReportButton deckSlug={deck.slug} />
+				{/if}
+			</div>
+
+			{#if deck.isTakedown}
+				<p class="mt-3 rounded-lg border border-red-500/30 bg-red-500/10 p-3 text-sm text-red-300">
+					Dieses Deck wurde von der Moderation entfernt.
+				</p>
+			{/if}
 
 			{#if version}
 				<DeckCardList deckSlug={deck.slug} semver={version.semver} />

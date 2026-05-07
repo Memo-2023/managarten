@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { cardsApi, CardsApiError, type CardDiscussion } from '$lib/api/cards-api';
 	import { authStore } from '$lib/stores/auth.svelte';
+	import ReportButton from './ReportButton.svelte';
 
 	interface Props {
 		contentHash: string;
@@ -83,16 +84,21 @@
 				<li class="rounded-lg border border-neutral-800 bg-neutral-900 p-2 text-sm">
 					<div class="flex items-start justify-between gap-2">
 						<p class="whitespace-pre-line text-neutral-200">{c.body}</p>
-						{#if authStore.user?.id === c.authorUserId}
-							<button
-								class="shrink-0 text-xs text-neutral-600 hover:text-red-400"
-								onclick={() => hide(c)}
-								title="Ausblenden"
-								aria-label="Ausblenden"
-							>
-								✕
-							</button>
-						{/if}
+						<div class="flex shrink-0 items-center gap-2">
+							{#if authStore.user?.id !== c.authorUserId}
+								<ReportButton {deckSlug} cardContentHash={c.cardContentHash} variant="icon" />
+							{/if}
+							{#if authStore.user?.id === c.authorUserId}
+								<button
+									class="text-xs text-neutral-600 hover:text-red-400"
+									onclick={() => hide(c)}
+									title="Ausblenden"
+									aria-label="Ausblenden"
+								>
+									✕
+								</button>
+							{/if}
+						</div>
 					</div>
 					<p class="mt-1 text-xs text-neutral-600">
 						{new Date(c.createdAt).toLocaleString('de-DE')}

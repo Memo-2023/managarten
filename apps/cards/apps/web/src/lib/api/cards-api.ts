@@ -241,6 +241,37 @@ export const cardsApi = {
 		reject: (id: string) =>
 			request<{ ok: true }>(`/v1/pull-requests/${id}/reject`, { method: 'POST' }),
 	},
+	moderation: {
+		report: (input: {
+			deckSlug: string;
+			cardContentHash?: string;
+			category: ReportCategory;
+			body?: string;
+		}) => request<DeckReport>('/v1/reports', { method: 'POST', body: input }),
+	},
+	admin: {
+		listReports: () => request<DeckReportItem[]>('/v1/admin/reports'),
+		resolveReport: (id: string, input: { action: ResolveAction; notes?: string }) =>
+			request<{ action: ResolveAction }>(`/v1/admin/reports/${id}/resolve`, {
+				method: 'POST',
+				body: input,
+			}),
+		takedownDeck: (slug: string, reason?: string) =>
+			request<{ alreadyDown: boolean }>(`/v1/admin/decks/${encodeURIComponent(slug)}/takedown`, {
+				method: 'POST',
+				body: { reason },
+			}),
+		restoreDeck: (slug: string) =>
+			request<{ restored: boolean }>(`/v1/admin/decks/${encodeURIComponent(slug)}/restore`, {
+				method: 'POST',
+				body: {},
+			}),
+		verifyAuthor: (slug: string, verifiedMana: boolean) =>
+			request<{ authorSlug: string; verifiedMana: boolean }>(
+				`/v1/admin/authors/${encodeURIComponent(slug)}/verify`,
+				{ method: 'POST', body: { verifiedMana } }
+			),
+	},
 	purchases: {
 		buy: (deckSlug: string) =>
 			request<PurchaseResult>(`/v1/decks/${encodeURIComponent(deckSlug)}/purchase`, {
@@ -396,6 +427,27 @@ export interface PullRequest {
 	mergedIntoVersionId: string | null;
 	createdAt: string;
 	resolvedAt: string | null;
+}
+
+export type ReportCategory = 'spam' | 'copyright' | 'nsfw' | 'misinformation' | 'hate' | 'other';
+
+export type ResolveAction = 'dismiss' | 'takedown' | 'ban-author';
+
+export interface DeckReport {
+	id: string;
+	deckId: string;
+	versionId: string | null;
+	cardContentHash: string | null;
+	reporterUserId: string;
+	category: ReportCategory;
+	body: string | null;
+	status: 'open' | 'dismissed' | 'actioned';
+	createdAt: string;
+}
+
+export interface DeckReportItem extends DeckReport {
+	deckSlug: string;
+	deckTitle: string;
 }
 
 export interface PurchaseResult {
