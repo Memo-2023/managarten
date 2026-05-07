@@ -25,6 +25,7 @@ import type { Database } from '../db/connection';
 import { deckPullRequests, publicDeckCards, publicDeckVersions, publicDecks } from '../db/schema';
 import { hashCard, hashVersionCards } from '../lib/hash';
 import { BadRequestError, ForbiddenError, NotFoundError } from '../lib/errors';
+import type { NotifyClient } from '../lib/notify';
 
 export interface PullRequestDiffInput {
 	add: { type: string; fields: Record<string, string> }[];
@@ -47,7 +48,10 @@ function bumpMinor(semver: string): string {
 }
 
 export class PullRequestService {
-	constructor(private readonly db: Database) {}
+	constructor(
+		private readonly db: Database,
+		private readonly notify?: NotifyClient
+	) {}
 
 	async create(authorUserId: string, deckSlug: string, input: CreatePullRequestInput) {
 		const deck = await this.db.query.publicDecks.findFirst({
@@ -77,7 +81,30 @@ export class PullRequestService {
 				},
 			})
 			.returning();
+
+		// Don't notify on self-PRs (author proposing a change to their own deck).
+		if (this.notify && deck.ownerUserId !== authorUserId) {
+			void this.notify.send({
+				channel: 'email',
+				userId: deck.ownerUserId,
+				subject: `Neuer Pull Request für „${deck.title}"`,
+				body: `Du hast einen neuen Pull Request bekommen: „${input.title}"\n\nÖffne ${this.deckUrl(deckSlug)}, um zu reviewen.`,
+				data: {
+					type: 'cards.pr.created',
+					deckSlug,
+					prId: pr.id,
+					url: this.deckUrl(deckSlug),
+				},
+				externalId: `cards.pr.created.${pr.id}`,
+			});
+		}
+
 		return pr;
+	}
+
+	private deckUrl(slug: string): string {
+		const base = process.env.CARDS_WEB_URL || 'https://cards.mana.how';
+		return `${base}/d/${slug}`;
 	}
 
 	async list(deckSlug: string, status?: 'open' | 'merged' | 'closed' | 'rejected') {
@@ -135,6 +162,17 @@ export class PullRequestService {
 			.update(deckPullRequests)
 			.set({ status: 'rejected', resolvedAt: new Date() })
 			.where(eq(deckPullRequests.id, prId));
+
+		if (this.notify && pr.authorUserId !== actorUserId) {
+			void this.notify.send({
+				channel: 'email',
+				userId: pr.authorUserId,
+				subject: `Pull Request „${pr.title}" abgelehnt`,
+				body: `Dein Pull Request für „${deck.title}" wurde abgelehnt. Siehe ${this.deckUrl(deck.slug)}.`,
+				data: { type: 'cards.pr.rejected', prId: pr.id, deckSlug: deck.slug },
+				externalId: `cards.pr.rejected.${pr.id}`,
+			});
+		}
 	}
 
 	/**
@@ -257,6 +295,23 @@ export class PullRequestService {
 
 			return { version };
 		});
+
+		if (this.notify && pr.authorUserId !== actorUserId) {
+			void this.notify.send({
+				channel: 'email',
+				userId: pr.authorUserId,
+				subject: `Pull Request „${pr.title}" gemerged`,
+				body: `Dein Pull Request für „${deck.title}" ist live in v${newSemver}. Danke für den Beitrag!`,
+				data: {
+					type: 'cards.pr.merged',
+					prId: pr.id,
+					deckSlug: deck.slug,
+					newSemver,
+					url: this.deckUrl(deck.slug),
+				},
+				externalId: `cards.pr.merged.${pr.id}`,
+			});
+		}
 
 		return { pullRequest: { ...pr, status: 'merged' as const }, version: result.version };
 	}

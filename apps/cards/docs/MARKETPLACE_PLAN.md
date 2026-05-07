@@ -581,6 +581,12 @@ Marktplatz ohne Decks ist nutzlos. Drei parallele Hebel:
 - **Keine Pflicht-Klarnamen**. Pseudonyme bleiben gleichberechtigt. Verifizierung ist Bonus, nicht Pflicht.
 - **Kein Marketplace-Cut über 30 %**. Apple-App-Store-Hass ist real, wir bleiben fair.
 
+## 13a. Bekannte Limitierungen / „macht später"
+
+- **PR-Merge-Heuristik ist stale-blind** (Phase ε.1): `merge()` baut die neue Version aus `currentCards` zusammen, indem es Removes anwendet, dann Modifies-by-Hash, dann Adds. Wenn der Author zwischen PR-Open und Merge selbst eine Karte geändert hat, deren `previousContentHash` der PR matched, gewinnt **stumm** der PR — kein Konflikt-Hinweis. Akzeptabel solange wir wenige PRs/Tag haben; irgendwann brauchen wir entweder (a) ein „PR-rebase" Konzept (PR rerunst auf neuesten Cards, bei Konflikt → status=`stale`), oder (b) optimistic locking via `baseVersionId` auf der PR-Row mit Reject bei Mismatch.
+- **Keine Multi-Card-Diff-Visualisierung** (Phase ε.2): PR-Diff-Preview zeigt jeden Block (`add`/`modify`/`remove`) flach. Bei großen PRs mit 50+ Karten wird das unübersichtlich — vermutlich pre-Phase-ζ noch nicht relevant, danach ggf. Side-by-side-Vergleich pro modify.
+- **Discussion-Threading ist 1-Level** (Phase ε.2): Server speichert schon `parent_id`, aber das UI rendert flach. Bei Bedarf später ein Antworten-Button + visuelle Einrückung — kein Schema-Change nötig.
+
 ## 14. Offene Punkte die später entschieden werden müssen
 
 - **Mobile-Push-Notifications** für Subscribe-Updates: native PWA-Push reicht aktuell, aber Browser-API ist hin- und her — könnte Phase ι in einen eigenen Push-Service auslagern müssen.

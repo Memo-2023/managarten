@@ -7,6 +7,7 @@
 	import { studyBlockStore } from '$lib/stores/study-blocks.svelte';
 	import CardFace from '$lib/components/CardFace.svelte';
 	import SuggestEditModal from '$lib/components/SuggestEditModal.svelte';
+	import CardDiscussions from '$lib/components/CardDiscussions.svelte';
 	import type { Card, CardReview, ReviewGrade } from '@mana/cards-core';
 
 	const deckId = $derived(page.params.deckId as string);
@@ -26,6 +27,14 @@
 	const subscribedSlug = $derived($deckQuery?.subscribedFromSlug);
 	const canSuggest = $derived(!!subscribedSlug && !!current?.card.serverContentHash);
 	let suggestOpen = $state(false);
+	let discussionsOpen = $state(false);
+
+	$effect(() => {
+		// Collapse the discussion panel whenever the card changes so the
+		// learner isn't visually overloaded between cards.
+		void current?.card.id;
+		discussionsOpen = false;
+	});
 
 	$effect(() => {
 		const snap = $dueQuery;
@@ -140,7 +149,14 @@
 		/>
 
 		{#if canSuggest}
-			<div class="mt-3 text-right">
+			<div class="mt-3 flex justify-end gap-3">
+				<button
+					class="text-xs text-neutral-500 hover:text-neutral-200"
+					onclick={() => (discussionsOpen = !discussionsOpen)}
+					title="Kommentare zur Karte"
+				>
+					💬 {discussionsOpen ? 'Diskussion ausblenden' : 'Diskussion'}
+				</button>
 				<button
 					class="text-xs text-neutral-500 hover:text-indigo-300"
 					onclick={() => (suggestOpen = true)}
@@ -149,6 +165,10 @@
 					✏️ Verbessern
 				</button>
 			</div>
+
+			{#if discussionsOpen && subscribedSlug && current?.card.serverContentHash}
+				<CardDiscussions contentHash={current.card.serverContentHash} deckSlug={subscribedSlug} />
+			{/if}
 		{/if}
 
 		{#if !showBack}

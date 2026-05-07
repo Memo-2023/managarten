@@ -30,18 +30,24 @@ import { createEngagementRoutes } from './routes/engagement';
 import { createSubscriptionRoutes } from './routes/subscriptions';
 import { createPullRequestRoutes } from './routes/pull-requests';
 import { createDiscussionRoutes } from './routes/discussions';
+import { createNotifyClient } from './lib/notify';
 
 // ─── Bootstrap ──────────────────────────────────────────────
 
 const config = loadConfig();
 const db = getDb(config.databaseUrl);
 
+const notify = createNotifyClient({
+	url: config.manaNotifyUrl,
+	serviceKey: config.serviceKey,
+});
+
 const authorService = new AuthorService(db);
 const deckService = new DeckService(db, config.manaLlmUrl);
 const exploreService = new ExploreService(db);
 const engagementService = new EngagementService(db);
 const subscriptionService = new SubscriptionService(db);
-const pullRequestService = new PullRequestService(db);
+const pullRequestService = new PullRequestService(db, notify);
 const discussionService = new DiscussionService(db);
 
 // ─── App ────────────────────────────────────────────────────
