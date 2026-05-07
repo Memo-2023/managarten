@@ -8,6 +8,8 @@
 	import AiCardGen from '$lib/components/AiCardGen.svelte';
 	import PublishDeckModal from '$lib/components/PublishDeckModal.svelte';
 	import { uploadCardMedia, mediaToFieldSnippet } from '$lib/media/upload';
+	import { cardDeckTable } from '$lib/data/database';
+	import { previewUpdate, applyUpdate, type UpdatePreview } from '$lib/services/subscribe';
 
 	const deckId = $derived(page.params.id as string);
 
@@ -22,6 +24,51 @@
 	let showNew = $state(false);
 	let showAi = $state(false);
 	let showPublish = $state(false);
+
+	// Subscription state — populated on mount + after each change so
+	// the read-only gating + update-banner stays in sync without
+	// hooking another live-query.
+	let subscribedFromSlug = $state<string | null>(null);
+	let subscribedAtVersion = $state<string | null>(null);
+	let updatePreview = $state<UpdatePreview | null>(null);
+	let updateBusy = $state(false);
+	let updateError = $state<string | null>(null);
+
+	const isSubscribed = $derived(subscribedFromSlug !== null);
+
+	$effect(() => {
+		if (!deckId) return;
+		void refreshSubscriptionState();
+	});
+
+	async function refreshSubscriptionState() {
+		const local = await cardDeckTable.get(deckId).catch(() => undefined);
+		subscribedFromSlug = local?.subscribedFromSlug ?? null;
+		subscribedAtVersion = local?.subscribedAtVersion ?? null;
+		if (!subscribedFromSlug) {
+			updatePreview = null;
+			return;
+		}
+		try {
+			updatePreview = await previewUpdate(subscribedFromSlug);
+		} catch {
+			updatePreview = null;
+		}
+	}
+
+	async function handleApplyUpdate() {
+		if (!subscribedFromSlug || updateBusy) return;
+		updateBusy = true;
+		updateError = null;
+		try {
+			await applyUpdate(subscribedFromSlug);
+			await refreshSubscriptionState();
+		} catch (e) {
+			updateError = e instanceof Error ? e.message : 'Update fehlgeschlagen';
+		} finally {
+			updateBusy = false;
+		}
+	}
 	let attachBusy = $state<'front' | 'back' | 'cloze' | null>(null);
 	let attachError = $state<string | null>(null);
 	let attachInputs = $state<Record<string, HTMLInputElement | null>>({
@@ -161,6 +208,46 @@
 			</button>
 		</header>
 
+		{#if isSubscribed}
+			<div class="mb-6 rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-4 text-sm">
+				<div class="flex items-start justify-between gap-3">
+					<div>
+						<div class="font-medium text-emerald-300">
+							📥 Abonniert · v{subscribedAtVersion}
+						</div>
+						<p class="mt-1 text-xs text-neutral-400">
+							Aus dem Marktplatz von <a
+								href={`/d/${subscribedFromSlug}`}
+								class="text-emerald-300 hover:underline">{subscribedFromSlug}</a
+							>. Karten sind read-only — Author entscheidet über Inhalte. Forken um eigene Variante
+							zu machen (Phase ε).
+						</p>
+					</div>
+				</div>
+				{#if updatePreview}
+					<div class="mt-3 flex flex-wrap items-center gap-2 rounded-lg bg-emerald-500/10 p-2">
+						<span class="text-xs font-medium text-emerald-200">
+							Update auf v{updatePreview.to} verfügbar
+						</span>
+						<span class="text-xs text-neutral-400">
+							+{updatePreview.added} neu · ~{updatePreview.changed} geändert · −{updatePreview.removed}
+							entfernt
+						</span>
+						<button
+							class="ml-auto rounded-lg bg-emerald-500 px-3 py-1 text-xs text-white hover:bg-emerald-400 disabled:opacity-50"
+							onclick={handleApplyUpdate}
+							disabled={updateBusy}
+						>
+							{updateBusy ? 'Wende an…' : 'Update anwenden'}
+						</button>
+					</div>
+				{/if}
+				{#if updateError}
+					<p class="mt-2 text-xs text-red-400">{updateError}</p>
+				{/if}
+			</div>
+		{/if}
+
 		<div class="mb-6 flex flex-wrap items-center gap-3">
 			<button
 				class="rounded-lg bg-indigo-500 px-5 py-2.5 text-sm font-medium text-white hover:bg-indigo-400 disabled:opacity-50"
@@ -174,16 +261,18 @@
 					</span>
 				{/if}
 			</button>
-			<button
-				class="rounded-lg border border-indigo-500/30 px-4 py-2 text-sm text-indigo-300 hover:bg-indigo-500/10 disabled:opacity-50"
-				onclick={() => (showPublish = true)}
-				disabled={cards.length === 0}
-				title={cards.length === 0
-					? 'Erstelle zuerst Karten'
-					: 'Im Cards-Marktplatz veröffentlichen'}
-			>
-				🌍 Veröffentlichen
-			</button>
+			{#if !isSubscribed}
+				<button
+					class="rounded-lg border border-indigo-500/30 px-4 py-2 text-sm text-indigo-300 hover:bg-indigo-500/10 disabled:opacity-50"
+					onclick={() => (showPublish = true)}
+					disabled={cards.length === 0}
+					title={cards.length === 0
+						? 'Erstelle zuerst Karten'
+						: 'Im Cards-Marktplatz veröffentlichen'}
+				>
+					🌍 Veröffentlichen
+				</button>
+			{/if}
 			{#if dueCount === 0 && cards.length > 0}
 				<span class="text-sm text-neutral-400">Heute alles gelernt — schau später wieder rein.</span
 				>
@@ -201,20 +290,22 @@
 			</div>
 		</div>
 
-		<div class="mb-6 flex flex-wrap items-center gap-3">
-			<button
-				class="rounded-lg bg-indigo-500 px-4 py-2 text-sm text-white hover:bg-indigo-400"
-				onclick={() => (showNew = true)}
-			>
-				Neue Karte
-			</button>
-			<button
-				class="rounded-lg border border-indigo-500/30 px-4 py-2 text-sm text-indigo-300 hover:bg-indigo-500/10"
-				onclick={() => (showAi = !showAi)}
-			>
-				✨ Aus Text generieren
-			</button>
-		</div>
+		{#if !isSubscribed}
+			<div class="mb-6 flex flex-wrap items-center gap-3">
+				<button
+					class="rounded-lg bg-indigo-500 px-4 py-2 text-sm text-white hover:bg-indigo-400"
+					onclick={() => (showNew = true)}
+				>
+					Neue Karte
+				</button>
+				<button
+					class="rounded-lg border border-indigo-500/30 px-4 py-2 text-sm text-indigo-300 hover:bg-indigo-500/10"
+					onclick={() => (showAi = !showAi)}
+				>
+					✨ Aus Text generieren
+				</button>
+			</div>
+		{/if}
 
 		{#if showAi}
 			<div class="mb-6">
@@ -389,13 +480,15 @@
 								<span class="rounded-full bg-neutral-800 px-2 py-0.5 text-xs text-neutral-400">
 									{typeBadge(card.type)}
 								</span>
-								<button
-									class="rounded p-1 text-neutral-500 hover:text-red-400"
-									onclick={() => handleDeleteCard(card.id)}
-									aria-label="Karte löschen"
-								>
-									✕
-								</button>
+								{#if !isSubscribed}
+									<button
+										class="rounded p-1 text-neutral-500 hover:text-red-400"
+										onclick={() => handleDeleteCard(card.id)}
+										aria-label="Karte löschen"
+									>
+										✕
+									</button>
+								{/if}
 							</div>
 						</li>
 					{/each}

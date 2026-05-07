@@ -71,6 +71,13 @@ class CardsDatabase extends Dexie {
 		this.version(2).stores({
 			cardDecks: 'id, lastStudied, subscribedFromSlug',
 		});
+		// v3 — Phase δ.3: compound index on (deckId, serverContentHash)
+		// for the smart-merge lookup. Diff payloads reference cards by
+		// their content hash; we need O(1) lookups per (deck, hash) to
+		// classify each diff entry against local rows.
+		this.version(3).stores({
+			cards: 'id, deckId, order, [deckId+order], [deckId+serverContentHash]',
+		});
 	}
 }
 
