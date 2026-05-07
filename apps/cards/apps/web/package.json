@@ -18,6 +18,7 @@
 		"@tailwindcss/vite": "^4.1.7",
 		"@types/node": "^22.10.5",
 		"@types/sql.js": "^1.4.11",
+		"@vite-pwa/sveltekit": "^1.1.0",
 		"svelte": "^5.41.0",
 		"svelte-check": "^4.3.3",
 		"tailwindcss": "^4.1.17",

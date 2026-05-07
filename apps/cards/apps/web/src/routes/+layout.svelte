@@ -8,6 +8,7 @@
 	import { authStore } from '$lib/stores/auth.svelte';
 	import { startSync, stopSync } from '$lib/data/sync';
 	import { useStreak } from '$lib/queries';
+	import { pwaInfo } from 'virtual:pwa-info';
 
 	let { children }: { children: Snippet } = $props();
 
@@ -26,8 +27,17 @@
 	const streakQuery = $derived(useStreak());
 	const streak = $derived(($streakQuery as number | undefined) ?? 0);
 
+	// vite-plugin-pwa exposes the hashed manifest filename via this
+	// virtual module. Without inlining its <link> Chrome can't read the
+	// manifest → no install icon, no A2HS on mobile.
+	const webManifestLink = $derived(pwaInfo?.webManifest.linkTag ?? '');
+
 	onDestroy(() => stopSync());
 </script>
+
+<svelte:head>
+	{@html webManifestLink}
+</svelte:head>
 
 {#if isPublic}
 	{@render children()}

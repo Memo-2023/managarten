@@ -5,6 +5,7 @@
 	import { deckStore } from '$lib/stores/decks.svelte';
 	import { cardStore } from '$lib/stores/cards.svelte';
 	import { renderMarkdown, type Card, type CardType, type Deck } from '@mana/cards-core';
+	import AiCardGen from '$lib/components/AiCardGen.svelte';
 
 	const deckId = $derived(page.params.id as string);
 
@@ -17,6 +18,7 @@
 	const dueCount = $derived(($dueQuery as { card: Card }[] | undefined)?.length ?? 0);
 
 	let showNew = $state(false);
+	let showAi = $state(false);
 	let newType = $state<CardType>('basic');
 	let newFront = $state('');
 	let newBack = $state('');
@@ -144,14 +146,30 @@
 			</div>
 		</div>
 
-		<div class="mb-6">
+		<div class="mb-6 flex flex-wrap items-center gap-3">
 			<button
 				class="rounded-lg bg-indigo-500 px-4 py-2 text-sm text-white hover:bg-indigo-400"
 				onclick={() => (showNew = true)}
 			>
 				Neue Karte
 			</button>
+			<button
+				class="rounded-lg border border-indigo-500/30 px-4 py-2 text-sm text-indigo-300 hover:bg-indigo-500/10"
+				onclick={() => (showAi = !showAi)}
+			>
+				✨ Aus Text generieren
+			</button>
 		</div>
+
+		{#if showAi}
+			<div class="mb-6">
+				<AiCardGen
+					{deckId}
+					currentCardCount={cards.length}
+					onCreated={() => (showAi = false)}
+				/>
+			</div>
+		{/if}
 
 		{#if showNew}
 			<div class="mb-6 rounded-xl border border-indigo-500/30 bg-neutral-900 p-4">

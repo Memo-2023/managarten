@@ -1032,6 +1032,7 @@ services:
       PUBLIC_MANA_AUTH_URL_CLIENT: https://auth.mana.how
       PUBLIC_MANA_SYNC_URL: http://mana-sync:3050
       PUBLIC_MANA_SYNC_URL_CLIENT: https://sync.mana.how
+      PUBLIC_MANA_LLM_URL_CLIENT: https://llm.mana.how
     ports:
       - "5180:5180"
     healthcheck:
@@ -1306,33 +1307,6 @@ services:
       timeout: 10s
       retries: 3
       start_period: 20s
-
-  status-page-gen:
-    image: alpine:3.20
-    container_name: mana-status-gen
-    restart: always
-    mem_limit: 64m
-    # VM ist seit Phase 2c auf der GPU-Box. status-gen erreicht sie über
-    # den Public-Hostname vm.mana.how im mana-gpu-server-Tunnel — Colima-
-    # Container können die Mini-LAN-Bridge nicht direkt zur GPU-IP routen.
-    environment:
-      VICTORIAMETRICS_URL: https://vm.mana.how
-      OUTPUT_FILE: /output/index.html
-    volumes:
-      - ./scripts/generate-status-page.sh:/generate.sh:ro
-      - ./packages/shared-branding/src/mana-apps.ts:/mana-apps.ts:ro
-      - /Volumes/ManaData/landings/status:/output
-    command:
-      - sh
-      - -c
-      - |
-        apk add --no-cache curl jq || { echo "apk add fehlgeschlagen, retry in 10s"; sleep 10; exit 1; }
-        mkdir -p /output
-        while true; do
-          cp /generate.sh /tmp/generate.sh
-          sh /tmp/generate.sh
-          sleep 60
-        done
 
   watchtower:
     image: nickfedor/watchtower:latest

@@ -193,8 +193,6 @@ ingress:
   # ============================================
   # Self-hosted landing pages (Nginx on port 4400)
   # ============================================
-  - hostname: status.mana.how
-    service: http://localhost:4400
   - hostname: it.mana.how
     service: http://localhost:4400
   - hostname: chats.mana.how
