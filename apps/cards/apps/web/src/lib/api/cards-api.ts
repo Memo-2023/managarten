@@ -1,0 +1,176 @@
+/**
+ * Thin client for cards-server (https://cards-api.mana.how / dev :3072).
+ *
+ * The auth-store provides the JWT; we never read tokens from storage
+ * here directly so there's only one place that knows about token
+ * lifecycle (refresh, expiry, vault).
+ *
+ * All endpoints under /v1 require auth; the wrapper just always
+ * sends `Authorization: Bearer …`. Errors come back as Hono's
+ * `{ statusCode, message, details? }` shape — we surface that to
+ * callers via the typed `CardsApiError` so UIs can branch on it.
+ */
+
+import { authStore } from '$lib/stores/auth.svelte';
+
+function baseUrl(): string {
+	if (typeof window !== 'undefined') {
+		const fromWindow = (window as unknown as { __PUBLIC_CARDS_API_URL__?: string })
+			.__PUBLIC_CARDS_API_URL__;
+		if (fromWindow) return fromWindow.replace(/\/$/, '');
+	}
+	return 'http://localhost:3072';
+}
+
+export class CardsApiError extends Error {
+	constructor(
+		public status: number,
+		message: string,
+		public details?: unknown
+	) {
+		super(message);
+		this.name = 'CardsApiError';
+	}
+}
+
+interface RequestOptions {
+	method?: 'GET' | 'POST' | 'PATCH' | 'DELETE';
+	body?: unknown;
+	signal?: AbortSignal;
+	/** When false, send the request without an Authorization header. */
+	auth?: boolean;
+}
+
+async function request<T>(path: string, opts: RequestOptions = {}): Promise<T> {
+	const headers: Record<string, string> = {};
+	if (opts.body !== undefined) headers['Content-Type'] = 'application/json';
+	if (opts.auth !== false) {
+		const token = await authStore.getValidToken?.();
+		if (!token) throw new CardsApiError(401, 'Not signed in');
+		headers['Authorization'] = `Bearer ${token}`;
+	}
+
+	const res = await fetch(`${baseUrl()}${path}`, {
+		method: opts.method ?? 'GET',
+		headers,
+		body: opts.body !== undefined ? JSON.stringify(opts.body) : undefined,
+		signal: opts.signal,
+	});
+
+	if (res.status === 204) return undefined as T;
+
+	const text = await res.text();
+	const json: unknown = text ? safeJsonParse(text) : null;
+
+	if (!res.ok) {
+		const payload = (json ?? {}) as { message?: string; details?: unknown };
+		throw new CardsApiError(res.status, payload.message ?? `HTTP ${res.status}`, payload.details);
+	}
+	return json as T;
+}
+
+function safeJsonParse(s: string): unknown {
+	try {
+		return JSON.parse(s);
+	} catch {
+		return s;
+	}
+}
+
+// ─── Authors ────────────────────────────────────────────────
+
+export interface Author {
+	userId: string;
+	slug: string;
+	displayName: string;
+	bio: string | null;
+	avatarUrl: string | null;
+	pseudonym: boolean;
+	verifiedMana: boolean;
+	verifiedCommunity: boolean;
+	bannedAt: string | null;
+}
+
+export interface PublicAuthor {
+	slug: string;
+	displayName: string;
+	bio: string | null;
+	avatarUrl: string | null;
+	joinedAt: string;
+	pseudonym: boolean;
+	verifiedMana: boolean;
+	verifiedCommunity: boolean;
+	banned: boolean;
+}
+
+export const cardsApi = {
+	authors: {
+		me: () => request<Author | null>('/v1/authors/me'),
+		upsertMe: (input: {
+			slug: string;
+			displayName: string;
+			bio?: string;
+			avatarUrl?: string;
+			pseudonym?: boolean;
+		}) => request<Author>('/v1/authors/me', { method: 'POST', body: input }),
+		bySlug: (slug: string) => request<PublicAuthor>(`/v1/authors/${encodeURIComponent(slug)}`),
+	},
+	decks: {
+		init: (input: {
+			slug: string;
+			title: string;
+			description?: string;
+			language?: string;
+			license?: string;
+			priceCredits?: number;
+		}) => request<PublicDeck>('/v1/decks', { method: 'POST', body: input }),
+		bySlug: (slug: string) =>
+			request<{ deck: PublicDeck; latestVersion: PublicDeckVersion | null }>(
+				`/v1/decks/${encodeURIComponent(slug)}`
+			),
+		publish: (
+			slug: string,
+			input: {
+				semver: string;
+				changelog?: string;
+				cards: { type: string; fields: Record<string, string> }[];
+			}
+		) =>
+			request<PublishResult>(`/v1/decks/${encodeURIComponent(slug)}/publish`, {
+				method: 'POST',
+				body: input,
+			}),
+	},
+};
+
+export interface PublicDeck {
+	id: string;
+	slug: string;
+	title: string;
+	description: string | null;
+	language: string | null;
+	license: string;
+	priceCredits: number;
+	ownerUserId: string;
+	latestVersionId: string | null;
+	isFeatured: boolean;
+	isTakedown: boolean;
+	createdAt: string;
+}
+
+export interface PublicDeckVersion {
+	id: string;
+	deckId: string;
+	semver: string;
+	changelog: string | null;
+	contentHash: string;
+	cardCount: number;
+	publishedAt: string;
+	deprecatedAt: string | null;
+}
+
+export interface PublishResult {
+	deck: PublicDeck;
+	version: PublicDeckVersion;
+	moderation: { verdict: 'pass' | 'flag' | 'block'; categories: string[] };
+}

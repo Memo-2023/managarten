@@ -6,6 +6,7 @@
 	import { cardStore } from '$lib/stores/cards.svelte';
 	import { renderMarkdown, type Card, type CardType, type Deck } from '@mana/cards-core';
 	import AiCardGen from '$lib/components/AiCardGen.svelte';
+	import PublishDeckModal from '$lib/components/PublishDeckModal.svelte';
 	import { uploadCardMedia, mediaToFieldSnippet } from '$lib/media/upload';
 
 	const deckId = $derived(page.params.id as string);
@@ -20,6 +21,7 @@
 
 	let showNew = $state(false);
 	let showAi = $state(false);
+	let showPublish = $state(false);
 	let attachBusy = $state<'front' | 'back' | 'cloze' | null>(null);
 	let attachError = $state<string | null>(null);
 	let attachInputs = $state<Record<string, HTMLInputElement | null>>({
@@ -167,8 +169,20 @@
 			>
 				Lernen
 				{#if dueCount > 0}
-					<span class="ml-2 rounded-full bg-white/20 px-2 py-0.5 text-xs">{dueCount} fällig</span>
+					<span class="ml-2 rounded-full bg-background/20 px-2 py-0.5 text-xs">
+						{dueCount} fällig
+					</span>
 				{/if}
+			</button>
+			<button
+				class="rounded-lg border border-indigo-500/30 px-4 py-2 text-sm text-indigo-300 hover:bg-indigo-500/10 disabled:opacity-50"
+				onclick={() => (showPublish = true)}
+				disabled={cards.length === 0}
+				title={cards.length === 0
+					? 'Erstelle zuerst Karten'
+					: 'Im Cards-Marktplatz veröffentlichen'}
+			>
+				🌍 Veröffentlichen
 			</button>
 			{#if dueCount === 0 && cards.length > 0}
 				<span class="text-sm text-neutral-400">Heute alles gelernt — schau später wieder rein.</span
@@ -430,3 +444,7 @@
 		</div>
 	{/if}
 </main>
+
+{#if showPublish && deck}
+	<PublishDeckModal {deck} {cards} onClose={() => (showPublish = false)} />
+{/if}
