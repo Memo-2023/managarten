@@ -162,8 +162,6 @@ ingress:
   # ============================================
   - hostname: admin.mana.how
     service: http://localhost:3071
-  - hostname: npm.mana.how
-    service: http://localhost:4873
 
   # ============================================
   # Memoro (Code/memoro, separate repo)
