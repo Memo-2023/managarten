@@ -487,58 +487,65 @@ Marktplatz ohne Decks ist nutzlos. Drei parallele Hebel:
 - Container in `docker-compose.macmini.yml`
 - Cloudflare-Tunnel-Route `cards-api.mana.how` → `:3072`
 
-### Phase β — Author-Workflow
+### Phase β — Author-Workflow ✅ shipped
 
-- „Author werden"-Flow im Frontend (Profil anlegen, slug claimen)
-- „Publish"-Aktion auf Deck-Detail-Seite
-  - Lizenz-Picker (SPDX-Auswahl)
-  - Beschreibung + Tags
-  - Optional: Preis in Credits
-- Versioning: semver-Auto-Suggest (1.0.0 Erst-Publish, dann patch/minor/major)
-- Changelog-Editor
-- AI-First-Pass-Moderation (mana-llm classify)
-- Author-Dashboard (eigene Decks, Subscriber-Counts, Erlöse)
+- ✅ „Author werden"-Flow im Frontend (Profil anlegen, slug claimen)
+- ✅ „Publish"-Aktion auf Deck-Detail-Seite
+  - ✅ Lizenz-Picker (SPDX-Auswahl)
+  - ✅ Optional: Preis in Credits
+  - ⏳ Tags: Picker fehlt im Publish-Flow; Server-Schema steht
+- ✅ Versioning: semver-Eingabe (Auto-Suggest pre-fill folgt in θ)
+- ✅ Changelog-Editor
+- ✅ AI-First-Pass-Moderation (mana-llm classify, Verdict im Publish-Result)
+- ⏳ Author-Dashboard mit Subscriber-Counts: Erlöse jetzt unter `/me/purchases`, restliche Stats fehlen
 
-### Phase γ — Discovery-Frontend
+### Phase γ — Discovery-Frontend ✅ shipped (FTS minimal)
 
-- `/explore`-Seite mit Featured + Trending + Tag-Tree
-- Volltext-Suche (Postgres FTS via tsvector)
-- Tag-Hierarchie + Filter-UI
-- Author-Profile + Follow-Button + Activity-Feed
-- Star-System
+- ✅ `/explore`-Seite mit Featured + Trending
+- 🟡 Volltext-Suche: einfaches `ILIKE` über Title/Description; tsvector-Upgrade in Phase ι
+- 🟡 Tag-Hierarchie: flach implementiert; baumartige Eltern-Kind-Navigation offen
+- ✅ Author-Profile (`/u/<slug>`) + Follow-Button
+- ⏳ Activity-Feed (wer hat was published / merged): nicht gebaut
+- ✅ Star-System
 
-### Phase δ — Subscribe + Updates + Smart-Merge
+### Phase δ — Subscribe + Updates + Smart-Merge ✅ shipped
 
-- „Abonnieren"-Button → lädt aktuelle Version in lokale Cards-DB
-- Update-Detection: cards-server WebSocket (oder Polling) → „Neue Version verfügbar"-Toast
-- **Smart-Merge**: Diff zwischen Versionen → unveränderte Karten behalten FSRS-State, neue Karten kommen frisch dazu, gelöschte Karten werden ausgeblendet (mit „Karte aus Update entfernt"-Hinweis)
-- Diff-View für User: „3 neue Karten, 2 geändert, 1 entfernt — Update jetzt anwenden?"
-- Push-Notifications via mana-notify
+- ✅ „Abonnieren"-Button → lädt aktuelle Version in lokale Cards-DB
+- 🟡 Update-Detection: Polling beim Öffnen der Deck-Page; **kein** WebSocket-Push (kommt in θ/ι)
+- ✅ **Smart-Merge**: Diff zwischen Versionen → unveränderte Karten behalten FSRS-State; geänderte erben FSRS-State über Ord-Pairing-Heuristik; neue + entfernte werden korrekt behandelt
+- ✅ Diff-View „+N · ~N · −N" mit Apply-Button auf der Deck-Page
+- ⏳ Push-Notifications für Subscribe-Updates via mana-notify: PR-/Verkaufs-Mails sind drin (ε.3, ζ.1), Update-Mail noch nicht
 
-### Phase ε — Pull-Requests + Discussions
+### Phase ε — Pull-Requests + Discussions ✅ shipped
 
-- PR-Erstellen-UI im Deck-Detail („Karte verbessern" / „Karte hinzufügen")
-- PR-Diff-View (GitHub-Style)
-- Author-Merge-Workflow → erstellt neue Version automatisch
-- Inline-Discussion-Threads pro Karte (während des Lernens und im Detail-View)
-- Mention-System (@username triggert mana-notify)
+- ✅ PR-Erstellen-UI: „✏️ Verbessern" auf `/learn/[id]` für Karten aus abonnierten Decks (modify oder remove)
+- ✅ PR-Diff-Preview (flach, alle drei Blöcke `add` / `modify` / `remove`)
+- ✅ Author-Merge-Workflow → erstellt neue Version atomar, bumped semver-Minor by default
+- ✅ Inline-Discussion-Threads: in `/learn` (Toggle) + auf `/d/<slug>` (Karten-Liste mit Comment-Counts)
+- ✅ Notify: Author bei neuem PR; PR-Author bei Merge/Reject (deterministische ExternalIDs für Dedup)
+- ⏳ Mention-System (@username): nicht gebaut; Schema-Änderung später trivial
+- 🟡 PR-Merge ist „stale-blind": kein Rebase / Konflikt-Detection (siehe §13a)
 
-### Phase ζ — mana-credits Marketplace
+### Phase ζ — mana-credits Marketplace 🟡 ζ.1 shipped, ζ.2 offen
 
-- Paid-Deck-Workflow End-to-End (siehe §5)
-- Author-Auszahlungs-Pipeline
-- Refund-Workflow
-- Buyer-Dashboard mit Käufen
-- Author-Payouts-Reporting (CSV-Export für Steuern)
+- ✅ Paid-Deck-Workflow End-to-End: 4-step Pipeline `reserve → INSERT purchase → commit → grant author + INSERT payout`, idempotent über `(buyer, deck)`
+- ✅ Author-Auszahlungs-Pipeline: 80/20 Standard, 90/10 für `verifiedMana`-Authoren, kommt aus `config.authorPayout` (Basis-Punkte)
+- ✅ Buyer-Dashboard `/me/purchases` mit Käufen + Author-Auszahlungs-Historie
+- ⏳ **Refund-Workflow**: bewusst out-of-scope für ζ.1 (Author-Clawback ist konzeptuell heikel — siehe §13a)
+- ⏳ **Reconciler**: bei Commit-/Grant-Failure nach Schritt 2 bleibt eine Purchase-Row mit `creditsTransaction = null` bzw. ohne Payout. Code logged, niemand fegt nach. Cron-Sweep in ζ.2
+- ⏳ Author-Payouts-CSV-Export für Steuern
 
-### Phase η — Moderation + Trust
+### Phase η — Moderation + Trust 🟡 η.1 shipped, η.2/η.3 offen
 
-- Report-Buttons überall (Deck, Karte, Discussion)
-- Admin-Inbox-UI für verified-mana-only-Mods
-- Take-Down-Workflow mit Public-Changelog
-- Verified-Badge-Vergabe-UI (Mana-Admin → Author)
-- Community-Verified Auto-Calculation (Cron-Job)
-- Author-Ban-Process
+- ✅ Report-Buttons auf Deck (`/d/<slug>`) + Discussion-Kommentare
+- ✅ Admin-Inbox-UI (`/admin/reports`) mit Abweisen / Deck-Takedown / Author-Bann
+- ✅ Take-Down-Workflow: transaktional, auto-closed parallele Reports + offene PRs auf demselben Deck, Mail an Author
+- 🟡 Verified-Badge-Vergabe via API (`POST /v1/admin/authors/:slug/verify`); kein dediziertes UI
+- ⏳ **Community-Verified Auto-Calculation**: Schema + Schwellwerte da; Cron-Job fehlt (η.2)
+- ⏳ **Public Take-Down-Changelog**: Plan erwähnt das, nicht gebaut
+- ⏳ **Verified-Mana-only Mods**: aktuell nur `role === 'admin'`; Plan-Vision ist „verified-mana darf auch resolven" — feiner Cut, später
+- ⏳ Author-Ban-Process: Ban kaskadiert auf Decks ✅, aber kein Self-Service-Appeal-Flow für Author
+- ⏳ Report-Spam-Schutz (Rate-Limit pro User+Deck): nicht da
 
 ### Phase θ — Deep AI
 
@@ -583,9 +590,31 @@ Marktplatz ohne Decks ist nutzlos. Drei parallele Hebel:
 
 ## 13a. Bekannte Limitierungen / „macht später"
 
-- **PR-Merge-Heuristik ist stale-blind** (Phase ε.1): `merge()` baut die neue Version aus `currentCards` zusammen, indem es Removes anwendet, dann Modifies-by-Hash, dann Adds. Wenn der Author zwischen PR-Open und Merge selbst eine Karte geändert hat, deren `previousContentHash` der PR matched, gewinnt **stumm** der PR — kein Konflikt-Hinweis. Akzeptabel solange wir wenige PRs/Tag haben; irgendwann brauchen wir entweder (a) ein „PR-rebase" Konzept (PR rerunst auf neuesten Cards, bei Konflikt → status=`stale`), oder (b) optimistic locking via `baseVersionId` auf der PR-Row mit Reject bei Mismatch.
-- **Keine Multi-Card-Diff-Visualisierung** (Phase ε.2): PR-Diff-Preview zeigt jeden Block (`add`/`modify`/`remove`) flach. Bei großen PRs mit 50+ Karten wird das unübersichtlich — vermutlich pre-Phase-ζ noch nicht relevant, danach ggf. Side-by-side-Vergleich pro modify.
-- **Discussion-Threading ist 1-Level** (Phase ε.2): Server speichert schon `parent_id`, aber das UI rendert flach. Bei Bedarf später ein Antworten-Button + visuelle Einrückung — kein Schema-Change nötig.
+**Phase ε (Pull-Requests + Discussions)**
+
+- **PR-Merge ist stale-blind**: `merge()` baut die neue Version aus `currentCards` zusammen, indem es Removes anwendet, dann Modifies-by-Hash, dann Adds. Wenn der Author zwischen PR-Open und Merge selbst eine Karte geändert hat, deren `previousContentHash` der PR matched, gewinnt **stumm** der PR — kein Konflikt-Hinweis. Akzeptabel solange wir wenige PRs/Tag haben; später entweder (a) PR-rebase mit `status=stale` bei Konflikt, oder (b) optimistic locking via `baseVersionId` auf der PR-Row mit Reject bei Mismatch.
+- **Keine Multi-Card-Diff-Visualisierung**: PR-Diff-Preview zeigt jeden Block (`add` / `modify` / `remove`) flach. Bei großen PRs mit 50+ Karten unübersichtlich — Side-by-side-Vergleich pro modify wäre nett.
+- **Discussion-Threading ist 1-Level**: Server speichert schon `parent_id`, aber das UI rendert flach. Bei Bedarf später ein Antworten-Button + visuelle Einrückung — kein Schema-Change nötig.
+- **Card-Preview-Heuristik ist roh**: `<DeckCardList>` zieht `front` → `text` → erstes nicht-leeres Feld, strippt HTML, capt bei 140 Zeichen. Bei Cloze-Karten sieht der Leser den Roh-Text mit `{{c1::…}}`-Markern statt der maskierten Lern-Form. Kein Showstopper; später kann der Server eine `searchPreview`-Spalte schreiben.
+
+**Phase ζ (Paid Decks)**
+
+- **Refunds**: bewusst weggelassen. Author-Clawback ist konzeptuell heikel, weil der Author seinen Anteil nach Grant schon ausgegeben haben kann (→ 402 beim Reverse-Charge). Empfohlene ζ.2-Variante: Admin-only Refund, Buyer kriegt vollen Preis zurück, Author-Clawback nur best-effort, AGB-Klausel über Author-Cut-Risiko bei Refund.
+- **Reconciler fehlt**: Wenn `commit` oder `grant` nach Schritt 2 fehlschlägt, bleibt eine Purchase-Row mit `creditsTransaction = null` bzw. ohne `author_payout`. Code logged das, aber niemand fegt nach. Cron-Sweep in ζ.2.
+- **Buyer hat keinen Refund-Self-Service**: kein 30-Tage-Window-Knopf in der UI. Plan §5.3 sieht ihn vor; warten auf ζ.2.
+- **CSV-Export für Steuern**: nicht drin. Easy add-on, sobald Verein die Steuerklärung 2026 vorbereitet.
+
+**Phase η (Moderation)**
+
+- **Verified-Mana-only Mods**: Admin-Gate ist aktuell `role === 'admin'`. Plan §11 sieht vor, dass auch verified-mana-Authoren Reports abarbeiten dürfen (mit eingeschränkten Aktionen). Würde nach den ersten 50 Reports sinnvoll, vorher over-engineered.
+- **Community-Verified Cron**: Schema + Schwellwerte (`COMMUNITY_VERIFY_STARS=500`, `_FEATURED=3`, `_SUBSCRIBERS=200`) sind im config, aber kein Job berechnet `verified_community`. Add-on: ein Cron-Endpoint im internal API + SystemD-Timer auf Mac mini.
+- **Public Take-Down-Changelog**: Plan erwähnt eine `/transparency`-Page — nicht gebaut. Bringt Trust, niedrige Priorität.
+- **Appeal-Self-Service**: Author hat keinen Self-Service-Knopf für Restore. Bewusste Entscheidung — Appeals sollen menschlich sein, kein Self-Restore.
+- **Report-Spam-Schutz**: ein User kann unbegrenzt Reports gegen ein Deck filen. Rate-Limit (max 1/User+Deck+Tag) wäre billig; kommt mit Phase ι.
+
+**Querschnittsthemen**
+
+- **Disk-Space auf der Build-Maschine** (Mac mini): aktuell ~6.7 GB frei. `pnpm store prune` als nächste Notbremse, falls cards-web-Builds enge Container-Layer brauchen.
 
 ## 14. Offene Punkte die später entschieden werden müssen
 
@@ -596,13 +625,30 @@ Marktplatz ohne Decks ist nutzlos. Drei parallele Hebel:
 - **Backup für Subscriber**: Wenn ein Author published-Deck depubliziert, behalten Subscriber das letzte Snapshot (DSGVO-pflicht eh).
 - **Internationalisierung der UI** (heute nur DE): nötig fürs internationale Publikum.
 
-## 15. Nächste Aktion
+## 15. Aktueller Stand 2026-05-07
 
-Wenn Plan freigegeben ist:
-1. **Phase α starten** — `services/cards-server/` Skelett erstellen + Schema-Migrationen
-2. Plan in monatlichen Updates pflegen — Lessons-Learned + Anpassungen
-3. Phasen-Demos jeweils auf `cards.mana.how` deployen, parallel mit Existing-Workflow
+| Phase | Status | Was läuft | Was fehlt |
+|-------|--------|-----------|-----------|
+| α — Skelett | ✅ | cards-server lebt auf 3072, Schema gepushed, JWT-Auth, Container in `docker-compose.macmini.yml`, Tunnel-Route `cards-api.mana.how` | — |
+| β — Author-Workflow | ✅ | Profil-Claim, Publish, Lizenz, Preis, AI-Mod-Verdict | Tag-Picker im Publish, Author-Dashboard-Stats |
+| γ — Discovery | ✅ | `/explore`, Stars, Follows, Author-Profile, Trending | tsvector-FTS, Tag-Tree, Activity-Feed |
+| δ — Subscribe + Smart-Merge | ✅ | Pull, Smart-Merge mit FSRS-State-Erhalt, Diff-View | WebSocket-Push, Update-Mails |
+| ε — PRs + Discussions | ✅ | PR-Erstellen / List / Merge / Reject / Close, Discussions auf `/learn` + `/d/<slug>`, Notify-Mails | Mention-System, PR-Rebase, Multi-Card-Diff-View, Discussion-Threading |
+| ζ — Paid Decks | 🟡 ζ.1 | Buy-Flow, Author-Payout, Buyer-Dashboard | Refund, Reconciler, CSV-Export |
+| η — Moderation | 🟡 η.1 | Reports, Admin-Inbox, Takedown, Ban-Cascade, Verify-API | Community-Verified-Cron, Public-Changelog, Verified-Mana-Mod-Permissions, Rate-Limit |
+| θ — Deep AI | ⏳ | — | Auto-Tags, Auto-Summary, TTS, Embeddings, Personalized-Discovery |
+| ι — Optimierung | ⏳ | — | Search-Service, CDN, Rate-Limiting, Materialized Views |
+| λ / μ / ν / ξ | ⏳ | — | später (Co-Learn, Mobile, Author-Tools, Lern-Battles) |
+
+**Live-Domains**: `cards.mana.how` (Web) · `cards-api.mana.how` (API).
+
+**Nächste sinnvolle Schritte (Empfehlung)**:
+
+1. **ζ.2 Reconciler + minimaler Admin-Refund** — schließt das größte operative Loch im Paid-Flow.
+2. **η.2 Community-Verified-Cron** — Plan-Vision der „doppelten Verifizierung" ist sonst nur halb umgesetzt; Cron ist klein.
+3. **Update-Mail in δ.4** — Subscriber bekommen sonst nichts mit, wenn Author published. Dann ist die Notify-Story rund (PR-Open + PR-Merged + PR-Rejected + Verkauf + Takedown + Update).
+4. **Phase θ starten** — Auto-Tags + Auto-Summary beim Publish via mana-llm: kostet wenig Code, viel Discovery-Hebel.
 
 ---
 
-*Plan erstellt: 2026-05-07. Owner: @till. Reviewer: TBD.*
+*Plan erstellt: 2026-05-07. Owner: @till. Letzter Stand-Update: 2026-05-07 nach η.1.*
