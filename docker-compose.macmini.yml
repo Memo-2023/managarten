@@ -1312,11 +1312,11 @@ services:
     container_name: mana-status-gen
     restart: always
     mem_limit: 64m
-    # host network: direkter Zugriff auf VictoriaMetrics via localhost:9090
-    # (kein depends_on möglich mit network_mode: host)
-    network_mode: host
+    # VM ist seit Phase 2c auf der GPU-Box. status-gen erreicht sie über
+    # den Public-Hostname vm.mana.how im mana-gpu-server-Tunnel — Colima-
+    # Container können die Mini-LAN-Bridge nicht direkt zur GPU-IP routen.
     environment:
-      VICTORIAMETRICS_URL: http://localhost:9090
+      VICTORIAMETRICS_URL: https://vm.mana.how
       OUTPUT_FILE: /output/index.html
     volumes:
       - ./scripts/generate-status-page.sh:/generate.sh:ro
