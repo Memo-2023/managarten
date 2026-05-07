@@ -299,7 +299,12 @@ services:
     depends_on:
       loki:
         condition: service_started
-    # healthcheck disabled: promtail image has no curl/wget/nc; restart policy handles crashes
+    healthcheck:
+      test: ['CMD', 'bash', '-c', 'exec 3<>/dev/tcp/loki/3100']
+      interval: 60s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
 
   # ============================================
   # Phase 2d — Glitchtip mit dedizierter Postgres + Redis (2026-05-06)
@@ -378,6 +383,12 @@ services:
       SECRET_KEY: ${GLITCHTIP_SECRET_KEY}
       GLITCHTIP_DOMAIN: https://glitchtip.mana.how
       CELERY_WORKER_AUTOSCALE: '1,3'
+    healthcheck:
+      test: ['CMD', 'bash', '-c', 'exec 3<>/dev/tcp/glitchtip-redis/6379']
+      interval: 60s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
 
   # ============================================
   # Phase 2e — Status-Page (2026-05-07): generator + nginx auf GPU-Box.
@@ -412,6 +423,12 @@ services:
           sh /tmp/generate.sh
           sleep 60
         done
+    healthcheck:
+      test: ['CMD-SHELL', '[ -f /output/status.json ] && [ $$(( $$(date +%s) - $$(stat -c %Y /output/status.json) )) -lt 180 ]']
+      interval: 90s
+      timeout: 5s
+      retries: 2
+      start_period: 60s
 
   status-nginx:
     image: nginx:alpine
