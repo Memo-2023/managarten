@@ -99,7 +99,7 @@
 	<header class="mb-6 flex items-center justify-between">
 		<div>
 			<button
-				class="text-sm text-neutral-400 hover:text-neutral-100"
+				class="text-sm text-muted-foreground hover:text-foreground"
 				onclick={() => goto(`/decks/${deckId}`)}
 			>
 				← {deckTitle}
@@ -107,33 +107,33 @@
 			<h1 class="mt-1 text-xl font-semibold">Lernen</h1>
 		</div>
 		{#if queue.length > 0 && !finished}
-			<div class="text-sm text-neutral-400">
+			<div class="text-sm text-muted-foreground">
 				{Math.min(currentIndex + 1, queue.length)} / {queue.length}
 			</div>
 		{/if}
 	</header>
 
 	{#if empty}
-		<div class="rounded-xl border border-neutral-800 bg-neutral-900 p-10 text-center">
+		<div class="rounded-xl border border-border bg-card p-10 text-center">
 			<div class="text-2xl">Alles gelernt</div>
-			<p class="mt-2 text-sm text-neutral-400">
+			<p class="mt-2 text-sm text-muted-foreground">
 				Komm später wieder — fällige Karten erscheinen automatisch.
 			</p>
 			<button
-				class="mt-4 rounded-lg bg-indigo-500 px-4 py-2 text-sm text-white hover:bg-indigo-400"
+				class="mt-4 rounded-lg bg-app-accent px-4 py-2 text-sm text-white hover:bg-app-accent/90"
 				onclick={() => goto(`/decks/${deckId}`)}
 			>
 				Zurück zum Deck
 			</button>
 		</div>
 	{:else if finished}
-		<div class="rounded-xl border border-neutral-800 bg-neutral-900 p-10 text-center">
+		<div class="rounded-xl border border-border bg-card p-10 text-center">
 			<div class="text-2xl">Session abgeschlossen</div>
-			<p class="mt-2 text-sm text-neutral-400">
+			<p class="mt-2 text-sm text-muted-foreground">
 				{sessionCount} Karten in {Math.round((Date.now() - sessionStartedAt) / 1000)} s.
 			</p>
 			<button
-				class="mt-4 rounded-lg bg-indigo-500 px-4 py-2 text-sm text-white hover:bg-indigo-400"
+				class="mt-4 rounded-lg bg-app-accent px-4 py-2 text-sm text-white hover:bg-app-accent/90"
 				onclick={() => goto(`/decks/${deckId}`)}
 			>
 				Fertig
@@ -151,14 +151,14 @@
 		{#if canSuggest}
 			<div class="mt-3 flex justify-end gap-3">
 				<button
-					class="text-xs text-neutral-500 hover:text-neutral-200"
+					class="text-xs text-muted-foreground/80 hover:text-foreground/90"
 					onclick={() => (discussionsOpen = !discussionsOpen)}
 					title="Kommentare zur Karte"
 				>
 					💬 {discussionsOpen ? 'Diskussion ausblenden' : 'Diskussion'}
 				</button>
 				<button
-					class="text-xs text-neutral-500 hover:text-indigo-300"
+					class="text-xs text-muted-foreground/80 hover:text-app-accent"
 					onclick={() => (suggestOpen = true)}
 					title="Verbesserung dieser Karte vorschlagen"
 				>
@@ -173,7 +173,7 @@
 
 		{#if !showBack}
 			<button
-				class="mt-6 w-full rounded-lg bg-indigo-500 py-3 text-base text-white hover:bg-indigo-400"
+				class="mt-6 w-full rounded-lg bg-app-accent py-3 text-base text-white hover:bg-app-accent/90"
 				onclick={reveal}
 			>
 				Aufdecken <span class="ml-2 text-xs opacity-70">(Leertaste)</span>
@@ -181,7 +181,7 @@
 		{:else}
 			<div class="mt-6 grid grid-cols-4 gap-2">
 				<button
-					class="rounded-lg bg-red-500 py-3 text-sm text-white hover:bg-red-400"
+					class="rounded-lg bg-error py-3 text-sm text-white hover:bg-error/90"
 					onclick={() => grade(1)}
 				>
 					Nochmal
@@ -211,7 +211,7 @@
 			</div>
 		{/if}
 	{:else}
-		<div class="text-center text-sm text-neutral-400">Lade…</div>
+		<div class="text-center text-sm text-muted-foreground">Lade…</div>
 	{/if}
 </div>
 

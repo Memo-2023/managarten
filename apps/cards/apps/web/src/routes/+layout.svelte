@@ -1,11 +1,13 @@
 <script lang="ts">
 	import '../app.css';
 	import type { Snippet } from 'svelte';
-	import { onDestroy } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
 	import { AuthGate } from '@mana/shared-auth-ui';
+	import ThemeToggle from '@mana/shared-theme-ui/ThemeToggle.svelte';
 	import { authStore } from '$lib/stores/auth.svelte';
+	import { theme, applyCardsAccent } from '$lib/stores/theme';
 	import { startSync, stopSync } from '$lib/data/sync';
 	import { useStreak } from '$lib/queries';
 	import { pwaInfo } from 'virtual:pwa-info';
@@ -35,6 +37,14 @@
 	// manifest → no install icon, no A2HS on mobile.
 	const webManifestLink = $derived(pwaInfo?.webManifest.linkTag ?? '');
 
+	onMount(() => {
+		// Apply the Cards brand accent once at boot. The shared theme
+		// store handles light/dark + variant via createThemeStore above
+		// (ran during module init); this just sets --color-app-accent
+		// so `bg-app-accent` etc. resolve to Cards' violet.
+		applyCardsAccent();
+	});
+
 	onDestroy(() => stopSync());
 </script>
 
@@ -46,25 +56,26 @@
 	{@render children()}
 {:else}
 	<AuthGate {authStore} {goto} onReady={handleAuthReady}>
-		<header class="border-b border-neutral-900">
+		<header class="border-b border-border">
 			<div class="mx-auto flex max-w-3xl items-center justify-between px-6 py-3">
 				<a href="/" class="flex items-center gap-2 text-sm font-semibold tracking-tight">
 					<span class="text-base">🃏</span> Cards
 				</a>
-				<nav class="flex items-center gap-4 text-xs text-neutral-400">
-					<a href="/" class="hover:text-neutral-100">Meine Decks</a>
-					<a href="/explore" class="hover:text-neutral-100">Entdecken</a>
-					<a href="/me/purchases" class="hover:text-neutral-100">Käufe</a>
+				<nav class="flex items-center gap-4 text-xs text-muted-foreground">
+					<a href="/" class="hover:text-foreground">Meine Decks</a>
+					<a href="/explore" class="hover:text-foreground">Entdecken</a>
+					<a href="/me/purchases" class="hover:text-foreground">Käufe</a>
 				</nav>
-				<div class="flex items-center gap-3 text-xs text-neutral-500">
+				<div class="flex items-center gap-3 text-xs text-muted-foreground">
 					{#if streak > 0}
 						<span
-							class="inline-flex items-center gap-1 rounded-full bg-orange-500/15 px-2 py-0.5 text-orange-300"
+							class="inline-flex items-center gap-1 rounded-full bg-warning/15 px-2 py-0.5 text-warning"
 							title="{streak} {streak === 1 ? 'Tag' : 'Tage'} in Folge gelernt"
 						>
 							🔥 {streak}
 						</span>
 					{/if}
+					<ThemeToggle {theme} size={16} />
 					{#if authStore.user?.email}
 						<span class="hidden sm:inline">{authStore.user.email}</span>
 					{/if}
@@ -74,7 +85,7 @@
 							await authStore.signOut();
 							goto('/login');
 						}}
-						class="rounded-md border border-neutral-800 px-2 py-1 hover:border-neutral-700 hover:text-neutral-100"
+						class="rounded-md border border-border px-2 py-1 hover:border-border-strong hover:text-foreground"
 					>
 						Abmelden
 					</button>

@@ -43,15 +43,15 @@
 	<header class="mb-8 flex items-center justify-between">
 		<div>
 			<h1 class="text-3xl font-semibold tracking-tight">Cards</h1>
-			<p class="text-sm text-neutral-400">
+			<p class="text-sm text-muted-foreground">
 				{decks.length}
 				{decks.length === 1 ? 'Deck' : 'Decks'}{#if totalDue > 0}
-					· <span class="text-amber-400">{totalDue} fällig</span>
+					· <span class="text-warning">{totalDue} fällig</span>
 				{/if}
 			</p>
 		</div>
 		<button
-			class="rounded-lg bg-indigo-500 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-400"
+			class="rounded-lg bg-app-accent px-4 py-2 text-sm font-medium text-white hover:bg-app-accent/90"
 			onclick={() => (showNew = true)}
 		>
 			Neues Deck
@@ -60,7 +60,7 @@
 
 	{#if showNew}
 		<form
-			class="mb-6 space-y-3 rounded-xl border border-neutral-800 bg-neutral-900 p-4"
+			class="mb-6 space-y-3 rounded-xl border border-border bg-card p-4"
 			onsubmit={(e) => {
 				e.preventDefault();
 				handleCreate();
@@ -71,19 +71,19 @@
 				type="text"
 				bind:value={newTitle}
 				placeholder="Titel (z.B. Spanisch Vokabeln)"
-				class="w-full rounded-lg border border-neutral-700 bg-neutral-950 px-3 py-2 text-sm outline-none focus:border-indigo-400"
+				class="w-full rounded-lg border border-border-strong bg-background px-3 py-2 text-sm outline-none focus:border-indigo-400"
 				autofocus
 				required
 			/>
 			<textarea
 				bind:value={newDesc}
 				placeholder="Beschreibung (optional)"
-				class="min-h-[60px] w-full rounded-lg border border-neutral-700 bg-neutral-950 px-3 py-2 text-sm outline-none focus:border-indigo-400"
+				class="min-h-[60px] w-full rounded-lg border border-border-strong bg-background px-3 py-2 text-sm outline-none focus:border-indigo-400"
 			></textarea>
 			<div class="flex justify-end gap-2">
 				<button
 					type="button"
-					class="rounded-lg px-3 py-1.5 text-sm text-neutral-400 hover:text-neutral-100"
+					class="rounded-lg px-3 py-1.5 text-sm text-muted-foreground hover:text-foreground"
 					onclick={() => {
 						showNew = false;
 						newTitle = '';
@@ -94,7 +94,7 @@
 				</button>
 				<button
 					type="submit"
-					class="rounded-lg bg-indigo-500 px-4 py-1.5 text-sm text-white hover:bg-indigo-400 disabled:opacity-50"
+					class="rounded-lg bg-app-accent px-4 py-1.5 text-sm text-white hover:bg-app-accent/90 disabled:opacity-50"
 					disabled={!newTitle.trim() || creating}
 				>
 					{creating ? 'Lege an…' : 'Anlegen'}
@@ -104,11 +104,11 @@
 	{/if}
 
 	{#if decks.length === 0 && !showNew}
-		<div class="rounded-xl border border-neutral-800 bg-neutral-900 p-10 text-center">
+		<div class="rounded-xl border border-border bg-card p-10 text-center">
 			<div class="mb-3 text-4xl">🃏</div>
-			<p class="text-neutral-400">Noch keine Decks. Leg dein erstes an.</p>
+			<p class="text-muted-foreground">Noch keine Decks. Leg dein erstes an.</p>
 			<button
-				class="mt-4 rounded-lg bg-indigo-500 px-4 py-2 text-sm text-white hover:bg-indigo-400"
+				class="mt-4 rounded-lg bg-app-accent px-4 py-2 text-sm text-white hover:bg-app-accent/90"
 				onclick={() => (showNew = true)}
 			>
 				Erstes Deck anlegen
@@ -121,21 +121,21 @@
 				<li>
 					<a
 						href={`/decks/${deck.id}`}
-						class="flex items-center gap-3 rounded-xl border border-neutral-800 bg-neutral-900 px-4 py-3 transition-colors hover:border-neutral-700 hover:bg-neutral-800"
+						class="flex items-center gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:border-border-strong hover:bg-muted"
 					>
 						<span class="h-3 w-3 shrink-0 rounded-full" style="background: {deck.color}"></span>
 						<span class="flex-1 truncate">
 							<span class="block font-medium">{deck.title}</span>
 							{#if deck.description}
-								<span class="block truncate text-xs text-neutral-400">{deck.description}</span>
+								<span class="block truncate text-xs text-muted-foreground">{deck.description}</span>
 							{/if}
 						</span>
 						{#if due > 0}
-							<span class="rounded-full bg-amber-500/15 px-2 py-0.5 text-xs text-amber-400">
+							<span class="rounded-full bg-amber-500/15 px-2 py-0.5 text-xs text-warning">
 								{due} fällig
 							</span>
 						{/if}
-						<span class="text-xs text-neutral-500">{deck.cardCount}</span>
+						<span class="text-xs text-muted-foreground/80">{deck.cardCount}</span>
 					</a>
 				</li>
 			{/each}
@@ -150,5 +150,7 @@
 		<AnkiImport />
 	</div>
 
-	<p class="mt-12 text-center text-xs text-neutral-600">Phase 1 · synct mit mana.how/cards</p>
+	<p class="mt-12 text-center text-xs text-muted-foreground/60">
+		Phase 1 · synct mit mana.how/cards
+	</p>
 </main>

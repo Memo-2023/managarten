@@ -53,20 +53,20 @@
 
 <section class="mt-10">
 	<header class="mb-3 flex items-center justify-between">
-		<h2 class="text-sm font-semibold uppercase tracking-wide text-neutral-400">
+		<h2 class="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
 			Karten {cards.length > 0 ? `(${cards.length})` : ''}
 		</h2>
 		{#if loading}
-			<span class="text-xs text-neutral-600">Lädt…</span>
+			<span class="text-xs text-muted-foreground/60">Lädt…</span>
 		{/if}
 	</header>
 
 	{#if error}
-		<p class="mb-3 rounded-lg border border-red-500/30 bg-red-500/10 p-3 text-sm text-red-400">
+		<p class="mb-3 rounded-lg border border-error/30 bg-error/10 p-3 text-sm text-error">
 			{error}
 		</p>
 	{:else if cards.length === 0 && !loading}
-		<p class="rounded-xl border border-neutral-800 bg-neutral-900 p-4 text-sm text-neutral-500">
+		<p class="rounded-xl border border-border bg-card p-4 text-sm text-muted-foreground/80">
 			Diese Version enthält keine Karten.
 		</p>
 	{:else}
@@ -74,18 +74,18 @@
 			{#each cards as c (c.contentHash)}
 				{@const n = counts[c.contentHash] ?? 0}
 				{@const isOpen = openHash === c.contentHash}
-				<li class="rounded-xl border border-neutral-800 bg-neutral-900 p-3">
+				<li class="rounded-xl border border-border bg-card p-3">
 					<button
 						class="flex w-full items-center justify-between gap-3 text-left"
 						onclick={() => (openHash = isOpen ? null : c.contentHash)}
 					>
 						<div class="min-w-0 flex-1">
-							<div class="text-xs uppercase tracking-wide text-neutral-500">
+							<div class="text-xs uppercase tracking-wide text-muted-foreground/80">
 								#{c.ord + 1} · {c.type}
 							</div>
-							<div class="mt-1 truncate text-sm text-neutral-200">{preview(c)}</div>
+							<div class="mt-1 truncate text-sm text-foreground/90">{preview(c)}</div>
 						</div>
-						<div class="shrink-0 text-xs text-neutral-500">
+						<div class="shrink-0 text-xs text-muted-foreground/80">
 							{#if n > 0}
 								💬 {n}
 							{:else}

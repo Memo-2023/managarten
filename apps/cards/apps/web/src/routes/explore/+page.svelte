@@ -56,7 +56,7 @@
 <main class="mx-auto max-w-3xl px-6 py-8">
 	<header class="mb-6">
 		<h1 class="text-3xl font-semibold tracking-tight">Entdecken</h1>
-		<p class="text-sm text-neutral-400">
+		<p class="text-sm text-muted-foreground">
 			Decks aus dem Cards-Marktplatz — kostenlos lernen oder eigene veröffentlichen.
 		</p>
 	</header>
@@ -72,11 +72,11 @@
 			type="search"
 			bind:value={searchQuery}
 			placeholder="Suche nach Titel oder Beschreibung…"
-			class="flex-1 rounded-lg border border-neutral-700 bg-neutral-950 px-3 py-2 text-sm outline-none focus:border-indigo-400"
+			class="flex-1 rounded-lg border border-border-strong bg-background px-3 py-2 text-sm outline-none focus:border-indigo-400"
 		/>
 		<button
 			type="submit"
-			class="rounded-lg bg-indigo-500 px-4 py-2 text-sm text-white hover:bg-indigo-400 disabled:opacity-50"
+			class="rounded-lg bg-app-accent px-4 py-2 text-sm text-white hover:bg-app-accent/90 disabled:opacity-50"
 			disabled={searchBusy}
 		>
 			{searchBusy ? 'Suche…' : 'Suchen'}
@@ -84,19 +84,22 @@
 	</form>
 
 	{#if stage === 'loading'}
-		<p class="py-12 text-center text-sm text-neutral-400">Lade Marktplatz…</p>
+		<p class="py-12 text-center text-sm text-muted-foreground">Lade Marktplatz…</p>
 	{:else if stage === 'error'}
-		<p class="rounded-lg border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-400">
+		<p class="rounded-lg border border-error/30 bg-error/10 p-4 text-sm text-error">
 			{error}
 			<button class="ml-2 underline" onclick={loadLanding}>Erneut versuchen</button>
 		</p>
 	{:else if stage === 'search'}
 		<section>
 			<div class="mb-3 flex items-center justify-between">
-				<h2 class="text-sm font-medium text-neutral-300">
+				<h2 class="text-sm font-medium text-foreground/80">
 					{searchTotal} Treffer für „{searchQuery}"
 				</h2>
-				<button class="text-xs text-neutral-500 hover:text-neutral-200" onclick={loadLanding}>
+				<button
+					class="text-xs text-muted-foreground/80 hover:text-foreground/90"
+					onclick={loadLanding}
+				>
 					Zurück
 				</button>
 			</div>
@@ -105,7 +108,7 @@
 	{:else if stage === 'landing'}
 		{#if featured.length > 0}
 			<section class="mb-8">
-				<h2 class="mb-3 text-sm font-medium text-neutral-300">
+				<h2 class="mb-3 text-sm font-medium text-foreground/80">
 					🛡️ Featured · vom Mana-Verein empfohlen
 				</h2>
 				<DeckGrid decks={featured} />
@@ -113,12 +116,15 @@
 		{/if}
 
 		<section>
-			<h2 class="mb-3 text-sm font-medium text-neutral-300">📈 Trending · letzte 7 Tage</h2>
-			<DeckGrid decks={trending} emptyText="Noch keine Trends — sei der/die Erste mit einem Public-Deck." />
+			<h2 class="mb-3 text-sm font-medium text-foreground/80">📈 Trending · letzte 7 Tage</h2>
+			<DeckGrid
+				decks={trending}
+				emptyText="Noch keine Trends — sei der/die Erste mit einem Public-Deck."
+			/>
 		</section>
 	{/if}
 
-	<p class="mt-12 text-center text-xs text-neutral-600">
-		<a href="/" class="hover:text-neutral-300">← Eigene Decks</a>
+	<p class="mt-12 text-center text-xs text-muted-foreground/60">
+		<a href="/" class="hover:text-foreground/80">← Eigene Decks</a>
 	</p>
 </main>

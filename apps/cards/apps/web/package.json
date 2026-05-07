@@ -37,6 +37,7 @@
 		"@mana/shared-stores": "workspace:*",
 		"@mana/shared-tailwind": "workspace:*",
 		"@mana/shared-theme": "workspace:*",
+		"@mana/shared-theme-ui": "workspace:*",
 		"@mana/shared-types": "workspace:*",
 		"@mana/shared-utils": "workspace:*",
 		"dexie": "^4.4.1",

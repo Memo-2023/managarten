@@ -53,6 +53,8 @@ const REPO_ROOT = join(__dirname, '..');
 const SCAN_GLOBS = [
 	'apps/mana/apps/web/src/lib/modules/**/*.svelte',
 	'apps/mana/apps/web/src/routes/(app)/**/*.svelte',
+	'apps/cards/apps/web/src/lib/components/**/*.svelte',
+	'apps/cards/apps/web/src/routes/**/*.svelte',
 ];
 
 /**

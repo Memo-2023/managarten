@@ -187,7 +187,9 @@
 </svelte:head>
 
 <main class="mx-auto max-w-3xl px-6 py-10">
-	<a href="/" class="mb-6 inline-block text-sm text-neutral-400 hover:text-neutral-100">← Decks</a>
+	<a href="/" class="mb-6 inline-block text-sm text-muted-foreground hover:text-foreground"
+		>← Decks</a
+	>
 
 	{#if deck}
 		<header class="mb-6 flex items-start justify-between gap-4">
@@ -197,11 +199,11 @@
 					<h1 class="text-2xl font-semibold">{deck.title}</h1>
 				</div>
 				{#if deck.description}
-					<p class="text-sm text-neutral-400">{deck.description}</p>
+					<p class="text-sm text-muted-foreground">{deck.description}</p>
 				{/if}
 			</div>
 			<button
-				class="rounded-lg border border-red-500/30 px-3 py-1.5 text-sm text-red-400 hover:bg-red-500/10"
+				class="rounded-lg border border-error/30 px-3 py-1.5 text-sm text-error hover:bg-error/10"
 				onclick={() => (confirmDelete = true)}
 			>
 				Löschen
@@ -209,27 +211,27 @@
 		</header>
 
 		{#if isSubscribed}
-			<div class="mb-6 rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-4 text-sm">
+			<div class="mb-6 rounded-xl border border-success/30 bg-emerald-500/5 p-4 text-sm">
 				<div class="flex items-start justify-between gap-3">
 					<div>
-						<div class="font-medium text-emerald-300">
+						<div class="font-medium text-success">
 							📥 Abonniert · v{subscribedAtVersion}
 						</div>
-						<p class="mt-1 text-xs text-neutral-400">
+						<p class="mt-1 text-xs text-muted-foreground">
 							Aus dem Marktplatz von <a
 								href={`/d/${subscribedFromSlug}`}
-								class="text-emerald-300 hover:underline">{subscribedFromSlug}</a
+								class="text-success hover:underline">{subscribedFromSlug}</a
 							>. Karten sind read-only — Author entscheidet über Inhalte. Forken um eigene Variante
 							zu machen (Phase ε).
 						</p>
 					</div>
 				</div>
 				{#if updatePreview}
-					<div class="mt-3 flex flex-wrap items-center gap-2 rounded-lg bg-emerald-500/10 p-2">
+					<div class="mt-3 flex flex-wrap items-center gap-2 rounded-lg bg-success/10 p-2">
 						<span class="text-xs font-medium text-emerald-200">
 							Update auf v{updatePreview.to} verfügbar
 						</span>
-						<span class="text-xs text-neutral-400">
+						<span class="text-xs text-muted-foreground">
 							+{updatePreview.added} neu · ~{updatePreview.changed} geändert · −{updatePreview.removed}
 							entfernt
 						</span>
@@ -243,14 +245,14 @@
 					</div>
 				{/if}
 				{#if updateError}
-					<p class="mt-2 text-xs text-red-400">{updateError}</p>
+					<p class="mt-2 text-xs text-error">{updateError}</p>
 				{/if}
 			</div>
 		{/if}
 
 		<div class="mb-6 flex flex-wrap items-center gap-3">
 			<button
-				class="rounded-lg bg-indigo-500 px-5 py-2.5 text-sm font-medium text-white hover:bg-indigo-400 disabled:opacity-50"
+				class="rounded-lg bg-app-accent px-5 py-2.5 text-sm font-medium text-white hover:bg-app-accent/90 disabled:opacity-50"
 				onclick={() => goto(`/learn/${deckId}`)}
 				disabled={dueCount === 0}
 			>
@@ -263,7 +265,7 @@
 			</button>
 			{#if !isSubscribed}
 				<button
-					class="rounded-lg border border-indigo-500/30 px-4 py-2 text-sm text-indigo-300 hover:bg-indigo-500/10 disabled:opacity-50"
+					class="rounded-lg border border-indigo-500/30 px-4 py-2 text-sm text-app-accent hover:bg-app-accent/10 disabled:opacity-50"
 					onclick={() => (showPublish = true)}
 					disabled={cards.length === 0}
 					title={cards.length === 0
@@ -274,32 +276,33 @@
 				</button>
 			{/if}
 			{#if dueCount === 0 && cards.length > 0}
-				<span class="text-sm text-neutral-400">Heute alles gelernt — schau später wieder rein.</span
+				<span class="text-sm text-muted-foreground"
+					>Heute alles gelernt — schau später wieder rein.</span
 				>
 			{/if}
 		</div>
 
 		<div class="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
-			<div class="rounded-xl border border-neutral-800 bg-neutral-900 p-4 text-center">
+			<div class="rounded-xl border border-border bg-card p-4 text-center">
 				<div class="text-2xl font-semibold">{cards.length}</div>
-				<div class="text-xs text-neutral-400">Karten</div>
+				<div class="text-xs text-muted-foreground">Karten</div>
 			</div>
-			<div class="rounded-xl border border-neutral-800 bg-neutral-900 p-4 text-center">
-				<div class="text-2xl font-semibold text-amber-400">{dueCount}</div>
-				<div class="text-xs text-neutral-400">Fällig</div>
+			<div class="rounded-xl border border-border bg-card p-4 text-center">
+				<div class="text-2xl font-semibold text-warning">{dueCount}</div>
+				<div class="text-xs text-muted-foreground">Fällig</div>
 			</div>
 		</div>
 
 		{#if !isSubscribed}
 			<div class="mb-6 flex flex-wrap items-center gap-3">
 				<button
-					class="rounded-lg bg-indigo-500 px-4 py-2 text-sm text-white hover:bg-indigo-400"
+					class="rounded-lg bg-app-accent px-4 py-2 text-sm text-white hover:bg-app-accent/90"
 					onclick={() => (showNew = true)}
 				>
 					Neue Karte
 				</button>
 				<button
-					class="rounded-lg border border-indigo-500/30 px-4 py-2 text-sm text-indigo-300 hover:bg-indigo-500/10"
+					class="rounded-lg border border-indigo-500/30 px-4 py-2 text-sm text-app-accent hover:bg-app-accent/10"
 					onclick={() => (showAi = !showAi)}
 				>
 					✨ Aus Text generieren
@@ -314,7 +317,7 @@
 		{/if}
 
 		{#if showNew}
-			<div class="mb-6 rounded-xl border border-indigo-500/30 bg-neutral-900 p-4">
+			<div class="mb-6 rounded-xl border border-indigo-500/30 bg-card p-4">
 				<h3 class="mb-3 font-medium">Neue Karte</h3>
 
 				<div class="mb-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
@@ -324,11 +327,11 @@
 							onclick={() => (newType = opt.value)}
 							class="rounded-lg border p-2 text-left text-sm transition-colors {newType ===
 							opt.value
-								? 'border-indigo-400 bg-indigo-500/10 text-indigo-300'
-								: 'border-neutral-700 hover:bg-neutral-800'}"
+								? 'border-indigo-400 bg-app-accent/10 text-app-accent'
+								: 'border-border-strong hover:bg-muted'}"
 						>
 							<div class="font-medium">{opt.label}</div>
-							<div class="text-xs text-neutral-400">{opt.hint}</div>
+							<div class="text-xs text-muted-foreground">{opt.hint}</div>
 						</button>
 					{/each}
 				</div>
@@ -337,10 +340,11 @@
 					{#if newType === 'cloze'}
 						<div>
 							<div class="mb-1 flex items-center justify-between">
-								<label for="card-cloze" class="text-sm text-neutral-400">Text mit Lücken</label>
+								<label for="card-cloze" class="text-sm text-muted-foreground">Text mit Lücken</label
+								>
 								<button
 									type="button"
-									class="text-xs text-indigo-300 hover:text-indigo-200 disabled:opacity-50"
+									class="text-xs text-app-accent hover:text-indigo-200 disabled:opacity-50"
 									onclick={() => pickAttachment('cloze')}
 									disabled={attachBusy !== null}
 								>
@@ -359,22 +363,22 @@
 								id="card-cloze"
 								bind:value={newCloze}
 								placeholder="Berlin ist die Hauptstadt von &#123;&#123;c1::Deutschland&#125;&#125;."
-								class="min-h-[100px] w-full rounded-lg border border-neutral-700 bg-neutral-950 px-3 py-2 text-sm outline-none focus:border-indigo-400"
+								class="min-h-[100px] w-full rounded-lg border border-border-strong bg-background px-3 py-2 text-sm outline-none focus:border-indigo-400"
 								autofocus
 							></textarea>
-							<p class="mt-1 text-xs text-neutral-500">
+							<p class="mt-1 text-xs text-muted-foreground/80">
 								Markiere mit
-								<code class="rounded bg-neutral-800 px-1">&#123;&#123;c1::Wort&#125;&#125;</code>
-								— optional Hinweis: <code class="rounded bg-neutral-800 px-1">::Hinweis</code>.
+								<code class="rounded bg-muted px-1">&#123;&#123;c1::Wort&#125;&#125;</code>
+								— optional Hinweis: <code class="rounded bg-muted px-1">::Hinweis</code>.
 							</p>
 						</div>
 					{:else}
 						<div>
 							<div class="mb-1 flex items-center justify-between">
-								<label for="card-front" class="text-sm text-neutral-400">Vorderseite</label>
+								<label for="card-front" class="text-sm text-muted-foreground">Vorderseite</label>
 								<button
 									type="button"
-									class="text-xs text-indigo-300 hover:text-indigo-200 disabled:opacity-50"
+									class="text-xs text-app-accent hover:text-indigo-200 disabled:opacity-50"
 									onclick={() => pickAttachment('front')}
 									disabled={attachBusy !== null}
 								>
@@ -394,16 +398,16 @@
 								type="text"
 								bind:value={newFront}
 								placeholder="Frage oder Begriff…"
-								class="w-full rounded-lg border border-neutral-700 bg-neutral-950 px-3 py-2 text-sm outline-none focus:border-indigo-400"
+								class="w-full rounded-lg border border-border-strong bg-background px-3 py-2 text-sm outline-none focus:border-indigo-400"
 								autofocus
 							/>
 						</div>
 						<div>
 							<div class="mb-1 flex items-center justify-between">
-								<label for="card-back" class="text-sm text-neutral-400">Rückseite</label>
+								<label for="card-back" class="text-sm text-muted-foreground">Rückseite</label>
 								<button
 									type="button"
-									class="text-xs text-indigo-300 hover:text-indigo-200 disabled:opacity-50"
+									class="text-xs text-app-accent hover:text-indigo-200 disabled:opacity-50"
 									onclick={() => pickAttachment('back')}
 									disabled={attachBusy !== null}
 								>
@@ -421,16 +425,16 @@
 								id="card-back"
 								bind:value={newBack}
 								placeholder="Antwort oder Erklärung…"
-								class="min-h-[80px] w-full rounded-lg border border-neutral-700 bg-neutral-950 px-3 py-2 text-sm outline-none focus:border-indigo-400"
+								class="min-h-[80px] w-full rounded-lg border border-border-strong bg-background px-3 py-2 text-sm outline-none focus:border-indigo-400"
 							></textarea>
 						</div>
 					{/if}
 					{#if attachError}
-						<p class="text-xs text-red-400">{attachError}</p>
+						<p class="text-xs text-error">{attachError}</p>
 					{/if}
 					<div class="flex justify-end gap-2">
 						<button
-							class="rounded-lg px-3 py-1.5 text-sm text-neutral-400 hover:text-neutral-100"
+							class="rounded-lg px-3 py-1.5 text-sm text-muted-foreground hover:text-foreground"
 							onclick={() => {
 								showNew = false;
 								newFront = '';
@@ -441,7 +445,7 @@
 							Abbrechen
 						</button>
 						<button
-							class="rounded-lg bg-indigo-500 px-4 py-1.5 text-sm text-white hover:bg-indigo-400 disabled:opacity-50"
+							class="rounded-lg bg-app-accent px-4 py-1.5 text-sm text-white hover:bg-app-accent/90 disabled:opacity-50"
 							onclick={handleCreateCard}
 							disabled={!canSubmit()}
 						>
@@ -452,12 +456,12 @@
 			</div>
 		{/if}
 
-		<div class="rounded-xl border border-neutral-800 bg-neutral-900">
-			<h2 class="border-b border-neutral-800 p-4 text-lg font-semibold">
+		<div class="rounded-xl border border-border bg-card">
+			<h2 class="border-b border-border p-4 text-lg font-semibold">
 				Karten ({cards.length})
 			</h2>
 			{#if cards.length === 0}
-				<div class="p-10 text-center text-neutral-400">
+				<div class="p-10 text-center text-muted-foreground">
 					Noch keine Karten. Erstelle deine erste!
 				</div>
 			{:else}
@@ -465,24 +469,24 @@
 					{#each cards as card, i (card.id)}
 						{@const p = preview(card)}
 						<li class="flex items-start gap-4 p-4">
-							<span class="mt-1 text-xs text-neutral-500">{i + 1}.</span>
+							<span class="mt-1 text-xs text-muted-foreground/80">{i + 1}.</span>
 							<div class="min-w-0 flex-1 space-y-1">
 								<div class="card-content">
 									{@html renderMarkdown(p.primary)}
 								</div>
 								{#if p.secondary}
-									<div class="card-content text-sm text-neutral-400">
+									<div class="card-content text-sm text-muted-foreground">
 										{@html renderMarkdown(p.secondary)}
 									</div>
 								{/if}
 							</div>
 							<div class="flex items-center gap-2">
-								<span class="rounded-full bg-neutral-800 px-2 py-0.5 text-xs text-neutral-400">
+								<span class="rounded-full bg-muted px-2 py-0.5 text-xs text-muted-foreground">
 									{typeBadge(card.type)}
 								</span>
 								{#if !isSubscribed}
 									<button
-										class="rounded p-1 text-neutral-500 hover:text-red-400"
+										class="rounded p-1 text-muted-foreground/80 hover:text-error"
 										onclick={() => handleDeleteCard(card.id)}
 										aria-label="Karte löschen"
 									>
@@ -506,22 +510,22 @@
 				<!-- svelte-ignore a11y_no_static_element_interactions -->
 				<!-- svelte-ignore a11y_click_events_have_key_events -->
 				<div
-					class="mx-4 w-full max-w-md rounded-xl border border-neutral-800 bg-neutral-900 p-6"
+					class="mx-4 w-full max-w-md rounded-xl border border-border bg-card p-6"
 					onclick={(e) => e.stopPropagation()}
 				>
 					<h3 class="mb-2 text-xl font-semibold">Deck löschen?</h3>
-					<p class="mb-6 text-neutral-400">
+					<p class="mb-6 text-muted-foreground">
 						"{deck.title}" wird mit allen Karten gelöscht.
 					</p>
 					<div class="flex justify-end gap-3">
 						<button
-							class="rounded-lg px-4 py-2 text-sm text-neutral-400 hover:text-neutral-100"
+							class="rounded-lg px-4 py-2 text-sm text-muted-foreground hover:text-foreground"
 							onclick={() => (confirmDelete = false)}
 						>
 							Abbrechen
 						</button>
 						<button
-							class="rounded-lg bg-red-500 px-4 py-2 text-sm text-white hover:bg-red-400"
+							class="rounded-lg bg-error px-4 py-2 text-sm text-white hover:bg-error/90"
 							onclick={handleDeleteDeck}
 						>
 							Löschen
@@ -531,9 +535,9 @@
 			</div>
 		{/if}
 	{:else}
-		<div class="py-16 text-center text-neutral-400">
+		<div class="py-16 text-center text-muted-foreground">
 			Deck nicht gefunden.
-			<a href="/" class="ml-2 text-indigo-400 hover:underline">zurück</a>
+			<a href="/" class="ml-2 text-app-accent hover:underline">zurück</a>
 		</div>
 	{/if}
 </main>

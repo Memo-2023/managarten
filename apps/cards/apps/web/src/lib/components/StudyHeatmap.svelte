@@ -38,7 +38,7 @@
 	const max = $derived(rawDays.reduce((m, d) => Math.max(m, d.count), 0));
 
 	function bucket(count: number): string {
-		if (count === 0) return 'bg-neutral-800';
+		if (count === 0) return 'bg-muted';
 		if (count <= Math.max(1, max * 0.25)) return 'bg-emerald-900';
 		if (count <= max * 0.5) return 'bg-emerald-700';
 		if (count <= max * 0.75) return 'bg-emerald-500';
@@ -58,10 +58,10 @@
 	const activeDays = $derived(rawDays.filter((d) => d.count > 0).length);
 </script>
 
-<div class="rounded-xl border border-neutral-800 bg-neutral-900 p-4">
+<div class="rounded-xl border border-border bg-card p-4">
 	<div class="mb-3 flex items-center justify-between text-sm">
 		<span class="font-medium">Lernaktivität</span>
-		<span class="text-xs text-neutral-500">
+		<span class="text-xs text-muted-foreground/80">
 			{total} Karten · {activeDays} aktive {activeDays === 1 ? 'Tag' : 'Tage'} · letzte {weeks} Wochen
 		</span>
 	</div>
@@ -81,9 +81,9 @@
 			</div>
 		{/each}
 	</div>
-	<div class="mt-3 flex items-center gap-1 text-xs text-neutral-500">
+	<div class="mt-3 flex items-center gap-1 text-xs text-muted-foreground/80">
 		<span>weniger</span>
-		<span class="ml-1 h-3 w-3 rounded-sm bg-neutral-800"></span>
+		<span class="ml-1 h-3 w-3 rounded-sm bg-muted"></span>
 		<span class="h-3 w-3 rounded-sm bg-emerald-900"></span>
 		<span class="h-3 w-3 rounded-sm bg-emerald-700"></span>
 		<span class="h-3 w-3 rounded-sm bg-emerald-500"></span>

@@ -30,7 +30,7 @@ const REPO_ROOT = join(__dirname, '..');
 const THEMES_CSS = join(REPO_ROOT, 'packages/shared-tailwind/src/themes.css');
 
 /** Tokens defined once at :root that do NOT participate in parity. */
-const THEME_AGNOSTIC = /^--color-(?:branch-|mana$)/;
+const THEME_AGNOSTIC = /^--color-(?:branch-|mana$|app-accent$)/;
 
 /**
  * Parse themes.css into selector → Set<tokenName>. A block starts at a

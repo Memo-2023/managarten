@@ -135,28 +135,28 @@
 	<!-- svelte-ignore a11y_no_static_element_interactions -->
 	<!-- svelte-ignore a11y_click_events_have_key_events -->
 	<div
-		class="w-full max-w-lg rounded-xl border border-neutral-800 bg-neutral-900 p-6"
+		class="w-full max-w-lg rounded-xl border border-border bg-card p-6"
 		onclick={(e) => e.stopPropagation()}
 	>
 		<div class="mb-4 flex items-start justify-between">
 			<h2 class="text-xl font-semibold">Deck veröffentlichen</h2>
 			<button
 				onclick={onClose}
-				class="text-neutral-500 hover:text-neutral-200"
+				class="text-muted-foreground/80 hover:text-foreground/90"
 				aria-label="Schließen">✕</button
 			>
 		</div>
 
 		{#if stage === 'loading'}
-			<div class="py-8 text-center text-sm text-neutral-400">Lade Author-Profil…</div>
+			<div class="py-8 text-center text-sm text-muted-foreground">Lade Author-Profil…</div>
 		{:else if stage === 'become-author'}
 			<div class="space-y-4 text-sm">
-				<p class="text-neutral-300">
+				<p class="text-foreground/80">
 					Erstelle ein Author-Profil — andere User finden deine Decks unter
-					<code class="rounded bg-neutral-800 px-1 text-xs">cards.mana.how/u/dein-slug</code>.
+					<code class="rounded bg-muted px-1 text-xs">cards.mana.how/u/dein-slug</code>.
 				</p>
 				<div>
-					<label for="author-slug" class="mb-1 block text-xs text-neutral-400">
+					<label for="author-slug" class="mb-1 block text-xs text-muted-foreground">
 						Slug (3–60 Zeichen, a–z, 0–9, -)
 					</label>
 					<input
@@ -164,35 +164,37 @@
 						type="text"
 						bind:value={authorSlug}
 						placeholder="anna-lang"
-						class="w-full rounded-lg border border-neutral-700 bg-neutral-950 px-3 py-2 text-sm outline-none focus:border-indigo-400"
+						class="w-full rounded-lg border border-border-strong bg-background px-3 py-2 text-sm outline-none focus:border-indigo-400"
 					/>
 				</div>
 				<div>
-					<label for="author-name" class="mb-1 block text-xs text-neutral-400">Anzeigename</label>
+					<label for="author-name" class="mb-1 block text-xs text-muted-foreground"
+						>Anzeigename</label
+					>
 					<input
 						id="author-name"
 						type="text"
 						bind:value={authorName}
 						placeholder="Anna Lang"
-						class="w-full rounded-lg border border-neutral-700 bg-neutral-950 px-3 py-2 text-sm outline-none focus:border-indigo-400"
+						class="w-full rounded-lg border border-border-strong bg-background px-3 py-2 text-sm outline-none focus:border-indigo-400"
 					/>
 				</div>
-				<label class="flex items-start gap-2 text-xs text-neutral-400">
+				<label class="flex items-start gap-2 text-xs text-muted-foreground">
 					<input type="checkbox" bind:checked={authorPseudonym} class="mt-0.5" />
 					<span>Pseudonym — Anzeigename ist nicht mein Klarname</span>
 				</label>
 				{#if authorStore.error}
-					<p class="text-red-400">{authorStore.error}</p>
+					<p class="text-error">{authorStore.error}</p>
 				{/if}
 				<div class="flex justify-end gap-2 pt-2">
 					<button
-						class="rounded-lg px-3 py-1.5 text-sm text-neutral-400 hover:text-neutral-100"
+						class="rounded-lg px-3 py-1.5 text-sm text-muted-foreground hover:text-foreground"
 						onclick={onClose}
 					>
 						Abbrechen
 					</button>
 					<button
-						class="rounded-lg bg-indigo-500 px-4 py-1.5 text-sm text-white hover:bg-indigo-400 disabled:opacity-50"
+						class="rounded-lg bg-app-accent px-4 py-1.5 text-sm text-white hover:bg-app-accent/90 disabled:opacity-50"
 						onclick={submitAuthor}
 						disabled={!authorSlug.trim() || !authorName.trim() || authorStore.loading}
 					>
@@ -202,45 +204,45 @@
 			</div>
 		{:else if stage === 'meta'}
 			<div class="space-y-4 text-sm">
-				<p class="text-neutral-400">
-					Veröffentlicht als <code class="rounded bg-neutral-800 px-1 text-xs"
+				<p class="text-muted-foreground">
+					Veröffentlicht als <code class="rounded bg-muted px-1 text-xs"
 						>cards.mana.how/d/{deckSlug || '...'}</code
 					>
 				</p>
 				<div>
-					<label for="d-slug" class="mb-1 block text-xs text-neutral-400">Slug</label>
+					<label for="d-slug" class="mb-1 block text-xs text-muted-foreground">Slug</label>
 					<input
 						id="d-slug"
 						type="text"
 						bind:value={deckSlug}
-						class="w-full rounded-lg border border-neutral-700 bg-neutral-950 px-3 py-2 text-sm outline-none focus:border-indigo-400"
+						class="w-full rounded-lg border border-border-strong bg-background px-3 py-2 text-sm outline-none focus:border-indigo-400"
 					/>
 				</div>
 				<div>
-					<label for="d-title" class="mb-1 block text-xs text-neutral-400">Titel</label>
+					<label for="d-title" class="mb-1 block text-xs text-muted-foreground">Titel</label>
 					<input
 						id="d-title"
 						type="text"
 						bind:value={deckTitle}
-						class="w-full rounded-lg border border-neutral-700 bg-neutral-950 px-3 py-2 text-sm outline-none focus:border-indigo-400"
+						class="w-full rounded-lg border border-border-strong bg-background px-3 py-2 text-sm outline-none focus:border-indigo-400"
 					/>
 				</div>
 				<div>
-					<label for="d-desc" class="mb-1 block text-xs text-neutral-400">Beschreibung</label>
+					<label for="d-desc" class="mb-1 block text-xs text-muted-foreground">Beschreibung</label>
 					<textarea
 						id="d-desc"
 						bind:value={deckDescription}
 						placeholder="Worum geht es in diesem Deck?"
-						class="min-h-[80px] w-full rounded-lg border border-neutral-700 bg-neutral-950 px-3 py-2 text-sm outline-none focus:border-indigo-400"
+						class="min-h-[80px] w-full rounded-lg border border-border-strong bg-background px-3 py-2 text-sm outline-none focus:border-indigo-400"
 					></textarea>
 				</div>
 				<div class="grid grid-cols-2 gap-3">
 					<div>
-						<label for="d-lang" class="mb-1 block text-xs text-neutral-400">Sprache</label>
+						<label for="d-lang" class="mb-1 block text-xs text-muted-foreground">Sprache</label>
 						<select
 							id="d-lang"
 							bind:value={deckLanguage}
-							class="w-full rounded-lg border border-neutral-700 bg-neutral-950 px-3 py-2 text-sm outline-none focus:border-indigo-400"
+							class="w-full rounded-lg border border-border-strong bg-background px-3 py-2 text-sm outline-none focus:border-indigo-400"
 						>
 							<option value="de">Deutsch</option>
 							<option value="en">English</option>
@@ -252,11 +254,11 @@
 						</select>
 					</div>
 					<div>
-						<label for="d-license" class="mb-1 block text-xs text-neutral-400">Lizenz</label>
+						<label for="d-license" class="mb-1 block text-xs text-muted-foreground">Lizenz</label>
 						<select
 							id="d-license"
 							bind:value={deckLicense}
-							class="w-full rounded-lg border border-neutral-700 bg-neutral-950 px-3 py-2 text-sm outline-none focus:border-indigo-400"
+							class="w-full rounded-lg border border-border-strong bg-background px-3 py-2 text-sm outline-none focus:border-indigo-400"
 						>
 							<option value="CC-BY-4.0">CC-BY 4.0 — frei mit Namensnennung</option>
 							<option value="CC-BY-SA-4.0">CC-BY-SA 4.0 — share-alike</option>
@@ -267,17 +269,17 @@
 				</div>
 				<div class="grid grid-cols-2 gap-3">
 					<div>
-						<label for="d-semver" class="mb-1 block text-xs text-neutral-400">Version</label>
+						<label for="d-semver" class="mb-1 block text-xs text-muted-foreground">Version</label>
 						<input
 							id="d-semver"
 							type="text"
 							bind:value={deckSemver}
 							placeholder="1.0.0"
-							class="w-full rounded-lg border border-neutral-700 bg-neutral-950 px-3 py-2 text-sm outline-none focus:border-indigo-400"
+							class="w-full rounded-lg border border-border-strong bg-background px-3 py-2 text-sm outline-none focus:border-indigo-400"
 						/>
 					</div>
 					<div>
-						<label for="d-changelog" class="mb-1 block text-xs text-neutral-400">
+						<label for="d-changelog" class="mb-1 block text-xs text-muted-foreground">
 							Changelog (optional)
 						</label>
 						<input
@@ -285,24 +287,24 @@
 							type="text"
 							bind:value={deckChangelog}
 							placeholder="Erste Version"
-							class="w-full rounded-lg border border-neutral-700 bg-neutral-950 px-3 py-2 text-sm outline-none focus:border-indigo-400"
+							class="w-full rounded-lg border border-border-strong bg-background px-3 py-2 text-sm outline-none focus:border-indigo-400"
 						/>
 					</div>
 				</div>
-				<p class="text-xs text-neutral-500">
+				<p class="text-xs text-muted-foreground/80">
 					{cards.length}
 					{cards.length === 1 ? 'Karte' : 'Karten'} werden veröffentlicht. Das Deck durchläuft eine KI-Inhaltsprüfung
 					— offensichtlich harmloses Material geht direkt durch.
 				</p>
 				<div class="flex justify-end gap-2 pt-2">
 					<button
-						class="rounded-lg px-3 py-1.5 text-sm text-neutral-400 hover:text-neutral-100"
+						class="rounded-lg px-3 py-1.5 text-sm text-muted-foreground hover:text-foreground"
 						onclick={onClose}
 					>
 						Abbrechen
 					</button>
 					<button
-						class="rounded-lg bg-indigo-500 px-4 py-1.5 text-sm text-white hover:bg-indigo-400 disabled:opacity-50"
+						class="rounded-lg bg-app-accent px-4 py-1.5 text-sm text-white hover:bg-app-accent/90 disabled:opacity-50"
 						onclick={submitPublish}
 						disabled={!deckSlug.trim() || !deckTitle.trim() || cards.length === 0}
 					>
@@ -311,7 +313,7 @@
 				</div>
 			</div>
 		{:else if stage === 'publishing'}
-			<div class="py-8 text-center text-sm text-neutral-400">
+			<div class="py-8 text-center text-sm text-muted-foreground">
 				Lade {cards.length} Karten hoch und prüfe Inhalt…
 			</div>
 		{:else if stage === 'done' && result}
@@ -319,18 +321,18 @@
 				<div class="text-green-400">
 					✓ Veröffentlicht als Version {result.version.semver}
 				</div>
-				<div class="text-neutral-300">
+				<div class="text-foreground/80">
 					{result.version.cardCount} Karten · Lizenz: {result.deck.license}
 				</div>
 				{#if result.moderation.verdict === 'flag'}
-					<div class="rounded-lg border border-amber-500/30 bg-amber-500/10 p-3 text-amber-300">
+					<div class="rounded-lg border border-amber-500/30 bg-amber-500/10 p-3 text-warning">
 						Inhalt wurde zur Moderations-Prüfung markiert ({result.moderation.categories.join(
 							', '
 						)}). Das Deck ist veröffentlicht; ein Mensch schaut bei Gelegenheit drüber.
 					</div>
 				{/if}
 				<button
-					class="rounded-lg bg-indigo-500 px-4 py-1.5 text-sm text-white hover:bg-indigo-400"
+					class="rounded-lg bg-app-accent px-4 py-1.5 text-sm text-white hover:bg-app-accent/90"
 					onclick={onClose}
 				>
 					Fertig
@@ -338,9 +340,9 @@
 			</div>
 		{:else if stage === 'error'}
 			<div class="space-y-3 text-sm">
-				<div class="text-red-400">Fehler: {error}</div>
+				<div class="text-error">Fehler: {error}</div>
 				<button
-					class="rounded-lg px-3 py-1.5 text-sm text-neutral-400 hover:text-neutral-100"
+					class="rounded-lg px-3 py-1.5 text-sm text-muted-foreground hover:text-foreground"
 					onclick={() => (stage = 'meta')}
 				>
 					Erneut versuchen

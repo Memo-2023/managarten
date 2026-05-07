@@ -126,15 +126,15 @@
 
 <main class="mx-auto max-w-3xl px-6 py-8">
 	{#if stage === 'loading'}
-		<p class="py-12 text-center text-sm text-neutral-400">Lade Deck…</p>
+		<p class="py-12 text-center text-sm text-muted-foreground">Lade Deck…</p>
 	{:else if stage === 'not-found'}
 		<p
-			class="rounded-xl border border-neutral-800 bg-neutral-900 p-8 text-center text-sm text-neutral-400"
+			class="rounded-xl border border-border bg-card p-8 text-center text-sm text-muted-foreground"
 		>
-			Deck <code class="rounded bg-neutral-800 px-1">{slug}</code> existiert nicht.
+			Deck <code class="rounded bg-muted px-1">{slug}</code> existiert nicht.
 		</p>
 	{:else if stage === 'error'}
-		<p class="rounded-lg border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-400">
+		<p class="rounded-lg border border-error/30 bg-error/10 p-4 text-sm text-error">
 			{error}
 		</p>
 	{:else if deck}
@@ -142,41 +142,41 @@
 			<header class="mb-6">
 				<h1 class="text-3xl font-semibold tracking-tight">{deck.title}</h1>
 				{#if deck.description}
-					<p class="mt-2 text-sm text-neutral-400">{deck.description}</p>
+					<p class="mt-2 text-sm text-muted-foreground">{deck.description}</p>
 				{/if}
 			</header>
 
 			<div class="mb-6 flex flex-wrap items-center gap-3 text-sm">
 				{#if version}
-					<span class="rounded-full bg-neutral-800 px-2 py-0.5 text-xs text-neutral-300">
+					<span class="rounded-full bg-muted px-2 py-0.5 text-xs text-foreground/80">
 						v{version.semver}
 					</span>
-					<span class="text-neutral-400">{version.cardCount} Karten</span>
+					<span class="text-muted-foreground">{version.cardCount} Karten</span>
 				{/if}
-				<span class="text-neutral-400">{deck.license}</span>
+				<span class="text-muted-foreground">{deck.license}</span>
 				{#if deck.language}
-					<span class="text-neutral-400">{deck.language.toUpperCase()}</span>
+					<span class="text-muted-foreground">{deck.language.toUpperCase()}</span>
 				{/if}
 				{#if deck.priceCredits > 0}
-					<span class="rounded-full bg-amber-500/15 px-2 py-0.5 text-xs text-amber-300">
+					<span class="rounded-full bg-amber-500/15 px-2 py-0.5 text-xs text-warning">
 						{deck.priceCredits} 💎
 					</span>
 				{/if}
 			</div>
 
 			{#if version?.changelog}
-				<section class="mb-6 rounded-xl border border-neutral-800 bg-neutral-900 p-4">
-					<h2 class="mb-1 text-xs font-medium uppercase tracking-wide text-neutral-500">
+				<section class="mb-6 rounded-xl border border-border bg-card p-4">
+					<h2 class="mb-1 text-xs font-medium uppercase tracking-wide text-muted-foreground/80">
 						Changelog v{version.semver}
 					</h2>
-					<p class="whitespace-pre-line text-sm text-neutral-300">{version.changelog}</p>
+					<p class="whitespace-pre-line text-sm text-foreground/80">{version.changelog}</p>
 				</section>
 			{/if}
 
 			<div class="flex flex-wrap items-center gap-2">
 				{#if authStore.isAuthenticated}
 					<button
-						class="rounded-lg border border-indigo-500/40 px-4 py-2 text-sm text-indigo-300 hover:bg-indigo-500/10 disabled:opacity-50"
+						class="rounded-lg border border-app-accent/40 px-4 py-2 text-sm text-app-accent hover:bg-app-accent/10 disabled:opacity-50"
 						onclick={toggleStar}
 						disabled={starBusy}
 					>
@@ -185,7 +185,7 @@
 
 					{#if subscribed}
 						<button
-							class="rounded-lg border border-emerald-500/40 px-4 py-2 text-sm text-emerald-300 hover:bg-emerald-500/10 disabled:opacity-50"
+							class="rounded-lg border border-success/40 px-4 py-2 text-sm text-success hover:bg-success/10 disabled:opacity-50"
 							onclick={toggleSubscribe}
 							disabled={subscribeBusy}
 							title="Abo entfernen"
@@ -194,7 +194,7 @@
 						</button>
 						{#if subscribedDeckId}
 							<button
-								class="rounded-lg bg-indigo-500 px-4 py-2 text-sm text-white hover:bg-indigo-400"
+								class="rounded-lg bg-app-accent px-4 py-2 text-sm text-white hover:bg-app-accent/90"
 								onclick={() => goto(`/learn/${subscribedDeckId}`)}
 							>
 								Lernen
@@ -210,7 +210,7 @@
 						</button>
 					{:else}
 						<button
-							class="rounded-lg bg-indigo-500 px-4 py-2 text-sm text-white hover:bg-indigo-400 disabled:opacity-50"
+							class="rounded-lg bg-app-accent px-4 py-2 text-sm text-white hover:bg-app-accent/90 disabled:opacity-50"
 							onclick={toggleSubscribe}
 							disabled={subscribeBusy || !version}
 							title={version ? 'In meine Decks ziehen' : 'Deck hat noch keine Version'}
@@ -219,7 +219,7 @@
 						</button>
 						{#if isPaid && hasPurchased}
 							<span
-								class="rounded-full bg-emerald-500/15 px-2 py-1 text-xs text-emerald-300"
+								class="rounded-full bg-success/15 px-2 py-1 text-xs text-success"
 								title="Du besitzt dieses Deck"
 							>
 								✓ Gekauft
@@ -229,7 +229,7 @@
 				{:else}
 					<a
 						href="/login"
-						class="rounded-lg bg-indigo-500 px-4 py-2 text-sm text-white hover:bg-indigo-400"
+						class="rounded-lg bg-app-accent px-4 py-2 text-sm text-white hover:bg-app-accent/90"
 					>
 						Anmelden um zu abonnieren
 					</a>
@@ -237,10 +237,10 @@
 			</div>
 
 			{#if error}
-				<p class="mt-3 text-sm text-red-400">{error}</p>
+				<p class="mt-3 text-sm text-error">{error}</p>
 			{/if}
 
-			<div class="mt-10 flex items-center justify-between text-xs text-neutral-500">
+			<div class="mt-10 flex items-center justify-between text-xs text-muted-foreground/80">
 				<span>Veröffentlicht: {new Date(deck.createdAt).toLocaleDateString('de-DE')}</span>
 				{#if !isOwner}
 					<ReportButton deckSlug={deck.slug} />
@@ -248,7 +248,7 @@
 			</div>
 
 			{#if deck.isTakedown}
-				<p class="mt-3 rounded-lg border border-red-500/30 bg-red-500/10 p-3 text-sm text-red-300">
+				<p class="mt-3 rounded-lg border border-error/30 bg-error/10 p-3 text-sm text-error">
 					Dieses Deck wurde von der Moderation entfernt.
 				</p>
 			{/if}
@@ -261,7 +261,7 @@
 		</article>
 	{/if}
 
-	<p class="mt-12 text-center text-xs text-neutral-600">
-		<a href="/explore" class="hover:text-neutral-300">← Marktplatz</a>
+	<p class="mt-12 text-center text-xs text-muted-foreground/60">
+		<a href="/explore" class="hover:text-foreground/80">← Marktplatz</a>
 	</p>
 </main>

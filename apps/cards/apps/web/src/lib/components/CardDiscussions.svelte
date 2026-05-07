@@ -62,35 +62,35 @@
 	}
 </script>
 
-<aside class="mt-4 rounded-xl border border-neutral-800 bg-neutral-950 p-4">
+<aside class="mt-4 rounded-xl border border-border bg-background p-4">
 	<header class="mb-2 flex items-center justify-between">
-		<h3 class="text-xs font-semibold uppercase tracking-wide text-neutral-500">
+		<h3 class="text-xs font-semibold uppercase tracking-wide text-muted-foreground/80">
 			Diskussion {comments.length > 0 ? `(${comments.length})` : ''}
 		</h3>
 		{#if loading}
-			<span class="text-xs text-neutral-600">Lädt…</span>
+			<span class="text-xs text-muted-foreground/60">Lädt…</span>
 		{/if}
 	</header>
 
 	{#if error}
-		<p class="mb-2 text-xs text-red-400">{error}</p>
+		<p class="mb-2 text-xs text-error">{error}</p>
 	{/if}
 
 	{#if comments.length === 0 && !loading}
-		<p class="text-xs text-neutral-600">Noch keine Kommentare zu dieser Karte.</p>
+		<p class="text-xs text-muted-foreground/60">Noch keine Kommentare zu dieser Karte.</p>
 	{:else}
 		<ul class="space-y-2">
 			{#each comments as c (c.id)}
-				<li class="rounded-lg border border-neutral-800 bg-neutral-900 p-2 text-sm">
+				<li class="rounded-lg border border-border bg-card p-2 text-sm">
 					<div class="flex items-start justify-between gap-2">
-						<p class="whitespace-pre-line text-neutral-200">{c.body}</p>
+						<p class="whitespace-pre-line text-foreground/90">{c.body}</p>
 						<div class="flex shrink-0 items-center gap-2">
 							{#if authStore.user?.id !== c.authorUserId}
 								<ReportButton {deckSlug} cardContentHash={c.cardContentHash} variant="icon" />
 							{/if}
 							{#if authStore.user?.id === c.authorUserId}
 								<button
-									class="text-xs text-neutral-600 hover:text-red-400"
+									class="text-xs text-muted-foreground/60 hover:text-error"
 									onclick={() => hide(c)}
 									title="Ausblenden"
 									aria-label="Ausblenden"
@@ -100,7 +100,7 @@
 							{/if}
 						</div>
 					</div>
-					<p class="mt-1 text-xs text-neutral-600">
+					<p class="mt-1 text-xs text-muted-foreground/60">
 						{new Date(c.createdAt).toLocaleString('de-DE')}
 					</p>
 				</li>
@@ -117,13 +117,13 @@
 			}}
 		>
 			<input
-				class="flex-1 rounded-lg border border-neutral-800 bg-neutral-900 px-3 py-1.5 text-sm"
+				class="flex-1 rounded-lg border border-border bg-card px-3 py-1.5 text-sm"
 				placeholder="Kommentar zur Karte…"
 				bind:value={draft}
 				disabled={posting}
 			/>
 			<button
-				class="rounded-lg bg-indigo-500 px-3 py-1.5 text-xs text-white hover:bg-indigo-400 disabled:opacity-50"
+				class="rounded-lg bg-app-accent px-3 py-1.5 text-xs text-white hover:bg-app-accent/90 disabled:opacity-50"
 				type="submit"
 				disabled={posting || !draft.trim()}
 			>

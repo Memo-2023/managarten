@@ -41,48 +41,46 @@
 	<h1 class="mb-6 text-2xl font-semibold tracking-tight">Käufe & Auszahlungen</h1>
 
 	{#if error}
-		<p class="mb-4 rounded-lg border border-red-500/30 bg-red-500/10 p-3 text-sm text-red-400">
+		<p class="mb-4 rounded-lg border border-error/30 bg-error/10 p-3 text-sm text-error">
 			{error}
 		</p>
 	{/if}
 
 	<section class="mb-10">
 		<header class="mb-3 flex items-baseline justify-between">
-			<h2 class="text-sm font-semibold uppercase tracking-wide text-neutral-400">Käufe</h2>
-			<span class="text-xs text-neutral-500">Ausgegeben: {totalSpent} 💎</span>
+			<h2 class="text-sm font-semibold uppercase tracking-wide text-muted-foreground">Käufe</h2>
+			<span class="text-xs text-muted-foreground/80">Ausgegeben: {totalSpent} 💎</span>
 		</header>
 
 		{#if loading}
-			<p class="rounded-xl border border-neutral-800 bg-neutral-900 p-4 text-sm text-neutral-500">
+			<p class="rounded-xl border border-border bg-card p-4 text-sm text-muted-foreground/80">
 				Lädt…
 			</p>
 		{:else if purchases.length === 0}
-			<p class="rounded-xl border border-neutral-800 bg-neutral-900 p-4 text-sm text-neutral-500">
+			<p class="rounded-xl border border-border bg-card p-4 text-sm text-muted-foreground/80">
 				Du hast noch keine Decks gekauft.
 			</p>
 		{:else}
 			<ul class="space-y-2">
 				{#each purchases as p (p.id)}
-					<li
-						class="flex items-center justify-between rounded-xl border border-neutral-800 bg-neutral-900 p-4"
-					>
+					<li class="flex items-center justify-between rounded-xl border border-border bg-card p-4">
 						<div class="min-w-0 flex-1">
 							<a
 								href="/d/{p.deckSlug}"
-								class="truncate font-medium text-neutral-100 hover:text-indigo-300"
+								class="truncate font-medium text-foreground hover:text-app-accent"
 							>
 								{p.deckTitle}
 							</a>
-							<p class="mt-1 text-xs text-neutral-500">
+							<p class="mt-1 text-xs text-muted-foreground/80">
 								v{p.versionSemver} · {new Date(p.purchasedAt).toLocaleDateString('de-DE')}
 								{#if p.refundedAt}
-									<span class="ml-2 rounded bg-amber-500/15 px-1.5 py-0.5 text-amber-300"
+									<span class="ml-2 rounded bg-amber-500/15 px-1.5 py-0.5 text-warning"
 										>Erstattet</span
 									>
 								{/if}
 							</p>
 						</div>
-						<span class="shrink-0 text-sm text-neutral-300">{p.priceCredits} 💎</span>
+						<span class="shrink-0 text-sm text-foreground/80">{p.priceCredits} 💎</span>
 					</li>
 				{/each}
 			</ul>
@@ -92,14 +90,14 @@
 	{#if payouts.length > 0 || (!loading && payouts.length === 0)}
 		<section>
 			<header class="mb-3 flex items-baseline justify-between">
-				<h2 class="text-sm font-semibold uppercase tracking-wide text-neutral-400">
+				<h2 class="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
 					Author-Auszahlungen
 				</h2>
-				<span class="text-xs text-neutral-500">Erhalten: {totalEarned} 💎</span>
+				<span class="text-xs text-muted-foreground/80">Erhalten: {totalEarned} 💎</span>
 			</header>
 
 			{#if payouts.length === 0}
-				<p class="rounded-xl border border-neutral-800 bg-neutral-900 p-4 text-sm text-neutral-500">
+				<p class="rounded-xl border border-border bg-card p-4 text-sm text-muted-foreground/80">
 					Noch keine Auszahlungen — sobald jemand eines deiner kostenpflichtigen Decks kauft, landet
 					die Author-Beteiligung hier.
 				</p>
@@ -107,22 +105,22 @@
 				<ul class="space-y-2">
 					{#each payouts as p (p.id)}
 						<li
-							class="flex items-center justify-between rounded-xl border border-neutral-800 bg-neutral-900 p-4"
+							class="flex items-center justify-between rounded-xl border border-border bg-card p-4"
 						>
 							<div class="min-w-0 flex-1">
 								<a
 									href="/d/{p.deckSlug}"
-									class="truncate font-medium text-neutral-100 hover:text-indigo-300"
+									class="truncate font-medium text-foreground hover:text-app-accent"
 								>
 									{p.deckTitle}
 								</a>
-								<p class="mt-1 text-xs text-neutral-500">
+								<p class="mt-1 text-xs text-muted-foreground/80">
 									Verkauf {p.priceCredits} 💎 · gutgeschrieben {new Date(
 										p.grantedAt
 									).toLocaleDateString('de-DE')}
 								</p>
 							</div>
-							<span class="shrink-0 text-sm text-emerald-300">+{p.creditsGranted} 💎</span>
+							<span class="shrink-0 text-sm text-success">+{p.creditsGranted} 💎</span>
 						</li>
 					{/each}
 				</ul>

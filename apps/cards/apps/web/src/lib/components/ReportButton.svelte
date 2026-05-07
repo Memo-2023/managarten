@@ -56,7 +56,7 @@
 {#if authStore.isAuthenticated}
 	{#if variant === 'icon'}
 		<button
-			class="text-xs text-neutral-600 hover:text-amber-300"
+			class="text-xs text-muted-foreground/60 hover:text-warning"
 			onclick={() => (open = true)}
 			title="Melden"
 			aria-label="Melden"
@@ -64,7 +64,10 @@
 			🚩
 		</button>
 	{:else}
-		<button class="text-xs text-neutral-500 hover:text-amber-300" onclick={() => (open = true)}>
+		<button
+			class="text-xs text-muted-foreground/80 hover:text-warning"
+			onclick={() => (open = true)}
+		>
 			🚩 Melden
 		</button>
 	{/if}
@@ -76,29 +79,27 @@
 		role="dialog"
 		aria-modal="true"
 	>
-		<div class="w-full max-w-md rounded-xl border border-neutral-800 bg-neutral-950 p-5">
+		<div class="w-full max-w-md rounded-xl border border-border bg-background p-5">
 			<header class="mb-4 flex items-center justify-between">
 				<h2 class="text-base font-semibold">
 					{cardContentHash ? 'Karte melden' : 'Deck melden'}
 				</h2>
 				<button
-					class="text-neutral-400 hover:text-neutral-100"
+					class="text-muted-foreground hover:text-foreground"
 					onclick={close}
 					aria-label="Schließen">✕</button
 				>
 			</header>
 
 			{#if done}
-				<p
-					class="rounded-lg border border-emerald-500/30 bg-emerald-500/10 p-3 text-sm text-emerald-300"
-				>
+				<p class="rounded-lg border border-success/30 bg-success/10 p-3 text-sm text-success">
 					Danke — die Moderation prüft den Bericht.
 				</p>
 			{:else}
 				<label class="mb-3 block">
-					<span class="mb-1 block text-xs text-neutral-400">Kategorie</span>
+					<span class="mb-1 block text-xs text-muted-foreground">Kategorie</span>
 					<select
-						class="w-full rounded-lg border border-neutral-800 bg-neutral-900 px-3 py-2 text-sm"
+						class="w-full rounded-lg border border-border bg-card px-3 py-2 text-sm"
 						bind:value={category}
 					>
 						{#each CATEGORIES as c (c.value)}
@@ -108,9 +109,9 @@
 				</label>
 
 				<label class="mb-4 block">
-					<span class="mb-1 block text-xs text-neutral-400">Begründung (optional)</span>
+					<span class="mb-1 block text-xs text-muted-foreground">Begründung (optional)</span>
 					<textarea
-						class="w-full rounded-lg border border-neutral-800 bg-neutral-900 px-3 py-2 text-sm"
+						class="w-full rounded-lg border border-border bg-card px-3 py-2 text-sm"
 						rows="3"
 						bind:value={body}
 						placeholder="Was stimmt nicht?"
@@ -118,12 +119,12 @@
 				</label>
 
 				{#if error}
-					<p class="mb-3 text-sm text-red-400">{error}</p>
+					<p class="mb-3 text-sm text-error">{error}</p>
 				{/if}
 
 				<div class="flex justify-end gap-2">
 					<button
-						class="rounded-lg border border-neutral-800 px-4 py-2 text-sm hover:border-neutral-700"
+						class="rounded-lg border border-border px-4 py-2 text-sm hover:border-border-strong"
 						onclick={close}
 						disabled={busy}>Abbrechen</button
 					>

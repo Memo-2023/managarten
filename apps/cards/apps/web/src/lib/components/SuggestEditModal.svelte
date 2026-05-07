@@ -96,40 +96,38 @@
 		role="dialog"
 		aria-modal="true"
 	>
-		<div class="w-full max-w-xl rounded-xl border border-neutral-800 bg-neutral-950 p-6">
+		<div class="w-full max-w-xl rounded-xl border border-border bg-background p-6">
 			<header class="mb-4 flex items-center justify-between">
 				<h2 class="text-lg font-semibold">Verbesserung vorschlagen</h2>
 				<button
-					class="text-neutral-400 hover:text-neutral-100"
+					class="text-muted-foreground hover:text-foreground"
 					onclick={onClose}
 					aria-label="Schließen">✕</button
 				>
 			</header>
 
 			{#if success}
-				<p
-					class="rounded-lg border border-emerald-500/30 bg-emerald-500/10 p-3 text-sm text-emerald-300"
-				>
+				<p class="rounded-lg border border-success/30 bg-success/10 p-3 text-sm text-success">
 					Pull Request gesendet — der Author wird benachrichtigt.
 				</p>
 			{:else}
-				<div class="mb-4 inline-flex rounded-lg border border-neutral-800 p-1">
+				<div class="mb-4 inline-flex rounded-lg border border-border p-1">
 					<button
 						class="rounded px-3 py-1 text-xs"
-						class:bg-neutral-800={mode === 'modify'}
+						class:bg-muted={mode === 'modify'}
 						onclick={() => (mode = 'modify')}>Inhalt ändern</button
 					>
 					<button
 						class="rounded px-3 py-1 text-xs"
-						class:bg-neutral-800={mode === 'remove'}
+						class:bg-muted={mode === 'remove'}
 						onclick={() => (mode = 'remove')}>Karte entfernen</button
 					>
 				</div>
 
 				<label class="mb-3 block">
-					<span class="mb-1 block text-xs text-neutral-400">Titel</span>
+					<span class="mb-1 block text-xs text-muted-foreground">Titel</span>
 					<input
-						class="w-full rounded-lg border border-neutral-800 bg-neutral-900 px-3 py-2 text-sm"
+						class="w-full rounded-lg border border-border bg-card px-3 py-2 text-sm"
 						bind:value={title}
 						placeholder="Kurzbeschreibung der Verbesserung"
 					/>
@@ -139,9 +137,9 @@
 					<div class="mb-3 space-y-2">
 						{#each fieldKeys as key (key)}
 							<label class="block">
-								<span class="mb-1 block text-xs text-neutral-400">{key}</span>
+								<span class="mb-1 block text-xs text-muted-foreground">{key}</span>
 								<textarea
-									class="w-full rounded-lg border border-neutral-800 bg-neutral-900 px-3 py-2 text-sm"
+									class="w-full rounded-lg border border-border bg-card px-3 py-2 text-sm"
 									rows="2"
 									bind:value={editedFields[key]}
 								></textarea>
@@ -150,16 +148,16 @@
 					</div>
 				{:else}
 					<p
-						class="mb-3 rounded-lg border border-amber-500/30 bg-amber-500/10 p-3 text-sm text-amber-200"
+						class="mb-3 rounded-lg border border-amber-500/30 bg-amber-500/10 p-3 text-sm text-warning"
 					>
 						Diese Karte wird beim Merge aus dem Deck entfernt.
 					</p>
 				{/if}
 
 				<label class="mb-4 block">
-					<span class="mb-1 block text-xs text-neutral-400">Begründung (optional)</span>
+					<span class="mb-1 block text-xs text-muted-foreground">Begründung (optional)</span>
 					<textarea
-						class="w-full rounded-lg border border-neutral-800 bg-neutral-900 px-3 py-2 text-sm"
+						class="w-full rounded-lg border border-border bg-card px-3 py-2 text-sm"
 						rows="3"
 						bind:value={body}
 						placeholder="Warum ist diese Änderung sinnvoll?"
@@ -167,17 +165,17 @@
 				</label>
 
 				{#if error}
-					<p class="mb-3 text-sm text-red-400">{error}</p>
+					<p class="mb-3 text-sm text-error">{error}</p>
 				{/if}
 
 				<div class="flex items-center justify-end gap-2">
 					<button
-						class="rounded-lg border border-neutral-800 px-4 py-2 text-sm hover:border-neutral-700"
+						class="rounded-lg border border-border px-4 py-2 text-sm hover:border-border-strong"
 						onclick={onClose}
 						disabled={busy}>Abbrechen</button
 					>
 					<button
-						class="rounded-lg bg-indigo-500 px-4 py-2 text-sm text-white hover:bg-indigo-400 disabled:opacity-50"
+						class="rounded-lg bg-app-accent px-4 py-2 text-sm text-white hover:bg-app-accent/90 disabled:opacity-50"
 						onclick={submit}
 						disabled={busy || !hasChanges}
 					>

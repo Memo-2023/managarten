@@ -41,7 +41,7 @@
 			case 'cloze': {
 				const r = renderCloze(card.fields.text ?? '', subIndex);
 				const extra = card.fields.extra
-					? `<div class="mt-3 text-sm text-neutral-400">${renderMarkdown(card.fields.extra)}</div>`
+					? `<div class="mt-3 text-sm text-muted-foreground">${renderMarkdown(card.fields.extra)}</div>`
 					: '';
 				return { prompt: r.front + extra, answer: r.back + extra, expected: r.answer };
 			}
@@ -57,15 +57,13 @@
 </script>
 
 <article class="space-y-4">
-	<div
-		class="card-content rounded-xl border border-neutral-800 bg-neutral-900 p-6 text-lg leading-relaxed"
-	>
+	<div class="card-content rounded-xl border border-border bg-card p-6 text-lg leading-relaxed">
 		{@html view.prompt}
 	</div>
 
 	{#if isTypeIn}
 		<input
-			class="w-full rounded-lg border border-neutral-700 bg-neutral-950 px-3 py-2 text-base outline-none focus:border-indigo-400"
+			class="w-full rounded-lg border border-border-strong bg-background px-3 py-2 text-base outline-none focus:border-indigo-400"
 			type="text"
 			placeholder="Antwort eingeben…"
 			value={typedAnswer}
@@ -80,8 +78,8 @@
 				{isTypeIn
 				? matched
 					? 'border-green-500 bg-green-500/5'
-					: 'border-red-500 bg-red-500/5'
-				: 'border-indigo-500 bg-indigo-500/5'}"
+					: 'border-red-500 bg-error/5'
+				: 'border-indigo-500 bg-app-accent/5'}"
 		>
 			{@html view.answer}
 		</div>

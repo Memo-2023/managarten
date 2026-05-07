@@ -77,10 +77,10 @@
 	}
 
 	function statusBadgeClass(s: PullRequest['status']) {
-		if (s === 'open') return 'bg-emerald-500/15 text-emerald-300';
+		if (s === 'open') return 'bg-success/15 text-success';
 		if (s === 'merged') return 'bg-violet-500/15 text-violet-300';
-		if (s === 'rejected') return 'bg-red-500/15 text-red-300';
-		return 'bg-neutral-800 text-neutral-400';
+		if (s === 'rejected') return 'bg-error/15 text-error';
+		return 'bg-muted text-muted-foreground';
 	}
 
 	function diffSummary(pr: PullRequest) {
@@ -90,11 +90,11 @@
 
 <section class="mt-10">
 	<header class="mb-3 flex items-center justify-between">
-		<h2 class="text-sm font-semibold uppercase tracking-wide text-neutral-400">
+		<h2 class="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
 			Pull Requests {prs.length > 0 ? `(${prs.length})` : ''}
 		</h2>
 		<button
-			class="text-xs text-neutral-500 hover:text-neutral-300"
+			class="text-xs text-muted-foreground/80 hover:text-foreground/80"
 			onclick={load}
 			disabled={loading}
 		>
@@ -103,37 +103,37 @@
 	</header>
 
 	{#if error}
-		<p class="mb-3 rounded-lg border border-red-500/30 bg-red-500/10 p-3 text-sm text-red-400">
+		<p class="mb-3 rounded-lg border border-error/30 bg-error/10 p-3 text-sm text-error">
 			{error}
 		</p>
 	{/if}
 
 	{#if loading && prs.length === 0}
-		<p class="rounded-xl border border-neutral-800 bg-neutral-900 p-4 text-sm text-neutral-500">
+		<p class="rounded-xl border border-border bg-card p-4 text-sm text-muted-foreground/80">
 			Lädt…
 		</p>
 	{:else if prs.length === 0}
-		<p class="rounded-xl border border-neutral-800 bg-neutral-900 p-4 text-sm text-neutral-500">
+		<p class="rounded-xl border border-border bg-card p-4 text-sm text-muted-foreground/80">
 			Noch keine Pull Requests. Abonnenten können Verbesserungen vorschlagen.
 		</p>
 	{:else}
 		<ul class="space-y-2">
 			{#each prs as pr (pr.id)}
-				<li class="rounded-xl border border-neutral-800 bg-neutral-900 p-4">
+				<li class="rounded-xl border border-border bg-card p-4">
 					<div class="flex items-start justify-between gap-3">
 						<div class="min-w-0">
 							<div class="flex items-center gap-2">
 								<span class="rounded-full px-2 py-0.5 text-xs {statusBadgeClass(pr.status)}">
 									{pr.status}
 								</span>
-								<h3 class="truncate font-medium text-neutral-100">{pr.title}</h3>
+								<h3 class="truncate font-medium text-foreground">{pr.title}</h3>
 							</div>
-							<p class="mt-1 text-xs text-neutral-500">
+							<p class="mt-1 text-xs text-muted-foreground/80">
 								{diffSummary(pr)} · {new Date(pr.createdAt).toLocaleDateString('de-DE')}
 							</p>
 						</div>
 						<button
-							class="shrink-0 text-xs text-neutral-500 hover:text-neutral-300"
+							class="shrink-0 text-xs text-muted-foreground/80 hover:text-foreground/80"
 							onclick={() => (expanded[pr.id] = !expanded[pr.id])}
 						>
 							{expanded[pr.id] ? 'Einklappen' : 'Details'}
@@ -142,22 +142,22 @@
 
 					{#if expanded[pr.id]}
 						{#if pr.body}
-							<p class="mt-3 whitespace-pre-line text-sm text-neutral-300">{pr.body}</p>
+							<p class="mt-3 whitespace-pre-line text-sm text-foreground/80">{pr.body}</p>
 						{/if}
 
 						{#if pr.diff.modify.length > 0}
 							<div class="mt-3">
-								<div class="mb-1 text-xs uppercase text-neutral-500">Geändert</div>
+								<div class="mb-1 text-xs uppercase text-muted-foreground/80">Geändert</div>
 								<ul class="space-y-2">
 									{#each pr.diff.modify as m (m.contentHash)}
-										<li class="rounded-lg border border-neutral-800 bg-neutral-950 p-2 text-xs">
-											<div class="text-neutral-500">
+										<li class="rounded-lg border border-border bg-background p-2 text-xs">
+											<div class="text-muted-foreground/80">
 												← {m.contentHash.slice(0, 12)}…
 											</div>
 											{#each Object.entries(m.fields) as [k, v]}
 												<div class="mt-1">
-													<span class="text-neutral-500">{k}:</span>
-													<span class="text-neutral-200">{v}</span>
+													<span class="text-muted-foreground/80">{k}:</span>
+													<span class="text-foreground/90">{v}</span>
 												</div>
 											{/each}
 										</li>
@@ -168,17 +168,17 @@
 
 						{#if pr.diff.add.length > 0}
 							<div class="mt-3">
-								<div class="mb-1 text-xs uppercase text-neutral-500">
+								<div class="mb-1 text-xs uppercase text-muted-foreground/80">
 									Neu (+{pr.diff.add.length})
 								</div>
 								<ul class="space-y-2">
 									{#each pr.diff.add as a, i (i)}
-										<li class="rounded-lg border border-neutral-800 bg-neutral-950 p-2 text-xs">
-											<div class="text-neutral-500">{a.type}</div>
+										<li class="rounded-lg border border-border bg-background p-2 text-xs">
+											<div class="text-muted-foreground/80">{a.type}</div>
 											{#each Object.entries(a.fields) as [k, v]}
 												<div class="mt-1">
-													<span class="text-neutral-500">{k}:</span>
-													<span class="text-neutral-200">{v}</span>
+													<span class="text-muted-foreground/80">{k}:</span>
+													<span class="text-foreground/90">{v}</span>
 												</div>
 											{/each}
 										</li>
@@ -189,10 +189,10 @@
 
 						{#if pr.diff.remove.length > 0}
 							<div class="mt-3">
-								<div class="mb-1 text-xs uppercase text-neutral-500">
+								<div class="mb-1 text-xs uppercase text-muted-foreground/80">
 									Entfernt (−{pr.diff.remove.length})
 								</div>
-								<ul class="space-y-1 text-xs text-neutral-400">
+								<ul class="space-y-1 text-xs text-muted-foreground">
 									{#each pr.diff.remove as r (r.contentHash)}
 										<li>· {r.contentHash.slice(0, 12)}…</li>
 									{/each}
@@ -210,14 +210,14 @@
 									{actionBusy === pr.id ? 'Mergt…' : 'Mergen'}
 								</button>
 								<button
-									class="rounded-lg border border-red-500/40 px-3 py-1.5 text-xs text-red-300 hover:bg-red-500/10 disabled:opacity-50"
+									class="rounded-lg border border-error/40 px-3 py-1.5 text-xs text-error hover:bg-error/10 disabled:opacity-50"
 									onclick={() => reject(pr)}
 									disabled={actionBusy === pr.id}
 								>
 									Ablehnen
 								</button>
 								<button
-									class="rounded-lg border border-neutral-700 px-3 py-1.5 text-xs hover:bg-neutral-800 disabled:opacity-50"
+									class="rounded-lg border border-border-strong px-3 py-1.5 text-xs hover:bg-muted disabled:opacity-50"
 									onclick={() => close(pr)}
 									disabled={actionBusy === pr.id}
 								>

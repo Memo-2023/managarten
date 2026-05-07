@@ -98,6 +98,13 @@
 	--color-card-foreground: hsl(var(--color-card-foreground) / <alpha-value>);
 	--color-accent: hsl(var(--color-accent) / <alpha-value>);
 	--color-accent-foreground: hsl(var(--color-accent-foreground) / <alpha-value>);
+
+	/* Per-app brand accent — set by the host app's layout via
+	   `style="--color-app-accent: <H S% L%>"` on documentElement.
+	   Theme-agnostic: stays the same across light/dark/lume/etc. so
+	   the app's identity reads consistently. Defaults to Mana brand
+	   below in :root if no host overrides. */
+	--color-app-accent: hsl(var(--color-app-accent) / <alpha-value>);
 }
 
 @theme {
@@ -170,6 +177,13 @@
 	--color-branch-social: 38 92% 50%;       /* amber — warmth, relationships */
 	--color-branch-practical: 173 80% 40%;   /* teal — craft, tools */
 	--color-branch-mindset: 142 71% 45%;     /* green — calm, growth */
+
+	/* Per-app brand accent default — Mana indigo. Host apps override
+	   at runtime by writing `--color-app-accent: <H S% L%>` onto
+	   documentElement, typically from MANA_APPS[<id>].color via the
+	   hexToHsl() helper in @mana/shared-theme/utils. Theme-agnostic:
+	   not redefined in .dark / [data-theme="…"] blocks. */
+	--color-app-accent: 239 84% 67%;
 }
 
 /* ===== Default Theme (Lume Light) ===== */

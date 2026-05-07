@@ -101,12 +101,12 @@
 	}
 </script>
 
-<div class="rounded-xl border border-indigo-500/30 bg-neutral-900 p-4">
+<div class="rounded-xl border border-indigo-500/30 bg-card p-4">
 	<div class="mb-2 flex items-center justify-between">
 		<span class="text-sm font-medium">✨ Karten aus Text generieren</span>
 		{#if stage !== 'idle'}
 			<button
-				class="text-xs text-neutral-500 hover:text-neutral-300"
+				class="text-xs text-muted-foreground/80 hover:text-foreground/80"
 				onclick={stage === 'generating' ? cancelGenerate : reset}
 			>
 				{stage === 'generating' ? 'Abbrechen' : 'Zurücksetzen'}
@@ -118,25 +118,25 @@
 		<textarea
 			bind:value={source}
 			placeholder="Text einfügen — Notizen, Lehrbuch-Absatz, Definition…"
-			class="min-h-[120px] w-full rounded-lg border border-neutral-700 bg-neutral-950 px-3 py-2 text-sm outline-none focus:border-indigo-400"
+			class="min-h-[120px] w-full rounded-lg border border-border-strong bg-background px-3 py-2 text-sm outline-none focus:border-indigo-400"
 		></textarea>
 		{#if stage === 'error' && error}
-			<p class="mt-2 text-sm text-red-400">{error}</p>
+			<p class="mt-2 text-sm text-error">{error}</p>
 		{/if}
-		<div class="mt-2 flex items-center justify-between gap-3 text-xs text-neutral-500">
+		<div class="mt-2 flex items-center justify-between gap-3 text-xs text-muted-foreground/80">
 			<div class="flex items-center gap-3">
 				<span>{source.length} Zeichen</span>
-				{#if pdfStatus}<span class="text-indigo-300">📄 {pdfStatus}</span>{/if}
+				{#if pdfStatus}<span class="text-app-accent">📄 {pdfStatus}</span>{/if}
 			</div>
 			<div class="flex items-center gap-2">
 				<button
-					class="rounded-lg border border-neutral-700 px-3 py-1.5 text-neutral-300 hover:bg-neutral-800"
+					class="rounded-lg border border-border-strong px-3 py-1.5 text-foreground/80 hover:bg-muted"
 					onclick={() => pdfPicker?.click()}
 				>
 					📄 PDF laden
 				</button>
 				<button
-					class="rounded-lg bg-indigo-500 px-4 py-1.5 text-sm text-white hover:bg-indigo-400 disabled:opacity-50"
+					class="rounded-lg bg-app-accent px-4 py-1.5 text-sm text-white hover:bg-app-accent/90 disabled:opacity-50"
 					onclick={handleGenerate}
 					disabled={!source.trim()}
 				>
@@ -152,17 +152,17 @@
 			onchange={handlePdfPick}
 		/>
 	{:else if stage === 'reading-pdf'}
-		<div class="py-6 text-center text-sm text-neutral-400">{pdfStatus ?? 'Lese PDF…'}</div>
+		<div class="py-6 text-center text-sm text-muted-foreground">{pdfStatus ?? 'Lese PDF…'}</div>
 	{:else if stage === 'generating'}
-		<div class="py-6 text-center text-sm text-neutral-400">Modell denkt nach…</div>
+		<div class="py-6 text-center text-sm text-muted-foreground">Modell denkt nach…</div>
 	{:else if stage === 'preview'}
 		<div class="space-y-2 text-sm">
-			<div class="text-neutral-300">
+			<div class="text-foreground/80">
 				{generated.length} Karten generiert. Wähle aus, was übernommen werden soll:
 			</div>
-			<ul class="max-h-72 space-y-1 overflow-y-auto rounded-lg border border-neutral-800 p-2">
+			<ul class="max-h-72 space-y-1 overflow-y-auto rounded-lg border border-border p-2">
 				{#each generated as card, i (i)}
-					<li class="flex items-start gap-2 rounded-md p-1 hover:bg-neutral-800/50">
+					<li class="flex items-start gap-2 rounded-md p-1 hover:bg-muted/50">
 						<input
 							type="checkbox"
 							bind:checked={selected[i]}
@@ -170,27 +170,27 @@
 							id="ai-card-{i}"
 						/>
 						<label for="ai-card-{i}" class="min-w-0 flex-1 cursor-pointer">
-							<div class="font-medium text-neutral-100">{card.front}</div>
-							<div class="text-xs text-neutral-400">{card.back}</div>
+							<div class="font-medium text-foreground">{card.front}</div>
+							<div class="text-xs text-muted-foreground">{card.back}</div>
 						</label>
 					</li>
 				{/each}
 			</ul>
 			<div class="flex justify-end gap-2 pt-1">
 				<button
-					class="rounded-lg px-3 py-1.5 text-sm text-neutral-400 hover:text-neutral-100"
+					class="rounded-lg px-3 py-1.5 text-sm text-muted-foreground hover:text-foreground"
 					onclick={() => (selected = selected.map(() => true))}
 				>
 					Alle
 				</button>
 				<button
-					class="rounded-lg px-3 py-1.5 text-sm text-neutral-400 hover:text-neutral-100"
+					class="rounded-lg px-3 py-1.5 text-sm text-muted-foreground hover:text-foreground"
 					onclick={() => (selected = selected.map(() => false))}
 				>
 					Keine
 				</button>
 				<button
-					class="rounded-lg bg-indigo-500 px-4 py-1.5 text-sm text-white hover:bg-indigo-400 disabled:opacity-50"
+					class="rounded-lg bg-app-accent px-4 py-1.5 text-sm text-white hover:bg-app-accent/90 disabled:opacity-50"
 					onclick={handleConfirm}
 					disabled={!selected.some(Boolean)}
 				>
@@ -199,10 +199,10 @@
 			</div>
 		</div>
 	{:else if stage === 'creating'}
-		<div class="py-6 text-center text-sm text-neutral-400">Lege Karten an…</div>
+		<div class="py-6 text-center text-sm text-muted-foreground">Lege Karten an…</div>
 	{:else if stage === 'done'}
 		<div class="text-sm text-green-400">✓ {createdCount} Karten angelegt.</div>
-		<button class="mt-2 text-xs text-neutral-500 hover:text-neutral-300" onclick={reset}>
+		<button class="mt-2 text-xs text-muted-foreground/80 hover:text-foreground/80" onclick={reset}>
 			Weiteren Text generieren
 		</button>
 	{/if}
