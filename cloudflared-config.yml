@@ -161,6 +161,14 @@ ingress:
   - hostname: admin.mana.how
     service: http://localhost:3071
 
+  # Verdaccio @mana/* npm-Registry. Standalone-Compose-Project unter
+  # ~/projects/verdaccio/ auf dem Mini (storage + htpasswd survive im
+  # bind-mount). Phase 2f-1 hatte das nach GPU verlagert, aber das
+  # Storage-Volume kam dort nie an — am 2026-05-07 zurueckgerollt,
+  # Mini bleibt Single-Source.
+  - hostname: npm.mana.how
+    service: http://localhost:4873
+
   # ============================================
   # Memoro (Code/memoro, separate repo)
   # ~/projects/memoro-deploy/ on the Mac Mini.

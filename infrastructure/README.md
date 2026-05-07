@@ -21,7 +21,6 @@ Hilfsdienste vom Mini abgegeben — siehe [`docs/PLAN_OPTION_C.md`](../docs/PLAN
 | `gpu-node-exporter`, `gpu-cadvisor`, `gpu-promtail` | (intern) | Self-Monitoring (Phase 2c) |
 | `glitchtip` + worker + dedizierte postgres + redis | `:8020` → `glitchtip.mana.how` | Error-Tracking mit eigenem DB-Stack (Phase 2d) |
 | `status-page-gen`, `status-nginx` | `:8090` → `status.mana.how` | Status-Seite (Phase 2e) |
-| `verdaccio` | `:4873` → `npm.mana.how` | Private @mana/* npm-Registry (Phase 2f-1) |
 | `news-ingester` | (intern) | RSS-Crawl + News-Ingestion (Phase 2f-2) |
 | `mana-ai` | `:3067` → `mana-ai.mana.how` | AI Mission Runner (Phase 2f-3) |
 | `mana-research` | `:3068` → `research.mana.how` | Web-Research-Orchestrator (Phase 2g) |
@@ -83,7 +82,6 @@ Aktive Public-Hostnames (Stand 2026-05-07, config v28):
 | `glitchtip.mana.how` | `:8020` | Glitchtip (Phase 2d) |
 | `status.mana.how` | `:8090` | Status-Page (Phase 2e) |
 | `photon.mana.how` | `:2322` | Photon Geocoder (cross-LAN-Workaround für mana-geocoding's Probe + privacy-local Provider) |
-| `npm.mana.how` | `:4873` | Verdaccio @mana/* npm-Registry (Phase 2f-1) |
 | `mana-ai.mana.how` | `:3067` | AI Mission Runner (Phase 2f-3) |
 | `research.mana.how` | `:3068` | Web-Research-Orchestrator (Phase 2g) |
 
