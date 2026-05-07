@@ -13,7 +13,7 @@
  * regenerated on first sight.
  */
 
-import JSZip from 'jszip';
+import JSZip, { type JSZipObject } from 'jszip';
 import initSqlJs, { type Database } from 'sql.js';
 import type { CardType } from '@mana/cards-core';
 
@@ -33,6 +33,14 @@ export interface ParsedAnki {
 	cards: ParsedCard[];
 	skipped: number;
 	warnings: string[];
+	/**
+	 * Mapping from the original media filename (as referenced in card
+	 * fields, e.g. `paris.jpg` or `audio_001.mp3`) to its ZIP entry. Anki
+	 * stores files numerically (`0`, `1`, …) and the JSON manifest
+	 * (`media`) maps numbers → original names; we flip that here so the
+	 * importer can look up by the name it sees in the field text.
+	 */
+	mediaByFilename: Map<string, JSZipObject>;
 }
 
 interface AnkiModel {
@@ -69,14 +77,37 @@ export async function parseApkg(file: File | Blob): Promise<ParsedAnki> {
 	const sql = await getSql();
 	const db: Database = new sql.Database(sqliteBytes);
 
+	const mediaByFilename = await extractMediaManifest(zip);
+
 	try {
-		return extract(db);
+		const result = extract(db);
+		return { ...result, mediaByFilename };
 	} finally {
 		db.close();
 	}
 }
 
-function extract(db: Database): ParsedAnki {
+async function extractMediaManifest(zip: JSZip): Promise<Map<string, JSZipObject>> {
+	const out = new Map<string, JSZipObject>();
+	const manifestEntry = zip.file('media');
+	if (!manifestEntry) return out;
+	let manifest: Record<string, string>;
+	try {
+		manifest = JSON.parse(await manifestEntry.async('string'));
+	} catch {
+		return out;
+	}
+	for (const [numericKey, originalName] of Object.entries(manifest)) {
+		const entry = zip.file(numericKey);
+		if (entry) out.set(originalName, entry);
+	}
+	return out;
+}
+
+// Internal extract returns everything except media — that's plumbed in
+// at the parseApkg layer so the SQLite-only path stays focused.
+type ExtractResult = Omit<ParsedAnki, 'mediaByFilename'>;
+function extract(db: Database): ExtractResult {
 	const colRow = db.exec('SELECT models, decks FROM col LIMIT 1');
 	if (colRow.length === 0 || colRow[0].values.length === 0) {
 		throw new Error('Anki-Collection ist leer.');
@@ -169,25 +200,48 @@ function mapNoteToCard(
 	return null;
 }
 
-/** Strip Anki's HTML / image / sound markup down to plain text + Markdown.
- *  Conservative — keeps line breaks and bold/italic but strips images
- *  and sound refs (Phase-2 will re-import media). */
-export function sanitizeAnkiHtml(html: string): string {
-	return html
-		.replace(/<img[^>]*>/g, '')
-		.replace(/\[sound:[^\]]+\]/g, '')
-		.replace(/<br\s*\/?>/gi, '\n')
-		.replace(/<\/?(?:b|strong)>/gi, '**')
-		.replace(/<\/?(?:i|em)>/gi, '*')
-		.replace(/<\/?p>/gi, '\n')
-		.replace(/<\/?div>/gi, '\n')
-		.replace(/<[^>]+>/g, '') // drop remaining tags
-		.replace(/&nbsp;/g, ' ')
-		.replace(/&amp;/g, '&')
-		.replace(/&lt;/g, '<')
-		.replace(/&gt;/g, '>')
-		.replace(/&quot;/g, '"')
-		.replace(/&#39;/g, "'")
-		.replace(/\n{3,}/g, '\n\n')
-		.trim();
+/**
+ * Convert Anki's HTML / image / sound markup to plain text + Markdown.
+ *
+ * `mediaUrlByFilename` maps the filename Anki references in the field
+ * (e.g. `paris.jpg` for `<img src="paris.jpg">` or `audio.mp3` for
+ * `[sound:audio.mp3]`) to its post-upload URL on mana-media. Anything
+ * not in the map is dropped silently — same as the no-media path.
+ */
+export function sanitizeAnkiHtml(
+	html: string,
+	mediaUrlByFilename: Map<string, string> = new Map()
+): string {
+	const imgReplaced = html.replace(
+		/<img\b[^>]*\bsrc=["']([^"']+)["'][^>]*>/gi,
+		(_, src: string) => {
+			const url = mediaUrlByFilename.get(src);
+			return url ? `<img src="${url}" alt="" />` : '';
+		}
+	);
+	const soundReplaced = imgReplaced.replace(/\[sound:([^\]]+)\]/g, (_, name: string) => {
+		const url = mediaUrlByFilename.get(name);
+		return url ? `<audio controls preload="metadata" src="${url}"></audio>` : '';
+	});
+
+	return (
+		soundReplaced
+			.replace(/<br\s*\/?>/gi, '\n')
+			.replace(/<\/?(?:b|strong)>/gi, '**')
+			.replace(/<\/?(?:i|em)>/gi, '*')
+			.replace(/<\/?p>/gi, '\n')
+			.replace(/<\/?div>/gi, '\n')
+			// Drop remaining HTML tags except the ones we just emitted
+			// (img/audio/video/source) — those need to survive into the
+			// rendered card. Negative lookahead does that in one pass.
+			.replace(/<(?!\/?(?:img|audio|video|source)\b)[^>]+>/gi, '')
+			.replace(/&nbsp;/g, ' ')
+			.replace(/&amp;/g, '&')
+			.replace(/&lt;/g, '<')
+			.replace(/&gt;/g, '>')
+			.replace(/&quot;/g, '"')
+			.replace(/&#39;/g, "'")
+			.replace(/\n{3,}/g, '\n\n')
+			.trim()
+	);
 }

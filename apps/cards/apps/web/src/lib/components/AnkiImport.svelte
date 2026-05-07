@@ -3,11 +3,16 @@
 	import { importParsedAnki, type ImportResult } from '$lib/anki/import';
 
 	let fileInput = $state<HTMLInputElement | null>(null);
-	let stage = $state<'idle' | 'parsing' | 'preview' | 'importing' | 'done' | 'error'>('idle');
+	let stage = $state<
+		'idle' | 'parsing' | 'preview' | 'uploading-media' | 'importing' | 'done' | 'error'
+	>('idle');
 	let parsed = $state<ParsedAnki | null>(null);
 	let result = $state<ImportResult | null>(null);
 	let error = $state<string | null>(null);
 	let fileName = $state<string>('');
+	let mediaProgress = $state<{ uploaded: number; total: number }>({ uploaded: 0, total: 0 });
+
+	const mediaCount = $derived(parsed?.mediaByFilename.size ?? 0);
 
 	async function handleFile(file: File) {
 		error = null;
@@ -37,9 +42,17 @@
 
 	async function confirmImport() {
 		if (!parsed) return;
-		stage = 'importing';
+		mediaProgress = { uploaded: 0, total: mediaCount };
+		stage = mediaCount > 0 ? 'uploading-media' : 'importing';
 		try {
-			result = await importParsedAnki(parsed);
+			result = await importParsedAnki(parsed, {
+				onMediaProgress: (p) => {
+					mediaProgress = p;
+					if (p.uploaded >= p.total && stage === 'uploading-media') {
+						stage = 'importing';
+					}
+				},
+			});
 			stage = 'done';
 		} catch (e: any) {
 			error = e?.message ?? 'Import fehlgeschlagen.';
@@ -70,7 +83,7 @@
 		>
 			<div class="mb-1">📦 .apkg-Datei hier ablegen oder klicken</div>
 			<div class="text-xs text-neutral-500">
-				Basic, Basic + Reverse und Cloze werden importiert. Bilder/Audio bleiben raus.
+				Basic, Basic + Reverse, Cloze · Bilder + Audio werden mit übernommen.
 			</div>
 		</div>
 		<input
@@ -91,6 +104,9 @@
 			<ul class="ml-4 list-disc text-neutral-300">
 				<li>{parsed.decks.length} {parsed.decks.length === 1 ? 'Deck' : 'Decks'}</li>
 				<li>{parsed.cards.length} {parsed.cards.length === 1 ? 'Karte' : 'Karten'}</li>
+				{#if mediaCount > 0}
+					<li>{mediaCount} Medien (Bilder/Audio)</li>
+				{/if}
 				{#if parsed.skipped > 0}
 					<li class="text-amber-400">{parsed.skipped} übersprungen (unbekannter Typ)</li>
 				{/if}
@@ -118,6 +134,18 @@
 				</button>
 			</div>
 		</div>
+	{:else if stage === 'uploading-media'}
+		<div class="py-6 text-center text-sm text-neutral-400">
+			<div>Lade Medien hoch · {mediaProgress.uploaded} / {mediaProgress.total}</div>
+			<div class="mx-auto mt-3 h-1 w-48 overflow-hidden rounded-full bg-neutral-800">
+				<div
+					class="h-full bg-indigo-500 transition-all"
+					style="width: {mediaProgress.total === 0
+						? 0
+						: (mediaProgress.uploaded / mediaProgress.total) * 100}%"
+				></div>
+			</div>
+		</div>
 	{:else if stage === 'importing'}
 		<div class="py-6 text-center text-sm text-neutral-400">
 			Importiere {parsed?.cards.length ?? 0} Karten…
@@ -128,6 +156,13 @@
 				✓ {result.cardsCreated} Karten in {result.decksCreated}
 				{result.decksCreated === 1 ? 'Deck' : 'Decks'} angelegt.
 			</div>
+			{#if result.mediaUploaded > 0 || result.mediaFailed > 0}
+				<div class="text-neutral-400">
+					{result.mediaUploaded} Medien übernommen{#if result.mediaFailed > 0}
+						<span class="text-amber-400">· {result.mediaFailed} fehlgeschlagen</span>
+					{/if}
+				</div>
+			{/if}
 			{#if result.failed > 0}
 				<div class="text-amber-400">{result.failed} Karten konnten nicht angelegt werden.</div>
 			{/if}
