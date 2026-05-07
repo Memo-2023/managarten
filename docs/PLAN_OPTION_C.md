@@ -91,9 +91,19 @@ WSL2 (Ubuntu 24.04, 24 GB RAM-Limit, 12 vCPU, vmIdleTimeout=-1)
 | glitchtip.mana.how | mana-gpu-server | http://localhost:8020 |
 | (interne) gpu-box-eigene VM/Loki | – | nur LAN, via Mini-Promtail blockiert |
 
-### Bekannte Limits / Pre-Existing Issues nach Phase 2c
+### Cross-LAN Routing zwischen Mini-Container und GPU-Box
 
-1. **Mini-Container-Logs werden nicht zu GPU-Loki geshipped.** Mini-Promtail kann GPU-Box `192.168.178.11:3100` aus Colima-Container-Network nicht erreichen, obwohl der Mini-Host es kann (Colima-NAT-Routing-Quirk). Ports 3100/9090/9091 sind via Windows-Firewall + `netsh interface portproxy` von der LAN-IP erreichbar. Mini-Promtail war ohnehin schon vor der Migration aus, ist also keine Regression — aktuell sind nur GPU-Box-Logs in Loki. Als Workaround später möglich: Loki-HTTP-Push via Cloudflare-Tunnel.
+Wiederkehrendes Pattern: **Mac-Mini-Docker-Container** (in der Colima-Linux-VM) können die **Windows-GPU-Box** zwar IP-technisch erreichen, aber Docker-Bridge + Colima-NAT routen nicht zur LAN-IP `192.168.178.11`. Workaround = Cloudflare-Tunnel als interne-IP-Bridge:
+
+| Was | Status | Workaround |
+|---|---|---|
+| `vm.mana.how` (VictoriaMetrics) | nicht mehr nötig | War kurzzeitig aktiv für Mini-side status-gen; Phase 2e zog status-gen zur GPU-Box → vm.mana.how raus |
+| `photon.mana.how` (Geocoder, GPU-WSL2 :2322) | aktiv (config v26) | mana-geocoding's `PHOTON_SELF_API_URL` auf `https://photon.mana.how` — closed das `/health/photon-self`-Probe-Loch; geocoding-Provider-Tier `privacy:'local'` ist erstmals seit Phase 2c real funktional |
+| `gpu-stt`/`gpu-llm`/`gpu-tts`/`gpu-img`/`gpu-video`/`gpu-ollama` | aktiv (vor Phase 2c) | Direktes scraping von VM aus deaktiviert; blackbox-exporter probt nur die `/health`-Endpoints öffentlich |
+
+### Restliche Pre-Existing Issues nach Phase 2c
+
+1. **Mini-Container-Logs werden nicht zu GPU-Loki geshipped.** Mini-Promtail kann GPU-Box `192.168.178.11:3100` aus Colima-Container-Network nicht erreichen, obwohl der Mini-Host es kann. Ports 3100/9090/9091 sind via Windows-Firewall + `netsh interface portproxy` von der LAN-IP erreichbar. Mini-Promtail war ohnehin schon vor der Migration aus, ist also keine Regression — aktuell sind nur GPU-Box-Logs in Loki. Workaround analog zu photon: Loki-HTTP-Push via Cloudflare-Tunnel-Hostname (`loki.mana.how`).
 2. **gpu-* direct scrape jobs deaktiviert.** Aus Docker-Container in WSL2 ist `host.docker.internal:port` (= host-gateway 172.18.0.1) nicht in der Lage, Windows-Host-Services zu erreichen (die binden auf 127.0.0.1). Workaround: blackbox-exporter probt `gpu-stt.mana.how/health` etc. öffentlich → grobe Up/Down-Visibility ist erhalten, nur App-interne Metriken (Token-Counts etc.) fehlen.
 3. **7 Pre-Existing-DOWN-Targets:** `mana-auth`, `mana-credits`, `mana-user`, `mana-subscriptions`, `mana-analytics`, `memoro-server`, `uload-server` geben non-2xx auf `/metrics` zurück (entweder kein Endpoint oder Auth-protected). Waren auf dem Mini schon DOWN, nicht durch Migration verursacht.
 4. **2 Scrape-Jobs übersprungen:** `mana-mcp` und `mana-crawler` exposen keine Host-Ports (nur Container-internal), daher von der GPU-Box nicht erreichbar. Auskommentiert in prometheus.yml.

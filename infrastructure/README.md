@@ -63,6 +63,23 @@ Ingress-Konfiguration via API + Cloudflare-Dashboard, NICHT in
 `grafana`, `git`, `stats`, `glitchtip`, `status` (alles `*.mana.how`,
 für die Phase-2-Container hier).
 
+Aktive Public-Hostnames (Stand 2026-05-07, config v26):
+
+| Hostname | Service | Zweck |
+|---|---|---|
+| `gpu-stt.mana.how` | `:3020` | Whisper STT (Scheduled-Task) |
+| `gpu-tts.mana.how` | `:3022` | Piper TTS |
+| `gpu-llm.mana.how` | `:3025` | LLM Gateway |
+| `gpu-img.mana.how` | `:3023` | FLUX image-gen |
+| `gpu-video.mana.how` | `:3026` | Video-gen |
+| `gpu-ollama.mana.how` | `:11434` | Ollama API |
+| `grafana.mana.how` | `:8000` | Phase 2a |
+| `git.mana.how` | `:3041` | Forgejo (Phase 2b) |
+| `stats.mana.how` | `:8010` | Umami (Phase 2b) |
+| `glitchtip.mana.how` | `:8020` | Glitchtip (Phase 2d) |
+| `status.mana.how` | `:8090` | Status-Page (Phase 2e) |
+| `photon.mana.how` | `:2322` | Photon Geocoder (cross-LAN-Workaround für mana-geocoding's Probe + privacy-local Provider) |
+
 API-Update (idempotent):
 
 ```python
