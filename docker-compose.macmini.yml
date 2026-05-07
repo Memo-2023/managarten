@@ -250,7 +250,7 @@ services:
       # Enforced by services/mana-auth/src/auth/sso-config.spec.ts.
       # All productivity modules now live under mana.how (path-based) —
       # no per-module subdomain entries required here.
-      CORS_ORIGINS: https://mana.how,https://auth.mana.how,https://whopxl.mana.how,https://cards.mana.how
+      CORS_ORIGINS: https://mana.how,https://auth.mana.how,https://cards.mana.how
     ports:
       - "3001:3001"
     healthcheck:
@@ -460,10 +460,12 @@ services:
     environment:
       TZ: Europe/Berlin
       PORT: 3018
-      # Self-hosted Photon on mana-gpu (cross-LAN). When set, registers
-      # as `photon-self` provider with privacy: 'local' — eligible for
-      # sensitive queries. Empty value = slot disabled.
-      PHOTON_SELF_API_URL: ${PHOTON_SELF_API_URL:-}
+      # Self-hosted Photon. Läuft als Docker-Container auf der GPU-Box
+      # (mana-server-gpu, WSL2). Mini-Container können die GPU-LAN-IP
+      # nicht direkt routen (Colima-NAT-Quirk), daher via Cloudflare-
+      # Tunnel — `photon.mana.how` schickt direkt an den GPU-tunnel.
+      # Empty value = slot disabled.
+      PHOTON_SELF_API_URL: ${PHOTON_SELF_API_URL:-https://photon.mana.how}
       # Cold-start cross-LAN fetches to photon-self consistently take
       # >10s on the first probe; the 8s default false-marked it unhealthy
       # on every cold path. 20s leaves headroom while still cutting off

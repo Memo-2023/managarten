@@ -187,9 +187,6 @@ ingress:
     service: http://localhost:5050
   - hostname: manavoxel.mana.how
     service: http://localhost:5028
-  - hostname: whopxl.mana.how
-    service: http://localhost:5100
-
   # ============================================
   # Who? Game (Standalone-Bun-Stack, native auf Mac Mini unter PM2)
   # Source: ~/projects/who/, Deploy-Doc: who/docs/MAC_MINI_DEPLOY.md
