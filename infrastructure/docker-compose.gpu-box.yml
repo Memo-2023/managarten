@@ -523,6 +523,47 @@ services:
       retries: 3
       start_period: 30s
 
+  # ============================================
+  # Phase 2f-3 — mana-ai (AI Mission Runner, 2026-05-07)
+  # Background tick-loop (60s default), queryt mana-api + mana-llm +
+  # mana-research, persistiert via mana_sync. Geographische Nähe zum
+  # gpu-llm/gpu-ollama-Stack ist Bonus für künftige direct-LLM-Pfade.
+  # services/mana-ai/Dockerfile ist bereits workspace-aware (pnpm
+  # multi-stage), funktioniert nativ auf GPU-Box.
+  # ============================================
+  mana-ai:
+    build:
+      context: /srv/mana/source
+      dockerfile: services/mana-ai/Dockerfile
+    image: mana-ai:gpu-box
+    container_name: mana-ai
+    restart: unless-stopped
+    environment:
+      TZ: Europe/Berlin
+      PORT: 3067
+      NODE_ENV: production
+      TICK_INTERVAL_MS: '60000'
+      TICK_ENABLED: 'true'
+      MANA_AI_DEEP_RESEARCH_ENABLED: 'false'
+      # Cross-LAN dependency wiring — alle Mini-Services via Host-Port.
+      MANA_API_URL: http://192.168.178.131:3060
+      SYNC_DATABASE_URL: postgresql://postgres:${POSTGRES_PASSWORD}@192.168.178.131:5432/mana_sync
+      MANA_LLM_URL: http://192.168.178.131:3025
+      MANA_RESEARCH_URL: http://192.168.178.131:3068
+      # Internal-service-auth + RSA für Mission-Grant-Decryption.
+      MANA_SERVICE_KEY: ${MANA_SERVICE_KEY}
+      MANA_AI_PRIVATE_KEY_PEM: ${MANA_AI_PRIVATE_KEY_PEM}
+      # OTEL: Tempo läuft seit Phase 2c nicht mehr — leer = SDK no-op
+      OTEL_EXPORTER_OTLP_ENDPOINT: ''
+    ports:
+      - '3067:3067'
+    healthcheck:
+      test: ['CMD', 'bun', '-e', "fetch('http://localhost:3067/health').then(r => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
   verdaccio:
     image: verdaccio/verdaccio:6
     container_name: mana-verdaccio

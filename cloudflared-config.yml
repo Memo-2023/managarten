@@ -117,8 +117,6 @@ ingress:
   # /api/v1/me/ai-audit that powers the Workbench "Datenzugriff" tab.
   # The background tick loop + /metrics stay internal; only the
   # JWT-gated user endpoint is public.
-  - hostname: mana-ai.mana.how
-    service: http://localhost:3067
 
   # ============================================
   # API Gateway (Go)

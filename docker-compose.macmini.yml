@@ -268,53 +268,6 @@ services:
   # and docs/plans/ai-mission-key-grant.md).
   # ============================================
 
-  mana-ai:
-    build:
-      context: .
-      dockerfile: services/mana-ai/Dockerfile
-    image: mana-ai:local
-    container_name: mana-ai
-    restart: always
-    mem_limit: 256m
-    depends_on:
-      postgres:
-        condition: service_healthy
-      mana-llm:
-        condition: service_started
-      mana-api:
-        condition: service_healthy
-      mana-research:
-        condition: service_started
-    environment:
-      TZ: Europe/Berlin
-      NODE_ENV: production
-      PORT: 3067
-      SYNC_DATABASE_URL: postgresql://postgres:${POSTGRES_PASSWORD:-mana123}@postgres:5432/mana_sync
-      MANA_LLM_URL: http://mana-llm:3020
-      MANA_API_URL: http://mana-api:3060
-      MANA_RESEARCH_URL: http://mana-research:3068
-      MANA_AI_DEEP_RESEARCH_ENABLED: ${MANA_AI_DEEP_RESEARCH_ENABLED:-false}
-      MANA_SERVICE_KEY: ${MANA_SERVICE_KEY}
-      TICK_INTERVAL_MS: ${MANA_AI_TICK_INTERVAL_MS:-60000}
-      TICK_ENABLED: ${MANA_AI_TICK_ENABLED:-true}
-      # RSA-OAEP-2048 private key paired with MANA_AI_PUBLIC_KEY_PEM on
-      # mana-auth. Used to unwrap per-mission data keys at tick time.
-      # Absent → all grants skip silently with reason="not-configured".
-      MANA_AI_PRIVATE_KEY_PEM: ${MANA_AI_PRIVATE_KEY_PEM:-}
-      OTEL_EXPORTER_OTLP_ENDPOINT: http://tempo:4318
-    ports:
-      - "3067:3067"
-    healthcheck:
-      test: ["CMD", "bun", "-e", "fetch('http://127.0.0.1:3067/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
-      interval: 120s
-      timeout: 10s
-      retries: 3
-      start_period: 40s
-
-  # ============================================
-  # Tier 1b: Credits Service (Hono + Bun)
-  # ============================================
-
   mana-credits:
     build:
       context: .
