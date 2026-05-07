@@ -20,10 +20,12 @@ import { AuthorService } from './services/authors';
 import { DeckService } from './services/decks';
 import { ExploreService } from './services/explore';
 import { EngagementService } from './services/engagement';
+import { SubscriptionService } from './services/subscriptions';
 import { createAuthorRoutes } from './routes/authors';
 import { createDeckRoutes } from './routes/decks';
 import { createExploreRoutes } from './routes/explore';
 import { createEngagementRoutes } from './routes/engagement';
+import { createSubscriptionRoutes } from './routes/subscriptions';
 
 // ─── Bootstrap ──────────────────────────────────────────────
 
@@ -34,6 +36,7 @@ const authorService = new AuthorService(db);
 const deckService = new DeckService(db, config.manaLlmUrl);
 const exploreService = new ExploreService(db);
 const engagementService = new EngagementService(db);
+const subscriptionService = new SubscriptionService(db);
 
 // ─── App ────────────────────────────────────────────────────
 
@@ -73,6 +76,7 @@ v1.use('/*', optionalAuth(config.manaAuthUrl));
 // via requireUser() helpers when needed.
 v1.route('/', createExploreRoutes(exploreService));
 v1.route('/', createEngagementRoutes(engagementService));
+v1.route('/', createSubscriptionRoutes(subscriptionService));
 v1.route('/authors', createAuthorRoutes(authorService));
 v1.route('/decks', createDeckRoutes(authorService, deckService));
 

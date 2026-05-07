@@ -14,7 +14,10 @@
 
 	// Auth/marketing pages render outside the gate so first-time visitors
 	// can actually reach them. Everything else is gated.
-	const PUBLIC_PATHS = ['/login', '/register', '/forgot-password'];
+	// Public marketplace surface — anyone can browse decks/profiles/explore
+	// without signing in. AuthGate kicks in once the user opens their own
+	// decks/learn pages.
+	const PUBLIC_PATHS = ['/login', '/register', '/forgot-password', '/explore', '/u/', '/d/'];
 	const isPublic = $derived(PUBLIC_PATHS.some((p) => page.url.pathname.startsWith(p)));
 
 	function handleAuthReady() {
