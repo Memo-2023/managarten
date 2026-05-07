@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { generateCardsFromText, type GeneratedCard } from '$lib/ai/generate';
+	import { extractTextFromPdf } from '$lib/ai/pdf';
 	import { cardStore } from '$lib/stores/cards.svelte';
 
 	interface Props {
@@ -10,8 +11,12 @@
 
 	let { deckId, currentCardCount, onCreated }: Props = $props();
 
-	let stage = $state<'idle' | 'generating' | 'preview' | 'creating' | 'done' | 'error'>('idle');
+	let stage = $state<
+		'idle' | 'reading-pdf' | 'generating' | 'preview' | 'creating' | 'done' | 'error'
+	>('idle');
 	let source = $state('');
+	let pdfPicker = $state<HTMLInputElement | null>(null);
+	let pdfStatus = $state<string | null>(null);
 	let generated = $state<GeneratedCard[]>([]);
 	let selected = $state<boolean[]>([]);
 	let error = $state<string | null>(null);
@@ -72,6 +77,27 @@
 		source = '';
 		error = null;
 		createdCount = 0;
+		pdfStatus = null;
+	}
+
+	async function handlePdfPick(e: Event) {
+		const input = e.currentTarget as HTMLInputElement;
+		const file = input.files?.[0];
+		input.value = '';
+		if (!file) return;
+		error = null;
+		stage = 'reading-pdf';
+		pdfStatus = `Lese ${file.name}…`;
+		try {
+			const result = await extractTextFromPdf(file);
+			source = result.text;
+			pdfStatus = `${file.name} · ${result.pageCount} Seiten · ${result.text.length} Zeichen`;
+			stage = 'idle';
+		} catch (e: any) {
+			error = e?.message ?? 'PDF konnte nicht gelesen werden.';
+			stage = 'error';
+			pdfStatus = null;
+		}
 	}
 </script>
 
@@ -97,16 +123,36 @@
 		{#if stage === 'error' && error}
 			<p class="mt-2 text-sm text-red-400">{error}</p>
 		{/if}
-		<div class="mt-2 flex items-center justify-between text-xs text-neutral-500">
-			<span>{source.length} Zeichen</span>
-			<button
-				class="rounded-lg bg-indigo-500 px-4 py-1.5 text-sm text-white hover:bg-indigo-400 disabled:opacity-50"
-				onclick={handleGenerate}
-				disabled={!source.trim()}
-			>
-				Generieren
-			</button>
+		<div class="mt-2 flex items-center justify-between gap-3 text-xs text-neutral-500">
+			<div class="flex items-center gap-3">
+				<span>{source.length} Zeichen</span>
+				{#if pdfStatus}<span class="text-indigo-300">📄 {pdfStatus}</span>{/if}
+			</div>
+			<div class="flex items-center gap-2">
+				<button
+					class="rounded-lg border border-neutral-700 px-3 py-1.5 text-neutral-300 hover:bg-neutral-800"
+					onclick={() => pdfPicker?.click()}
+				>
+					📄 PDF laden
+				</button>
+				<button
+					class="rounded-lg bg-indigo-500 px-4 py-1.5 text-sm text-white hover:bg-indigo-400 disabled:opacity-50"
+					onclick={handleGenerate}
+					disabled={!source.trim()}
+				>
+					Generieren
+				</button>
+			</div>
 		</div>
+		<input
+			bind:this={pdfPicker}
+			type="file"
+			accept="application/pdf,.pdf"
+			class="hidden"
+			onchange={handlePdfPick}
+		/>
+	{:else if stage === 'reading-pdf'}
+		<div class="py-6 text-center text-sm text-neutral-400">{pdfStatus ?? 'Lese PDF…'}</div>
 	{:else if stage === 'generating'}
 		<div class="py-6 text-center text-sm text-neutral-400">Modell denkt nach…</div>
 	{:else if stage === 'preview'}

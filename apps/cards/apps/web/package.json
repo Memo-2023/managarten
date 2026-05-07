@@ -41,6 +41,7 @@
 		"@mana/shared-utils": "workspace:*",
 		"dexie": "^4.4.1",
 		"jszip": "^3.10.1",
+		"pdfjs-dist": "^5.7.284",
 		"sql.js": "^1.14.1"
 	}
 }

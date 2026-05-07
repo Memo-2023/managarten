@@ -186,6 +186,41 @@ export function useDueCountByDeck() {
 }
 
 /**
+ * Per-day review counts for the last `weeks * 7` days (default 12 weeks
+ * = 84 days). Used by the GitHub-style heatmap on the dashboard. Days
+ * with no row in cardStudyBlocks come back as count=0 so the renderer
+ * doesn't have to fill gaps itself.
+ */
+export function useStudyHeatmap(weeks: number = 12) {
+	return liveQuery(async () => {
+		const today = new Date();
+		const localKey = (d: Date) => {
+			const y = d.getFullYear();
+			const m = `${d.getMonth() + 1}`.padStart(2, '0');
+			const day = `${d.getDate()}`.padStart(2, '0');
+			return `${y}-${m}-${day}`;
+		};
+
+		const days = weeks * 7;
+		const rows = await cardStudyBlockTable.toArray();
+		const byDate = new Map<string, number>();
+		for (const r of rows) {
+			if (r.deletedAt) continue;
+			byDate.set(r.date, (byDate.get(r.date) ?? 0) + r.cardsReviewed);
+		}
+
+		const out: { date: string; count: number }[] = [];
+		for (let i = days - 1; i >= 0; i--) {
+			const d = new Date(today);
+			d.setDate(d.getDate() - i);
+			const key = localKey(d);
+			out.push({ date: key, count: byDate.get(key) ?? 0 });
+		}
+		return out;
+	});
+}
+
+/**
  * Days-in-a-row with at least one review. Walks back from today; the
  * first day with no row (or a soft-deleted/empty one) ends the count.
  * Capped at 365 to bound the worst-case scan.

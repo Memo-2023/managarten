@@ -3,6 +3,7 @@
 	import { useAllDecks, useDueCountByDeck } from '$lib/queries';
 	import { deckStore } from '$lib/stores/decks.svelte';
 	import AnkiImport from '$lib/components/AnkiImport.svelte';
+	import StudyHeatmap from '$lib/components/StudyHeatmap.svelte';
 	import type { Deck } from '@mana/cards-core';
 
 	const decksQuery = $derived(useAllDecks());
@@ -142,6 +143,10 @@
 	{/if}
 
 	<div class="mt-10">
+		<StudyHeatmap />
+	</div>
+
+	<div class="mt-6">
 		<AnkiImport />
 	</div>
 
