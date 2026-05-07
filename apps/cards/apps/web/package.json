@@ -17,6 +17,7 @@
 		"@sveltejs/vite-plugin-svelte": "^5.0.4",
 		"@tailwindcss/vite": "^4.1.7",
 		"@types/node": "^22.10.5",
+		"@types/sql.js": "^1.4.11",
 		"svelte": "^5.41.0",
 		"svelte-check": "^4.3.3",
 		"tailwindcss": "^4.1.17",
@@ -37,6 +38,8 @@
 		"@mana/shared-theme": "workspace:*",
 		"@mana/shared-types": "workspace:*",
 		"@mana/shared-utils": "workspace:*",
-		"dexie": "^4.4.1"
+		"dexie": "^4.4.1",
+		"jszip": "^3.10.1",
+		"sql.js": "^1.14.1"
 	}
 }

@@ -2,6 +2,7 @@
 	import { goto } from '$app/navigation';
 	import { useAllDecks, useDueCountByDeck } from '$lib/queries';
 	import { deckStore } from '$lib/stores/decks.svelte';
+	import AnkiImport from '$lib/components/AnkiImport.svelte';
 	import type { Deck } from '@mana/cards-core';
 
 	const decksQuery = $derived(useAllDecks());
@@ -140,7 +141,9 @@
 		</ul>
 	{/if}
 
-	<p class="mt-12 text-center text-xs text-neutral-600">
-		Phase 1 Vorschau · noch keine Sync zur Mana-App
-	</p>
+	<div class="mt-10">
+		<AnkiImport />
+	</div>
+
+	<p class="mt-12 text-center text-xs text-neutral-600">Phase 1 · synct mit mana.how/cards</p>
 </main>
