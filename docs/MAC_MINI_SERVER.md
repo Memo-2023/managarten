@@ -628,22 +628,23 @@ Misst den tatsächlichen RAM-Verbrauch aller Container, sortiert nach Kategorie:
 
 ### Memory-Limits
 
-Alle 63 Container haben explizite `mem_limit` in `docker-compose.macmini.yml`:
+> **Stand 2026-05-07** — nach Phase 2c+2d Cleanup (siehe [`PLAN_OPTION_C.md`](./PLAN_OPTION_C.md)) sind 14 Service-Blöcke (Grafana, VictoriaMetrics, Loki, Tempo, Promtail, Pushgateway, Blackbox-Exporter, Vmalert, Alertmanager, Alert-Notifier, Umami, Glitchtip+Worker, Forgejo) auf die GPU-Box gewandert und aus der Mini-Compose entfernt.
 
-| Kategorie | Container | Budget |
+Container in `docker-compose.macmini.yml` haben explizite `mem_limit`:
+
+| Kategorie | Container (~) | Budget |
 |-----------|-----------|--------|
-| Infrastructure | 6 | 1.712 MB |
-| Forgejo (mirror-only) | 1 | 512 MB |
-| Core (Hono/Bun) | 5 | 704 MB |
-| Go Services | 5 | 384 MB |
-| Other Backend | 3 | 576 MB |
-| Web Apps | 20 | 2.560 MB |
-| LLM | 2 | 384 MB |
-| Monitoring | 14 | 1.792 MB |
-| Games/Auto | 2 | 192 MB |
-| **Total** | **63** | **9.856 MB (9,6 GiB)** |
+| Infrastructure (postgres, redis, minio, …) | 6 | ~1.712 MB |
+| Core (Hono/Bun + Go) | ~17 | ~2.500 MB |
+| Web Apps + Standalone | ~6 | ~700 MB |
+| Memoro Stack | 3 | ~900 MB |
+| Helper-Exporter (cadvisor, node-exporter, postgres-exporter, redis-exporter) | 4 | ~270 MB |
+| Andere (admin, verdaccio, mail, news-ingester, searxng) | 5 | ~970 MB |
+| **Total (~45 running)** | **~45** | **~6 GiB nominal** |
 
-Colima VM: 12 GiB → Headroom: ~2,4 GiB (Limits) / ~5-6 GiB (real)
+Colima VM: 12 GiB → Headroom: ~6 GiB (Limits) / ~10 GiB (real, da reale Last typisch 2–3 GiB liegt). Build-Skript `build-app.sh` muss seit dem Cleanup das Monitoring-Stop-Trigger nicht mehr feuern (war zuvor bei < 3 GiB free aktiv).
+
+**Was auf der GPU-Box läuft**, sieh in [`PLAN_OPTION_C.md`](./PLAN_OPTION_C.md) §"Was läuft heute auf der GPU-Box". Hostnames `grafana.mana.how`, `git.mana.how`, `stats.mana.how`, `glitchtip.mana.how` werden vom **`mana-gpu-server`-Tunnel** (UUID `83454e8e-…`) bedient, nicht vom Mini.
 
 ### Backup
 
