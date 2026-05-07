@@ -7,6 +7,7 @@
 	import { AuthGate } from '@mana/shared-auth-ui';
 	import { authStore } from '$lib/stores/auth.svelte';
 	import { startSync, stopSync } from '$lib/data/sync';
+	import { useStreak } from '$lib/queries';
 
 	let { children }: { children: Snippet } = $props();
 
@@ -19,6 +20,11 @@
 		// AuthGate guarantees authStore.isAuthenticated by the time this fires.
 		startSync(authStore);
 	}
+
+	// Live streak — recomputed whenever cardStudyBlocks changes. Lives at
+	// the layout level so the count is visible from every gated page.
+	const streakQuery = $derived(useStreak());
+	const streak = $derived(($streakQuery as number | undefined) ?? 0);
 
 	onDestroy(() => stopSync());
 </script>
@@ -33,6 +39,14 @@
 					<span class="text-base">🃏</span> Cards
 				</a>
 				<div class="flex items-center gap-3 text-xs text-neutral-500">
+					{#if streak > 0}
+						<span
+							class="inline-flex items-center gap-1 rounded-full bg-orange-500/15 px-2 py-0.5 text-orange-300"
+							title="{streak} {streak === 1 ? 'Tag' : 'Tage'} in Folge gelernt"
+						>
+							🔥 {streak}
+						</span>
+					{/if}
 					{#if authStore.user?.email}
 						<span class="hidden sm:inline">{authStore.user.email}</span>
 					{/if}

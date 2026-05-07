@@ -7,7 +7,13 @@
  */
 
 import { liveQuery } from 'dexie';
-import { db, cardDeckTable, cardTable, cardReviewTable } from './data/database';
+import {
+	db,
+	cardDeckTable,
+	cardTable,
+	cardReviewTable,
+	cardStudyBlockTable,
+} from './data/database';
 import { decryptRecord, decryptRecords } from './data/crypto';
 import type {
 	CardFields,
@@ -150,5 +156,58 @@ export function useReview(reviewId: string) {
 		const r = await cardReviewTable.get(reviewId);
 		if (!r || r.deletedAt) return null;
 		return toCardReview(r);
+	});
+}
+
+/**
+ * Map of deckId → count of currently-due reviews. Used by the deck list
+ * so the user can see at a glance which deck wants attention without
+ * opening it.
+ */
+export function useDueCountByDeck() {
+	return liveQuery(async () => {
+		const nowIso = new Date().toISOString();
+		const due = await cardReviewTable.where('due').belowOrEqual(nowIso).toArray();
+		const live = due.filter((r) => !r.deletedAt);
+		if (live.length === 0) return new Map<string, number>();
+
+		const cardIds = [...new Set(live.map((r) => r.cardId))];
+		const cards = await cardTable.where('id').anyOf(cardIds).toArray();
+		const cardToDeck = new Map(cards.filter((c) => !c.deletedAt).map((c) => [c.id, c.deckId]));
+
+		const counts = new Map<string, number>();
+		for (const r of live) {
+			const deckId = cardToDeck.get(r.cardId);
+			if (!deckId) continue;
+			counts.set(deckId, (counts.get(deckId) ?? 0) + 1);
+		}
+		return counts;
+	});
+}
+
+/**
+ * Days-in-a-row with at least one review. Walks back from today; the
+ * first day with no row (or a soft-deleted/empty one) ends the count.
+ * Capped at 365 to bound the worst-case scan.
+ */
+export function useStreak() {
+	return liveQuery(async () => {
+		const today = new Date();
+		const localKey = (d: Date) => {
+			const y = d.getFullYear();
+			const m = `${d.getMonth() + 1}`.padStart(2, '0');
+			const day = `${d.getDate()}`.padStart(2, '0');
+			return `${y}-${m}-${day}`;
+		};
+
+		let streak = 0;
+		for (let i = 0; i < 365; i++) {
+			const d = new Date(today);
+			d.setDate(d.getDate() - i);
+			const row = await cardStudyBlockTable.where('date').equals(localKey(d)).first();
+			if (!row || row.deletedAt || row.cardsReviewed <= 0) break;
+			streak++;
+		}
+		return streak;
 	});
 }

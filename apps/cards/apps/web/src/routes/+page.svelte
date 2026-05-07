@@ -1,11 +1,17 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { useAllDecks } from '$lib/queries';
+	import { useAllDecks, useDueCountByDeck } from '$lib/queries';
 	import { deckStore } from '$lib/stores/decks.svelte';
 	import type { Deck } from '@mana/cards-core';
 
 	const decksQuery = $derived(useAllDecks());
 	const decks = $derived(($decksQuery as Deck[] | undefined) ?? []);
+
+	const dueByDeckQuery = $derived(useDueCountByDeck());
+	const dueByDeck = $derived(($dueByDeckQuery as Map<string, number> | undefined) ?? new Map());
+	const totalDue = $derived(
+		[...(dueByDeck as Map<string, number>).values()].reduce((a, b) => a + b, 0)
+	);
 
 	let showNew = $state(false);
 	let newTitle = $state('');
@@ -37,7 +43,9 @@
 			<h1 class="text-3xl font-semibold tracking-tight">Cards</h1>
 			<p class="text-sm text-neutral-400">
 				{decks.length}
-				{decks.length === 1 ? 'Deck' : 'Decks'}
+				{decks.length === 1 ? 'Deck' : 'Decks'}{#if totalDue > 0}
+					· <span class="text-amber-400">{totalDue} fällig</span>
+				{/if}
 			</p>
 		</div>
 		<button
@@ -107,6 +115,7 @@
 	{:else}
 		<ul class="space-y-2">
 			{#each decks as deck (deck.id)}
+				{@const due = (dueByDeck as Map<string, number>).get(deck.id) ?? 0}
 				<li>
 					<a
 						href={`/decks/${deck.id}`}
@@ -119,6 +128,11 @@
 								<span class="block truncate text-xs text-neutral-400">{deck.description}</span>
 							{/if}
 						</span>
+						{#if due > 0}
+							<span class="rounded-full bg-amber-500/15 px-2 py-0.5 text-xs text-amber-400">
+								{due} fällig
+							</span>
+						{/if}
 						<span class="text-xs text-neutral-500">{deck.cardCount}</span>
 					</a>
 				</li>
