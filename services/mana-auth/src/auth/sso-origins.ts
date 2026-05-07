@@ -27,6 +27,7 @@ export const PRODUCTION_TRUSTED_ORIGINS = [
 	'https://whopxl.mana.how', // Games
 	'https://cards.mana.how', // Cards spaced-repetition spinoff (own SvelteKit container, not the unified app)
 	'https://cards-api.mana.how', // Cards marketplace + community backend (cards-server)
+	'https://memoro-app.mana.how', // Memoro web SPA (separate deploy under mana e.V.)
 ] as const;
 
 /** Local dev origins — web dev server + the auth server itself. */
