@@ -628,7 +628,7 @@ Misst den tatsächlichen RAM-Verbrauch aller Container, sortiert nach Kategorie:
 
 ### Memory-Limits
 
-> **Stand 2026-05-07** — nach Phase 2c+2d Cleanup (siehe [`PLAN_OPTION_C.md`](./PLAN_OPTION_C.md)) sind 14 Service-Blöcke (Grafana, VictoriaMetrics, Loki, Tempo, Promtail, Pushgateway, Blackbox-Exporter, Vmalert, Alertmanager, Alert-Notifier, Umami, Glitchtip+Worker, Forgejo) auf die GPU-Box gewandert und aus der Mini-Compose entfernt.
+> **Stand 2026-05-07** — nach Phase 2c+2d+2e+2f+2g Cleanup (siehe [`PLAN_OPTION_C.md`](./PLAN_OPTION_C.md)) sind ~17 Service-Blöcke (Grafana, VictoriaMetrics, Loki, Tempo, Promtail, Pushgateway, Blackbox-Exporter, Vmalert, Alertmanager, Alert-Notifier, Umami, Glitchtip+Worker, Forgejo, Status-Page-Gen, news-ingester, mana-ai, mana-research) auf die GPU-Box gewandert und aus der Mini-Compose entfernt. Phase 2f-1 (verdaccio) wurde am 2026-05-07 zurückgerollt — verdaccio bleibt Standalone-Compose unter `~/projects/verdaccio/` auf dem Mini.
 
 Container in `docker-compose.macmini.yml` haben explizite `mem_limit`:
 
@@ -639,12 +639,13 @@ Container in `docker-compose.macmini.yml` haben explizite `mem_limit`:
 | Web Apps + Standalone | ~6 | ~700 MB |
 | Memoro Stack | 3 | ~900 MB |
 | Helper-Exporter (cadvisor, node-exporter, postgres-exporter, redis-exporter) | 4 | ~270 MB |
-| Andere (admin, verdaccio, mail, news-ingester, searxng) | 5 | ~970 MB |
-| **Total (~45 running)** | **~45** | **~6 GiB nominal** |
+| Andere (admin, mail, searxng) | 3 | ~770 MB |
+| Standalone-Compose (`~/projects/verdaccio/`) | 1 | ~120 MB |
+| **Total (~42 running)** | **~42** | **~6 GiB nominal** |
 
 Colima VM: 12 GiB → Headroom: ~6 GiB (Limits) / ~10 GiB (real, da reale Last typisch 2–3 GiB liegt). Build-Skript `build-app.sh` muss seit dem Cleanup das Monitoring-Stop-Trigger nicht mehr feuern (war zuvor bei < 3 GiB free aktiv).
 
-**Was auf der GPU-Box läuft**, sieh in [`PLAN_OPTION_C.md`](./PLAN_OPTION_C.md) §"Was läuft heute auf der GPU-Box". Hostnames `grafana.mana.how`, `git.mana.how`, `stats.mana.how`, `glitchtip.mana.how` werden vom **`mana-gpu-server`-Tunnel** (UUID `83454e8e-…`) bedient, nicht vom Mini.
+**Was auf der GPU-Box läuft**, sieh in [`PLAN_OPTION_C.md`](./PLAN_OPTION_C.md) §"Was läuft heute auf der GPU-Box". Hostnames `grafana.mana.how`, `git.mana.how`, `stats.mana.how`, `glitchtip.mana.how`, `status.mana.how`, `mana-ai.mana.how`, `research.mana.how`, `photon.mana.how` werden vom **`mana-gpu-server`-Tunnel** (UUID `83454e8e-…`) bedient, nicht vom Mini.
 
 ### Backup
 
