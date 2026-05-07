@@ -485,9 +485,38 @@ services:
       retries: 3
       start_period: 30s
 
+  # ============================================
+  # Phase 2f-1 — Verdaccio npm-Registry (2026-05-07)
+  # @mana/* private packages. Migrated from Mini (was in mana-platform
+  # repo's infrastructure/docker-compose.macmini.yml). Read-heavy bei
+  # CI-Builds, latency-unkritisch — perfekt für GPU-Box-Hosting. Config
+  # lebt jetzt in mana-monorepo's infrastructure/verdaccio/config.yaml,
+  # sparse-clone trägt das Verzeichnis auf der GPU-Box ein.
+  # ============================================
+  verdaccio:
+    image: verdaccio/verdaccio:6
+    container_name: mana-verdaccio
+    restart: unless-stopped
+    ports:
+      - '4873:4873'
+    environment:
+      VERDACCIO_PORT: 4873
+    volumes:
+      - /srv/mana/source/infrastructure/verdaccio/config.yaml:/verdaccio/conf/config.yaml:ro
+      - verdaccio-storage:/verdaccio/storage
+      - verdaccio-plugins:/verdaccio/plugins
+    healthcheck:
+      test: ['CMD', 'wget', '--quiet', '--tries=1', '--spider', 'http://localhost:4873/-/ping']
+      interval: 60s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+
 volumes:
   glitchtip-pg-data:
   status-output:
+  verdaccio-storage:
+  verdaccio-plugins:
   mana-grafana-data:
   victoriametrics-data:
   loki-data:

@@ -1,0 +1,87 @@
+# Verdaccio config — mana e.V. private npm registry.
+# Docs: https://verdaccio.org/docs/configuration
+#
+# Storage layout (writable inside the container):
+#   /verdaccio/storage   — Tar.gz pro Paket-Version + Index-JSONs
+#   /verdaccio/htpasswd  — bcrypt-gehashte User-Credentials
+
+storage: /verdaccio/storage
+plugins: /verdaccio/plugins
+
+# Network address Verdaccio listens on. Inside the container always 0.0.0.0;
+# the host binding (4873) is configured in docker-compose.
+listen: 0.0.0.0:4873
+
+# --- Web UI -----------------------------------------------------------
+web:
+  title: mana e.V. — npm registry
+  gravatar: false
+  scope: '@mana'
+
+# --- Authentication ---------------------------------------------------
+# htpasswd file lives in the storage volume so it survives container
+# restarts. Add users with:
+#   docker exec mana-verdaccio htpasswd -B /verdaccio/htpasswd <user>
+#
+# `max_users: -1` disables web-based self-registration. Users come in
+# only via htpasswd (admin-controlled).
+auth:
+  htpasswd:
+    # Lives inside the storage volume so it survives restarts and gets
+    # backed up with the rest of the registry state.
+    file: /verdaccio/storage/htpasswd
+    # No new self-registration. Add users by inserting a row into
+    # htpasswd manually (`docker exec mana-verdaccio htpasswd -B …`)
+    # or by flipping this to a positive value briefly.
+    max_users: -1
+
+# --- Public-package proxying -----------------------------------------
+# Verdaccio fetches `hono`, `react`, etc. from npmjs.org on first request
+# and caches them in the storage volume. Speeds up subsequent installs
+# and gives us continuity if npmjs.org is down.
+uplinks:
+  npmjs:
+    url: https://registry.npmjs.org/
+    cache: true
+    timeout: 30s
+
+# --- Access control ---------------------------------------------------
+# Pattern matching is first-match. Order matters: @mana/* before **
+#
+# `$authenticated` = user logged in via htpasswd
+# `$all`           = anyone (public anonymous reads)
+#
+# Our policy:
+#   @mana/*  — only authenticated users can read or publish
+#   **       — authenticated users can install (proxied from npmjs)
+#              and the registry never serves these to anonymous reads
+#              either (we don't run an open mirror for the public)
+packages:
+  '@mana/*':
+    access: $authenticated
+    publish: $authenticated
+    unpublish: $authenticated
+    proxy: # not proxied — we own the namespace
+
+  '**':
+    access: $authenticated
+    publish: $authenticated
+    proxy: npmjs
+
+# --- Logging ----------------------------------------------------------
+# Console-only — Docker captures it. For long-term audit (DSGVO Art. 30
+# claim of code-provenance) we'd add file logging in production.
+log: { type: stdout, format: pretty, level: http }
+
+# --- Security -----------------------------------------------------------
+security:
+  api:
+    legacy: true
+  web:
+    sign:
+      expiresIn: 7d
+    verify:
+      someProp: someValue
+
+# --- Limits -----------------------------------------------------------
+max_body_size: 50mb
