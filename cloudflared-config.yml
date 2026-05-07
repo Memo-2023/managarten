@@ -132,8 +132,6 @@ ingress:
   # ============================================
   # Forgejo (Git + CI/CD)
   # ============================================
-  - hostname: git.mana.how
-    service: http://localhost:3041
 
   # ============================================
   # Standalone microservices
@@ -215,12 +213,6 @@ ingress:
   # ============================================
   # Monitoring & observability
   # ============================================
-  - hostname: grafana.mana.how
-    service: http://localhost:8000
-  - hostname: stats.mana.how
-    service: http://localhost:8010
-  - hostname: glitchtip.mana.how
-    service: http://localhost:8020
 
   # ============================================
   # GPU services (NOT in this tunnel)
