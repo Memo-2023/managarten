@@ -187,6 +187,28 @@ export const cardsApi = {
 				method: 'DELETE',
 			}),
 	},
+	subscriptions: {
+		list: () => request<SubscriptionInfo[]>('/v1/me/subscriptions'),
+		subscribe: (deckSlug: string) =>
+			request<{ deckSlug: string; latestVersionId: string }>(
+				`/v1/decks/${encodeURIComponent(deckSlug)}/subscribe`,
+				{ method: 'POST' }
+			),
+		unsubscribe: (deckSlug: string) =>
+			request<{ ok: true }>(`/v1/decks/${encodeURIComponent(deckSlug)}/subscribe`, {
+				method: 'DELETE',
+			}),
+		version: (deckSlug: string, semver: string) =>
+			request<DeckVersionPayload>(
+				`/v1/decks/${encodeURIComponent(deckSlug)}/versions/${encodeURIComponent(semver)}`,
+				{ auth: 'optional' }
+			),
+		diff: (deckSlug: string, fromSemver: string) =>
+			request<DiffPayload>(
+				`/v1/decks/${encodeURIComponent(deckSlug)}/diff?from=${encodeURIComponent(fromSemver)}`,
+				{ auth: 'optional' }
+			),
+	},
 };
 
 // Override author lookup to send token opportunistically — public reads.
@@ -253,4 +275,40 @@ export interface PublishResult {
 	deck: PublicDeck;
 	version: PublicDeckVersion;
 	moderation: { verdict: 'pass' | 'flag' | 'block'; categories: string[] };
+}
+
+export interface SubscriptionInfo {
+	deckSlug: string;
+	deckTitle: string;
+	deckDescription: string | null;
+	subscribedAt: string;
+	notifyUpdates: boolean;
+	currentVersionId: string | null;
+	latestVersionId: string | null;
+	updateAvailable: boolean;
+}
+
+export interface ServerCard {
+	contentHash: string;
+	type: string;
+	fields: Record<string, string>;
+	ord: number;
+}
+
+export interface DeckVersionPayload {
+	id: string;
+	semver: string;
+	contentHash: string;
+	publishedAt: string;
+	changelog: string | null;
+	cards: ServerCard[];
+}
+
+export interface DiffPayload {
+	from: string;
+	to: string;
+	added: ServerCard[];
+	changed: { previous: { contentHash: string }; next: ServerCard }[];
+	unchanged: { contentHash: string; ord: number }[];
+	removed: { contentHash: string }[];
 }

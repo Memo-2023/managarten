@@ -1,24 +1,27 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import { page } from '$app/state';
+	import { goto } from '$app/navigation';
 	import { authStore } from '$lib/stores/auth.svelte';
 	import {
 		cardsApi,
 		CardsApiError,
-		type PublicAuthor,
 		type PublicDeck,
 		type PublicDeckVersion,
 	} from '$lib/api/cards-api';
+	import { isSubscribedLocally, subscribeAndPull, unsubscribe } from '$lib/services/subscribe';
+	import { cardDeckTable } from '$lib/data/database';
 
 	const slug = $derived(page.params.slug as string);
 
 	let stage = $state<'loading' | 'ok' | 'not-found' | 'error'>('loading');
 	let deck = $state<PublicDeck | null>(null);
 	let version = $state<PublicDeckVersion | null>(null);
-	let author = $state<PublicAuthor | null>(null);
 	let starred = $state(false);
+	let starBusy = $state(false);
+	let subscribed = $state(false);
+	let subscribeBusy = $state(false);
+	let subscribedDeckId = $state<string | null>(null);
 	let error = $state<string | null>(null);
-	let busy = $state(false);
 
 	$effect(() => {
 		if (!slug) return;
@@ -31,11 +34,15 @@
 			const r = await cardsApi.decks.bySlug(slug);
 			deck = r.deck;
 			version = r.latestVersion;
-			// Author profile is a separate lookup by ownerUserId — we don't
-			// have a slug from the deck endpoint yet, but the explore browse
-			// gives us the author info inline. For Phase γ.2 we keep this
-			// page simple and just show the deck; clicking the deck card on
-			// /explore already routed via /u/<slug>.
+			subscribed = await isSubscribedLocally(slug);
+			if (subscribed) {
+				const local = await cardDeckTable
+					.where('subscribedFromSlug')
+					.equals(slug)
+					.first()
+					.catch(() => undefined);
+				subscribedDeckId = local?.id ?? null;
+			}
 			stage = 'ok';
 		} catch (e) {
 			if (e instanceof CardsApiError && e.status === 404) {
@@ -48,8 +55,9 @@
 	}
 
 	async function toggleStar() {
-		if (!deck || busy) return;
-		busy = true;
+		if (!deck || starBusy) return;
+		starBusy = true;
+		error = null;
 		try {
 			if (starred) {
 				await cardsApi.decks.unstar(deck.slug);
@@ -61,15 +69,30 @@
 		} catch (e) {
 			error = (e as Error).message;
 		} finally {
-			busy = false;
+			starBusy = false;
 		}
 	}
 
-	// `author` is a placeholder for Phase γ.3 (full author surface on
-	// the deck page). Reading it once silences the unused-state lint
-	// without changing reactivity semantics.
-	// svelte-ignore state_referenced_locally
-	void author;
+	async function toggleSubscribe() {
+		if (!deck || subscribeBusy) return;
+		subscribeBusy = true;
+		error = null;
+		try {
+			if (subscribed) {
+				await unsubscribe(deck.slug);
+				subscribed = false;
+				subscribedDeckId = null;
+			} else {
+				const result = await subscribeAndPull(deck.slug);
+				subscribed = true;
+				subscribedDeckId = result.deckId;
+			}
+		} catch (e) {
+			error = (e as Error).message;
+		} finally {
+			subscribeBusy = false;
+		}
+	}
 </script>
 
 <svelte:head>
@@ -80,7 +103,9 @@
 	{#if stage === 'loading'}
 		<p class="py-12 text-center text-sm text-neutral-400">Lade Deck…</p>
 	{:else if stage === 'not-found'}
-		<p class="rounded-xl border border-neutral-800 bg-neutral-900 p-8 text-center text-sm text-neutral-400">
+		<p
+			class="rounded-xl border border-neutral-800 bg-neutral-900 p-8 text-center text-sm text-neutral-400"
+		>
 			Deck <code class="rounded bg-neutral-800 px-1">{slug}</code> existiert nicht.
 		</p>
 	{:else if stage === 'error'}
@@ -128,26 +153,51 @@
 					<button
 						class="rounded-lg border border-indigo-500/40 px-4 py-2 text-sm text-indigo-300 hover:bg-indigo-500/10 disabled:opacity-50"
 						onclick={toggleStar}
-						disabled={busy}
+						disabled={starBusy}
 					>
 						{starred ? '★ Markiert' : '☆ Merken'}
 					</button>
-					<button
-						class="rounded-lg bg-indigo-500 px-4 py-2 text-sm text-white hover:bg-indigo-400 disabled:opacity-50"
-						disabled
-						title="Subscribe + Smart-Merge folgt in Phase δ"
-					>
-						Abonnieren · Phase δ
-					</button>
+
+					{#if subscribed}
+						<button
+							class="rounded-lg border border-emerald-500/40 px-4 py-2 text-sm text-emerald-300 hover:bg-emerald-500/10 disabled:opacity-50"
+							onclick={toggleSubscribe}
+							disabled={subscribeBusy}
+							title="Abo entfernen"
+						>
+							{subscribeBusy ? 'Lädt…' : '✓ Abonniert'}
+						</button>
+						{#if subscribedDeckId}
+							<button
+								class="rounded-lg bg-indigo-500 px-4 py-2 text-sm text-white hover:bg-indigo-400"
+								onclick={() => goto(`/learn/${subscribedDeckId}`)}
+							>
+								Lernen
+							</button>
+						{/if}
+					{:else}
+						<button
+							class="rounded-lg bg-indigo-500 px-4 py-2 text-sm text-white hover:bg-indigo-400 disabled:opacity-50"
+							onclick={toggleSubscribe}
+							disabled={subscribeBusy || !version}
+							title={version ? 'In meine Decks ziehen' : 'Deck hat noch keine Version'}
+						>
+							{subscribeBusy ? 'Abonniere…' : 'Abonnieren'}
+						</button>
+					{/if}
 				{:else}
 					<a
 						href="/login"
 						class="rounded-lg bg-indigo-500 px-4 py-2 text-sm text-white hover:bg-indigo-400"
 					>
-						Anmelden um zu merken
+						Anmelden um zu abonnieren
 					</a>
 				{/if}
 			</div>
+
+			{#if error}
+				<p class="mt-3 text-sm text-red-400">{error}</p>
+			{/if}
 
 			<p class="mt-10 text-xs text-neutral-500">
 				Veröffentlicht: {new Date(deck.createdAt).toLocaleDateString('de-DE')}

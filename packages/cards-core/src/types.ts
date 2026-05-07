@@ -46,6 +46,18 @@ export interface LocalDeck extends BaseRecord {
 	visibilityChangedAt?: string;
 	visibilityChangedBy?: string;
 	activeStudyBlockId?: string | null;
+
+	/**
+	 * Marketplace-subscription markers. Set on decks that the user
+	 * pulled from cards.mana.how/d/<slug> rather than created
+	 * themselves. The pair (slug + version) lets the client compute
+	 * a smart-merge diff against the server's latest version.
+	 *
+	 * Subscribed decks are read-only locally — the editor hides its
+	 * mutate buttons. Forking instead makes a separate own-deck row.
+	 */
+	subscribedFromSlug?: string;
+	subscribedAtVersion?: string;
 }
 
 export interface LocalCard extends BaseRecord {
@@ -61,6 +73,15 @@ export interface LocalCard extends BaseRecord {
 	difficulty?: number;
 	nextReview?: string | null;
 	reviewCount?: number;
+
+	/**
+	 * For cards pulled from a marketplace subscription: the server-
+	 * computed SHA-256 of (type, fields). Powers smart-merge — when
+	 * an updated version arrives, cards whose hash matches keep their
+	 * FSRS state; cards whose hash changes get refreshed content but
+	 * also keep their FSRS state (better for the learner than a reset).
+	 */
+	serverContentHash?: string;
 }
 
 /**

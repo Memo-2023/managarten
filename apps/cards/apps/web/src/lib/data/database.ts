@@ -65,6 +65,12 @@ class CardsDatabase extends Dexie {
 			deckTags: 'id, deckId, tagId',
 			_pendingChanges: '++pk, table, queuedAt',
 		});
+		// v2 — Phase δ.2: index `subscribedFromSlug` on cardDecks so the
+		// subscribe service can lookup-by-slug to avoid duplicating
+		// subscriptions on re-pull.
+		this.version(2).stores({
+			cardDecks: 'id, lastStudied, subscribedFromSlug',
+		});
 	}
 }
 
