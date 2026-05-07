@@ -209,6 +209,49 @@ export const cardsApi = {
 				{ auth: 'optional' }
 			),
 	},
+	pullRequests: {
+		create: (
+			deckSlug: string,
+			input: {
+				title: string;
+				body?: string;
+				diff: PullRequestDiffInput;
+			}
+		) =>
+			request<PullRequest>(`/v1/decks/${encodeURIComponent(deckSlug)}/pull-requests`, {
+				method: 'POST',
+				body: input,
+			}),
+		list: (deckSlug: string, status?: 'open' | 'merged' | 'closed' | 'rejected') => {
+			const qs = status ? `?status=${status}` : '';
+			return request<PullRequest[]>(
+				`/v1/decks/${encodeURIComponent(deckSlug)}/pull-requests${qs}`,
+				{ auth: 'optional' }
+			);
+		},
+		get: (id: string) => request<PullRequest>(`/v1/pull-requests/${id}`, { auth: 'optional' }),
+		merge: (id: string, opts: { newSemver?: string; mergeNote?: string } = {}) =>
+			request<{ pullRequest: PullRequest; version: PublicDeckVersion }>(
+				`/v1/pull-requests/${id}/merge`,
+				{ method: 'POST', body: opts }
+			),
+		close: (id: string) =>
+			request<{ ok: true }>(`/v1/pull-requests/${id}/close`, { method: 'POST' }),
+		reject: (id: string) =>
+			request<{ ok: true }>(`/v1/pull-requests/${id}/reject`, { method: 'POST' }),
+	},
+	discussions: {
+		listForCard: (contentHash: string) =>
+			request<CardDiscussion[]>(`/v1/cards/${encodeURIComponent(contentHash)}/discussions`, {
+				auth: 'optional',
+			}),
+		post: (contentHash: string, input: { deckSlug: string; body: string; parentId?: string }) =>
+			request<CardDiscussion>(`/v1/cards/${encodeURIComponent(contentHash)}/discussions`, {
+				method: 'POST',
+				body: input,
+			}),
+		hide: (id: string) => request<{ ok: true }>(`/v1/discussions/${id}/hide`, { method: 'POST' }),
+	},
 };
 
 // Override author lookup to send token opportunistically — public reads.
@@ -311,4 +354,40 @@ export interface DiffPayload {
 	changed: { previous: { contentHash: string }; next: ServerCard }[];
 	unchanged: { contentHash: string; ord: number }[];
 	removed: { contentHash: string }[];
+}
+
+export interface PullRequestDiffInput {
+	add: { type: string; fields: Record<string, string> }[];
+	modify: { previousContentHash: string; type: string; fields: Record<string, string> }[];
+	remove: { contentHash: string }[];
+}
+
+export type PullRequestStatus = 'open' | 'merged' | 'closed' | 'rejected';
+
+export interface PullRequest {
+	id: string;
+	deckId: string;
+	authorUserId: string;
+	status: PullRequestStatus;
+	title: string;
+	body: string | null;
+	diff: {
+		add: { type: string; fields: Record<string, string> }[];
+		modify: { contentHash: string; fields: Record<string, string> }[];
+		remove: { contentHash: string }[];
+	};
+	mergedIntoVersionId: string | null;
+	createdAt: string;
+	resolvedAt: string | null;
+}
+
+export interface CardDiscussion {
+	id: string;
+	cardContentHash: string;
+	deckId: string;
+	authorUserId: string;
+	parentId: string | null;
+	body: string;
+	hidden: boolean;
+	createdAt: string;
 }

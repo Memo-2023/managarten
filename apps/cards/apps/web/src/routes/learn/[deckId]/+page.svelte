@@ -6,6 +6,7 @@
 	import { reviewStore } from '$lib/stores/reviews.svelte';
 	import { studyBlockStore } from '$lib/stores/study-blocks.svelte';
 	import CardFace from '$lib/components/CardFace.svelte';
+	import SuggestEditModal from '$lib/components/SuggestEditModal.svelte';
 	import type { Card, CardReview, ReviewGrade } from '@mana/cards-core';
 
 	const deckId = $derived(page.params.deckId as string);
@@ -22,6 +23,9 @@
 
 	const current = $derived(queue[currentIndex]);
 	const deckTitle = $derived($deckQuery?.title ?? 'Deck');
+	const subscribedSlug = $derived($deckQuery?.subscribedFromSlug);
+	const canSuggest = $derived(!!subscribedSlug && !!current?.card.serverContentHash);
+	let suggestOpen = $state(false);
 
 	$effect(() => {
 		const snap = $dueQuery;
@@ -135,6 +139,18 @@
 			onTypedAnswer={(v) => (typedAnswer = v)}
 		/>
 
+		{#if canSuggest}
+			<div class="mt-3 text-right">
+				<button
+					class="text-xs text-neutral-500 hover:text-indigo-300"
+					onclick={() => (suggestOpen = true)}
+					title="Verbesserung dieser Karte vorschlagen"
+				>
+					✏️ Verbessern
+				</button>
+			</div>
+		{/if}
+
 		{#if !showBack}
 			<button
 				class="mt-6 w-full rounded-lg bg-indigo-500 py-3 text-base text-white hover:bg-indigo-400"
@@ -178,3 +194,12 @@
 		<div class="text-center text-sm text-neutral-400">Lade…</div>
 	{/if}
 </div>
+
+{#if subscribedSlug && current}
+	<SuggestEditModal
+		card={current.card}
+		deckSlug={subscribedSlug}
+		open={suggestOpen}
+		onClose={() => (suggestOpen = false)}
+	/>
+{/if}

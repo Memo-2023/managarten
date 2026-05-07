@@ -21,11 +21,15 @@ import { DeckService } from './services/decks';
 import { ExploreService } from './services/explore';
 import { EngagementService } from './services/engagement';
 import { SubscriptionService } from './services/subscriptions';
+import { PullRequestService } from './services/pull-requests';
+import { DiscussionService } from './services/discussions';
 import { createAuthorRoutes } from './routes/authors';
 import { createDeckRoutes } from './routes/decks';
 import { createExploreRoutes } from './routes/explore';
 import { createEngagementRoutes } from './routes/engagement';
 import { createSubscriptionRoutes } from './routes/subscriptions';
+import { createPullRequestRoutes } from './routes/pull-requests';
+import { createDiscussionRoutes } from './routes/discussions';
 
 // ─── Bootstrap ──────────────────────────────────────────────
 
@@ -37,6 +41,8 @@ const deckService = new DeckService(db, config.manaLlmUrl);
 const exploreService = new ExploreService(db);
 const engagementService = new EngagementService(db);
 const subscriptionService = new SubscriptionService(db);
+const pullRequestService = new PullRequestService(db);
+const discussionService = new DiscussionService(db);
 
 // ─── App ────────────────────────────────────────────────────
 
@@ -77,6 +83,8 @@ v1.use('/*', optionalAuth(config.manaAuthUrl));
 v1.route('/', createExploreRoutes(exploreService));
 v1.route('/', createEngagementRoutes(engagementService));
 v1.route('/', createSubscriptionRoutes(subscriptionService));
+v1.route('/', createPullRequestRoutes(pullRequestService));
+v1.route('/', createDiscussionRoutes(discussionService));
 v1.route('/authors', createAuthorRoutes(authorService));
 v1.route('/decks', createDeckRoutes(authorService, deckService));
 

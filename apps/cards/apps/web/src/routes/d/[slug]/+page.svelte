@@ -10,6 +10,7 @@
 	} from '$lib/api/cards-api';
 	import { isSubscribedLocally, subscribeAndPull, unsubscribe } from '$lib/services/subscribe';
 	import { cardDeckTable } from '$lib/data/database';
+	import PullRequestsSection from '$lib/components/PullRequestsSection.svelte';
 
 	const slug = $derived(page.params.slug as string);
 
@@ -202,6 +203,8 @@
 			<p class="mt-10 text-xs text-neutral-500">
 				Veröffentlicht: {new Date(deck.createdAt).toLocaleDateString('de-DE')}
 			</p>
+
+			<PullRequestsSection deckSlug={deck.slug} ownerUserId={deck.ownerUserId} onMerged={load} />
 		</article>
 	{/if}
 

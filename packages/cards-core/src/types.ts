@@ -128,6 +128,10 @@ export interface Deck {
 	cardCount: number;
 	createdAt: string;
 	updatedAt: string;
+	/** Marketplace slug if this deck was pulled from a subscription. */
+	subscribedFromSlug?: string;
+	/** Semver of the subscribed-from version that's currently local. */
+	subscribedAtVersion?: string;
 }
 
 export interface Card {
@@ -148,6 +152,13 @@ export interface Card {
 	nextReview?: string;
 	/** @deprecated legacy DTO field — read from cardReviews going forward. */
 	reviewCount?: number;
+
+	/**
+	 * For cards from a subscribed deck: the server's content-hash for
+	 * the card as it was published. The PR-creation flow uses this as
+	 * `previousContentHash` when proposing a "modify" diff.
+	 */
+	serverContentHash?: string;
 }
 
 export interface CardReview {

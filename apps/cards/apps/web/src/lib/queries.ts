@@ -39,6 +39,8 @@ export function toDeck(local: LocalDeck): Deck {
 		cardCount: local.cardCount,
 		createdAt: local.createdAt ?? new Date().toISOString(),
 		updatedAt: local.updatedAt ?? local.createdAt ?? new Date().toISOString(),
+		subscribedFromSlug: local.subscribedFromSlug,
+		subscribedAtVersion: local.subscribedAtVersion,
 	};
 }
 
@@ -70,6 +72,7 @@ export function toCard(local: LocalCard): Card {
 		order: local.order,
 		createdAt: local.createdAt ?? new Date().toISOString(),
 		updatedAt: local.updatedAt ?? local.createdAt ?? new Date().toISOString(),
+		serverContentHash: local.serverContentHash,
 	};
 }
 
