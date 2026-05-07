@@ -6,6 +6,7 @@
 	import { cardStore } from '$lib/stores/cards.svelte';
 	import { renderMarkdown, type Card, type CardType, type Deck } from '@mana/cards-core';
 	import AiCardGen from '$lib/components/AiCardGen.svelte';
+	import { uploadCardMedia, mediaToFieldSnippet } from '$lib/media/upload';
 
 	const deckId = $derived(page.params.id as string);
 
@@ -19,6 +20,46 @@
 
 	let showNew = $state(false);
 	let showAi = $state(false);
+	let attachBusy = $state<'front' | 'back' | 'cloze' | null>(null);
+	let attachError = $state<string | null>(null);
+	let attachInputs = $state<Record<string, HTMLInputElement | null>>({
+		front: null,
+		back: null,
+		cloze: null,
+	});
+
+	async function handleAttach(target: 'front' | 'back' | 'cloze', file: File) {
+		attachError = null;
+		attachBusy = target;
+		try {
+			const media = await uploadCardMedia(file);
+			const snippet = mediaToFieldSnippet(media, file.name.replace(/\.[^.]+$/, ''));
+			if (target === 'front') {
+				newFront = newFront ? `${newFront}\n${snippet}` : snippet;
+			} else if (target === 'back') {
+				newBack = newBack ? `${newBack}\n${snippet}` : snippet;
+			} else {
+				newCloze = newCloze ? `${newCloze}\n${snippet}` : snippet;
+			}
+		} catch (e: any) {
+			attachError = e?.message ?? 'Upload fehlgeschlagen.';
+		} finally {
+			attachBusy = null;
+		}
+	}
+
+	function pickAttachment(target: 'front' | 'back' | 'cloze') {
+		attachInputs[target]?.click();
+	}
+
+	function onAttachChange(target: 'front' | 'back' | 'cloze') {
+		return (e: Event) => {
+			const input = e.currentTarget as HTMLInputElement;
+			const file = input.files?.[0];
+			input.value = '';
+			if (file) handleAttach(target, file);
+		};
+	}
 	let newType = $state<CardType>('basic');
 	let newFront = $state('');
 	let newBack = $state('');
@@ -190,9 +231,24 @@
 				<div class="space-y-3">
 					{#if newType === 'cloze'}
 						<div>
-							<label for="card-cloze" class="mb-1 block text-sm text-neutral-400">
-								Text mit Lücken
-							</label>
+							<div class="mb-1 flex items-center justify-between">
+								<label for="card-cloze" class="text-sm text-neutral-400">Text mit Lücken</label>
+								<button
+									type="button"
+									class="text-xs text-indigo-300 hover:text-indigo-200 disabled:opacity-50"
+									onclick={() => pickAttachment('cloze')}
+									disabled={attachBusy !== null}
+								>
+									{attachBusy === 'cloze' ? '⏳ lade…' : '📎 Anhang'}
+								</button>
+								<input
+									bind:this={attachInputs.cloze}
+									type="file"
+									accept="image/*,audio/*,video/*"
+									class="hidden"
+									onchange={onAttachChange('cloze')}
+								/>
+							</div>
 							<!-- svelte-ignore a11y_autofocus -->
 							<textarea
 								id="card-cloze"
@@ -209,8 +265,24 @@
 						</div>
 					{:else}
 						<div>
-							<label for="card-front" class="mb-1 block text-sm text-neutral-400">Vorderseite</label
-							>
+							<div class="mb-1 flex items-center justify-between">
+								<label for="card-front" class="text-sm text-neutral-400">Vorderseite</label>
+								<button
+									type="button"
+									class="text-xs text-indigo-300 hover:text-indigo-200 disabled:opacity-50"
+									onclick={() => pickAttachment('front')}
+									disabled={attachBusy !== null}
+								>
+									{attachBusy === 'front' ? '⏳ lade…' : '📎 Anhang'}
+								</button>
+								<input
+									bind:this={attachInputs.front}
+									type="file"
+									accept="image/*,audio/*,video/*"
+									class="hidden"
+									onchange={onAttachChange('front')}
+								/>
+							</div>
 							<!-- svelte-ignore a11y_autofocus -->
 							<input
 								id="card-front"
@@ -222,7 +294,24 @@
 							/>
 						</div>
 						<div>
-							<label for="card-back" class="mb-1 block text-sm text-neutral-400">Rückseite</label>
+							<div class="mb-1 flex items-center justify-between">
+								<label for="card-back" class="text-sm text-neutral-400">Rückseite</label>
+								<button
+									type="button"
+									class="text-xs text-indigo-300 hover:text-indigo-200 disabled:opacity-50"
+									onclick={() => pickAttachment('back')}
+									disabled={attachBusy !== null}
+								>
+									{attachBusy === 'back' ? '⏳ lade…' : '📎 Anhang'}
+								</button>
+								<input
+									bind:this={attachInputs.back}
+									type="file"
+									accept="image/*,audio/*,video/*"
+									class="hidden"
+									onchange={onAttachChange('back')}
+								/>
+							</div>
 							<textarea
 								id="card-back"
 								bind:value={newBack}
@@ -230,6 +319,9 @@
 								class="min-h-[80px] w-full rounded-lg border border-neutral-700 bg-neutral-950 px-3 py-2 text-sm outline-none focus:border-indigo-400"
 							></textarea>
 						</div>
+					{/if}
+					{#if attachError}
+						<p class="text-xs text-red-400">{attachError}</p>
 					{/if}
 					<div class="flex justify-end gap-2">
 						<button

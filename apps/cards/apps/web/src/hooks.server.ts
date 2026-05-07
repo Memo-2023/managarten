@@ -19,6 +19,8 @@ const PUBLIC_MANA_SYNC_URL_CLIENT =
 	process.env.PUBLIC_MANA_SYNC_URL_CLIENT || process.env.PUBLIC_MANA_SYNC_URL || '';
 const PUBLIC_MANA_LLM_URL_CLIENT =
 	process.env.PUBLIC_MANA_LLM_URL_CLIENT || process.env.PUBLIC_MANA_LLM_URL || '';
+const PUBLIC_MANA_MEDIA_URL_CLIENT =
+	process.env.PUBLIC_MANA_MEDIA_URL_CLIENT || process.env.PUBLIC_MANA_MEDIA_URL || '';
 
 export const handle: Handle = async ({ event, resolve }) => {
 	return resolve(event, {
@@ -28,6 +30,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 				`window.__PUBLIC_MANA_AUTH_URL__=${JSON.stringify(PUBLIC_MANA_AUTH_URL_CLIENT)};` +
 				`window.__PUBLIC_MANA_SYNC_URL__=${JSON.stringify(PUBLIC_MANA_SYNC_URL_CLIENT)};` +
 				`window.__PUBLIC_MANA_LLM_URL__=${JSON.stringify(PUBLIC_MANA_LLM_URL_CLIENT)};` +
+				`window.__PUBLIC_MANA_MEDIA_URL__=${JSON.stringify(PUBLIC_MANA_MEDIA_URL_CLIENT)};` +
 				`</script>`;
 			return html.replace('<head>', `<head>${envScript}`);
 		},

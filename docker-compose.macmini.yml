@@ -1033,6 +1033,7 @@ services:
       PUBLIC_MANA_SYNC_URL: http://mana-sync:3050
       PUBLIC_MANA_SYNC_URL_CLIENT: https://sync.mana.how
       PUBLIC_MANA_LLM_URL_CLIENT: https://llm.mana.how
+      PUBLIC_MANA_MEDIA_URL_CLIENT: https://media.mana.how
     ports:
       - "5180:5180"
     healthcheck:

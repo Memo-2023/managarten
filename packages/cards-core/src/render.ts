@@ -21,8 +21,11 @@ export function renderMarkdown(source: string, opts: RenderOptions = {}): string
 	if (!source) return '';
 	const raw = marked.parse(source, { async: false }) as string;
 	let html = DOMPurify.sanitize(raw, {
-		ADD_TAGS: ['mark'],
-		ADD_ATTR: ['class'],
+		// `mark` for cloze highlights; `audio`/`source`/`video` for media
+		// attachments inserted via the editor (the Markdown renderer
+		// passes inline HTML through, sanitizer is the gate).
+		ADD_TAGS: ['mark', 'audio', 'source', 'video'],
+		ADD_ATTR: ['class', 'controls', 'preload', 'src', 'type'],
 	});
 	if (opts.skipParagraph) {
 		html = html.replace(/^\s*<p>/, '').replace(/<\/p>\s*$/, '');
