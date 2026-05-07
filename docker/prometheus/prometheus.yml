@@ -123,14 +123,8 @@ scrape_configs:
     metrics_path: '/metrics'
     scrape_interval: 30s
 
-  # Mana AI Service (Bun) — background Mission Runner for the AI Workbench.
-  # Exposes tick stats, planner-request latencies, snapshot refresh
-  # counters, and standard HTTP metrics at /metrics.
-  - job_name: 'mana-ai'
-    static_configs:
-      - targets: ['mana-ai:3066']
-    metrics_path: '/metrics'
-    scrape_interval: 30s
+  # SKIPPED Phase 2f-3 — mana-ai moved to GPU-Box; no public /metrics endpoint via tunnel.
+  # blackbox-api probt mana-ai.mana.how/health stattdessen.
 
   # Mana MCP Gateway (Bun, :3069) — exposes the shared tool-registry
   # over Streamable HTTP to external agents. Emits policy-gate
