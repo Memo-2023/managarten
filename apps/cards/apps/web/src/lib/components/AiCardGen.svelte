@@ -156,10 +156,7 @@
 		<div class="py-6 text-center text-sm text-neutral-400">Lege Karten an…</div>
 	{:else if stage === 'done'}
 		<div class="text-sm text-green-400">✓ {createdCount} Karten angelegt.</div>
-		<button
-			class="mt-2 text-xs text-neutral-500 hover:text-neutral-300"
-			onclick={reset}
-		>
+		<button class="mt-2 text-xs text-neutral-500 hover:text-neutral-300" onclick={reset}>
 			Weiteren Text generieren
 		</button>
 	{/if}

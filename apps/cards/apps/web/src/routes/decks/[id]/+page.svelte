@@ -163,11 +163,7 @@
 
 		{#if showAi}
 			<div class="mb-6">
-				<AiCardGen
-					{deckId}
-					currentCardCount={cards.length}
-					onCreated={() => (showAi = false)}
-				/>
+				<AiCardGen {deckId} currentCardCount={cards.length} onCreated={() => (showAi = false)} />
 			</div>
 		{/if}
 
