@@ -40,6 +40,8 @@ ingress:
   # the matching module surface. mana.how itself is the dashboard.
   - hostname: mana.how
     service: http://localhost:5000
+  - hostname: verein.mana.how
+    service: http://localhost:3088
   - hostname: chat.mana.how
     service: http://localhost:5000
   - hostname: todo.mana.how
@@ -60,7 +62,7 @@ ingress:
   # Was pointed at :5000 (the unified mana-web) until the standalone spinoff
   # landed. mana.how/cards still serves the in-mana cards module.
   - hostname: cardecky.mana.how
-    service: http://localhost:5180
+    service: http://localhost:5181
   - hostname: storage.mana.how
     service: http://localhost:5000
   - hostname: presi.mana.how
@@ -150,8 +152,14 @@ ingress:
     service: http://localhost:3063
   - hostname: events.mana.how
     service: http://localhost:3065
-  - hostname: cardecky-api.mana.how
+  # Föderations-Backbone (Phase F deployed 2026-05-08)
+  - hostname: share.mana.how
     service: http://localhost:3072
+  - hostname: mcp.mana.how
+    service: http://localhost:3069
+
+  - hostname: cardecky-api.mana.how
+    service: http://localhost:3191
   - hostname: feedback.mana.how
     service: http://localhost:3064
 
@@ -200,6 +208,14 @@ ingress:
     service: http://localhost:3084
   - hostname: zitare-api.mana.how
     service: http://localhost:3083
+
+  # Nutriphi (Code/nutriphi, separate repo)
+  # ~/projects/nutriphi/ on the Mac Mini.
+  # Ports per mana/docs/PORTS.md: 3086 api / 3087 web.
+  - hostname: nutriphi.mana.how
+    service: http://localhost:3087
+  - hostname: nutriphi-api.mana.how
+    service: http://localhost:3086
 
   # ============================================
   # Standalone web apps (separate containers)

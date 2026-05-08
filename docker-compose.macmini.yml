@@ -250,7 +250,7 @@ services:
       # Enforced by services/mana-auth/src/auth/sso-config.spec.ts.
       # All productivity modules now live under mana.how (path-based) —
       # no per-module subdomain entries required here.
-      CORS_ORIGINS: https://mana.how,https://auth.mana.how,https://whopxl.mana.how,https://cardecky.mana.how,https://cardecky-api.mana.how,https://memoro-app.mana.how,https://zitare.mana.how,https://zitare-api.mana.how
+      CORS_ORIGINS: https://mana.how,https://auth.mana.how,https://whopxl.mana.how,https://cardecky.mana.how,https://cardecky-api.mana.how,https://memoro-app.mana.how,https://zitare.mana.how,https://zitare-api.mana.how,https://nutriphi.mana.how,https://nutriphi-api.mana.how
     ports:
       - "3001:3001"
     healthcheck:
@@ -386,6 +386,64 @@ services:
   # public photon.komoot.io and Nominatim as last-resort fallbacks.
   # See services/mana-geocoding/CLAUDE.md for provider-chain details.
   # Internal-only: no traefik labels, not exposed via Cloudflare.
+
+  # ─── Föderations-Backbone (mana-share + mana-mcp) ──────────────
+  # Built aus Plattform-Repo (../mana/services/...). Phase F (Föderation)
+  # 2026-05-08 nach Live-Cardecky deployed — vorher nur lokal lauffähig.
+
+  mana-share:
+    build:
+      context: ../mana
+      dockerfile: services/mana-share/Dockerfile
+    image: mana-share:local
+    container_name: mana-share
+    restart: always
+    mem_limit: 192m
+    depends_on:
+      postgres: { condition: service_healthy }
+    environment:
+      TZ: Europe/Berlin
+      PORT: 3072
+      DATABASE_URL: postgresql://postgres:${POSTGRES_PASSWORD:-mana123}@postgres:5432/mana_platform
+      MANA_AUTH_URL: http://mana-auth:3001
+      MANA_SERVICE_KEY: ${MANA_SERVICE_KEY}
+      CORS_ORIGINS: https://mana.how,https://cardecky.mana.how
+    ports:
+      - "3072:3072"
+    healthcheck:
+      test: ["CMD", "bun", "-e", "fetch('http://127.0.0.1:3072/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 120s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+
+  mana-mcp:
+    build:
+      context: ../mana
+      dockerfile: services/mana-mcp/Dockerfile
+    image: mana-mcp:local
+    container_name: mana-mcp
+    restart: always
+    mem_limit: 192m
+    depends_on:
+      postgres: { condition: service_healthy }
+      mana-share: { condition: service_started }
+    environment:
+      TZ: Europe/Berlin
+      PORT: 3069
+      DATABASE_URL: postgresql://postgres:${POSTGRES_PASSWORD:-mana123}@postgres:5432/mana_platform
+      MANA_AUTH_URL: http://mana-auth:3001
+      MANA_SERVICE_KEY: ${MANA_SERVICE_KEY}
+      CORS_ORIGINS: https://mana.how,https://cardecky.mana.how
+      MANA_SHARE_URL: http://mana-share:3072
+    ports:
+      - "3069:3069"
+    healthcheck:
+      test: ["CMD", "bun", "-e", "fetch('http://127.0.0.1:3069/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 120s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
   mana-geocoding:
     build:
       context: services/mana-geocoding
