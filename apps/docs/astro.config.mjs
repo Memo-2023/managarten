@@ -16,10 +16,10 @@ export default defineConfig({
 				replacesTitle: false,
 			},
 			social: {
-				github: 'https://github.com/mana/managarten',
+				github: 'https://github.com/Memo-2023/managarten',
 			},
 			editLink: {
-				baseUrl: 'https://github.com/mana/managarten/edit/main/apps/docs/',
+				baseUrl: 'https://github.com/Memo-2023/managarten/edit/main/apps/docs/',
 			},
 			customCss: ['./src/styles/custom.css'],
 			sidebar: [
