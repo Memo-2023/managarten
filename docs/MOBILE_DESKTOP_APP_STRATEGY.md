@@ -258,7 +258,7 @@ Unabhängig von der nativen Strategie: Service Worker und Web App Manifest hinzu
 
 ### React Native / Expo nur für dedizierte Einzel-Apps
 
-Die bestehenden Expo-Apps im Monorepo machen Sinn für Module, die eine fundamental native Mobile-UX brauchen (z.B. Cards mit Swipe-Gesten, Chat mit nativen Push Notifications). Für "die gesamte unified App auf Mobile bringen" ist der Aufwand (komplettes Rewrite) nicht verhältnismässig.
+Die bestehenden Expo-Apps im Monorepo machen Sinn für Module, die eine fundamental native Mobile-UX brauchen (z.B. Cardecky mit Swipe-Gesten, Chat mit nativen Push Notifications). Für "die gesamte unified App auf Mobile bringen" ist der Aufwand (komplettes Rewrite) nicht verhältnismässig.
 
 ### IndexedDB-Risiko mitigieren
 

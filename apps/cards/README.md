@@ -1,6 +1,6 @@
-# Cards
+# Cardecky
 
-Spaced-repetition flashcards on **cards.mana.how**.
+Spaced-repetition flashcards on **cardecky.mana.how**.
 
 Phase-1 standalone web app. The frontend lives here; data, auth, and
 sync are shared with the rest of the Mana stack:
@@ -9,7 +9,7 @@ sync are shared with the rest of the Mana stack:
 - **Sync:** mana-sync, app-id `cards`
 - **Storage:** `mana_platform.cards.*` (Postgres, RLS)
 
-The same `cards` data backs the **mana** built-in Cards module at
+The same `cards` data backs the **mana** built-in Cardecky module at
 `mana.how/cards`. Schema changes ship to both frontends together — see
 `apps/cards/GUIDELINES.md`.
 
@@ -30,5 +30,5 @@ will land in Phase 2/3.
 
 ```bash
 pnpm install
-pnpm --filter @cards/web dev      # cards.mana.how on http://localhost:5180
+pnpm --filter @cards/web dev      # cardecky.mana.how on http://localhost:5180
 ```

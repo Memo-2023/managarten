@@ -1,6 +1,8 @@
 <!--
-  Cards — Workbench ListView
-  Deck list with card counts and due-now indicator.
+  Cardecky — Workbench ListView (in-mana cards module).
+  Deck list with card counts and due-now indicator. Per GUIDELINES §12,
+  shows a dezenten Hinweis auf die Cardecky-Standalone-App, einmal
+  schließbar (localStorage).
 -->
 <script lang="ts">
 	import { useLiveQueryWithDefault } from '@mana/local-store/svelte';
@@ -10,6 +12,19 @@
 	import type { ViewProps } from '$lib/app-registry';
 
 	let { navigate }: ViewProps = $props();
+
+	const STANDALONE_HINT_KEY = 'cardecky-standalone-hint-dismissed';
+	let standaloneHintDismissed = $state(
+		typeof localStorage !== 'undefined' && localStorage.getItem(STANDALONE_HINT_KEY) === '1'
+	);
+	function dismissStandaloneHint() {
+		standaloneHintDismissed = true;
+		try {
+			localStorage.setItem(STANDALONE_HINT_KEY, '1');
+		} catch {
+			// localStorage unavailable (private mode etc.) — UI-state alone reicht.
+		}
+	}
 
 	const decksQuery = useLiveQueryWithDefault(async () => {
 		const all = await db.table<LocalDeck>('cardDecks').toArray();
@@ -54,6 +69,28 @@
 	}
 </script>
 
+{#if !standaloneHintDismissed}
+	<div
+		class="mb-2 flex items-start gap-2 rounded-md border border-border bg-muted/30 px-3 py-2 text-xs"
+		role="note"
+	>
+		<span class="flex-1 text-muted-foreground">
+			Cardecky gibt es jetzt auch als eigenständige App auf
+			<a
+				href="https://cardecky.mana.how"
+				target="_blank"
+				rel="noopener"
+				class="underline hover:text-foreground">cardecky.mana.how</a
+			> — gleiche Daten, fokussierte UI.
+		</span>
+		<button
+			type="button"
+			onclick={dismissStandaloneHint}
+			class="text-muted-foreground hover:text-foreground"
+			aria-label="Hinweis schließen">×</button
+		>
+	</div>
+{/if}
 <BaseListView items={decks} getKey={(d) => d.id} emptyTitle="Keine Decks">
 	{#snippet header()}
 		<span class="flex-1">{decks.length} Decks</span>

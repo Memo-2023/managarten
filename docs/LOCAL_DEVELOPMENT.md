@@ -49,7 +49,7 @@ These apps have server-side compute and support both `local` and `full` modes:
 | Calendar | 3003 | 5179 | Yes | Yes |
 | Contacts | 3004 | 5184 | Yes | Yes |
 | Picture | 3006 | 5175 | Yes | Yes |
-| Cards | 3009 | 5176 | Yes | Yes |
+| Cardecky | 3009 | 5176 | Yes | Yes |
 | Mukke | 3010 | 5180 | Yes | Yes |
 | Questions | 3011 | 5111 | Yes | Yes |
 | Storage | 3016 | 5185 | Yes | Yes |

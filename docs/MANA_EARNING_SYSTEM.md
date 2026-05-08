@@ -190,7 +190,7 @@ Ein User gilt als "verified" wenn MINDESTENS EINS zutrifft:
 
 ### Reward-Struktur
 
-#### Cards
+#### Cardecky
 
 | Metrik | Threshold | Credits | Max/Monat |
 |--------|-----------|---------|-----------|
@@ -566,7 +566,7 @@ CREATE TABLE community.bounty_pool (
   - [ ] Create Admin endpoints für Manual Review Queue
 
 - [ ] **Integration in Content Apps**
-  - [ ] Cards: Track deck copies
+  - [ ] Cardecky: Track deck copies
   - [ ] Quotes: Track quote submissions/views
   - [ ] Presi: Track template usage
 

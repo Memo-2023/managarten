@@ -1,5 +1,5 @@
 /**
- * Thin client for cards-server (https://cards-api.mana.how / dev :3072).
+ * Thin client for cards-server (https://cardecky-api.mana.how / dev :3072).
  *
  * The auth-store provides the JWT; we never read tokens from storage
  * here directly so there's only one place that knows about token

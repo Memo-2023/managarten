@@ -1,4 +1,4 @@
-# Cards-Marktplatz — Plan
+# Cardecky-Marktplatz — Plan
 
 > **Status**: Plan, kein Code. Stand 2026-05-07.
 > **Goal-Setting**: Vollvision, kein MVP-Druck. Wir bauen die optimale Lösung.
@@ -38,7 +38,7 @@
 2. **Public-Decks leben separat** vom Local-First-Sync-Pfad (eigene Postgres-Tabellen, eigene Service, eigene RLS-Policies). Kein Vermischen mit `mana_sync.sync_changes`.
 3. **Subscribed Decks sind unidirektional**: Author → Subscribers. Updates fließen einseitig. Wer ändern will, forkt.
 4. **Content-Hash überall.** Jede Karte und jede Version bekommt einen deterministischen SHA-256 → Trust + Cache + Diff kostenlos.
-5. **Lizenzen sind explizit + maschinen-lesbar** (SPDX-IDs: `CC0-1.0`, `CC-BY-4.0`, `CC-BY-SA-4.0`, plus eigener `Cards-Personal-Use-1.0` für Default-Käufe und `Cards-Pro-Only-1.0` für paid Decks).
+5. **Lizenzen sind explizit + maschinen-lesbar** (SPDX-IDs: `CC0-1.0`, `CC-BY-4.0`, `CC-BY-SA-4.0`, plus eigener `Cardecky-Personal-Use-1.0` für Default-Käufe und `Cardecky-Pro-Only-1.0` für paid Decks).
 6. **AI ist Moderator, nicht Gatekeeper** — KI-First-Pass + Human-Review-Eskalation. Niemals KI-allein-Take-down.
 7. **Search ist von der DB entkoppelt** — Read-Only-Index, asynchron befüllt. Bricht der Search-Service, läuft der Marktplatz weiter.
 8. **mana-credits ist die einzige Geld-Schnittstelle** — niemals Stripe direkt im cards-server. Alles geht über `/api/v1/credits/use`, `/credits/grant`, `/credits/reservations/*`.
@@ -93,7 +93,7 @@ public_decks (
   takedown_at         timestamptz,
   takedown_reason     text,
   created_at          timestamptz DEFAULT now(),
-  CONSTRAINT price_requires_license CHECK (price_credits = 0 OR license = 'Cards-Pro-Only-1.0')
+  CONSTRAINT price_requires_license CHECK (price_credits = 0 OR license = 'Cardecky-Pro-Only-1.0')
 )
 
 public_deck_versions (
@@ -418,7 +418,7 @@ POST   /v1/notifications/:id/read           — Mark read
 PATCH  /v1/notifications/preferences        — Settings (welche Events triggern Push)
 ```
 
-## 8. UI / Routes (Cards-Frontend)
+## 8. UI / Routes (Cardecky-Frontend)
 
 ```
 /explore                          — Featured + Trending + Tag-Tree + Search-Bar
@@ -485,7 +485,7 @@ Marktplatz ohne Decks ist nutzlos. Drei parallele Hebel:
 - Integration-Tests (Drizzle + Vitest)
 - mana-auth-JWT-Middleware (`@mana/shared-hono`)
 - Container in `docker-compose.macmini.yml`
-- Cloudflare-Tunnel-Route `cards-api.mana.how` → `:3072`
+- Cloudflare-Tunnel-Route `cardecky-api.mana.how` → `:3072`
 
 ### Phase β — Author-Workflow ✅ shipped
 
@@ -510,7 +510,7 @@ Marktplatz ohne Decks ist nutzlos. Drei parallele Hebel:
 
 ### Phase δ — Subscribe + Updates + Smart-Merge ✅ shipped
 
-- ✅ „Abonnieren"-Button → lädt aktuelle Version in lokale Cards-DB
+- ✅ „Abonnieren"-Button → lädt aktuelle Version in lokale Cardecky-DB
 - 🟡 Update-Detection: Polling beim Öffnen der Deck-Page; **kein** WebSocket-Push (kommt in θ/ι)
 - ✅ **Smart-Merge**: Diff zwischen Versionen → unveränderte Karten behalten FSRS-State; geänderte erben FSRS-State über Ord-Pairing-Heuristik; neue + entfernte werden korrekt behandelt
 - ✅ Diff-View „+N · ~N · −N" mit Apply-Button auf der Deck-Page
@@ -565,7 +565,7 @@ Marktplatz ohne Decks ist nutzlos. Drei parallele Hebel:
 ### Phasen die später kommen (explizit nicht in diesem Plan)
 
 - **Phase λ — Co-Learn-Sessions**: WebSocket-Multiplayer, gemeinsam lernen, Sehen-was-andere-machen
-- **Phase μ — Mobile-Apps**: Expo-App (Cards-Standalone-Mobile)
+- **Phase μ — Mobile-Apps**: Expo-App (Cardecky-Standalone-Mobile)
 - **Phase ν — Author-Tools**: Bulk-Edit-UI für Authoren mit großen Decks, Style-Templates, Author-Analytics-Deep-Dive
 - **Phase ξ — Lern-Battles**: Asynchroner Wettkampf-Modus
 
@@ -629,7 +629,7 @@ Marktplatz ohne Decks ist nutzlos. Drei parallele Hebel:
 
 | Phase | Status | Was läuft | Was fehlt |
 |-------|--------|-----------|-----------|
-| α — Skelett | ✅ | cards-server lebt auf 3072, Schema gepushed, JWT-Auth, Container in `docker-compose.macmini.yml`, Tunnel-Route `cards-api.mana.how` | — |
+| α — Skelett | ✅ | cards-server lebt auf 3072, Schema gepushed, JWT-Auth, Container in `docker-compose.macmini.yml`, Tunnel-Route `cardecky-api.mana.how` | — |
 | β — Author-Workflow | ✅ | Profil-Claim, Publish, Lizenz, Preis, AI-Mod-Verdict | Tag-Picker im Publish, Author-Dashboard-Stats |
 | γ — Discovery | ✅ | `/explore`, Stars, Follows, Author-Profile, Trending | tsvector-FTS, Tag-Tree, Activity-Feed |
 | δ — Subscribe + Smart-Merge | ✅ | Pull, Smart-Merge mit FSRS-State-Erhalt, Diff-View | WebSocket-Push, Update-Mails |
@@ -640,7 +640,7 @@ Marktplatz ohne Decks ist nutzlos. Drei parallele Hebel:
 | ι — Optimierung | ⏳ | — | Search-Service, CDN, Rate-Limiting, Materialized Views |
 | λ / μ / ν / ξ | ⏳ | — | später (Co-Learn, Mobile, Author-Tools, Lern-Battles) |
 
-**Live-Domains**: `cards.mana.how` (Web) · `cards-api.mana.how` (API).
+**Live-Domains**: `cardecky.mana.how` (Web) · `cardecky-api.mana.how` (API).
 
 **Nächste sinnvolle Schritte (Empfehlung)**:
 

@@ -8,7 +8,7 @@ Dieses Dokument bietet eine umfassende Übersicht über alle Projekte im Manacor
 2. [Projekte](#projekte)
    - [Maerchenzauber](#maerchenzauber)
    - [Manacore](#mana)
-   - [Cards](#cards)
+   - [Cardecky](#cardecky)
    - [Memoro](#memoro)
    - [Picture](#picture)
    - [uLoad](#uload)
@@ -129,7 +129,7 @@ Manacore ist die zentrale Plattform für Organisations-Management, Team-Kollabor
 #### Unterstützte Apps
 
 - **Memoro** - Sprachaufnahmen und Memory-Management
-- **Cards** - KI-gestützte Lernkarten
+- **Cardecky** - KI-gestützte Lernkarten
 - **Storyteller** - Kreatives Schreiben mit KI
 - **Mana** - Zentrale Account- und Organisationsverwaltung
 
@@ -155,11 +155,11 @@ mana/
 
 ---
 
-### Cards
+### Cardecky
 
 **KI-gestütztes Lernkarten-System**
 
-Cards ist ein Deck-Management-System mit KI-gestützter Kartenerstellung und dem integrierten Mana Credit-System.
+Cardecky ist ein Deck-Management-System mit KI-gestützter Kartenerstellung und dem integrierten Mana Credit-System.
 
 #### Features
 
@@ -489,7 +489,7 @@ Alle Projekte teilen gemeinsame Packages unter `packages/`:
 
 | Package             | Beschreibung              |
 | ------------------- | ------------------------- |
-| `cards-database` | Cards Datenbank-Schema |
+| `cards-database` | Cardecky Datenbank-Schema |
 | `uload-database`    | uLoad Datenbank-Schema    |
 
 ### Verwendung
@@ -615,7 +615,7 @@ Siehe die jeweiligen CLAUDE.md Dateien in den Projektverzeichnissen für detaill
 - [i18n](./I18N.md) - Internationalisierungs-Guide
 - [Self-Hosting Guide](./SELF-HOSTING-GUIDE.md) - Self-Hosting Anleitung
 - [uLoad Deployment](./ULOAD-DEPLOYMENT.md) - uLoad Deployment Guide
-- [Cards Postgres Migration](./CARDS_POSTGRES_MIGRATION.md) - Datenbank-Migration
+- [Cardecky Postgres Migration](./CARDS_POSTGRES_MIGRATION.md) - Datenbank-Migration
 
 ---
 
@@ -639,7 +639,7 @@ Dieser Abschnitt enthält durchdachte Ideen für neue Anwendungen, die das Manac
 
 - Kreatives Schreiben (Maerchenzauber)
 - Sprachaufnahmen & Transkription (Memoro)
-- Lernen & Wissensmanagement (Cards)
+- Lernen & Wissensmanagement (Cardecky)
 - Bildbearbeitung (Picture)
 - Link-Management (uLoad)
 - Kommunikation (Chat)
@@ -664,7 +664,7 @@ Dieser Abschnitt enthält durchdachte Ideen für neue Anwendungen, die das Manac
 **Synergien:**
 
 - **Memoro-Integration:** Audio-Memos werden automatisch als Notizen importiert
-- **Cards-Integration:** Aus Notizen Lernkarten generieren
+- **Cardecky-Integration:** Aus Notizen Lernkarten generieren
 - **Chat-Integration:** Chat-Verläufe als Notizen speichern
 
 **Credit-Modell:**
@@ -910,7 +910,7 @@ Dieser Abschnitt enthält durchdachte Ideen für neue Anwendungen, die das Manac
 
 **Synergien:**
 
-- **Cards-Integration:** Kursinhalte → Lernkarten
+- **Cardecky-Integration:** Kursinhalte → Lernkarten
 - **Memoro-Integration:** Vorlesungen aufnehmen und transkribieren
 - **ManaNote-Integration:** Kurs-Notizen
 - **ManaVideo-Integration:** Video-Lektionen
@@ -943,7 +943,7 @@ Dieser Abschnitt enthält durchdachte Ideen für neue Anwendungen, die das Manac
 
 **Synergien:**
 
-- **Cards-Integration:** Highlights → Lernkarten
+- **Cardecky-Integration:** Highlights → Lernkarten
 - **ManaNote-Integration:** Exzerpte in Notizen überführen
 - **ManaLearn-Integration:** Leselisten für Kurse
 
@@ -1403,7 +1403,7 @@ Basierend auf Synergien mit bestehenden Apps, Marktpotenzial und technischer Mac
 | ------------- | ------------------------------------------------- |
 | **ManaNote**  | Natürliche Erweiterung von Memoro, hohe Synergien |
 | **ManaWrite** | Nutzt bestehende KI-Infrastruktur, klarer Markt   |
-| **ManaRead**  | Ergänzt Cards perfekt, Bildungsmarkt           |
+| **ManaRead**  | Ergänzt Cardecky perfekt, Bildungsmarkt           |
 | **ManaMeet**  | Memoro-Technologie wiederverwendbar               |
 
 #### Mittlere Priorität (Strategisch wichtig)
@@ -1414,7 +1414,7 @@ Basierend auf Synergien mit bestehenden Apps, Marktpotenzial und technischer Mac
 | **ManaCalendar** | Verbindet alle Produktivitäts-Apps     |
 | **ManaPodcast**  | Wachsender Markt, Memoro-Basis         |
 | **ManaDesign**   | Picture erweitern, Marketing-Use-Cases |
-| **ManaLearn**    | Cards + Memoro + Video kombinieren  |
+| **ManaLearn**    | Cardecky + Memoro + Video kombinieren  |
 
 #### Langfristig (Exploration)
 
@@ -1456,9 +1456,9 @@ Basierend auf Synergien mit bestehenden Apps, Marktpotenzial und technischer Mac
 
 ### Fazit
 
-Das Manacore-Ökosystem hat enormes Potenzial für Erweiterungen. Die bestehende Infrastruktur (Credits, Auth, Shared Packages, KI-Integration) ermöglicht schnelle Entwicklung neuer Apps. Der Fokus sollte zunächst auf Produktivitäts-Tools liegen, die starke Synergien mit Memoro und Cards haben.
+Das Manacore-Ökosystem hat enormes Potenzial für Erweiterungen. Die bestehende Infrastruktur (Credits, Auth, Shared Packages, KI-Integration) ermöglicht schnelle Entwicklung neuer Apps. Der Fokus sollte zunächst auf Produktivitäts-Tools liegen, die starke Synergien mit Memoro und Cardecky haben.
 
-Die Vision: **Ein zusammenhängendes Ökosystem, in dem Daten nahtlos zwischen Apps fließen** - von der Sprachaufnahme (Memoro) über Notizen (ManaNote) zu Lernkarten (Cards), mit KI-Unterstützung auf jedem Schritt.
+Die Vision: **Ein zusammenhängendes Ökosystem, in dem Daten nahtlos zwischen Apps fließen** - von der Sprachaufnahme (Memoro) über Notizen (ManaNote) zu Lernkarten (Cardecky), mit KI-Unterstützung auf jedem Schritt.
 
 ---
 

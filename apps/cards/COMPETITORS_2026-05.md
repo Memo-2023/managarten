@@ -1,4 +1,4 @@
-# Cards — Konkurrenz-Analyse (Mai 2026)
+# Cardecky — Konkurrenz-Analyse (Mai 2026)
 
 > Stand: 2026-05-07. Quellen primär aus offiziellen Pricing-Seiten, G2/Trustpilot/Reddit/HN sowie Wikipedia/Crunchbase. Wo Daten fehlen oder nicht öffentlich sind, ist das explizit vermerkt. Preise schwanken regional/saisonal — die hier genannten Zahlen sind Listenpreise USD, sofern nicht anders angegeben.
 
@@ -9,7 +9,7 @@
 - **Anki bleibt der unschlagbare technische Gold-Standard**, aber UX-Schwächen (FSRS-„Difficulty Hell", Plugin-Hölle, kein natives Cloud-Sync mit Bildern) und der $25 iOS-Preis sind reale Lücken, in die wir stoßen können. Die Übergabe an AnkiHub im Februar 2026 könnte mittelfristig die Open-Source-Dynamik verändern — Beobachten lohnt.
 - **Quizlet hat seine eigene Userbase verärgert**: Trustpilot 1.4/5, massive Beschwerden über Paywalls für Funktionen, die früher gratis waren. Genau dieses Vertrauensvakuum füllen Knowt und potenziell wir.
 - **AI-Karten-Generierung ist Tischeinsatz, kein Differenzierer mehr.** Quizlet, Quizgecko, Knowt, RemNote, Wisdolia, sogar Memrise haben es. PDF-Import + KI ist erwartete Baseline.
-- **Die „beautiful Anki"-Lücke ist umkämpft**: Mochi (5$/mo), RemNote (8$/mo), Noji (vormals AnkiPro). Cards mit _kostenlosem_ Sync sticht heraus — niemand sonst bietet die Kombination Markdown + FSRS + Cloud-Sync gratis. Das ist unsere wichtigste objektive Differenzierung.
+- **Die „beautiful Anki"-Lücke ist umkämpft**: Mochi (5$/mo), RemNote (8$/mo), Noji (vormals AnkiPro). Cardecky mit _kostenlosem_ Sync sticht heraus — niemand sonst bietet die Kombination Markdown + FSRS + Cloud-Sync gratis. Das ist unsere wichtigste objektive Differenzierung.
 - **Brand-Sniping ist real und schädlich**: AnkiPro (jetzt Noji) und AnkiApp (jetzt AlgoApp) haben sich einen Ruf als „Anki-Klone, die täuschen" erarbeitet — inkl. eines 10-tägigen Sync-Outages bei AnkiPro im Mai 2025. Lehre für uns: nie Anki im Namen führen, Kompatibilität sauber kommunizieren.
 
 ---
@@ -36,7 +36,7 @@
 | **Cerego**                     | Enterprise B2B Adaptive Learning       | proprietär                  | —                                | ab $8.33/mo Indiv., Enterprise on req.          | Sehr gering (B2B)                |
 | **NeuraCache**                 | Notion/Obsidian-Sync für SR            | proprietär                  | Limited                          | 14d Trial → Pro (Preis nicht klar dokumentiert) | Gering                           |
 
-> Threat-Ranking: nur **Anki, Quizlet, Mochi, Knowt** sind Top-Bedrohungen für Cards' Kernzielgruppe. RemNote, Quizgecko, AnkiPro/Noji sind Nebenfront.
+> Threat-Ranking: nur **Anki, Quizlet, Mochi, Knowt** sind Top-Bedrohungen für Cardeckys Kernzielgruppe. RemNote, Quizgecko, AnkiPro/Noji sind Nebenfront.
 
 ---
 
@@ -84,7 +84,7 @@ Quellen: [Quizlet Wikipedia](https://en.wikipedia.org/wiki/Quizlet) · [Trustpil
 - **User loben:** Notes + Cards in _einem_ Workflow; flexible nested Outline-Struktur; PDF-Annotation; AI-Generierung aus Notizen/PDFs.
 - **User kritisieren:** Steile Lernkurve („nichts versteht man in 10 Min"); UI als überladen empfunden; **Performance-Probleme** (langsam beim Laden großer Datenbanken, iPad-Stabilität); Bugs nach Beta-Updates; non-English-Support schwach.
 - **Firma & Geschichte:** Gegründet 2019 von Martin Schneider (MIT) und Moritz Wallawitsch (Berlin, HTW). Sitz: USA. **$2.8M Seed (Sept 2021)** unter General Catalyst. Hat 2025 ~$2M Revenue mit ~18 Personen erreicht.
-- **Bedrohungsgrad: Mittel.** Andere Zielgruppe (PKM-Power-User, Studenten, die Notes wollen). Cards ist fokussierter — wir müssen die „nur-Karten"-Nische gegen ihre Hybrid-Erweiterung verteidigen.
+- **Bedrohungsgrad: Mittel.** Andere Zielgruppe (PKM-Power-User, Studenten, die Notes wollen). Cardecky ist fokussierter — wir müssen die „nur-Karten"-Nische gegen ihre Hybrid-Erweiterung verteidigen.
 
 Quellen: [RemNote Pricing](https://www.remnote.com/pricing) · [Crunchbase RemNote](https://www.crunchbase.com/organization/remnote) · [RemNote Reviews Product Hunt](https://www.producthunt.com/products/remnote/reviews) · [RemNote Performance-Forum](https://forum.remnote.io/t/remnote-is-my-dream-pkm-yet-its-too-slow-am-i-doing-something-wrong/10920) · [Latka RemNote $2M ARR](https://getlatka.com/companies/remnote.com)
 
@@ -164,7 +164,7 @@ Quellen: [SuperMemo Wikipedia](https://en.wikipedia.org/wiki/SuperMemo) · [Supe
 - **User loben:** Schickes Mobile-UI; einfacher Onboarding-Flow; Cross-Device-Sync „out of the box"; community Decks.
 - **User kritisieren:** **Brand-Verwirrung** (User dachten, sie laden „echtes" Anki herunter); **10-Tage-Sync-Outage Mai 2025** mit Datenverlust für viele User; Lock-in (Export-Tools wurden vom Anbieter blockiert, ein Migrations-Tool erhielt einen **Rickroll-Response** von AnkiPro); offizielles Anki-Team distanziert sich.
 - **Firma & Geschichte:** Anki Pro UAB; Co-Founder **Maksim Abramchuk** (im Crunchbase) und **Andrew Bond** (LinkedIn). 2021 gestartet, 2024/25 Rebrand zu **Noji**. Sitz nicht eindeutig öffentlich (LinkedIn-Indikatoren UK/Osteuropa).
-- **Bedrohungsgrad: Mittel.** Nicht weil sie technisch besser sind, sondern weil Anki-Suchende auf sie reinfallen. **Lehre für Cards: Brand-Hygiene**. Wir sind „Cards" — nie „Anki" im Marketing, klare Trennung kommunizieren, Anki-Import sauber als Bridge dokumentieren.
+- **Bedrohungsgrad: Mittel.** Nicht weil sie technisch besser sind, sondern weil Anki-Suchende auf sie reinfallen. **Lehre für Cardecky: Brand-Hygiene**. Wir sind „Cardecky" — nie „Anki" im Marketing, klare Trennung kommunizieren, Anki-Import sauber als Bridge dokumentieren.
 
 Quellen: [Anki knockoffs (offizielle Anki FAQ)](https://faqs.ankiweb.net/anki-knockoffs.html) · [AnkiPro Ripoff Forum](https://forums.ankiweb.net/t/ankipro-another-ripoff-anki-app/11791) · [Anki Users Get Rickrolled](https://broderic.blog/post/anki-users-get-rickrolled/) · [Noji App Store](https://apps.apple.com/us/app/noji-flashcards-anki-method/id1573585542) · [Crunchbase Anki Pro](https://www.crunchbase.com/organization/anki-pro) · [Speakada: Official Anki vs Fake Apps](https://speakada.com/official-anki-vs-fake-apps-the-critical-mistake-costing-language-learners-hours/)
 
@@ -298,7 +298,7 @@ Quellen: [NeuraCache](https://neuracache.com/) · [NeuraCache App Store](https:/
 
 ---
 
-## 4. Schluss-Empfehlung: 3 Differenzierungs-Hebel für Cards
+## 4. Schluss-Empfehlung: 3 Differenzierungs-Hebel für Cardecky
 
 ### Hebel 1: **„Free Sync" konsequent ausspielen**
 
@@ -318,13 +318,13 @@ Anki bleibt Power-User-Standard, aber Anki-User klagen über UX, FSRS-Tweaking u
 
 **Action:**
 
-- Eine dezidierte Landingpage `cards.mana.how/from-anki` mit ehrlichem Vergleich (was wir besser machen, was Anki noch besser kann), Migrationsanleitung, und expliziter Distanzierung von AnkiPro/AnkiApp/Noji.
-- Eine ehrliche Story dazu („Wir sind nicht Anki. Wir sind Cards. Aber wir respektieren deine Anki-Karten."). Das positioniert uns als seriöse Alternative gegen die Brand-Sniper.
+- Eine dezidierte Landingpage `cardecky.com/from-anki` mit ehrlichem Vergleich (was wir besser machen, was Anki noch besser kann), Migrationsanleitung, und expliziter Distanzierung von AnkiPro/AnkiApp/Noji.
+- Eine ehrliche Story dazu („Wir sind nicht Anki. Wir sind Cardecky. Aber wir respektieren deine Anki-Karten."). Das positioniert uns als seriöse Alternative gegen die Brand-Sniper.
 - Für Bonus-Punkte: Imports von Mochi-Decks und Quizlet-Sets ebenfalls anbieten — Knowt lebt davon, wir können das auch.
 
 ### Hebel 3: **„Local-First PWA" als Tech-Identität, nicht nur Implementierungsdetail**
 
-Cards' Local-First + PWA-Architektur ist konzeptionell anders als Quizlet/Knowt (Web-First) und besser als Mochi auf iOS (App-Store-Friktion). Wir sind installierbar, offline-funktional, ohne App Store. Das schlägt mehrere Fliegen:
+Cardeckys Local-First + PWA-Architektur ist konzeptionell anders als Quizlet/Knowt (Web-First) und besser als Mochi auf iOS (App-Store-Friktion). Wir sind installierbar, offline-funktional, ohne App Store. Das schlägt mehrere Fliegen:
 
 - Kein iOS-30%-Tax (vs AnkiMobile-Modell, das deshalb $25 kostet)
 - Kein Vendor-Lock-in (Daten bleiben im Browser/lokal nutzbar)
@@ -337,7 +337,7 @@ Cards' Local-First + PWA-Architektur ist konzeptionell anders als Quizlet/Knowt 
 
 ## Bonus: Was wir _nicht_ tun sollten
 
-- **Nicht „Anki" im Namen führen** — siehe AnkiPro/AnkiApp Reputation. „Cards" ist neutral und reicht.
+- **Nicht „Anki" im Namen führen** — siehe AnkiPro/AnkiApp Reputation. „Cardecky" ist neutral, freundlich, und distanziert sich klar.
 - **Nicht die SR-Algorithmus-Race spielen** — FSRS v6 reicht. SuperMemo SM-20 ist kein Marketing-Argument für 99% der User.
 - **Nicht in Sprach-Lernen pivotieren** — Memrise und Duolingo besitzen das Feld, andere Mechaniken nötig.
 - **Nicht alle AI-Features paywallen** — Knowt zeigt: ein großzügiges Free-Tier mit AI ist der Hebel gegen Quizlet.

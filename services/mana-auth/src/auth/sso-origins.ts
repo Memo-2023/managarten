@@ -25,8 +25,8 @@ export const PRODUCTION_TRUSTED_ORIGINS = [
 	'https://auth.mana.how',
 	// Separate apps (not part of the unified app)
 	'https://whopxl.mana.how', // Games
-	'https://cards.mana.how', // Cards spaced-repetition spinoff (own SvelteKit container, not the unified app)
-	'https://cards-api.mana.how', // Cards marketplace + community backend (cards-server)
+	'https://cardecky.mana.how', // Cardecky spaced-repetition spinoff (own SvelteKit container, not the unified app)
+	'https://cardecky-api.mana.how', // Cardecky marketplace + community backend (cards-server)
 	'https://memoro-app.mana.how', // Memoro web SPA (separate deploy under mana e.V.)
 ] as const;
 

@@ -103,7 +103,7 @@ export class PullRequestService {
 	}
 
 	private deckUrl(slug: string): string {
-		const base = process.env.CARDS_WEB_URL || 'https://cards.mana.how';
+		const base = process.env.CARDS_WEB_URL || 'https://cardecky.mana.how';
 		return `${base}/d/${slug}`;
 	}
 

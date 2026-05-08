@@ -109,7 +109,8 @@ Cloudflare Tunnel (bb0ea86d...)
 | `quotess.mana.how` | Quotes Landing | `/srv/landings/quotes` |
 | `presis.mana.how` | Presi Landing | `/srv/landings/presi` |
 | `clocks.mana.how` | Clock Landing | `/srv/landings/clock` |
-| `cards.mana.how` | Cards Landing | `/srv/landings/cards` |
+| `cardecky.mana.how` | Cardecky App | (Docker container — not a static landing) |
+| `cardecky.com` | Cardecky Marketing-Landing | `/srv/landings/cardecky` |
 | `food.mana.how` | Food Landing | `/srv/landings/food` |
 | `citycorners.mana.how` | CityCorners Landing | `/srv/landings/citycorners` |
 | `docs.mana.how` | Dokumentation | `/srv/landings/docs` |

@@ -56,10 +56,10 @@ ingress:
     service: http://localhost:5000
   - hostname: plants.mana.how
     service: http://localhost:5000
-  # cards.mana.how → standalone Cards SvelteKit container (apps/cards/apps/web).
+  # cardecky.mana.how → standalone Cardecky SvelteKit container (apps/cards/apps/web).
   # Was pointed at :5000 (the unified mana-web) until the standalone spinoff
   # landed. mana.how/cards still serves the in-mana cards module.
-  - hostname: cards.mana.how
+  - hostname: cardecky.mana.how
     service: http://localhost:5180
   - hostname: storage.mana.how
     service: http://localhost:5000
@@ -148,7 +148,7 @@ ingress:
     service: http://localhost:3063
   - hostname: events.mana.how
     service: http://localhost:3065
-  - hostname: cards-api.mana.how
+  - hostname: cardecky-api.mana.how
     service: http://localhost:3072
   - hostname: feedback.mana.how
     service: http://localhost:3064
@@ -203,6 +203,15 @@ ingress:
   # ============================================
   # Self-hosted landing pages (Nginx on port 4400)
   # ============================================
+  # Cardecky-Migration: alte Hostnames → Nginx 301-Redirect (2026-05-08).
+  - hostname: cards.mana.how
+    service: http://localhost:4400
+  - hostname: cards-api.mana.how
+    service: http://localhost:4400
+  # cardecky.com Marketing-Landing — DNS zeigt am Cloudflare-Zone von
+  # cardecky.com auf diesen Tunnel; nginx-Block in docker/nginx/landings.conf.
+  - hostname: cardecky.com
+    service: http://localhost:4400
   - hostname: it.mana.how
     service: http://localhost:4400
   - hostname: chats.mana.how

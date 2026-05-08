@@ -1,12 +1,13 @@
-# Cards — Projekt-Leitlinien
+# Cardecky — Projekt-Leitlinien
 
 Verbindliche Regeln für den Spinoff. Ziel: in wenigen Wochen ein
 ausspielbares Web-MVP, das ausschließlich seinen *Core Gameloop*
 beherrscht und alles andere von zentralen Mana-Bausteinen erbt.
 
 **Status:** Planungsphase, noch kein Code.
-**Name:** Cards.
-**Domain:** `cards.mana.how` (Subdomain unter `*.mana.how`, SSO über mana-auth).
+**Name:** Cardecky.
+**App-Domain:** `cardecky.mana.how` (Subdomain unter `*.mana.how`, SSO über mana-auth).
+**Marketing-Landing:** `cardecky.com` (eigene Domain, statisch, SEO/Akquise — keine Auth, leitet auf `cardecky.mana.how` für die App).
 **Zugang:** offen für jeden eingeloggten Mana-User (`requiredTier: 'public'`, kein Beta-Gate).
 
 ## 1. Mission in einem Satz
@@ -20,7 +21,7 @@ Wie bei einem Spielprototyp gilt: alles, was nicht zum Loop gehört,
 wird zurückgestellt. Erst wenn der Loop sich gut anfühlt und Nutzer ihn
 freiwillig wiederholen, wird gebaut, was drumherum gehört.
 
-### Der Core Gameloop von Cards
+### Der Core Gameloop von Cardecky
 
 ```
 Start
@@ -86,7 +87,7 @@ Jede dieser Features ist legitim — aber nur, wenn der Loop steht.
 3. **Bevorzugt was im Verein schon läuft.** Neue Technologie nur einführen, wenn ein konkreter Engpass es verlangt und kein vorhandenes Tool es löst.
 4. **Zentrale Mana-Dienste statt Eigenbau.** Auth, Sync, Analytics, Notifications, Media usw. werden NICHT neu gebaut — siehe §5.
 5. **Local-First wie der Rest des Verein-Stacks.** IndexedDB als Quelle der Wahrheit, Sync nach Postgres im Hintergrund.
-6. **`cards.mana.how` als Subdomain unter `*.mana.how`.** Kein eigenes Auth-System, kein eigenes Hosting-Setup — Eintrag in `PRODUCTION_TRUSTED_ORIGINS` + Cloudflare-Tunnel-Route reichen.
+6. **`cardecky.mana.how` als Subdomain unter `*.mana.how`.** Kein eigenes Auth-System, kein eigenes Hosting-Setup — Eintrag in `PRODUCTION_TRUSTED_ORIGINS` + Cloudflare-Tunnel-Route reichen.
 7. **Eine UI-Schicht, ein Theme.** Wir verwenden `@mana/shared-theme(-ui)` und `@mana/shared-ui` so weit es geht — kein paralleles Design-System.
 8. **Erweiterbare Daten, simples UI.** Das Datenmodell denkt zukünftige Kartentypen mit (siehe §6), das UI zeigt in Phase 1 nur die vier definierten Typen.
 
@@ -150,9 +151,9 @@ Verein-Services).
 ## 5. Zentrale Mana-Bausteine (Pflicht in Phase 1)
 
 ### Services (laufen bereits, nur konsumieren)
-| Service | Port | Wofür in Cards |
+| Service | Port | Wofür in Cardecky |
 |---|---|---|
-| `mana-auth` | 3001 | SSO, JWT, Sessions, Tier-Claims. Cards-Origin in `PRODUCTION_TRUSTED_ORIGINS` eintragen. |
+| `mana-auth` | 3001 | SSO, JWT, Sessions, Tier-Claims. Cardecky-Origin in `PRODUCTION_TRUSTED_ORIGINS` eintragen. |
 | `mana-sync` | 3050 | Sync der `cards`-AppId-Daten (Decks, Karten, Reviews, StudyBlocks). |
 | `mana-user` | 3062 | Profilinfos / Settings. |
 | `mana-analytics` | 3064 | Page-Views, Loop-Events (siehe §11). |
@@ -164,7 +165,7 @@ Verein-Services).
 | `mana-media` | 3015 | **Erst wenn Bilder in Karten erlaubt sind.** |
 
 ### Workspace-Pakete (`@mana/*`)
-| Paket | Wofür in Cards |
+| Paket | Wofür in Cardecky |
 |---|---|
 | `@mana/shared-auth` | Client-seitiger Auth-Hook (SSO-Flow, JWT-Handling). |
 | `@mana/shared-auth-ui` | Login/Logout-Komponenten. |
@@ -198,7 +199,7 @@ Verein-Services).
 
 ### Datenpfad
 
-Cards übernimmt 1:1 das Mana-Datenpfad-Pattern:
+Cardecky übernimmt 1:1 das Mana-Datenpfad-Pattern:
 
 ```
 User-Aktion → Store → encryptRecord → Dexie → Hooks (_pendingChanges)
@@ -267,12 +268,12 @@ beim ersten Schema-Upgrade auf `type='basic'` mit
 ## 7. Daten-Contract mit dem mana-Modul
 
 Wichtig: das **bestehende `cards`-Modul in der Mana-Web-App bleibt
-erhalten**. Cards-Standalone und mana-Modul schreiben in dieselben
+erhalten**. Cardecky und das mana-Modul schreiben in dieselben
 Postgres-Tabellen.
 
 Daher gilt:
 - Schema-Änderungen werden **gemeinsam** im mana-Modul und im
-  Cards-Standalone-Code rolled out (nie nur auf einer Seite).
+  Cardecky-Code rolled out (nie nur auf einer Seite).
 - Encryption-Registry-Einträge müssen in beiden Frontends identisch
   sein (Field-Allowlist).
 - Migrationen über `docs/DATABASE_MIGRATIONS.md`.
@@ -285,7 +286,7 @@ gibt es nie zwei Wahrheiten zur Datenstruktur.
 
 Phase 1 ist fertig, wenn:
 
-1. Ein eingeloggter Mana-User kann auf `cards.mana.how`
+1. Ein eingeloggter Mana-User kann auf `cardecky.mana.how`
    - mindestens ein Deck anlegen,
    - Karten manuell hinzufügen (Basic, Basic+Reverse, Cloze, Type-In),
    - Markdown im Front/Back nutzen (Bold, Listen, Code, Links),
@@ -300,7 +301,7 @@ Phase 1 ist fertig, wenn:
    - „Login → Deck anlegen → Basic-Karte → Lernsession → bewerten"
    - „Cloze-Karte mit zwei Clustern → erzeugt zwei Subkarten"
    - „Type-In: korrekte Antwort = grün, falsche = rot"
-8. Container baut & läuft auf dem Mac mini hinter Cloudflare Tunnel (`cards.mana.how`).
+8. Container baut & läuft auf dem Mac mini hinter Cloudflare Tunnel (`cardecky.mana.how`).
 
 Alles andere ist Phase 2.
 
@@ -360,7 +361,7 @@ konkrete Frage entsteht, die Daten beantworten sollen.
 
 ## 12. Hinweis im mana-Modul
 
-Sobald `cards.mana.how` live ist, bekommt das mana-Modul einen
+Sobald `cardecky.mana.how` live ist, bekommt das mana-Modul einen
 **dezenten** Hinweis (z.B. ein Banner oder Badge über der ListView):
-"Cards gibt es jetzt auch als eigenständige App". Kein Pop-up, kein
+"Cardecky gibt es jetzt auch als eigenständige App". Kein Pop-up, kein
 forcierter Redirect — User entscheiden selbst.

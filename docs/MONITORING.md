@@ -39,7 +39,7 @@ All monitoring tools are publicly accessible - no login required (except GlitchT
 | Planta | https://stats.mana.how/share/1e83a8a67fa84d3995455c21dedbe3a2/plants-webapp |
 | Presi | https://stats.mana.how/share/a1eb8d1fa4d543e6b97ac41351fe1c6f/presi-webapp |
 | Skilltree | https://stats.mana.how/share/5de13e0895ae4a69aa2a834f985be14d/skilltree-webapp |
-| Cards | https://stats.mana.how/share/1c1d54c4782943e58dde0a6db7c86ec6/cards-webapp |
+| Cardecky | https://stats.mana.how/share/1c1d54c4782943e58dde0a6db7c86ec6/cards-webapp |
 
 ### GlitchTip Error Tracking
 

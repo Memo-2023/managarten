@@ -1,6 +1,6 @@
 /**
- * Cards module — types are now sourced from `@mana/cards-core` so the
- * standalone cards.mana.how app and this in-mana module stay in sync.
+ * Cardecky / cards module — types are now sourced from `@mana/cards-core`
+ * so the standalone cardecky.mana.how app and this in-mana module stay in sync.
  *
  * This file is a thin re-export to keep existing
  * `from './types'` / `from '$lib/modules/cards/types'` imports working.

@@ -48,7 +48,7 @@
 	// svelte-ignore state_referenced_locally
 	let deckDescription = $state(deck.description ?? '');
 	let deckLanguage = $state('de');
-	let deckLicense = $state<'CC0-1.0' | 'CC-BY-4.0' | 'CC-BY-SA-4.0' | 'Cards-Personal-Use-1.0'>(
+	let deckLicense = $state<'CC0-1.0' | 'CC-BY-4.0' | 'CC-BY-SA-4.0' | 'Cardecky-Personal-Use-1.0'>(
 		'CC-BY-4.0'
 	);
 	let deckSemver = $state('1.0.0');
@@ -153,7 +153,7 @@
 			<div class="space-y-4 text-sm">
 				<p class="text-foreground/80">
 					Erstelle ein Author-Profil — andere User finden deine Decks unter
-					<code class="rounded bg-muted px-1 text-xs">cards.mana.how/u/dein-slug</code>.
+					<code class="rounded bg-muted px-1 text-xs">cardecky.mana.how/u/dein-slug</code>.
 				</p>
 				<div>
 					<label for="author-slug" class="mb-1 block text-xs text-muted-foreground">
@@ -206,7 +206,7 @@
 			<div class="space-y-4 text-sm">
 				<p class="text-muted-foreground">
 					Veröffentlicht als <code class="rounded bg-muted px-1 text-xs"
-						>cards.mana.how/d/{deckSlug || '...'}</code
+						>cardecky.mana.how/d/{deckSlug || '...'}</code
 					>
 				</p>
 				<div>
@@ -263,7 +263,7 @@
 							<option value="CC-BY-4.0">CC-BY 4.0 — frei mit Namensnennung</option>
 							<option value="CC-BY-SA-4.0">CC-BY-SA 4.0 — share-alike</option>
 							<option value="CC0-1.0">CC0 — gemeinfrei</option>
-							<option value="Cards-Personal-Use-1.0">Personal Use — nur lernen</option>
+							<option value="Cardecky-Personal-Use-1.0">Personal Use — nur lernen</option>
 						</select>
 					</div>
 				</div>

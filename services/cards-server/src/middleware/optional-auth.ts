@@ -7,7 +7,7 @@
  *
  * Why a separate middleware? `jwtAuth` is the strict gate for write
  * paths — same JWKS, same algo, but rejecting early. `optionalAuth`
- * is the read-path companion: it lets cards-api.mana.how serve the
+ * is the read-path companion: it lets cardecky-api.mana.how serve the
  * marketplace surface to anonymous browsers (search engines, anti-
  * link-rot, share-link previews) while still recognising signed-in
  * users for star/follow state.

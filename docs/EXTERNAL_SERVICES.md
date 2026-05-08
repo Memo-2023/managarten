@@ -84,7 +84,7 @@ Legende: LOCAL = Self-hosted | CLOUD = Externer Dienst | FREE = Kostenlos
 |--------|--------|-------|------------------|-------------------|
 | **Replicate** | Picture | Bildgenerierung (Flux, SDXL, SD) | `PICTURE_REPLICATE_API_TOKEN` | €20-100/Monat |
 | **OpenRouter** | Chat | Cloud LLMs (Claude, GPT, Llama, DeepSeek) | `OPENROUTER_API_KEY` | €10-50/Monat |
-| **Google Gemini** | Planta, Food, Cards | Vision & Text AI | `GEMINI_API_KEY`, `PLANTA_GEMINI_API_KEY` | €5-20/Monat |
+| **Google Gemini** | Planta, Food, Cardecky | Vision & Text AI | `GEMINI_API_KEY`, `PLANTA_GEMINI_API_KEY` | €5-20/Monat |
 | **Azure OpenAI** | Chat (Docker) | GPT-4o via Azure | `AZURE_OPENAI_ENDPOINT`, `AZURE_OPENAI_API_KEY` | Optional |
 | **Anthropic** | Mana Games | Claude API | `MANA_GAMES_ANTHROPIC_API_KEY` | Optional |
 | **Ollama** | Chat | Lokale LLMs (Gemma 3, Llama) | `OLLAMA_URL` | ✅ Bereits lokal |
@@ -477,7 +477,7 @@ PICTURE_REPLICATE_API_TOKEN=r8_xxx
 # OpenRouter (Chat)
 OPENROUTER_API_KEY=sk-or-v1-xxx
 
-# Google Gemini (Planta, Food, Cards)
+# Google Gemini (Planta, Food, Cardecky)
 GEMINI_API_KEY=AIza...
 PLANTA_GEMINI_API_KEY=AIza...
 FOOD_GEMINI_API_KEY=AIza...

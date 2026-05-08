@@ -9,7 +9,7 @@
  * version bumps.
  *
  * `price_credits` of 0 means free. Anything > 0 forces the
- * Cards-Pro-Only-1.0 license (CHECK constraint enforced at DB level).
+ * Cardecky-Pro-Only-1.0 license (CHECK constraint enforced at DB level).
  */
 
 import {
@@ -49,8 +49,8 @@ export const publicDecks = cardsSchema.table(
 		// ISO-639-1 (e.g. 'de', 'en', 'es'). Nullable for mixed-language decks.
 		language: text('language'),
 		// SPDX-style ID. CC0-1.0, CC-BY-4.0, CC-BY-SA-4.0,
-		// Cards-Personal-Use-1.0 (default for free), Cards-Pro-Only-1.0 (paid).
-		license: text('license').notNull().default('Cards-Personal-Use-1.0'),
+		// Cardecky-Personal-Use-1.0 (default for free), Cardecky-Pro-Only-1.0 (paid).
+		license: text('license').notNull().default('Cardecky-Personal-Use-1.0'),
 		priceCredits: integer('price_credits').notNull().default(0),
 		ownerUserId: text('owner_user_id')
 			.notNull()
@@ -70,7 +70,7 @@ export const publicDecks = cardsSchema.table(
 		// Paid decks must carry the Pro-Only license.
 		priceLicense: check(
 			'decks_price_requires_license',
-			sql`price_credits = 0 OR license = 'Cards-Pro-Only-1.0'`
+			sql`price_credits = 0 OR license = 'Cardecky-Pro-Only-1.0'`
 		),
 	})
 );

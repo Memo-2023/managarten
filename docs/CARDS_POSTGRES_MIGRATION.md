@@ -1,8 +1,8 @@
-# Cards: Migration zu PostgreSQL + Drizzle ORM
+# Cardecky: Migration zu PostgreSQL + Drizzle ORM
 
 ## Übersicht
 
-Dieses Dokument beschreibt die Migration von Cards von Supabase zu einer selbst-gehosteten PostgreSQL-Datenbank mit Drizzle ORM.
+Dieses Dokument beschreibt die Migration von Cardecky von Supabase zu einer selbst-gehosteten PostgreSQL-Datenbank mit Drizzle ORM.
 
 ---
 
@@ -10,14 +10,14 @@ Dieses Dokument beschreibt die Migration von Cards von Supabase zu einer selbst-
 
 ```
 ┌─────────────────┐     ┌─────────────────┐
-│  Cards Web   │     │ Cards Mobile │
+│  Cardecky Web   │     │ Cardecky Mobile │
 │   (SvelteKit)   │     │     (Expo)      │
 └────────┬────────┘     └────────┬────────┘
          │                       │
          └───────────┬───────────┘
                      │
          ┌───────────▼───────────┐
-         │   Cards Backend    │
+         │   Cardecky Backend    │
          │      (NestJS)         │
          └───────────┬───────────┘
                      │
@@ -36,14 +36,14 @@ Dieses Dokument beschreibt die Migration von Cards von Supabase zu einer selbst-
 
 ```
 ┌─────────────────┐     ┌─────────────────┐
-│  Cards Web   │     │ Cards Mobile │
+│  Cardecky Web   │     │ Cardecky Mobile │
 │   (SvelteKit)   │     │     (Expo)      │
 └────────┬────────┘     └────────┬────────┘
          │                       │
          └───────────┬───────────┘
                      │
          ┌───────────▼───────────┐
-         │   Cards Backend    │
+         │   Cardecky Backend    │
          │  (NestJS + Drizzle)   │
          └───────────┬───────────┘
                      │
@@ -733,14 +733,14 @@ async function migrateDecks() {
 	console.log(`Migrated ${supabaseDecks.length} decks`);
 }
 
-async function migrateCards() {
+async function migrateCardecky() {
 	console.log('Migrating cards...');
 
-	const { data: supabaseCards, error } = await supabase.from('cards').select('*');
+	const { data: supabaseCardecky, error } = await supabase.from('cards').select('*');
 
 	if (error) throw error;
 
-	for (const card of supabaseCards) {
+	for (const card of supabaseCardecky) {
 		await newDb
 			.insert(cards)
 			.values({
@@ -760,13 +760,13 @@ async function migrateCards() {
 			.onConflictDoNothing();
 	}
 
-	console.log(`Migrated ${supabaseCards.length} cards`);
+	console.log(`Migrated ${supabaseCardecky.length} cards`);
 }
 
 async function main() {
 	try {
 		await migrateDecks();
-		await migrateCards();
+		await migrateCardecky();
 		// ... andere Tabellen
 		console.log('Migration completed successfully!');
 	} catch (error) {

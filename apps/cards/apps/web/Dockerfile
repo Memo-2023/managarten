@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-# Cards Standalone — cards.mana.how. Mirrors apps/manavoxel/apps/web/Dockerfile.
+# Cardecky Standalone — cardecky.mana.how. Mirrors apps/manavoxel/apps/web/Dockerfile.
 
 # ─── Stage 1: Build ──────────────────────────────────────────
 FROM sveltekit-base:local AS builder

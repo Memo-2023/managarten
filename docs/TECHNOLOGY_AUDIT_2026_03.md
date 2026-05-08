@@ -124,7 +124,7 @@ Da bereits **mana-sync (Go)** als zentraler Sync-Server existiert und **local-fi
 - Schwer (~50 MB node_modules pro Backend)
 - Viel Boilerplate (Module, Controller, Service, DTO fuer jede Entity)
 - Overkill fuer simple CRUD-Operationen
-- NestJS Version-Drift: 18 Backends auf ^10.4.x, Cards auf ^11.0.1
+- NestJS Version-Drift: 18 Backends auf ^10.4.x, Cardecky auf ^11.0.1
 
 ### Empfehlung
 

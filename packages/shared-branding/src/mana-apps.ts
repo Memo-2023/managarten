@@ -155,7 +155,7 @@ export const MANA_APPS: ManaApp[] = [
 	},
 	{
 		id: 'cards',
-		name: 'Cards',
+		name: 'Cardecky',
 		description: {
 			de: 'KI Karteikarten',
 			en: 'AI Flashcards',

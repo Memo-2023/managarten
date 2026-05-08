@@ -3,7 +3,7 @@
 	"version": "0.1.0",
 	"private": true,
 	"sideEffects": false,
-	"description": "Pure utilities for the Cards product: types, FSRS wrapper, Cloze parser, Markdown render. Consumed by both the mana cards module and the cards.mana.how standalone app.",
+	"description": "Pure utilities for the Cardecky product: types, FSRS wrapper, Cloze parser, Markdown render. Consumed by both the mana cards module and the cardecky.mana.how standalone app.",
 	"main": "./src/index.ts",
 	"types": "./src/index.ts",
 	"exports": {

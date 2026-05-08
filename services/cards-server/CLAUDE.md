@@ -1,9 +1,9 @@
 # cards-server
 
-Cards Marketplace + Community backend. Owns the published-deck side of
-the Cards product (the standalone app at `cards.mana.how` is the
-client). Phase α is the data skeleton — schema + bootstrap + JWT auth
-in place; routes land progressively in Phase β onwards.
+Cardecky Marketplace + Community backend. Owns the published-deck side
+of the Cardecky product (the standalone app at `cardecky.mana.how` is
+the client). Phase α is the data skeleton — schema + bootstrap + JWT
+auth in place; routes land progressively in Phase β onwards.
 
 For the full design rationale, phasing, and contract decisions see
 **[`apps/cards/docs/MARKETPLACE_PLAN.md`](../../apps/cards/docs/MARKETPLACE_PLAN.md)**.

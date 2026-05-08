@@ -46,7 +46,7 @@
 - **Warum:** Reise-Apps monetarisieren gut. AI-generierte City Guides sind unique. Saisonaler Peak (Urlaubszeit), aber wiederkehrende Nutzung bei Vielreisenden.
 - **Empfehlung:** Free (Tracking unlimited, 1 Guide/Stadt), Premium (unlimited Guides + Offline-Download).
 
-### 7. Cards (Deck/Flashcard Management)
+### 7. Cardecky (Deck/Flashcard Management)
 
 - **Modell:** Credit-System vorhanden (10 Mana/Deck, 5/AI-Generation)
 - **Warum:** Anki, Quizlet sind bewiesene Märkte. AI-Kartengeneration ist starker USP. Studenten zahlen für Lerntools (besonders vor Prüfungen).

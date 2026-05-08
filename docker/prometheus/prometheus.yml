@@ -273,8 +273,8 @@ scrape_configs:
           - https://manavoxel.mana.how
           # Memoro Standalone-Stack (Phase 2 mana e.V. Plattform-Migration)
           - https://memoro.mana.how
-          # Cards Standalone (Phase-1 Spinoff vom Unified-mana-Modul, 2026-05-06)
-          - https://cards.mana.how
+          # Cardecky Standalone (Phase-1 Spinoff vom Unified-mana-Modul, 2026-05-06)
+          - https://cardecky.mana.how
           # Who? Game (Standalone-Bun-Stack auf Mac Mini, native unter PM2)
           - https://who.mana.how/cantina
           # npm-Registry (mana e.V. Plattform-Repo, Verdaccio)

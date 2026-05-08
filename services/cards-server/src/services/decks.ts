@@ -56,8 +56,8 @@ const SEMVER_RE = /^(\d+)\.(\d+)\.(\d+)$/;
 
 function validatePrice(price: number, license: string) {
 	if (price < 0) throw new BadRequestError('priceCredits cannot be negative');
-	if (price > 0 && license !== 'Cards-Pro-Only-1.0') {
-		throw new BadRequestError('Paid decks must use the Cards-Pro-Only-1.0 license');
+	if (price > 0 && license !== 'Cardecky-Pro-Only-1.0') {
+		throw new BadRequestError('Paid decks must use the Cardecky-Pro-Only-1.0 license');
 	}
 }
 
@@ -71,7 +71,7 @@ export class DeckService {
 		const validation = validateSlug(input.slug);
 		if (!validation.ok) throw new BadRequestError(`Slug invalid: ${validation.reason}`);
 
-		const license = input.license ?? 'Cards-Personal-Use-1.0';
+		const license = input.license ?? 'Cardecky-Personal-Use-1.0';
 		const priceCredits = input.priceCredits ?? 0;
 		validatePrice(priceCredits, license);
 

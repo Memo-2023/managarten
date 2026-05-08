@@ -1,0 +1,1910 @@
+{
+	"id": "9b3e7f1c-2a48-4d6b-8c5e-0f1a3d7c8e9b",
+	"prevId": "dc92bce1-ef98-41fa-97f1-0a6d1512bcdb",
+	"version": "7",
+	"dialect": "postgresql",
+	"tables": {
+		"cards.author_follows": {
+			"name": "author_follows",
+			"schema": "cards",
+			"columns": {
+				"follower_user_id": {
+					"name": "follower_user_id",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"author_user_id": {
+					"name": "author_user_id",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"since": {
+					"name": "since",
+					"type": "timestamp with time zone",
+					"primaryKey": false,
+					"notNull": true,
+					"default": "now()"
+				}
+			},
+			"indexes": {
+				"author_follows_pk": {
+					"name": "author_follows_pk",
+					"columns": [
+						{
+							"expression": "follower_user_id",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						},
+						{
+							"expression": "author_user_id",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": true,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				},
+				"author_follows_author_idx": {
+					"name": "author_follows_author_idx",
+					"columns": [
+						{
+							"expression": "author_user_id",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": false,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				},
+				"author_follows_follower_idx": {
+					"name": "author_follows_follower_idx",
+					"columns": [
+						{
+							"expression": "follower_user_id",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": false,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				}
+			},
+			"foreignKeys": {
+				"author_follows_author_user_id_authors_user_id_fk": {
+					"name": "author_follows_author_user_id_authors_user_id_fk",
+					"tableFrom": "author_follows",
+					"tableTo": "authors",
+					"schemaTo": "cards",
+					"columnsFrom": ["author_user_id"],
+					"columnsTo": ["user_id"],
+					"onDelete": "cascade",
+					"onUpdate": "no action"
+				}
+			},
+			"compositePrimaryKeys": {},
+			"uniqueConstraints": {},
+			"policies": {},
+			"checkConstraints": {},
+			"isRLSEnabled": false
+		},
+		"cards.authors": {
+			"name": "authors",
+			"schema": "cards",
+			"columns": {
+				"user_id": {
+					"name": "user_id",
+					"type": "text",
+					"primaryKey": true,
+					"notNull": true
+				},
+				"slug": {
+					"name": "slug",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"display_name": {
+					"name": "display_name",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"bio": {
+					"name": "bio",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"avatar_url": {
+					"name": "avatar_url",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"joined_at": {
+					"name": "joined_at",
+					"type": "timestamp with time zone",
+					"primaryKey": false,
+					"notNull": true,
+					"default": "now()"
+				},
+				"pseudonym": {
+					"name": "pseudonym",
+					"type": "boolean",
+					"primaryKey": false,
+					"notNull": true,
+					"default": false
+				},
+				"verified_mana": {
+					"name": "verified_mana",
+					"type": "boolean",
+					"primaryKey": false,
+					"notNull": true,
+					"default": false
+				},
+				"verified_community": {
+					"name": "verified_community",
+					"type": "boolean",
+					"primaryKey": false,
+					"notNull": true,
+					"default": false
+				},
+				"banned_at": {
+					"name": "banned_at",
+					"type": "timestamp with time zone",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"banned_reason": {
+					"name": "banned_reason",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				}
+			},
+			"indexes": {
+				"authors_slug_idx": {
+					"name": "authors_slug_idx",
+					"columns": [
+						{
+							"expression": "slug",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": true,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				},
+				"authors_verified_idx": {
+					"name": "authors_verified_idx",
+					"columns": [
+						{
+							"expression": "verified_mana",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						},
+						{
+							"expression": "verified_community",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": false,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				}
+			},
+			"foreignKeys": {},
+			"compositePrimaryKeys": {},
+			"uniqueConstraints": {},
+			"policies": {},
+			"checkConstraints": {},
+			"isRLSEnabled": false
+		},
+		"cards.author_payouts": {
+			"name": "author_payouts",
+			"schema": "cards",
+			"columns": {
+				"id": {
+					"name": "id",
+					"type": "uuid",
+					"primaryKey": true,
+					"notNull": true,
+					"default": "gen_random_uuid()"
+				},
+				"author_user_id": {
+					"name": "author_user_id",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"source_purchase_id": {
+					"name": "source_purchase_id",
+					"type": "uuid",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"credits_granted": {
+					"name": "credits_granted",
+					"type": "integer",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"credits_grant_id": {
+					"name": "credits_grant_id",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"granted_at": {
+					"name": "granted_at",
+					"type": "timestamp with time zone",
+					"primaryKey": false,
+					"notNull": true,
+					"default": "now()"
+				}
+			},
+			"indexes": {
+				"author_payouts_author_idx": {
+					"name": "author_payouts_author_idx",
+					"columns": [
+						{
+							"expression": "author_user_id",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": false,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				},
+				"author_payouts_purchase_idx": {
+					"name": "author_payouts_purchase_idx",
+					"columns": [
+						{
+							"expression": "source_purchase_id",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": false,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				}
+			},
+			"foreignKeys": {
+				"author_payouts_author_user_id_authors_user_id_fk": {
+					"name": "author_payouts_author_user_id_authors_user_id_fk",
+					"tableFrom": "author_payouts",
+					"tableTo": "authors",
+					"schemaTo": "cards",
+					"columnsFrom": ["author_user_id"],
+					"columnsTo": ["user_id"],
+					"onDelete": "restrict",
+					"onUpdate": "no action"
+				},
+				"author_payouts_source_purchase_id_deck_purchases_id_fk": {
+					"name": "author_payouts_source_purchase_id_deck_purchases_id_fk",
+					"tableFrom": "author_payouts",
+					"tableTo": "deck_purchases",
+					"schemaTo": "cards",
+					"columnsFrom": ["source_purchase_id"],
+					"columnsTo": ["id"],
+					"onDelete": "restrict",
+					"onUpdate": "no action"
+				}
+			},
+			"compositePrimaryKeys": {},
+			"uniqueConstraints": {},
+			"policies": {},
+			"checkConstraints": {},
+			"isRLSEnabled": false
+		},
+		"cards.deck_purchases": {
+			"name": "deck_purchases",
+			"schema": "cards",
+			"columns": {
+				"id": {
+					"name": "id",
+					"type": "uuid",
+					"primaryKey": true,
+					"notNull": true,
+					"default": "gen_random_uuid()"
+				},
+				"buyer_user_id": {
+					"name": "buyer_user_id",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"deck_id": {
+					"name": "deck_id",
+					"type": "uuid",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"version_id": {
+					"name": "version_id",
+					"type": "uuid",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"price_credits": {
+					"name": "price_credits",
+					"type": "integer",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"author_share": {
+					"name": "author_share",
+					"type": "integer",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"mana_share": {
+					"name": "mana_share",
+					"type": "integer",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"credits_transaction": {
+					"name": "credits_transaction",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"purchased_at": {
+					"name": "purchased_at",
+					"type": "timestamp with time zone",
+					"primaryKey": false,
+					"notNull": true,
+					"default": "now()"
+				},
+				"refunded_at": {
+					"name": "refunded_at",
+					"type": "timestamp with time zone",
+					"primaryKey": false,
+					"notNull": false
+				}
+			},
+			"indexes": {
+				"deck_purchases_buyer_deck_idx": {
+					"name": "deck_purchases_buyer_deck_idx",
+					"columns": [
+						{
+							"expression": "buyer_user_id",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						},
+						{
+							"expression": "deck_id",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": true,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				},
+				"deck_purchases_buyer_idx": {
+					"name": "deck_purchases_buyer_idx",
+					"columns": [
+						{
+							"expression": "buyer_user_id",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": false,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				},
+				"deck_purchases_deck_idx": {
+					"name": "deck_purchases_deck_idx",
+					"columns": [
+						{
+							"expression": "deck_id",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": false,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				}
+			},
+			"foreignKeys": {
+				"deck_purchases_deck_id_decks_id_fk": {
+					"name": "deck_purchases_deck_id_decks_id_fk",
+					"tableFrom": "deck_purchases",
+					"tableTo": "decks",
+					"schemaTo": "cards",
+					"columnsFrom": ["deck_id"],
+					"columnsTo": ["id"],
+					"onDelete": "restrict",
+					"onUpdate": "no action"
+				},
+				"deck_purchases_version_id_deck_versions_id_fk": {
+					"name": "deck_purchases_version_id_deck_versions_id_fk",
+					"tableFrom": "deck_purchases",
+					"tableTo": "deck_versions",
+					"schemaTo": "cards",
+					"columnsFrom": ["version_id"],
+					"columnsTo": ["id"],
+					"onDelete": "restrict",
+					"onUpdate": "no action"
+				}
+			},
+			"compositePrimaryKeys": {},
+			"uniqueConstraints": {},
+			"policies": {},
+			"checkConstraints": {},
+			"isRLSEnabled": false
+		},
+		"cards.deck_cards": {
+			"name": "deck_cards",
+			"schema": "cards",
+			"columns": {
+				"id": {
+					"name": "id",
+					"type": "uuid",
+					"primaryKey": true,
+					"notNull": true,
+					"default": "gen_random_uuid()"
+				},
+				"version_id": {
+					"name": "version_id",
+					"type": "uuid",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"type": {
+					"name": "type",
+					"type": "cards_card_type",
+					"typeSchema": "public",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"fields": {
+					"name": "fields",
+					"type": "jsonb",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"ord": {
+					"name": "ord",
+					"type": "integer",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"content_hash": {
+					"name": "content_hash",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				}
+			},
+			"indexes": {
+				"deck_cards_version_ord_idx": {
+					"name": "deck_cards_version_ord_idx",
+					"columns": [
+						{
+							"expression": "version_id",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						},
+						{
+							"expression": "ord",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": true,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				},
+				"deck_cards_hash_idx": {
+					"name": "deck_cards_hash_idx",
+					"columns": [
+						{
+							"expression": "content_hash",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": false,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				}
+			},
+			"foreignKeys": {
+				"deck_cards_version_id_deck_versions_id_fk": {
+					"name": "deck_cards_version_id_deck_versions_id_fk",
+					"tableFrom": "deck_cards",
+					"tableTo": "deck_versions",
+					"schemaTo": "cards",
+					"columnsFrom": ["version_id"],
+					"columnsTo": ["id"],
+					"onDelete": "cascade",
+					"onUpdate": "no action"
+				}
+			},
+			"compositePrimaryKeys": {},
+			"uniqueConstraints": {},
+			"policies": {},
+			"checkConstraints": {},
+			"isRLSEnabled": false
+		},
+		"cards.deck_versions": {
+			"name": "deck_versions",
+			"schema": "cards",
+			"columns": {
+				"id": {
+					"name": "id",
+					"type": "uuid",
+					"primaryKey": true,
+					"notNull": true,
+					"default": "gen_random_uuid()"
+				},
+				"deck_id": {
+					"name": "deck_id",
+					"type": "uuid",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"semver": {
+					"name": "semver",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"changelog": {
+					"name": "changelog",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"content_hash": {
+					"name": "content_hash",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"card_count": {
+					"name": "card_count",
+					"type": "integer",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"published_at": {
+					"name": "published_at",
+					"type": "timestamp with time zone",
+					"primaryKey": false,
+					"notNull": true,
+					"default": "now()"
+				},
+				"deprecated_at": {
+					"name": "deprecated_at",
+					"type": "timestamp with time zone",
+					"primaryKey": false,
+					"notNull": false
+				}
+			},
+			"indexes": {
+				"deck_versions_deck_semver_idx": {
+					"name": "deck_versions_deck_semver_idx",
+					"columns": [
+						{
+							"expression": "deck_id",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						},
+						{
+							"expression": "semver",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": true,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				},
+				"deck_versions_deck_idx": {
+					"name": "deck_versions_deck_idx",
+					"columns": [
+						{
+							"expression": "deck_id",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": false,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				},
+				"deck_versions_hash_idx": {
+					"name": "deck_versions_hash_idx",
+					"columns": [
+						{
+							"expression": "content_hash",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": false,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				}
+			},
+			"foreignKeys": {
+				"deck_versions_deck_id_decks_id_fk": {
+					"name": "deck_versions_deck_id_decks_id_fk",
+					"tableFrom": "deck_versions",
+					"tableTo": "decks",
+					"schemaTo": "cards",
+					"columnsFrom": ["deck_id"],
+					"columnsTo": ["id"],
+					"onDelete": "cascade",
+					"onUpdate": "no action"
+				}
+			},
+			"compositePrimaryKeys": {},
+			"uniqueConstraints": {},
+			"policies": {},
+			"checkConstraints": {},
+			"isRLSEnabled": false
+		},
+		"cards.decks": {
+			"name": "decks",
+			"schema": "cards",
+			"columns": {
+				"id": {
+					"name": "id",
+					"type": "uuid",
+					"primaryKey": true,
+					"notNull": true,
+					"default": "gen_random_uuid()"
+				},
+				"slug": {
+					"name": "slug",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"title": {
+					"name": "title",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"description": {
+					"name": "description",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"language": {
+					"name": "language",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"license": {
+					"name": "license",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true,
+					"default": "'Cardecky-Personal-Use-1.0'"
+				},
+				"price_credits": {
+					"name": "price_credits",
+					"type": "integer",
+					"primaryKey": false,
+					"notNull": true,
+					"default": 0
+				},
+				"owner_user_id": {
+					"name": "owner_user_id",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"latest_version_id": {
+					"name": "latest_version_id",
+					"type": "uuid",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"is_featured": {
+					"name": "is_featured",
+					"type": "boolean",
+					"primaryKey": false,
+					"notNull": true,
+					"default": false
+				},
+				"is_takedown": {
+					"name": "is_takedown",
+					"type": "boolean",
+					"primaryKey": false,
+					"notNull": true,
+					"default": false
+				},
+				"takedown_at": {
+					"name": "takedown_at",
+					"type": "timestamp with time zone",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"takedown_reason": {
+					"name": "takedown_reason",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"created_at": {
+					"name": "created_at",
+					"type": "timestamp with time zone",
+					"primaryKey": false,
+					"notNull": true,
+					"default": "now()"
+				}
+			},
+			"indexes": {
+				"decks_slug_idx": {
+					"name": "decks_slug_idx",
+					"columns": [
+						{
+							"expression": "slug",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": true,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				},
+				"decks_owner_idx": {
+					"name": "decks_owner_idx",
+					"columns": [
+						{
+							"expression": "owner_user_id",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": false,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				},
+				"decks_featured_idx": {
+					"name": "decks_featured_idx",
+					"columns": [
+						{
+							"expression": "is_featured",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": false,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				}
+			},
+			"foreignKeys": {
+				"decks_owner_user_id_authors_user_id_fk": {
+					"name": "decks_owner_user_id_authors_user_id_fk",
+					"tableFrom": "decks",
+					"tableTo": "authors",
+					"schemaTo": "cards",
+					"columnsFrom": ["owner_user_id"],
+					"columnsTo": ["user_id"],
+					"onDelete": "restrict",
+					"onUpdate": "no action"
+				}
+			},
+			"compositePrimaryKeys": {},
+			"uniqueConstraints": {},
+			"policies": {},
+			"checkConstraints": {
+				"decks_price_requires_license": {
+					"name": "decks_price_requires_license",
+					"value": "price_credits = 0 OR license = 'Cardecky-Pro-Only-1.0'"
+				}
+			},
+			"isRLSEnabled": false
+		},
+		"cards.card_discussions": {
+			"name": "card_discussions",
+			"schema": "cards",
+			"columns": {
+				"id": {
+					"name": "id",
+					"type": "uuid",
+					"primaryKey": true,
+					"notNull": true,
+					"default": "gen_random_uuid()"
+				},
+				"card_content_hash": {
+					"name": "card_content_hash",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"deck_id": {
+					"name": "deck_id",
+					"type": "uuid",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"author_user_id": {
+					"name": "author_user_id",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"parent_id": {
+					"name": "parent_id",
+					"type": "uuid",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"body": {
+					"name": "body",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"hidden": {
+					"name": "hidden",
+					"type": "boolean",
+					"primaryKey": false,
+					"notNull": true,
+					"default": false
+				},
+				"created_at": {
+					"name": "created_at",
+					"type": "timestamp with time zone",
+					"primaryKey": false,
+					"notNull": true,
+					"default": "now()"
+				}
+			},
+			"indexes": {
+				"card_discussions_hash_idx": {
+					"name": "card_discussions_hash_idx",
+					"columns": [
+						{
+							"expression": "card_content_hash",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": false,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				},
+				"card_discussions_deck_idx": {
+					"name": "card_discussions_deck_idx",
+					"columns": [
+						{
+							"expression": "deck_id",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": false,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				},
+				"card_discussions_parent_idx": {
+					"name": "card_discussions_parent_idx",
+					"columns": [
+						{
+							"expression": "parent_id",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": false,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				}
+			},
+			"foreignKeys": {
+				"card_discussions_deck_id_decks_id_fk": {
+					"name": "card_discussions_deck_id_decks_id_fk",
+					"tableFrom": "card_discussions",
+					"tableTo": "decks",
+					"schemaTo": "cards",
+					"columnsFrom": ["deck_id"],
+					"columnsTo": ["id"],
+					"onDelete": "cascade",
+					"onUpdate": "no action"
+				}
+			},
+			"compositePrimaryKeys": {},
+			"uniqueConstraints": {},
+			"policies": {},
+			"checkConstraints": {},
+			"isRLSEnabled": false
+		},
+		"cards.deck_pull_requests": {
+			"name": "deck_pull_requests",
+			"schema": "cards",
+			"columns": {
+				"id": {
+					"name": "id",
+					"type": "uuid",
+					"primaryKey": true,
+					"notNull": true,
+					"default": "gen_random_uuid()"
+				},
+				"deck_id": {
+					"name": "deck_id",
+					"type": "uuid",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"author_user_id": {
+					"name": "author_user_id",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"status": {
+					"name": "status",
+					"type": "cards_pr_status",
+					"typeSchema": "public",
+					"primaryKey": false,
+					"notNull": true,
+					"default": "'open'"
+				},
+				"title": {
+					"name": "title",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"body": {
+					"name": "body",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"diff": {
+					"name": "diff",
+					"type": "jsonb",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"merged_into_version_id": {
+					"name": "merged_into_version_id",
+					"type": "uuid",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"created_at": {
+					"name": "created_at",
+					"type": "timestamp with time zone",
+					"primaryKey": false,
+					"notNull": true,
+					"default": "now()"
+				},
+				"resolved_at": {
+					"name": "resolved_at",
+					"type": "timestamp with time zone",
+					"primaryKey": false,
+					"notNull": false
+				}
+			},
+			"indexes": {
+				"deck_pull_requests_deck_idx": {
+					"name": "deck_pull_requests_deck_idx",
+					"columns": [
+						{
+							"expression": "deck_id",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": false,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				},
+				"deck_pull_requests_status_idx": {
+					"name": "deck_pull_requests_status_idx",
+					"columns": [
+						{
+							"expression": "deck_id",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						},
+						{
+							"expression": "status",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": false,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				},
+				"deck_pull_requests_author_idx": {
+					"name": "deck_pull_requests_author_idx",
+					"columns": [
+						{
+							"expression": "author_user_id",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": false,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				}
+			},
+			"foreignKeys": {
+				"deck_pull_requests_deck_id_decks_id_fk": {
+					"name": "deck_pull_requests_deck_id_decks_id_fk",
+					"tableFrom": "deck_pull_requests",
+					"tableTo": "decks",
+					"schemaTo": "cards",
+					"columnsFrom": ["deck_id"],
+					"columnsTo": ["id"],
+					"onDelete": "cascade",
+					"onUpdate": "no action"
+				},
+				"deck_pull_requests_merged_into_version_id_deck_versions_id_fk": {
+					"name": "deck_pull_requests_merged_into_version_id_deck_versions_id_fk",
+					"tableFrom": "deck_pull_requests",
+					"tableTo": "deck_versions",
+					"schemaTo": "cards",
+					"columnsFrom": ["merged_into_version_id"],
+					"columnsTo": ["id"],
+					"onDelete": "set null",
+					"onUpdate": "no action"
+				}
+			},
+			"compositePrimaryKeys": {},
+			"uniqueConstraints": {},
+			"policies": {},
+			"checkConstraints": {},
+			"isRLSEnabled": false
+		},
+		"cards.deck_forks": {
+			"name": "deck_forks",
+			"schema": "cards",
+			"columns": {
+				"user_id": {
+					"name": "user_id",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"source_deck_id": {
+					"name": "source_deck_id",
+					"type": "uuid",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"source_version_id": {
+					"name": "source_version_id",
+					"type": "uuid",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"forked_at": {
+					"name": "forked_at",
+					"type": "timestamp with time zone",
+					"primaryKey": false,
+					"notNull": true,
+					"default": "now()"
+				}
+			},
+			"indexes": {
+				"deck_forks_pk": {
+					"name": "deck_forks_pk",
+					"columns": [
+						{
+							"expression": "user_id",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						},
+						{
+							"expression": "source_deck_id",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						},
+						{
+							"expression": "source_version_id",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": true,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				},
+				"deck_forks_source_idx": {
+					"name": "deck_forks_source_idx",
+					"columns": [
+						{
+							"expression": "source_deck_id",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": false,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				}
+			},
+			"foreignKeys": {
+				"deck_forks_source_deck_id_decks_id_fk": {
+					"name": "deck_forks_source_deck_id_decks_id_fk",
+					"tableFrom": "deck_forks",
+					"tableTo": "decks",
+					"schemaTo": "cards",
+					"columnsFrom": ["source_deck_id"],
+					"columnsTo": ["id"],
+					"onDelete": "cascade",
+					"onUpdate": "no action"
+				},
+				"deck_forks_source_version_id_deck_versions_id_fk": {
+					"name": "deck_forks_source_version_id_deck_versions_id_fk",
+					"tableFrom": "deck_forks",
+					"tableTo": "deck_versions",
+					"schemaTo": "cards",
+					"columnsFrom": ["source_version_id"],
+					"columnsTo": ["id"],
+					"onDelete": "cascade",
+					"onUpdate": "no action"
+				}
+			},
+			"compositePrimaryKeys": {},
+			"uniqueConstraints": {},
+			"policies": {},
+			"checkConstraints": {},
+			"isRLSEnabled": false
+		},
+		"cards.deck_stars": {
+			"name": "deck_stars",
+			"schema": "cards",
+			"columns": {
+				"user_id": {
+					"name": "user_id",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"deck_id": {
+					"name": "deck_id",
+					"type": "uuid",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"starred_at": {
+					"name": "starred_at",
+					"type": "timestamp with time zone",
+					"primaryKey": false,
+					"notNull": true,
+					"default": "now()"
+				}
+			},
+			"indexes": {
+				"deck_stars_pk": {
+					"name": "deck_stars_pk",
+					"columns": [
+						{
+							"expression": "user_id",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						},
+						{
+							"expression": "deck_id",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": true,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				},
+				"deck_stars_deck_idx": {
+					"name": "deck_stars_deck_idx",
+					"columns": [
+						{
+							"expression": "deck_id",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": false,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				}
+			},
+			"foreignKeys": {
+				"deck_stars_deck_id_decks_id_fk": {
+					"name": "deck_stars_deck_id_decks_id_fk",
+					"tableFrom": "deck_stars",
+					"tableTo": "decks",
+					"schemaTo": "cards",
+					"columnsFrom": ["deck_id"],
+					"columnsTo": ["id"],
+					"onDelete": "cascade",
+					"onUpdate": "no action"
+				}
+			},
+			"compositePrimaryKeys": {},
+			"uniqueConstraints": {},
+			"policies": {},
+			"checkConstraints": {},
+			"isRLSEnabled": false
+		},
+		"cards.deck_subscriptions": {
+			"name": "deck_subscriptions",
+			"schema": "cards",
+			"columns": {
+				"user_id": {
+					"name": "user_id",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"deck_id": {
+					"name": "deck_id",
+					"type": "uuid",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"current_version_id": {
+					"name": "current_version_id",
+					"type": "uuid",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"subscribed_at": {
+					"name": "subscribed_at",
+					"type": "timestamp with time zone",
+					"primaryKey": false,
+					"notNull": true,
+					"default": "now()"
+				},
+				"notify_updates": {
+					"name": "notify_updates",
+					"type": "boolean",
+					"primaryKey": false,
+					"notNull": true,
+					"default": true
+				}
+			},
+			"indexes": {
+				"deck_subscriptions_pk": {
+					"name": "deck_subscriptions_pk",
+					"columns": [
+						{
+							"expression": "user_id",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						},
+						{
+							"expression": "deck_id",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": true,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				},
+				"deck_subscriptions_deck_idx": {
+					"name": "deck_subscriptions_deck_idx",
+					"columns": [
+						{
+							"expression": "deck_id",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": false,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				},
+				"deck_subscriptions_user_idx": {
+					"name": "deck_subscriptions_user_idx",
+					"columns": [
+						{
+							"expression": "user_id",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": false,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				}
+			},
+			"foreignKeys": {
+				"deck_subscriptions_deck_id_decks_id_fk": {
+					"name": "deck_subscriptions_deck_id_decks_id_fk",
+					"tableFrom": "deck_subscriptions",
+					"tableTo": "decks",
+					"schemaTo": "cards",
+					"columnsFrom": ["deck_id"],
+					"columnsTo": ["id"],
+					"onDelete": "cascade",
+					"onUpdate": "no action"
+				},
+				"deck_subscriptions_current_version_id_deck_versions_id_fk": {
+					"name": "deck_subscriptions_current_version_id_deck_versions_id_fk",
+					"tableFrom": "deck_subscriptions",
+					"tableTo": "deck_versions",
+					"schemaTo": "cards",
+					"columnsFrom": ["current_version_id"],
+					"columnsTo": ["id"],
+					"onDelete": "set null",
+					"onUpdate": "no action"
+				}
+			},
+			"compositePrimaryKeys": {},
+			"uniqueConstraints": {},
+			"policies": {},
+			"checkConstraints": {},
+			"isRLSEnabled": false
+		},
+		"cards.deck_tags": {
+			"name": "deck_tags",
+			"schema": "cards",
+			"columns": {
+				"deck_id": {
+					"name": "deck_id",
+					"type": "uuid",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"tag_id": {
+					"name": "tag_id",
+					"type": "uuid",
+					"primaryKey": false,
+					"notNull": true
+				}
+			},
+			"indexes": {
+				"deck_tags_pk": {
+					"name": "deck_tags_pk",
+					"columns": [
+						{
+							"expression": "deck_id",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						},
+						{
+							"expression": "tag_id",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": true,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				},
+				"deck_tags_tag_idx": {
+					"name": "deck_tags_tag_idx",
+					"columns": [
+						{
+							"expression": "tag_id",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": false,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				}
+			},
+			"foreignKeys": {
+				"deck_tags_deck_id_decks_id_fk": {
+					"name": "deck_tags_deck_id_decks_id_fk",
+					"tableFrom": "deck_tags",
+					"tableTo": "decks",
+					"schemaTo": "cards",
+					"columnsFrom": ["deck_id"],
+					"columnsTo": ["id"],
+					"onDelete": "cascade",
+					"onUpdate": "no action"
+				},
+				"deck_tags_tag_id_tag_definitions_id_fk": {
+					"name": "deck_tags_tag_id_tag_definitions_id_fk",
+					"tableFrom": "deck_tags",
+					"tableTo": "tag_definitions",
+					"schemaTo": "cards",
+					"columnsFrom": ["tag_id"],
+					"columnsTo": ["id"],
+					"onDelete": "cascade",
+					"onUpdate": "no action"
+				}
+			},
+			"compositePrimaryKeys": {},
+			"uniqueConstraints": {},
+			"policies": {},
+			"checkConstraints": {},
+			"isRLSEnabled": false
+		},
+		"cards.tag_definitions": {
+			"name": "tag_definitions",
+			"schema": "cards",
+			"columns": {
+				"id": {
+					"name": "id",
+					"type": "uuid",
+					"primaryKey": true,
+					"notNull": true,
+					"default": "gen_random_uuid()"
+				},
+				"slug": {
+					"name": "slug",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"name": {
+					"name": "name",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"parent_id": {
+					"name": "parent_id",
+					"type": "uuid",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"description": {
+					"name": "description",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"curated": {
+					"name": "curated",
+					"type": "boolean",
+					"primaryKey": false,
+					"notNull": true,
+					"default": false
+				},
+				"created_at": {
+					"name": "created_at",
+					"type": "timestamp with time zone",
+					"primaryKey": false,
+					"notNull": true,
+					"default": "now()"
+				}
+			},
+			"indexes": {
+				"tag_definitions_slug_idx": {
+					"name": "tag_definitions_slug_idx",
+					"columns": [
+						{
+							"expression": "slug",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": true,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				},
+				"tag_definitions_parent_idx": {
+					"name": "tag_definitions_parent_idx",
+					"columns": [
+						{
+							"expression": "parent_id",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": false,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				}
+			},
+			"foreignKeys": {},
+			"compositePrimaryKeys": {},
+			"uniqueConstraints": {},
+			"policies": {},
+			"checkConstraints": {},
+			"isRLSEnabled": false
+		},
+		"cards.ai_moderation_log": {
+			"name": "ai_moderation_log",
+			"schema": "cards",
+			"columns": {
+				"id": {
+					"name": "id",
+					"type": "uuid",
+					"primaryKey": true,
+					"notNull": true,
+					"default": "gen_random_uuid()"
+				},
+				"version_id": {
+					"name": "version_id",
+					"type": "uuid",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"verdict": {
+					"name": "verdict",
+					"type": "cards_ai_mod_verdict",
+					"typeSchema": "public",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"categories": {
+					"name": "categories",
+					"type": "text[]",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"model": {
+					"name": "model",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"rationale": {
+					"name": "rationale",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"human_reviewed": {
+					"name": "human_reviewed",
+					"type": "boolean",
+					"primaryKey": false,
+					"notNull": true,
+					"default": false
+				},
+				"human_overrode": {
+					"name": "human_overrode",
+					"type": "boolean",
+					"primaryKey": false,
+					"notNull": true,
+					"default": false
+				},
+				"created_at": {
+					"name": "created_at",
+					"type": "timestamp with time zone",
+					"primaryKey": false,
+					"notNull": true,
+					"default": "now()"
+				}
+			},
+			"indexes": {
+				"ai_moderation_log_version_idx": {
+					"name": "ai_moderation_log_version_idx",
+					"columns": [
+						{
+							"expression": "version_id",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": false,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				},
+				"ai_moderation_log_verdict_idx": {
+					"name": "ai_moderation_log_verdict_idx",
+					"columns": [
+						{
+							"expression": "verdict",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": false,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				}
+			},
+			"foreignKeys": {
+				"ai_moderation_log_version_id_deck_versions_id_fk": {
+					"name": "ai_moderation_log_version_id_deck_versions_id_fk",
+					"tableFrom": "ai_moderation_log",
+					"tableTo": "deck_versions",
+					"schemaTo": "cards",
+					"columnsFrom": ["version_id"],
+					"columnsTo": ["id"],
+					"onDelete": "cascade",
+					"onUpdate": "no action"
+				}
+			},
+			"compositePrimaryKeys": {},
+			"uniqueConstraints": {},
+			"policies": {},
+			"checkConstraints": {},
+			"isRLSEnabled": false
+		},
+		"cards.deck_reports": {
+			"name": "deck_reports",
+			"schema": "cards",
+			"columns": {
+				"id": {
+					"name": "id",
+					"type": "uuid",
+					"primaryKey": true,
+					"notNull": true,
+					"default": "gen_random_uuid()"
+				},
+				"deck_id": {
+					"name": "deck_id",
+					"type": "uuid",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"version_id": {
+					"name": "version_id",
+					"type": "uuid",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"card_content_hash": {
+					"name": "card_content_hash",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"reporter_user_id": {
+					"name": "reporter_user_id",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"category": {
+					"name": "category",
+					"type": "cards_report_category",
+					"typeSchema": "public",
+					"primaryKey": false,
+					"notNull": true
+				},
+				"body": {
+					"name": "body",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"status": {
+					"name": "status",
+					"type": "cards_report_status",
+					"typeSchema": "public",
+					"primaryKey": false,
+					"notNull": true,
+					"default": "'open'"
+				},
+				"resolved_by": {
+					"name": "resolved_by",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"resolved_at": {
+					"name": "resolved_at",
+					"type": "timestamp with time zone",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"resolution_notes": {
+					"name": "resolution_notes",
+					"type": "text",
+					"primaryKey": false,
+					"notNull": false
+				},
+				"created_at": {
+					"name": "created_at",
+					"type": "timestamp with time zone",
+					"primaryKey": false,
+					"notNull": true,
+					"default": "now()"
+				}
+			},
+			"indexes": {
+				"deck_reports_deck_idx": {
+					"name": "deck_reports_deck_idx",
+					"columns": [
+						{
+							"expression": "deck_id",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": false,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				},
+				"deck_reports_status_idx": {
+					"name": "deck_reports_status_idx",
+					"columns": [
+						{
+							"expression": "status",
+							"isExpression": false,
+							"asc": true,
+							"nulls": "last"
+						}
+					],
+					"isUnique": false,
+					"concurrently": false,
+					"method": "btree",
+					"with": {}
+				}
+			},
+			"foreignKeys": {
+				"deck_reports_deck_id_decks_id_fk": {
+					"name": "deck_reports_deck_id_decks_id_fk",
+					"tableFrom": "deck_reports",
+					"tableTo": "decks",
+					"schemaTo": "cards",
+					"columnsFrom": ["deck_id"],
+					"columnsTo": ["id"],
+					"onDelete": "cascade",
+					"onUpdate": "no action"
+				},
+				"deck_reports_version_id_deck_versions_id_fk": {
+					"name": "deck_reports_version_id_deck_versions_id_fk",
+					"tableFrom": "deck_reports",
+					"tableTo": "deck_versions",
+					"schemaTo": "cards",
+					"columnsFrom": ["version_id"],
+					"columnsTo": ["id"],
+					"onDelete": "set null",
+					"onUpdate": "no action"
+				}
+			},
+			"compositePrimaryKeys": {},
+			"uniqueConstraints": {},
+			"policies": {},
+			"checkConstraints": {},
+			"isRLSEnabled": false
+		}
+	},
+	"enums": {
+		"public.cards_card_type": {
+			"name": "cards_card_type",
+			"schema": "public",
+			"values": [
+				"basic",
+				"basic-reverse",
+				"cloze",
+				"type-in",
+				"image-occlusion",
+				"audio",
+				"multiple-choice"
+			]
+		},
+		"public.cards_pr_status": {
+			"name": "cards_pr_status",
+			"schema": "public",
+			"values": ["open", "merged", "closed", "rejected"]
+		},
+		"public.cards_ai_mod_verdict": {
+			"name": "cards_ai_mod_verdict",
+			"schema": "public",
+			"values": ["pass", "flag", "block"]
+		},
+		"public.cards_report_category": {
+			"name": "cards_report_category",
+			"schema": "public",
+			"values": ["spam", "copyright", "nsfw", "misinformation", "hate", "other"]
+		},
+		"public.cards_report_status": {
+			"name": "cards_report_status",
+			"schema": "public",
+			"values": ["open", "dismissed", "actioned"]
+		}
+	},
+	"schemas": {
+		"cards": "cards"
+	},
+	"sequences": {},
+	"roles": {},
+	"policies": {},
+	"views": {},
+	"_meta": {
+		"columns": {},
+		"schemas": {},
+		"tables": {}
+	}
+}

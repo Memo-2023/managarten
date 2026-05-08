@@ -79,7 +79,7 @@ In zwei intensiven Sessions wurde die gesamte Mana-Architektur von einem **API-f
 | Calendar | 3003 | 119 | RRULE Expansion, ICS Import |
 | Contacts | 3004 | 89 | Avatar Upload (S3), vCard Import |
 | Picture | 3006 | 144 | Replicate Image Gen + S3 Upload |
-| Cards | 3009 | 130 | AI Deck/Card Generation |
+| Cardecky | 3009 | 130 | AI Deck/Card Generation |
 | Mukke | 3010 | 106 | S3 Upload/Download URLs |
 | Questions | 3011 | 121 | Web Research (mana-search) |
 | Storage | 3016 | 117 | File Upload/Download + Versions |
@@ -322,7 +322,7 @@ mana-analytics (Hono, 475 LOC)
 | 3 | Calendar | calendars, events | ✅ Komplett |
 | 4 | Clock | alarms, timers, worldClocks | ✅ Komplett |
 | 5 | Contacts | contacts | ✅ Komplett |
-| 6 | Cards | decks, cards | ✅ Komplett |
+| 6 | Cardecky | decks, cards | ✅ Komplett |
 | 7 | Presi | decks, slides | ✅ Komplett |
 | 8 | Picture | images, boards, boardItems, tags, imageTags | ✅ Komplett |
 | 9 | Inventar | collections, items, locations, categories | ✅ Komplett |

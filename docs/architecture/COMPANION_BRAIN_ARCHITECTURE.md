@@ -1386,7 +1386,7 @@ Phase 1 (Events) ──────┬──> Phase 2 (Projections)
 | 10 | Body | 5 | 3 | Batch 2 |
 | 11 | Finance | 2 | 1 | Batch 3 |
 | 12 | Dreams | 2 | 1 | Batch 3 |
-| 13 | Cards | 2 | 1 | Batch 3 |
+| 13 | Cardecky | 2 | 1 | Batch 3 |
 | 14 | Times | 2 | 2 | Batch 3 |
 | 15 | Social Events | 2 | 1 | Batch 3 |
 | 16 | Music | 1 | 1 | Batch 4 |

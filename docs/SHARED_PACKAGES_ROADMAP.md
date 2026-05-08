@@ -69,7 +69,7 @@ All web apps now use the shared packages consistently:
 - Mana Web
 - Memoro Web
 - Maerchenzauber Web
-- Cards Web
+- Cardecky Web
 
 ---
 
@@ -127,7 +127,7 @@ packages/shared-tailwind/
 
 - Memoro Web (full migration with theme.css + components.css)
 - Mana Web (preset only, keeps local colors)
-- Cards Web (colors import, HSL-based system)
+- Cardecky Web (colors import, HSL-based system)
 - Maerchenzauber Web (dependency added)
 
 ---

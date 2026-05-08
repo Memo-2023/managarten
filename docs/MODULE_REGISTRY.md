@@ -42,7 +42,7 @@ Alle 76 Module der Mana-App (`apps/mana/apps/web/src/lib/modules/`).
 | `picture` | ManaPicture | AI-Bildgenerierung |
 | `photos` | Photos | Foto-Management mit Alben, Tags und Favoriten |
 | `presi` | Presi | Präsentationen mit AI-Design-Vorschlägen |
-| `cards` | Cards | AI-generierte Flashcards mit Spaced Repetition |
+| `cards` | Cardecky | AI-generierte Flashcards mit Spaced Repetition |
 | `recipes` | Rezepte | Rezepte sammeln mit Zutaten und Schritten |
 | `library` | Bibliothek | Bücher, Filme, Serien, Comics — Status, Rating, Fortschritt |
 | `storage` | Storage | Cloud-Storage mit Ordnern, Versionierung und Sharing |

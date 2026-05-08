@@ -50,7 +50,7 @@ Diese Befehle starten ein komplettes Projekt mit allen zugehörigen Apps und Dep
 | ------------------------- | ------------------------------------------------------ |
 | `pnpm maerchenzauber:dev` | Startet Maerchenzauber (Backend, Web, Mobile, Landing) |
 | `pnpm mana:dev`           | Startet Mana (Web, Mobile, Landing)                    |
-| `pnpm cards:dev`       | Startet Cards (Web, Mobile, Landing)                |
+| `pnpm cards:dev`       | Startet Cardecky (Web, Mobile, Landing)             |
 | `pnpm memoro:dev`         | Startet Memoro (Web, Mobile, Landing)                  |
 
 ## Turbo Filter

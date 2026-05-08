@@ -1,8 +1,8 @@
 /**
- * Cards — shared types.
+ * Cardecky — shared types.
  *
  * Used by both the mana cards module (apps/mana/.../modules/cards/) and
- * the cards.mana.how standalone app. Pure type definitions, no runtime
+ * the cardecky.mana.how standalone app. Pure type definitions, no runtime
  * imports beyond `BaseRecord` and `VisibilityLevel` from the shared
  * Mana packages.
  */
@@ -49,7 +49,7 @@ export interface LocalDeck extends BaseRecord {
 
 	/**
 	 * Marketplace-subscription markers. Set on decks that the user
-	 * pulled from cards.mana.how/d/<slug> rather than created
+	 * pulled from cardecky.mana.how/d/<slug> rather than created
 	 * themselves. The pair (slug + version) lets the client compute
 	 * a smart-merge diff against the server's latest version.
 	 *

@@ -261,7 +261,7 @@ export const appConfigs: Record<string, AppConfig> = {
 			},
 		],
 		dashboardRoute: '/',
-		website: 'https://cards.mana.how',
+		website: 'https://cardecky.mana.how',
 	},
 
 	todo: {

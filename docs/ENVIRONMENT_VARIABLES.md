@@ -119,7 +119,7 @@ The generator then creates app-specific `.env` files with the correct prefixes f
 |----------|-------------|---------|
 | `ARTICLES_IMPORT_WORKER_DISABLED` | Set to `true` to skip starting the bulk-import worker on this apps/api instance. Useful for tests, or when running multiple apps/api replicas and you want to designate a specific one as the worker. The worker uses `pg_try_advisory_xact_lock` so multiple instances are safe by default — this env-var is the explicit opt-out. | `false` |
 
-### Cards Project
+### Cardecky Project
 
 | Variable | Description | Default |
 |----------|-------------|---------|
