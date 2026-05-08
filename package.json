@@ -1,9 +1,9 @@
 {
-	"name": "mana-monorepo",
+	"name": "managarten",
 	"version": "1.0.0",
 	"private": true,
 	"type": "module",
-	"description": "Mana Monorepo containing mana, cards, picture, chat, quotes, and presi",
+	"description": "Managarten — der Garten der mana-Apps. Enthält mana, cards, picture, chat, quotes und presi.",
 	"scripts": {
 		"dev": "turbo run dev",
 		"build": "turbo run build",

@@ -786,7 +786,7 @@ services:
     image: myoung34/github-runner:latest
     container_name: mana-github-runner
     environment:
-      REPO_URL: https://github.com/your-org/mana-monorepo
+      REPO_URL: https://github.com/your-org/managarten
       RUNNER_TOKEN: ${GITHUB_RUNNER_TOKEN}
       RUNNER_NAME: macmini-runner
     volumes:

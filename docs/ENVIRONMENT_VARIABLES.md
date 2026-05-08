@@ -141,7 +141,7 @@ key from `MANA_STT_API_KEY`. Keep that key out of the browser bundle.
 
 **Where to obtain a key:**
 
-- **Production (Mac Mini)**: `MANA_STT_API_KEY` is read from `~/projects/mana-monorepo/.env`
+- **Production (Mac Mini)**: `MANA_STT_API_KEY` is read from `~/projects/managarten/.env`
   on the Mac Mini and injected into the `mana-web` container by `docker-compose.macmini.yml`
   (the `mana-web` service block, alongside `MANA_STT_URL=https://gpu-stt.mana.how`). To rotate,
   update the `.env` value and recreate the container with

@@ -422,7 +422,7 @@ Erst-Deploy von Schritt 1 + 2 auf dem Produktions-Mac-Mini. Alles, was von der S
   docker exec mana-research bun run db:push
   ```
   Ergebnis: 5 Tabellen (`async_jobs`, `eval_results`, `eval_runs`, `provider_configs`, `provider_stats`).
-- **`GOOGLE_GENAI_API_KEY` fehlte in `.env`** — lokalen Key aus `.env.secrets` nach `/Users/mana/projects/mana-monorepo/.env` übertragen. Backup: `.env.bak.pre-gemini-deep-research`.
+- **`GOOGLE_GENAI_API_KEY` fehlte in `.env`** — lokalen Key aus `.env.secrets` nach `/Users/mana/projects/managarten/.env` übertragen. Backup: `.env.bak.pre-gemini-deep-research`.
 - **Redis-NOAUTH-Spam**: mana-research hatte `REDIS_URL: redis://redis:6379` ohne Passwort-Credentials, Redis läuft aber mit `--requirepass`. Cache degradierte graceful, aber Log-Noise. Fix: commit `4867300d0` — `REDIS_URL: redis://:${REDIS_PASSWORD:-redis123}@redis:6379`.
 - **Smoke-Test**: Submit über `POST /api/v1/internal/research/async` (Standard-Tier, 300 credits, Test-User ohne Wallet-Eintrag) → HTTP 500 in mana-credits (`credits.reserve failed: 404 Not Found`). **Erwartetes Ergebnis** — beweist den Chain `X-Service-Key → dispatch → googleGenai apiKey → credits.reserve` bis zum mana-credits-HTTP-Call. Kein Fehler in unserem neuen Code.
 

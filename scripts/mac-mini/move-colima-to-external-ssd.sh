@@ -87,7 +87,7 @@ for i in $(seq 1 12); do
     sleep 5
 done
 
-cd ~/projects/mana-monorepo
+cd ~/projects/managarten
 docker compose -f docker-compose.macmini.yml up -d 2>&1 | tail -5 | tee -a "$LOG"
 log "Containers started."
 

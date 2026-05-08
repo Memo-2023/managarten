@@ -369,7 +369,7 @@ docker run -d \
 #### 1.2 Database Package erstellen
 
 ```bash
-cd /Users/tillschneider/Documents/__00__Code/mana-monorepo
+cd /Users/tillschneider/Documents/__00__Code/managarten
 mkdir -p packages/cards-database
 cd packages/cards-database
 pnpm init

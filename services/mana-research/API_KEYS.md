@@ -301,7 +301,7 @@ ScrapingBee hat nur **Abo-Pläne ab $49/Monat** — passt nicht zur Pay-per-use-
 Kopiere `.env.secrets.example` nach `.env.secrets` (ist gitignored):
 
 ```bash
-cd /Users/till/Documents/Code/mana-monorepo
+cd /Users/till/Documents/Code/managarten
 cp .env.secrets.example .env.secrets
 ```
 

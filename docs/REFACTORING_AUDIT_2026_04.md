@@ -1,6 +1,6 @@
 # Refactoring Audit — April 2026
 
-Pre-Launch Audit der gesamten mana-monorepo. Erstellt 2026-04-08, vor dem
+Pre-Launch Audit der gesamten managarten. Erstellt 2026-04-08, vor dem
 öffentlichen Launch. Während die App noch nicht live ist, sind größere
 strukturelle Änderungen weiterhin möglich, ohne User-Daten zu gefährden.
 

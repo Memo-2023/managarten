@@ -39,7 +39,7 @@ auf der Box existierte und unangetastet blieb.
 │   ├── grafana/                   ← provisioning + dashboards
 │   ├── loki/, blackbox/, alertmanager/, alert-notifier/, promtail-gpu/
 ├── forgejo-data/                  ← Forgejo /data bind-mount (rsync von Mini bei Phase 2b)
-└── source/                        ← Sparse mana-monorepo-clone
+└── source/                        ← Sparse managarten-clone
                                      für status-page-gen + zukünftige Scripts
                                      git pull stündlich via systemd timer mana-source-pull.timer
 ```

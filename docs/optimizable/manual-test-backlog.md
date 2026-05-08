@@ -58,7 +58,7 @@ Each entry carries:
 ### MCP gateway + Persona-runner — end-to-end live smoke
 
 - **Priority:** 🟠 important
-- **Shipped:** `16c881833` (M1+M1.5 MCP gateway), `493db0c3b` (M2.a-c persona schemas + seed), `f07eae3c0` (M3.b-d tick loop), `eb8fac23e` (tool_use_id pairing + audit), `5a5e24f58` (docker searxng fix). Plan at [`docs/plans/mana-mcp-and-personas.md`](../plans/mana-mcp-and-personas.md). Memory: [`project_mana_mcp_personas.md`](.claude/projects/-Users-till-Documents-Code-mana-monorepo/memory/project_mana_mcp_personas.md).
+- **Shipped:** `16c881833` (M1+M1.5 MCP gateway), `493db0c3b` (M2.a-c persona schemas + seed), `f07eae3c0` (M3.b-d tick loop), `eb8fac23e` (tool_use_id pairing + audit), `5a5e24f58` (docker searxng fix). Plan at [`docs/plans/mana-mcp-and-personas.md`](../plans/mana-mcp-and-personas.md). Memory: [`project_mana_mcp_personas.md`](.claude/projects/-Users-till-Documents-Code-managarten/memory/project_mana_mcp_personas.md).
 - **Why it's here:** ~2600 lines of service code, 14 automated tests passed (type-check × 4, svelte-check, AES round-trip, HMAC 3-way parity, tool-registry integrity, seed dry-run, boot smokes × 2, Playwright config parse, drizzle SQL generate, vitest 21/21), but **none of it has run against a live Postgres + mana-auth + Anthropic**. Unit tests are blind to: real JWT issuance + SSO cookie flow, mana-sync wire-format mismatches, Dexie-table-name case drift, Better-Auth org-list response shape, Claude Agent SDK streaming edge-cases, encryption MK unwrap through the real vault endpoint, ZK-user rejection path.
 - **Steps:**
   1. `pnpm dev:mana:all` — brings up Postgres + Redis + MinIO + searxng + all dev servers.

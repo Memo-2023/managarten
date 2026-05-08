@@ -1,6 +1,6 @@
 # Docker Guide
 
-Comprehensive guide for working with Docker in the mana-monorepo.
+Comprehensive guide for working with Docker in the managarten.
 
 ## Table of Contents
 

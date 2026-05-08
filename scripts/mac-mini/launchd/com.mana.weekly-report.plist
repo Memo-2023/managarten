@@ -8,7 +8,7 @@
     <key>ProgramArguments</key>
     <array>
         <string>/bin/bash</string>
-        <string>/Users/mana/projects/mana-monorepo/scripts/mac-mini/weekly-report.sh</string>
+        <string>/Users/mana/projects/managarten/scripts/mac-mini/weekly-report.sh</string>
     </array>
 
     <!-- Run every Sunday at 10:00 AM -->

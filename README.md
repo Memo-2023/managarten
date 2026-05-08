@@ -1,6 +1,6 @@
-# Mana Monorepo
+# Managarten
 
-Monorepo containing all Mana projects — a self-hosted multi-app ecosystem with shared packages and unified tooling.
+Der Garten der mana-Apps — ein selbst-gehostetes Multi-App-Ökosystem unter `mana.how` mit geteilten Packages und einheitlichem Tooling. Teil der mana-e.V.-Plattform.
 
 ## Projects
 
@@ -62,7 +62,7 @@ See [CLAUDE.md](./CLAUDE.md) for comprehensive development documentation.
 ## Architecture
 
 ```
-mana-monorepo/
+managarten/
 ├── apps/                    # Product applications
 ├── services/                # Microservices (auth, search, LLM, bots)
 ├── packages/                # Shared packages

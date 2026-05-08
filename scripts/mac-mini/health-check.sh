@@ -128,7 +128,7 @@ ${failed_services}
 
 To investigate:
   ssh mac-mini
-  cd ~/projects/mana-monorepo
+  cd ~/projects/managarten
   ./scripts/mac-mini/status.sh
   docker logs <container-name>"
 

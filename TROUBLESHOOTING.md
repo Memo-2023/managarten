@@ -1,6 +1,6 @@
 # Troubleshooting Guide
 
-Common issues and solutions for the mana-monorepo.
+Common issues and solutions for the managarten.
 
 ## Table of Contents
 
@@ -409,7 +409,7 @@ docker run --rm --entrypoint cat test /app/dist/ai/ai.service.js
 
 ### Related Issues
 
-- [Commit d69cc607](https://github.com/Memo-2023/mana-monorepo/commit/d69cc607) - Fixed type-only ConfigService import in AiService
+- [Commit d69cc607](https://github.com/Memo-2023/managarten/commit/d69cc607) - Fixed type-only ConfigService import in AiService
 - TypeScript `import type` vs `import {}` - both erase at compile time
 - Docker layer caching can hide fixes if source wasn't properly copied
 
@@ -425,7 +425,7 @@ docker run --rm --entrypoint cat test /app/dist/ai/ai.service.js
 
 If you encounter an issue not covered here:
 
-1. Check the [GitHub Issues](https://github.com/Memo-2023/mana-monorepo/issues)
+1. Check the [GitHub Issues](https://github.com/Memo-2023/managarten/issues)
 2. Review recent commits that may have introduced the issue
 3. Run `pnpm clean` and `pnpm install` to reset
 4. Create a new issue with full error logs

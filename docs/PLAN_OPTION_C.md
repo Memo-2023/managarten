@@ -17,7 +17,7 @@ Production-Hot-Path bleibt unverändert auf dem Mini.
 | Phase 2c — VM + Loki + Alerts | ✅ | Komplett auf GPU-Box. 11 Container neu (VM, Loki, Pushgateway, Blackbox, Vmalert, Alertmanager, Alert-notifier, GPU-eigenes Node-Exporter+Cadvisor+Promtail). VM scrapt 76 Targets, **69 UP / 7 DOWN** (DOWN sind alle pre-existing wrong /metrics endpoints auf Mana-Services, nicht durch Migration). Konfig-Pfade: `monitoring/{prometheus,loki,blackbox,alertmanager,alert-notifier}/`. Bekannte Limits siehe unten. |
 | Phase 2d — Glitchtip mit dediziertem DB-Stack | ✅ | 4 Container neu (mana-mon-glitchtip + worker + dedizierte glitchtip-postgres + glitchtip-redis). Mini-Postgres scheiterte bei `logs.0001_initial`-Partition-Creation mit OS-level "Permission denied" (macOS-Docker-Storage-Quirk auf externer SSD). Auf der GPU-Box mit Linux-ext4 saubere 333-Tabellen-Migration. Worker enqueuet UND finished Tasks → DB-Writes funktional (vorher hingen sie ewig). Public-Hostname `glitchtip.mana.how` → mana-gpu-server-Tunnel (config v23). |
 | Phase 2e — Status-Page auf GPU-Box | ✅ | 2 Container neu (`mana-mon-status-gen` + `mana-mon-status-nginx`). Sparse `/srv/mana/source` mit `mana-source-pull.timer` (stündlich) hostet das `generate-status-page.sh` und `mana-apps.ts`. status-gen schreibt in das Docker-Volume `status-output`, das status-nginx auf `:8090` ausliefert. Public-Hostname `status.mana.how` → mana-gpu-server-Tunnel (config v25). Bonus: behebt den Inode-Stale-Bind-Mount-Bug, der auf dem Mini bei jedem CD-`git checkout -f` die Status-Page kaputt machte. `vm.mana.how` (Phase-2c-Workaround für Mini→GPU-VM-Routing) wurde wieder aus dem Tunnel entfernt — VM ist nicht mehr public. |
-| Phase 2f — drei weitere Hilfsdienste verlagert | ⚠️ teilweise zurückgerollt | (1) ~~**verdaccio** (npm.mana.how, was im mana-platform-Repo): Volume tar-stream + Config-bundle in mana-monorepo (`infrastructure/verdaccio/config.yaml`)~~ — am 2026-05-07 zurückgerollt: das Storage-Volume kam nie auf der GPU-Box an, der dortige Container war leer. DNS+Tunnel zurück auf Mini, Mini-Standalone-Compose-Project unter `~/projects/verdaccio/` bleibt Single-Source. (2) **news-ingester** (Bun-Background-Tick): Cross-LAN-DB zur Mini-Postgres. Cross-arch-Limit aufgedeckt — `docker save\|load` zwischen Mini (arm64) und GPU-Box (x86_64) wirft `exec format error`, daher nativer Build mit GPU-Box-eigenem Dockerfile in `infrastructure/news-ingester/` der `@mana/shared-rss` als `file:`-ref vendored. (3) **mana-ai** (AI Mission Runner): Cross-LAN für mana-api/mana-llm/mana-research, RSA-Key-Sync (`MANA_AI_PRIVATE_KEY_PEM`), `mana-ai.mana.how` zum GPU-Tunnel (config v28). Bonus: AI Mission Runner sitzt jetzt im selben docker-network wie gpu-llm/gpu-ollama — künftige direct-LLM-Pfade ohne Cloudflare-Round-Trip. Mini Container 44 → 43 (verdaccio bleibt Mini-side). |
+| Phase 2f — drei weitere Hilfsdienste verlagert | ⚠️ teilweise zurückgerollt | (1) ~~**verdaccio** (npm.mana.how, was im mana-platform-Repo): Volume tar-stream + Config-bundle in managarten (`infrastructure/verdaccio/config.yaml`)~~ — am 2026-05-07 zurückgerollt: das Storage-Volume kam nie auf der GPU-Box an, der dortige Container war leer. DNS+Tunnel zurück auf Mini, Mini-Standalone-Compose-Project unter `~/projects/verdaccio/` bleibt Single-Source. (2) **news-ingester** (Bun-Background-Tick): Cross-LAN-DB zur Mini-Postgres. Cross-arch-Limit aufgedeckt — `docker save\|load` zwischen Mini (arm64) und GPU-Box (x86_64) wirft `exec format error`, daher nativer Build mit GPU-Box-eigenem Dockerfile in `infrastructure/news-ingester/` der `@mana/shared-rss` als `file:`-ref vendored. (3) **mana-ai** (AI Mission Runner): Cross-LAN für mana-api/mana-llm/mana-research, RSA-Key-Sync (`MANA_AI_PRIVATE_KEY_PEM`), `mana-ai.mana.how` zum GPU-Tunnel (config v28). Bonus: AI Mission Runner sitzt jetzt im selben docker-network wie gpu-llm/gpu-ollama — künftige direct-LLM-Pfade ohne Cloudflare-Round-Trip. Mini Container 44 → 43 (verdaccio bleibt Mini-side). |
 | Phase 2g — mana-research auslagern | ✅ | Web-Research-Orchestrator mit 16+ Search-/LLM-Providern. Nativer Build via workspace-Dockerfile (sparse-checkout `services/mana-research` + `packages/{shared-research,shared-types,shared-hono,shared-logger}`). Cross-LAN zu mana-auth/mana-credits/mana-llm/mana-search/postgres/redis (alle auf 192.168.178.131); Redis-Auth via `REDIS_PASSWORD` aus Mini's `.env.macmini` übernommen. `research.mana.how` zum GPU-Tunnel umgebogen via Cloudflare-API (config v29). Beide `PUBLIC_MANA_RESEARCH_URL`-Vars in mana-app-web auf https-URL umgestellt — gleicher Cross-LAN-Bridge-Pattern wie mana-ai (Mini-Container können 192.168.178.11 nicht direkt erreichen, daher Tunnel-Roundtrip). Mini Container 42 → 41. |
 | Phase 3 — Daten-Migration | n/a | Alle migrierten Apps lesen Mini-Postgres direkt — keine separate Datenmigration |
 | Phase 4 — Cloudflare-Cutover | ✅ | API-Approach via `cert.pem` apiToken: PUT `/accounts/.../cfd_tunnel/.../configurations` für GPU-Tunnel, dann `cloudflared tunnel route dns --overwrite-dns`. Kein Dashboard-Klick nötig. 3 Hostnames live (grafana/git/stats) |
@@ -66,7 +66,7 @@ WSL2 (Ubuntu 24.04, 24 GB RAM-Limit, 12 vCPU, vmIdleTimeout=-1)
     │   ├── mana-mon-status-gen (alpine:3.20) — Generator-Loop, queryt VM lokal
     │   ├── mana-mon-status-nginx (nginx:alpine, :8090) — serviert HTML+JSON
     │   └── volume: status-output (geteilt zwischen den beiden)
-    └── /srv/mana/source/ — Sparse mana-monorepo-clone (scripts/ + packages/shared-branding/src/)
+    └── /srv/mana/source/ — Sparse managarten-clone (scripts/ + packages/shared-branding/src/)
         └── systemd-timer: mana-source-pull.timer (stündlich `git pull --ff-only`)
     └── Phase 2c — Metrics-Stack
         ├── mana-mon-victoria (VM v1.99.0, :9090) — scrapt Mini-Services via 192.168.178.131:<port>
@@ -128,7 +128,7 @@ als langlebigen Windows-Prozess offen → WSL-VM idled nicht aus, Container
 | Mac Mini SSH | `ssh mana-server` (192.168.178.131, User `mana`) — **OK** |
 | GPU-Box SSH | `ssh mana-gpu` (192.168.178.11, User `tills`) — **derzeit offline** |
 | GPU-Box muss vor Phase 1 erreichbar sein | Box einschalten, Network-Profile auf "Privat" setzen (Doku §1 in `WINDOWS_GPU_SERVER_SETUP.md`) |
-| Live-Tunnel-Config Mac Mini | `/Users/mana/projects/mana-monorepo/cloudflared-config.yml` (geladen via LaunchAgent) |
+| Live-Tunnel-Config Mac Mini | `/Users/mana/projects/managarten/cloudflared-config.yml` (geladen via LaunchAgent) |
 | Mac-Mini-Tunnel-UUID | `1435166a-0e3f-4222-8de6-744f32cea5c9` |
 | GPU-Box-Tunnel-UUID | `83454e8e-d7f5-4954-b2cb-0307c2dba7a6` (Token-managed im Cloudflare-Dashboard) |
 
@@ -176,7 +176,7 @@ zurückgerollt — Storage-Volume kam dort nie an).
 ### Native Prozesse Mini (kein Docker, bleiben unverändert)
 
 `who-server` (PM2), `who-web` (LaunchAgent), `cloudflared` (Mini-Tunnel),
-`colima`, GitHub-Runner, `actions.runner.Memo-2023-mana-monorepo.mac-mini`.
+`colima`, GitHub-Runner, `actions.runner.Memo-2023-managarten.mac-mini`.
 
 ## 2. Cloudflare-Routing — Vorher / Nachher
 

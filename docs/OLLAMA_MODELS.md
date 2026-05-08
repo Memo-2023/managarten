@@ -68,7 +68,7 @@ const defaultSettings: Settings = {
 pnpm --filter @mana/llm-playground build
 
 # Auf Mac Mini deployen
-ssh mana-server "cd ~/projects/mana-monorepo && docker compose -f docker-compose.macmini.yml up -d --build llm-playground"
+ssh mana-server "cd ~/projects/managarten && docker compose -f docker-compose.macmini.yml up -d --build llm-playground"
 ```
 
 ## Modality-Typen

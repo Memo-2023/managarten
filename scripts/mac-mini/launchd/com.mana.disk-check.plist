@@ -8,7 +8,7 @@
     <key>ProgramArguments</key>
     <array>
         <string>/bin/bash</string>
-        <string>/Users/mana/projects/mana-monorepo/scripts/mac-mini/check-disk-space.sh</string>
+        <string>/Users/mana/projects/managarten/scripts/mac-mini/check-disk-space.sh</string>
     </array>
 
     <!-- Run every 15 minutes — frequent enough to catch disk issues early -->

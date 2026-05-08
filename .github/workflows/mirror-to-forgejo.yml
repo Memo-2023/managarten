@@ -17,7 +17,7 @@ jobs:
     steps:
       - name: Mirror to Forgejo via SSH
         run: |
-          cd /Users/mana/projects/mana-monorepo
+          cd /Users/mana/projects/managarten
 
           # Stash any local changes so pull never fails
           git stash --quiet 2>/dev/null || true
@@ -25,5 +25,5 @@ jobs:
 
           # Push to Forgejo via localhost SSH (runner is on the Mac Mini)
           GIT_SSH_COMMAND='ssh -p 2222 -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no' \
-            git push ssh://git@localhost:2222/till/mana-monorepo.git main 2>&1
+            git push ssh://git@localhost:2222/till/managarten.git main 2>&1
           echo "Mirrored to Forgejo"

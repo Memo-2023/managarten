@@ -182,7 +182,7 @@ The wrapper code already supports a `photon-self` provider — we just need to s
 
 ```bash
 ssh mana-server
-nano ~/projects/mana-monorepo/.env.macmini
+nano ~/projects/managarten/.env.macmini
 ```
 
 Add at the bottom:
@@ -202,7 +202,7 @@ GEOCODING_PROVIDERS=photon-self,photon
 ### 3.2 Recreate mana-geocoding container
 
 ```bash
-cd ~/projects/mana-monorepo
+cd ~/projects/managarten
 docker compose -f docker-compose.macmini.yml --env-file .env.macmini up -d mana-geocoding
 ```
 
@@ -241,7 +241,7 @@ Watch for:
 ### 4.1 Remove the Pelias stack from the Mac mini
 
 ```bash
-cd ~/projects/mana-monorepo/services/mana-geocoding/pelias
+cd ~/projects/managarten/services/mana-geocoding/pelias
 docker compose down -v
 # `-v` deletes the volumes too — frees ~5 GB disk
 ```

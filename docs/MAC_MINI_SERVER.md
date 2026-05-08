@@ -120,7 +120,7 @@ Host mana-server-remote
 ### Projekt-Verzeichnis
 
 ```bash
-cd ~/projects/mana-monorepo
+cd ~/projects/managarten
 ```
 
 ## CI/CD
@@ -130,7 +130,7 @@ Ein GitHub Actions Self-Hosted Runner läuft nativ auf dem Mac Mini und deployt 
 - **CD Workflow:** `.github/workflows/cd-macmini.yml`
 - **Mirror Workflow:** `.github/workflows/mirror-to-forgejo.yml` (GitHub → Forgejo Sync)
 - **Runner:** `mac-mini` (self-hosted, macOS, ARM64, LaunchAgent)
-- **Manuelles Deployment:** https://github.com/Memo-2023/mana-monorepo/actions/workflows/cd-macmini.yml
+- **Manuelles Deployment:** https://github.com/Memo-2023/managarten/actions/workflows/cd-macmini.yml
 
 ### Forgejo (Mirror-Only)
 
@@ -276,7 +276,7 @@ Other 502 root causes to check, in order of likelihood:
 The unified mana-web container's `/api/v1/voice/transcribe` proxy needs
 `MANA_STT_API_KEY` to authenticate against `gpu-stt.mana.how`. The key:
 
-- Lives in **Mac Mini `~/projects/mana-monorepo/.env`** (gitignored)
+- Lives in **Mac Mini `~/projects/managarten/.env`** (gitignored)
 - Is referenced from `docker-compose.macmini.yml` as `${MANA_STT_API_KEY:-}`
 - The source-of-truth is `services/mana-stt/.env` on the Windows GPU box (`API_KEYS=<key>:<name>`)
 
@@ -540,7 +540,7 @@ Bei SSH-Zugriff ist Docker nicht im Standard-PATH. Für Remote-Befehle:
 PATH=/Applications/Docker.app/Contents/Resources/bin:$PATH
 
 # Beispiel: Remote docker compose
-ssh mana-server "PATH=/Applications/Docker.app/Contents/Resources/bin:\$PATH && docker compose -f ~/projects/mana-monorepo/docker-compose.macmini.yml restart grafana"
+ssh mana-server "PATH=/Applications/Docker.app/Contents/Resources/bin:\$PATH && docker compose -f ~/projects/managarten/docker-compose.macmini.yml restart grafana"
 ```
 
 ### Container existiert nicht (wurde nie erstellt)

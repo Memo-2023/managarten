@@ -55,7 +55,7 @@ concurrency:
   cancel-in-progress: false  # Don't cancel in-progress deploys
 
 env:
-  PROJECT_DIR: /Users/mana/projects/mana-monorepo
+  PROJECT_DIR: /Users/mana/projects/managarten
   COMPOSE_FILE: docker-compose.macmini.yml
   ENV_FILE: .env.macmini
   DOCKER_BUILDKIT: 1

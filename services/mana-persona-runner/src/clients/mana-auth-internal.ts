@@ -5,7 +5,7 @@
  * batch. All gated by `X-Service-Key` (not a user JWT).
  *
  * After the platform/product split, personas live in apps/api
- * (`mana-monorepo/apps/api`), not in mana-auth. The constructor takes
+ * (`managarten/apps/api`), not in mana-auth. The constructor takes
  * the apps/api URL — the file name stays the same to keep the
  * callsite diff small (one import path), but the destination changed.
  */

@@ -3,7 +3,7 @@
 /**
  * setup-secrets.mjs — Pull dev secrets from the Mac Mini into .env.secrets
  *
- * SSHes to mana-server, reads ~/projects/mana-monorepo/.env, and writes
+ * SSHes to mana-server, reads ~/projects/managarten/.env, and writes
  * the secret-shaped keys into a local .env.secrets file. Skips keys that
  * are already populated locally so re-running is safe.
  *
@@ -28,7 +28,7 @@ const ROOT_DIR = join(__dirname, '..');
 const TEMPLATE_FILE = join(ROOT_DIR, '.env.secrets.example');
 const TARGET_FILE = join(ROOT_DIR, '.env.secrets');
 const REMOTE_HOST = 'mana-server';
-const REMOTE_ENV_PATH = '~/projects/mana-monorepo/.env';
+const REMOTE_ENV_PATH = '~/projects/managarten/.env';
 
 const FORCE = process.argv.includes('--force');
 

@@ -24,7 +24,7 @@
 11. [Memory & Todos](#11-memory--todos)
 12. [Model-Routing](#12-model-routing)
 13. [Bemerkenswerte Clever Tricks](#13-bemerkenswerte-clever-tricks)
-14. [Relevanz für das Mana-Monorepo](#14-relevanz-für-das-mana-monorepo)
+14. [Relevanz für das Mana-Monorepo](#14-relevanz-für-das-managarten)
 15. [Quellen](#15-quellen)
 
 ---

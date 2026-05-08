@@ -597,7 +597,7 @@ in one batch.
 3. **`COMPOSE_PROJECT_NAME=manacore-monorepo` pinned.** The Mac Mini's
    existing containers were created under the old project name
    (`manacore-monorepo`) but the working tree directory is
-   `mana-monorepo`. Without a pin, every `docker compose up` from the
+   `managarten`. Without a pin, every `docker compose up` from the
    repo root spawns a *second* project, creating duplicate
    container/volume conflicts (the 2026-04-07 recovery had to pass
    `-p manacore-monorepo` manually). The pin now lives in:

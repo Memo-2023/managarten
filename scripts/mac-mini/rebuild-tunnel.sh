@@ -21,7 +21,7 @@
 #   4. Create a new tunnel with the same name `mana-server`. Cloudflare
 #      generates a new UUID and writes a new credentials .json
 #   5. Patch the new tunnel ID + credentials path into both
-#      ~/projects/mana-monorepo/cloudflared-config.yml AND
+#      ~/projects/managarten/cloudflared-config.yml AND
 #      ~/.cloudflared/config.yml
 #   6. For each hostname in the config file, run
 #      `cloudflared tunnel route dns -f mana-server <hostname>` so the
@@ -52,7 +52,7 @@ set -euo pipefail
 
 CLOUDFLARED=/opt/homebrew/bin/cloudflared
 TUNNEL_NAME="mana-server"
-REPO_CONFIG="$HOME/projects/mana-monorepo/cloudflared-config.yml"
+REPO_CONFIG="$HOME/projects/managarten/cloudflared-config.yml"
 CLOUDFLARED_DIR="$HOME/.cloudflared"
 LOCAL_CONFIG="$CLOUDFLARED_DIR/config.yml"
 PLIST_FILE="$HOME/Library/LaunchAgents/com.cloudflare.cloudflared.plist"
@@ -357,6 +357,6 @@ else
 fi
 echo ""
 log "Next steps:"
-log "  1. From your dev box: cd ~/projects/mana-monorepo && git diff cloudflared-config.yml"
+log "  1. From your dev box: cd ~/projects/managarten && git diff cloudflared-config.yml"
 log "     -> review the tunnel-id change, then commit + push"
 log "  2. Smoke-test the apps in your browser"

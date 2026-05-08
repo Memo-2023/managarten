@@ -5,7 +5,7 @@
 set -e
 
 TUNNEL_ID="bb0ea86d-8253-4a54-838b-107bb7945be9"
-CONFIG_FILE="$HOME/projects/mana-monorepo/cloudflared-config.yml"
+CONFIG_FILE="$HOME/projects/managarten/cloudflared-config.yml"
 CREDENTIALS_FILE="$HOME/.cloudflared/${TUNNEL_ID}.json"
 PLIST_FILE="$HOME/Library/LaunchAgents/com.cloudflare.cloudflared.plist"
 

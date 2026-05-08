@@ -70,7 +70,7 @@ SEPA Direct Debit wurde im Code aktiviert. Diese Checkliste dokumentiert die ver
 
 ```bash
 ssh mana-server
-cd ~/projects/mana-monorepo
+cd ~/projects/managarten
 git pull
 ./scripts/mac-mini/deploy.sh
 ```

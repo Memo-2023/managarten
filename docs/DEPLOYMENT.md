@@ -42,7 +42,7 @@ No manual action needed for regular deployments.
 For immediate deployment without waiting for Watchtower:
 
 ```bash
-ssh mana-server "cd ~/projects/mana-monorepo && ./scripts/mac-mini/deploy.sh"
+ssh mana-server "cd ~/projects/managarten && ./scripts/mac-mini/deploy.sh"
 ```
 
 ## Monitoring
@@ -79,7 +79,7 @@ ssh mana-server "./scripts/mac-mini/health-check.sh"
 
 ```bash
 ssh mana-server
-cd ~/projects/mana-monorepo
+cd ~/projects/managarten
 
 # Rollback to specific image tag
 docker compose -f docker-compose.macmini.yml pull <service>:<tag>

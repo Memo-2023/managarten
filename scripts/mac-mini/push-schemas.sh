@@ -31,7 +31,7 @@ push_schema() {
 echo "Core Services:"
 # Plattform-Services bauen ab dem 2026-05-08-Cutover aus dem
 # Schwester-Repo `../mana/`. Auf dem Mac Mini liegt das als
-# `/Users/mana/projects/mana/`, parallel zu `mana-monorepo`.
+# `/Users/mana/projects/mana/`, parallel zu `managarten`.
 push_schema "mana-auth" "../mana/services/mana-auth"
 push_schema "mana-credits" "../mana/services/mana-credits"
 push_schema "mana-user" "services/mana-user"

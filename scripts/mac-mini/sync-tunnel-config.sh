@@ -24,7 +24,7 @@ set -e
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 CONFIG_FILE="$REPO_ROOT/cloudflared-config.yml"
 REMOTE_HOST="mana-server"
-REMOTE_PATH='~/projects/mana-monorepo/cloudflared-config.yml'
+REMOTE_PATH='~/projects/managarten/cloudflared-config.yml'
 
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
@@ -50,7 +50,7 @@ echo -e "${YELLOW}1. Pulling latest from origin (in case the local file is stale
     echo -e "${YELLOW}   warning: local cloudflared-config.yml differs from origin/main${NC}"
 
 echo -e "${YELLOW}2. Ensuring repo on the server is up to date...${NC}"
-ssh "$REMOTE_HOST" 'cd ~/projects/mana-monorepo && git pull --quiet'
+ssh "$REMOTE_HOST" 'cd ~/projects/managarten && git pull --quiet'
 
 echo -e "${YELLOW}3. Validating the config on the server...${NC}"
 if ! ssh "$REMOTE_HOST" "/opt/homebrew/bin/cloudflared tunnel --config $REMOTE_PATH ingress validate"; then

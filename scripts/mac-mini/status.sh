@@ -78,7 +78,7 @@ if docker info >/dev/null 2>&1; then
     # every running container, and report any compose service whose
     # container_name is not currently up.
     if [ -f "$COMPOSE_FILE" ]; then
-        DEFINED=$(docker compose -p "${COMPOSE_PROJECT_NAME:-mana-monorepo}" \
+        DEFINED=$(docker compose -p "${COMPOSE_PROJECT_NAME:-managarten}" \
             -f "$COMPOSE_FILE" config --format json 2>/dev/null \
             | python3 -c '
 import sys, json

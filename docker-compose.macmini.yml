@@ -344,7 +344,7 @@ services:
       start_period: 15s
 
   # mana-research moved to GPU-Box on 2026-05-07 (Phase 2g). Source-of-truth
-  # is now mana-monorepo/infrastructure/docker-compose.gpu-box.yml. DNS for
+  # is now managarten/infrastructure/docker-compose.gpu-box.yml. DNS for
   # research.mana.how points at the mana-gpu-server tunnel; cross-LAN to
   # mana-credits + mana-search + postgres + redis on 192.168.178.131.
 

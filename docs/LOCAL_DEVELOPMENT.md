@@ -121,7 +121,7 @@ into individual app folders after every regeneration.
 **One-time setup:**
 
 ```bash
-# Pulls keys from ~/projects/mana-monorepo/.env on the Mac Mini via SSH
+# Pulls keys from ~/projects/managarten/.env on the Mac Mini via SSH
 pnpm setup:secrets
 
 # Then propagate into per-app .env files

@@ -50,7 +50,7 @@ PATH=/opt/homebrew/bin:$PATH colima start
 ### 6. Testen ob File-Mounts funktionieren
 
 ```bash
-docker run --rm -v ~/projects/mana-monorepo/docker/alertmanager/alertmanager.yml:/test.yml:ro alpine head -3 /test.yml
+docker run --rm -v ~/projects/managarten/docker/alertmanager/alertmanager.yml:/test.yml:ro alpine head -3 /test.yml
 ```
 
 Sollte YAML-Inhalt zeigen, NICHT "Is a directory".
@@ -58,7 +58,7 @@ Sollte YAML-Inhalt zeigen, NICHT "Is a directory".
 ### 7. Alle Container starten
 
 ```bash
-cd ~/projects/mana-monorepo
+cd ~/projects/managarten
 docker compose -f docker-compose.macmini.yml up -d --no-build
 ```
 

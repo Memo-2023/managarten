@@ -208,7 +208,7 @@ curl "https://auth.mana.how/api/v1/analytics/growth?days=30"
 
 ```bash
 # On Mac Mini server
-cd ~/projects/mana-monorepo
+cd ~/projects/managarten
 
 # Start all monitoring services
 docker compose -f docker-compose.macmini.yml up -d victoriametrics grafana mana-auth
@@ -263,7 +263,7 @@ Add to crontab for daily backups:
 
 ```bash
 # Daily backup at 2 AM
-0 2 * * * /path/to/mana-monorepo/scripts/backup-monitoring.sh
+0 2 * * * /path/to/managarten/scripts/backup-monitoring.sh
 ```
 
 ## Troubleshooting

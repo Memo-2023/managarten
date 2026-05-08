@@ -9,7 +9,7 @@ Scripts for managing the Mana production environment on Mac Mini.
 ssh mac-mini
 
 # 2. Navigate to project
-cd ~/projects/mana-monorepo
+cd ~/projects/managarten
 
 # 3. Setup auto-start (only needed once)
 ./scripts/mac-mini/setup-autostart.sh
@@ -50,8 +50,8 @@ brew install cloudflared git docker
 ```bash
 mkdir -p ~/projects
 cd ~/projects
-git clone https://github.com/Memo-2023/mana-monorepo.git
-cd mana-monorepo
+git clone https://github.com/Memo-2023/managarten.git
+cd managarten
 ```
 
 ### 3. Configure Cloudflare Tunnel

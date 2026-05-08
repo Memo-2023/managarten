@@ -7,7 +7,7 @@
     <key>ProgramArguments</key>
     <array>
         <string>/bin/bash</string>
-        <string>/Users/mana/projects/mana-monorepo/scripts/mac-mini/health-check.sh</string>
+        <string>/Users/mana/projects/managarten/scripts/mac-mini/health-check.sh</string>
     </array>
     <key>StartInterval</key>
     <integer>300</integer>

@@ -8,7 +8,7 @@
     <key>ProgramArguments</key>
     <array>
         <string>/bin/bash</string>
-        <string>/Users/mana/projects/mana-monorepo/scripts/mac-mini/backup-databases.sh</string>
+        <string>/Users/mana/projects/managarten/scripts/mac-mini/backup-databases.sh</string>
     </array>
 
     <!-- Run daily at 3:00 AM -->
