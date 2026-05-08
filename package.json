@@ -235,7 +235,7 @@
 		"dev:search": "cd services/mana-search && PORT=3021 SEARXNG_URL=http://localhost:8080 REDIS_HOST=localhost REDIS_PORT=6379 REDIS_PASSWORD=${REDIS_PASSWORD:-devpassword} go run ./cmd/server",
 		"dev:crawler": "cd services/mana-crawler && go run ./cmd/server",
 		"dev:credits": "cd services/mana-credits && bun run --watch src/index.ts",
-		"dev:notify": "cd services/mana-notify && go run ./cmd/server",
+		"dev:notify": "cd services/mana-notify && DATABASE_URL=postgresql://mana:devpassword@localhost:5432/mana_notify go run ./cmd/server",
 		"questions:dev": "turbo run dev --filter=questions...",
 		"dev:questions:web": "pnpm --filter @questions/web dev",
 		"dev:questions:app": "concurrently -n api,web -c yellow,cyan \"pnpm dev:api\" \"pnpm dev:questions:web\"",
