@@ -5,7 +5,7 @@
 	"type": "module",
 	"description": "Tick-loop service that drives the M2 personas: for each due persona, logs in, opens an MCP session against mana-mcp, asks Claude to role-play that persona through the app for one turn, then posts actions + ratings back to mana-auth.",
 	"scripts": {
-		"dev": "bun run --watch src/index.ts",
+		"dev": "bun run --hot src/index.ts",
 		"start": "bun run src/index.ts",
 		"type-check": "tsc --noEmit"
 	},
