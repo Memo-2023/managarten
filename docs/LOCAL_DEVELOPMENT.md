@@ -292,6 +292,16 @@ If you see `./server: No such file or directory`:
 pnpm dev:sync:build
 ```
 
+### Tailing mana-auth logs
+
+When mana-auth runs inside a `dev:*:full` command its output is multiplexed with other services by `concurrently`. To see auth stderr in isolation, open a second terminal and run:
+
+```bash
+pnpm logs:auth
+```
+
+The `dev:auth` script tees stdout+stderr to `services/mana-auth/dev.log` (gitignored), and `logs:auth` tails that file.
+
 ### Port already in use
 
 If auth (port 3001) or sync (port 3050) is already running:
