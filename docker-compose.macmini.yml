@@ -686,12 +686,14 @@ services:
       - stalwart_data:/opt/stalwart-mail
     environment:
       - STALWART_ADMIN_PASSWORD=${STALWART_ADMIN_PASSWORD:-ChangeMe123!}
+    # Stalwart's official image is distroless — no wget, curl, nc, ss,
+    # netstat. Any `docker exec`-based healthcheck just OOMs with
+    # "executable file not found". Deactivate; rely on docker's
+    # `restart: always` if Stalwart's process actually crashes
+    # (mana-monitoring will catch the SMTP-port-unreachable case via
+    # blackbox-exporter from outside the container).
     healthcheck:
-      test: ["CMD", "wget", "-q", "--spider", "http://localhost:8080/healthz"]
-      interval: 120s
-      timeout: 5s
-      retries: 3
-      start_period: 10s
+      disable: true
 
   mana-crawler:
     build:
