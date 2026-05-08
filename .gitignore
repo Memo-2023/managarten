@@ -25,6 +25,14 @@ ios/
 docs/*_CREDENTIALS.md
 docs/CREDENTIALS_*.md
 
+# Service secrets (private keys, never commit)
+secrets/
+
+# Local backup files (Mac Mini operator workflow)
+*.bak-*
+.env.macmini.bak-*
+cloudflared-config.yml.bak-*
+
 # Environment files
 .env
 .env.local

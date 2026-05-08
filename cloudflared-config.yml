@@ -130,6 +130,8 @@ ingress:
   # ============================================
   # Forgejo (Git + CI/CD)
   # ============================================
+  - hostname: git.mana.how
+    service: http://localhost:3030
 
   # ============================================
   # Standalone microservices
