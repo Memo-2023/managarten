@@ -16,7 +16,6 @@ import { contactsTools } from '$lib/modules/contacts/tools';
 import { bodyTools } from '$lib/modules/body/tools';
 import { financeTools } from '$lib/modules/finance/tools';
 import { dreamsTools } from '$lib/modules/dreams/tools';
-import { cardsTools } from '$lib/modules/cards/tools';
 import { timesTools } from '$lib/modules/times/tools';
 import { socialEventsTools } from '$lib/modules/events/tools';
 import { musicTools } from '$lib/modules/music/tools';
@@ -68,7 +67,6 @@ export function initTools(): void {
 	registerTools(bodyTools);
 	registerTools(financeTools);
 	registerTools(dreamsTools);
-	registerTools(cardsTools);
 	registerTools(timesTools);
 	registerTools(socialEventsTools);
 	registerTools(musicTools);

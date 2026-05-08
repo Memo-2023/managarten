@@ -153,23 +153,9 @@ export const MANA_APPS: ManaApp[] = [
 		status: 'development',
 		requiredTier: 'guest',
 	},
-	{
-		id: 'cards',
-		name: 'Cardecky',
-		description: {
-			de: 'KI Karteikarten',
-			en: 'AI Flashcards',
-		},
-		longDescription: {
-			de: 'Lerne intelligenter mit KI-generierten Karteikarten und Spaced Repetition.',
-			en: 'Learn smarter with AI-generated flashcards and spaced repetition.',
-		},
-		icon: APP_ICONS.cards,
-		color: '#8b5cf6',
-		comingSoon: false,
-		status: 'development',
-		requiredTier: 'guest',
-	},
+	// Cards/Cardecky: dekommissioniert 2026-05-08 — eigenständig auf
+	// cardecky.mana.how (git.mana.how/till/cards). App-Eintrag bleibt
+	// nur in der Standalone-App.
 	{
 		id: 'quiz',
 		name: 'Quiz',

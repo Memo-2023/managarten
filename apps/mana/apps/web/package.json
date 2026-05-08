@@ -67,7 +67,6 @@
 		"@mana/shared-links": "workspace:*",
 		"@mana/shared-llm": "workspace:*",
 		"@mana/shared-privacy": "workspace:*",
-		"@mana/cards-core": "workspace:*",
 		"@mana/shared-stores": "workspace:*",
 		"@mana/shared-tags": "workspace:*",
 		"@mana/shared-tailwind": "workspace:*",

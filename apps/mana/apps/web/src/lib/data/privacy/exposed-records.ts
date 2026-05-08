@@ -212,18 +212,6 @@ const TABLES: TableConfig[] = [
 		},
 	},
 	{
-		module: 'cards',
-		collection: 'cardDecks',
-		moduleLabel: 'Karten (Decks)',
-		encrypted: true,
-		title: (r) => asString(r.name),
-		href: (id) => `/cards/deck/${id}`,
-		setVisibility: async (id, next) => {
-			const { deckStore } = await import('$lib/modules/cards/stores/decks.svelte');
-			return deckStore.setVisibility(id, next);
-		},
-	},
-	{
 		module: 'presi',
 		collection: 'presiDecks',
 		moduleLabel: 'Präsentationen',

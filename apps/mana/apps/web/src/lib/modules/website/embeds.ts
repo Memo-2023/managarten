@@ -35,7 +35,6 @@ import type { LocalHabit, LocalHabitLog } from '$lib/modules/habits/types';
 import type { LocalQuiz } from '$lib/modules/quiz/types';
 import type { LocalSocialEvent } from '$lib/modules/events/types';
 import type { LocalMemo } from '$lib/modules/memoro/types';
-import type { LocalDeck as LocalCardDeck } from '$lib/modules/cards/types';
 import type { LocalDeck as LocalPresiDeck } from '$lib/modules/presi/types';
 import type { LocalAugurEntry } from '$lib/modules/augur/types';
 import type { LocalTimeBlock } from '$lib/data/time-blocks/types';
@@ -91,9 +90,11 @@ export async function resolveEmbed(props: ModuleEmbedProps): Promise<ResolvedEmb
 			case 'memoro.memos':
 				items = await resolveMemos(props);
 				break;
-			case 'cards.decks':
-				items = await resolveCardDecks(props);
-				break;
+			// 'cards.decks' source: dekommissioniert 2026-05-08 (Cards
+			// eigenständig auf cardecky.mana.how, kein Local-Dexie-Embed
+			// mehr). Falls Public-Cardecky-Decks später website-embeddable
+			// werden, käme das über die Cardecky-API und einen neuen
+			// `cardecky.decks`-Source-Typ.
 			case 'presi.decks':
 				items = await resolvePresiDecks(props);
 				break;
@@ -837,34 +838,9 @@ async function resolveMemos(_props: ModuleEmbedProps): Promise<EmbedItem[]> {
 	});
 }
 
-/**
- * Card-decks: shareable-flashcard-collection teaser. Returns decks
- * flipped to 'public' with their card count as subtitle.
- *
- * Whitelist: title + "N Karten". Card fronts/backs, difficulty
- * scores, and review history all stay private — the deck is a
- * unit; its cards belong to the play-experience (future
- * unlisted-share flow), not the public teaser.
- */
-async function resolveCardDecks(_props: ModuleEmbedProps): Promise<EmbedItem[]> {
-	let decks = await db.table<LocalCardDeck>('cardDecks').toArray();
-	decks = decks.filter((d) => !d.deletedAt && canEmbedOnWebsite(d.visibility ?? 'private'));
-
-	if (decks.length === 0) return [];
-
-	const decrypted = (await decryptRecords('cardDecks', decks)) as LocalCardDeck[];
-
-	// Newest first.
-	decrypted.sort((a, b) => (b.updatedAt ?? '').localeCompare(a.updatedAt ?? ''));
-
-	return decrypted.map((d) => {
-		const count = d.cardCount ?? 0;
-		return {
-			title: d.name,
-			subtitle: `${count} ${count === 1 ? 'Karte' : 'Karten'}`,
-		};
-	});
-}
+// resolveCardDecks: dekommissioniert 2026-05-08, Cards lebt eigenständig
+// auf cardecky.mana.how. Public-Deck-Embeds für Cardecky kommen später
+// über die Cardecky-API.
 
 /**
  * Presi-decks: "talks I've given" teaser. Returns decks flipped to

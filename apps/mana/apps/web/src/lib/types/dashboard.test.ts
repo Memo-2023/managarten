@@ -75,7 +75,6 @@ describe('WIDGET_REGISTRY', () => {
 		expect(types).toContain('contacts-favorites');
 		expect(types).toContain('quotes-quote');
 		expect(types).toContain('picture-recent');
-		expect(types).toContain('cards-progress');
 		expect(types).toContain('clock-timers');
 		expect(types).toContain('storage-usage');
 		expect(types).toContain('music-library');

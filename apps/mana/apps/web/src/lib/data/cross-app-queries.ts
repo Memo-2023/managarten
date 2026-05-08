@@ -19,7 +19,6 @@ import type { LocalAlarm, LocalCountdownTimer } from '$lib/modules/times/types';
 import type { LocalFile } from '$lib/modules/storage/types';
 import type { LocalSong, LocalPlaylist } from '$lib/modules/music/types';
 import type { LocalDeck as LocalPresiDeck } from '$lib/modules/presi/types';
-import type { LocalDeck as LocalCardDeck, LocalCard } from '$lib/modules/cards/types';
 
 // ─── Todo Queries ───────────────────────────────────────────
 
@@ -278,43 +277,7 @@ export function useRecentDecks(limit = 5) {
 }
 
 // ─── Cards Queries ─────────────────────────────────────────
-
-interface CardsProgress {
-	totalDecks: number;
-	totalCards: number;
-	cardsLearned: number;
-	dueForReview: number;
-	decks: LocalCardDeck[];
-}
-
-/** Cards learning progress. */
-export function useCardsProgress() {
-	return useLiveQueryWithDefault(
-		async (): Promise<CardsProgress> => {
-			const decks = await db.table<LocalCardDeck>('cardDecks').toArray();
-			const cards = await db.table<LocalCard>('cards').toArray();
-			const activeDecks = decks.filter((d) => !d.deletedAt);
-			const activeCards = cards.filter((c) => !c.deletedAt);
-			const now = new Date().toISOString();
-			const dueCards = activeCards.filter((c) => c.nextReview && c.nextReview <= now);
-			// Phase 6: cardDecks.name is encrypted — the widget renders the
-			// deck names so they need decryption. Counts work plaintext.
-			const { decryptRecords } = await import('./crypto');
-			const decryptedDecks = await decryptRecords('cardDecks', activeDecks);
-			return {
-				totalDecks: activeDecks.length,
-				totalCards: activeCards.length,
-				cardsLearned: activeCards.filter((c) => (c.reviewCount ?? 0) > 0).length,
-				dueForReview: dueCards.length,
-				decks: decryptedDecks,
-			};
-		},
-		{
-			totalDecks: 0,
-			totalCards: 0,
-			cardsLearned: 0,
-			dueForReview: 0,
-			decks: [] as LocalCardDeck[],
-		}
-	);
-}
+// Cards-Modul ist 2026-05-08 dekommissioniert (eigenständig auf
+// cardecky.mana.how). Cross-App-Progress-Widgets, die Cards-Daten
+// gezeigt haben, müssen entweder entfernt werden oder gegen die
+// Cardecky-API queren — heute kein Konsument im mana-Frontend.

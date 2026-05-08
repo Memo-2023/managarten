@@ -56,7 +56,6 @@ import { calendarModuleConfig } from '$lib/modules/calendar/module.config';
 import { contactsModuleConfig } from '$lib/modules/contacts/module.config';
 import { chatModuleConfig } from '$lib/modules/chat/module.config';
 import { pictureModuleConfig } from '$lib/modules/picture/module.config';
-import { cardsModuleConfig } from '$lib/modules/cards/module.config';
 import { quotesModuleConfig } from '$lib/modules/quotes/module.config';
 import { musicModuleConfig } from '$lib/modules/music/module.config';
 import { storageModuleConfig } from '$lib/modules/storage/module.config';
@@ -119,7 +118,6 @@ export const MODULE_CONFIGS: readonly ModuleConfig[] = [
 	contactsModuleConfig,
 	chatModuleConfig,
 	pictureModuleConfig,
-	cardsModuleConfig,
 	quotesModuleConfig,
 	musicModuleConfig,
 	storageModuleConfig,

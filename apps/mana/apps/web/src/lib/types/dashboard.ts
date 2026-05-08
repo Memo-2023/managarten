@@ -19,7 +19,6 @@ export type WidgetType =
 	| 'contacts-recent' // Contacts: recently updated
 	| 'quotes-quote' // Quotes API: daily inspiration quote
 	| 'picture-recent' // Picture API: recent generations
-	| 'cards-progress' // Cards API: learning progress
 	| 'clock-timers' // Clock: active timers and alarms
 	| 'storage-usage' // Storage: file storage stats
 	| 'music-library' // Music: music library stats
@@ -231,15 +230,6 @@ export const WIDGET_REGISTRY: WidgetMeta[] = [
 		defaultSize: 'medium',
 		allowMultiple: false,
 		requiredBackend: 'picture',
-	},
-	{
-		type: 'cards-progress',
-		nameKey: 'dashboard.widgets.cards.title',
-		descriptionKey: 'dashboard.widgets.cards.description',
-		icon: '🎴',
-		defaultSize: 'medium',
-		allowMultiple: false,
-		requiredBackend: 'cards',
 	},
 	{
 		type: 'clock-timers',

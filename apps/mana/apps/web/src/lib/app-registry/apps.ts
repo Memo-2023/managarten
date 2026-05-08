@@ -22,7 +22,6 @@ import {
 	ChatCircle,
 	Clock,
 	Quotes,
-	Cards,
 	Image,
 	MusicNotes,
 	Camera,
@@ -597,16 +596,8 @@ registerApp({
 	},
 });
 
-registerApp({
-	id: 'cards',
-	name: 'Cards',
-	color: '#EF4444',
-	icon: Cards,
-	views: {
-		list: { load: () => import('$lib/modules/cards/ListView.svelte') },
-		detail: { load: () => import('$lib/modules/cards/views/DetailView.svelte') },
-	},
-});
+// Cards-Modul: dekommissioniert 2026-05-08, Cards lebt jetzt als
+// standalone-App auf cardecky.mana.how (git.mana.how/till/cards).
 
 registerApp({
 	id: 'picture',
