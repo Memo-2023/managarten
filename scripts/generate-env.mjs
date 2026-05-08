@@ -137,11 +137,12 @@ const APP_CONFIGS = [
 		},
 	},
 
-	// Mana Events Service (Hono + Bun, Port 3065)
+	// Mana Events Service (Hono + Bun, Port 3115 — moved from 3065 on
+	// 2026-05-06 because the platform mana-media owns 3065)
 	{
 		path: 'services/mana-events/.env',
 		vars: {
-			PORT: (env) => env.MANA_EVENTS_PORT || '3065',
+			PORT: (env) => env.MANA_EVENTS_PORT || '3115',
 			DATABASE_URL: (env) =>
 				env.MANA_EVENTS_DATABASE_URL ||
 				'postgresql://mana:devpassword@localhost:5432/mana_platform',
