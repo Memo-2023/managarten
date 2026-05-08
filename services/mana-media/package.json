@@ -1,9 +1,0 @@
-{
-	"name": "@mana-media/root",
-	"private": true,
-	"scripts": {
-		"dev": "pnpm --filter @mana-media/api dev",
-		"start": "pnpm --filter @mana-media/api start",
-		"type-check": "tsc --noEmit -p apps/api/tsconfig.json && tsc --noEmit -p packages/client/tsconfig.json"
-	}
-}
