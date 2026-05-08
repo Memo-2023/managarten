@@ -185,6 +185,21 @@ ingress:
     service: http://localhost:3101
 
   # ============================================
+  # Zitare (Code/zitare, separate repo)
+  # ~/projects/zitare-deploy/ on the Mac Mini (planned — Phase 1.6).
+  # Ports per mana/docs/PORTS.md: 3083 api / 3084 app / 3085 com.
+  # zitare.com is a separate Cloudflare zone; tunnel route for that
+  # hostname must be added via `cloudflared tunnel route dns
+  # 1435166a-0e3f-4222-8de6-744f32cea5c9 zitare.com` (one-time).
+  # ============================================
+  - hostname: zitare.com
+    service: http://localhost:3085
+  - hostname: zitare.mana.how
+    service: http://localhost:3084
+  - hostname: zitare-api.mana.how
+    service: http://localhost:3083
+
+  # ============================================
   # Standalone web apps (separate containers)
   # ============================================
   - hostname: playground.mana.how
