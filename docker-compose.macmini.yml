@@ -204,7 +204,7 @@ services:
 
   mana-auth:
     build:
-      context: .
+      context: ../mana
       dockerfile: services/mana-auth/Dockerfile
     image: mana-auth:local
     container_name: mana-auth
@@ -270,7 +270,7 @@ services:
 
   mana-credits:
     build:
-      context: .
+      context: ../mana
       dockerfile: services/mana-credits/Dockerfile
     image: mana-credits:local
     container_name: mana-credits
@@ -635,7 +635,7 @@ services:
 
   mana-notify:
     build:
-      context: .
+      context: ../mana
       dockerfile: services/mana-notify/Dockerfile
     image: mana-notify:local
     container_name: mana-core-notify
@@ -726,7 +726,7 @@ services:
 
   mana-media:
     build:
-      context: services/mana-media/apps/api
+      context: ../mana/services/mana-media/apps/api
     image: mana-media:local
     container_name: mana-core-media
     restart: always
@@ -1090,7 +1090,7 @@ services:
 
   mana-llm:
     build:
-      context: ./services/mana-llm
+      context: ../mana/services/mana-llm
       dockerfile: Dockerfile
     container_name: mana-service-llm
     restart: unless-stopped
@@ -1278,6 +1278,12 @@ services:
     build:
       context: .
       dockerfile: apps/api/Dockerfile
+      args:
+        # Verdaccio-Token zum Pullen von @mana/media-client (und künftiger
+        # Plattform-Pakete). Auf dem Mac-Mini kommt aus `.env.macmini`,
+        # in CI aus `secrets.NPM_AUTH_TOKEN`. Setzt die `.npmrc`-
+        # Variable `${NPM_TOKEN}` zur Build-Zeit.
+        NPM_TOKEN: ${NPM_AUTH_TOKEN:-${NPM_TOKEN:-}}
     image: mana-api:local
     container_name: mana-api
     restart: always

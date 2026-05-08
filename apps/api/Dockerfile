@@ -25,6 +25,10 @@ RUN npm install -g pnpm@9.15.0
 # before we add source. This caches the install layer for incremental
 # rebuilds when only source changes.
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+# Repo-`.npmrc` enthält die Auth-Variable `${NPM_TOKEN}` für
+# `npm.mana.how`. pnpm substituiert die Variable aus dem ENV unten —
+# der Token landet nicht in einem Layer (kein `RUN echo` mit dem Wert).
+COPY .npmrc ./
 COPY apps/api/package.json ./apps/api/package.json
 
 # Workspace packages that apps/api depends on, plus their transitive
@@ -38,11 +42,17 @@ COPY packages/shared-storage ./packages/shared-storage
 COPY packages/shared-types ./packages/shared-types
 COPY packages/shared-ai ./packages/shared-ai
 COPY packages/shared-rss ./packages/shared-rss
-# @mana/media-client lives under services/mana-media (sub-package).
-COPY services/mana-media/packages/client ./services/mana-media/packages/client
+# `@mana/media-client` kommt seit dem 8-Doppel-Cutover (2026-05-08) aus
+# Verdaccio (`npm.mana.how`), nicht mehr als Workspace-COPY aus
+# `services/mana-media/packages/client/` (das Verzeichnis verschwindet
+# mit Phase 7).
 
 # Resolve the dependency graph for apps/api only (--filter ...
-# follows the workspace transitive deps automatically).
+# follows the workspace transitive deps automatically). NPM_TOKEN ist
+# Build-Arg aus `docker-compose.macmini.yml` → `args.NPM_TOKEN` und wird
+# von pnpm in `.npmrc` substituiert.
+ARG NPM_TOKEN
+ENV NPM_TOKEN=${NPM_TOKEN}
 RUN pnpm install --filter @mana/api... --no-frozen-lockfile --ignore-scripts
 
 # Copy the api source and tsconfig last so source-only changes don't

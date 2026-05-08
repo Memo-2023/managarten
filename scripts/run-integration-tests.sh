@@ -50,14 +50,18 @@ trap cleanup EXIT
 echo "==> Building & starting test stack"
 $DOCKER compose -f "$COMPOSE_FILE" up -d --build --wait
 
+# Plattform-`mana-auth` lebt seit dem 2026-05-08-Cutover im Schwester-
+# Repo `../mana/`. Schema-Push und SQL-Migrationen kommen von dort.
+MANA_PLATFORM_DIR="${MANA_PLATFORM_DIR:-$REPO_ROOT/../mana}"
+
 echo "==> Pushing mana-auth Drizzle schema into test postgres"
-DATABASE_URL="postgresql://mana:testpassword@localhost:5443/mana_platform" \
-	pnpm --filter @mana/auth db:push --force >/dev/null
+( cd "$MANA_PLATFORM_DIR" && DATABASE_URL="postgresql://mana:testpassword@localhost:5443/mana_platform" \
+	pnpm --filter @mana/auth db:push --force >/dev/null )
 
 echo "==> Applying encryption-vault SQL migrations (002, 003)"
-$DOCKER cp "$REPO_ROOT/services/mana-auth/sql/002_encryption_vaults.sql" \
+$DOCKER cp "$MANA_PLATFORM_DIR/services/mana-auth/sql/002_encryption_vaults.sql" \
 	mana-test-postgres:/tmp/002.sql
-$DOCKER cp "$REPO_ROOT/services/mana-auth/sql/003_recovery_wrap.sql" \
+$DOCKER cp "$MANA_PLATFORM_DIR/services/mana-auth/sql/003_recovery_wrap.sql" \
 	mana-test-postgres:/tmp/003.sql
 $DOCKER exec mana-test-postgres psql -U mana -d mana_platform -f /tmp/002.sql >/dev/null
 $DOCKER exec mana-test-postgres psql -U mana -d mana_platform -f /tmp/003.sql >/dev/null

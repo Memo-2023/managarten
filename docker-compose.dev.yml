@@ -153,7 +153,7 @@ services:
   mana-auth:
     profiles: ["auth", "all"]
     build:
-      context: .
+      context: ../mana
       dockerfile: ./services/mana-auth/Dockerfile
     container_name: mana-auth
     restart: unless-stopped

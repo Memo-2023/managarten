@@ -14,7 +14,7 @@
 	},
 	"dependencies": {
 		"@ai-sdk/openai-compatible": "^2.0.41",
-		"@mana/media-client": "workspace:*",
+		"@mana/media-client": "^0.1.0",
 		"@mana/shared-ai": "workspace:*",
 		"@mana/shared-hono": "workspace:*",
 		"@mana/shared-rss": "workspace:*",

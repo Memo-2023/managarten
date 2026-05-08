@@ -83,8 +83,8 @@ services:
 
   mana-auth:
     build:
-      context: ./services/mana-auth
-      dockerfile: Dockerfile
+      context: ../mana
+      dockerfile: services/mana-auth/Dockerfile
     container_name: mana-test-mana-auth
     environment:
       NODE_ENV: production    # exercise the prod KEK validation path
@@ -119,7 +119,7 @@ services:
 
   mana-notify:
     build:
-      context: .
+      context: ../mana
       dockerfile: services/mana-notify/Dockerfile
     container_name: mana-test-mana-notify
     # mana-notify pings the database once at startup and exits on

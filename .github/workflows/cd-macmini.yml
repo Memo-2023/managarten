@@ -118,10 +118,18 @@ jobs:
           # Service → source paths. One line per compose service. Space-
           # separated paths are OR'd: any of them matching triggers a rebuild.
           # Keep names aligned with `docker compose config --services`.
+          #
+          # NOTE 2026-05-08 — 5 Plattform-Services (mana-auth, mana-credits,
+          # mana-notify, mana-media, mana-llm) bauen ab dem Cutover aus
+          # `../mana/services/...`. Ihre Source-Pfade liegen im Schwester-Repo
+          # `mana/` und werden von diesem `git diff` (das nur das Monorepo
+          # sieht) NICHT mehr automatisch erkannt. Manuelles Deploy geht
+          # weiterhin via `workflow_dispatch` mit `service: mana-<x>` —
+          # `docker compose build` zieht dann aus `../mana/`. Für
+          # Auto-Detect bei Plattform-Code-Änderungen gehört ein eigener
+          # CD-Workflow ins `mana/`-Repo (Offener Punkt, Phase 8).
           SERVICE_SOURCES=(
-            "mana-auth|services/mana-auth/"
             "mana-ai|services/mana-ai/"
-            "mana-credits|services/mana-credits/"
             "mana-research|services/mana-research/"
             "mana-events|services/mana-events/"
             "mana-geocoding|services/mana-geocoding/"
@@ -130,11 +138,8 @@ jobs:
             "mana-analytics|services/mana-analytics/"
             "mana-search|services/mana-search/ packages/shared-go/"
             "mana-sync|services/mana-sync/ packages/shared-go/"
-            "mana-notify|services/mana-notify/ packages/shared-go/"
             "mana-crawler|services/mana-crawler/ packages/shared-go/"
             "mana-api-gateway|services/mana-api-gateway/ packages/shared-go/"
-            "mana-media|services/mana-media/"
-            "mana-llm|services/mana-llm/"
             "mana-landing-builder|services/mana-landing-builder/ packages/shared-landing-ui/ packages/shared-types/"
             "mana-web|apps/mana/apps/web/ apps/mana/packages/"
             "mana-api|apps/api/"
