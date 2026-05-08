@@ -146,6 +146,7 @@
 			{showBack}
 			{typedAnswer}
 			onTypedAnswer={(v) => (typedAnswer = v)}
+			onReveal={reveal}
 		/>
 
 		{#if canSuggest}
@@ -171,14 +172,14 @@
 			{/if}
 		{/if}
 
-		{#if !showBack}
+		{#if !showBack && current.card.type === 'type-in'}
 			<button
 				class="mt-6 w-full rounded-lg bg-app-accent py-3 text-base text-white hover:bg-app-accent/90"
 				onclick={reveal}
 			>
 				Aufdecken <span class="ml-2 text-xs opacity-70">(Leertaste)</span>
 			</button>
-		{:else}
+		{:else if showBack}
 			<div class="mt-6 grid grid-cols-4 gap-2">
 				<button
 					class="rounded-lg bg-error py-3 text-sm text-white hover:bg-error/90"
