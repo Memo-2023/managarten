@@ -42,6 +42,10 @@ COPY packages/shared-storage ./packages/shared-storage
 COPY packages/shared-types ./packages/shared-types
 COPY packages/shared-ai ./packages/shared-ai
 COPY packages/shared-rss ./packages/shared-rss
+# Root package.json devDeps reference @mana/eslint-config; pnpm filter
+# install still resolves the root, so the package needs to be present
+# even though apps/api itself doesn't import from it.
+COPY packages/eslint-config ./packages/eslint-config
 # `@mana/media-client` kommt seit dem 8-Doppel-Cutover (2026-05-08) aus
 # Verdaccio (`npm.mana.how`), nicht mehr als Workspace-COPY aus
 # `services/mana-media/packages/client/` (das Verzeichnis verschwindet
