@@ -69,7 +69,7 @@
 		"dev:cards:web": "pnpm --filter @cards/web dev",
 		"dev:cards:landing": "pnpm --filter @cards/landing dev",
 		"dev:cards:app": "concurrently -n api,web -c yellow,cyan \"pnpm dev:api\" \"pnpm dev:cards:web\"",
-		"dev:cards-server": "cd services/cards-server && bun run --watch src/index.ts",
+		"dev:cards-server": "cd services/cards-server && bun run --hot src/index.ts",
 		"dev:cardecky:full": "concurrently -n auth,sync,credits,notify,server,web -c blue,magenta,green,gray,yellow,cyan \"pnpm dev:auth\" \"pnpm dev:sync\" \"pnpm dev:credits\" \"pnpm dev:notify\" \"pnpm dev:cards-server\" \"pnpm dev:cards:web\"",
 		"dev:picture:web": "pnpm --filter @picture/web dev",
 		"dev:picture:landing": "pnpm --filter @picture/landing dev",

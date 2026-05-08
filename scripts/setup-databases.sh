@@ -131,7 +131,7 @@ setup_service() {
             push_schema "@mana/uload-database" "uload"
             ;;
         cards)
-            push_schema "@mana/cards-database" "cards"
+            push_schema "@mana/cards-server" "cards"
             ;;
         events|mana-events)
             push_schema "@mana/events" "mana-events"
@@ -162,6 +162,13 @@ echo -e "\n${GREEN}Step 1: Creating databases${NC}"
 echo "--------------------------------------"
 create_db_if_not_exists "mana_platform"
 create_db_if_not_exists "mana_sync"
+# mana-notify (Go) and mana-credits (legacy schema-filter still uses
+# mana_platform but the runtime config can point at mana_credits) each
+# get their own database. Without these, dev:cardecky:full crashes
+# both services on boot with "database does not exist" / SASL auth
+# fallback errors.
+create_db_if_not_exists "mana_notify"
+create_db_if_not_exists "mana_credits"
 
 echo -e "\n${GREEN}Step 2: Creating schemas in mana_platform${NC}"
 echo "--------------------------------------"
