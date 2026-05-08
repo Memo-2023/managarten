@@ -28,6 +28,8 @@ export const PRODUCTION_TRUSTED_ORIGINS = [
 	'https://cardecky.mana.how', // Cardecky spaced-repetition spinoff (own SvelteKit container, not the unified app)
 	'https://cardecky-api.mana.how', // Cardecky marketplace + community backend (cards-server)
 	'https://memoro-app.mana.how', // Memoro web SPA (separate deploy under mana e.V.)
+	'https://zitare.mana.how', // Zitare app shell (SvelteKit static SPA, Cookie-SSO consumer)
+	'https://zitare-api.mana.how', // Zitare backend API (Hono+Bun, JWT-bearer consumer)
 ] as const;
 
 /** Local dev origins — web dev server + the auth server itself. */
