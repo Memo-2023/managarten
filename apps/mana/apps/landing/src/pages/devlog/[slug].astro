@@ -12,7 +12,7 @@ import { Icon } from 'astro-icon/components';
 export async function getStaticPaths() {
 	const posts = await getCollection('devlog');
 	return posts.map((post) => ({
-		params: { slug: post.slug },
+		params: { slug: post.slug.replace(/^_legacy-sessions\//, '') },
 		props: { post },
 	}));
 }

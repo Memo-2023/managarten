@@ -38,7 +38,7 @@ for (const post of sortedPosts) {
 		linesAdded: existing.linesAdded + (post.data.stats?.linesAdded || 0),
 		linesRemoved: existing.linesRemoved + (post.data.stats?.linesRemoved || 0),
 		posts: [...existing.posts, post.data.title],
-		slug: post.slug,
+		slug: post.slug.replace(/^_legacy-sessions\//, ''),
 	});
 }
 
@@ -602,7 +602,7 @@ const avgCommitsPerDay = totalDays > 0 ? Math.round(totalCommits / totalDays) : 
 							.reverse()
 							.map((post, index) => (
 								<a
-									href={`/devlog/${post.slug}`}
+									href={`/devlog/${post.slug.replace(/^_legacy-sessions\//, '')}`}
 									class="group relative bg-white dark:bg-gray-800/80 backdrop-blur-xl rounded-xl p-6 border border-gray-200/50 dark:border-gray-700/50 shadow-sm hover:shadow-lg hover:shadow-emerald-500/10 transition-all duration-300 hover:-translate-y-0.5"
 								>
 									<div class="absolute inset-0 bg-gradient-to-r from-emerald-500/5 to-cyan-500/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
