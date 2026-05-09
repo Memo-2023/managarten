@@ -42,6 +42,30 @@ ingress:
     service: http://localhost:5000
   - hostname: verein.mana.how
     service: http://localhost:3088
+
+  # ============================================
+  # mana e.V. Verein-Landing (öffentliche Domains)
+  # mana-ev.ch ist die kanonische Domain (Schweizer Verein in Gründung).
+  # .com/.de/.at + alle www-Varianten 301-Redirect zu https://mana-ev.ch
+  # via mana-infra-landings (nginx :4400). DNS-Routes pro Hostname
+  # einmalig via `cloudflared tunnel route dns 1435166a-... <hostname>`.
+  # ============================================
+  - hostname: mana-ev.ch
+    service: http://localhost:3088
+  - hostname: www.mana-ev.ch
+    service: http://localhost:4400
+  - hostname: mana-ev.com
+    service: http://localhost:4400
+  - hostname: www.mana-ev.com
+    service: http://localhost:4400
+  - hostname: mana-ev.de
+    service: http://localhost:4400
+  - hostname: www.mana-ev.de
+    service: http://localhost:4400
+  - hostname: mana-ev.at
+    service: http://localhost:4400
+  - hostname: www.mana-ev.at
+    service: http://localhost:4400
   - hostname: chat.mana.how
     service: http://localhost:5000
   - hostname: todo.mana.how
