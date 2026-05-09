@@ -43,6 +43,9 @@ ingress:
   - hostname: verein.mana.how
     service: http://localhost:3088
 
+  - hostname: design.mana.how
+    service: http://localhost:3089
+
   # ============================================
   # mana e.V. Verein-Landing (öffentliche Domains)
   # mana-ev.ch ist die kanonische Domain (Schweizer Verein in Gründung).
