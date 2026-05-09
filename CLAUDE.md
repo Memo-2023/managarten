@@ -160,7 +160,7 @@ Enforced by `pnpm run validate:turbo` (`scripts/validate-no-recursive-turbo.mjs`
 | `@mana/shared-branding` | App registry, tiers, branding |
 | `@mana/shared-types` | Common TS types |
 | `@mana/shared-utils` | Utility functions |
-| `@mana/shared-ui` | React Native UI components |
+| `@mana/shared-ui` | **Svelte-5-Komponenten-Bibliothek** (Pills, Modals, Toast, Quick-Input, Skeletons …). **Heimat seit 2026-05-09: `mana/packages/shared-ui` und `npm.mana.how`** — die Kopie hier ist eingefroren bis zum Rückbau dieses Repos. Bei Änderungen in mana/ zuerst, dann erst hierher. |
 | `@mana/shared-theme` | Theme config |
 | `@mana/shared-i18n` | i18n |
 | `@mana/shared-privacy` | Unified visibility/privacy system: `VisibilityLevel` enum + zod schema + `<VisibilityPicker>` + predicates (`canEmbedOnWebsite`, …). Plan: [`docs/plans/visibility-system.md`](docs/plans/visibility-system.md). Rollout per-module, not yet adopted anywhere. |
