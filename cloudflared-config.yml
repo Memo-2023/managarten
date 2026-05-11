@@ -125,10 +125,17 @@ ingress:
     service: http://localhost:5000
 
   # ============================================
-  # Auth Service (Hono/Bun)
+  # Auth (Split: Portal-UI :3042, API :3001)
   # ============================================
+  # /api/* geht direkt an mana-auth (Hono/Bun, JWT-Ausstellung, Better Auth).
+  # Alles andere (Login, Register, Reset, Verify-Email) → mana-auth-web (SvelteKit).
+  # mana-auth-web läuft auf Host-Port 3042 (3002 belegt durch legacy mana-credits).
+  # Reihenfolge zählt: spezifischere Pfad-Regeln zuerst.
   - hostname: auth.mana.how
+    path: /api/.*
     service: http://localhost:3001
+  - hostname: auth.mana.how
+    service: http://localhost:3042
 
   # ============================================
   # Unified Backend API (Hono/Bun, port 3060)

@@ -131,11 +131,15 @@ if (!Array.isArray(ingress)) {
 				err(
 					`${where}: hostname "${r.hostname}" looks invalid (lowercase, dot-separated, no spaces)`
 				);
-			} else if (seen.has(r.hostname)) {
-				err(
-					`${where}: duplicate hostname "${r.hostname}" (also at ingress[${seen.get(r.hostname)}])`
-				);
-			} else {
+			} else if (seen.has(r.hostname) && !r.path) {
+				// Duplicate hostnames are allowed when the earlier rule uses a `path:`
+				// matcher (path-based split routing, e.g. /api/* → backend, rest → UI).
+				// Only flag true duplicates: same hostname, neither rule has a path.
+				const prevIdx = seen.get(r.hostname);
+				if (!ingress[prevIdx].path) {
+					err(`${where}: duplicate hostname "${r.hostname}" (also at ingress[${prevIdx}])`);
+				}
+			} else if (!seen.has(r.hostname)) {
 				seen.set(r.hostname, i);
 			}
 		}
