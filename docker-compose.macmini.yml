@@ -744,6 +744,7 @@ services:
       - stalwart_data:/opt/stalwart-mail
     environment:
       - STALWART_ADMIN_PASSWORD=${STALWART_ADMIN_PASSWORD:-ChangeMe123!}
+      - STALWART_RECOVERY_ADMIN=${STALWART_RECOVERY_ADMIN:-}
     # Stalwart's official image is distroless — no wget, curl, nc, ss,
     # netstat. Any `docker exec`-based healthcheck just OOMs with
     # "executable file not found". Deactivate; rely on docker's
