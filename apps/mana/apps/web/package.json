@@ -59,6 +59,7 @@
 		"@mana/shared-ai": "workspace:*",
 		"@mana/shared-auth": "workspace:*",
 		"@mana/shared-auth-ui": "workspace:*",
+		"@simplewebauthn/browser": "^13.3.0",
 		"@mana/shared-branding": "workspace:*",
 		"@mana/shared-crypto": "workspace:*",
 		"@mana/shared-error-tracking": "workspace:*",
