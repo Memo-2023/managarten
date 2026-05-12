@@ -25,12 +25,15 @@
  */
 
 import type { BottomNotification } from '@mana/shared-ui';
+import { portalHref } from '$lib/auth/portal-redirect';
 
 let prompts = $state<BottomNotification[]>([]);
 
-/** Default action target — the login page already exposes both login
- *  and register flows so we point at one URL and let the user pick. */
-const DEFAULT_LOGIN_HREF = '/login';
+/** Default action target — the central auth portal (auth.mana.how) handles
+ *  both login and register flows in one UI. */
+function defaultLoginHref(): string {
+	return portalHref();
+}
 
 /** Navigates the browser. Kept as a small wrapper so unit tests can
  *  swap it out without pulling SvelteKit's `goto`. */
@@ -79,7 +82,7 @@ export const guestPrompt = {
 				action: {
 					label: actionLabel,
 					onClick: () => {
-						navigate(DEFAULT_LOGIN_HREF);
+						navigate(defaultLoginHref());
 						guestPrompt.dismiss(id);
 					},
 				},

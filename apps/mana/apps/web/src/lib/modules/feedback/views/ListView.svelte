@@ -10,6 +10,7 @@
 	import { useCommunityFeed, toggleReactionOnItem } from '../queries.svelte';
 	import ItemCard from '../components/ItemCard.svelte';
 	import { authStore } from '$lib/stores/auth.svelte';
+	import { portalHref } from '$lib/auth/portal-redirect';
 
 	interface Props {
 		/** Optional initial moduleContext filter — passed by the
@@ -82,7 +83,7 @@
 			Noch keine Stimmen — sei der erste, der was reinwirft.
 			{#if !authStore.user}
 				<br />
-				<a href="/login" class="link">Login</a>, um mitzumachen.
+				<a href={portalHref()} class="link">Login</a>, um mitzumachen.
 			{/if}
 		</div>
 	{:else}

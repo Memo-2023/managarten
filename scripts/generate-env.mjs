@@ -234,6 +234,12 @@ const APP_CONFIGS = [
 			PUBLIC_SUPABASE_URL: (env) => env.MANA_SUPABASE_URL,
 			PUBLIC_SUPABASE_ANON_KEY: (env) => env.MANA_SUPABASE_ANON_KEY,
 			MIDDLEWARE_URL: (env) => env.MANA_AUTH_URL,
+			// Auth-Portal: Login, Register, Reset, 2FA-Verify laufen
+			// exklusiv über mana-auth-web. Lokal Port 3002, in Prod
+			// auth.mana.how (gleicher Host wie mana-auth API — nginx
+			// routet /api/* dorthin).
+			PUBLIC_MANA_AUTH_URL: (env) => env.MANA_AUTH_URL,
+			PUBLIC_AUTH_WEB_URL: (env) => env.MANA_AUTH_WEB_URL || 'http://localhost:3002',
 			PUBLIC_UMAMI_WEBSITE_ID: (env) => env.UMAMI_WEBSITE_ID_MANA || '',
 			PUBLIC_GLITCHTIP_DSN: (env) => env.PUBLIC_GLITCHTIP_DSN || '',
 			// Speech-to-Text proxy (server-side only, never exposed to the client)

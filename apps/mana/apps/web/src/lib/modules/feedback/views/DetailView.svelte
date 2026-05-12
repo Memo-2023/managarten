@@ -9,6 +9,7 @@
 	import ItemCard from '../components/ItemCard.svelte';
 	import { authStore } from '$lib/stores/auth.svelte';
 	import { feedbackService } from '$lib/api/feedback';
+	import { portalHref } from '$lib/auth/portal-redirect';
 
 	interface Props {
 		id: string;
@@ -118,7 +119,7 @@
 				</div>
 			{:else}
 				<p class="login-hint">
-					<a href="/login" class="link">Login</a>, um zu antworten.
+					<a href={portalHref()} class="link">Login</a>, um zu antworten.
 				</p>
 			{/if}
 		</section>

@@ -2,6 +2,7 @@
 	import { Heart } from '@mana/shared-icons';
 	import { _ } from 'svelte-i18n';
 	import { authStore } from '$lib/stores/auth.svelte';
+	import { portalHref } from '$lib/auth/portal-redirect';
 	import { RoutePage } from '$lib/components/shell';
 	import {
 		favoritesStore,
@@ -38,7 +39,7 @@
 		<div class="rounded-xl border border-border bg-background-card p-8 text-center">
 			<p class="mb-4 text-foreground-secondary">{$_('favorites.loginRequired')}</p>
 			<a
-				href="/login"
+				href={portalHref()}
 				class="inline-block rounded-lg bg-primary px-6 py-2 text-sm font-medium text-white transition-colors hover:bg-primary/90"
 			>
 				{$_('settings.login')}

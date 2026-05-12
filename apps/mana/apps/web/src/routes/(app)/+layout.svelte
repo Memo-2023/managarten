@@ -7,6 +7,7 @@
 
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
+	import { redirectToPortal, portalHref } from '$lib/auth/portal-redirect';
 	import type { Component, Snippet } from 'svelte';
 	import ToastContainer from '$lib/components/ToastContainer.svelte';
 	import FeedbackQuickModal from '$lib/components/feedback/FeedbackQuickModal.svelte';
@@ -497,7 +498,7 @@
 		guestMode?.destroy();
 		setErrorTrackingUser(null);
 		await authStore.signOut();
-		goto('/login');
+		redirectToPortal({ next: '/' });
 	}
 
 	// ── Guest Mode ──────────────────────────────────────────
@@ -739,7 +740,7 @@
 			markAsGuest();
 			guestMode = createGuestMode('mana', {
 				nudgeDelayMinutes: 3,
-				onRegister: () => goto('/register'),
+				onRegister: () => redirectToPortal({ target: 'register' }),
 			});
 		}
 	}
@@ -1062,7 +1063,7 @@
 						{languageItems}
 						{currentLanguageLabel}
 						showLogout={authStore.isAuthenticated}
-						loginHref="/login"
+						loginHref={portalHref()}
 						primaryColor="hsl(var(--color-primary))"
 						showAppSwitcher={false}
 						showAiTierSelector={true}
@@ -1152,8 +1153,8 @@
 			appId="mana"
 			visible={guestMode.showWelcome}
 			onClose={() => guestMode?.dismissWelcome()}
-			onLogin={() => goto('/login')}
-			onRegister={() => goto('/register')}
+			onLogin={() => redirectToPortal()}
+			onRegister={() => redirectToPortal({ target: 'register' })}
 			locale={($locale || 'de') === 'de' ? 'de' : 'en'}
 		/>
 	{/if}

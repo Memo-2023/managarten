@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
 	import { Check } from '@mana/shared-icons';
+	import { redirectToPortal } from '$lib/auth/portal-redirect';
 </script>
 
 <svelte:head>
@@ -26,7 +26,7 @@
 		</p>
 
 		<button
-			onclick={() => goto('/login')}
+			onclick={() => redirectToPortal({ next: '/' })}
 			class="w-full rounded-lg bg-indigo-600 px-6 py-3 font-medium text-white transition-colors hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-neutral-800"
 		>
 			Zur Anmeldung

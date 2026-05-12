@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
 	import { _ } from 'svelte-i18n';
 	import { getContext } from 'svelte';
 	import { authStore } from '$lib/stores/auth.svelte';
+	import { redirectToPortal } from '$lib/auth/portal-redirect';
 	import { toast } from '$lib/stores/toast.svelte';
 	import { listsStore } from '$lib/modules/quotes/stores/lists.svelte';
 	import { type QuoteList } from '$lib/modules/quotes/queries';
@@ -89,7 +89,7 @@
 				</div>
 				<p class="text-foreground-secondary mb-4">{$_('lists.loginPrompt')}</p>
 				<button
-					onclick={() => goto('/login')}
+					onclick={() => redirectToPortal()}
 					class="px-6 py-2 bg-primary text-white rounded-full font-medium hover:bg-primary-hover transition-colors"
 				>
 					{$_('auth.login')}

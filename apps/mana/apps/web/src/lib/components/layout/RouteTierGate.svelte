@@ -7,6 +7,7 @@
 	import { goto } from '$app/navigation';
 	import { locale } from 'svelte-i18n';
 	import { authStore } from '$lib/stores/auth.svelte';
+	import { redirectToPortal } from '$lib/auth/portal-redirect';
 
 	interface Props {
 		appName: string;
@@ -71,7 +72,7 @@
 					class="w-full cursor-pointer rounded-lg border px-4 py-2.5 text-sm font-medium transition-opacity hover:opacity-90"
 					style:border-color="hsl(var(--color-border, 0 0% 90%))"
 					style:color="hsl(var(--color-foreground, 0 0% 9%))"
-					onclick={() => goto('/login')}
+					onclick={() => redirectToPortal()}
 				>
 					{isDE ? 'Anmelden' : 'Sign in'}
 				</button>

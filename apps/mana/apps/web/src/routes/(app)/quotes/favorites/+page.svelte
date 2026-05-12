@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
 	import { _ } from 'svelte-i18n';
 	import { getContext } from 'svelte';
 	import { authStore } from '$lib/stores/auth.svelte';
+	import { redirectToPortal } from '$lib/auth/portal-redirect';
 	import { favoritesStore } from '$lib/modules/quotes/stores/favorites.svelte';
 	import { type Favorite } from '$lib/modules/quotes/queries';
 	import { getQuoteById, getQuoteText, type Quote } from '@quotes/content';
@@ -97,7 +97,7 @@
 				<User size={20} class="mx-auto text-foreground-muted mb-4" />
 				<p class="text-foreground-secondary mb-4">{$_('favorites.loginPrompt')}</p>
 				<button
-					onclick={() => goto('/login')}
+					onclick={() => redirectToPortal()}
 					class="px-6 py-2 bg-primary text-white rounded-full font-medium hover:bg-primary-hover transition-colors"
 				>
 					{$_('auth.login')}

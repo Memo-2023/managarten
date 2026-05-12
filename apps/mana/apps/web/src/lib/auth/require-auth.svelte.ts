@@ -56,9 +56,9 @@
  * recovery UX. Mixing the two would muddy the message.
  */
 
-import { goto } from '$app/navigation';
 import { page } from '$app/state';
 import { authStore } from '$lib/stores/auth.svelte';
+import { redirectToPortal } from '$lib/auth/portal-redirect';
 
 /** What requireAuth() needs to render the modal. */
 export interface RequireAuthOptions {
@@ -129,10 +129,12 @@ export const authGateState = new AuthGateState();
  * - If guest → shows a modal and resolves to `true` if the user
  *   logs in (and returns to the page), `false` if they cancel.
  *
- * The modal navigates to `/login?next=<current path>` so the user
- * lands back on the same view after logging in. The Promise then
- * resolves on the *next* time `authStore.isAuthenticated` flips to
- * `true` — the caller does NOT have to re-trigger their action.
+ * The modal navigates to `auth.mana.how/login?app=mana&redirect=<callback>`
+ * so the user lands back on `/auth/callback?next=<current path>` after
+ * the Portal-Login, where Token-Refresh + Vault-Unlock laufen, bevor
+ * `goto(next)` ins App-Innere weiterleitet. Die Promise resolved beim
+ * nächsten Mal, wenn `authStore.isAuthenticated` auf `true` flippt — der
+ * Aufrufer muss seine Action NICHT manuell re-triggern.
  */
 export async function requireAuth(options: RequireAuthOptions): Promise<boolean> {
 	if (authStore.isAuthenticated) return true;
@@ -140,19 +142,16 @@ export async function requireAuth(options: RequireAuthOptions): Promise<boolean>
 }
 
 /**
- * Called by AuthRequiredModal when the user clicks "Anmelden". Saves
- * the current path so /login can redirect back, then navigates.
+ * Called by AuthRequiredModal when the user clicks "Anmelden". Hartes
+ * Redirect zum Auth-Portal — der aktuelle Pfad geht als `next`-Hint mit,
+ * damit der User nach Login + Vault-Unlock wieder hier landet.
  *
- * The modal closes immediately on click. We deliberately do NOT wait
- * for the post-login redirect to come back here — once the user
- * navigates to /login, the original action's call site has lost its
- * stack frame anyway. Instead, the user re-clicks the button after
- * landing back on the page; the second click sees `isAuthenticated`
- * is now true and proceeds without a modal.
+ * `authGateState.resolve(false)` läuft VOR dem `window.location.href`-
+ * Wechsel, weil der Modal-Caller den Promise sonst nie auflöst — der
+ * SvelteKit-Run-Loop wird durch das harte Redirect abgebrochen.
  */
 export async function navigateToLogin(): Promise<void> {
 	const here = page.url?.pathname ?? '/';
-	const next = here === '/login' ? '/' : here;
-	await goto(`/login?next=${encodeURIComponent(next)}`);
 	authGateState.resolve(false);
+	redirectToPortal({ next: here });
 }

@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { X } from '@mana/shared-icons';
+	import { redirectToPortal } from '$lib/auth/portal-redirect';
 
 	// Get error from URL query params
 	const error = $derived($page.url.searchParams.get('error') || 'unknown_error');
@@ -44,14 +44,14 @@
 
 		<div class="space-y-3">
 			<button
-				onclick={() => goto('/login')}
+				onclick={() => redirectToPortal({ next: '/' })}
 				class="w-full rounded-lg bg-indigo-600 px-6 py-3 font-medium text-white transition-colors hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-neutral-800"
 			>
 				Zur Anmeldung
 			</button>
 
 			<button
-				onclick={() => goto('/register')}
+				onclick={() => redirectToPortal({ next: '/', target: 'register' })}
 				class="w-full rounded-lg border border-gray-300 bg-white px-6 py-3 font-medium text-gray-700 transition-colors hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:border-neutral-600 dark:bg-neutral-700 dark:text-gray-200 dark:hover:bg-neutral-600 dark:focus:ring-offset-neutral-800"
 			>
 				Neues Konto erstellen

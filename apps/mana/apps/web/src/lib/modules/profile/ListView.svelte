@@ -7,6 +7,7 @@
 	import { authStore } from '$lib/stores/auth.svelte';
 	import { toast } from '$lib/stores/toast.svelte';
 	import { goto } from '$app/navigation';
+	import { redirectToPortal } from '$lib/auth/portal-redirect';
 	import {
 		EditProfileModal,
 		ChangePasswordModal,
@@ -69,7 +70,7 @@
 	async function handleAccountDeleted() {
 		toast.info($_('profile.hub.toast_account_deleting'));
 		await authStore.signOut();
-		goto('/login');
+		redirectToPortal({ next: '/' });
 	}
 </script>
 
@@ -232,7 +233,7 @@
 							class="account-btn"
 							onclick={async () => {
 								await authStore.signOut();
-								goto('/login');
+								redirectToPortal({ next: '/' });
 							}}
 						>
 							{$_('profile.logout')}

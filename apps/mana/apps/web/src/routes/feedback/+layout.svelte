@@ -6,6 +6,7 @@
 <script lang="ts">
 	import { authStore } from '$lib/stores/auth.svelte';
 	import { HeartHalf } from '@mana/shared-icons';
+	import { portalHref } from '$lib/auth/portal-redirect';
 
 	let { children } = $props();
 </script>
@@ -25,7 +26,7 @@
 			{#if authStore.user}
 				<a class="cta" href="/?app=feedback">In Mana öffnen</a>
 			{:else}
-				<a class="cta" href="/login">Login</a>
+				<a class="cta" href={portalHref({ next: '/?app=feedback' })}>Login</a>
 			{/if}
 		</nav>
 	</header>
