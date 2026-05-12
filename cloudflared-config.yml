@@ -251,6 +251,11 @@ ingress:
   - hostname: nutriphi-api.mana.how
     service: http://localhost:3086
 
+  # manawald — Skizzenbuch + Mini-App-Inkubator (Code/manawald, separate repo).
+  # Port 3090 per mana/docs/PORTS.md. Alpha-only, kein public.
+  - hostname: manawald.mana.how
+    service: http://localhost:3090
+
   # ============================================
   # Standalone web apps (separate containers)
   # ============================================
