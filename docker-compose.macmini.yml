@@ -1198,7 +1198,7 @@ services:
       GOOGLE_DEFAULT_MODEL: gemini-2.0-flash
       AUTO_FALLBACK_ENABLED: "true"
       OLLAMA_MAX_CONCURRENT: 5
-      CORS_ORIGINS: https://playground.mana.how,https://mana.how,https://chat.mana.how
+      CORS_ORIGINS: https://playground.mana.how,https://mana.how,https://chat.mana.how,https://manawald.mana.how,http://localhost:3090
     ports:
       - "3025:3025"
     healthcheck:
