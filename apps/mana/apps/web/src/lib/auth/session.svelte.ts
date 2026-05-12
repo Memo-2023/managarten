@@ -30,15 +30,24 @@
  * Session vorhält.
  */
 
-import { env as publicEnv } from '$env/dynamic/public';
+import { authBaseUrl as resolveAuthBaseUrl } from '$lib/data/scope/auth-fetch';
 
 const TOKEN_KEY = 'mana.auth.accessToken';
 const USER_KEY = 'mana.auth.user';
 
-const FALLBACK_AUTH_URL = 'https://auth.mana.how';
-
+/**
+ * Mana-Auth-API-URL.
+ *
+ * Resolution-Order (siehe `auth-fetch.authBaseUrl`):
+ *   1. `window.__PUBLIC_MANA_AUTH_URL__` (SSR-injected, prod: `https://auth.mana.how`)
+ *   2. `process.env.PUBLIC_MANA_AUTH_URL` (SSR)
+ *   3. `http://localhost:3001` (dev fallback)
+ *
+ * KEIN `$env/dynamic/public` direkt — die Build-Time-Env in Production
+ * ist `http://mana-auth:3001` (Docker-internal, vom Browser unerreichbar).
+ */
 function authBaseUrl(): string {
-	return publicEnv.PUBLIC_MANA_AUTH_URL ?? FALLBACK_AUTH_URL;
+	return resolveAuthBaseUrl();
 }
 
 export interface SessionUser {

@@ -6,20 +6,33 @@
  * User auf `/auth/callback?next=…`, wo der Token via SSO-Cookie geholt
  * und der Encryption-Vault entsperrt wird.
  *
- * In Dev: `PUBLIC_AUTH_WEB_URL=http://localhost:3002`.
- * In Prod: `PUBLIC_AUTH_WEB_URL=https://auth.mana.how`.
- *
  * Diese Funktion macht einen harten `window.location.href` — keinen
  * SvelteKit-`goto` — weil das Portal eine eigene Origin ist.
+ *
+ * Resolution-Order für die Portal-URL:
+ *   1. `window.__PUBLIC_AUTH_WEB_URL__` (SSR-injected, prod: `https://auth.mana.how`)
+ *   2. `process.env.PUBLIC_AUTH_WEB_URL` (SSR)
+ *   3. `https://auth.mana.how` (default — auch in localhost ungewöhnlich)
+ *
+ * Wie bei `auth-fetch.authBaseUrl` lesen wir NICHT direkt
+ * `$env/dynamic/public` — die Build-Time-Env in Production wäre evtl.
+ * eine Docker-interne URL.
  */
 
-import { env as publicEnv } from '$env/dynamic/public';
+import { browser } from '$app/environment';
 
 const FALLBACK_PORTAL = 'https://auth.mana.how';
 const APP_ID = 'mana';
 
 function portalUrl(): string {
-	return publicEnv.PUBLIC_AUTH_WEB_URL ?? FALLBACK_PORTAL;
+	if (browser && typeof window !== 'undefined') {
+		const injected = (window as unknown as { __PUBLIC_AUTH_WEB_URL__?: string })
+			.__PUBLIC_AUTH_WEB_URL__;
+		return (injected || FALLBACK_PORTAL).replace(/\/$/, '');
+	}
+	const fromEnv =
+		(typeof process !== 'undefined' && process.env?.PUBLIC_AUTH_WEB_URL) || FALLBACK_PORTAL;
+	return fromEnv.replace(/\/$/, '');
 }
 
 function appOrigin(): string {

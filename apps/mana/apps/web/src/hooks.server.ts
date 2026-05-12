@@ -27,6 +27,8 @@ import { setSecurityHeaders } from '@mana/shared-utils/security-headers';
 
 const PUBLIC_MANA_AUTH_URL_CLIENT =
 	process.env.PUBLIC_MANA_AUTH_URL_CLIENT || process.env.PUBLIC_MANA_AUTH_URL || '';
+const PUBLIC_AUTH_WEB_URL_CLIENT =
+	process.env.PUBLIC_AUTH_WEB_URL_CLIENT || process.env.PUBLIC_AUTH_WEB_URL || '';
 const PUBLIC_GLITCHTIP_DSN = process.env.PUBLIC_GLITCHTIP_DSN || '';
 
 const PUBLIC_SYNC_SERVER_URL_CLIENT =
@@ -227,6 +229,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 		transformPageChunk: ({ html }) => {
 			const envScript = `<script>
 window.__PUBLIC_MANA_AUTH_URL__ = ${JSON.stringify(PUBLIC_MANA_AUTH_URL_CLIENT)};
+window.__PUBLIC_AUTH_WEB_URL__ = ${JSON.stringify(PUBLIC_AUTH_WEB_URL_CLIENT)};
 window.__PUBLIC_SYNC_SERVER_URL__ = ${JSON.stringify(PUBLIC_SYNC_SERVER_URL_CLIENT)};
 window.__PUBLIC_ULOAD_SERVER_URL__ = ${JSON.stringify(PUBLIC_ULOAD_SERVER_URL_CLIENT)};
 window.__PUBLIC_MANA_MEDIA_URL__ = ${JSON.stringify(PUBLIC_MANA_MEDIA_URL_CLIENT)};
