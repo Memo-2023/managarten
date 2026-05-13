@@ -339,12 +339,17 @@ jobs:
           # If a service has no Drizzle config or no schema diff this is
           # a fast no-op. We must source POSTGRES_PASSWORD from the env
           # file because the workflow env doesn't carry it.
+          #
+          # `. "$ENV_FILE"` (bash source) breaks on DOTENV-Werte, die
+          # ungequotete Leerzeichen enthalten — z.B. `MANA_AI_PUBLIC_KEY_PEM`
+          # mit `-----BEGIN PUBLIC KEY-----…`: bash interpretiert "PUBLIC"
+          # als nächstes Command und scheitert mit `PUBLIC: command not
+          # found`. Backup-Script hat dasselbe Problem (Commit 97e285bc6).
+          # Wir lesen daher gezielt nur die benötigten Variablen via grep
+          # statt die ganze Datei als Shell-Script zu sourcen.
           echo "=== Applying schema migrations ==="
-          set -a
-          # shellcheck source=/dev/null
-          . "$ENV_FILE"
-          set +a
-          PG_PASSWORD="${POSTGRES_PASSWORD:-mana123}"
+          PG_PASSWORD=$(grep -E '^POSTGRES_PASSWORD=' "$ENV_FILE" | head -1 | cut -d= -f2- | sed 's/^"\(.*\)"$/\1/; s/^'"'"'\(.*\)'"'"'$/\1/')
+          PG_PASSWORD="${PG_PASSWORD:-mana123}"
 
           # `drizzle-kit` reads `drizzle.config.ts`, which itself
           # `import {defineConfig} from 'drizzle-kit'`. Node's resolver
