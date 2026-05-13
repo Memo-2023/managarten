@@ -1,12 +1,24 @@
 #!/bin/bash
 # Mana Database Backup Script
-# Creates daily backups of all PostgreSQL databases with rotation
+# Creates daily backups of all PostgreSQL databases with rotation.
 #
 # Retention policy:
 # - Daily backups: keep last 7 days
 # - Weekly backups: keep last 4 weeks (Sundays)
 #
-# Run via LaunchD daily at 3 AM
+# Covers ALL postgres-Container that match `*postgres*` (ohne exporter
+# /backup). Pro Container werden alle Datenbanken (außer Templates +
+# `postgres`) gedumpt. Dump-Datei-Pattern:
+#   ${CONTAINER}_${DB}_${DATE}.sql.gz
+# damit Cards-und-Manaspur-DBs mit gleichem Schema-Namen nicht
+# überschreiben.
+#
+# Container-spezifischer DB-User: per-Container ENV-Override
+#   BACKUP_USER_<CONTAINER_UPPER>=username (Default: postgres)
+# z.B. BACKUP_USER_CARDS_POSTGRES=cards (Cards-Container heißt
+# cards-postgres → cards-User).
+#
+# Run via LaunchD daily at 3 AM.
 
 set -e
 
@@ -49,50 +61,76 @@ send_notification() {
     fi
 }
 
+# Default-DB-User pro Container. Greenfield-Apps (cards, manaspur,
+# nutriphi, zitare) nutzen den App-eigenen User; mana-infra-postgres
+# läuft als `postgres`-Superuser.
+db_user_for_container() {
+    case "$1" in
+        cards-postgres)            echo "cards" ;;
+        manaspur-postgres)         echo "manaspur" ;;
+        nutriphi-postgres)         echo "nutriphi" ;;
+        zitare-postgres)           echo "zitare" ;;
+        chorportal-prod-postgres)  echo "chorportal" ;;
+        mana-infra-postgres)       echo "postgres" ;;
+        *)                         echo "postgres" ;;
+    esac
+}
+
 # Create backup directories
 mkdir -p "$BACKUP_DIR/daily"
 mkdir -p "$BACKUP_DIR/weekly"
 
 log "=== Mana Database Backup ==="
 
-# Check if postgres container is running
-if ! docker ps --format '{{.Names}}' | grep -q "mana-infra-postgres"; then
-    log "ERROR: PostgreSQL container is not running"
-    send_notification "🚨 <b>Backup Failed</b>\n\nPostgreSQL container not running" "high"
+# Alle Postgres-Container finden (heuristic: name endet auf `postgres`
+# oder enthält `-postgres`; ignoriere exporter/backup-Varianten).
+CONTAINERS=$(docker ps --format '{{.Names}}' | grep -E 'postgres$|-postgres$' | grep -vE 'exporter|^mana-infra-postgres-backup$')
+
+if [ -z "$CONTAINERS" ]; then
+    log "ERROR: no postgres container found"
+    send_notification "🚨 <b>Backup Failed</b>\n\nNo postgres container running" "high"
     exit 1
 fi
 
-# Get list of databases (exclude templates and postgres)
-DATABASES=$(docker exec mana-infra-postgres psql -U postgres -t -c "SELECT datname FROM pg_database WHERE datistemplate = false AND datname != 'postgres';" | tr -d ' ' | grep -v "^$")
-
-log "Found databases: $(echo $DATABASES | tr '\n' ' ')"
+log "Containers: $(echo $CONTAINERS | tr '\n' ' ')"
 
 BACKUP_COUNT=0
 BACKUP_SIZE=0
 FAILED_DBS=""
 
-for DB in $DATABASES; do
-    log "Backing up: $DB"
-    BACKUP_FILE="$BACKUP_DIR/daily/${DB}_${DATE}.sql.gz"
+for CONTAINER in $CONTAINERS; do
+    USER=$(db_user_for_container "$CONTAINER")
+    log "--- Container: $CONTAINER (user: $USER) ---"
 
-    # Create backup using pg_dump inside container, compress with gzip
-    if docker exec mana-infra-postgres pg_dump -U postgres "$DB" 2>/dev/null | gzip > "$BACKUP_FILE"; then
-        SIZE=$(ls -lh "$BACKUP_FILE" | awk '{print $5}')
-        log "  OK: $DB ($SIZE)"
-        BACKUP_COUNT=$((BACKUP_COUNT + 1))
-        BACKUP_SIZE=$((BACKUP_SIZE + $(stat -f%z "$BACKUP_FILE" 2>/dev/null || stat -c%s "$BACKUP_FILE" 2>/dev/null)))
-    else
-        log "  FAILED: $DB"
-        FAILED_DBS="$FAILED_DBS $DB"
-        rm -f "$BACKUP_FILE"  # Remove incomplete backup
+    # DB-Liste in diesem Container
+    if ! DB_LIST=$(docker exec "$CONTAINER" psql -U "$USER" -t -c "SELECT datname FROM pg_database WHERE datistemplate = false AND datname != 'postgres';" 2>/dev/null | tr -d ' ' | grep -v "^$"); then
+        log "  FAILED to list databases in $CONTAINER (user $USER) — skipping"
+        FAILED_DBS="$FAILED_DBS ${CONTAINER}:list"
+        continue
     fi
+
+    for DB in $DB_LIST; do
+        BACKUP_FILE="$BACKUP_DIR/daily/${CONTAINER}_${DB}_${DATE}.sql.gz"
+        if docker exec "$CONTAINER" pg_dump -U "$USER" "$DB" 2>/dev/null | gzip > "$BACKUP_FILE"; then
+            SIZE=$(ls -lh "$BACKUP_FILE" | awk '{print $5}')
+            log "  OK: ${CONTAINER}/${DB} ($SIZE)"
+            BACKUP_COUNT=$((BACKUP_COUNT + 1))
+            BACKUP_SIZE=$((BACKUP_SIZE + $(stat -f%z "$BACKUP_FILE" 2>/dev/null || stat -c%s "$BACKUP_FILE" 2>/dev/null)))
+        else
+            log "  FAILED: ${CONTAINER}/${DB}"
+            FAILED_DBS="$FAILED_DBS ${CONTAINER}:${DB}"
+            rm -f "$BACKUP_FILE"
+        fi
+    done
 done
 
-# On Sunday, create weekly backup
+# On Sunday, create weekly backup (Sonntag = 7 in date +%u)
 if [ "$DAY_OF_WEEK" -eq 7 ]; then
     log "Creating weekly backup (Sunday)..."
     WEEKLY_DIR="$BACKUP_DIR/weekly/$DATE"
     mkdir -p "$WEEKLY_DIR"
+    # Alle daily-Dumps für heute kopieren (Pattern enthält jetzt CONTAINER
+    # vorne, deshalb `*_${DATE}.sql.gz` greift weiterhin).
     cp "$BACKUP_DIR/daily/"*"_${DATE}.sql.gz" "$WEEKLY_DIR/" 2>/dev/null || true
     log "Weekly backup created in $WEEKLY_DIR"
 fi
