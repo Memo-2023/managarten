@@ -20,7 +20,9 @@
 #
 # Run via LaunchD daily at 3 AM.
 
-set -e
+# NOTE: bewusst KEIN `set -e` global — wir wollen, dass ein Fehler
+# in einem Container nicht den Rest abbricht. Failures werden via
+# `FAILED_DBS` gesammelt und am Ende reported.
 
 # Ensure PATH includes docker
 export PATH="/usr/local/bin:/opt/homebrew/bin:$PATH"
@@ -32,12 +34,10 @@ LOG_FILE="/tmp/mana-backup.log"
 DATE=$(date +%Y-%m-%d)
 DAY_OF_WEEK=$(date +%u)  # 1=Monday, 7=Sunday
 
-# Load env for password
-if [ -f "$PROJECT_ROOT/.env.macmini" ]; then
-    source "$PROJECT_ROOT/.env.macmini"
-fi
-
-POSTGRES_PASSWORD="${POSTGRES_PASSWORD:-mana123}"
+# .env.macmini ist im DOTENV-Format (Werte enthalten Spaces, BEGIN/END-
+# Marker etc.) — kann nicht via `source` in bash geladen werden. Wir
+# brauchen aus diesem File auch nichts; Telegram-Tokens kommen aus
+# .env.notifications separat.
 
 log() {
     echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" | tee -a "$LOG_FILE"
