@@ -1196,6 +1196,12 @@ services:
       TOGETHER_API_KEY: ${TOGETHER_API_KEY:-}
       GOOGLE_API_KEY: ${GOOGLE_API_KEY:-}
       GOOGLE_DEFAULT_MODEL: gemini-2.0-flash
+      # Direct providers (added 2026-05-14, option D — sowohl direkt als auch
+      # OpenRouter). Leer-Werte werden vom Router still übersprungen.
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_DEFAULT_MODEL: ${OPENAI_DEFAULT_MODEL:-gpt-4o-mini}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      ANTHROPIC_DEFAULT_MODEL: ${ANTHROPIC_DEFAULT_MODEL:-claude-sonnet-4-5}
       AUTO_FALLBACK_ENABLED: "true"
       OLLAMA_MAX_CONCURRENT: 5
       CORS_ORIGINS: https://playground.mana.how,https://mana.how,https://chat.mana.how,https://manawald.mana.how,http://localhost:3090
