@@ -1,0 +1,1129 @@
+{
+	"date": "2026-03-31",
+	"day_number": 70,
+	"weekday": "Dienstag",
+	"commits": 114,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 114
+		}
+	],
+	"additions": 343823,
+	"deletions": 27132,
+	"net_lines": 316691,
+	"files_changed": 2066,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-03-31T09:02:19.000Z",
+		"last_commit_at": "2026-03-31T20:23:31.000Z",
+		"total_span_minutes": 681,
+		"active_minutes": 387,
+		"pauses": [
+			{
+				"from": "11:11",
+				"to": "12:01",
+				"minutes": 49
+			},
+			{
+				"from": "14:25",
+				"to": "16:29",
+				"minutes": 124
+			},
+			{
+				"from": "19:10",
+				"to": "20:12",
+				"minutes": 62
+			},
+			{
+				"from": "20:16",
+				"to": "21:16",
+				"minutes": 59
+			}
+		],
+		"longest_focus_minutes": 162
+	},
+	"top_dirs": [
+		{
+			"path": "apps/memoro/apps/landing",
+			"pct": 28
+		},
+		{
+			"path": "apps/memoro/apps/mobile",
+			"pct": 24
+		},
+		{
+			"path": "apps/memoro/apps/web",
+			"pct": 9
+		},
+		{
+			"path": "apps/todo/apps/web",
+			"pct": 6
+		},
+		{
+			"path": "apps/memoro/apps/backend",
+			"pct": 5
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".svelte",
+			"count": 542
+		},
+		{
+			"ext": ".ts",
+			"count": 496
+		},
+		{
+			"ext": ".mdx",
+			"count": 247
+		},
+		{
+			"ext": ".md",
+			"count": 244
+		},
+		{
+			"ext": ".tsx",
+			"count": 216
+		},
+		{
+			"ext": ".astro",
+			"count": 147
+		}
+	],
+	"tags": ["todo", "guides", "auth", "contacts", "auth-ui"],
+	"commits_list": [
+		{
+			"hash": "a545bb6",
+			"short": "refactor(todo): move edit button from FAB to PillNav, share state via context",
+			"type": "refactor",
+			"scope": "todo",
+			"additions": 47,
+			"deletions": 74,
+			"timestamp": "2026-03-31T11:02:19+02:00"
+		},
+		{
+			"hash": "e68e5c6",
+			"short": "refactor(shared-ui): unify icon system to Phosphor, remove SVG path fallbacks",
+			"type": "refactor",
+			"scope": "shared-ui",
+			"additions": 134,
+			"deletions": 330,
+			"timestamp": "2026-03-31T11:11:51+02:00"
+		},
+		{
+			"hash": "9f6e463",
+			"short": "refactor(calendar,contacts): replace inline SVGs with Phosphor icons",
+			"type": "refactor",
+			"scope": "calendar,contacts",
+			"additions": 365,
+			"deletions": 1717,
+			"timestamp": "2026-03-31T12:01:18+02:00"
+		},
+		{
+			"hash": "3f2e6a3",
+			"short": "feat(todo): unify view modes into single route with Fokus/Übersicht/Matrix layouts",
+			"type": "feat",
+			"scope": "todo",
+			"additions": 709,
+			"deletions": 1803,
+			"timestamp": "2026-03-31T12:03:58+02:00"
+		},
+		{
+			"hash": "f58d58f",
+			"short": "refactor(apps): replace inline SVGs with Phosphor icons across 19 apps",
+			"type": "refactor",
+			"scope": "apps",
+			"additions": 179,
+			"deletions": 687,
+			"timestamp": "2026-03-31T12:18:20+02:00"
+		},
+		{
+			"hash": "504e775",
+			"short": "refactor(apps): automated SVG-to-Phosphor migration across all apps",
+			"type": "refactor",
+			"scope": "apps",
+			"additions": 780,
+			"deletions": 3083,
+			"timestamp": "2026-03-31T12:35:17+02:00"
+		},
+		{
+			"hash": "59e535a",
+			"short": "refactor(todo): move ViewSelector behind Layout pill, simplify homepage",
+			"type": "refactor",
+			"scope": "todo",
+			"additions": 135,
+			"deletions": 451,
+			"timestamp": "2026-03-31T12:41:28+02:00"
+		},
+		{
+			"hash": "25e3962",
+			"short": "refactor(apps): final SVG-to-Phosphor pass for photos, clock, mukke, inventar",
+			"type": "refactor",
+			"scope": "apps",
+			"additions": 65,
+			"deletions": 350,
+			"timestamp": "2026-03-31T12:41:43+02:00"
+		},
+		{
+			"hash": "47f981f",
+			"short": "refactor(shared-ui): replace remaining inline SVGs with Phosphor icons",
+			"type": "refactor",
+			"scope": "shared-ui",
+			"additions": 119,
+			"deletions": 477,
+			"timestamp": "2026-03-31T12:44:50+02:00"
+		},
+		{
+			"hash": "14df2cd",
+			"short": "fix(auth): declare accessTier as additionalField so Better Auth includes it in user object",
+			"type": "fix",
+			"scope": "auth",
+			"additions": 11,
+			"deletions": 0,
+			"timestamp": "2026-03-31T12:46:29+02:00"
+		},
+		{
+			"hash": "c02e264",
+			"short": "docs: add Phosphor icon guidelines to code-style.md",
+			"type": null,
+			"scope": null,
+			"additions": 32,
+			"deletions": 0,
+			"timestamp": "2026-03-31T12:46:39+02:00"
+		},
+		{
+			"hash": "56f89b8",
+			"short": "fix(shared-ui): resolve Tag identifier collision in TagList",
+			"type": "fix",
+			"scope": "shared-ui",
+			"additions": 2,
+			"deletions": 2,
+			"timestamp": "2026-03-31T12:47:03+02:00"
+		},
+		{
+			"hash": "74ff066",
+			"short": "simplify(todo): single view with edit mode, remove ViewSelector",
+			"type": "simplify",
+			"scope": "todo",
+			"additions": 12,
+			"deletions": 88,
+			"timestamp": "2026-03-31T12:51:44+02:00"
+		},
+		{
+			"hash": "101f20e",
+			"short": "refactor(todo,calendar): extract duplicated constants and utilities",
+			"type": "refactor",
+			"scope": "todo,calendar",
+			"additions": 438,
+			"deletions": 371,
+			"timestamp": "2026-03-31T13:01:00+02:00"
+		},
+		{
+			"hash": "52e09e4",
+			"short": "refactor(todo): merge TagStrip into unified filter strip",
+			"type": "refactor",
+			"scope": "todo",
+			"additions": 53,
+			"deletions": 55,
+			"timestamp": "2026-03-31T13:07:34+02:00"
+		},
+		{
+			"hash": "bc17889",
+			"short": "refactor(contacts,todo): extract shared utilities, eliminate duplication",
+			"type": "refactor",
+			"scope": "contacts,todo",
+			"additions": 67,
+			"deletions": 106,
+			"timestamp": "2026-03-31T13:10:55+02:00"
+		},
+		{
+			"hash": "3211878",
+			"short": "feat(todo): add clickable Tags label pill linking to /tags management",
+			"type": "feat",
+			"scope": "todo",
+			"additions": 41,
+			"deletions": 13,
+			"timestamp": "2026-03-31T13:11:57+02:00"
+		},
+		{
+			"hash": "4872bc0",
+			"short": "refactor(contacts): extract error helper, field labels, match type labels",
+			"type": "refactor",
+			"scope": "contacts",
+			"additions": 60,
+			"deletions": 40,
+			"timestamp": "2026-03-31T13:14:18+02:00"
+		},
+		{
+			"hash": "8465383",
+			"short": "refactor(todo): replace Mehr dropdown with inline project pills, add Filter label",
+			"type": "refactor",
+			"scope": "todo",
+			"additions": 46,
+			"deletions": 121,
+			"timestamp": "2026-03-31T13:14:57+02:00"
+		},
+		{
+			"hash": "b354195",
+			"short": "refactor(contacts): apply getErrorMessage helper to remaining files",
+			"type": "refactor",
+			"scope": "contacts",
+			"additions": 11,
+			"deletions": 9,
+			"timestamp": "2026-03-31T13:15:31+02:00"
+		},
+		{
+			"hash": "97798e5",
+			"short": "refactor(auth-ui): rewrite LoginPage + RegisterPage to use Tailwind CSS",
+			"type": "refactor",
+			"scope": "auth-ui",
+			"additions": 525,
+			"deletions": 980,
+			"timestamp": "2026-03-31T13:16:14+02:00"
+		},
+		{
+			"hash": "8d07123",
+			"short": "fix(shared-ui): rename Tag type to TagType to avoid collision with Svelte internals",
+			"type": "fix",
+			"scope": "shared-ui",
+			"additions": 6,
+			"deletions": 6,
+			"timestamp": "2026-03-31T13:21:21+02:00"
+		},
+		{
+			"hash": "d8b6178",
+			"short": "refactor(calendar): extract CalendarManagement into shared component",
+			"type": "refactor",
+			"scope": "calendar",
+			"additions": 506,
+			"deletions": 1007,
+			"timestamp": "2026-03-31T13:27:34+02:00"
+		},
+		{
+			"hash": "27cd84c",
+			"short": "feat(todo): inline layout editor replacing ViewEditorModal",
+			"type": "feat",
+			"scope": "todo",
+			"additions": 4,
+			"deletions": 26,
+			"timestamp": "2026-03-31T13:31:33+02:00"
+		},
+		{
+			"hash": "4f8209f",
+			"short": "feat(todo): add inline layout editor to homepage",
+			"type": "feat",
+			"scope": "todo",
+			"additions": 417,
+			"deletions": 4,
+			"timestamp": "2026-03-31T13:33:30+02:00"
+		},
+		{
+			"hash": "c3bee26",
+			"short": "refactor(todo): extract shared useTaskForm composable",
+			"type": "refactor",
+			"scope": "todo",
+			"additions": 373,
+			"deletions": 266,
+			"timestamp": "2026-03-31T13:34:52+02:00"
+		},
+		{
+			"hash": "3b54d4d",
+			"short": "refactor(auth-ui): i18n, security fixes, type safety across auth components",
+			"type": "refactor",
+			"scope": "auth-ui",
+			"additions": 514,
+			"deletions": 360,
+			"timestamp": "2026-03-31T13:41:53+02:00"
+		},
+		{
+			"hash": "1926c6b",
+			"short": "feat(todo): inline column editing in board headers, remove separate editor",
+			"type": "feat",
+			"scope": "todo",
+			"additions": 338,
+			"deletions": 188,
+			"timestamp": "2026-03-31T13:43:47+02:00"
+		},
+		{
+			"hash": "dc4ba0a",
+			"short": "feat(todo): color picker popup on column dot instead of inline swatches",
+			"type": "feat",
+			"scope": "todo",
+			"additions": 189,
+			"deletions": 80,
+			"timestamp": "2026-03-31T13:49:16+02:00"
+		},
+		{
+			"hash": "41ca11e",
+			"short": "feat(todo): inline \"Neues Board\" card as last column in all layouts",
+			"type": "feat",
+			"scope": "todo",
+			"additions": 679,
+			"deletions": 46,
+			"timestamp": "2026-03-31T13:58:01+02:00"
+		},
+		{
+			"hash": "e6e8d42",
+			"short": "feat(manascore): add ecosystem-audit script",
+			"type": "feat",
+			"scope": "manascore",
+			"additions": 404,
+			"deletions": 0,
+			"timestamp": "2026-03-31T13:59:09+02:00"
+		},
+		{
+			"hash": "8437a41",
+			"short": "refactor: replace stale NestJS backend scripts with Hono server scripts",
+			"type": null,
+			"scope": null,
+			"additions": 64,
+			"deletions": 94,
+			"timestamp": "2026-03-31T14:03:40+02:00"
+		},
+		{
+			"hash": "5fa773d",
+			"short": "refactor(auth-ui): unify dark mode to CSS variables + .dark class pattern",
+			"type": "refactor",
+			"scope": "auth-ui",
+			"additions": 180,
+			"deletions": 451,
+			"timestamp": "2026-03-31T14:06:25+02:00"
+		},
+		{
+			"hash": "0c89400",
+			"short": "feat(manascore): add 5 new ecosystem metrics",
+			"type": "feat",
+			"scope": "manascore",
+			"additions": 514,
+			"deletions": 41,
+			"timestamp": "2026-03-31T14:06:29+02:00"
+		},
+		{
+			"hash": "f58a6d1",
+			"short": "docs: document Ecosystem Health Score in about.md and CLAUDE.md",
+			"type": null,
+			"scope": null,
+			"additions": 61,
+			"deletions": 0,
+			"timestamp": "2026-03-31T14:09:14+02:00"
+		},
+		{
+			"hash": "3fb1edd",
+			"short": "feat(manascore): add security headers, skeleton loading, TODO count metrics",
+			"type": "feat",
+			"scope": "manascore",
+			"additions": 180,
+			"deletions": 18,
+			"timestamp": "2026-03-31T14:13:04+02:00"
+		},
+		{
+			"hash": "3b7b6c9",
+			"short": "refactor(auth-ui): SessionManager i18n, shared userAgent util, a11y fixes",
+			"type": "refactor",
+			"scope": "auth-ui",
+			"additions": 126,
+			"deletions": 67,
+			"timestamp": "2026-03-31T14:14:16+02:00"
+		},
+		{
+			"hash": "2018192",
+			"short": "feat(manascore): add Tier 2 ecosystem metrics",
+			"type": "feat",
+			"scope": "manascore",
+			"additions": 248,
+			"deletions": 9,
+			"timestamp": "2026-03-31T14:20:20+02:00"
+		},
+		{
+			"hash": "e5c63f6",
+			"short": "fix(auth-ui): add focus traps to modals + aria-disabled on all buttons",
+			"type": "fix",
+			"scope": "auth-ui",
+			"additions": 98,
+			"deletions": 0,
+			"timestamp": "2026-03-31T14:22:25+02:00"
+		},
+		{
+			"hash": "750a0c7",
+			"short": "refactor(calendar): remove todo integration entirely",
+			"type": "refactor",
+			"scope": "calendar",
+			"additions": 38,
+			"deletions": 4555,
+			"timestamp": "2026-03-31T14:25:34+02:00"
+		},
+		{
+			"hash": "cea0c97",
+			"short": "fix(contacts): fix CSP blocking auth, broken contact detail modal, and missing click handler",
+			"type": "fix",
+			"scope": "contacts",
+			"additions": 40,
+			"deletions": 38,
+			"timestamp": "2026-03-31T16:29:18+02:00"
+		},
+		{
+			"hash": "df1cd4b",
+			"short": "chore(calendar): remove showTasksInCalendar from localStorage migration",
+			"type": "chore",
+			"scope": "calendar",
+			"additions": 0,
+			"deletions": 1,
+			"timestamp": "2026-03-31T16:30:53+02:00"
+		},
+		{
+			"hash": "d460c9e",
+			"short": "feat(ecosystem-audit): add Tier 3 metrics (git activity, a11y, auth guard, docker)",
+			"type": "feat",
+			"scope": "ecosystem-audit",
+			"additions": 303,
+			"deletions": 68,
+			"timestamp": "2026-03-31T16:32:56+02:00"
+		},
+		{
+			"hash": "ed9672e",
+			"short": "refactor(todo): remove projects concept, unify views with Fokus/Übersicht/Matrix",
+			"type": "refactor",
+			"scope": "todo",
+			"additions": 74,
+			"deletions": 866,
+			"timestamp": "2026-03-31T16:34:51+02:00"
+		},
+		{
+			"hash": "4fb8519",
+			"short": "test(auth): add 68 unit tests for auth-ui, shared-auth, and shared-branding",
+			"type": "test",
+			"scope": "auth",
+			"additions": 555,
+			"deletions": 5,
+			"timestamp": "2026-03-31T16:35:16+02:00"
+		},
+		{
+			"hash": "708299b",
+			"short": "fix(startup): add Colima datadisk symlink safety check on boot",
+			"type": "fix",
+			"scope": "startup",
+			"additions": 22,
+			"deletions": 0,
+			"timestamp": "2026-03-31T16:39:51+02:00"
+		},
+		{
+			"hash": "ab387b9",
+			"short": "chore: remove all NestJS backend references, replace with Hono/Bun",
+			"type": null,
+			"scope": null,
+			"additions": 603,
+			"deletions": 2403,
+			"timestamp": "2026-03-31T16:52:25+02:00"
+		},
+		{
+			"hash": "e5ca208",
+			"short": "feat(contacts): add context menu to alphabet/grid views with icons, add icons to todo context menu",
+			"type": "feat",
+			"scope": "contacts",
+			"additions": 121,
+			"deletions": 4,
+			"timestamp": "2026-03-31T16:55:29+02:00"
+		},
+		{
+			"hash": "7bc4db7",
+			"short": "fix(builds): repair inventar settings import and add skilltree storage service",
+			"type": "fix",
+			"scope": "builds",
+			"additions": 43,
+			"deletions": 2,
+			"timestamp": "2026-03-31T16:56:37+02:00"
+		},
+		{
+			"hash": "6e75718",
+			"short": "feat(arcade): migrate backend from NestJS to Hono/Bun",
+			"type": "feat",
+			"scope": "arcade",
+			"additions": 4606,
+			"deletions": 2014,
+			"timestamp": "2026-03-31T17:02:14+02:00"
+		},
+		{
+			"hash": "1b0c46e",
+			"short": "fix(inventar-web): suppress prerender 404 for missing favicon.png",
+			"type": "fix",
+			"scope": "inventar-web",
+			"additions": 7,
+			"deletions": 0,
+			"timestamp": "2026-03-31T17:04:49+02:00"
+		},
+		{
+			"hash": "019ad55",
+			"short": "fix(shared-pwa): remove favicon.png from default include assets",
+			"type": "fix",
+			"scope": "shared-pwa",
+			"additions": 1,
+			"deletions": 8,
+			"timestamp": "2026-03-31T17:15:07+02:00"
+		},
+		{
+			"hash": "09d5576",
+			"short": "feat(memoro): integrate memoro web app into monorepo (phases 1-6)",
+			"type": "feat",
+			"scope": "memoro",
+			"additions": 33941,
+			"deletions": 0,
+			"timestamp": "2026-03-31T17:05:24+02:00"
+		},
+		{
+			"hash": "d8a2b37",
+			"short": "chore(memoro): import legacy backend, mobile, and landing apps",
+			"type": "chore",
+			"scope": "memoro",
+			"additions": 280653,
+			"deletions": 2,
+			"timestamp": "2026-03-31T17:08:45+02:00"
+		},
+		{
+			"hash": "b37df6f",
+			"short": "feat(todo): redesign task detail modal + add inline subtasks",
+			"type": "feat",
+			"scope": "todo",
+			"additions": 597,
+			"deletions": 393,
+			"timestamp": "2026-03-31T17:13:59+02:00"
+		},
+		{
+			"hash": "111a7e8",
+			"short": "fix(contacts): use elevated surface background for contact detail modal",
+			"type": "fix",
+			"scope": "contacts",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-03-31T17:14:11+02:00"
+		},
+		{
+			"hash": "6496d90",
+			"short": "feat(todo): add inline subtasks to KanbanTaskCard (Fokus layout)",
+			"type": "feat",
+			"scope": "todo",
+			"additions": 114,
+			"deletions": 0,
+			"timestamp": "2026-03-31T17:17:51+02:00"
+		},
+		{
+			"hash": "0398997",
+			"short": "fix(compose): change calc-web port from 5026 to 5031 (port conflict with zitare-web)",
+			"type": "fix",
+			"scope": "compose",
+			"additions": 3,
+			"deletions": 3,
+			"timestamp": "2026-03-31T17:23:56+02:00"
+		},
+		{
+			"hash": "cbe877c",
+			"short": "fix(todo): prevent DnD from blocking subtask clicks in KanbanTaskCard",
+			"type": "fix",
+			"scope": "todo",
+			"additions": 2,
+			"deletions": 1,
+			"timestamp": "2026-03-31T17:27:38+02:00"
+		},
+		{
+			"hash": "2a00310",
+			"short": "fix(todo): use \\$state.snapshot() for subtask toggle to avoid DataCloneError",
+			"type": "fix",
+			"scope": "todo",
+			"additions": 4,
+			"deletions": 2,
+			"timestamp": "2026-03-31T17:31:35+02:00"
+		},
+		{
+			"hash": "adfcc7d",
+			"short": "design(todo): paper-style task cards — no border/bg, text-proportional checkboxes",
+			"type": "design",
+			"scope": "todo",
+			"additions": 55,
+			"deletions": 69,
+			"timestamp": "2026-03-31T17:34:21+02:00"
+		},
+		{
+			"hash": "420bf07",
+			"short": "design(todo): wrap task and subtask titles instead of truncating",
+			"type": "design",
+			"scope": "todo",
+			"additions": 9,
+			"deletions": 10,
+			"timestamp": "2026-03-31T17:36:31+02:00"
+		},
+		{
+			"hash": "bce533c",
+			"short": "fix(uload-web): add missing svelte-i18n dependency",
+			"type": "fix",
+			"scope": "uload-web",
+			"additions": 4,
+			"deletions": 0,
+			"timestamp": "2026-03-31T17:38:12+02:00"
+		},
+		{
+			"hash": "402baf7",
+			"short": "feat(monitoring): add uptime monitoring via Blackbox Exporter",
+			"type": "feat",
+			"scope": "monitoring",
+			"additions": 984,
+			"deletions": 0,
+			"timestamp": "2026-03-31T17:43:25+02:00"
+		},
+		{
+			"hash": "a22f1de",
+			"short": "feat(todo): complete animation + \"Heute erledigt\" section on focus pages",
+			"type": "feat",
+			"scope": "todo",
+			"additions": 111,
+			"deletions": 5,
+			"timestamp": "2026-03-31T17:45:22+02:00"
+		},
+		{
+			"hash": "31d661c",
+			"short": "docs(mac-mini): document uptime monitoring tools and Grafana dashboard",
+			"type": "docs",
+			"scope": "mac-mini",
+			"additions": 9,
+			"deletions": 0,
+			"timestamp": "2026-03-31T17:46:10+02:00"
+		},
+		{
+			"hash": "23aa5e2",
+			"short": "fix(uload-web): add missing @tailwindcss/forms dependency",
+			"type": "fix",
+			"scope": "uload-web",
+			"additions": 4,
+			"deletions": 0,
+			"timestamp": "2026-03-31T17:48:43+02:00"
+		},
+		{
+			"hash": "999c54a",
+			"short": "fix(todo): scrollable sheet body + subtasks animate complete with parent",
+			"type": "fix",
+			"scope": "todo",
+			"additions": 59,
+			"deletions": 47,
+			"timestamp": "2026-03-31T17:50:22+02:00"
+		},
+		{
+			"hash": "b1af506",
+			"short": "fix(auth): surface email-not-verified error and detect needsVerification on signup",
+			"type": "fix",
+			"scope": "auth",
+			"additions": 15,
+			"deletions": 5,
+			"timestamp": "2026-03-31T17:52:47+02:00"
+		},
+		{
+			"hash": "38135ca",
+			"short": "fix(uload-web): add missing @tailwindcss/typography dependency",
+			"type": "fix",
+			"scope": "uload-web",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-03-31T17:59:59+02:00"
+		},
+		{
+			"hash": "36922cc",
+			"short": "fix(mana-auth): robust email-not-verified detection",
+			"type": "fix",
+			"scope": "mana-auth",
+			"additions": 6,
+			"deletions": 3,
+			"timestamp": "2026-03-31T18:01:24+02:00"
+		},
+		{
+			"hash": "504f77a",
+			"short": "debug: log login error shape",
+			"type": null,
+			"scope": null,
+			"additions": 9,
+			"deletions": 0,
+			"timestamp": "2026-03-31T18:05:41+02:00"
+		},
+		{
+			"hash": "d044afe",
+			"short": "feat(status-page): add public status page at status.mana.how",
+			"type": "feat",
+			"scope": "status-page",
+			"additions": 421,
+			"deletions": 0,
+			"timestamp": "2026-03-31T18:07:07+02:00"
+		},
+		{
+			"hash": "bdf76cb",
+			"short": "fix(mana-auth): remove debug log, finalize EMAIL_NOT_VERIFIED detection",
+			"type": "fix",
+			"scope": "mana-auth",
+			"additions": 2,
+			"deletions": 14,
+			"timestamp": "2026-03-31T18:07:57+02:00"
+		},
+		{
+			"hash": "f4713ec",
+			"short": "fix(status-page): use host network so container reaches VictoriaMetrics on localhost:9090",
+			"type": "fix",
+			"scope": "status-page",
+			"additions": 6,
+			"deletions": 6,
+			"timestamp": "2026-03-31T18:11:30+02:00"
+		},
+		{
+			"hash": "0500fb7",
+			"short": "fix(prerender): suppress favicon.png 404 during prerender in skilltree and nutriphi",
+			"type": "fix",
+			"scope": "prerender",
+			"additions": 12,
+			"deletions": 0,
+			"timestamp": "2026-03-31T18:11:53+02:00"
+		},
+		{
+			"hash": "6801ba9",
+			"short": "fix(status-page): increase mem_limit to 64m for apk add",
+			"type": "fix",
+			"scope": "status-page",
+			"additions": 2,
+			"deletions": 2,
+			"timestamp": "2026-03-31T18:12:46+02:00"
+		},
+		{
+			"hash": "cc242d9",
+			"short": "fix(inventar-web): use browser error tracking import in hooks.client.ts",
+			"type": "fix",
+			"scope": "inventar-web",
+			"additions": 3,
+			"deletions": 5,
+			"timestamp": "2026-03-31T18:15:12+02:00"
+		},
+		{
+			"hash": "86c2abb",
+			"short": "fix(landings-nginx): mkdir snippets before copy, add status.mana.how vhost",
+			"type": "fix",
+			"scope": "landings-nginx",
+			"additions": 3,
+			"deletions": 2,
+			"timestamp": "2026-03-31T18:17:22+02:00"
+		},
+		{
+			"hash": "5b11f4b",
+			"short": "fix(uload-web): add health endpoint for Docker healthcheck",
+			"type": "fix",
+			"scope": "uload-web",
+			"additions": 3,
+			"deletions": 0,
+			"timestamp": "2026-03-31T18:20:42+02:00"
+		},
+		{
+			"hash": "58e03e7",
+			"short": "docs: warn about dual cloudflared config (repo vs server file)",
+			"type": null,
+			"scope": null,
+			"additions": 7,
+			"deletions": 0,
+			"timestamp": "2026-03-31T18:22:59+02:00"
+		},
+		{
+			"hash": "fa8b2cd",
+			"short": "feat(infra): migrate chat-web, clock-web, presi-web, nutriphi-web from GHCR to local builds",
+			"type": "feat",
+			"scope": "infra",
+			"additions": 16,
+			"deletions": 4,
+			"timestamp": "2026-03-31T18:28:31+02:00"
+		},
+		{
+			"hash": "f79ad17",
+			"short": "refactor(todo): simplify to single Fokus view, remove Übersicht/Matrix tabs",
+			"type": "refactor",
+			"scope": "todo",
+			"additions": 4,
+			"deletions": 37,
+			"timestamp": "2026-03-31T18:29:24+02:00"
+		},
+		{
+			"hash": "5871283",
+			"short": "docs: add Mana Bundle Format plan",
+			"type": null,
+			"scope": null,
+			"additions": 240,
+			"deletions": 0,
+			"timestamp": "2026-03-31T18:31:45+02:00"
+		},
+		{
+			"hash": "8e16010",
+			"short": "fix(presi-web): export auth alias from auth store for existing imports",
+			"type": "fix",
+			"scope": "presi-web",
+			"additions": 2,
+			"deletions": 0,
+			"timestamp": "2026-03-31T18:32:03+02:00"
+		},
+		{
+			"hash": "d23ef52",
+			"short": "fix(mana-auth): set callbackURL instead of redirectTo for email verification redirect",
+			"type": "fix",
+			"scope": "mana-auth",
+			"additions": 3,
+			"deletions": 2,
+			"timestamp": "2026-03-31T18:34:56+02:00"
+		},
+		{
+			"hash": "af33b1c",
+			"short": "fix(cloudflared): sync config with actual container ports and add missing apps",
+			"type": "fix",
+			"scope": "cloudflared",
+			"additions": 32,
+			"deletions": 16,
+			"timestamp": "2026-03-31T18:40:26+02:00"
+		},
+		{
+			"hash": "c736dd5",
+			"short": "docs: add Memoro backend Hono/Bun migration plan",
+			"type": null,
+			"scope": null,
+			"additions": 499,
+			"deletions": 0,
+			"timestamp": "2026-03-31T18:43:44+02:00"
+		},
+		{
+			"hash": "259253e",
+			"short": "feat(auth): show resend verification panel when registering with existing unverified email",
+			"type": "feat",
+			"scope": "auth",
+			"additions": 129,
+			"deletions": 43,
+			"timestamp": "2026-03-31T18:44:01+02:00"
+		},
+		{
+			"hash": "08032c0",
+			"short": "feat(manascore): add live uptime badges from status.mana.how",
+			"type": "feat",
+			"scope": "manascore",
+			"additions": 62,
+			"deletions": 0,
+			"timestamp": "2026-03-31T18:47:55+02:00"
+		},
+		{
+			"hash": "bf49b95",
+			"short": "fix(clock-web): fix mangled import in stopwatch page",
+			"type": "fix",
+			"scope": "clock-web",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-03-31T18:49:04+02:00"
+		},
+		{
+			"hash": "a6560a3",
+			"short": "fix(status-json): strip /health path before .mana.how suffix for correct service keys",
+			"type": "fix",
+			"scope": "status-json",
+			"additions": 3,
+			"deletions": 1,
+			"timestamp": "2026-03-31T18:49:18+02:00"
+		},
+		{
+			"hash": "e335519",
+			"short": "docs(auth): add Auth UX Patterns section with email verification rules",
+			"type": "docs",
+			"scope": "auth",
+			"additions": 35,
+			"deletions": 0,
+			"timestamp": "2026-03-31T18:51:04+02:00"
+		},
+		{
+			"hash": "838b4c1",
+			"short": "refactor(ui): apply elevation system across todo, contacts, calendar, clock apps",
+			"type": "refactor",
+			"scope": "ui",
+			"additions": 245,
+			"deletions": 755,
+			"timestamp": "2026-03-31T19:00:24+02:00"
+		},
+		{
+			"hash": "a0caa1f",
+			"short": "fix(manacore-web): fix login redirect flow",
+			"type": "fix",
+			"scope": "manacore-web",
+			"additions": 10,
+			"deletions": 19,
+			"timestamp": "2026-03-31T19:02:04+02:00"
+		},
+		{
+			"hash": "29515e7",
+			"short": "feat(memoro): add Hono/Bun server + audio-server (replaces NestJS)",
+			"type": "feat",
+			"scope": "memoro",
+			"additions": 3903,
+			"deletions": 0,
+			"timestamp": "2026-03-31T19:03:31+02:00"
+		},
+		{
+			"hash": "3ea2c03",
+			"short": "feat(todo): inline title editing + detail modal button on task items",
+			"type": "feat",
+			"scope": "todo",
+			"additions": 109,
+			"deletions": 111,
+			"timestamp": "2026-03-31T19:06:55+02:00"
+		},
+		{
+			"hash": "5e4518b",
+			"short": "refactor(ui): unify LanguageSelector, ConfirmDialog, and AppSlider across apps",
+			"type": "refactor",
+			"scope": "ui",
+			"additions": 62,
+			"deletions": 228,
+			"timestamp": "2026-03-31T19:10:55+02:00"
+		},
+		{
+			"hash": "0a9c381",
+			"short": "feat(guides): add mana guides app — step-by-step playbook app",
+			"type": "feat",
+			"scope": "guides",
+			"additions": 2460,
+			"deletions": 0,
+			"timestamp": "2026-03-31T20:12:36+02:00"
+		},
+		{
+			"hash": "6e0dd0c",
+			"short": "docs(devlog): add 2026-03-31 entry — Memoro, status.mana.how, Todo polish, infra",
+			"type": "docs",
+			"scope": "devlog",
+			"additions": 351,
+			"deletions": 0,
+			"timestamp": "2026-03-31T20:15:56+02:00"
+		},
+		{
+			"hash": "6d2509c",
+			"short": "feat(memoro): add deployment infrastructure and migrate web services to new Hono server",
+			"type": "feat",
+			"scope": "memoro",
+			"additions": 322,
+			"deletions": 752,
+			"timestamp": "2026-03-31T20:16:54+02:00"
+		},
+		{
+			"hash": "a893b07",
+			"short": "feat(guides): complete Phase 1 — auth routes, i18n, collection detail, import fixes",
+			"type": "feat",
+			"scope": "guides",
+			"additions": 480,
+			"deletions": 13,
+			"timestamp": "2026-03-31T21:16:16+02:00"
+		},
+		{
+			"hash": "8e496ff",
+			"short": "fix(memoro): migrate web services + add credits balance endpoint",
+			"type": "fix",
+			"scope": "memoro",
+			"additions": 94,
+			"deletions": 333,
+			"timestamp": "2026-03-31T21:20:52+02:00"
+		},
+		{
+			"hash": "1a999f8",
+			"short": "feat(guides): Phase 2 — step editor, edit mode, collection management",
+			"type": "feat",
+			"scope": "guides",
+			"additions": 687,
+			"deletions": 110,
+			"timestamp": "2026-03-31T21:23:47+02:00"
+		},
+		{
+			"hash": "7f1c83f",
+			"short": "feat(guides): collection selector in guide modal, quick inline step add",
+			"type": "feat",
+			"scope": "guides",
+			"additions": 96,
+			"deletions": 16,
+			"timestamp": "2026-03-31T21:26:07+02:00"
+		},
+		{
+			"hash": "e624756",
+			"short": "feat(guides): Phase 3 — Hono/Bun server for web import and guide sharing",
+			"type": "feat",
+			"scope": "guides",
+			"additions": 306,
+			"deletions": 0,
+			"timestamp": "2026-03-31T21:29:59+02:00"
+		},
+		{
+			"hash": "c6448a6",
+			"short": "fix(mana-auth): avoid error.body access in login catch — triggers async stream read",
+			"type": "fix",
+			"scope": "mana-auth",
+			"additions": 4,
+			"deletions": 4,
+			"timestamp": "2026-03-31T21:41:06+02:00"
+		},
+		{
+			"hash": "ec0af64",
+			"short": "fix(memoro/web): fix broken authService.forgotPassword reference + add auth URL to env example",
+			"type": "fix",
+			"scope": "memoro/web",
+			"additions": 6,
+			"deletions": 2,
+			"timestamp": "2026-03-31T21:41:25+02:00"
+		},
+		{
+			"hash": "a02dceb",
+			"short": "feat(guides): ImportModal, share button, CLAUDE.md, server dev scripts",
+			"type": "feat",
+			"scope": "guides",
+			"additions": 543,
+			"deletions": 11,
+			"timestamp": "2026-03-31T21:42:26+02:00"
+		},
+		{
+			"hash": "6259770",
+			"short": "fix(memoro/server): resolve all TypeScript strict mode errors",
+			"type": "fix",
+			"scope": "memoro/server",
+			"additions": 28,
+			"deletions": 27,
+			"timestamp": "2026-03-31T21:59:31+02:00"
+		},
+		{
+			"hash": "8a7efdd",
+			"short": "fix(memoro/audio-server): resolve TypeScript errors",
+			"type": "fix",
+			"scope": "memoro/audio-server",
+			"additions": 2,
+			"deletions": 1,
+			"timestamp": "2026-03-31T22:00:16+02:00"
+		},
+		{
+			"hash": "71db334",
+			"short": "feat(guides): PillNavigation + public shared guide route",
+			"type": "feat",
+			"scope": "guides",
+			"additions": 376,
+			"deletions": 79,
+			"timestamp": "2026-03-31T22:00:31+02:00"
+		},
+		{
+			"hash": "1605796",
+			"short": "fix(memoro/web): declare new env vars in app.d.ts",
+			"type": "fix",
+			"scope": "memoro/web",
+			"additions": 5,
+			"deletions": 0,
+			"timestamp": "2026-03-31T22:03:19+02:00"
+		},
+		{
+			"hash": "3f08110",
+			"short": "feat(todo): refactor inline title editing + kanban subtask DnD",
+			"type": "feat",
+			"scope": "todo",
+			"additions": 523,
+			"deletions": 613,
+			"timestamp": "2026-03-31T22:23:31+02:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

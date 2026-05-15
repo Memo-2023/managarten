@@ -1,0 +1,580 @@
+{
+	"date": "2025-12-09",
+	"day_number": 15,
+	"weekday": "Dienstag",
+	"commits": 51,
+	"authors": [
+		{
+			"name": "Till-JS",
+			"count": 34
+		},
+		{
+			"name": "Wuesteon",
+			"count": 15
+		},
+		{
+			"name": "Nils Weiser",
+			"count": 2
+		}
+	],
+	"additions": 98123,
+	"deletions": 18954,
+	"net_lines": 79169,
+	"files_changed": 505,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2025-12-09T11:27:57.000Z",
+		"last_commit_at": "2025-12-10T02:35:28.000Z",
+		"total_span_minutes": 908,
+		"active_minutes": 323,
+		"pauses": [
+			{
+				"from": "13:30",
+				"to": "14:04",
+				"minutes": 34
+			},
+			{
+				"from": "15:02",
+				"to": "15:52",
+				"minutes": 50
+			},
+			{
+				"from": "16:40",
+				"to": "17:45",
+				"minutes": 65
+			},
+			{
+				"from": "18:15",
+				"to": "19:41",
+				"minutes": 86
+			},
+			{
+				"from": "19:41",
+				"to": "20:24",
+				"minutes": 43
+			},
+			{
+				"from": "20:49",
+				"to": "01:56",
+				"minutes": 307
+			}
+		],
+		"longest_focus_minutes": 99
+	},
+	"top_dirs": [
+		{
+			"path": "apps/contacts/apps/web",
+			"pct": 20
+		},
+		{
+			"path": "apps/todo/apps/web",
+			"pct": 9
+		},
+		{
+			"path": "packages/shared-ui/src",
+			"pct": 7
+		},
+		{
+			"path": "apps/contacts/apps/backend",
+			"pct": 7
+		},
+		{
+			"path": "apps/calendar/apps/web",
+			"pct": 5
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".svelte",
+			"count": 312
+		},
+		{
+			"ext": ".ts",
+			"count": 302
+		},
+		{
+			"ext": ".md",
+			"count": 123
+		},
+		{
+			"ext": ".json",
+			"count": 51
+		},
+		{
+			"ext": ".tsx",
+			"count": 16
+		},
+		{
+			"ext": ".yml",
+			"count": 10
+		}
+	],
+	"tags": ["todo", "contacts", "shared-ui", "ui", "settings"],
+	"commits_list": [
+		{
+			"hash": "241dc61",
+			"short": "Merge branch 'dev' of https://github.com/Memo-2023/manacore-monorepo into dev",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 0,
+			"timestamp": "2025-12-09T12:27:57+01:00"
+		},
+		{
+			"hash": "fb76cdc",
+			"short": "fix(settings): unify global settings across all web apps",
+			"type": "fix",
+			"scope": "settings",
+			"additions": 7,
+			"deletions": 357,
+			"timestamp": "2025-12-09T12:37:49+01:00"
+		},
+		{
+			"hash": "eb98f89",
+			"short": "fix(settings): complete global settings unification for remaining apps",
+			"type": "fix",
+			"scope": "settings",
+			"additions": 9,
+			"deletions": 114,
+			"timestamp": "2025-12-09T12:45:10+01:00"
+		},
+		{
+			"hash": "3703904",
+			"short": "feat(todo): redesign task input and items with glass-pill style",
+			"type": "feat",
+			"scope": "todo",
+			"additions": 812,
+			"deletions": 129,
+			"timestamp": "2025-12-09T13:00:29+01:00"
+		},
+		{
+			"hash": "b148a72",
+			"short": "feat(referral): integrate referral system frontend",
+			"type": "feat",
+			"scope": "referral",
+			"additions": 492,
+			"deletions": 10,
+			"timestamp": "2025-12-09T13:01:43+01:00"
+		},
+		{
+			"hash": "00dadc9",
+			"short": "docs(todo): add task metadata reference documentation",
+			"type": "docs",
+			"scope": "todo",
+			"additions": 250,
+			"deletions": 0,
+			"timestamp": "2025-12-09T13:04:39+01:00"
+		},
+		{
+			"hash": "863dd62",
+			"short": "feat(todo): add comprehensive settings page with 20+ preferences",
+			"type": "feat",
+			"scope": "todo",
+			"additions": 1570,
+			"deletions": 2,
+			"timestamp": "2025-12-09T13:30:02+01:00"
+		},
+		{
+			"hash": "3e35e6a",
+			"short": "feat(todo): add task edit modal and fix task loading",
+			"type": "feat",
+			"scope": "todo",
+			"additions": 1718,
+			"deletions": 25,
+			"timestamp": "2025-12-09T14:04:11+01:00"
+		},
+		{
+			"hash": "0c2434b",
+			"short": "feat(todo): add task metadata fields and mana page",
+			"type": "feat",
+			"scope": "todo",
+			"additions": 131,
+			"deletions": 2,
+			"timestamp": "2025-12-09T14:29:56+01:00"
+		},
+		{
+			"hash": "d45a9db",
+			"short": "feat(todo): add statistics page with visualizations",
+			"type": "feat",
+			"scope": "todo",
+			"additions": 2032,
+			"deletions": 329,
+			"timestamp": "2025-12-09T14:37:44+01:00"
+		},
+		{
+			"hash": "1ac74c9",
+			"short": "feat(todo): add PWA support with offline capabilities",
+			"type": "feat",
+			"scope": "todo",
+			"additions": 1292,
+			"deletions": 2,
+			"timestamp": "2025-12-09T14:40:42+01:00"
+		},
+		{
+			"hash": "c88626d",
+			"short": "feat(todo): add multiple kanban boards with task editing features",
+			"type": "feat",
+			"scope": "todo",
+			"additions": 2665,
+			"deletions": 397,
+			"timestamp": "2025-12-09T14:41:50+01:00"
+		},
+		{
+			"hash": "a52e518",
+			"short": "Docs",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2025-12-09T14:48:53+01:00"
+		},
+		{
+			"hash": "23c2d85",
+			"short": "📝 docs(cicd): add comprehensive deployment guide with CI/CD architecture",
+			"type": null,
+			"scope": null,
+			"additions": 619,
+			"deletions": 0,
+			"timestamp": "2025-12-09T15:02:44+01:00"
+		},
+		{
+			"hash": "3808f29",
+			"short": "📝 docs: add audit documentation and metrics",
+			"type": null,
+			"scope": null,
+			"additions": 21899,
+			"deletions": 386,
+			"timestamp": "2025-12-09T15:52:29+01:00"
+		},
+		{
+			"hash": "3cf0a43",
+			"short": "🚀 ci: add todo-backend and todo-web to CI/CD pipeline",
+			"type": null,
+			"scope": null,
+			"additions": 148,
+			"deletions": 1,
+			"timestamp": "2025-12-09T15:52:48+01:00"
+		},
+		{
+			"hash": "582c6f5",
+			"short": "🐛 fix(ci): prevent container name conflict in staging deployment",
+			"type": null,
+			"scope": null,
+			"additions": 23,
+			"deletions": 6,
+			"timestamp": "2025-12-09T15:59:06+01:00"
+		},
+		{
+			"hash": "4e63f3f",
+			"short": "fix(todo): use TEXT for user_id columns (Better Auth compatibility)",
+			"type": "fix",
+			"scope": "todo",
+			"additions": 87,
+			"deletions": 16,
+			"timestamp": "2025-12-09T16:24:22+01:00"
+		},
+		{
+			"hash": "f440ca2",
+			"short": "fix(db): use TEXT for user_id columns across entire codebase",
+			"type": "fix",
+			"scope": "db",
+			"additions": 73,
+			"deletions": 53,
+			"timestamp": "2025-12-09T16:30:51+01:00"
+		},
+		{
+			"hash": "79b4bb0",
+			"short": "feat(ci): add database migrations step to tagged staging deployments",
+			"type": "feat",
+			"scope": "ci",
+			"additions": 112,
+			"deletions": 3,
+			"timestamp": "2025-12-09T16:40:46+01:00"
+		},
+		{
+			"hash": "dd40bb4",
+			"short": "feat(contacts): add duplicate detection, photo upload, and batch operations",
+			"type": "feat",
+			"scope": "contacts",
+			"additions": 5172,
+			"deletions": 617,
+			"timestamp": "2025-12-09T17:45:29+01:00"
+		},
+		{
+			"hash": "09599c2",
+			"short": "refactor(shared-ui): convert SettingsSelect from CSS to Tailwind classes",
+			"type": "refactor",
+			"scope": "shared-ui",
+			"additions": 29,
+			"deletions": 150,
+			"timestamp": "2025-12-09T17:46:08+01:00"
+		},
+		{
+			"hash": "76f573f",
+			"short": "refactor(shared-ui): convert settings components from scoped CSS to Tailwind",
+			"type": "refactor",
+			"scope": "shared-ui",
+			"additions": 119,
+			"deletions": 573,
+			"timestamp": "2025-12-09T17:49:07+01:00"
+		},
+		{
+			"hash": "4e5d12a",
+			"short": "feat(contacts): add enhanced favorites page with multiple view modes",
+			"type": "feat",
+			"scope": "contacts",
+			"additions": 4125,
+			"deletions": 640,
+			"timestamp": "2025-12-09T18:00:55+01:00"
+		},
+		{
+			"hash": "05dd9a0",
+			"short": "fix(contacts): remove groups store dependency from data page",
+			"type": "fix",
+			"scope": "contacts",
+			"additions": 6,
+			"deletions": 30,
+			"timestamp": "2025-12-09T18:07:56+01:00"
+		},
+		{
+			"hash": "99c2824",
+			"short": "refactor(contacts): consolidate groups into tags feature",
+			"type": "refactor",
+			"scope": "contacts",
+			"additions": 116,
+			"deletions": 3024,
+			"timestamp": "2025-12-09T18:15:32+01:00"
+		},
+		{
+			"hash": "b6158a8",
+			"short": "feat(ui): add comprehensive skeleton loaders for contacts and todo apps",
+			"type": "feat",
+			"scope": "ui",
+			"additions": 2303,
+			"deletions": 111,
+			"timestamp": "2025-12-09T19:41:19+01:00"
+		},
+		{
+			"hash": "1dda437",
+			"short": "feat(help): add centralized help system with shared packages",
+			"type": "feat",
+			"scope": "help",
+			"additions": 5482,
+			"deletions": 0,
+			"timestamp": "2025-12-09T20:24:22+01:00"
+		},
+		{
+			"hash": "2b3f92f",
+			"short": "feat(contacts): add interactive network graph visualization",
+			"type": "feat",
+			"scope": "contacts",
+			"additions": 2142,
+			"deletions": 4,
+			"timestamp": "2025-12-09T20:29:38+01:00"
+		},
+		{
+			"hash": "a4846ae",
+			"short": "feat(shared-ui): add global CommandBar component with search across apps",
+			"type": "feat",
+			"scope": "shared-ui",
+			"additions": 899,
+			"deletions": 17,
+			"timestamp": "2025-12-09T20:35:58+01:00"
+		},
+		{
+			"hash": "7987fe0",
+			"short": "feat(ui): add skeleton loaders for calendar and clock apps",
+			"type": "feat",
+			"scope": "ui",
+			"additions": 558,
+			"deletions": 102,
+			"timestamp": "2025-12-09T20:36:37+01:00"
+		},
+		{
+			"hash": "fb7c788",
+			"short": "feat(ui): add Phosphor Icons to PillNavigation",
+			"type": "feat",
+			"scope": "ui",
+			"additions": 275,
+			"deletions": 148,
+			"timestamp": "2025-12-09T20:40:44+01:00"
+		},
+		{
+			"hash": "5cf9f81",
+			"short": "feat(contacts): improve network page with contact detail sidebar",
+			"type": "feat",
+			"scope": "contacts",
+			"additions": 80,
+			"deletions": 384,
+			"timestamp": "2025-12-09T20:46:16+01:00"
+		},
+		{
+			"hash": "25fd0c2",
+			"short": "feat(contacts): add archive link to settings page",
+			"type": "feat",
+			"scope": "contacts",
+			"additions": 18,
+			"deletions": 1,
+			"timestamp": "2025-12-09T20:47:56+01:00"
+		},
+		{
+			"hash": "2e6f151",
+			"short": "feat(contacts): add SearchModal component and help content",
+			"type": "feat",
+			"scope": "contacts",
+			"additions": 689,
+			"deletions": 0,
+			"timestamp": "2025-12-09T20:49:56+01:00"
+		},
+		{
+			"hash": "c61dcb8",
+			"short": "docs: remove all Coolify references from codebase",
+			"type": null,
+			"scope": null,
+			"additions": 175,
+			"deletions": 4740,
+			"timestamp": "2025-12-10T01:56:38+01:00"
+		},
+		{
+			"hash": "6239cc7",
+			"short": "fix: use $env/dynamic/private for runtime env vars in SvelteKit hooks",
+			"type": null,
+			"scope": null,
+			"additions": 67,
+			"deletions": 71,
+			"timestamp": "2025-12-10T02:20:49+01:00"
+		},
+		{
+			"hash": "3fa7b02",
+			"short": "feat: add email service and storage module + fix runtime env vars",
+			"type": null,
+			"scope": null,
+			"additions": 1222,
+			"deletions": 75,
+			"timestamp": "2025-12-10T02:22:34+01:00"
+		},
+		{
+			"hash": "e84371a",
+			"short": "Merge pull request #13 from Memo-2023/n-dev",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 0,
+			"timestamp": "2025-12-10T02:31:03+01:00"
+		},
+		{
+			"hash": "ee42b6c",
+			"short": "feat: major update with network graphs, themes, todo extensions, and more",
+			"type": null,
+			"scope": null,
+			"additions": 39260,
+			"deletions": 6251,
+			"timestamp": "2025-12-10T02:37:46+01:00"
+		},
+		{
+			"hash": "d06df86",
+			"short": "docs: add Git workflow guide",
+			"type": null,
+			"scope": null,
+			"additions": 254,
+			"deletions": 0,
+			"timestamp": "2025-12-10T02:45:04+01:00"
+		},
+		{
+			"hash": "9955939",
+			"short": "fix(docker): add shared-storage package to chat-backend Dockerfile",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 4,
+			"deletions": 0,
+			"timestamp": "2025-12-10T02:46:57+01:00"
+		},
+		{
+			"hash": "dae8c9d",
+			"short": "Merge pull request #14 from Memo-2023/till-dev",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 0,
+			"timestamp": "2025-12-10T02:47:58+01:00"
+		},
+		{
+			"hash": "a1524b4",
+			"short": "🐛 fix(docker): add shared-tags package to todo-web and calendar-web Dockerfiles",
+			"type": null,
+			"scope": null,
+			"additions": 2,
+			"deletions": 0,
+			"timestamp": "2025-12-10T02:57:44+01:00"
+		},
+		{
+			"hash": "c97a0d7",
+			"short": "🔥 fix(todo-web): remove dead i18n import from network page",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 1,
+			"timestamp": "2025-12-10T03:06:37+01:00"
+		},
+		{
+			"hash": "a5fab21",
+			"short": "fix(staging): use HTTPS staging domains for all client URLs",
+			"type": "fix",
+			"scope": "staging",
+			"additions": 63,
+			"deletions": 18,
+			"timestamp": "2025-12-10T03:27:46+01:00"
+		},
+		{
+			"hash": "dd0199c",
+			"short": "docs: add comprehensive staging environment setup guide",
+			"type": null,
+			"scope": null,
+			"additions": 441,
+			"deletions": 0,
+			"timestamp": "2025-12-10T03:35:28+01:00"
+		},
+		{
+			"hash": "1169ef3",
+			"short": "docs: update git workflow - keep individual commits",
+			"type": null,
+			"scope": null,
+			"additions": 69,
+			"deletions": 82,
+			"timestamp": "2025-12-10T02:51:30+01:00"
+		},
+		{
+			"hash": "40d2ea9",
+			"short": "docs(pr-reviews): add code review for PR #14",
+			"type": "docs",
+			"scope": "pr-reviews",
+			"additions": 272,
+			"deletions": 0,
+			"timestamp": "2025-12-10T02:52:55+01:00"
+		},
+		{
+			"hash": "8f9e14c",
+			"short": "docs: update git workflow - keep individual commits",
+			"type": null,
+			"scope": null,
+			"additions": 69,
+			"deletions": 82,
+			"timestamp": "2025-12-10T02:51:30+01:00"
+		},
+		{
+			"hash": "59324ca",
+			"short": "docs(pr-reviews): add code review for PR #14",
+			"type": "docs",
+			"scope": "pr-reviews",
+			"additions": 272,
+			"deletions": 0,
+			"timestamp": "2025-12-10T02:52:55+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

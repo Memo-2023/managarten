@@ -1,0 +1,172 @@
+{
+	"date": "2025-12-17",
+	"day_number": 23,
+	"weekday": "Mittwoch",
+	"commits": 10,
+	"authors": [
+		{
+			"name": "Wuesteon",
+			"count": 10
+		}
+	],
+	"additions": 2166,
+	"deletions": 638,
+	"net_lines": 1528,
+	"files_changed": 32,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2025-12-17T16:57:06.000Z",
+		"last_commit_at": "2025-12-17T18:49:37.000Z",
+		"total_span_minutes": 113,
+		"active_minutes": 113,
+		"pauses": [],
+		"longest_focus_minutes": 113
+	},
+	"top_dirs": [
+		{
+			"path": "apps/picture/apps/web",
+			"pct": 21
+		},
+		{
+			"path": "packages/shared-nestjs-cors/src",
+			"pct": 9
+		},
+		{
+			"path": "pnpm-lock.yaml",
+			"pct": 7
+		},
+		{
+			"path": "apps/picture/apps/backend",
+			"pct": 7
+		},
+		{
+			"path": "packages/shared-nestjs-cors/package.json",
+			"pct": 5
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": "<no-ext>",
+			"count": 16
+		},
+		{
+			"ext": ".ts",
+			"count": 6
+		},
+		{
+			"ext": ".json",
+			"count": 5
+		},
+		{
+			"ext": ".yml",
+			"count": 5
+		},
+		{
+			"ext": ".yaml",
+			"count": 3
+		},
+		{
+			"ext": ".svelte",
+			"count": 3
+		}
+	],
+	"tags": [],
+	"commits_list": [
+		{
+			"hash": "3504172",
+			"short": "✨ feat(cors): add cross-app communication bundle",
+			"type": null,
+			"scope": null,
+			"additions": 283,
+			"deletions": 12,
+			"timestamp": "2025-12-17T17:57:06+01:00"
+		},
+		{
+			"hash": "c5d662b",
+			"short": "✅ test(cors): add comprehensive unit tests for shared-nestjs-cors",
+			"type": null,
+			"scope": null,
+			"additions": 938,
+			"deletions": 328,
+			"timestamp": "2025-12-17T18:07:00+01:00"
+		},
+		{
+			"hash": "1be3d7a",
+			"short": "🐛 fix(docker): add missing workspace dependencies to all Dockerfiles",
+			"type": null,
+			"scope": null,
+			"additions": 44,
+			"deletions": 17,
+			"timestamp": "2025-12-17T18:19:29+01:00"
+		},
+		{
+			"hash": "47881ae",
+			"short": "✨ feat(husky): add helpful error messages to git hooks",
+			"type": null,
+			"scope": null,
+			"additions": 38,
+			"deletions": 4,
+			"timestamp": "2025-12-17T18:39:41+01:00"
+		},
+		{
+			"hash": "74654e6",
+			"short": "🐛 fix(cors): compile shared-nestjs-cors to JavaScript for production",
+			"type": null,
+			"scope": null,
+			"additions": 26,
+			"deletions": 6,
+			"timestamp": "2025-12-17T18:42:47+01:00"
+		},
+		{
+			"hash": "dcdc15f",
+			"short": "🚀 ci(picture): add picture app to CI/CD deployment pipeline",
+			"type": null,
+			"scope": null,
+			"additions": 285,
+			"deletions": 2,
+			"timestamp": "2025-12-17T18:47:42+01:00"
+		},
+		{
+			"hash": "71cbca0",
+			"short": "🐛 fix(picture-web): fix Docker build and auth pages",
+			"type": null,
+			"scope": null,
+			"additions": 184,
+			"deletions": 25,
+			"timestamp": "2025-12-17T18:58:31+01:00"
+		},
+		{
+			"hash": "05ad5f1",
+			"short": "🔧 fix(picture-web): switch from adapter-netlify to adapter-node",
+			"type": null,
+			"scope": null,
+			"additions": 346,
+			"deletions": 232,
+			"timestamp": "2025-12-17T19:13:29+01:00"
+		},
+		{
+			"hash": "70c9196",
+			"short": "🐛 fix(cors): handle both string and array corsOriginsEnv",
+			"type": null,
+			"scope": null,
+			"additions": 17,
+			"deletions": 11,
+			"timestamp": "2025-12-17T19:27:57+01:00"
+		},
+		{
+			"hash": "1214c78",
+			"short": "🐛 fix(picture-backend): fix TypeScript output path for Docker",
+			"type": null,
+			"scope": null,
+			"additions": 5,
+			"deletions": 1,
+			"timestamp": "2025-12-17T19:49:37+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

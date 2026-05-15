@@ -1,0 +1,700 @@
+{
+	"date": "2026-04-20",
+	"day_number": 89,
+	"weekday": "Montag",
+	"commits": 68,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 68
+		}
+	],
+	"additions": 22189,
+	"deletions": 111943,
+	"net_lines": -89754,
+	"files_changed": 965,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-04-20T12:24:39.000Z",
+		"last_commit_at": "2026-04-20T19:28:45.000Z",
+		"total_span_minutes": 424,
+		"active_minutes": 351,
+		"pauses": [
+			{
+				"from": "16:53",
+				"to": "18:05",
+				"minutes": 73
+			}
+		],
+		"longest_focus_minutes": 203
+	},
+	"top_dirs": [
+		{
+			"path": "apps/mana/apps/web",
+			"pct": 24
+		},
+		{
+			"path": "apps/context/apps/mobile",
+			"pct": 15
+		},
+		{
+			"path": "apps/picture/apps/mobile",
+			"pct": 13
+		},
+		{
+			"path": "apps/cards/apps/mobile",
+			"pct": 13
+		},
+		{
+			"path": "apps/chat/apps/mobile",
+			"pct": 11
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 390
+		},
+		{
+			"ext": ".tsx",
+			"count": 334
+		},
+		{
+			"ext": ".svelte",
+			"count": 82
+		},
+		{
+			"ext": ".md",
+			"count": 62
+		},
+		{
+			"ext": ".json",
+			"count": 50
+		},
+		{
+			"ext": ".sql",
+			"count": 38
+		}
+	],
+	"tags": ["spaces", "invoices", "ai", "broadcast", "type-check"],
+	"commits_list": [
+		{
+			"hash": "52d008d",
+			"short": "fix(goals): start GoalTracker on boot + surface AI proposals inline",
+			"type": "fix",
+			"scope": "goals",
+			"additions": 35,
+			"deletions": 7,
+			"timestamp": "2026-04-20T14:24:39+02:00"
+		},
+		{
+			"hash": "a2598b9",
+			"short": "feat(crypto): type-safe registry entries + dev-mode drift check",
+			"type": "feat",
+			"scope": "crypto",
+			"additions": 122,
+			"deletions": 14,
+			"timestamp": "2026-04-20T14:26:37+02:00"
+		},
+		{
+			"hash": "c7af693",
+			"short": "feat(crypto): Phase C — build-time registry ↔ Dexie audit",
+			"type": "feat",
+			"scope": "crypto",
+			"additions": 406,
+			"deletions": 3,
+			"timestamp": "2026-04-20T14:36:32+02:00"
+		},
+		{
+			"hash": "1eda3f5",
+			"short": "chore(turbo): lint against recursive \\`turbo run\\` calls in child packages",
+			"type": "chore",
+			"scope": "turbo",
+			"additions": 98,
+			"deletions": 1,
+			"timestamp": "2026-04-20T14:39:32+02:00"
+		},
+		{
+			"hash": "5ec1dfc",
+			"short": "chore(db): enforce pgSchema isolation with a lint script",
+			"type": "chore",
+			"scope": "db",
+			"additions": 114,
+			"deletions": 8,
+			"timestamp": "2026-04-20T14:45:59+02:00"
+		},
+		{
+			"hash": "d1d3774",
+			"short": "fix(install): remove silent `|| true` from postinstall + narrow filter",
+			"type": "fix",
+			"scope": "install",
+			"additions": 13,
+			"deletions": 9,
+			"timestamp": "2026-04-20T14:58:59+02:00"
+		},
+		{
+			"hash": "da47f53",
+			"short": "docs(plans): function-calling migration + removal of propose/approve gate",
+			"type": "docs",
+			"scope": "plans",
+			"additions": 298,
+			"deletions": 0,
+			"timestamp": "2026-04-20T15:10:23+02:00"
+		},
+		{
+			"hash": "c34175a",
+			"short": "fix(type-check): repair silently broken per-package type-check scripts",
+			"type": "fix",
+			"scope": "type-check",
+			"additions": 26,
+			"deletions": 5,
+			"timestamp": "2026-04-20T15:13:54+02:00"
+		},
+		{
+			"hash": "4b8fede",
+			"short": "fix(mana-llm): surface Gemini finish_reason errors instead of returning \"\"",
+			"type": "fix",
+			"scope": "mana-llm",
+			"additions": 208,
+			"deletions": 13,
+			"timestamp": "2026-04-20T15:15:37+02:00"
+		},
+		{
+			"hash": "c612a22",
+			"short": "fix(type-check): unblock two more pre-existing failures",
+			"type": "fix",
+			"scope": "type-check",
+			"additions": 7,
+			"deletions": 2,
+			"timestamp": "2026-04-20T15:20:08+02:00"
+		},
+		{
+			"hash": "e757470",
+			"short": "feat(mana-llm): add OpenAI-style tools + tool_calls passthrough",
+			"type": "feat",
+			"scope": "mana-llm",
+			"additions": 566,
+			"deletions": 79,
+			"timestamp": "2026-04-20T15:22:48+02:00"
+		},
+		{
+			"hash": "4523ab2",
+			"short": "feat(shared-ai): toolToFunctionSchema — catalog → OpenAI function-spec",
+			"type": "feat",
+			"scope": "shared-ai",
+			"additions": 235,
+			"deletions": 2,
+			"timestamp": "2026-04-20T15:24:36+02:00"
+		},
+		{
+			"hash": "11f768b",
+			"short": "docs(invoices): ClubDesk vs. Mana comparison + invoices module plan",
+			"type": "docs",
+			"scope": "invoices",
+			"additions": 675,
+			"deletions": 0,
+			"timestamp": "2026-04-20T15:27:57+02:00"
+		},
+		{
+			"hash": "2cf89ce",
+			"short": "feat(invoices): M1 skeleton — module registration + empty ListView",
+			"type": "feat",
+			"scope": "invoices",
+			"additions": 666,
+			"deletions": 0,
+			"timestamp": "2026-04-20T15:28:09+02:00"
+		},
+		{
+			"hash": "4daca89",
+			"short": "feat(shared-ai): runPlannerLoop + compact system prompt for function calling",
+			"type": "feat",
+			"scope": "shared-ai",
+			"additions": 537,
+			"deletions": 1,
+			"timestamp": "2026-04-20T15:31:01+02:00"
+		},
+		{
+			"hash": "248137e",
+			"short": "chore(mobile): remove 6 of 7 mobile apps — keep only memoro",
+			"type": "chore",
+			"scope": "mobile",
+			"additions": 26,
+			"deletions": 106334,
+			"timestamp": "2026-04-20T15:31:47+02:00"
+		},
+		{
+			"hash": "8d00ee0",
+			"short": "feat(invoices): M2 CRUD — draft lifecycle, totals, list + detail",
+			"type": "feat",
+			"scope": "invoices",
+			"additions": 2704,
+			"deletions": 61,
+			"timestamp": "2026-04-20T15:40:11+02:00"
+		},
+		{
+			"hash": "a44e3df",
+			"short": "refactor(mana): remove post-signup onboarding wizard",
+			"type": "refactor",
+			"scope": "mana",
+			"additions": 1,
+			"deletions": 1329,
+			"timestamp": "2026-04-20T15:46:21+02:00"
+		},
+		{
+			"hash": "0077752",
+			"short": "fix(type-check): clear the last five failures — monorepo type-check is now 76/76 green",
+			"type": "fix",
+			"scope": "type-check",
+			"additions": 22,
+			"deletions": 10,
+			"timestamp": "2026-04-20T15:53:07+02:00"
+		},
+		{
+			"hash": "2dc298a",
+			"short": "feat(invoices): M4 PDF rendering — pdf-lib renderer + preview + download",
+			"type": "feat",
+			"scope": "invoices",
+			"additions": 904,
+			"deletions": 172,
+			"timestamp": "2026-04-20T15:57:30+02:00"
+		},
+		{
+			"hash": "b249345",
+			"short": "feat(spaces): add space types + module allowlist as multi-tenancy foundation",
+			"type": "feat",
+			"scope": "spaces",
+			"additions": 852,
+			"deletions": 0,
+			"timestamp": "2026-04-20T15:57:57+02:00"
+		},
+		{
+			"hash": "8dbc850",
+			"short": "chore(ci): add \\`validate:all\\` + fix undefined \\`validate:monorepo\\` reference",
+			"type": "chore",
+			"scope": "ci",
+			"additions": 3,
+			"deletions": 11,
+			"timestamp": "2026-04-20T16:01:54+02:00"
+		},
+		{
+			"hash": "3179fa1",
+			"short": "fix(page-shell): keep header title on one line with ellipsis",
+			"type": "fix",
+			"scope": "page-shell",
+			"additions": 7,
+			"deletions": 0,
+			"timestamp": "2026-04-20T16:03:26+02:00"
+		},
+		{
+			"hash": "9d69e44",
+			"short": "docs(claude-md): document \\`validate:all\\` + \\`test:coverage\\` in Quick Start",
+			"type": "docs",
+			"scope": "claude-md",
+			"additions": 6,
+			"deletions": 0,
+			"timestamp": "2026-04-20T16:03:55+02:00"
+		},
+		{
+			"hash": "166d6c6",
+			"short": "feat(spaces): validate space metadata on Better Auth organization hooks",
+			"type": "feat",
+			"scope": "spaces",
+			"additions": 577,
+			"deletions": 225,
+			"timestamp": "2026-04-20T16:05:38+02:00"
+		},
+		{
+			"hash": "5af23d3",
+			"short": "feat(invoices): M5 Swiss QR-Bill — SCOR reference + PDF overlay",
+			"type": "feat",
+			"scope": "invoices",
+			"additions": 398,
+			"deletions": 5,
+			"timestamp": "2026-04-20T16:07:35+02:00"
+		},
+		{
+			"hash": "5af96bf",
+			"short": "feat(webapp): mission runner on native function calling, tools execute directly",
+			"type": "feat",
+			"scope": "webapp",
+			"additions": 505,
+			"deletions": 734,
+			"timestamp": "2026-04-20T16:08:58+02:00"
+		},
+		{
+			"hash": "da1bb2d",
+			"short": "feat(spaces): auto-create personal space on signup via Better Auth hook",
+			"type": "feat",
+			"scope": "spaces",
+			"additions": 266,
+			"deletions": 1,
+			"timestamp": "2026-04-20T16:10:26+02:00"
+		},
+		{
+			"hash": "698ffe7",
+			"short": "feat(spaces): add spaces pg schema — credentials + module_permissions",
+			"type": "feat",
+			"scope": "spaces",
+			"additions": 167,
+			"deletions": 0,
+			"timestamp": "2026-04-20T16:13:33+02:00"
+		},
+		{
+			"hash": "78bfea4",
+			"short": "refactor(webapp): drop AiProposalInbox usages from 9 module pages",
+			"type": "refactor",
+			"scope": "webapp",
+			"additions": 71,
+			"deletions": 31,
+			"timestamp": "2026-04-20T16:18:54+02:00"
+		},
+		{
+			"hash": "c34c755",
+			"short": "feat(spaces): scope layer — active-space store + scoped-db wrapper + visibility",
+			"type": "feat",
+			"scope": "spaces",
+			"additions": 501,
+			"deletions": 0,
+			"timestamp": "2026-04-20T16:24:43+02:00"
+		},
+		{
+			"hash": "08b7ac1",
+			"short": "feat(invoices): M6 send-by-mail flow — mailto + PDF download + confirm",
+			"type": "feat",
+			"scope": "invoices",
+			"additions": 422,
+			"deletions": 3,
+			"timestamp": "2026-04-20T16:27:34+02:00"
+		},
+		{
+			"hash": "2d15684",
+			"short": "refactor(webapp): delete proposal infrastructure + ai-plan legacy wrappers",
+			"type": "refactor",
+			"scope": "webapp",
+			"additions": 26,
+			"deletions": 1555,
+			"timestamp": "2026-04-20T16:30:13+02:00"
+		},
+		{
+			"hash": "2ee3a1a",
+			"short": "feat(invoices): M7 dashboard widget + tests + plan status",
+			"type": "feat",
+			"scope": "invoices",
+			"additions": 644,
+			"deletions": 4,
+			"timestamp": "2026-04-20T16:38:18+02:00"
+		},
+		{
+			"hash": "1cd559c",
+			"short": "feat(mana-ai): server runner on runPlannerLoop, drops text-JSON parser",
+			"type": "feat",
+			"scope": "mana-ai",
+			"additions": 262,
+			"deletions": 212,
+			"timestamp": "2026-04-20T16:39:20+02:00"
+		},
+		{
+			"hash": "80dbb3b",
+			"short": "feat(spaces): migrate calendar module to scoped-db wrapper (pilot)",
+			"type": "feat",
+			"scope": "spaces",
+			"additions": 54,
+			"deletions": 22,
+			"timestamp": "2026-04-20T16:42:10+02:00"
+		},
+		{
+			"hash": "9f7d2f2",
+			"short": "feat(companion): chat on runPlannerLoop with native function calling",
+			"type": "feat",
+			"scope": "companion",
+			"additions": 106,
+			"deletions": 273,
+			"timestamp": "2026-04-20T16:45:33+02:00"
+		},
+		{
+			"hash": "e10c243",
+			"short": "feat(spaces): thread space_id through mana-sync protocol + storage",
+			"type": "feat",
+			"scope": "spaces",
+			"additions": 205,
+			"deletions": 11,
+			"timestamp": "2026-04-20T16:53:14+02:00"
+		},
+		{
+			"hash": "5b7564b",
+			"short": "test(ai): promote MockLlmClient to a shared @mana/shared-ai export",
+			"type": "test",
+			"scope": "ai",
+			"additions": 70,
+			"deletions": 80,
+			"timestamp": "2026-04-20T18:05:46+02:00"
+		},
+		{
+			"hash": "76060b0",
+			"short": "feat(invoices): M3 logo upload — embed in PDF header",
+			"type": "feat",
+			"scope": "invoices",
+			"additions": 301,
+			"deletions": 5,
+			"timestamp": "2026-04-20T18:06:40+02:00"
+		},
+		{
+			"hash": "871a1c3",
+			"short": "feat(spaces): wire active-space boot into (app) layout",
+			"type": "feat",
+			"scope": "spaces",
+			"additions": 19,
+			"deletions": 0,
+			"timestamp": "2026-04-20T18:10:46+02:00"
+		},
+		{
+			"hash": "b878ecf",
+			"short": "feat(spaces): Space-Switcher + Create-Dialog in (app) layout",
+			"type": "feat",
+			"scope": "spaces",
+			"additions": 715,
+			"deletions": 0,
+			"timestamp": "2026-04-20T18:16:47+02:00"
+		},
+		{
+			"hash": "0d613e1",
+			"short": "feat(ai): thread TokenUsage through runPlannerLoop → mana-ai budget",
+			"type": "feat",
+			"scope": "ai",
+			"additions": 60,
+			"deletions": 6,
+			"timestamp": "2026-04-20T18:21:34+02:00"
+		},
+		{
+			"hash": "a4bc7d2",
+			"short": "feat(invoices): M8 AI tools — create/mark_paid/list/stats",
+			"type": "feat",
+			"scope": "invoices",
+			"additions": 427,
+			"deletions": 4,
+			"timestamp": "2026-04-20T18:22:20+02:00"
+		},
+		{
+			"hash": "dc1a0a6",
+			"short": "docs(invoices): mark all milestones done, list Phase-2/3 open items",
+			"type": "docs",
+			"scope": "invoices",
+			"additions": 7,
+			"deletions": 9,
+			"timestamp": "2026-04-20T18:23:02+02:00"
+		},
+		{
+			"hash": "6d8637b",
+			"short": "feat(spaces): migrate todo/notes/contacts to scoped-db + add scopedGet",
+			"type": "feat",
+			"scope": "spaces",
+			"additions": 48,
+			"deletions": 16,
+			"timestamp": "2026-04-20T18:26:01+02:00"
+		},
+		{
+			"hash": "728027c",
+			"short": "feat(ai): auto-execute server-planned iterations on the client",
+			"type": "feat",
+			"scope": "ai",
+			"additions": 177,
+			"deletions": 0,
+			"timestamp": "2026-04-20T18:34:52+02:00"
+		},
+		{
+			"hash": "3194180",
+			"short": "docs(plans): mark shared-llm tool-call integration as deferred",
+			"type": "docs",
+			"scope": "plans",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-04-20T18:36:07+02:00"
+		},
+		{
+			"hash": "394aa79",
+			"short": "feat(invoices): close Phase-2 gaps — finance cross-link + structured addresses",
+			"type": "feat",
+			"scope": "invoices",
+			"additions": 413,
+			"deletions": 35,
+			"timestamp": "2026-04-20T18:58:18+02:00"
+		},
+		{
+			"hash": "8e84004",
+			"short": "fix(invoices): add scopedForModule import after Spaces bulk-migration",
+			"type": "fix",
+			"scope": "invoices",
+			"additions": 6,
+			"deletions": 3,
+			"timestamp": "2026-04-20T19:16:24+02:00"
+		},
+		{
+			"hash": "b13eb44",
+			"short": "docs(broadcast): plan newsletter / broadcast module",
+			"type": "docs",
+			"scope": "broadcast",
+			"additions": 505,
+			"deletions": 0,
+			"timestamp": "2026-04-20T19:32:53+02:00"
+		},
+		{
+			"hash": "00b1c9b",
+			"short": "feat(spaces): migrate 43 modules to scopedForModule (Batches A–D)",
+			"type": "feat",
+			"scope": "spaces",
+			"additions": 379,
+			"deletions": 155,
+			"timestamp": "2026-04-20T19:42:06+02:00"
+		},
+		{
+			"hash": "a12928b",
+			"short": "fix(shared-types): add .ts extensions to re-exports for Node ESM resolvers",
+			"type": "fix",
+			"scope": "shared-types",
+			"additions": 15,
+			"deletions": 27,
+			"timestamp": "2026-04-20T19:50:22+02:00"
+		},
+		{
+			"hash": "4ff95b2",
+			"short": "feat(spaces): rename legacy spaceId → contextSpaceId (v31 migration)",
+			"type": "feat",
+			"scope": "spaces",
+			"additions": 94,
+			"deletions": 23,
+			"timestamp": "2026-04-20T19:52:44+02:00"
+		},
+		{
+			"hash": "88e3adb",
+			"short": "feat(spaces): multi-member RLS policy in mana-sync (forward-compat)",
+			"type": "feat",
+			"scope": "spaces",
+			"additions": 65,
+			"deletions": 4,
+			"timestamp": "2026-04-20T19:55:17+02:00"
+		},
+		{
+			"hash": "79a6da3",
+			"short": "feat(spaces): move access tier from user to space",
+			"type": "feat",
+			"scope": "spaces",
+			"additions": 117,
+			"deletions": 15,
+			"timestamp": "2026-04-20T20:10:06+02:00"
+		},
+		{
+			"hash": "1f392c1",
+			"short": "feat(broadcast): M1 skeleton — module registration + empty ListView",
+			"type": "feat",
+			"scope": "broadcast",
+			"additions": 500,
+			"deletions": 0,
+			"timestamp": "2026-04-20T20:16:35+02:00"
+		},
+		{
+			"hash": "5139ade",
+			"short": "feat(spaces): invite + accept flow (member management UI)",
+			"type": "feat",
+			"scope": "spaces",
+			"additions": 807,
+			"deletions": 0,
+			"timestamp": "2026-04-20T20:38:55+02:00"
+		},
+		{
+			"hash": "264c4c3",
+			"short": "feat(broadcast): M2 audience + editor + compose wizard",
+			"type": "feat",
+			"scope": "broadcast",
+			"additions": 2529,
+			"deletions": 147,
+			"timestamp": "2026-04-20T20:41:09+02:00"
+		},
+		{
+			"hash": "da37349",
+			"short": "chore(mana-llm): thread GOOGLE_API_KEY + default model into local compose",
+			"type": "chore",
+			"scope": "mana-llm",
+			"additions": 2,
+			"deletions": 0,
+			"timestamp": "2026-04-20T20:42:21+02:00"
+		},
+		{
+			"hash": "38d3524",
+			"short": "feat(spaces): end-to-end shared-space sync (membership lookup + plaintext)",
+			"type": "feat",
+			"scope": "spaces",
+			"additions": 365,
+			"deletions": 18,
+			"timestamp": "2026-04-20T20:46:53+02:00"
+		},
+		{
+			"hash": "3ac32d9",
+			"short": "feat(broadcast): M3 email HTML render + desktop/mobile/text preview",
+			"type": "feat",
+			"scope": "broadcast",
+			"additions": 828,
+			"deletions": 15,
+			"timestamp": "2026-04-20T20:48:14+02:00"
+		},
+		{
+			"hash": "1d3794f",
+			"short": "feat(mana-ai): Prometheus metrics for tool-calls, loop rounds, provider errors",
+			"type": "feat",
+			"scope": "mana-ai",
+			"additions": 125,
+			"deletions": 3,
+			"timestamp": "2026-04-20T20:48:29+02:00"
+		},
+		{
+			"hash": "fabd45b",
+			"short": "feat(spaces): move Space-Switcher into the PillNav start slot",
+			"type": "feat",
+			"scope": "spaces",
+			"additions": 38,
+			"deletions": 20,
+			"timestamp": "2026-04-20T20:54:41+02:00"
+		},
+		{
+			"hash": "ea673a2",
+			"short": "style(workbench): polish timeline — time-range filter, event count, prominent revert",
+			"type": "style",
+			"scope": "workbench",
+			"additions": 90,
+			"deletions": 15,
+			"timestamp": "2026-04-20T21:16:16+02:00"
+		},
+		{
+			"hash": "ea1c9c1",
+			"short": "fix(spaces): Space-Switcher visible + styled like native PillNav pills",
+			"type": "fix",
+			"scope": "spaces",
+			"additions": 375,
+			"deletions": 158,
+			"timestamp": "2026-04-20T21:21:16+02:00"
+		},
+		{
+			"hash": "8e677c9",
+			"short": "feat(ai): add Library AI tools (create / rate / status / list)",
+			"type": "feat",
+			"scope": "ai",
+			"additions": 305,
+			"deletions": 1,
+			"timestamp": "2026-04-20T21:23:19+02:00"
+		},
+		{
+			"hash": "becba67",
+			"short": "fix(spaces): call Better Auth at its real URL, not through SvelteKit",
+			"type": "fix",
+			"scope": "spaces",
+			"additions": 71,
+			"deletions": 47,
+			"timestamp": "2026-04-20T21:28:45+02:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

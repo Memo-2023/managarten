@@ -1,0 +1,274 @@
+{
+	"date": "2026-04-05",
+	"day_number": 75,
+	"weekday": "Sonntag",
+	"commits": 19,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 19
+		}
+	],
+	"additions": 15083,
+	"deletions": 11360,
+	"net_lines": 3723,
+	"files_changed": 2161,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-04-05T12:39:00.000Z",
+		"last_commit_at": "2026-04-05T19:14:45.000Z",
+		"total_span_minutes": 396,
+		"active_minutes": 133,
+		"pauses": [
+			{
+				"from": "14:47",
+				"to": "15:19",
+				"minutes": 33
+			},
+			{
+				"from": "15:28",
+				"to": "16:47",
+				"minutes": 79
+			},
+			{
+				"from": "18:33",
+				"to": "19:49",
+				"minutes": 76
+			},
+			{
+				"from": "20:00",
+				"to": "21:14",
+				"minutes": 75
+			}
+		],
+		"longest_focus_minutes": 106
+	},
+	"top_dirs": [
+		{
+			"path": "apps/{manacore => mana}/apps/web",
+			"pct": 43
+		},
+		{
+			"path": "apps/manacore/apps/web",
+			"pct": 11
+		},
+		{
+			"path": "apps/{manacore => mana}/apps/landing",
+			"pct": 9
+		},
+		{
+			"path": "packages/shared-ui/src",
+			"pct": 3
+		},
+		{
+			"path": "apps/{manacore => mana}/apps/mobile",
+			"pct": 3
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 699
+		},
+		{
+			"ext": ".svelte",
+			"count": 661
+		},
+		{
+			"ext": ".json",
+			"count": 292
+		},
+		{
+			"ext": ".md",
+			"count": 203
+		},
+		{
+			"ext": ".astro",
+			"count": 95
+		},
+		{
+			"ext": ".go",
+			"count": 69
+		}
+	],
+	"tags": ["timeblocks", "manacore/web", "calendar", "dashboard", "habits+todo"],
+	"commits_list": [
+		{
+			"hash": "0aa0d7b",
+			"short": "feat(manacore/web): unified time model — timeBlocks for all time data",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 1333,
+			"deletions": 330,
+			"timestamp": "2026-04-05T14:39:00+02:00"
+		},
+		{
+			"hash": "8c8b3f8",
+			"short": "fix(calendar): remove duplicate calendarViewStore import in WeekView",
+			"type": "fix",
+			"scope": "calendar",
+			"additions": 0,
+			"deletions": 1,
+			"timestamp": "2026-04-05T14:40:41+02:00"
+		},
+		{
+			"hash": "2502d62",
+			"short": "feat(calendar): type-specific styling, filter UI, cross-module navigation",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 205,
+			"deletions": 3,
+			"timestamp": "2026-04-05T14:47:12+02:00"
+		},
+		{
+			"hash": "ee7ff7d",
+			"short": "feat(dashboard): add \"Mein Tag\" timeline widget using timeBlocks",
+			"type": "feat",
+			"scope": "dashboard",
+			"additions": 197,
+			"deletions": 9,
+			"timestamp": "2026-04-05T15:19:53+02:00"
+		},
+		{
+			"hash": "d4700a0",
+			"short": "feat: rename mukke to music, add cover art upload via mana-media",
+			"type": null,
+			"scope": null,
+			"additions": 259,
+			"deletions": 215,
+			"timestamp": "2026-04-05T15:25:34+02:00"
+		},
+		{
+			"hash": "7afc162",
+			"short": "feat(dashboard): update CalendarEventsWidget for timeBlocks, add i18n for day-timeline",
+			"type": "feat",
+			"scope": "dashboard",
+			"additions": 25,
+			"deletions": 0,
+			"timestamp": "2026-04-05T15:28:54+02:00"
+		},
+		{
+			"hash": "47d8937",
+			"short": "chore: rename mukke to music in infra, scripts, and CI/CD",
+			"type": null,
+			"scope": null,
+			"additions": 47,
+			"deletions": 47,
+			"timestamp": "2026-04-05T16:47:57+02:00"
+		},
+		{
+			"hash": "ec96b1b",
+			"short": "feat(habits+todo): duration field for habits, calendar scheduling for tasks",
+			"type": "feat",
+			"scope": "habits+todo",
+			"additions": 150,
+			"deletions": 9,
+			"timestamp": "2026-04-05T16:52:44+02:00"
+		},
+		{
+			"hash": "a1c3e99",
+			"short": "feat(timeblocks): drag external items, conflict detection, plan vs reality, timeline view",
+			"type": "feat",
+			"scope": "timeblocks",
+			"additions": 689,
+			"deletions": 1,
+			"timestamp": "2026-04-05T17:10:04+02:00"
+		},
+		{
+			"hash": "22e06ef",
+			"short": "feat(manacore/web): add PWA support with offline UX, update prompt, and icons",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 1352,
+			"deletions": 3,
+			"timestamp": "2026-04-05T17:15:36+02:00"
+		},
+		{
+			"hash": "63d3ba7",
+			"short": "feat(timeblocks): focus mode, habit scheduling, smart slots, multi-type quick-create",
+			"type": "feat",
+			"scope": "timeblocks",
+			"additions": 1095,
+			"deletions": 11,
+			"timestamp": "2026-04-05T17:21:37+02:00"
+		},
+		{
+			"hash": "98dbcef",
+			"short": "feat(manacore/web): add responsive mobile styles for PWA readiness",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 135,
+			"deletions": 6,
+			"timestamp": "2026-04-05T17:23:24+02:00"
+		},
+		{
+			"hash": "105f994",
+			"short": "feat(timeblocks): analytics dashboard + iCal export",
+			"type": "feat",
+			"scope": "timeblocks",
+			"additions": 822,
+			"deletions": 0,
+			"timestamp": "2026-04-05T17:28:25+02:00"
+		},
+		{
+			"hash": "a5f5c8b",
+			"short": "feat(timeblocks): cross-module drag & drop + activity feed widget",
+			"type": "feat",
+			"scope": "timeblocks",
+			"additions": 195,
+			"deletions": 2,
+			"timestamp": "2026-04-05T17:55:12+02:00"
+		},
+		{
+			"hash": "92d8275",
+			"short": "feat(manacore/web): complete mobile responsiveness for all modules and shared components",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 499,
+			"deletions": 81,
+			"timestamp": "2026-04-05T18:24:07+02:00"
+		},
+		{
+			"hash": "98ec6c3",
+			"short": "docs: mark PWA phase as completed in Tauri v2 plan",
+			"type": null,
+			"scope": null,
+			"additions": 56,
+			"deletions": 57,
+			"timestamp": "2026-04-05T18:33:48+02:00"
+		},
+		{
+			"hash": "a787a27",
+			"short": "feat(timeblocks): unified recurrence engine with rrule.js",
+			"type": "feat",
+			"scope": "timeblocks",
+			"additions": 3263,
+			"deletions": 683,
+			"timestamp": "2026-04-05T19:49:57+02:00"
+		},
+		{
+			"hash": "878424c",
+			"short": "feat: rename ManaCore to Mana across entire codebase",
+			"type": null,
+			"scope": null,
+			"additions": 3987,
+			"deletions": 9841,
+			"timestamp": "2026-04-05T20:00:13+02:00"
+		},
+		{
+			"hash": "6f4667c",
+			"short": "feat(timeblocks): custom recurrence UI, recurring edit/delete prompts, habits migration",
+			"type": "feat",
+			"scope": "timeblocks",
+			"additions": 774,
+			"deletions": 61,
+			"timestamp": "2026-04-05T21:14:45+02:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

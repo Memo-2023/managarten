@@ -1,0 +1,360 @@
+{
+	"date": "2025-12-01",
+	"day_number": 8,
+	"weekday": "Montag",
+	"commits": 27,
+	"authors": [
+		{
+			"name": "Wuesteon",
+			"count": 17
+		},
+		{
+			"name": "Till-JS",
+			"count": 10
+		}
+	],
+	"additions": 49204,
+	"deletions": 28026,
+	"net_lines": 21178,
+	"files_changed": 372,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2025-12-01T12:30:58.000Z",
+		"last_commit_at": "2025-12-02T01:43:47.000Z",
+		"total_span_minutes": 793,
+		"active_minutes": 142,
+		"pauses": [
+			{
+				"from": "13:30",
+				"to": "14:14",
+				"minutes": 43
+			},
+			{
+				"from": "15:41",
+				"to": "17:16",
+				"minutes": 95
+			},
+			{
+				"from": "17:16",
+				"to": "20:44",
+				"minutes": 208
+			},
+			{
+				"from": "20:50",
+				"to": "23:15",
+				"minutes": 145
+			},
+			{
+				"from": "00:03",
+				"to": "01:00",
+				"minutes": 57
+			},
+			{
+				"from": "01:00",
+				"to": "02:43",
+				"minutes": 103
+			}
+		],
+		"longest_focus_minutes": 87
+	},
+	"top_dirs": [
+		{
+			"path": "services/mana-core-auth/src",
+			"pct": 11
+		},
+		{
+			"path": "games/mana-games/apps",
+			"pct": 9
+		},
+		{
+			"path": "apps/picture/apps/backend",
+			"pct": 5
+		},
+		{
+			"path": "apps/chat/apps/web",
+			"pct": 5
+		},
+		{
+			"path": "services/mana-core-auth/test",
+			"pct": 4
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 178
+		},
+		{
+			"ext": ".svelte",
+			"count": 107
+		},
+		{
+			"ext": ".md",
+			"count": 61
+		},
+		{
+			"ext": ".json",
+			"count": 53
+		},
+		{
+			"ext": ".astro",
+			"count": 24
+		},
+		{
+			"ext": ".yml",
+			"count": 11
+		}
+	],
+	"tags": ["ci", "picture", "feedback", "apps", "zitare"],
+	"commits_list": [
+		{
+			"hash": "2a002bf",
+			"short": "first auth impl",
+			"type": null,
+			"scope": null,
+			"additions": 13348,
+			"deletions": 6069,
+			"timestamp": "2025-12-01T13:30:58+01:00"
+		},
+		{
+			"hash": "a09c389",
+			"short": "fix(picture): resolve hydration error and CORS issues",
+			"type": "fix",
+			"scope": "picture",
+			"additions": 85,
+			"deletions": 9,
+			"timestamp": "2025-12-01T14:14:08+01:00"
+		},
+		{
+			"hash": "51edd52",
+			"short": "refactor(picture): remove Supabase dependency, migrate to NestJS backend",
+			"type": "refactor",
+			"scope": "picture",
+			"additions": 1627,
+			"deletions": 986,
+			"timestamp": "2025-12-01T14:22:49+01:00"
+		},
+		{
+			"hash": "1f2d21e",
+			"short": "feat(feedback): add feedback pages to all archived web apps",
+			"type": "feat",
+			"scope": "feedback",
+			"additions": 241,
+			"deletions": 431,
+			"timestamp": "2025-12-01T14:42:26+01:00"
+		},
+		{
+			"hash": "4e4db46",
+			"short": "feat(apps): add unified Apps page and PillNavigation to all web apps",
+			"type": "feat",
+			"scope": "apps",
+			"additions": 1354,
+			"deletions": 538,
+			"timestamp": "2025-12-01T14:48:00+01:00"
+		},
+		{
+			"hash": "6cfab65",
+			"short": "feat(zitare): add vertical scroll-snap quote feed with infinite scroll",
+			"type": "feat",
+			"scope": "zitare",
+			"additions": 165,
+			"deletions": 40,
+			"timestamp": "2025-12-01T14:57:05+01:00"
+		},
+		{
+			"hash": "8dd1e43",
+			"short": "🐛 fix(auth): use Better Auth native JWT validation with EdDSA",
+			"type": null,
+			"scope": null,
+			"additions": 498,
+			"deletions": 480,
+			"timestamp": "2025-12-01T15:18:57+01:00"
+		},
+		{
+			"hash": "0805713",
+			"short": "🐛 fix(chat): use correct token storage key from shared-auth",
+			"type": null,
+			"scope": null,
+			"additions": 2,
+			"deletions": 1,
+			"timestamp": "2025-12-01T15:19:09+01:00"
+		},
+		{
+			"hash": "bc27484",
+			"short": "📝 docs(auth): add comprehensive auth architecture documentation",
+			"type": null,
+			"scope": null,
+			"additions": 530,
+			"deletions": 0,
+			"timestamp": "2025-12-01T15:19:20+01:00"
+		},
+		{
+			"hash": "746df03",
+			"short": "✅ test(auth): update tests for minimal JWT claims architecture",
+			"type": null,
+			"scope": null,
+			"additions": 209,
+			"deletions": 641,
+			"timestamp": "2025-12-01T15:21:19+01:00"
+		},
+		{
+			"hash": "8a43bbf",
+			"short": "🔀 merge: auth/complete branch with Better Auth implementation",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 0,
+			"timestamp": "2025-12-01T15:25:38+01:00"
+		},
+		{
+			"hash": "64c82a1",
+			"short": "🐛 fix(presi): resolve auth token mismatch and add feedback navigation",
+			"type": null,
+			"scope": null,
+			"additions": 30,
+			"deletions": 20,
+			"timestamp": "2025-12-01T15:35:56+01:00"
+		},
+		{
+			"hash": "1e2cc03",
+			"short": "✨ feat(shared-auth-ui): add theme toggle to auth pages",
+			"type": null,
+			"scope": null,
+			"additions": 183,
+			"deletions": 85,
+			"timestamp": "2025-12-01T15:40:22+01:00"
+		},
+		{
+			"hash": "a51e065",
+			"short": "🚸 feat(shared-ui): improve PillNavigation mobile responsiveness",
+			"type": null,
+			"scope": null,
+			"additions": 123,
+			"deletions": 4,
+			"timestamp": "2025-12-01T15:40:33+01:00"
+		},
+		{
+			"hash": "f8258b8",
+			"short": "docs",
+			"type": null,
+			"scope": null,
+			"additions": 2,
+			"deletions": 5,
+			"timestamp": "2025-12-01T15:41:05+01:00"
+		},
+		{
+			"hash": "1d5f49a",
+			"short": "Merge branch 'main' of https://github.com/Memo-2023/manacore-monorepo",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 0,
+			"timestamp": "2025-12-01T15:41:06+01:00"
+		},
+		{
+			"hash": "942c588",
+			"short": "🔒️ feat(auth): centralize JWT validation via mana-core-auth",
+			"type": null,
+			"scope": null,
+			"additions": 1125,
+			"deletions": 313,
+			"timestamp": "2025-12-01T17:16:21+01:00"
+		},
+		{
+			"hash": "5b0b309",
+			"short": "🔒️ feat(auth): centralize JWT validation and add deployment docs",
+			"type": null,
+			"scope": null,
+			"additions": 11916,
+			"deletions": 718,
+			"timestamp": "2025-12-01T20:44:45+01:00"
+		},
+		{
+			"hash": "5282f55",
+			"short": "fix(ci): handle missing coverage artifacts gracefully",
+			"type": "fix",
+			"scope": "ci",
+			"additions": 10,
+			"deletions": 1,
+			"timestamp": "2025-12-01T20:50:10+01:00"
+		},
+		{
+			"hash": "0ebfde0",
+			"short": "fix(ci): build shared packages before tests and fix formatting",
+			"type": "fix",
+			"scope": "ci",
+			"additions": 16214,
+			"deletions": 15644,
+			"timestamp": "2025-12-01T23:15:00+01:00"
+		},
+		{
+			"hash": "6748da8",
+			"short": "chore(ci): remove Codecov integration",
+			"type": "chore",
+			"scope": "ci",
+			"additions": 4,
+			"deletions": 58,
+			"timestamp": "2025-12-01T23:26:58+01:00"
+		},
+		{
+			"hash": "3f57b84",
+			"short": "fix(ci): fix test-config and upgrade vitest to v4",
+			"type": "fix",
+			"scope": "ci",
+			"additions": 263,
+			"deletions": 264,
+			"timestamp": "2025-12-01T23:37:47+01:00"
+		},
+		{
+			"hash": "d5af7eb",
+			"short": "fix(ci): fix YAML syntax error in ci-main.yml",
+			"type": "fix",
+			"scope": "ci",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2025-12-01T23:50:39+01:00"
+		},
+		{
+			"hash": "d916845",
+			"short": "fix(ci): filter shared packages by directory not package name",
+			"type": "fix",
+			"scope": "ci",
+			"additions": 3,
+			"deletions": 2,
+			"timestamp": "2025-12-01T23:54:51+01:00"
+		},
+		{
+			"hash": "eb17321",
+			"short": "fix(ci): remove nested turbo.json from presi",
+			"type": "fix",
+			"scope": "ci",
+			"additions": 0,
+			"deletions": 19,
+			"timestamp": "2025-12-02T00:03:31+01:00"
+		},
+		{
+			"hash": "2cfa09c",
+			"short": "feat(storage): add MinIO local storage and @manacore/shared-storage package",
+			"type": "feat",
+			"scope": "storage",
+			"additions": 1191,
+			"deletions": 126,
+			"timestamp": "2025-12-02T01:00:42+01:00"
+		},
+		{
+			"hash": "4cc1ad2",
+			"short": "🔧 chore: fix turbo infinite recursion and update dependencies",
+			"type": null,
+			"scope": null,
+			"additions": 80,
+			"deletions": 1571,
+			"timestamp": "2025-12-02T02:43:47+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

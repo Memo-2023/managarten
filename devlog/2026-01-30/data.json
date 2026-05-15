@@ -1,0 +1,466 @@
+{
+	"date": "2026-01-30",
+	"day_number": 39,
+	"weekday": "Freitag",
+	"commits": 42,
+	"authors": [
+		{
+			"name": "Till-JS",
+			"count": 42
+		}
+	],
+	"additions": 17857,
+	"deletions": 2113,
+	"net_lines": 15744,
+	"files_changed": 232,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-01-30T15:06:24.000Z",
+		"last_commit_at": "2026-01-30T19:00:24.000Z",
+		"total_span_minutes": 234,
+		"active_minutes": 172,
+		"pauses": [
+			{
+				"from": "18:58",
+				"to": "20:00",
+				"minutes": 62
+			}
+		],
+		"longest_focus_minutes": 172
+	},
+	"top_dirs": [
+		{
+			"path": "services/llm-playground/src",
+			"pct": 10
+		},
+		{
+			"path": "services/mana-core-auth/src",
+			"pct": 6
+		},
+		{
+			"path": "services/matrix-chat-bot/src",
+			"pct": 4
+		},
+		{
+			"path": "services/matrix-manadeck-bot/src",
+			"pct": 4
+		},
+		{
+			"path": "services/matrix-planta-bot/src",
+			"pct": 4
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 143
+		},
+		{
+			"ext": ".json",
+			"count": 49
+		},
+		{
+			"ext": ".svelte",
+			"count": 25
+		},
+		{
+			"ext": "<no-ext>",
+			"count": 21
+		},
+		{
+			"ext": ".md",
+			"count": 11
+		},
+		{
+			"ext": ".gitignore",
+			"count": 10
+		}
+	],
+	"tags": ["mana-core-auth", "matrix-bots", "llm-playground", "matrix-web", "matrix-picture-bot"],
+	"commits_list": [
+		{
+			"hash": "b8ecdb8",
+			"short": "🔧 chore(mana-notify): disable email notifications by default",
+			"type": null,
+			"scope": null,
+			"additions": 2,
+			"deletions": 2,
+			"timestamp": "2026-01-30T16:06:24+01:00"
+		},
+		{
+			"hash": "3b745cf",
+			"short": "fix(matrix-web): disable SSR for app routes to fix $state error",
+			"type": "fix",
+			"scope": "matrix-web",
+			"additions": 4,
+			"deletions": 0,
+			"timestamp": "2026-01-30T16:12:44+01:00"
+		},
+		{
+			"hash": "8950692",
+			"short": "feat(matrix-picture-bot): add Matrix bot for AI image generation",
+			"type": "feat",
+			"scope": "matrix-picture-bot",
+			"additions": 1712,
+			"deletions": 126,
+			"timestamp": "2026-01-30T16:15:08+01:00"
+		},
+		{
+			"hash": "6453537",
+			"short": "feat(matrix-contacts-bot): add Matrix bot for contact management",
+			"type": "feat",
+			"scope": "matrix-contacts-bot",
+			"additions": 1572,
+			"deletions": 0,
+			"timestamp": "2026-01-30T16:20:11+01:00"
+		},
+		{
+			"hash": "8da676f",
+			"short": "🐛 fix(calendar-web): initialize auth store on mount",
+			"type": null,
+			"scope": null,
+			"additions": 3,
+			"deletions": 0,
+			"timestamp": "2026-01-30T16:24:43+01:00"
+		},
+		{
+			"hash": "ad7f875",
+			"short": "feat(matrix-manadeck-bot): add Matrix bot for card/deck management",
+			"type": "feat",
+			"scope": "matrix-manadeck-bot",
+			"additions": 1461,
+			"deletions": 0,
+			"timestamp": "2026-01-30T16:29:12+01:00"
+		},
+		{
+			"hash": "017891b",
+			"short": "🐛 fix(calendar-web): use client URL in browser for API calls",
+			"type": null,
+			"scope": null,
+			"additions": 27,
+			"deletions": 10,
+			"timestamp": "2026-01-30T16:34:39+01:00"
+		},
+		{
+			"hash": "3d4402a",
+			"short": "fix(mana-core-auth): allow inline scripts in CSP for OIDC login page",
+			"type": "fix",
+			"scope": "mana-core-auth",
+			"additions": 13,
+			"deletions": 1,
+			"timestamp": "2026-01-30T16:35:42+01:00"
+		},
+		{
+			"hash": "e5a5e96",
+			"short": "🐛 fix(calendar-web): add missing packages to Dockerfile",
+			"type": null,
+			"scope": null,
+			"additions": 2,
+			"deletions": 0,
+			"timestamp": "2026-01-30T16:36:25+01:00"
+		},
+		{
+			"hash": "3f336de",
+			"short": "feat(matrix-planta-bot): add Matrix bot for plant care management",
+			"type": "feat",
+			"scope": "matrix-planta-bot",
+			"additions": 1337,
+			"deletions": 0,
+			"timestamp": "2026-01-30T16:36:30+01:00"
+		},
+		{
+			"hash": "eb475ac",
+			"short": "🔧 chore(calendar-web): add shared-vite-config to devDependencies",
+			"type": null,
+			"scope": null,
+			"additions": 106,
+			"deletions": 0,
+			"timestamp": "2026-01-30T16:40:02+01:00"
+		},
+		{
+			"hash": "4a66341",
+			"short": "fix(mana-core-auth): extract client_id from returnUrl for OIDC login",
+			"type": "fix",
+			"scope": "mana-core-auth",
+			"additions": 20,
+			"deletions": 4,
+			"timestamp": "2026-01-30T16:41:39+01:00"
+		},
+		{
+			"hash": "3694155",
+			"short": "🔧 chore(shared-vite-config): add build step for Docker compatibility",
+			"type": null,
+			"scope": null,
+			"additions": 1645,
+			"deletions": 0,
+			"timestamp": "2026-01-30T16:41:48+01:00"
+		},
+		{
+			"hash": "90f9f2c",
+			"short": "🔧 chore(shared-vite-config): add build step for Docker compatibility",
+			"type": null,
+			"scope": null,
+			"additions": 10,
+			"deletions": 3,
+			"timestamp": "2026-01-30T16:41:58+01:00"
+		},
+		{
+			"hash": "fc15366",
+			"short": "fix(mana-core-auth): fix TypeScript error in oidc-login controller",
+			"type": "fix",
+			"scope": "mana-core-auth",
+			"additions": 2,
+			"deletions": 2,
+			"timestamp": "2026-01-30T16:42:10+01:00"
+		},
+		{
+			"hash": "8779d04",
+			"short": "🔧 chore(calendar-web): add shared-stores to Dockerfile",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-01-30T16:42:54+01:00"
+		},
+		{
+			"hash": "c547644",
+			"short": "feat(matrix-questions-bot): add Matrix bot for Q&A research management",
+			"type": "feat",
+			"scope": "matrix-questions-bot",
+			"additions": 1563,
+			"deletions": 0,
+			"timestamp": "2026-01-30T16:48:56+01:00"
+		},
+		{
+			"hash": "e3cfafe",
+			"short": "feat(matrix-presi-bot): add Matrix bot for presentation management",
+			"type": "feat",
+			"scope": "matrix-presi-bot",
+			"additions": 1423,
+			"deletions": 0,
+			"timestamp": "2026-01-30T16:54:07+01:00"
+		},
+		{
+			"hash": "edbe750",
+			"short": "fix(mana-core-auth): use Better Auth native sign-in for OIDC login",
+			"type": "fix",
+			"scope": "mana-core-auth",
+			"additions": 20,
+			"deletions": 7,
+			"timestamp": "2026-01-30T16:57:52+01:00"
+		},
+		{
+			"hash": "3ed1453",
+			"short": "feat(matrix-skilltree-bot): add Matrix bot for skill tree and XP management",
+			"type": "feat",
+			"scope": "matrix-skilltree-bot",
+			"additions": 1272,
+			"deletions": 0,
+			"timestamp": "2026-01-30T17:00:01+01:00"
+		},
+		{
+			"hash": "82da95b",
+			"short": "🔥 remove(calendar-web): remove demo mode, enforce login",
+			"type": null,
+			"scope": null,
+			"additions": 10,
+			"deletions": 329,
+			"timestamp": "2026-01-30T17:07:17+01:00"
+		},
+		{
+			"hash": "68219a0",
+			"short": "feat(matrix-chat-bot): add Matrix bot for AI chat conversations",
+			"type": "feat",
+			"scope": "matrix-chat-bot",
+			"additions": 1591,
+			"deletions": 0,
+			"timestamp": "2026-01-30T17:18:21+01:00"
+		},
+		{
+			"hash": "f07387d",
+			"short": "🔥 remove: demo mode from todo, contacts, clock, questions, chat apps",
+			"type": null,
+			"scope": null,
+			"additions": 75,
+			"deletions": 602,
+			"timestamp": "2026-01-30T17:21:22+01:00"
+		},
+		{
+			"hash": "004fe85",
+			"short": "fix(matrix-bots): resolve TypeScript strict null check errors",
+			"type": "fix",
+			"scope": "matrix-bots",
+			"additions": 44,
+			"deletions": 44,
+			"timestamp": "2026-01-30T17:32:09+01:00"
+		},
+		{
+			"hash": "5d5e42c",
+			"short": "feat(chat): add all Mac Mini Ollama models to playground",
+			"type": "feat",
+			"scope": "chat",
+			"additions": 239,
+			"deletions": 5,
+			"timestamp": "2026-01-30T17:48:40+01:00"
+		},
+		{
+			"hash": "df47daf",
+			"short": "chore(matrix-bots): standardize package.json across all 9 bots",
+			"type": "chore",
+			"scope": "matrix-bots",
+			"additions": 143,
+			"deletions": 68,
+			"timestamp": "2026-01-30T17:49:15+01:00"
+		},
+		{
+			"hash": "3edbd0c",
+			"short": "chore: update dependencies and mana-llm improvements",
+			"type": null,
+			"scope": null,
+			"additions": 203,
+			"deletions": 3,
+			"timestamp": "2026-01-30T17:50:58+01:00"
+		},
+		{
+			"hash": "f880ef2",
+			"short": "feat(llm-playground): add SvelteKit LLM playground UI",
+			"type": "feat",
+			"scope": "llm-playground",
+			"additions": 1245,
+			"deletions": 0,
+			"timestamp": "2026-01-30T17:52:10+01:00"
+		},
+		{
+			"hash": "f59b659",
+			"short": "fix(mana-core-auth): add dedicated Better Auth handler for sign-in",
+			"type": "fix",
+			"scope": "mana-core-auth",
+			"additions": 90,
+			"deletions": 1,
+			"timestamp": "2026-01-30T17:54:25+01:00"
+		},
+		{
+			"hash": "359b870",
+			"short": "🔧 chore: add shared-vite-config to web Dockerfiles",
+			"type": null,
+			"scope": null,
+			"additions": 16,
+			"deletions": 0,
+			"timestamp": "2026-01-30T18:01:45+01:00"
+		},
+		{
+			"hash": "78a5002",
+			"short": "debug: add logging to OIDC authorize endpoint",
+			"type": null,
+			"scope": null,
+			"additions": 3,
+			"deletions": 0,
+			"timestamp": "2026-01-30T18:02:56+01:00"
+		},
+		{
+			"hash": "8207d38",
+			"short": "fix(mana-core-auth): use comma-separated redirect_urls for Better Auth OIDC",
+			"type": "fix",
+			"scope": "mana-core-auth",
+			"additions": 5,
+			"deletions": 3,
+			"timestamp": "2026-01-30T18:12:16+01:00"
+		},
+		{
+			"hash": "fdba0e3",
+			"short": "feat(llm-playground): add production deployment with auth",
+			"type": "feat",
+			"scope": "llm-playground",
+			"additions": 993,
+			"deletions": 711,
+			"timestamp": "2026-01-30T18:15:02+01:00"
+		},
+		{
+			"hash": "d09ea06",
+			"short": "🔧 chore: add shared-vite-config as devDependency to web apps",
+			"type": null,
+			"scope": null,
+			"additions": 424,
+			"deletions": 145,
+			"timestamp": "2026-01-30T18:15:36+01:00"
+		},
+		{
+			"hash": "ee05b6c",
+			"short": "fix(mana-core-auth): use correct property name 'redirectUrls' for Better Auth",
+			"type": "fix",
+			"scope": "mana-core-auth",
+			"additions": 3,
+			"deletions": 3,
+			"timestamp": "2026-01-30T18:22:06+01:00"
+		},
+		{
+			"hash": "bb428d4",
+			"short": "fix(mana-core-auth): add Matrix Synapse as trusted OIDC client",
+			"type": "fix",
+			"scope": "mana-core-auth",
+			"additions": 11,
+			"deletions": 0,
+			"timestamp": "2026-01-30T18:26:30+01:00"
+		},
+		{
+			"hash": "4526123",
+			"short": "🔧 chore: add shared-stores and shared-api-client to web apps",
+			"type": null,
+			"scope": null,
+			"additions": 153,
+			"deletions": 28,
+			"timestamp": "2026-01-30T18:27:04+01:00"
+		},
+		{
+			"hash": "01a2c78",
+			"short": "fix(mana-core-auth): add all required fields to trusted client config",
+			"type": "fix",
+			"scope": "mana-core-auth",
+			"additions": 5,
+			"deletions": 0,
+			"timestamp": "2026-01-30T18:27:33+01:00"
+		},
+		{
+			"hash": "c949f5d",
+			"short": "fix(mana-core-auth): fix type compatibility for trusted client config",
+			"type": "fix",
+			"scope": "mana-core-auth",
+			"additions": 2,
+			"deletions": 2,
+			"timestamp": "2026-01-30T18:28:06+01:00"
+		},
+		{
+			"hash": "744d0c9",
+			"short": "fix(mana-core-auth): remove non-existent id field from trusted client",
+			"type": "fix",
+			"scope": "mana-core-auth",
+			"additions": 1,
+			"deletions": 3,
+			"timestamp": "2026-01-30T18:28:51+01:00"
+		},
+		{
+			"hash": "2daaee7",
+			"short": "🐛 fix: syntax error in contacts-web +layout.svelte",
+			"type": null,
+			"scope": null,
+			"additions": 9,
+			"deletions": 11,
+			"timestamp": "2026-01-30T18:58:38+01:00"
+		},
+		{
+			"hash": "1d88387",
+			"short": "docs: add daily report for 2026-01-30",
+			"type": null,
+			"scope": null,
+			"additions": 397,
+			"deletions": 0,
+			"timestamp": "2026-01-30T20:00:24+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

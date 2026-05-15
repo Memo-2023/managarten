@@ -1,0 +1,1076 @@
+{
+	"date": "2026-04-02",
+	"day_number": 72,
+	"weekday": "Donnerstag",
+	"commits": 107,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 107
+		}
+	],
+	"additions": 67522,
+	"deletions": 68285,
+	"net_lines": -763,
+	"files_changed": 3408,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-04-02T08:45:14.000Z",
+		"last_commit_at": "2026-04-02T22:30:44.000Z",
+		"total_span_minutes": 826,
+		"active_minutes": 504,
+		"pauses": [
+			{
+				"from": "13:27",
+				"to": "13:59",
+				"minutes": 32
+			},
+			{
+				"from": "14:33",
+				"to": "15:33",
+				"minutes": 60
+			},
+			{
+				"from": "15:34",
+				"to": "16:10",
+				"minutes": 35
+			},
+			{
+				"from": "18:12",
+				"to": "20:14",
+				"minutes": 122
+			},
+			{
+				"from": "20:16",
+				"to": "20:55",
+				"minutes": 39
+			},
+			{
+				"from": "21:43",
+				"to": "22:17",
+				"minutes": 34
+			}
+		],
+		"longest_focus_minutes": 163
+	},
+	"top_dirs": [
+		{
+			"path": "apps/manacore/apps/web",
+			"pct": 19
+		},
+		{
+			"path": "apps/bauntown/apps/landing",
+			"pct": 7
+		},
+		{
+			"path": "apps/memoro/apps/{web => web-archived}",
+			"pct": 5
+		},
+		{
+			"path": "apps/calendar/apps/{web => web-archived}",
+			"pct": 5
+		},
+		{
+			"path": "apps/todo/apps/{web => web-archived}",
+			"pct": 4
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 1323
+		},
+		{
+			"ext": ".svelte",
+			"count": 1215
+		},
+		{
+			"ext": ".json",
+			"count": 404
+		},
+		{
+			"ext": ".md",
+			"count": 153
+		},
+		{
+			"ext": ".astro",
+			"count": 98
+		},
+		{
+			"ext": ".png",
+			"count": 88
+		}
+	],
+	"tags": ["manacore/web", "ui", "shared-stores", "analytics", "i18n"],
+	"commits_list": [
+		{
+			"hash": "82abde6",
+			"short": "fix(wisekeep/landing): add missing TalkGrid and QuoteCollection components",
+			"type": "fix",
+			"scope": "wisekeep/landing",
+			"additions": 159,
+			"deletions": 0,
+			"timestamp": "2026-04-02T10:45:14+02:00"
+		},
+		{
+			"hash": "071d217",
+			"short": "fix(guides/web): add missing supportedLocales export to i18n",
+			"type": "fix",
+			"scope": "guides/web",
+			"additions": 4,
+			"deletions": 1,
+			"timestamp": "2026-04-02T10:45:19+02:00"
+		},
+		{
+			"hash": "3b5f77d",
+			"short": "feat(manacore/web): port calendar UI components from standalone app",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 3438,
+			"deletions": 501,
+			"timestamp": "2026-04-02T11:05:49+02:00"
+		},
+		{
+			"hash": "f408d70",
+			"short": "feat(manacore/web): refactor todo page into modular components with i18n",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 4168,
+			"deletions": 375,
+			"timestamp": "2026-04-02T11:12:57+02:00"
+		},
+		{
+			"hash": "1cbd9a2",
+			"short": "feat(spiral-db): add mana activity schema for cross-app unified spiral",
+			"type": "feat",
+			"scope": "spiral-db",
+			"additions": 79,
+			"deletions": 0,
+			"timestamp": "2026-04-02T11:13:06+02:00"
+		},
+		{
+			"hash": "9c0613d",
+			"short": "feat(manacore/web): add spiral module with activity collection and page",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 1657,
+			"deletions": 281,
+			"timestamp": "2026-04-02T11:13:15+02:00"
+		},
+		{
+			"hash": "249cbc9",
+			"short": "feat(manacore/web): add calendar event parser/estimator and LLM test page",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 1049,
+			"deletions": 0,
+			"timestamp": "2026-04-02T11:13:22+02:00"
+		},
+		{
+			"hash": "a658822",
+			"short": "fix(manacore/web): fix LLM test page derived rune, unused import, and auto-scroll",
+			"type": "fix",
+			"scope": "manacore/web",
+			"additions": 16,
+			"deletions": 4,
+			"timestamp": "2026-04-02T11:17:06+02:00"
+		},
+		{
+			"hash": "e5a6946",
+			"short": "feat(manacore/web): add model comparison tab to LLM test page",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 329,
+			"deletions": 77,
+			"timestamp": "2026-04-02T11:25:44+02:00"
+		},
+		{
+			"hash": "348b6ff",
+			"short": "chore: remove playground, reader, bauntown, voxelava, and worldream apps",
+			"type": null,
+			"scope": null,
+			"additions": 13,
+			"deletions": 11273,
+			"timestamp": "2026-04-02T11:47:54+02:00"
+		},
+		{
+			"hash": "c3c02c6",
+			"short": "feat(manacore/web): add benchmark, compare history, markdown & cache status to LLM test",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 523,
+			"deletions": 114,
+			"timestamp": "2026-04-02T11:50:23+02:00"
+		},
+		{
+			"hash": "91d61e5",
+			"short": "refactor: remove leaflet dependency, replace with OSM embeds",
+			"type": null,
+			"scope": null,
+			"additions": 197,
+			"deletions": 35400,
+			"timestamp": "2026-04-02T11:56:26+02:00"
+		},
+		{
+			"hash": "3bef29b",
+			"short": "feat(local-llm): add generate utilities and reactive Svelte status",
+			"type": "feat",
+			"scope": "local-llm",
+			"additions": 134,
+			"deletions": 0,
+			"timestamp": "2026-04-02T11:57:50+02:00"
+		},
+		{
+			"hash": "82516e9",
+			"short": "fix(manacore/web): fix build errors for production deployment",
+			"type": "fix",
+			"scope": "manacore/web",
+			"additions": 19,
+			"deletions": 9,
+			"timestamp": "2026-04-02T12:05:49+02:00"
+		},
+		{
+			"hash": "78e726c",
+			"short": "fix(docker): add local-llm package to Docker build context",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 2,
+			"deletions": 0,
+			"timestamp": "2026-04-02T12:07:36+02:00"
+		},
+		{
+			"hash": "f625c7b",
+			"short": "fix(manacore/web): disable SSR for llm-test page",
+			"type": "fix",
+			"scope": "manacore/web",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-04-02T12:14:50+02:00"
+		},
+		{
+			"hash": "d574dda",
+			"short": "fix(manacore/web): externalize @mlc-ai/web-llm from SSR build",
+			"type": "fix",
+			"scope": "manacore/web",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-04-02T12:17:30+02:00"
+		},
+		{
+			"hash": "919cb4b",
+			"short": "fix(local-llm): wrap @mlc-ai/web-llm in dynamic import for Docker builds",
+			"type": "fix",
+			"scope": "local-llm",
+			"additions": 17,
+			"deletions": 1,
+			"timestamp": "2026-04-02T12:22:20+02:00"
+		},
+		{
+			"hash": "88864fd",
+			"short": "fix(shared-ui): open AppDrawer above PillNav instead of below",
+			"type": "fix",
+			"scope": "shared-ui",
+			"additions": 4,
+			"deletions": 4,
+			"timestamp": "2026-04-02T12:31:56+02:00"
+		},
+		{
+			"hash": "05e5e95",
+			"short": "feat(manacore/web): unified IndexedDB sync via Dexie hooks, eliminate cross-app readers",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 783,
+			"deletions": 854,
+			"timestamp": "2026-04-02T12:40:31+02:00"
+		},
+		{
+			"hash": "4c9b458",
+			"short": "chore: uncommitted WIP from previous session",
+			"type": null,
+			"scope": null,
+			"additions": 1007,
+			"deletions": 53,
+			"timestamp": "2026-04-02T12:40:37+02:00"
+		},
+		{
+			"hash": "1cd89af",
+			"short": "feat(todo/web): add custom pages with inline visual editor",
+			"type": "feat",
+			"scope": "todo/web",
+			"additions": 259,
+			"deletions": 10,
+			"timestamp": "2026-04-02T12:44:14+02:00"
+		},
+		{
+			"hash": "6756760",
+			"short": "feat(manacore/web): add DateStrip to calendar module",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 533,
+			"deletions": 0,
+			"timestamp": "2026-04-02T12:46:37+02:00"
+		},
+		{
+			"hash": "35f4bd4",
+			"short": "fix: resolve port conflict (mana-image-gen 3025→3026) and replace APP_URLS with internal routes",
+			"type": null,
+			"scope": null,
+			"additions": 48,
+			"deletions": 137,
+			"timestamp": "2026-04-02T12:56:37+02:00"
+		},
+		{
+			"hash": "e870270",
+			"short": "refactor: consolidate Clock app into Times",
+			"type": null,
+			"scope": null,
+			"additions": 1524,
+			"deletions": 5969,
+			"timestamp": "2026-04-02T13:04:07+02:00"
+		},
+		{
+			"hash": "99d0dc6",
+			"short": "fix(manacore/web): float DateStrip at bottom, remove sidebar",
+			"type": "fix",
+			"scope": "manacore/web",
+			"additions": 380,
+			"deletions": 122,
+			"timestamp": "2026-04-02T13:06:55+02:00"
+		},
+		{
+			"hash": "df7395e",
+			"short": "chore: add archived clock app to apps-archived/",
+			"type": null,
+			"scope": null,
+			"additions": 6683,
+			"deletions": 0,
+			"timestamp": "2026-04-02T13:07:38+02:00"
+		},
+		{
+			"hash": "ee83199",
+			"short": "feat(mana-sync): unified WebSocket — one connection per user instead of 27",
+			"type": "feat",
+			"scope": "mana-sync",
+			"additions": 64,
+			"deletions": 39,
+			"timestamp": "2026-04-02T13:09:10+02:00"
+		},
+		{
+			"hash": "a4a8ff0",
+			"short": "feat(manacore/web): add custom pages system to unified todo module",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 1774,
+			"deletions": 274,
+			"timestamp": "2026-04-02T13:15:18+02:00"
+		},
+		{
+			"hash": "97730cd",
+			"short": "feat(manacore/web): port full contact creation modal from standalone app",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 231,
+			"deletions": 56,
+			"timestamp": "2026-04-02T13:19:01+02:00"
+		},
+		{
+			"hash": "509a541",
+			"short": "feat(manacore/web): add minimized tabs bar to todo pages",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 194,
+			"deletions": 1,
+			"timestamp": "2026-04-02T13:25:08+02:00"
+		},
+		{
+			"hash": "4f70e1c",
+			"short": "refactor(shared-go): extract shared auth package from 3 Go services",
+			"type": "refactor",
+			"scope": "shared-go",
+			"additions": 466,
+			"deletions": 385,
+			"timestamp": "2026-04-02T13:27:44+02:00"
+		},
+		{
+			"hash": "e11aa50",
+			"short": "chore: remove unused Supabase auth store, archive stub services",
+			"type": null,
+			"scope": null,
+			"additions": 6,
+			"deletions": 291,
+			"timestamp": "2026-04-02T13:59:53+02:00"
+		},
+		{
+			"hash": "996ec81",
+			"short": "refactor(shared-python): extract shared auth package from mana-stt and mana-tts",
+			"type": "refactor",
+			"scope": "shared-python",
+			"additions": 524,
+			"deletions": 790,
+			"timestamp": "2026-04-02T14:09:32+02:00"
+		},
+		{
+			"hash": "983da85",
+			"short": "chore: remove orphaned jest.config.js, raise vitest coverage to 70%",
+			"type": null,
+			"scope": null,
+			"additions": 4,
+			"deletions": 76,
+			"timestamp": "2026-04-02T14:11:03+02:00"
+		},
+		{
+			"hash": "3d124f0",
+			"short": "feat(manacore/web): add inline QuickEventPopover for calendar",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 378,
+			"deletions": 7,
+			"timestamp": "2026-04-02T14:12:01+02:00"
+		},
+		{
+			"hash": "f2af192",
+			"short": "feat(manacore/web): workbench with app pages carousel on home",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 1234,
+			"deletions": 413,
+			"timestamp": "2026-04-02T14:13:28+02:00"
+		},
+		{
+			"hash": "04fcbd1",
+			"short": "feat(shared-ui): add TagChip component and tag component tests",
+			"type": "feat",
+			"scope": "shared-ui",
+			"additions": 1823,
+			"deletions": 910,
+			"timestamp": "2026-04-02T14:24:19+02:00"
+		},
+		{
+			"hash": "de83352",
+			"short": "refactor(todo,photos): use shared TagChip and TagSelector components",
+			"type": "refactor",
+			"scope": "todo,photos",
+			"additions": 23,
+			"deletions": 87,
+			"timestamp": "2026-04-02T14:24:34+02:00"
+		},
+		{
+			"hash": "934f333",
+			"short": "feat(shared-stores): add createViewStore factory for view/filter/sort",
+			"type": "feat",
+			"scope": "shared-stores",
+			"additions": 548,
+			"deletions": 3,
+			"timestamp": "2026-04-02T14:25:31+02:00"
+		},
+		{
+			"hash": "b1a5c95",
+			"short": "refactor(inventar,times): use shared createViewStore factory",
+			"type": "refactor",
+			"scope": "inventar,times",
+			"additions": 35,
+			"deletions": 219,
+			"timestamp": "2026-04-02T14:25:48+02:00"
+		},
+		{
+			"hash": "3ea28b9",
+			"short": "refactor(db): consolidate ~20+ databases into 2 (mana_platform + mana_sync)",
+			"type": "refactor",
+			"scope": "db",
+			"additions": 311,
+			"deletions": 346,
+			"timestamp": "2026-04-02T14:31:28+02:00"
+		},
+		{
+			"hash": "eabd920",
+			"short": "feat(manacore/web): theme-aware AppViews with inline creation",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 709,
+			"deletions": 83,
+			"timestamp": "2026-04-02T14:33:22+02:00"
+		},
+		{
+			"hash": "48aac82",
+			"short": "feat(shared-stores): add createTagLinkOps factory for junction tables",
+			"type": "feat",
+			"scope": "shared-stores",
+			"additions": 273,
+			"deletions": 3,
+			"timestamp": "2026-04-02T15:33:18+02:00"
+		},
+		{
+			"hash": "8c98dd8",
+			"short": "refactor(manacore/web): unify all module tags into shared globalTags",
+			"type": "refactor",
+			"scope": "manacore/web",
+			"additions": 151,
+			"deletions": 625,
+			"timestamp": "2026-04-02T15:34:55+02:00"
+		},
+		{
+			"hash": "be20de2",
+			"short": "feat(manacore/web): uload feature parity — tags, analytics, settings",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 567,
+			"deletions": 93,
+			"timestamp": "2026-04-02T16:10:10+02:00"
+		},
+		{
+			"hash": "d49a3d7",
+			"short": "feat(manacore/web): add tag junction tables and stores for all 23 modules",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 314,
+			"deletions": 3,
+			"timestamp": "2026-04-02T16:10:49+02:00"
+		},
+		{
+			"hash": "ead4e71",
+			"short": "feat(shared-ui,shared-stores): add FavoriteButton component and toggleField utility",
+			"type": "feat",
+			"scope": "shared-ui,shared-stores",
+			"additions": 219,
+			"deletions": 1,
+			"timestamp": "2026-04-02T16:16:23+02:00"
+		},
+		{
+			"hash": "4667d5d",
+			"short": "feat: unified guest mode with AuthGate + createGuestMode composable",
+			"type": null,
+			"scope": null,
+			"additions": 264,
+			"deletions": 101,
+			"timestamp": "2026-04-02T16:22:43+02:00"
+		},
+		{
+			"hash": "d5c40a4",
+			"short": "feat(shared-ui): add generic ColorPicker with standard palettes",
+			"type": "feat",
+			"scope": "shared-ui",
+			"additions": 222,
+			"deletions": 65,
+			"timestamp": "2026-04-02T16:23:26+02:00"
+		},
+		{
+			"hash": "475ed87",
+			"short": "refactor(uload): remove unused schema tables, keep only clicks",
+			"type": "refactor",
+			"scope": "uload",
+			"additions": 15,
+			"deletions": 202,
+			"timestamp": "2026-04-02T16:23:33+02:00"
+		},
+		{
+			"hash": "3bd717b",
+			"short": "feat(manacore/web): add unified QuickInputBar with context-aware adapters",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 576,
+			"deletions": 0,
+			"timestamp": "2026-04-02T16:24:17+02:00"
+		},
+		{
+			"hash": "51da1f8",
+			"short": "fix(uload): add input validation, migrate clicks to dedicated table",
+			"type": "fix",
+			"scope": "uload",
+			"additions": 107,
+			"deletions": 57,
+			"timestamp": "2026-04-02T16:30:17+02:00"
+		},
+		{
+			"hash": "7d3114d",
+			"short": "fix(manacore/web): add svelte-sonner dependency for uload settings",
+			"type": "fix",
+			"scope": "manacore/web",
+			"additions": 106,
+			"deletions": 181,
+			"timestamp": "2026-04-02T16:31:17+02:00"
+		},
+		{
+			"hash": "779a8ba",
+			"short": "feat(shared-stores): add createArchiveOps factory + unify archive pattern",
+			"type": "feat",
+			"scope": "shared-stores",
+			"additions": 324,
+			"deletions": 112,
+			"timestamp": "2026-04-02T16:33:07+02:00"
+		},
+		{
+			"hash": "5280cc6",
+			"short": "refactor(analytics): add module context to all Umami events",
+			"type": "refactor",
+			"scope": "analytics",
+			"additions": 260,
+			"deletions": 224,
+			"timestamp": "2026-04-02T16:35:27+02:00"
+		},
+		{
+			"hash": "bc0ffb4",
+			"short": "fix(manacore/web): restore guest mode imports via local re-export",
+			"type": "fix",
+			"scope": "manacore/web",
+			"additions": 32,
+			"deletions": 2,
+			"timestamp": "2026-04-02T16:38:58+02:00"
+		},
+		{
+			"hash": "86d31c9",
+			"short": "feat(manacore/web): expand contact detail page with all fields",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 422,
+			"deletions": 96,
+			"timestamp": "2026-04-02T16:49:10+02:00"
+		},
+		{
+			"hash": "b995d52",
+			"short": "refactor(analytics): consolidate Umami tracking to unified app only",
+			"type": "refactor",
+			"scope": "analytics",
+			"additions": 27,
+			"deletions": 80,
+			"timestamp": "2026-04-02T16:52:31+02:00"
+		},
+		{
+			"hash": "4fa0961",
+			"short": "feat(shared-stores,shared-ui): add shared reminder system",
+			"type": "feat",
+			"scope": "shared-stores,shared-ui",
+			"additions": 624,
+			"deletions": 26,
+			"timestamp": "2026-04-02T16:54:15+02:00"
+		},
+		{
+			"hash": "198720c",
+			"short": "feat(shared-stores): add generic data export/import utilities",
+			"type": "feat",
+			"scope": "shared-stores",
+			"additions": 323,
+			"deletions": 0,
+			"timestamp": "2026-04-02T17:01:53+02:00"
+		},
+		{
+			"hash": "f2d6573",
+			"short": "feat(analytics): add Web Vitals tracking, GlitchTip user context, and funnel events",
+			"type": "feat",
+			"scope": "analytics",
+			"additions": 188,
+			"deletions": 3,
+			"timestamp": "2026-04-02T17:03:06+02:00"
+		},
+		{
+			"hash": "8495a0d",
+			"short": "feat(shared-stores): add centralized keyboard shortcuts registry",
+			"type": "feat",
+			"scope": "shared-stores",
+			"additions": 236,
+			"deletions": 0,
+			"timestamp": "2026-04-02T17:03:38+02:00"
+		},
+		{
+			"hash": "e152098",
+			"short": "refactor(i18n): split monolithic locale files into per-module structure",
+			"type": "refactor",
+			"scope": "i18n",
+			"additions": 1977,
+			"deletions": 1160,
+			"timestamp": "2026-04-02T17:05:14+02:00"
+		},
+		{
+			"hash": "bfe11d9",
+			"short": "feat(i18n): wire user settings locale, add nav translations",
+			"type": "feat",
+			"scope": "i18n",
+			"additions": 114,
+			"deletions": 20,
+			"timestamp": "2026-04-02T17:08:11+02:00"
+		},
+		{
+			"hash": "8ece7d3",
+			"short": "feat(analytics): add event tracking to 7 core module stores",
+			"type": "feat",
+			"scope": "analytics",
+			"additions": 35,
+			"deletions": 1,
+			"timestamp": "2026-04-02T17:10:30+02:00"
+		},
+		{
+			"hash": "5a7bc5e",
+			"short": "feat(manacore/web): expand EventDetailModal with full feature set",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 300,
+			"deletions": 72,
+			"timestamp": "2026-04-02T17:15:49+02:00"
+		},
+		{
+			"hash": "e7ae444",
+			"short": "feat(analytics): add event tracking to remaining 12 module stores",
+			"type": "feat",
+			"scope": "analytics",
+			"additions": 116,
+			"deletions": 3,
+			"timestamp": "2026-04-02T17:17:07+02:00"
+		},
+		{
+			"hash": "39af8f8",
+			"short": "chore(manacore/web): remove dead code from todo module refactor",
+			"type": "chore",
+			"scope": "manacore/web",
+			"additions": 0,
+			"deletions": 759,
+			"timestamp": "2026-04-02T17:18:18+02:00"
+		},
+		{
+			"hash": "7ba8247",
+			"short": "feat(manacore/web): wire TagField, FavoriteButton, ColorPicker into module UIs",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 10396,
+			"deletions": 593,
+			"timestamp": "2026-04-02T17:20:46+02:00"
+		},
+		{
+			"hash": "7908995",
+			"short": "feat(monitoring): structured logging, Promtail alignment, GlitchTip config, status page",
+			"type": "feat",
+			"scope": "monitoring",
+			"additions": 493,
+			"deletions": 249,
+			"timestamp": "2026-04-02T17:23:52+02:00"
+		},
+		{
+			"hash": "034b678",
+			"short": "fix(manacore/web): fix TagField prop name (selectedIds, not selectedTagIds)",
+			"type": "fix",
+			"scope": "manacore/web",
+			"additions": 7,
+			"deletions": 3,
+			"timestamp": "2026-04-02T17:24:24+02:00"
+		},
+		{
+			"hash": "7650a83",
+			"short": "feat(manacore/web): wire reminder scheduler into app layout",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 10,
+			"deletions": 0,
+			"timestamp": "2026-04-02T17:25:31+02:00"
+		},
+		{
+			"hash": "2e44a71",
+			"short": "feat(i18n): consolidate all 22 module translations (Phase 3)",
+			"type": "feat",
+			"scope": "i18n",
+			"additions": 3930,
+			"deletions": 336,
+			"timestamp": "2026-04-02T17:53:00+02:00"
+		},
+		{
+			"hash": "033d070",
+			"short": "feat(i18n): replace 126 hardcoded German strings with $_() calls (Phase 4)",
+			"type": "feat",
+			"scope": "i18n",
+			"additions": 209,
+			"deletions": 82,
+			"timestamp": "2026-04-02T18:09:10+02:00"
+		},
+		{
+			"hash": "373976a",
+			"short": "feat(i18n): migrate help content to locale files (Phase 5)",
+			"type": "feat",
+			"scope": "i18n",
+			"additions": 304,
+			"deletions": 72,
+			"timestamp": "2026-04-02T18:12:45+02:00"
+		},
+		{
+			"hash": "2eb1a0c",
+			"short": "chore: archive 25 standalone web apps, move wisekeep to apps-archived",
+			"type": null,
+			"scope": null,
+			"additions": 294,
+			"deletions": 1326,
+			"timestamp": "2026-04-02T20:14:29+02:00"
+		},
+		{
+			"hash": "4fba777",
+			"short": "chore: add web-archived to eslint ignore pattern in lint-staged",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-04-02T20:14:49+02:00"
+		},
+		{
+			"hash": "9e07849",
+			"short": "docs: update CLAUDE.md for unified app architecture",
+			"type": null,
+			"scope": null,
+			"additions": 54,
+			"deletions": 34,
+			"timestamp": "2026-04-02T20:16:27+02:00"
+		},
+		{
+			"hash": "079015a",
+			"short": "refactor(manacore/web): unify page carousel system, remove edit mode",
+			"type": "refactor",
+			"scope": "manacore/web",
+			"additions": 927,
+			"deletions": 1493,
+			"timestamp": "2026-04-02T20:55:54+02:00"
+		},
+		{
+			"hash": "aa93c54",
+			"short": "feat(api): create unified API server with first 3 modules",
+			"type": "feat",
+			"scope": "api",
+			"additions": 368,
+			"deletions": 0,
+			"timestamp": "2026-04-02T21:12:15+02:00"
+		},
+		{
+			"hash": "eb97378",
+			"short": "feat(manacore/web): add page carousel to contacts module",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 928,
+			"deletions": 276,
+			"timestamp": "2026-04-02T21:21:07+02:00"
+		},
+		{
+			"hash": "9363063",
+			"short": "feat(api): port remaining 12 modules to unified API server",
+			"type": "feat",
+			"scope": "api",
+			"additions": 2014,
+			"deletions": 0,
+			"timestamp": "2026-04-02T21:34:08+02:00"
+		},
+		{
+			"hash": "3556fc1",
+			"short": "chore: archive 17 standalone app servers (replaced by unified API)",
+			"type": null,
+			"scope": null,
+			"additions": 153,
+			"deletions": 65,
+			"timestamp": "2026-04-02T21:37:45+02:00"
+		},
+		{
+			"hash": "31d168c",
+			"short": "feat(contacts): add self-contact with profile sync and \"Mein Profil\" page",
+			"type": "feat",
+			"scope": "contacts",
+			"additions": 146,
+			"deletions": 2,
+			"timestamp": "2026-04-02T21:39:54+02:00"
+		},
+		{
+			"hash": "baca701",
+			"short": "fix(contacts): create self-contact in guest mode too",
+			"type": "fix",
+			"scope": "contacts",
+			"additions": 17,
+			"deletions": 12,
+			"timestamp": "2026-04-02T21:42:46+02:00"
+		},
+		{
+			"hash": "03434c2",
+			"short": "refactor(auth): absorb shared-auth-stores into shared-auth-ui",
+			"type": "refactor",
+			"scope": "auth",
+			"additions": 612,
+			"deletions": 4,
+			"timestamp": "2026-04-02T21:43:42+02:00"
+		},
+		{
+			"hash": "f7f5c9e",
+			"short": "feat(sync): add pull pagination with hasMore flag",
+			"type": "feat",
+			"scope": "sync",
+			"additions": 51,
+			"deletions": 26,
+			"timestamp": "2026-04-02T22:17:20+02:00"
+		},
+		{
+			"hash": "8ba3c4c",
+			"short": "feat(sync): partial sync — lazy collection loading on module visit",
+			"type": "feat",
+			"scope": "sync",
+			"additions": 39,
+			"deletions": 14,
+			"timestamp": "2026-04-02T22:19:20+02:00"
+		},
+		{
+			"hash": "068a64b",
+			"short": "feat(sync): add SSE streaming endpoint for real-time sync",
+			"type": "feat",
+			"scope": "sync",
+			"additions": 216,
+			"deletions": 6,
+			"timestamp": "2026-04-02T22:24:10+02:00"
+		},
+		{
+			"hash": "c8daa44",
+			"short": "feat(sync): replace WebSocket with SSE client for real-time sync",
+			"type": "feat",
+			"scope": "sync",
+			"additions": 108,
+			"deletions": 62,
+			"timestamp": "2026-04-02T22:27:30+02:00"
+		},
+		{
+			"hash": "a08f150",
+			"short": "feat(manacore/web): add overlay detail views with inline editing, consolidate routes",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 1899,
+			"deletions": 184,
+			"timestamp": "2026-04-02T22:43:05+02:00"
+		},
+		{
+			"hash": "650dea5",
+			"short": "feat(manacore/web): add overlay detail views for 8 more modules",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 3361,
+			"deletions": 24,
+			"timestamp": "2026-04-02T22:57:09+02:00"
+		},
+		{
+			"hash": "4cb1bda",
+			"short": "feat(manacore/web): add overlay detail views for cards, storage, presi",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 1041,
+			"deletions": 9,
+			"timestamp": "2026-04-02T23:26:57+02:00"
+		},
+		{
+			"hash": "fed38ef",
+			"short": "fix(sync): fix SSE live updates — 2 bugs found during E2E testing",
+			"type": "fix",
+			"scope": "sync",
+			"additions": 41,
+			"deletions": 38,
+			"timestamp": "2026-04-02T23:39:46+02:00"
+		},
+		{
+			"hash": "9ea7e48",
+			"short": "refactor(manacore/web): rename AppView → ListView across all 24 modules",
+			"type": "refactor",
+			"scope": "manacore/web",
+			"additions": 86,
+			"deletions": 86,
+			"timestamp": "2026-04-02T23:45:11+02:00"
+		},
+		{
+			"hash": "ef0c834",
+			"short": "feat(ui): add PillNav toggle button next to QuickInputBar",
+			"type": "feat",
+			"scope": "ui",
+			"additions": 49,
+			"deletions": 0,
+			"timestamp": "2026-04-02T23:45:43+02:00"
+		},
+		{
+			"hash": "b66a268",
+			"short": "feat(manacore/web): add 2D resize (width + height) to workbench pages",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 55,
+			"deletions": 19,
+			"timestamp": "2026-04-02T23:49:39+02:00"
+		},
+		{
+			"hash": "bed2060",
+			"short": "fix(manacore/web): fix height resize using element's current height as start value",
+			"type": "fix",
+			"scope": "manacore/web",
+			"additions": 8,
+			"deletions": 10,
+			"timestamp": "2026-04-02T23:51:54+02:00"
+		},
+		{
+			"hash": "b415567",
+			"short": "refactor(ui): unified bottom-stack container for PillNav, QuickInput, TagStrip",
+			"type": "refactor",
+			"scope": "ui",
+			"additions": 155,
+			"deletions": 86,
+			"timestamp": "2026-04-02T23:52:40+02:00"
+		},
+		{
+			"hash": "b3dd8cd",
+			"short": "fix(ui): dynamic bottom-chrome-height for tabs, notifications, main content",
+			"type": "fix",
+			"scope": "ui",
+			"additions": 24,
+			"deletions": 4,
+			"timestamp": "2026-04-02T23:59:16+02:00"
+		},
+		{
+			"hash": "81f781c",
+			"short": "fix(ui): move Tags to leftmost in PillNav, match toggle button to InputBar style",
+			"type": "fix",
+			"scope": "ui",
+			"additions": 25,
+			"deletions": 21,
+			"timestamp": "2026-04-03T00:08:24+02:00"
+		},
+		{
+			"hash": "fb5271a",
+			"short": "fix(ui): move PillNav toggle inside QuickInputBar via leftAction snippet",
+			"type": "fix",
+			"scope": "ui",
+			"additions": 41,
+			"deletions": 62,
+			"timestamp": "2026-04-03T00:15:29+02:00"
+		},
+		{
+			"hash": "06ebc62",
+			"short": "feat(manacore/web): add tag drag-and-drop to workbench pages",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 219,
+			"deletions": 4,
+			"timestamp": "2026-04-03T00:20:54+02:00"
+		},
+		{
+			"hash": "976fb5f",
+			"short": "fix(ui): move nav toggle to right side of InputBar, make it larger",
+			"type": "fix",
+			"scope": "ui",
+			"additions": 15,
+			"deletions": 4,
+			"timestamp": "2026-04-03T00:21:47+02:00"
+		},
+		{
+			"hash": "e9d4cbf",
+			"short": "fix(manacore/web): fix tag drag-and-drop — use reactive .value instead of .subscribe()",
+			"type": "fix",
+			"scope": "manacore/web",
+			"additions": 17,
+			"deletions": 15,
+			"timestamp": "2026-04-03T00:26:22+02:00"
+		},
+		{
+			"hash": "0d142ef",
+			"short": "feat(manacore/web): show tags as labeled pills instead of dots",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 66,
+			"deletions": 9,
+			"timestamp": "2026-04-03T00:30:44+02:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

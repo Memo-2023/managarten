@@ -1,0 +1,638 @@
+{
+	"date": "2026-04-16",
+	"day_number": 85,
+	"weekday": "Donnerstag",
+	"commits": 60,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 60
+		}
+	],
+	"additions": 24613,
+	"deletions": 7218,
+	"net_lines": 17395,
+	"files_changed": 233,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-04-16T09:45:40.000Z",
+		"last_commit_at": "2026-04-17T01:57:55.000Z",
+		"total_span_minutes": 972,
+		"active_minutes": 264,
+		"pauses": [
+			{
+				"from": "15:34",
+				"to": "16:15",
+				"minutes": 41
+			},
+			{
+				"from": "16:39",
+				"to": "02:53",
+				"minutes": 614
+			},
+			{
+				"from": "02:53",
+				"to": "03:46",
+				"minutes": 53
+			}
+		],
+		"longest_focus_minutes": 228
+	},
+	"top_dirs": [
+		{
+			"path": "apps/mana/apps/web",
+			"pct": 59
+		},
+		{
+			"path": "packages/shared-ai/src",
+			"pct": 7
+		},
+		{
+			"path": "packages/subscriptions/src",
+			"pct": 6
+		},
+		{
+			"path": "services/mana-ai/src",
+			"pct": 5
+		},
+		{
+			"path": "apps/mana/apps/landing",
+			"pct": 3
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 166
+		},
+		{
+			"ext": ".svelte",
+			"count": 99
+		},
+		{
+			"ext": ".md",
+			"count": 26
+		},
+		{
+			"ext": ".json",
+			"count": 11
+		},
+		{
+			"ext": ".svelte}",
+			"count": 5
+		},
+		{
+			"ext": ".yml",
+			"count": 3
+		}
+	],
+	"tags": ["ai", "workbench", "credits", "settings", "ai-tools"],
+	"commits_list": [
+		{
+			"hash": "9161c0b",
+			"short": "feat(templates): two more non-AI templates + split gallery into two sections",
+			"type": "feat",
+			"scope": "templates",
+			"additions": 390,
+			"deletions": 34,
+			"timestamp": "2026-04-16T11:45:40+02:00"
+		},
+		{
+			"hash": "334c36a",
+			"short": "docs: document reasoning loop, research pre-step, debug log, new tools",
+			"type": null,
+			"scope": null,
+			"additions": 74,
+			"deletions": 1,
+			"timestamp": "2026-04-16T11:50:21+02:00"
+		},
+		{
+			"hash": "0af1dd7",
+			"short": "feat(workbench): section deep-links + migrate profile & themes to workbench",
+			"type": "feat",
+			"scope": "workbench",
+			"additions": 24,
+			"deletions": 198,
+			"timestamp": "2026-04-16T11:52:25+02:00"
+		},
+		{
+			"hash": "bc5c150",
+			"short": "feat(spiral): migrate to workbench app, delete standalone route",
+			"type": "feat",
+			"scope": "spiral",
+			"additions": 25,
+			"deletions": 66,
+			"timestamp": "2026-04-16T11:58:25+02:00"
+		},
+		{
+			"hash": "1266b58",
+			"short": "feat(ai-tools): unlock create_note + create_journal_entry + habit tools for agents",
+			"type": "feat",
+			"scope": "ai-tools",
+			"additions": 76,
+			"deletions": 0,
+			"timestamp": "2026-04-16T12:00:17+02:00"
+		},
+		{
+			"hash": "5d46aa1",
+			"short": "refactor(help): drop standalone /help route, use workbench app",
+			"type": "refactor",
+			"scope": "help",
+			"additions": 1,
+			"deletions": 35,
+			"timestamp": "2026-04-16T12:01:35+02:00"
+		},
+		{
+			"hash": "ae53e93",
+			"short": "feat(mana): migrate subscription page to workbench app",
+			"type": "feat",
+			"scope": "mana",
+			"additions": 19,
+			"deletions": 8,
+			"timestamp": "2026-04-16T12:03:20+02:00"
+		},
+		{
+			"hash": "23b8cc1",
+			"short": "feat(ai-tools): server-side web-research + contacts for agents",
+			"type": "feat",
+			"scope": "ai-tools",
+			"additions": 253,
+			"deletions": 2,
+			"timestamp": "2026-04-16T12:25:45+02:00"
+		},
+		{
+			"hash": "27ac5fc",
+			"short": "feat(credits): merge Credits + Mana subscription into one workbench app",
+			"type": "feat",
+			"scope": "credits",
+			"additions": 1033,
+			"deletions": 648,
+			"timestamp": "2026-04-16T12:26:27+02:00"
+		},
+		{
+			"hash": "95e65bb",
+			"short": "chore: remove /apps route — not needed",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 16,
+			"timestamp": "2026-04-16T12:30:37+02:00"
+		},
+		{
+			"hash": "8a0bf93",
+			"short": "chore(cloud-tier): upgrade default model gemini-2.0-flash → gemini-2.5-flash",
+			"type": "chore",
+			"scope": "cloud-tier",
+			"additions": 12,
+			"deletions": 13,
+			"timestamp": "2026-04-16T12:32:03+02:00"
+		},
+		{
+			"hash": "be81d11",
+			"short": "feat(ai): SSE streaming for foreground Mission Runner",
+			"type": "feat",
+			"scope": "ai",
+			"additions": 635,
+			"deletions": 108,
+			"timestamp": "2026-04-16T12:32:43+02:00"
+		},
+		{
+			"hash": "2ead0f3",
+			"short": "fix(subscriptions): single-column layout for workbench context",
+			"type": "fix",
+			"scope": "subscriptions",
+			"additions": 1,
+			"deletions": 32,
+			"timestamp": "2026-04-16T12:34:36+02:00"
+		},
+		{
+			"hash": "d83fc37",
+			"short": "docs: update tool coverage table + server-side research + templates",
+			"type": null,
+			"scope": null,
+			"additions": 56,
+			"deletions": 3,
+			"timestamp": "2026-04-16T12:35:40+02:00"
+		},
+		{
+			"hash": "c6c4d63",
+			"short": "refactor(subscriptions): compact row-based card layout",
+			"type": "refactor",
+			"scope": "subscriptions",
+			"additions": 275,
+			"deletions": 535,
+			"timestamp": "2026-04-16T12:38:30+02:00"
+		},
+		{
+			"hash": "659a7d9",
+			"short": "fix(mana-llm): add google-genai to requirements.txt for Docker builds",
+			"type": "fix",
+			"scope": "mana-llm",
+			"additions": 3,
+			"deletions": 0,
+			"timestamp": "2026-04-16T12:40:30+02:00"
+		},
+		{
+			"hash": "3ce8420",
+			"short": "fix: drop duplicate manaHref — Credits & Abo is the single billing entry",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 1,
+			"timestamp": "2026-04-16T12:40:51+02:00"
+		},
+		{
+			"hash": "3be4612",
+			"short": "fix(mana-llm): google-genai v1.73 keyword-only Part.from_text()",
+			"type": "fix",
+			"scope": "mana-llm",
+			"additions": 4972,
+			"deletions": 7,
+			"timestamp": "2026-04-16T12:43:54+02:00"
+		},
+		{
+			"hash": "b4ce852",
+			"short": "feat(credits): merge subscription management into Credits & Abo",
+			"type": "feat",
+			"scope": "credits",
+			"additions": 632,
+			"deletions": 907,
+			"timestamp": "2026-04-16T12:51:31+02:00"
+		},
+		{
+			"hash": "d40a611",
+			"short": "refactor(ai): dynamic tool registry — single-source catalog in shared-ai",
+			"type": "refactor",
+			"scope": "ai",
+			"additions": 579,
+			"deletions": 329,
+			"timestamp": "2026-04-16T13:06:07+02:00"
+		},
+		{
+			"hash": "299cf9c",
+			"short": "chore: cleanup dead props, deps, dirs, and stale comments",
+			"type": null,
+			"scope": null,
+			"additions": 11,
+			"deletions": 48,
+			"timestamp": "2026-04-16T13:17:59+02:00"
+		},
+		{
+			"hash": "56171ff",
+			"short": "fix(ai): resolve tool name + parameter drift between catalog and webapp",
+			"type": "fix",
+			"scope": "ai",
+			"additions": 70,
+			"deletions": 21,
+			"timestamp": "2026-04-16T13:18:51+02:00"
+		},
+		{
+			"hash": "827b252",
+			"short": "feat(settings): inline sync, my-data, and vault — delete all sub-routes",
+			"type": "feat",
+			"scope": "settings",
+			"additions": 33,
+			"deletions": 75,
+			"timestamp": "2026-04-16T13:30:33+02:00"
+		},
+		{
+			"hash": "db4dd43",
+			"short": "feat(api): MCP server endpoint — expose AI tools to external clients",
+			"type": "feat",
+			"scope": "api",
+			"additions": 508,
+			"deletions": 5,
+			"timestamp": "2026-04-16T13:37:52+02:00"
+		},
+		{
+			"hash": "3f60f68",
+			"short": "fix(shared-tailwind): export CSS under 'style' condition for Vite build",
+			"type": "fix",
+			"scope": "shared-tailwind",
+			"additions": 8,
+			"deletions": 2,
+			"timestamp": "2026-04-16T13:39:01+02:00"
+		},
+		{
+			"hash": "10acabf",
+			"short": "feat(ai): tag-based agent scoping — agents see only their tagged records",
+			"type": "feat",
+			"scope": "ai",
+			"additions": 232,
+			"deletions": 7,
+			"timestamp": "2026-04-16T13:43:33+02:00"
+		},
+		{
+			"hash": "e969324",
+			"short": "feat(mcp): Phase 2 — real DB operations for tool execution",
+			"type": "feat",
+			"scope": "mcp",
+			"additions": 390,
+			"deletions": 52,
+			"timestamp": "2026-04-16T13:46:06+02:00"
+		},
+		{
+			"hash": "04c806f",
+			"short": "feat(mcp): implement remaining 19 tool handlers (27/29 total)",
+			"type": "feat",
+			"scope": "mcp",
+			"additions": 420,
+			"deletions": 7,
+			"timestamp": "2026-04-16T14:08:57+02:00"
+		},
+		{
+			"hash": "f203e10",
+			"short": "chore: final cleanup — dead link, security status, showTitle, drop subscriptions",
+			"type": null,
+			"scope": null,
+			"additions": 10,
+			"deletions": 5,
+			"timestamp": "2026-04-16T14:27:46+02:00"
+		},
+		{
+			"hash": "e2d540a",
+			"short": "refactor(settings): rewrite GeneralSection inline + delete @mana/subscriptions",
+			"type": "refactor",
+			"scope": "settings",
+			"additions": 247,
+			"deletions": 1755,
+			"timestamp": "2026-04-16T14:33:35+02:00"
+		},
+		{
+			"hash": "ce57e11",
+			"short": "feat(mana-ai): server-side token budget enforcement per agent",
+			"type": "feat",
+			"scope": "mana-ai",
+			"additions": 89,
+			"deletions": 5,
+			"timestamp": "2026-04-16T14:41:31+02:00"
+		},
+		{
+			"hash": "acd7e0d",
+			"short": "docs: update architecture comparison — 5/10 roadmap items done",
+			"type": null,
+			"scope": null,
+			"additions": 2737,
+			"deletions": 654,
+			"timestamp": "2026-04-16T15:00:09+02:00"
+		},
+		{
+			"hash": "ed01d24",
+			"short": "feat(ai): add AI tools for myday, goals, mood, finance, and times",
+			"type": "feat",
+			"scope": "ai",
+			"additions": 1299,
+			"deletions": 6,
+			"timestamp": "2026-04-16T15:01:12+02:00"
+		},
+		{
+			"hash": "c412508",
+			"short": "feat(ai-scope): wire filterByScope into list_tasks/contacts/events + note tag UI",
+			"type": "feat",
+			"scope": "ai-scope",
+			"additions": 70,
+			"deletions": 4,
+			"timestamp": "2026-04-16T15:06:11+02:00"
+		},
+		{
+			"hash": "f5392b8",
+			"short": "fix(profile): update profile.test.ts for new avatar upload + email change API",
+			"type": "fix",
+			"scope": "profile",
+			"additions": 39,
+			"deletions": 14,
+			"timestamp": "2026-04-16T15:09:59+02:00"
+		},
+		{
+			"hash": "fad7f4b",
+			"short": "feat(ai): guardrail layer — pre/post-plan + pre-execute checks",
+			"type": "feat",
+			"scope": "ai",
+			"additions": 301,
+			"deletions": 9,
+			"timestamp": "2026-04-16T15:11:34+02:00"
+		},
+		{
+			"hash": "0ddaab5",
+			"short": "feat(workbench): Scene.scopeTagIds + reactive scene-scope store",
+			"type": "feat",
+			"scope": "workbench",
+			"additions": 70,
+			"deletions": 0,
+			"timestamp": "2026-04-16T15:15:44+02:00"
+		},
+		{
+			"hash": "8def989",
+			"short": "chore: global ToastContainer, migrate inline toasts, delete SETUP.md",
+			"type": null,
+			"scope": null,
+			"additions": 107,
+			"deletions": 480,
+			"timestamp": "2026-04-16T15:18:50+02:00"
+		},
+		{
+			"hash": "7657786",
+			"short": "feat(mana-ai): OpenTelemetry tracing + Grafana Tempo backend",
+			"type": "feat",
+			"scope": "mana-ai",
+			"additions": 348,
+			"deletions": 151,
+			"timestamp": "2026-04-16T15:21:23+02:00"
+		},
+		{
+			"hash": "62fc566",
+			"short": "docs: mark OTel tracing (#7) as done in architecture report",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-04-16T15:21:45+02:00"
+		},
+		{
+			"hash": "26e1c47",
+			"short": "feat(scene-scope): wire filterBySceneScope into notes/todo/contacts/calendar queries",
+			"type": "feat",
+			"scope": "scene-scope",
+			"additions": 23,
+			"deletions": 4,
+			"timestamp": "2026-04-16T15:22:47+02:00"
+		},
+		{
+			"hash": "fabf259",
+			"short": "feat(ai-agents): missions lookup + simple policy + agent fingerprint (UX 3-6)",
+			"type": "feat",
+			"scope": "ai-agents",
+			"additions": 323,
+			"deletions": 62,
+			"timestamp": "2026-04-16T15:22:55+02:00"
+		},
+		{
+			"hash": "a1bb703",
+			"short": "docs: final report update — 7/10 roadmap items done, all tables consistent",
+			"type": null,
+			"scope": null,
+			"additions": 12,
+			"deletions": 5,
+			"timestamp": "2026-04-16T15:23:37+02:00"
+		},
+		{
+			"hash": "4b41549",
+			"short": "fix(profile): expand data model + fix interview field mappings",
+			"type": "fix",
+			"scope": "profile",
+			"additions": 387,
+			"deletions": 55,
+			"timestamp": "2026-04-16T15:24:11+02:00"
+		},
+		{
+			"hash": "b7f83cb",
+			"short": "fix: migrate remaining inline toasts + delete dead /subscription route",
+			"type": null,
+			"scope": null,
+			"additions": 14,
+			"deletions": 616,
+			"timestamp": "2026-04-16T15:27:18+02:00"
+		},
+		{
+			"hash": "fe141e1",
+			"short": "docs: add langfristige Roadmap-Punkte zu AI_AGENTS_IDEAS.md",
+			"type": null,
+			"scope": null,
+			"additions": 108,
+			"deletions": 1,
+			"timestamp": "2026-04-16T15:27:38+02:00"
+		},
+		{
+			"hash": "57c2bdb",
+			"short": "feat(workbench): scope TagSelector in SceneHeader + agent auto-infer",
+			"type": "feat",
+			"scope": "workbench",
+			"additions": 76,
+			"deletions": 1,
+			"timestamp": "2026-04-16T15:29:07+02:00"
+		},
+		{
+			"hash": "9dd2c64",
+			"short": "fix(credits): replace octal literal placeholders with real toast messages",
+			"type": "fix",
+			"scope": "credits",
+			"additions": 3,
+			"deletions": 3,
+			"timestamp": "2026-04-16T15:34:00+02:00"
+		},
+		{
+			"hash": "484761e",
+			"short": "fix(docker): remove deleted subscriptions pkg + add shared-ai to sveltekit-base",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-04-16T16:15:01+02:00"
+		},
+		{
+			"hash": "93358ed",
+			"short": "fix(ai): P0 — tool exception handling + mission run mutex",
+			"type": "fix",
+			"scope": "ai",
+			"additions": 142,
+			"deletions": 22,
+			"timestamp": "2026-04-16T16:17:08+02:00"
+		},
+		{
+			"hash": "a480393",
+			"short": "fix(ai): P1 batch — N+1 queries, vault-locked, debug hardening, timeout",
+			"type": "fix",
+			"scope": "ai",
+			"additions": 131,
+			"deletions": 22,
+			"timestamp": "2026-04-16T16:25:17+02:00"
+		},
+		{
+			"hash": "efc7641",
+			"short": "chore(ai): P2 batch — prompt sync, perf, dedup, scope unification",
+			"type": "chore",
+			"scope": "ai",
+			"additions": 84,
+			"deletions": 99,
+			"timestamp": "2026-04-16T16:33:52+02:00"
+		},
+		{
+			"hash": "35ffa8a",
+			"short": "docs(landing): devlog entries Apr 9–15",
+			"type": "docs",
+			"scope": "landing",
+			"additions": 2358,
+			"deletions": 0,
+			"timestamp": "2026-04-16T16:36:18+02:00"
+		},
+		{
+			"hash": "4b21e3f",
+			"short": "docs: add MODULE_REGISTRY.md — index of all 72 webapp modules",
+			"type": null,
+			"scope": null,
+			"additions": 141,
+			"deletions": 0,
+			"timestamp": "2026-04-16T16:36:26+02:00"
+		},
+		{
+			"hash": "97adfa7",
+			"short": "chore: update scheduled tasks lock",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-04-16T16:36:33+02:00"
+		},
+		{
+			"hash": "40a3a8c",
+			"short": "fix(settings): remove stale showTitle prop from SecuritySection",
+			"type": "fix",
+			"scope": "settings",
+			"additions": 0,
+			"deletions": 4,
+			"timestamp": "2026-04-16T16:39:22+02:00"
+		},
+		{
+			"hash": "20aeccf",
+			"short": "chore(hooks): drop --fail-on-warnings from pre-push svelte-check",
+			"type": "chore",
+			"scope": "hooks",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-04-17T02:53:44+02:00"
+		},
+		{
+			"hash": "62aac6d",
+			"short": "feat(wetter): add weather module with Open-Meteo, DWD alerts, and rain nowcast",
+			"type": "feat",
+			"scope": "wetter",
+			"additions": 2179,
+			"deletions": 0,
+			"timestamp": "2026-04-17T03:46:15+02:00"
+		},
+		{
+			"hash": "8c6502d",
+			"short": "feat(library): add Bibliothek module — books/movies/series/comics log",
+			"type": "feat",
+			"scope": "library",
+			"additions": 996,
+			"deletions": 2,
+			"timestamp": "2026-04-17T03:49:01+02:00"
+		},
+		{
+			"hash": "3641784",
+			"short": "feat(library): M2 — CRUD form, grid view, detail view",
+			"type": "feat",
+			"scope": "library",
+			"additions": 1583,
+			"deletions": 75,
+			"timestamp": "2026-04-17T03:57:55+02:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

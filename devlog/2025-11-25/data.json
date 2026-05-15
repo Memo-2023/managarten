@@ -1,0 +1,248 @@
+{
+	"date": "2025-11-25",
+	"day_number": 3,
+	"weekday": "Dienstag",
+	"commits": 14,
+	"authors": [
+		{
+			"name": "Till-JS",
+			"count": 9
+		},
+		{
+			"name": "Wuesteon",
+			"count": 5
+		}
+	],
+	"additions": 109563,
+	"deletions": 11046,
+	"net_lines": 98517,
+	"files_changed": 4792,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2025-11-25T11:02:52.000Z",
+		"last_commit_at": "2025-11-26T02:03:24.000Z",
+		"total_span_minutes": 901,
+		"active_minutes": 33,
+		"pauses": [
+			{
+				"from": "12:02",
+				"to": "13:01",
+				"minutes": 59
+			},
+			{
+				"from": "13:01",
+				"to": "13:48",
+				"minutes": 47
+			},
+			{
+				"from": "13:49",
+				"to": "15:54",
+				"minutes": 126
+			},
+			{
+				"from": "15:57",
+				"to": "17:52",
+				"minutes": 115
+			},
+			{
+				"from": "18:20",
+				"to": "18:56",
+				"minutes": 36
+			},
+			{
+				"from": "18:57",
+				"to": "01:30",
+				"minutes": 393
+			},
+			{
+				"from": "01:31",
+				"to": "03:03",
+				"minutes": 92
+			}
+		],
+		"longest_focus_minutes": 28
+	},
+	"top_dirs": [
+		{
+			"path": "{memoro => apps/memoro}/apps",
+			"pct": 28
+		},
+		{
+			"path": "{maerchenzauber => apps/maerchenzauber}/apps",
+			"pct": 11
+		},
+		{
+			"path": "{picture => apps/picture}/apps",
+			"pct": 9
+		},
+		{
+			"path": "{uload => apps/uload}/apps",
+			"pct": 6
+		},
+		{
+			"path": "{manacore => apps/manacore}/apps",
+			"pct": 5
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 1267
+		},
+		{
+			"ext": ".md",
+			"count": 724
+		},
+		{
+			"ext": ".tsx",
+			"count": 645
+		},
+		{
+			"ext": ".svelte",
+			"count": 434
+		},
+		{
+			"ext": ".json",
+			"count": 352
+		},
+		{
+			"ext": ".astro",
+			"count": 343
+		}
+	],
+	"tags": ["chat", "uload", "nutriphi", "picture"],
+	"commits_list": [
+		{
+			"hash": "559eb08",
+			"short": "fix(uload): update Docker config and add env examples to apps/web",
+			"type": "fix",
+			"scope": "uload",
+			"additions": 605,
+			"deletions": 172,
+			"timestamp": "2025-11-25T12:02:52+01:00"
+		},
+		{
+			"hash": "fcf3a34",
+			"short": "Feat: New project chat, uload refactor (postgress), hosting plans, uload landingpage",
+			"type": null,
+			"scope": null,
+			"additions": 7100,
+			"deletions": 3709,
+			"timestamp": "2025-11-25T13:01:41+01:00"
+		},
+		{
+			"hash": "c638a7f",
+			"short": "feat(chat): integrate chat project into monorepo with full app structure",
+			"type": "feat",
+			"scope": "chat",
+			"additions": 22644,
+			"deletions": 370,
+			"timestamp": "2025-11-25T13:48:24+01:00"
+		},
+		{
+			"hash": "ba3e053",
+			"short": "Feat: Overview doc",
+			"type": null,
+			"scope": null,
+			"additions": 1326,
+			"deletions": 0,
+			"timestamp": "2025-11-25T13:49:00+01:00"
+		},
+		{
+			"hash": "9a84cc0",
+			"short": "feat(chat): add SvelteKit web app with full feature parity to mobile",
+			"type": "feat",
+			"scope": "chat",
+			"additions": 7187,
+			"deletions": 42,
+			"timestamp": "2025-11-25T15:54:44+01:00"
+		},
+		{
+			"hash": "ce71db2",
+			"short": "Feat: docs",
+			"type": null,
+			"scope": null,
+			"additions": 65,
+			"deletions": 0,
+			"timestamp": "2025-11-25T15:57:23+01:00"
+		},
+		{
+			"hash": "6537863",
+			"short": "feat(nutriphi): migrate from Supabase to PostgreSQL + Hetzner S3",
+			"type": "feat",
+			"scope": "nutriphi",
+			"additions": 15225,
+			"deletions": 159,
+			"timestamp": "2025-11-25T17:52:14+01:00"
+		},
+		{
+			"hash": "36b85fc",
+			"short": "fix(picture): migrate to Astro 5.x content collections and fix TypeScript errors",
+			"type": "fix",
+			"scope": "picture",
+			"additions": 248,
+			"deletions": 60,
+			"timestamp": "2025-11-25T18:13:57+01:00"
+		},
+		{
+			"hash": "865d74f",
+			"short": "Feat: Landingpages centralized, new app news integrated",
+			"type": null,
+			"scope": null,
+			"additions": 8242,
+			"deletions": 610,
+			"timestamp": "2025-11-25T18:20:17+01:00"
+		},
+		{
+			"hash": "754e87e",
+			"short": "add mana core",
+			"type": null,
+			"scope": null,
+			"additions": 34751,
+			"deletions": 534,
+			"timestamp": "2025-11-25T18:56:35+01:00"
+		},
+		{
+			"hash": "28d167a",
+			"short": "Merge branch 'feat/mana-core'",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 0,
+			"timestamp": "2025-11-25T18:57:32+01:00"
+		},
+		{
+			"hash": "7a1f1e9",
+			"short": "make auth working",
+			"type": null,
+			"scope": null,
+			"additions": 301,
+			"deletions": 51,
+			"timestamp": "2025-11-26T01:30:51+01:00"
+		},
+		{
+			"hash": "25824ed",
+			"short": "make auth working",
+			"type": null,
+			"scope": null,
+			"additions": 9103,
+			"deletions": 3887,
+			"timestamp": "2025-11-26T01:31:12+01:00"
+		},
+		{
+			"hash": "ff80aee",
+			"short": "refactor: restructure   monorepo with apps/ and services/   directories",
+			"type": null,
+			"scope": null,
+			"additions": 2766,
+			"deletions": 1452,
+			"timestamp": "2025-11-26T03:03:24+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

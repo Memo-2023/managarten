@@ -1,0 +1,137 @@
+{
+	"date": "2026-05-12",
+	"day_number": 104,
+	"weekday": "Dienstag",
+	"commits": 5,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 4
+		},
+		{
+			"name": "Till",
+			"count": 1
+		}
+	],
+	"additions": 860,
+	"deletions": 604,
+	"net_lines": 256,
+	"files_changed": 32,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-05-12T15:00:03.000Z",
+		"last_commit_at": "2026-05-12T16:58:30.000Z",
+		"total_span_minutes": 118,
+		"active_minutes": 25,
+		"pauses": [
+			{
+				"from": "17:25",
+				"to": "18:58",
+				"minutes": 93
+			}
+		],
+		"longest_focus_minutes": 26
+	},
+	"top_dirs": [
+		{
+			"path": "apps/mana/apps/web",
+			"pct": 81
+		},
+		{
+			"path": "docker-compose.macmini.yml",
+			"pct": 8
+		},
+		{
+			"path": ".env.development",
+			"pct": 3
+		},
+		{
+			"path": "scripts/generate-env.mjs",
+			"pct": 3
+		},
+		{
+			"path": "cloudflared-config.yml",
+			"pct": 3
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".svelte",
+			"count": 19
+		},
+		{
+			"ext": ".ts",
+			"count": 9
+		},
+		{
+			"ext": ".yml",
+			"count": 4
+		},
+		{
+			"ext": ".development",
+			"count": 1
+		},
+		{
+			"ext": ".mjs",
+			"count": 1
+		},
+		{
+			"ext": ".json",
+			"count": 1
+		}
+	],
+	"tags": ["mana", "infra", "mana-auth", "mana-web", "mana-llm"],
+	"commits_list": [
+		{
+			"hash": "5635598",
+			"short": "feat(mana): migrate to central auth portal — no embedded login UI, clean cut",
+			"type": "feat",
+			"scope": "mana",
+			"additions": 773,
+			"deletions": 489,
+			"timestamp": "2026-05-12T17:00:03+02:00"
+		},
+		{
+			"hash": "b299a4a",
+			"short": "feat(infra): route manawald.mana.how + add to mana-auth CORS",
+			"type": "feat",
+			"scope": "infra",
+			"additions": 6,
+			"deletions": 1,
+			"timestamp": "2026-05-12T17:00:15+02:00"
+		},
+		{
+			"hash": "dd2e4b6",
+			"short": "fix(mana-auth): read PUBLIC_*_URL from window-injected vars, not $env/dynamic/public",
+			"type": "fix",
+			"scope": "mana-auth",
+			"additions": 41,
+			"deletions": 9,
+			"timestamp": "2026-05-12T17:05:28+02:00"
+		},
+		{
+			"hash": "009a695",
+			"short": "fix(mana-web): add @simplewebauthn/browser as explicit dep",
+			"type": "fix",
+			"scope": "mana-web",
+			"additions": 39,
+			"deletions": 104,
+			"timestamp": "2026-05-12T17:25:39+02:00"
+		},
+		{
+			"hash": "cec84c2",
+			"short": "chore(mana-llm): manawald.mana.how + localhost:3090 in CORS_ORIGINS",
+			"type": "chore",
+			"scope": "mana-llm",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-05-12T18:58:30+02:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

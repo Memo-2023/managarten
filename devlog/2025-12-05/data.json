@@ -1,0 +1,201 @@
+{
+	"date": "2025-12-05",
+	"day_number": 12,
+	"weekday": "Freitag",
+	"commits": 11,
+	"authors": [
+		{
+			"name": "Till-JS",
+			"count": 9
+		},
+		{
+			"name": "Wuesteon",
+			"count": 2
+		}
+	],
+	"additions": 79293,
+	"deletions": 5883,
+	"net_lines": 73410,
+	"files_changed": 1376,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2025-12-05T12:13:15.000Z",
+		"last_commit_at": "2025-12-05T16:57:26.000Z",
+		"total_span_minutes": 284,
+		"active_minutes": 56,
+		"pauses": [
+			{
+				"from": "13:47",
+				"to": "15:09",
+				"minutes": 81
+			},
+			{
+				"from": "15:30",
+				"to": "17:18",
+				"minutes": 108
+			},
+			{
+				"from": "17:18",
+				"to": "17:57",
+				"minutes": 39
+			}
+		],
+		"longest_focus_minutes": 34
+	},
+	"top_dirs": [
+		{
+			"path": "apps/context/apps/mobile",
+			"pct": 13
+		},
+		{
+			"path": "apps-archived/techbase/apps",
+			"pct": 11
+		},
+		{
+			"path": "{apps => apps-archived}/presi/apps",
+			"pct": 10
+		},
+		{
+			"path": "{apps => apps-archived}/mail/apps",
+			"pct": 9
+		},
+		{
+			"path": "games/worldream/{ => apps",
+			"pct": 8
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 541
+		},
+		{
+			"ext": ".svelte",
+			"count": 238
+		},
+		{
+			"ext": ".tsx",
+			"count": 166
+		},
+		{
+			"ext": ".json",
+			"count": 123
+		},
+		{
+			"ext": ".md",
+			"count": 115
+		},
+		{
+			"ext": ".astro",
+			"count": 49
+		}
+	],
+	"tags": ["mana-core-auth", "games", "context"],
+	"commits_list": [
+		{
+			"hash": "ace7fa8",
+			"short": "chore: archive finance, mail, moodlit apps and rename voxel-lava",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 0,
+			"timestamp": "2025-12-05T13:13:15+01:00"
+		},
+		{
+			"hash": "8e414c1",
+			"short": "feat(games): add worldream game to monorepo",
+			"type": "feat",
+			"scope": "games",
+			"additions": 26745,
+			"deletions": 0,
+			"timestamp": "2025-12-05T13:24:06+01:00"
+		},
+		{
+			"hash": "1731347",
+			"short": "fix(mana-core-auth): use JWKS with jose for JWT verification",
+			"type": "fix",
+			"scope": "mana-core-auth",
+			"additions": 43,
+			"deletions": 28,
+			"timestamp": "2025-12-05T13:26:19+01:00"
+		},
+		{
+			"hash": "34c8799",
+			"short": "chore: add techbase to apps-archived",
+			"type": null,
+			"scope": null,
+			"additions": 12613,
+			"deletions": 0,
+			"timestamp": "2025-12-05T13:47:39+01:00"
+		},
+		{
+			"hash": "bb0e0cf",
+			"short": "🚚 feat(context): integrate context app into monorepo",
+			"type": null,
+			"scope": null,
+			"additions": 31903,
+			"deletions": 474,
+			"timestamp": "2025-12-05T15:09:04+01:00"
+		},
+		{
+			"hash": "44897ae",
+			"short": "chore: archive inventory, presi, storage apps",
+			"type": null,
+			"scope": null,
+			"additions": 24,
+			"deletions": 70,
+			"timestamp": "2025-12-05T15:22:38+01:00"
+		},
+		{
+			"hash": "12f5917",
+			"short": "docs: update CLAUDE.md for archived apps",
+			"type": null,
+			"scope": null,
+			"additions": 3,
+			"deletions": 2,
+			"timestamp": "2025-12-05T15:29:58+01:00"
+		},
+		{
+			"hash": "dbf5745",
+			"short": "fix(mana-core-auth): configure helmet for cross-origin requests",
+			"type": "fix",
+			"scope": "mana-core-auth",
+			"additions": 8,
+			"deletions": 2,
+			"timestamp": "2025-12-05T15:30:12+01:00"
+		},
+		{
+			"hash": "86a6ff2",
+			"short": "fix(context): add expo-font dependency and fix TypeScript issues",
+			"type": "fix",
+			"scope": "context",
+			"additions": 7941,
+			"deletions": 5307,
+			"timestamp": "2025-12-05T15:30:31+01:00"
+		},
+		{
+			"hash": "9be1125",
+			"short": "update docs",
+			"type": null,
+			"scope": null,
+			"additions": 13,
+			"deletions": 0,
+			"timestamp": "2025-12-05T17:18:40+01:00"
+		},
+		{
+			"hash": "d41d060",
+			"short": "Merge branch 'dev-1' into dev",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 0,
+			"timestamp": "2025-12-05T17:57:26+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

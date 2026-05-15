@@ -1,0 +1,372 @@
+{
+	"date": "2026-02-16",
+	"day_number": 49,
+	"weekday": "Montag",
+	"commits": 31,
+	"authors": [
+		{
+			"name": "Till-JS",
+			"count": 31
+		}
+	],
+	"additions": 16919,
+	"deletions": 4512,
+	"net_lines": 12407,
+	"files_changed": 234,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-02-16T09:41:44.000Z",
+		"last_commit_at": "2026-02-16T14:35:18.000Z",
+		"total_span_minutes": 294,
+		"active_minutes": 213,
+		"pauses": [
+			{
+				"from": "13:58",
+				"to": "14:30",
+				"minutes": 32
+			},
+			{
+				"from": "14:30",
+				"to": "15:19",
+				"minutes": 49
+			}
+		],
+		"longest_focus_minutes": 196
+	},
+	"top_dirs": [
+		{
+			"path": "apps/lightwrite/apps/backend",
+			"pct": 18
+		},
+		{
+			"path": "apps/lightwrite/apps/web",
+			"pct": 18
+		},
+		{
+			"path": "services/mana-core-auth/src",
+			"pct": 10
+		},
+		{
+			"path": "apps/matrix/apps/web",
+			"pct": 8
+		},
+		{
+			"path": "apps/manacore/apps/web",
+			"pct": 4
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 136
+		},
+		{
+			"ext": ".svelte",
+			"count": 65
+		},
+		{
+			"ext": ".json",
+			"count": 34
+		},
+		{
+			"ext": ".md",
+			"count": 15
+		},
+		{
+			"ext": ".yml",
+			"count": 4
+		},
+		{
+			"ext": "<no-ext>",
+			"count": 4
+		}
+	],
+	"tags": ["auth", "storage"],
+	"commits_list": [
+		{
+			"hash": "d7ce615",
+			"short": "💄 style(onboarding): convert fullscreen to compact modal",
+			"type": null,
+			"scope": null,
+			"additions": 72,
+			"deletions": 68,
+			"timestamp": "2026-02-16T10:41:44+01:00"
+		},
+		{
+			"hash": "7b2ae94",
+			"short": "💄 fix(onboarding): use correct elevation layer colors for modal",
+			"type": null,
+			"scope": null,
+			"additions": 7,
+			"deletions": 7,
+			"timestamp": "2026-02-16T10:48:01+01:00"
+		},
+		{
+			"hash": "78c7383",
+			"short": "✨ feat(lightwrite): add Beat/Lyrics Editor app",
+			"type": null,
+			"scope": null,
+			"additions": 5244,
+			"deletions": 34,
+			"timestamp": "2026-02-16T11:13:08+01:00"
+		},
+		{
+			"hash": "376ba82",
+			"short": "✨ feat(matrix): add widget support to Manalink client",
+			"type": null,
+			"scope": null,
+			"additions": 132,
+			"deletions": 1,
+			"timestamp": "2026-02-16T11:16:27+01:00"
+		},
+		{
+			"hash": "6797195",
+			"short": "🔧 chore(infra): add lightwrite subdomain configuration",
+			"type": null,
+			"scope": null,
+			"additions": 23,
+			"deletions": 0,
+			"timestamp": "2026-02-16T11:19:54+01:00"
+		},
+		{
+			"hash": "52f88af",
+			"short": "🐛 fix(clock-bot): enable Redis session storage for widget",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-02-16T11:20:54+01:00"
+		},
+		{
+			"hash": "ea0bf67",
+			"short": "🎨 style(matrix): fix RoomSettingsPanel styling to match app theme",
+			"type": null,
+			"scope": null,
+			"additions": 437,
+			"deletions": 102,
+			"timestamp": "2026-02-16T11:25:54+01:00"
+		},
+		{
+			"hash": "bba3d97",
+			"short": "🔒 chore: update pnpm-lock.yaml for lightwrite shared package",
+			"type": null,
+			"scope": null,
+			"additions": 251,
+			"deletions": 0,
+			"timestamp": "2026-02-16T11:30:02+01:00"
+		},
+		{
+			"hash": "f77edbd",
+			"short": "🐳 fix(lightwrite): add shared-nestjs-setup to Dockerfile",
+			"type": null,
+			"scope": null,
+			"additions": 4,
+			"deletions": 0,
+			"timestamp": "2026-02-16T11:31:38+01:00"
+		},
+		{
+			"hash": "7747ca6",
+			"short": "📝 docs(devlog): add missing devlogs for Jan 24-27 and Feb 14-15",
+			"type": null,
+			"scope": null,
+			"additions": 1548,
+			"deletions": 0,
+			"timestamp": "2026-02-16T11:40:37+01:00"
+		},
+		{
+			"hash": "2e66039",
+			"short": "💳 feat(stripe): add ManaCore unified subscription plans",
+			"type": null,
+			"scope": null,
+			"additions": 103,
+			"deletions": 55,
+			"timestamp": "2026-02-16T11:43:04+01:00"
+		},
+		{
+			"hash": "b9669c3",
+			"short": "🎨 refactor(matrix): use elevation system for RoomSettingsPanel",
+			"type": null,
+			"scope": null,
+			"additions": 16,
+			"deletions": 29,
+			"timestamp": "2026-02-16T11:45:39+01:00"
+		},
+		{
+			"hash": "bfc2737",
+			"short": "♻️ refactor(credits): simplify credit system by removing free credits and B2B",
+			"type": null,
+			"scope": null,
+			"additions": 272,
+			"deletions": 2416,
+			"timestamp": "2026-02-16T11:54:32+01:00"
+		},
+		{
+			"hash": "d86e903",
+			"short": "🐛 fix(auth): skip body parser for Stripe webhooks",
+			"type": null,
+			"scope": null,
+			"additions": 238,
+			"deletions": 191,
+			"timestamp": "2026-02-16T12:01:24+01:00"
+		},
+		{
+			"hash": "0e8f6f1",
+			"short": "📝 docs(credits): update documentation for simplified credit system",
+			"type": null,
+			"scope": null,
+			"additions": 208,
+			"deletions": 401,
+			"timestamp": "2026-02-16T12:03:35+01:00"
+		},
+		{
+			"hash": "b5d7524",
+			"short": "💳 feat(stripe): add SEPA Direct Debit payment option",
+			"type": null,
+			"scope": null,
+			"additions": 543,
+			"deletions": 3,
+			"timestamp": "2026-02-16T12:05:19+01:00"
+		},
+		{
+			"hash": "6e7b671",
+			"short": "✨ feat(lightwrite): add UX improvements and beat library",
+			"type": null,
+			"scope": null,
+			"additions": 993,
+			"deletions": 204,
+			"timestamp": "2026-02-16T12:14:13+01:00"
+		},
+		{
+			"hash": "9d618b1",
+			"short": "📝 docs: add SEPA activation checklist with TODOs and test cases",
+			"type": null,
+			"scope": null,
+			"additions": 259,
+			"deletions": 0,
+			"timestamp": "2026-02-16T12:42:02+01:00"
+		},
+		{
+			"hash": "5fe16b5",
+			"short": "✨ feat(auth): add organization management endpoints",
+			"type": null,
+			"scope": null,
+			"additions": 1163,
+			"deletions": 0,
+			"timestamp": "2026-02-16T12:43:38+01:00"
+		},
+		{
+			"hash": "b92b9bd",
+			"short": "✨ feat(onboarding): add app-specific mini-onboarding system",
+			"type": null,
+			"scope": null,
+			"additions": 809,
+			"deletions": 0,
+			"timestamp": "2026-02-16T12:50:04+01:00"
+		},
+		{
+			"hash": "67a2d63",
+			"short": "📝 docs: add app-specific mini-onboarding documentation",
+			"type": null,
+			"scope": null,
+			"additions": 312,
+			"deletions": 0,
+			"timestamp": "2026-02-16T12:52:44+01:00"
+		},
+		{
+			"hash": "14da5a2",
+			"short": "📝 docs(auth): update organization endpoint documentation",
+			"type": null,
+			"scope": null,
+			"additions": 1668,
+			"deletions": 20,
+			"timestamp": "2026-02-16T12:57:29+01:00"
+		},
+		{
+			"hash": "31f3d80",
+			"short": "✈️ feat(pwa): add PWA dependencies to all 18 web apps",
+			"type": null,
+			"scope": null,
+			"additions": 798,
+			"deletions": 439,
+			"timestamp": "2026-02-16T13:13:40+01:00"
+		},
+		{
+			"hash": "46b9861",
+			"short": "🐛 fix(lightwrite): add missing Tailwind CSS vite plugin",
+			"type": null,
+			"scope": null,
+			"additions": 2,
+			"deletions": 0,
+			"timestamp": "2026-02-16T13:38:04+01:00"
+		},
+		{
+			"hash": "711db9e",
+			"short": "🐛 fix(lightwrite): add missing shared packages to Dockerfile",
+			"type": null,
+			"scope": null,
+			"additions": 2,
+			"deletions": 0,
+			"timestamp": "2026-02-16T13:42:32+01:00"
+		},
+		{
+			"hash": "2236f83",
+			"short": "📝 docs: add Mana earning system documentation",
+			"type": null,
+			"scope": null,
+			"additions": 1425,
+			"deletions": 512,
+			"timestamp": "2026-02-16T13:52:22+01:00"
+		},
+		{
+			"hash": "1328d92",
+			"short": "🐛 fix(lightwrite): add LightWriteLogo to shared-branding",
+			"type": null,
+			"scope": null,
+			"additions": 32,
+			"deletions": 11,
+			"timestamp": "2026-02-16T13:56:10+01:00"
+		},
+		{
+			"hash": "f5a6fda",
+			"short": "🔧 chore(auth): add missing apps to CORS origins",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-02-16T13:58:07+01:00"
+		},
+		{
+			"hash": "20db016",
+			"short": "fix(auth): remove conflicting JSON body parser middleware",
+			"type": "fix",
+			"scope": "auth",
+			"additions": 4,
+			"deletions": 9,
+			"timestamp": "2026-02-16T14:30:06+01:00"
+		},
+		{
+			"hash": "9dc6c11",
+			"short": "✨ feat(lightwrite): add STT lyrics transcription integration",
+			"type": null,
+			"scope": null,
+			"additions": 319,
+			"deletions": 4,
+			"timestamp": "2026-02-16T15:19:14+01:00"
+		},
+		{
+			"hash": "d6303e4",
+			"short": "feat(storage): add public endpoint support for presigned URLs",
+			"type": "feat",
+			"scope": "storage",
+			"additions": 33,
+			"deletions": 4,
+			"timestamp": "2026-02-16T15:35:18+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

@@ -1,0 +1,55 @@
+{
+	"date": "2026-05-14",
+	"day_number": 106,
+	"weekday": "Donnerstag",
+	"commits": 1,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 1
+		}
+	],
+	"additions": 6,
+	"deletions": 0,
+	"net_lines": 6,
+	"files_changed": 1,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-05-14T19:55:25.000Z",
+		"last_commit_at": "2026-05-14T19:55:25.000Z",
+		"total_span_minutes": 0,
+		"active_minutes": 0,
+		"pauses": [],
+		"longest_focus_minutes": 0
+	},
+	"top_dirs": [
+		{
+			"path": "docker-compose.macmini.yml",
+			"pct": 100
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".yml",
+			"count": 1
+		}
+	],
+	"tags": [],
+	"commits_list": [
+		{
+			"hash": "a040e12",
+			"short": "mana-llm compose: ANTHROPIC_API_KEY + OPENAI_API_KEY env-passthrough",
+			"type": null,
+			"scope": null,
+			"additions": 6,
+			"deletions": 0,
+			"timestamp": "2026-05-14T21:55:25+02:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

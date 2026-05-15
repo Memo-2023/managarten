@@ -1,0 +1,350 @@
+{
+	"date": "2025-12-02",
+	"day_number": 9,
+	"weekday": "Dienstag",
+	"commits": 27,
+	"authors": [
+		{
+			"name": "Till-JS",
+			"count": 19
+		},
+		{
+			"name": "Wuesteon",
+			"count": 8
+		}
+	],
+	"additions": 45938,
+	"deletions": 4929,
+	"net_lines": 41009,
+	"files_changed": 396,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2025-12-02T11:35:54.000Z",
+		"last_commit_at": "2025-12-03T01:38:38.000Z",
+		"total_span_minutes": 843,
+		"active_minutes": 206,
+		"pauses": [
+			{
+				"from": "13:17",
+				"to": "13:50",
+				"minutes": 33
+			},
+			{
+				"from": "13:50",
+				"to": "14:39",
+				"minutes": 49
+			},
+			{
+				"from": "14:42",
+				"to": "22:56",
+				"minutes": 494
+			},
+			{
+				"from": "00:44",
+				"to": "01:46",
+				"minutes": 61
+			}
+		],
+		"longest_focus_minutes": 109
+	},
+	"top_dirs": [
+		{
+			"path": "apps/calendar/apps/web",
+			"pct": 21
+		},
+		{
+			"path": "apps/calendar/apps/backend",
+			"pct": 9
+		},
+		{
+			"path": "apps/contacts/apps/web",
+			"pct": 9
+		},
+		{
+			"path": "apps/storage/apps/backend",
+			"pct": 9
+		},
+		{
+			"path": "apps/storage/apps/web",
+			"pct": 9
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 246
+		},
+		{
+			"ext": ".svelte",
+			"count": 165
+		},
+		{
+			"ext": ".json",
+			"count": 52
+		},
+		{
+			"ext": ".md",
+			"count": 30
+		},
+		{
+			"ext": ".astro",
+			"count": 26
+		},
+		{
+			"ext": ".css",
+			"count": 11
+		}
+	],
+	"tags": ["landing"],
+	"commits_list": [
+		{
+			"hash": "ef8fd6a",
+			"short": "feat(landing): add Cloudflare Pages deployment setup",
+			"type": "feat",
+			"scope": "landing",
+			"additions": 843,
+			"deletions": 235,
+			"timestamp": "2025-12-02T12:35:54+01:00"
+		},
+		{
+			"hash": "29aaaec",
+			"short": "♻️ refactor(storage): unify bucket names and add calendar/contacts",
+			"type": null,
+			"scope": null,
+			"additions": 70,
+			"deletions": 26,
+			"timestamp": "2025-12-02T12:59:22+01:00"
+		},
+		{
+			"hash": "623b1a2",
+			"short": "feat(landing): add Presi landing page and improve Zitare landing",
+			"type": "feat",
+			"scope": "landing",
+			"additions": 1575,
+			"deletions": 249,
+			"timestamp": "2025-12-02T13:06:38+01:00"
+		},
+		{
+			"hash": "00176a2",
+			"short": "✨ feat(calendar): add complete calendar app with backend, web, and landing",
+			"type": null,
+			"scope": null,
+			"additions": 9433,
+			"deletions": 0,
+			"timestamp": "2025-12-02T13:15:04+01:00"
+		},
+		{
+			"hash": "45d7015",
+			"short": "✨ feat(contacts): add complete contacts app with backend, web, and landing",
+			"type": null,
+			"scope": null,
+			"additions": 3812,
+			"deletions": 1,
+			"timestamp": "2025-12-02T13:17:42+01:00"
+		},
+		{
+			"hash": "a00a02a",
+			"short": "🎨 style(contacts): fix CSS variables and add modern contact pages",
+			"type": null,
+			"scope": null,
+			"additions": 1868,
+			"deletions": 3,
+			"timestamp": "2025-12-02T13:50:19+01:00"
+		},
+		{
+			"hash": "3799fe1",
+			"short": "🎨 style(calendar): improve UI components and integrate shared-auth-ui",
+			"type": null,
+			"scope": null,
+			"additions": 466,
+			"deletions": 329,
+			"timestamp": "2025-12-02T14:39:23+01:00"
+		},
+		{
+			"hash": "fb9945c",
+			"short": "🔧 fix(chat): update schema for Better Auth nanoid user IDs",
+			"type": null,
+			"scope": null,
+			"additions": 8,
+			"deletions": 8,
+			"timestamp": "2025-12-02T14:40:02+01:00"
+		},
+		{
+			"hash": "2a04010",
+			"short": "✨ feat(branding): add Calendar and Storage app branding",
+			"type": null,
+			"scope": null,
+			"additions": 87,
+			"deletions": 2,
+			"timestamp": "2025-12-02T14:40:30+01:00"
+		},
+		{
+			"hash": "1a88dec",
+			"short": "🔧 fix(shared-storage): update build configuration for CommonJS",
+			"type": null,
+			"scope": null,
+			"additions": 19,
+			"deletions": 13,
+			"timestamp": "2025-12-02T14:40:55+01:00"
+		},
+		{
+			"hash": "19500e8",
+			"short": "✨ feat(storage): add Storage app scaffolding and root config",
+			"type": null,
+			"scope": null,
+			"additions": 8293,
+			"deletions": 5,
+			"timestamp": "2025-12-02T14:41:15+01:00"
+		},
+		{
+			"hash": "fa13f98",
+			"short": "🔧 fix(auth): skip migrations in Docker entrypoint",
+			"type": null,
+			"scope": null,
+			"additions": 3,
+			"deletions": 6,
+			"timestamp": "2025-12-02T14:41:34+01:00"
+		},
+		{
+			"hash": "6cc9f70",
+			"short": "✨ feat(contacts): add archive, favorites, groups, and feedback pages",
+			"type": null,
+			"scope": null,
+			"additions": 3190,
+			"deletions": 0,
+			"timestamp": "2025-12-02T14:42:01+01:00"
+		},
+		{
+			"hash": "02c82c7",
+			"short": "✨ feat(a11y): add accessibility settings and theme improvements",
+			"type": null,
+			"scope": null,
+			"additions": 1474,
+			"deletions": 143,
+			"timestamp": "2025-12-02T22:56:09+01:00"
+		},
+		{
+			"hash": "9d8c184",
+			"short": "✨ feat(calendar): add comprehensive settings and profile pages",
+			"type": null,
+			"scope": null,
+			"additions": 1889,
+			"deletions": 392,
+			"timestamp": "2025-12-02T23:18:49+01:00"
+		},
+		{
+			"hash": "0f2aae6",
+			"short": "✨ feat(calendar): add drag & drop and page-level scrolling",
+			"type": null,
+			"scope": null,
+			"additions": 1013,
+			"deletions": 92,
+			"timestamp": "2025-12-02T23:42:03+01:00"
+		},
+		{
+			"hash": "2635281",
+			"short": "✨ feat(storage): add shared package types and configuration",
+			"type": null,
+			"scope": null,
+			"additions": 89,
+			"deletions": 0,
+			"timestamp": "2025-12-03T00:04:35+01:00"
+		},
+		{
+			"hash": "2154c3b",
+			"short": "🔧 chore: add Husky pre-commit hook for type-check",
+			"type": null,
+			"scope": null,
+			"additions": 118,
+			"deletions": 327,
+			"timestamp": "2025-12-03T00:08:06+01:00"
+		},
+		{
+			"hash": "0e5d923",
+			"short": "✨ feat(auth): add centralized user settings synced across all apps",
+			"type": null,
+			"scope": null,
+			"additions": 1624,
+			"deletions": 7,
+			"timestamp": "2025-12-03T00:09:47+01:00"
+		},
+		{
+			"hash": "b01153b",
+			"short": "🐛 fix(calendar): improve drag & drop and resize behavior",
+			"type": null,
+			"scope": null,
+			"additions": 430,
+			"deletions": 101,
+			"timestamp": "2025-12-03T00:14:47+01:00"
+		},
+		{
+			"hash": "482509a",
+			"short": "🐛 fix(theme): add ShadCN-style CSS variable aliases for shared components",
+			"type": null,
+			"scope": null,
+			"additions": 839,
+			"deletions": 188,
+			"timestamp": "2025-12-03T00:20:49+01:00"
+		},
+		{
+			"hash": "0b539bd",
+			"short": "📝 docs: add comprehensive Claude Code guidelines",
+			"type": null,
+			"scope": null,
+			"additions": 4971,
+			"deletions": 0,
+			"timestamp": "2025-12-03T00:44:49+01:00"
+		},
+		{
+			"hash": "6c9e897",
+			"short": "fix: update docker registry to ghcr.io/memo-2023",
+			"type": null,
+			"scope": null,
+			"additions": 12,
+			"deletions": 12,
+			"timestamp": "2025-12-03T01:46:16+01:00"
+		},
+		{
+			"hash": "ea3582d",
+			"short": "💄 style: apply prettier formatting across codebase",
+			"type": null,
+			"scope": null,
+			"additions": 3309,
+			"deletions": 2574,
+			"timestamp": "2025-12-03T02:02:09+01:00"
+		},
+		{
+			"hash": "86da45a",
+			"short": "🔧 chore: add lint-staged for pre-commit formatting",
+			"type": null,
+			"scope": null,
+			"additions": 163,
+			"deletions": 0,
+			"timestamp": "2025-12-03T02:04:41+01:00"
+		},
+		{
+			"hash": "8cdb950",
+			"short": "🐛 fix(mana-games): use openai package for Azure OpenAI client",
+			"type": null,
+			"scope": null,
+			"additions": 339,
+			"deletions": 215,
+			"timestamp": "2025-12-03T02:20:09+01:00"
+		},
+		{
+			"hash": "09477e0",
+			"short": "🐛 fix(mana-games): clean dist before Astro build",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2025-12-03T02:38:38+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

@@ -1,0 +1,813 @@
+{
+	"date": "2026-04-27",
+	"day_number": 96,
+	"weekday": "Montag",
+	"commits": 80,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 80
+		}
+	],
+	"additions": 12555,
+	"deletions": 2508,
+	"net_lines": 10047,
+	"files_changed": 310,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-04-27T10:40:43.000Z",
+		"last_commit_at": "2026-04-27T20:36:57.000Z",
+		"total_span_minutes": 596,
+		"active_minutes": 286,
+		"pauses": [
+			{
+				"from": "16:08",
+				"to": "17:58",
+				"minutes": 110
+			},
+			{
+				"from": "19:13",
+				"to": "22:32",
+				"minutes": 200
+			}
+		],
+		"longest_focus_minutes": 208
+	},
+	"top_dirs": [
+		{
+			"path": "apps/mana/apps/web",
+			"pct": 77
+		},
+		{
+			"path": "scripts/i18n-hardcoded-baseline.json",
+			"pct": 9
+		},
+		{
+			"path": "packages/feedback/src",
+			"pct": 4
+		},
+		{
+			"path": "services/mana-analytics/src",
+			"pct": 4
+		},
+		{
+			"path": "scripts/i18n-missing-baseline.json",
+			"pct": 2
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".json",
+			"count": 331
+		},
+		{
+			"ext": ".svelte",
+			"count": 74
+		},
+		{
+			"ext": ".ts",
+			"count": 41
+		},
+		{
+			"ext": ".md",
+			"count": 4
+		},
+		{
+			"ext": ".sql",
+			"count": 4
+		},
+		{
+			"ext": ".yml",
+			"count": 3
+		}
+	],
+	"tags": ["locales", "broadcast", "news", "quiz", "todo/settings"],
+	"commits_list": [
+		{
+			"hash": "0fbef25",
+			"short": "i18n(quiz): add namespace JSONs (de/en/es/fr/it)",
+			"type": "i18n",
+			"scope": "quiz",
+			"additions": 230,
+			"deletions": 0,
+			"timestamp": "2026-04-27T12:40:43+02:00"
+		},
+		{
+			"hash": "84bc904",
+			"short": "i18n(quiz): translate EditView via $_() — header, meta inputs, question list, new-question form",
+			"type": "i18n",
+			"scope": "quiz",
+			"additions": 64,
+			"deletions": 44,
+			"timestamp": "2026-04-27T12:42:11+02:00"
+		},
+		{
+			"hash": "fbc0613",
+			"short": "i18n(todo/settings): extend settings sub-namespace with descriptions and option labels",
+			"type": "i18n",
+			"scope": "todo/settings",
+			"additions": 146,
+			"deletions": 26,
+			"timestamp": "2026-04-27T12:47:40+02:00"
+		},
+		{
+			"hash": "753230c",
+			"short": "i18n(todo/settings): translate +page.svelte via $_() — all 6 sections + reset",
+			"type": "i18n",
+			"scope": "todo/settings",
+			"additions": 51,
+			"deletions": 44,
+			"timestamp": "2026-04-27T12:49:46+02:00"
+		},
+		{
+			"hash": "69bdd18",
+			"short": "i18n(broadcast): add namespace JSONs (de/en/es/fr/it)",
+			"type": "i18n",
+			"scope": "broadcast",
+			"additions": 255,
+			"deletions": 0,
+			"timestamp": "2026-04-27T13:09:24+02:00"
+		},
+		{
+			"hash": "99244c6",
+			"short": "i18n(broadcast): translate ComposeView via $_() — 4-step wizard end to end",
+			"type": "i18n",
+			"scope": "broadcast",
+			"additions": 83,
+			"deletions": 53,
+			"timestamp": "2026-04-27T13:11:16+02:00"
+		},
+		{
+			"hash": "582c1a2",
+			"short": "i18n(timeline): add namespace JSONs (de/en/es/fr/it)",
+			"type": "i18n",
+			"scope": "timeline",
+			"additions": 100,
+			"deletions": 0,
+			"timestamp": "2026-04-27T13:35:57+02:00"
+		},
+		{
+			"hash": "e0e80dc",
+			"short": "i18n(timeline): translate analytics +page.svelte via $_() — header, summary cards, sections",
+			"type": "i18n",
+			"scope": "timeline",
+			"additions": 19,
+			"deletions": 19,
+			"timestamp": "2026-04-27T13:37:11+02:00"
+		},
+		{
+			"hash": "ab57a62",
+			"short": "i18n(news): extend feed/reactions/onboarding sub-namespaces with badge + state keys",
+			"type": "i18n",
+			"scope": "news",
+			"additions": 45,
+			"deletions": 10,
+			"timestamp": "2026-04-27T13:44:13+02:00"
+		},
+		{
+			"hash": "390da4c",
+			"short": "i18n(news): translate +page.svelte via $_() — onboarding wizard + feed cards",
+			"type": "i18n",
+			"scope": "news",
+			"additions": 52,
+			"deletions": 36,
+			"timestamp": "2026-04-27T13:45:33+02:00"
+		},
+		{
+			"hash": "24fc3c6",
+			"short": "i18n(finance): add namespace JSONs (de/en/es/fr/it)",
+			"type": "i18n",
+			"scope": "finance",
+			"additions": 95,
+			"deletions": 0,
+			"timestamp": "2026-04-27T13:46:43+02:00"
+		},
+		{
+			"hash": "f29bb30",
+			"short": "i18n(finance): translate +page.svelte via $_() — header, summary cards, breakdown, add form, history",
+			"type": "i18n",
+			"scope": "finance",
+			"additions": 15,
+			"deletions": 15,
+			"timestamp": "2026-04-27T13:48:35+02:00"
+		},
+		{
+			"hash": "3e7f70e",
+			"short": "i18n(context): extend with home sub-namespace for /context overview page",
+			"type": "i18n",
+			"scope": "context",
+			"additions": 95,
+			"deletions": 0,
+			"timestamp": "2026-04-27T13:51:44+02:00"
+		},
+		{
+			"hash": "165a3e0",
+			"short": "i18n(context): translate +page.svelte via $_() — overview page",
+			"type": "i18n",
+			"scope": "context",
+			"additions": 19,
+			"deletions": 19,
+			"timestamp": "2026-04-27T13:53:14+02:00"
+		},
+		{
+			"hash": "99e5621",
+			"short": "i18n(food): extend with detail sub-namespace for /food/[id] page",
+			"type": "i18n",
+			"scope": "food",
+			"additions": 140,
+			"deletions": 0,
+			"timestamp": "2026-04-27T13:54:53+02:00"
+		},
+		{
+			"hash": "5dc0494",
+			"short": "i18n(food): translate /food/[id] +page.svelte via $_() — meal detail page",
+			"type": "i18n",
+			"scope": "food",
+			"additions": 63,
+			"deletions": 36,
+			"timestamp": "2026-04-27T13:57:38+02:00"
+		},
+		{
+			"hash": "e712faf",
+			"short": "i18n(api-keys): translate ListView via $_() — workbench module mirrors page strings",
+			"type": "i18n",
+			"scope": "api-keys",
+			"additions": 70,
+			"deletions": 34,
+			"timestamp": "2026-04-27T14:01:58+02:00"
+		},
+		{
+			"hash": "dbe24ac",
+			"short": "feat(feedback,credits): community-credit grants — +5 submit / +500 ship / +25 reaction-match",
+			"type": "feat",
+			"scope": "feedback,credits",
+			"additions": 882,
+			"deletions": 7,
+			"timestamp": "2026-04-27T14:13:46+02:00"
+		},
+		{
+			"hash": "eecf64c",
+			"short": "feat(community,feedback): +5 reward chip + Phase 3.F legacy-cleanup",
+			"type": "feat",
+			"scope": "community,feedback",
+			"additions": 90,
+			"deletions": 1017,
+			"timestamp": "2026-04-27T14:14:08+02:00"
+		},
+		{
+			"hash": "942bcfa",
+			"short": "fix(recipes): each-block local var '_' shadowed the svelte-i18n store",
+			"type": "fix",
+			"scope": "recipes",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-04-27T14:16:49+02:00"
+		},
+		{
+			"hash": "d7c6777",
+			"short": "i18n(articles): add namespace JSONs (de/en/es/fr/it)",
+			"type": "i18n",
+			"scope": "articles",
+			"additions": 190,
+			"deletions": 0,
+			"timestamp": "2026-04-27T14:17:50+02:00"
+		},
+		{
+			"hash": "1109d4e",
+			"short": "chore(i18n): bump hardcoded-baseline for reward-chip \"Mana Credits\" string",
+			"type": "chore",
+			"scope": "i18n",
+			"additions": 1,
+			"deletions": 2,
+			"timestamp": "2026-04-27T14:19:32+02:00"
+		},
+		{
+			"hash": "d7c0329",
+			"short": "i18n(articles): translate DetailView via $_() — page title, meta-row, tag picker, floating reader toolbar",
+			"type": "i18n",
+			"scope": "articles",
+			"additions": 55,
+			"deletions": 38,
+			"timestamp": "2026-04-27T14:20:01+02:00"
+		},
+		{
+			"hash": "0ae8419",
+			"short": "i18n(broadcast): extend with statuses + detail_view sub-namespaces",
+			"type": "i18n",
+			"scope": "broadcast",
+			"additions": 140,
+			"deletions": 0,
+			"timestamp": "2026-04-27T14:21:18+02:00"
+		},
+		{
+			"hash": "474f5ac",
+			"short": "i18n(broadcast): translate DetailView via $_() — header, actions, stats grid, polling, preview",
+			"type": "i18n",
+			"scope": "broadcast",
+			"additions": 52,
+			"deletions": 22,
+			"timestamp": "2026-04-27T14:22:17+02:00"
+		},
+		{
+			"hash": "c89792f",
+			"short": "fix(broadcast): silence unused-CSS check on .failed-count (selector reused via :global)",
+			"type": "fix",
+			"scope": "broadcast",
+			"additions": 8,
+			"deletions": 2,
+			"timestamp": "2026-04-27T14:24:08+02:00"
+		},
+		{
+			"hash": "2266d83",
+			"short": "i18n(moodlit): translate moods/+page.svelte via $_() — page header, create form, toasts",
+			"type": "i18n",
+			"scope": "moodlit",
+			"additions": 81,
+			"deletions": 11,
+			"timestamp": "2026-04-27T14:24:18+02:00"
+		},
+		{
+			"hash": "39a6f42",
+			"short": "fix(mana-credits): correct pnpm workspace filter (@mana/credits-service, not @mana/credits)",
+			"type": "fix",
+			"scope": "mana-credits",
+			"additions": 4,
+			"deletions": 2,
+			"timestamp": "2026-04-27T14:27:18+02:00"
+		},
+		{
+			"hash": "4857e2c",
+			"short": "i18n(photos): translate PhotoDetailModal via $_() — info panel, EXIF rows, OSM link",
+			"type": "i18n",
+			"scope": "photos",
+			"additions": 59,
+			"deletions": 17,
+			"timestamp": "2026-04-27T14:28:09+02:00"
+		},
+		{
+			"hash": "08ad86e",
+			"short": "i18n(ai-workbench): add namespace JSONs (de/en/es/fr/it)",
+			"type": "i18n",
+			"scope": "ai-workbench",
+			"additions": 160,
+			"deletions": 0,
+			"timestamp": "2026-04-27T14:29:29+02:00"
+		},
+		{
+			"hash": "391017b",
+			"short": "i18n(ai-workbench): translate ListView via $_() — tabs, filters, audit table, timeline buckets",
+			"type": "i18n",
+			"scope": "ai-workbench",
+			"additions": 64,
+			"deletions": 36,
+			"timestamp": "2026-04-27T14:31:33+02:00"
+		},
+		{
+			"hash": "e89958e",
+			"short": "fix(compose): mana-analytics MANA_CREDITS_URL points to prod port 3002 (not dev 3061)",
+			"type": "fix",
+			"scope": "compose",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-04-27T14:32:17+02:00"
+		},
+		{
+			"hash": "54f84de",
+			"short": "i18n(broadcast): extend with list_view sub-namespace",
+			"type": "i18n",
+			"scope": "broadcast",
+			"additions": 105,
+			"deletions": 0,
+			"timestamp": "2026-04-27T14:33:25+02:00"
+		},
+		{
+			"hash": "0ca9394",
+			"short": "i18n(broadcast): translate ListView via $_() — header, stats, filters, list rows",
+			"type": "i18n",
+			"scope": "broadcast",
+			"additions": 34,
+			"deletions": 26,
+			"timestamp": "2026-04-27T14:34:32+02:00"
+		},
+		{
+			"hash": "2491649",
+			"short": "i18n(dreams): extend with symbol_detail sub-namespace",
+			"type": "i18n",
+			"scope": "dreams",
+			"additions": 120,
+			"deletions": 0,
+			"timestamp": "2026-04-27T14:40:04+02:00"
+		},
+		{
+			"hash": "258edaa",
+			"short": "i18n(dreams): translate SymbolDetailView via $_() — header, merge dialog, sections, dream list",
+			"type": "i18n",
+			"scope": "dreams",
+			"additions": 42,
+			"deletions": 25,
+			"timestamp": "2026-04-27T14:41:30+02:00"
+		},
+		{
+			"hash": "c0bf9aa",
+			"short": "i18n(news): translate workbench ListView via $_() — onboarding CTA, toolbar, list rows",
+			"type": "i18n",
+			"scope": "news",
+			"additions": 61,
+			"deletions": 16,
+			"timestamp": "2026-04-27T14:43:18+02:00"
+		},
+		{
+			"hash": "b290ed7",
+			"short": "i18n(notes): add namespace JSONs (de/en/es/fr/it)",
+			"type": "i18n",
+			"scope": "notes",
+			"additions": 95,
+			"deletions": 0,
+			"timestamp": "2026-04-27T14:44:10+02:00"
+		},
+		{
+			"hash": "2cf3a06",
+			"short": "i18n(notes): translate /notes +page.svelte via $_() — header, toolbar, create form, sections",
+			"type": "i18n",
+			"scope": "notes",
+			"additions": 24,
+			"deletions": 18,
+			"timestamp": "2026-04-27T14:45:15+02:00"
+		},
+		{
+			"hash": "42ce115",
+			"short": "i18n(mail): add namespace JSONs (de/en/es/fr/it)",
+			"type": "i18n",
+			"scope": "mail",
+			"additions": 125,
+			"deletions": 0,
+			"timestamp": "2026-04-27T14:47:56+02:00"
+		},
+		{
+			"hash": "abbc456",
+			"short": "i18n(mail): translate ListView via $_() — sidebar, thread list, compose form, context menu",
+			"type": "i18n",
+			"scope": "mail",
+			"additions": 32,
+			"deletions": 19,
+			"timestamp": "2026-04-27T14:49:23+02:00"
+		},
+		{
+			"hash": "4f2a36e",
+			"short": "i18n(todo): extend with detailView sub-namespace",
+			"type": "i18n",
+			"scope": "todo",
+			"additions": 75,
+			"deletions": 0,
+			"timestamp": "2026-04-27T14:50:43+02:00"
+		},
+		{
+			"hash": "1931739",
+			"short": "i18n(todo): translate views/DetailView via $_() — title, prop rows, sections, meta",
+			"type": "i18n",
+			"scope": "todo",
+			"additions": 48,
+			"deletions": 26,
+			"timestamp": "2026-04-27T14:53:09+02:00"
+		},
+		{
+			"hash": "c94b673",
+			"short": "i18n(sleep): add namespace JSONs (de/en/es/fr/it)",
+			"type": "i18n",
+			"scope": "sleep",
+			"additions": 110,
+			"deletions": 0,
+			"timestamp": "2026-04-27T14:54:31+02:00"
+		},
+		{
+			"hash": "3a18a5e",
+			"short": "feat(community): Phase 3.B — loop closure (notifications + my-wishes page)",
+			"type": "feat",
+			"scope": "community",
+			"additions": 933,
+			"deletions": 7,
+			"timestamp": "2026-04-27T14:55:01+02:00"
+		},
+		{
+			"hash": "66ab5f6",
+			"short": "i18n(sleep): translate ListView via $_() — log CTA, last-night, week chart, stats, heatmap, hygiene",
+			"type": "i18n",
+			"scope": "sleep",
+			"additions": 70,
+			"deletions": 20,
+			"timestamp": "2026-04-27T14:58:45+02:00"
+		},
+		{
+			"hash": "53cf17a",
+			"short": "i18n(places): add namespace JSONs (de/en/es/fr/it)",
+			"type": "i18n",
+			"scope": "places",
+			"additions": 180,
+			"deletions": 0,
+			"timestamp": "2026-04-27T15:00:51+02:00"
+		},
+		{
+			"hash": "092c45c",
+			"short": "i18n(places): translate views/DetailView via $_() — header, fields, sections, meta",
+			"type": "i18n",
+			"scope": "places",
+			"additions": 49,
+			"deletions": 35,
+			"timestamp": "2026-04-27T15:02:54+02:00"
+		},
+		{
+			"hash": "d391a60",
+			"short": "i18n(memoro): extend with detail_view sub-namespace",
+			"type": "i18n",
+			"scope": "memoro",
+			"additions": 170,
+			"deletions": 0,
+			"timestamp": "2026-04-27T15:05:49+02:00"
+		},
+		{
+			"hash": "98ce33e",
+			"short": "i18n(memoro): translate views/DetailView via $_() — title sources, statuses, fields, transcript",
+			"type": "i18n",
+			"scope": "memoro",
+			"additions": 44,
+			"deletions": 37,
+			"timestamp": "2026-04-27T15:07:35+02:00"
+		},
+		{
+			"hash": "42e4d58",
+			"short": "i18n(news/preferences): translate +page.svelte via $_() — header, all 5 sections",
+			"type": "i18n",
+			"scope": "news/preferences",
+			"additions": 45,
+			"deletions": 20,
+			"timestamp": "2026-04-27T15:11:03+02:00"
+		},
+		{
+			"hash": "ee5bb28",
+			"short": "feat(community): Phase 3.C — Identität (Avatar + Klarname-Toggle + Karma + Eulen-Profil)",
+			"type": "feat",
+			"scope": "community",
+			"additions": 760,
+			"deletions": 23,
+			"timestamp": "2026-04-27T15:15:16+02:00"
+		},
+		{
+			"hash": "de2134f",
+			"short": "i18n(gifts/redeem): translate /[code] +page.svelte via $_() — info card, redeem flow, success state",
+			"type": "i18n",
+			"scope": "gifts/redeem",
+			"additions": 225,
+			"deletions": 37,
+			"timestamp": "2026-04-27T15:17:27+02:00"
+		},
+		{
+			"hash": "5f15946",
+			"short": "fix(compose): point mana-auth SYNC_DATABASE_URL at mana_sync, not mana_platform",
+			"type": "fix",
+			"scope": "compose",
+			"additions": 7,
+			"deletions": 1,
+			"timestamp": "2026-04-27T15:26:13+02:00"
+		},
+		{
+			"hash": "4ed8686",
+			"short": "i18n(photos): translate FilterBar via $_() — App/Zeitraum/Sortierung/Reihenfolge + Reset/Apply",
+			"type": "i18n",
+			"scope": "photos",
+			"additions": 51,
+			"deletions": 17,
+			"timestamp": "2026-04-27T15:26:51+02:00"
+		},
+		{
+			"hash": "1b30c36",
+			"short": "feat(settings): Community-Section mit Klarname-Toggle + Avatar/Karma-Preview",
+			"type": "feat",
+			"scope": "settings",
+			"additions": 399,
+			"deletions": 2,
+			"timestamp": "2026-04-27T15:31:14+02:00"
+		},
+		{
+			"hash": "f92d647",
+			"short": "i18n(food/home): translate /food +page.svelte via $_() — header, progress cards, today's meals, links",
+			"type": "i18n",
+			"scope": "food/home",
+			"additions": 121,
+			"deletions": 21,
+			"timestamp": "2026-04-27T15:34:25+02:00"
+		},
+		{
+			"hash": "a5d4554",
+			"short": "i18n(myday): translate ListView via $_() — 5 sections + alerts",
+			"type": "i18n",
+			"scope": "myday",
+			"additions": 87,
+			"deletions": 11,
+			"timestamp": "2026-04-27T15:36:15+02:00"
+		},
+		{
+			"hash": "4357433",
+			"short": "i18n(contacts): translate /contacts +page.svelte via $_() — header, page picker, modal form",
+			"type": "i18n",
+			"scope": "contacts",
+			"additions": 331,
+			"deletions": 45,
+			"timestamp": "2026-04-27T15:44:38+02:00"
+		},
+		{
+			"hash": "aa96cae",
+			"short": "i18n(wallpaper): translate WallpaperPicker via $_() — scope toggle, tabs, sections, upload, overlay",
+			"type": "i18n",
+			"scope": "wallpaper",
+			"additions": 163,
+			"deletions": 25,
+			"timestamp": "2026-04-27T16:08:37+02:00"
+		},
+		{
+			"hash": "98a9bc4",
+			"short": "i18n(agents/templates): translate /agents/templates +page.svelte via $_()",
+			"type": "i18n",
+			"scope": "agents/templates",
+			"additions": 349,
+			"deletions": 49,
+			"timestamp": "2026-04-27T17:58:15+02:00"
+		},
+		{
+			"hash": "246c943",
+			"short": "test(feedback): pixel-avatar + redact privacy-boundary; mark plan SHIPPED",
+			"type": "test",
+			"scope": "feedback",
+			"additions": 221,
+			"deletions": 15,
+			"timestamp": "2026-04-27T18:11:17+02:00"
+		},
+		{
+			"hash": "e3c2b26",
+			"short": "i18n(locales): add comic + extend cards/guides for next 3 detail/progress views",
+			"type": "i18n",
+			"scope": "locales",
+			"additions": 385,
+			"deletions": 0,
+			"timestamp": "2026-04-27T18:14:14+02:00"
+		},
+		{
+			"hash": "63b9ff4",
+			"short": "i18n(comic+guides+cards): translate 3 detail/progress views via $_()",
+			"type": "i18n",
+			"scope": "comic+guides+cards",
+			"additions": 99,
+			"deletions": 68,
+			"timestamp": "2026-04-27T18:17:08+02:00"
+		},
+		{
+			"hash": "c2660dd",
+			"short": "i18n(locales): add wetter + extend profile/contacts for next 3 detail/freeform/comparison views",
+			"type": "i18n",
+			"scope": "locales",
+			"additions": 350,
+			"deletions": 0,
+			"timestamp": "2026-04-27T18:19:51+02:00"
+		},
+		{
+			"hash": "3abcbd4",
+			"short": "i18n(wetter+profile+contacts): translate 3 detail/freeform/comparison views via $_()",
+			"type": "i18n",
+			"scope": "wetter+profile+contacts",
+			"additions": 104,
+			"deletions": 69,
+			"timestamp": "2026-04-27T18:23:29+02:00"
+		},
+		{
+			"hash": "ef3243a",
+			"short": "i18n(locales): extend inventory + questions, add invitations namespace",
+			"type": "i18n",
+			"scope": "locales",
+			"additions": 345,
+			"deletions": 0,
+			"timestamp": "2026-04-27T18:26:15+02:00"
+		},
+		{
+			"hash": "7339fba",
+			"short": "i18n(inventory+questions+invitations): translate 3 routes via $_()",
+			"type": "i18n",
+			"scope": "inventory+questions+invitations",
+			"additions": 95,
+			"deletions": 80,
+			"timestamp": "2026-04-27T18:29:17+02:00"
+		},
+		{
+			"hash": "70a06d1",
+			"short": "i18n(locales): extend cards/finance + add mood namespace",
+			"type": "i18n",
+			"scope": "locales",
+			"additions": 185,
+			"deletions": 0,
+			"timestamp": "2026-04-27T18:35:34+02:00"
+		},
+		{
+			"hash": "b99dd60",
+			"short": "i18n(cards+finance+mood): translate 3 list/detail views via $_()",
+			"type": "i18n",
+			"scope": "cards+finance+mood",
+			"additions": 56,
+			"deletions": 40,
+			"timestamp": "2026-04-27T18:38:06+02:00"
+		},
+		{
+			"hash": "fa401cf",
+			"short": "i18n(locales): add music namespace + extend profile with hub sub",
+			"type": "i18n",
+			"scope": "locales",
+			"additions": 195,
+			"deletions": 0,
+			"timestamp": "2026-04-27T18:39:50+02:00"
+		},
+		{
+			"hash": "a5cef98",
+			"short": "i18n(music+profile): translate detail/hub views via $_()",
+			"type": "i18n",
+			"scope": "music+profile",
+			"additions": 61,
+			"deletions": 45,
+			"timestamp": "2026-04-27T18:41:43+02:00"
+		},
+		{
+			"hash": "5d9dc80",
+			"short": "i18n(locales): extend comic with picker+character_detail, quiz with play_view",
+			"type": "i18n",
+			"scope": "locales",
+			"additions": 315,
+			"deletions": 0,
+			"timestamp": "2026-04-27T18:44:23+02:00"
+		},
+		{
+			"hash": "a842537",
+			"short": "i18n(comic+quiz): translate picker/character-detail/play-view via $_()",
+			"type": "i18n",
+			"scope": "comic+quiz",
+			"additions": 111,
+			"deletions": 78,
+			"timestamp": "2026-04-27T18:47:37+02:00"
+		},
+		{
+			"hash": "e773e44",
+			"short": "test(feedback): DB-backed integration tests — credits, karma, notifications",
+			"type": "test",
+			"scope": "feedback",
+			"additions": 901,
+			"deletions": 15,
+			"timestamp": "2026-04-27T19:08:29+02:00"
+		},
+		{
+			"hash": "136d3fb",
+			"short": "i18n(locales): extend body+mood+questions for picker/quicklog/question-detail",
+			"type": "i18n",
+			"scope": "locales",
+			"additions": 195,
+			"deletions": 10,
+			"timestamp": "2026-04-27T19:11:02+02:00"
+		},
+		{
+			"hash": "7dfa1c7",
+			"short": "i18n(body+mood+questions): translate picker/quick-log/question-detail via $_()",
+			"type": "i18n",
+			"scope": "body+mood+questions",
+			"additions": 91,
+			"deletions": 70,
+			"timestamp": "2026-04-27T19:13:18+02:00"
+		},
+		{
+			"hash": "0f1dbe9",
+			"short": "i18n(locales): add drink+habits, extend picture for list-view sub",
+			"type": "i18n",
+			"scope": "locales",
+			"additions": 275,
+			"deletions": 0,
+			"timestamp": "2026-04-27T22:32:59+02:00"
+		},
+		{
+			"hash": "0986d07",
+			"short": "docs: feedback-hub manual-test-checklist",
+			"type": null,
+			"scope": null,
+			"additions": 319,
+			"deletions": 0,
+			"timestamp": "2026-04-27T22:33:28+02:00"
+		},
+		{
+			"hash": "4237d84",
+			"short": "i18n(drink+habits+picture): translate 3 list views via $_()",
+			"type": "i18n",
+			"scope": "drink+habits+picture",
+			"additions": 67,
+			"deletions": 46,
+			"timestamp": "2026-04-27T22:36:57+02:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

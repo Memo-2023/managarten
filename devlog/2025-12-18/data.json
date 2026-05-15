@@ -1,0 +1,206 @@
+{
+	"date": "2025-12-18",
+	"day_number": 24,
+	"weekday": "Donnerstag",
+	"commits": 11,
+	"authors": [
+		{
+			"name": "Wuesteon",
+			"count": 10
+		},
+		{
+			"name": "Till-JS",
+			"count": 1
+		}
+	],
+	"additions": 11359,
+	"deletions": 4314,
+	"net_lines": 7045,
+	"files_changed": 92,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2025-12-18T16:03:07.000Z",
+		"last_commit_at": "2025-12-19T02:26:59.000Z",
+		"total_span_minutes": 624,
+		"active_minutes": 48,
+		"pauses": [
+			{
+				"from": "17:03",
+				"to": "21:42",
+				"minutes": 280
+			},
+			{
+				"from": "22:28",
+				"to": "23:25",
+				"minutes": 57
+			},
+			{
+				"from": "23:26",
+				"to": "02:17",
+				"minutes": 171
+			},
+			{
+				"from": "02:18",
+				"to": "03:26",
+				"minutes": 68
+			}
+		],
+		"longest_focus_minutes": 46
+	},
+	"top_dirs": [
+		{
+			"path": "services/mana-core-auth/src",
+			"pct": 34
+		},
+		{
+			"path": "packages/shared-error-tracking/src",
+			"pct": 10
+		},
+		{
+			"path": ".github/workflows/cd-staging.yml",
+			"pct": 2
+		},
+		{
+			"path": "docker-compose.staging.yml",
+			"pct": 2
+		},
+		{
+			"path": "services/mana-core-auth/scripts",
+			"pct": 2
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 34
+		},
+		{
+			"ext": ".md",
+			"count": 23
+		},
+		{
+			"ext": ".json",
+			"count": 13
+		},
+		{
+			"ext": ".yml",
+			"count": 10
+		},
+		{
+			"ext": ".sh",
+			"count": 5
+		},
+		{
+			"ext": ".sql",
+			"count": 5
+		}
+	],
+	"tags": [],
+	"commits_list": [
+		{
+			"hash": "1cd04a5",
+			"short": "Merge branch 'dev' into till-dev",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 0,
+			"timestamp": "2025-12-18T17:03:07+01:00"
+		},
+		{
+			"hash": "4d15d9e",
+			"short": "🔒 security(auth): migrate to EdDSA JWT and add automated monitoring",
+			"type": null,
+			"scope": null,
+			"additions": 6871,
+			"deletions": 4155,
+			"timestamp": "2025-12-18T21:42:47+01:00"
+		},
+		{
+			"hash": "7f35753",
+			"short": "🐛 fix(auth-migrations): make initial migration idempotent",
+			"type": null,
+			"scope": null,
+			"additions": 139,
+			"deletions": 139,
+			"timestamp": "2025-12-18T22:10:00+01:00"
+		},
+		{
+			"hash": "5bb1abb",
+			"short": "🐛 fix(auth-migrations): add missing session columns migration",
+			"type": null,
+			"scope": null,
+			"additions": 74,
+			"deletions": 0,
+			"timestamp": "2025-12-18T22:28:28+01:00"
+		},
+		{
+			"hash": "ffc41b2",
+			"short": "🐛 fix(auth-migrations): use native ADD COLUMN IF NOT EXISTS syntax",
+			"type": null,
+			"scope": null,
+			"additions": 40,
+			"deletions": 2,
+			"timestamp": "2025-12-18T23:25:07+01:00"
+		},
+		{
+			"hash": "f834986",
+			"short": "🐛 fix(ci): add db:push fallback when migrations fail",
+			"type": null,
+			"scope": null,
+			"additions": 8,
+			"deletions": 3,
+			"timestamp": "2025-12-18T23:26:10+01:00"
+		},
+		{
+			"hash": "5e1118b",
+			"short": "✨ feat(error-tracking): add shared error tracking package",
+			"type": null,
+			"scope": null,
+			"additions": 1033,
+			"deletions": 0,
+			"timestamp": "2025-12-19T02:17:36+01:00"
+		},
+		{
+			"hash": "319ccd1",
+			"short": "✨ feat(auth): add error logs API and database schema",
+			"type": null,
+			"scope": null,
+			"additions": 527,
+			"deletions": 0,
+			"timestamp": "2025-12-19T02:17:55+01:00"
+		},
+		{
+			"hash": "9e771c9",
+			"short": "🔧 chore(auth): improve migration safety and docker setup",
+			"type": null,
+			"scope": null,
+			"additions": 353,
+			"deletions": 5,
+			"timestamp": "2025-12-19T02:18:31+01:00"
+		},
+		{
+			"hash": "2784143",
+			"short": "📝 docs: add error tracking and security documentation",
+			"type": null,
+			"scope": null,
+			"additions": 2287,
+			"deletions": 0,
+			"timestamp": "2025-12-19T02:18:42+01:00"
+		},
+		{
+			"hash": "834b11d",
+			"short": "🐛 fix(staging): add missing PUBLIC_*_CLIENT env vars for runtime config",
+			"type": null,
+			"scope": null,
+			"additions": 27,
+			"deletions": 10,
+			"timestamp": "2025-12-19T03:26:59+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

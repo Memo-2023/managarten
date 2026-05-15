@@ -1,0 +1,228 @@
+{
+	"date": "2026-01-22",
+	"day_number": 31,
+	"weekday": "Donnerstag",
+	"commits": 14,
+	"authors": [
+		{
+			"name": "Till-JS",
+			"count": 13
+		},
+		{
+			"name": "Till JS",
+			"count": 1
+		}
+	],
+	"additions": 3143,
+	"deletions": 56,
+	"net_lines": 3087,
+	"files_changed": 49,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-01-22T18:17:37.000Z",
+		"last_commit_at": "2026-01-23T00:23:58.000Z",
+		"total_span_minutes": 366,
+		"active_minutes": 79,
+		"pauses": [
+			{
+				"from": "19:49",
+				"to": "22:48",
+				"minutes": 180
+			},
+			{
+				"from": "22:51",
+				"to": "23:55",
+				"minutes": 64
+			},
+			{
+				"from": "00:30",
+				"to": "01:13",
+				"minutes": 43
+			}
+		],
+		"longest_focus_minutes": 35
+	},
+	"top_dirs": [
+		{
+			"path": "apps/clock/apps/web",
+			"pct": 52
+		},
+		{
+			"path": "apps/calendar/apps/web",
+			"pct": 5
+		},
+		{
+			"path": "apps/todo/apps/web",
+			"pct": 5
+		},
+		{
+			"path": ".github/workflows/ci.yml",
+			"pct": 3
+		},
+		{
+			"path": "cloudflared-config.yml",
+			"pct": 3
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 18
+		},
+		{
+			"ext": "<no-ext>",
+			"count": 9
+		},
+		{
+			"ext": ".json",
+			"count": 8
+		},
+		{
+			"ext": ".yml",
+			"count": 6
+		},
+		{
+			"ext": ".svelte",
+			"count": 6
+		},
+		{
+			"ext": ".sh",
+			"count": 4
+		}
+	],
+	"tags": ["clock-web", "ci"],
+	"commits_list": [
+		{
+			"hash": "4ebe3ec",
+			"short": "feat: add multi-arch Docker builds and Mac Mini deployment",
+			"type": null,
+			"scope": null,
+			"additions": 823,
+			"deletions": 0,
+			"timestamp": "2026-01-22T19:17:37+01:00"
+		},
+		{
+			"hash": "4023390",
+			"short": "feat: add SSH access via Cloudflare Tunnel",
+			"type": null,
+			"scope": null,
+			"additions": 52,
+			"deletions": 0,
+			"timestamp": "2026-01-22T19:27:39+01:00"
+		},
+		{
+			"hash": "346c28f",
+			"short": "Merge pull request #22 from Memo-2023/feat/mac-mini-arm64-deployment",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 0,
+			"timestamp": "2026-01-22T19:49:27+01:00"
+		},
+		{
+			"hash": "e29f521",
+			"short": "fix: resolve build errors for mana-core-auth and clock-backend",
+			"type": null,
+			"scope": null,
+			"additions": 30,
+			"deletions": 4,
+			"timestamp": "2026-01-22T22:48:58+01:00"
+		},
+		{
+			"hash": "f3c1c8e",
+			"short": "docs: add Mac Mini setup checklist",
+			"type": null,
+			"scope": null,
+			"additions": 180,
+			"deletions": 0,
+			"timestamp": "2026-01-22T22:51:11+01:00"
+		},
+		{
+			"hash": "a7783ca",
+			"short": "fix: add BETTER_AUTH_SECRET to mac mini compose",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-01-22T23:55:10+01:00"
+		},
+		{
+			"hash": "deb8bae",
+			"short": "fix: resolve Docker build errors for web apps",
+			"type": null,
+			"scope": null,
+			"additions": 17,
+			"deletions": 0,
+			"timestamp": "2026-01-23T00:03:00+01:00"
+		},
+		{
+			"hash": "569629d",
+			"short": "feat(ci): implement selective builds for faster CI",
+			"type": "feat",
+			"scope": "ci",
+			"additions": 493,
+			"deletions": 52,
+			"timestamp": "2026-01-23T00:11:23+01:00"
+		},
+		{
+			"hash": "438ee89",
+			"short": "fix: add prepare scripts to web apps for svelte-kit sync",
+			"type": null,
+			"scope": null,
+			"additions": 4,
+			"deletions": 0,
+			"timestamp": "2026-01-23T00:14:06+01:00"
+		},
+		{
+			"hash": "800bcd8",
+			"short": "fix: add svelte-kit sync to Dockerfiles before build",
+			"type": null,
+			"scope": null,
+			"additions": 5,
+			"deletions": 0,
+			"timestamp": "2026-01-23T00:21:02+01:00"
+		},
+		{
+			"hash": "9936a12",
+			"short": "fix(clock-web): add missing SvelteKit config files",
+			"type": "fix",
+			"scope": "clock-web",
+			"additions": 75,
+			"deletions": 0,
+			"timestamp": "2026-01-23T00:24:03+01:00"
+		},
+		{
+			"hash": "42c75bd",
+			"short": "fix(clock-web): add missing source files for build",
+			"type": "fix",
+			"scope": "clock-web",
+			"additions": 326,
+			"deletions": 0,
+			"timestamp": "2026-01-23T00:30:10+01:00"
+		},
+		{
+			"hash": "6d65f3b",
+			"short": "fix(clock-web): add all missing stores, APIs, and components",
+			"type": "fix",
+			"scope": "clock-web",
+			"additions": 1134,
+			"deletions": 0,
+			"timestamp": "2026-01-23T01:13:17+01:00"
+		},
+		{
+			"hash": "2164d4a",
+			"short": "fix(clock-web): add toast export alias for compatibility",
+			"type": "fix",
+			"scope": "clock-web",
+			"additions": 3,
+			"deletions": 0,
+			"timestamp": "2026-01-23T01:23:58+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

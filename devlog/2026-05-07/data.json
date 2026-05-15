@@ -1,0 +1,535 @@
+{
+	"date": "2026-05-07",
+	"day_number": 100,
+	"weekday": "Donnerstag",
+	"commits": 48,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 48
+		}
+	],
+	"additions": 14288,
+	"deletions": 1326,
+	"net_lines": 12962,
+	"files_changed": 117,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-05-07T10:44:22.000Z",
+		"last_commit_at": "2026-05-08T00:48:40.000Z",
+		"total_span_minutes": 844,
+		"active_minutes": 419,
+		"pauses": [
+			{
+				"from": "17:09",
+				"to": "19:33",
+				"minutes": 145
+			},
+			{
+				"from": "20:26",
+				"to": "21:56",
+				"minutes": 90
+			},
+			{
+				"from": "23:38",
+				"to": "01:54",
+				"minutes": 136
+			},
+			{
+				"from": "01:54",
+				"to": "02:48",
+				"minutes": 54
+			}
+		],
+		"longest_focus_minutes": 265
+	},
+	"top_dirs": [
+		{
+			"path": "apps/cards/apps/web",
+			"pct": 42
+		},
+		{
+			"path": "services/cards-server/src",
+			"pct": 23
+		},
+		{
+			"path": "docker-compose.macmini.yml",
+			"pct": 5
+		},
+		{
+			"path": "infrastructure/docker-compose.gpu-box.yml",
+			"pct": 4
+		},
+		{
+			"path": "cloudflared-config.yml",
+			"pct": 3
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 90
+		},
+		{
+			"ext": ".svelte",
+			"count": 61
+		},
+		{
+			"ext": ".yml",
+			"count": 33
+		},
+		{
+			"ext": ".md",
+			"count": 19
+		},
+		{
+			"ext": ".json",
+			"count": 8
+		},
+		{
+			"ext": ".yaml",
+			"count": 7
+		}
+	],
+	"tags": ["cards", "cards-web", "gpu-box", "cards-server", "infra"],
+	"commits_list": [
+		{
+			"hash": "585bee4",
+			"short": "docs(mac-mini): refresh container counts + memory budget after Phase 2c+2d",
+			"type": "docs",
+			"scope": "mac-mini",
+			"additions": 15,
+			"deletions": 14,
+			"timestamp": "2026-05-07T12:44:22+02:00"
+		},
+		{
+			"hash": "009fb35",
+			"short": "feat(cards-web): streak indicator + per-deck due counts",
+			"type": "feat",
+			"scope": "cards-web",
+			"additions": 90,
+			"deletions": 3,
+			"timestamp": "2026-05-07T12:45:04+02:00"
+		},
+		{
+			"hash": "0c2df08",
+			"short": "fix(status-page): point at vm.mana.how (GPU-Box VM) instead of localhost:9090",
+			"type": "fix",
+			"scope": "status-page",
+			"additions": 4,
+			"deletions": 4,
+			"timestamp": "2026-05-07T12:58:19+02:00"
+		},
+		{
+			"hash": "22cce59",
+			"short": "feat(cards-web): Anki .apkg import — first acquisition lever",
+			"type": "feat",
+			"scope": "cards-web",
+			"additions": 599,
+			"deletions": 132,
+			"timestamp": "2026-05-07T13:02:29+02:00"
+		},
+		{
+			"hash": "778e5a2",
+			"short": "chore(infra): drop status-page-gen from Mini, status.mana.how → GPU-Box tunnel",
+			"type": "chore",
+			"scope": "infra",
+			"additions": 351,
+			"deletions": 31,
+			"timestamp": "2026-05-07T13:22:20+02:00"
+		},
+		{
+			"hash": "e3cca9e",
+			"short": "feat(cards-web): PWA installability + AI card generation from text",
+			"type": "feat",
+			"scope": "cards-web",
+			"additions": 2,
+			"deletions": 9,
+			"timestamp": "2026-05-07T13:24:42+02:00"
+		},
+		{
+			"hash": "d8a35af",
+			"short": "infra(gpu-box): commit GPU-Box compose to repo + Phase 2e docs",
+			"type": "infra",
+			"scope": "gpu-box",
+			"additions": 576,
+			"deletions": 9,
+			"timestamp": "2026-05-07T13:28:49+02:00"
+		},
+		{
+			"hash": "1f2206f",
+			"short": "feat(cards-web): PDF input for AI generator + study activity heatmap",
+			"type": "feat",
+			"scope": "cards-web",
+			"additions": 375,
+			"deletions": 10,
+			"timestamp": "2026-05-07T13:37:01+02:00"
+		},
+		{
+			"hash": "daa1ef0",
+			"short": "feat(cards): image / audio attachments on cards via mana-media",
+			"type": "feat",
+			"scope": "cards",
+			"additions": 197,
+			"deletions": 8,
+			"timestamp": "2026-05-07T13:52:53+02:00"
+		},
+		{
+			"hash": "0ae1e70",
+			"short": "fix(monitoring): status-page covers all standalone apps + restore who.mana.how routing",
+			"type": "fix",
+			"scope": "monitoring",
+			"additions": 29,
+			"deletions": 3,
+			"timestamp": "2026-05-07T14:09:31+02:00"
+		},
+		{
+			"hash": "82db4eb",
+			"short": "feat(cards-web): Anki import carries images + audio along",
+			"type": "feat",
+			"scope": "cards-web",
+			"additions": 250,
+			"deletions": 41,
+			"timestamp": "2026-05-07T14:25:43+02:00"
+		},
+		{
+			"hash": "1e8d18a",
+			"short": "fix(monitoring): photon via Cloudflare-Tunnel, drop dead whopxl",
+			"type": "fix",
+			"scope": "monitoring",
+			"additions": 8,
+			"deletions": 10,
+			"timestamp": "2026-05-07T14:39:50+02:00"
+		},
+		{
+			"hash": "c1423d2",
+			"short": "fix(cards-web): missing static assets — sql-wasm-browser.wasm + PWA icons",
+			"type": "fix",
+			"scope": "cards-web",
+			"additions": 0,
+			"deletions": 0,
+			"timestamp": "2026-05-07T14:42:47+02:00"
+		},
+		{
+			"hash": "6f1b032",
+			"short": "docs(infra): document photon.mana.how + cross-LAN workaround pattern",
+			"type": "docs",
+			"scope": "infra",
+			"additions": 29,
+			"deletions": 2,
+			"timestamp": "2026-05-07T14:45:34+02:00"
+		},
+		{
+			"hash": "ceed8cc",
+			"short": "feat(mana-sync): per-app billing exemption — Cards bypasses sync gate",
+			"type": "feat",
+			"scope": "mana-sync",
+			"additions": 145,
+			"deletions": 16,
+			"timestamp": "2026-05-07T15:01:54+02:00"
+		},
+		{
+			"hash": "cd888cd",
+			"short": "fix(gpu-box): drop gpu-promtail healthcheck — image has no curl/wget/nc",
+			"type": "fix",
+			"scope": "gpu-box",
+			"additions": 1,
+			"deletions": 6,
+			"timestamp": "2026-05-07T15:13:47+02:00"
+		},
+		{
+			"hash": "8a90cd2",
+			"short": "docs(cards): competitor analysis Mai 2026",
+			"type": "docs",
+			"scope": "cards",
+			"additions": 353,
+			"deletions": 0,
+			"timestamp": "2026-05-07T15:28:02+02:00"
+		},
+		{
+			"hash": "384be93",
+			"short": "feat(gpu-box): healthchecks for glitchtip-worker, gpu-promtail, status-gen",
+			"type": "feat",
+			"scope": "gpu-box",
+			"additions": 18,
+			"deletions": 1,
+			"timestamp": "2026-05-07T15:29:04+02:00"
+		},
+		{
+			"hash": "cf5349c",
+			"short": "feat(gpu-box): adopt photon container into compose with healthcheck",
+			"type": "feat",
+			"scope": "gpu-box",
+			"additions": 37,
+			"deletions": 0,
+			"timestamp": "2026-05-07T15:42:54+02:00"
+		},
+		{
+			"hash": "0686300",
+			"short": "docs(cards): Marktplatz Plan — Vollvision mit mana-credits + dual verification",
+			"type": "docs",
+			"scope": "cards",
+			"additions": 602,
+			"deletions": 0,
+			"timestamp": "2026-05-07T15:48:45+02:00"
+		},
+		{
+			"hash": "6e40546",
+			"short": "feat(gpu-box): add verdaccio service + bundle config in repo",
+			"type": "feat",
+			"scope": "gpu-box",
+			"additions": 116,
+			"deletions": 0,
+			"timestamp": "2026-05-07T15:54:37+02:00"
+		},
+		{
+			"hash": "33bc654",
+			"short": "chore(infra): drop npm.mana.how from Mini tunnel — verdaccio moved to GPU-Box",
+			"type": "chore",
+			"scope": "infra",
+			"additions": 0,
+			"deletions": 2,
+			"timestamp": "2026-05-07T15:59:40+02:00"
+		},
+		{
+			"hash": "a7b62ea",
+			"short": "feat(cards-server): Phase α — service skeleton + 16-table schema",
+			"type": "feat",
+			"scope": "cards-server",
+			"additions": 3300,
+			"deletions": 33,
+			"timestamp": "2026-05-07T16:01:08+02:00"
+		},
+		{
+			"hash": "71ec5e7",
+			"short": "feat(cards-server): Phase α.4 — Dockerfile + compose + tunnel route",
+			"type": "feat",
+			"scope": "cards-server",
+			"additions": 84,
+			"deletions": 1,
+			"timestamp": "2026-05-07T16:22:48+02:00"
+		},
+		{
+			"hash": "b03165c",
+			"short": "feat(gpu-box): news-ingester migrated, Mini compose drops the service block",
+			"type": "feat",
+			"scope": "gpu-box",
+			"additions": 51,
+			"deletions": 33,
+			"timestamp": "2026-05-07T16:27:45+02:00"
+		},
+		{
+			"hash": "044d948",
+			"short": "feat(cards-server): Phase β — author profiles + deck init/publish",
+			"type": "feat",
+			"scope": "cards-server",
+			"additions": 692,
+			"deletions": 8,
+			"timestamp": "2026-05-07T16:36:34+02:00"
+		},
+		{
+			"hash": "be155ca",
+			"short": "fix(cards-server): error classes extend Hono HTTPException",
+			"type": "fix",
+			"scope": "cards-server",
+			"additions": 39,
+			"deletions": 27,
+			"timestamp": "2026-05-07T16:40:20+02:00"
+		},
+		{
+			"hash": "f47edc1",
+			"short": "feat(gpu-box): mana-ai (AI Mission Runner) migrated, mana-ai.mana.how → GPU tunnel",
+			"type": "feat",
+			"scope": "gpu-box",
+			"additions": 41,
+			"deletions": 49,
+			"timestamp": "2026-05-07T16:40:57+02:00"
+		},
+		{
+			"hash": "ec8abfe",
+			"short": "feat(cards-web): Phase β.2 — author onboarding + publish flow",
+			"type": "feat",
+			"scope": "cards-web",
+			"additions": 636,
+			"deletions": 1,
+			"timestamp": "2026-05-07T16:53:17+02:00"
+		},
+		{
+			"hash": "4c044e8",
+			"short": "fix(monitoring): mana-ai probe now uses public mana-ai.mana.how/health",
+			"type": "fix",
+			"scope": "monitoring",
+			"additions": 2,
+			"deletions": 2,
+			"timestamp": "2026-05-07T16:55:39+02:00"
+		},
+		{
+			"hash": "dcd1606",
+			"short": "feat(cards-server): Phase γ — public reads + browse + search + engagement",
+			"type": "feat",
+			"scope": "cards-server",
+			"additions": 458,
+			"deletions": 17,
+			"timestamp": "2026-05-07T17:01:32+02:00"
+		},
+		{
+			"hash": "a8cce79",
+			"short": "fix(monitoring): comment-out mana-ai metrics scrape after Phase 2f-3 move",
+			"type": "fix",
+			"scope": "monitoring",
+			"additions": 2,
+			"deletions": 8,
+			"timestamp": "2026-05-07T17:06:04+02:00"
+		},
+		{
+			"hash": "e77134b",
+			"short": "docs(infra): Phase 2f added to PLAN_OPTION_C + hostname table updated to v28",
+			"type": "docs",
+			"scope": "infra",
+			"additions": 581,
+			"deletions": 5,
+			"timestamp": "2026-05-07T17:09:28+02:00"
+		},
+		{
+			"hash": "86a0142",
+			"short": "feat(cards-server): Phase δ.1 — subscriptions + version reads + smart-merge diff",
+			"type": "feat",
+			"scope": "cards-server",
+			"additions": 317,
+			"deletions": 1,
+			"timestamp": "2026-05-07T19:33:58+02:00"
+		},
+		{
+			"hash": "58c057f",
+			"short": "feat(cards-web): Phase δ.2 — Subscribe + initial pull",
+			"type": "feat",
+			"scope": "cards-web",
+			"additions": 307,
+			"deletions": 27,
+			"timestamp": "2026-05-07T19:56:48+02:00"
+		},
+		{
+			"hash": "521ae52",
+			"short": "feat(cards-web): Phase δ.3 — Smart-merge updates + read-only subscribed decks",
+			"type": "feat",
+			"scope": "cards-web",
+			"additions": 305,
+			"deletions": 36,
+			"timestamp": "2026-05-07T20:21:32+02:00"
+		},
+		{
+			"hash": "c847420",
+			"short": "infra(phase 2g): mana-research → GPU-Box",
+			"type": "infra",
+			"scope": "phase 2g",
+			"additions": 80,
+			"deletions": 63,
+			"timestamp": "2026-05-07T20:26:10+02:00"
+		},
+		{
+			"hash": "61fc16e",
+			"short": "feat(cards): Phase ε — Pull-Requests + Card-Discussions",
+			"type": "feat",
+			"scope": "cards",
+			"additions": 1045,
+			"deletions": 0,
+			"timestamp": "2026-05-07T21:56:20+02:00"
+		},
+		{
+			"hash": "a8ddb6d",
+			"short": "feat(cards): Phase ε.3 — PR notifications + Card-Discussions UI",
+			"type": "feat",
+			"scope": "cards",
+			"additions": 269,
+			"deletions": 3,
+			"timestamp": "2026-05-07T22:24:45+02:00"
+		},
+		{
+			"hash": "46fefd5",
+			"short": "feat(cards): Phase ε.4 — Card list + discussions on /d/<slug>",
+			"type": "feat",
+			"scope": "cards",
+			"additions": 145,
+			"deletions": 1,
+			"timestamp": "2026-05-07T22:46:47+02:00"
+		},
+		{
+			"hash": "4fcc157",
+			"short": "feat(auth): add memoro-app.mana.how to SSO trusted origins",
+			"type": "feat",
+			"scope": "auth",
+			"additions": 2,
+			"deletions": 1,
+			"timestamp": "2026-05-07T23:07:22+02:00"
+		},
+		{
+			"hash": "5dbc9ac",
+			"short": "feat(cards): Phase ζ.1 — Paid decks via mana-credits",
+			"type": "feat",
+			"scope": "cards",
+			"additions": 627,
+			"deletions": 12,
+			"timestamp": "2026-05-07T23:10:18+02:00"
+		},
+		{
+			"hash": "aeaefaf",
+			"short": "infra(phase 2f-1 rollback): verdaccio bleibt auf Mac Mini",
+			"type": "infra",
+			"scope": "phase 2f-1 rollback",
+			"additions": 12,
+			"deletions": 121,
+			"timestamp": "2026-05-07T23:12:11+02:00"
+		},
+		{
+			"hash": "c050226",
+			"short": "feat(cards): Phase η.1 — Reports + admin moderation actions",
+			"type": "feat",
+			"scope": "cards",
+			"additions": 772,
+			"deletions": 13,
+			"timestamp": "2026-05-07T23:24:23+02:00"
+		},
+		{
+			"hash": "b185ee2",
+			"short": "doc(mac-mini): aktualisiere Container-Bilanz nach Phase 2c-2g",
+			"type": "doc",
+			"scope": "mac-mini",
+			"additions": 5,
+			"deletions": 4,
+			"timestamp": "2026-05-07T23:30:06+02:00"
+		},
+		{
+			"hash": "863311e",
+			"short": "docs(cards): Phasen-Statusupdate nach η.1 — Stand 2026-05-07",
+			"type": "docs",
+			"scope": "cards",
+			"additions": 107,
+			"deletions": 61,
+			"timestamp": "2026-05-07T23:38:42+02:00"
+		},
+		{
+			"hash": "ad3b99f",
+			"short": "refactor(cards): Phase A + C — adopt @mana/shared-theme + per-app accent",
+			"type": "refactor",
+			"scope": "cards",
+			"additions": 482,
+			"deletions": 476,
+			"timestamp": "2026-05-08T01:54:16+02:00"
+		},
+		{
+			"hash": "39e5080",
+			"short": "feat(cards): CardFace v2 — 3D-Flip + tap-anywhere reveal",
+			"type": "feat",
+			"scope": "cards",
+			"additions": 130,
+			"deletions": 22,
+			"timestamp": "2026-05-08T02:48:40+02:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

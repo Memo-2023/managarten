@@ -1,0 +1,411 @@
+{
+	"date": "2025-12-15",
+	"day_number": 21,
+	"weekday": "Montag",
+	"commits": 31,
+	"authors": [
+		{
+			"name": "Wuesteon",
+			"count": 30
+		},
+		{
+			"name": "Nils Weiser",
+			"count": 1
+		}
+	],
+	"additions": 9198,
+	"deletions": 2487,
+	"net_lines": 6711,
+	"files_changed": 227,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2025-12-15T13:10:34.000Z",
+		"last_commit_at": "2025-12-16T04:10:01.000Z",
+		"total_span_minutes": 899,
+		"active_minutes": 216,
+		"pauses": [
+			{
+				"from": "14:27",
+				"to": "17:53",
+				"minutes": 206
+			},
+			{
+				"from": "17:53",
+				"to": "19:09",
+				"minutes": 75
+			},
+			{
+				"from": "19:49",
+				"to": "20:27",
+				"minutes": 38
+			},
+			{
+				"from": "20:27",
+				"to": "21:33",
+				"minutes": 67
+			},
+			{
+				"from": "21:33",
+				"to": "22:33",
+				"minutes": 60
+			},
+			{
+				"from": "22:44",
+				"to": "23:41",
+				"minutes": 57
+			},
+			{
+				"from": "00:34",
+				"to": "01:29",
+				"minutes": 55
+			},
+			{
+				"from": "01:49",
+				"to": "02:43",
+				"minutes": 55
+			},
+			{
+				"from": "03:33",
+				"to": "04:43",
+				"minutes": 70
+			}
+		],
+		"longest_focus_minutes": 52
+	},
+	"top_dirs": [
+		{
+			"path": "apps/manacore/apps/web",
+			"pct": 15
+		},
+		{
+			"path": "apps/calendar/apps/web",
+			"pct": 11
+		},
+		{
+			"path": "apps/clock/apps/web",
+			"pct": 9
+		},
+		{
+			"path": "apps/contacts/apps/web",
+			"pct": 8
+		},
+		{
+			"path": "apps/chat/apps/web",
+			"pct": 6
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".svelte",
+			"count": 102
+		},
+		{
+			"ext": ".ts",
+			"count": 73
+		},
+		{
+			"ext": ".json",
+			"count": 24
+		},
+		{
+			"ext": "<no-ext>",
+			"count": 19
+		},
+		{
+			"ext": ".sh",
+			"count": 16
+		},
+		{
+			"ext": ".md",
+			"count": 10
+		}
+	],
+	"tags": ["manacore-web", "auth", "runtime-config", "deps", "storage"],
+	"commits_list": [
+		{
+			"hash": "660cbd6",
+			"short": "Merge branch 'dev' into till-dev",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 0,
+			"timestamp": "2025-12-15T14:10:34+01:00"
+		},
+		{
+			"hash": "3011d77",
+			"short": "♻️ refactor(contacts,zitare): use dynamic runtime URLs in auth stores",
+			"type": null,
+			"scope": null,
+			"additions": 49,
+			"deletions": 9,
+			"timestamp": "2025-12-15T14:13:00+01:00"
+		},
+		{
+			"hash": "eebc370",
+			"short": "📝 docs: update runtime URL injection checklist",
+			"type": null,
+			"scope": null,
+			"additions": 14,
+			"deletions": 12,
+			"timestamp": "2025-12-15T14:14:58+01:00"
+		},
+		{
+			"hash": "9238ff7",
+			"short": "Merge pull request #18 from Memo-2023/till-dev",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 0,
+			"timestamp": "2025-12-15T14:27:32+01:00"
+		},
+		{
+			"hash": "b949037",
+			"short": "🔧 chore: add svelte-check to pre-commit hooks",
+			"type": null,
+			"scope": null,
+			"additions": 195,
+			"deletions": 1,
+			"timestamp": "2025-12-15T17:53:52+01:00"
+		},
+		{
+			"hash": "42e5e97",
+			"short": "♿️ fix: resolve all svelte-check a11y warnings across web apps",
+			"type": null,
+			"scope": null,
+			"additions": 1048,
+			"deletions": 558,
+			"timestamp": "2025-12-15T19:09:01+01:00"
+		},
+		{
+			"hash": "272132c",
+			"short": "🙈 chore: remove .claude-flow from git tracking",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 98,
+			"timestamp": "2025-12-15T19:12:26+01:00"
+		},
+		{
+			"hash": "44e28bb",
+			"short": "♿️ fix(worldream): add a11y attributes to modal and dialog components",
+			"type": null,
+			"scope": null,
+			"additions": 14,
+			"deletions": 2,
+			"timestamp": "2025-12-15T19:14:08+01:00"
+		},
+		{
+			"hash": "263d779",
+			"short": "🐛 fix: resolve CI/CD build failures for manacore-web and todo-web",
+			"type": null,
+			"scope": null,
+			"additions": 17,
+			"deletions": 15,
+			"timestamp": "2025-12-15T19:40:19+01:00"
+		},
+		{
+			"hash": "1480638",
+			"short": "🔧 chore: add pre-push build validation for changed apps",
+			"type": null,
+			"scope": null,
+			"additions": 105,
+			"deletions": 3,
+			"timestamp": "2025-12-15T19:49:30+01:00"
+		},
+		{
+			"hash": "f414aec",
+			"short": "📝 docs: add staging URLs and modernize README",
+			"type": null,
+			"scope": null,
+			"additions": 124,
+			"deletions": 57,
+			"timestamp": "2025-12-15T20:27:02+01:00"
+		},
+		{
+			"hash": "2c30867",
+			"short": "🔧 refactor: implement 12-factor runtime config for all web apps",
+			"type": null,
+			"scope": null,
+			"additions": 1594,
+			"deletions": 608,
+			"timestamp": "2025-12-15T21:33:50+01:00"
+		},
+		{
+			"hash": "b8d1067",
+			"short": "🐛 fix: use dynamic env for MIDDLEWARE_URL in server middleware",
+			"type": null,
+			"scope": null,
+			"additions": 3,
+			"deletions": 1,
+			"timestamp": "2025-12-15T22:33:23+01:00"
+		},
+		{
+			"hash": "22af718",
+			"short": "fix(runtime-config): add missing zod dependency to Clock and Contacts web apps",
+			"type": "fix",
+			"scope": "runtime-config",
+			"additions": 349,
+			"deletions": 220,
+			"timestamp": "2025-12-15T22:44:24+01:00"
+		},
+		{
+			"hash": "5c594a4",
+			"short": "fix(deps): add missing zod dependency to Calendar and Chat web apps for CI",
+			"type": "fix",
+			"scope": "deps",
+			"additions": 8,
+			"deletions": 6,
+			"timestamp": "2025-12-15T23:41:37+01:00"
+		},
+		{
+			"hash": "9b55f10",
+			"short": "fix(manacore-web): fix Docker entrypoint path for config.json",
+			"type": "fix",
+			"scope": "manacore-web",
+			"additions": 5,
+			"deletions": 2,
+			"timestamp": "2025-12-16T00:00:53+01:00"
+		},
+		{
+			"hash": "b2a8ffa",
+			"short": "fix(manacore-web): await getAuthUrl() and use runtime config in user-settings",
+			"type": "fix",
+			"scope": "manacore-web",
+			"additions": 13,
+			"deletions": 13,
+			"timestamp": "2025-12-16T00:21:23+01:00"
+		},
+		{
+			"hash": "aab8c73",
+			"short": "feat: add multi-layered runtime config protection system",
+			"type": null,
+			"scope": null,
+			"additions": 945,
+			"deletions": 0,
+			"timestamp": "2025-12-16T00:28:57+01:00"
+		},
+		{
+			"hash": "d268e8e",
+			"short": "docs: add comprehensive session report for runtime config implementation",
+			"type": null,
+			"scope": null,
+			"additions": 1078,
+			"deletions": 0,
+			"timestamp": "2025-12-16T00:34:06+01:00"
+		},
+		{
+			"hash": "78cd59a",
+			"short": "feat(storage): unified single-bucket architecture with Hetzner S3",
+			"type": "feat",
+			"scope": "storage",
+			"additions": 226,
+			"deletions": 252,
+			"timestamp": "2025-12-16T01:29:11+01:00"
+		},
+		{
+			"hash": "eeab9b7",
+			"short": "fix(auth): use correct Better Auth API method for password reset",
+			"type": "fix",
+			"scope": "auth",
+			"additions": 40,
+			"deletions": 28,
+			"timestamp": "2025-12-16T01:49:06+01:00"
+		},
+		{
+			"hash": "26ca921",
+			"short": "✨ feat(auth): add centralized @manacore/better-auth-types package",
+			"type": null,
+			"scope": null,
+			"additions": 513,
+			"deletions": 32,
+			"timestamp": "2025-12-16T02:43:55+01:00"
+		},
+		{
+			"hash": "fff2819",
+			"short": "🔒️ feat(auth): add Zod validation and endpoint rate limiting",
+			"type": null,
+			"scope": null,
+			"additions": 162,
+			"deletions": 13,
+			"timestamp": "2025-12-16T02:44:21+01:00"
+		},
+		{
+			"hash": "a7f2746",
+			"short": "✅ test(auth): add role security integration tests",
+			"type": null,
+			"scope": null,
+			"additions": 452,
+			"deletions": 51,
+			"timestamp": "2025-12-16T02:44:39+01:00"
+		},
+		{
+			"hash": "6e6815a",
+			"short": "📝 docs(auth): document Better Auth typing improvements",
+			"type": null,
+			"scope": null,
+			"additions": 835,
+			"deletions": 0,
+			"timestamp": "2025-12-16T02:45:41+01:00"
+		},
+		{
+			"hash": "cd19106",
+			"short": "🐛 fix(docker): add better-auth-types to web app Dockerfiles",
+			"type": null,
+			"scope": null,
+			"additions": 24,
+			"deletions": 0,
+			"timestamp": "2025-12-16T02:59:51+01:00"
+		},
+		{
+			"hash": "f37f85e",
+			"short": "🐛 fix(docker): add better-auth-types to backend Dockerfiles",
+			"type": null,
+			"scope": null,
+			"additions": 16,
+			"deletions": 0,
+			"timestamp": "2025-12-16T03:14:45+01:00"
+		},
+		{
+			"hash": "c5ffd92",
+			"short": "feat(auth): add Brevo email integration for password reset and org invites",
+			"type": "feat",
+			"scope": "auth",
+			"additions": 950,
+			"deletions": 463,
+			"timestamp": "2025-12-16T03:33:15+01:00"
+		},
+		{
+			"hash": "bdbe66d",
+			"short": "🐛 fix(docker): remove pre-compressed config files at runtime",
+			"type": null,
+			"scope": null,
+			"additions": 25,
+			"deletions": 0,
+			"timestamp": "2025-12-16T04:43:11+01:00"
+		},
+		{
+			"hash": "7b33f6a",
+			"short": "📝 docs(staging): add troubleshooting for pre-compressed configs and caching",
+			"type": null,
+			"scope": null,
+			"additions": 174,
+			"deletions": 17,
+			"timestamp": "2025-12-16T05:03:23+01:00"
+		},
+		{
+			"hash": "d2c2326",
+			"short": "🐛 fix(calendar): use runtime config for cross-app service URLs",
+			"type": null,
+			"scope": null,
+			"additions": 220,
+			"deletions": 26,
+			"timestamp": "2025-12-16T05:10:01+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

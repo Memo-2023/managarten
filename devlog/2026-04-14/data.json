@@ -1,0 +1,908 @@
+{
+	"date": "2026-04-14",
+	"day_number": 83,
+	"weekday": "Dienstag",
+	"commits": 90,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 90
+		}
+	],
+	"additions": 26067,
+	"deletions": 6969,
+	"net_lines": 19098,
+	"files_changed": 602,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-04-14T11:28:16.000Z",
+		"last_commit_at": "2026-04-14T23:53:37.000Z",
+		"total_span_minutes": 745,
+		"active_minutes": 553,
+		"pauses": [
+			{
+				"from": "18:12",
+				"to": "19:42",
+				"minutes": 90
+			},
+			{
+				"from": "21:34",
+				"to": "22:25",
+				"minutes": 51
+			},
+			{
+				"from": "22:30",
+				"to": "23:21",
+				"minutes": 51
+			}
+		],
+		"longest_focus_minutes": 284
+	},
+	"top_dirs": [
+		{
+			"path": "apps/mana/apps/web",
+			"pct": 49
+		},
+		{
+			"path": "apps/mana/apps/landing",
+			"pct": 8
+		},
+		{
+			"path": "services/mana-ai/src",
+			"pct": 4
+		},
+		{
+			"path": "packages/shared-ui/src",
+			"pct": 3
+		},
+		{
+			"path": "packages/shared-branding/src",
+			"pct": 2
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 362
+		},
+		{
+			"ext": ".md",
+			"count": 150
+		},
+		{
+			"ext": ".svelte",
+			"count": 131
+		},
+		{
+			"ext": ".json",
+			"count": 80
+		},
+		{
+			"ext": ".mdx",
+			"count": 15
+		},
+		{
+			"ext": ".astro",
+			"count": 15
+		}
+	],
+	"tags": ["ai", "sync", "mana-ai", "brain", "shared-ui"],
+	"commits_list": [
+		{
+			"hash": "daa5aaf",
+			"short": "fix(brain): companion chat — markdown rendering, loading status, streaming feedback",
+			"type": "fix",
+			"scope": "brain",
+			"additions": 122,
+			"deletions": 5,
+			"timestamp": "2026-04-14T13:28:16+02:00"
+		},
+		{
+			"hash": "77d455a",
+			"short": "fix(brain): companion can now actually list tasks instead of hallucinating",
+			"type": "fix",
+			"scope": "brain",
+			"additions": 74,
+			"deletions": 7,
+			"timestamp": "2026-04-14T13:31:13+02:00"
+		},
+		{
+			"hash": "51c8a52",
+			"short": "fix(brain): companion can now act on previous tool results across turns",
+			"type": "fix",
+			"scope": "brain",
+			"additions": 100,
+			"deletions": 20,
+			"timestamp": "2026-04-14T13:41:43+02:00"
+		},
+		{
+			"hash": "9ff2cfc",
+			"short": "feat(workbench): unify system pages as workbench apps + categorize picker",
+			"type": "feat",
+			"scope": "workbench",
+			"additions": 2812,
+			"deletions": 334,
+			"timestamp": "2026-04-14T13:48:44+02:00"
+		},
+		{
+			"hash": "4192a4b",
+			"short": "feat(brain): emit Companion chat + tool events for observability",
+			"type": "feat",
+			"scope": "brain",
+			"additions": 73,
+			"deletions": 1,
+			"timestamp": "2026-04-14T13:54:43+02:00"
+		},
+		{
+			"hash": "4b2007e",
+			"short": "fix(pwa): wire up manifest link + SW registration so install prompt works",
+			"type": "fix",
+			"scope": "pwa",
+			"additions": 56,
+			"deletions": 56,
+			"timestamp": "2026-04-14T14:05:49+02:00"
+		},
+		{
+			"hash": "e885713",
+			"short": "refactor(brain): migrate Companion engine to LlmOrchestrator (4-tier system)",
+			"type": "refactor",
+			"scope": "brain",
+			"additions": 90,
+			"deletions": 64,
+			"timestamp": "2026-04-14T14:09:57+02:00"
+		},
+		{
+			"hash": "180e07d",
+			"short": "feat(credits): admin-gifted sync subscriptions",
+			"type": "feat",
+			"scope": "credits",
+			"additions": 159,
+			"deletions": 1,
+			"timestamp": "2026-04-14T14:11:07+02:00"
+		},
+		{
+			"hash": "c357a1c",
+			"short": "feat(brain): AI tier selector in Companion chat toolbar",
+			"type": "feat",
+			"scope": "brain",
+			"additions": 83,
+			"deletions": 0,
+			"timestamp": "2026-04-14T14:15:30+02:00"
+		},
+		{
+			"hash": "b196e77",
+			"short": "perf(web): idle-defer non-critical (app) init + lazy-load modals",
+			"type": "perf",
+			"scope": "web",
+			"additions": 153,
+			"deletions": 62,
+			"timestamp": "2026-04-14T14:41:27+02:00"
+		},
+		{
+			"hash": "3817111",
+			"short": "feat(themes): redesign theme picker with gradient cards + beefy mode selector",
+			"type": "feat",
+			"scope": "themes",
+			"additions": 254,
+			"deletions": 23,
+			"timestamp": "2026-04-14T14:58:10+02:00"
+		},
+		{
+			"hash": "a33857f",
+			"short": "feat(llm): add BYOK tier + 4 provider adapters (OpenAI, Anthropic, Gemini, Mistral)",
+			"type": "feat",
+			"scope": "llm",
+			"additions": 1026,
+			"deletions": 11,
+			"timestamp": "2026-04-14T15:06:48+02:00"
+		},
+		{
+			"hash": "db8c257",
+			"short": "feat(byok): IndexedDB vault + settings UI for user API keys",
+			"type": "feat",
+			"scope": "byok",
+			"additions": 935,
+			"deletions": 153,
+			"timestamp": "2026-04-14T15:14:00+02:00"
+		},
+		{
+			"hash": "7c6567a",
+			"short": "perf(web): re-apply (app) layout idle-defer + lazy modals after BYOK merge",
+			"type": "perf",
+			"scope": "web",
+			"additions": 154,
+			"deletions": 63,
+			"timestamp": "2026-04-14T15:22:31+02:00"
+		},
+		{
+			"hash": "e4f0a41",
+			"short": "test(byok): add 35 unit tests + update docs to as-built status",
+			"type": "test",
+			"scope": "byok",
+			"additions": 614,
+			"deletions": 23,
+			"timestamp": "2026-04-14T15:23:03+02:00"
+		},
+		{
+			"hash": "79996f9",
+			"short": "feat(sync): schemaVersion + eventId on wire (M2 protocol hardening)",
+			"type": "feat",
+			"scope": "sync",
+			"additions": 301,
+			"deletions": 76,
+			"timestamp": "2026-04-14T15:25:32+02:00"
+		},
+		{
+			"hash": "ceb5f72",
+			"short": "feat(sync): wire /backup/export route + client + settings UI (M1 tail)",
+			"type": "feat",
+			"scope": "sync",
+			"additions": 115,
+			"deletions": 0,
+			"timestamp": "2026-04-14T15:26:30+02:00"
+		},
+		{
+			"hash": "f5cb833",
+			"short": "perf(workbench): lazy-mount carousel cards via IntersectionObserver",
+			"type": "perf",
+			"scope": "workbench",
+			"additions": 82,
+			"deletions": 2,
+			"timestamp": "2026-04-14T15:27:32+02:00"
+		},
+		{
+			"hash": "53b3746",
+			"short": "refactor: rename nutriphi module to food (Essen)",
+			"type": null,
+			"scope": null,
+			"additions": 862,
+			"deletions": 718,
+			"timestamp": "2026-04-14T15:30:07+02:00"
+		},
+		{
+			"hash": "1249cc4",
+			"short": "feat(sync): backup as .mana zip with manifest + sha256 (M3)",
+			"type": "feat",
+			"scope": "sync",
+			"additions": 20,
+			"deletions": 15,
+			"timestamp": "2026-04-14T15:49:47+02:00"
+		},
+		{
+			"hash": "aa29ad8",
+			"short": "chore: refresh pnpm-lock after nutriphi -> food rename",
+			"type": null,
+			"scope": null,
+			"additions": 63,
+			"deletions": 63,
+			"timestamp": "2026-04-14T15:51:51+02:00"
+		},
+		{
+			"hash": "e95d048",
+			"short": "perf(workbench): split SceneAppBar registration from prop updates",
+			"type": "perf",
+			"scope": "workbench",
+			"additions": 37,
+			"deletions": 12,
+			"timestamp": "2026-04-14T16:13:32+02:00"
+		},
+		{
+			"hash": "cf9f4ec",
+			"short": "fix(llm): per-task tier override bypasses global allowedTiers gate",
+			"type": "fix",
+			"scope": "llm",
+			"additions": 28,
+			"deletions": 14,
+			"timestamp": "2026-04-14T16:19:50+02:00"
+		},
+		{
+			"hash": "7aee552",
+			"short": "feat(sync): .mana backup import — zip parser + replay (M4a)",
+			"type": "feat",
+			"scope": "sync",
+			"additions": 594,
+			"deletions": 1,
+			"timestamp": "2026-04-14T16:49:08+02:00"
+		},
+		{
+			"hash": "e219d38",
+			"short": "test(sync): 8 vitest cases for .mana zip parser",
+			"type": "test",
+			"scope": "sync",
+			"additions": 231,
+			"deletions": 0,
+			"timestamp": "2026-04-14T16:51:47+02:00"
+		},
+		{
+			"hash": "d5cabed",
+			"short": "perf(shared-icons): mark package as side-effect-free for tree-shaking",
+			"type": "perf",
+			"scope": "shared-icons",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-04-14T17:16:19+02:00"
+		},
+		{
+			"hash": "cf3d93f",
+			"short": "test(sync): extract WriteBackup + 4 Go integration tests",
+			"type": "test",
+			"scope": "sync",
+			"additions": 406,
+			"deletions": 139,
+			"timestamp": "2026-04-14T17:44:37+02:00"
+		},
+		{
+			"hash": "4f33435",
+			"short": "docs(sync): document backup/restore pipeline + stability contract",
+			"type": "docs",
+			"scope": "sync",
+			"additions": 121,
+			"deletions": 7,
+			"timestamp": "2026-04-14T17:48:47+02:00"
+		},
+		{
+			"hash": "f0233b8",
+			"short": "perf(shared-pkgs): declare sideEffects for aggressive tree-shaking",
+			"type": "perf",
+			"scope": "shared-pkgs",
+			"additions": 18,
+			"deletions": 0,
+			"timestamp": "2026-04-14T18:12:22+02:00"
+		},
+		{
+			"hash": "66cda80",
+			"short": "feat(settings): inline BYOK key manager under AI tier card",
+			"type": "feat",
+			"scope": "settings",
+			"additions": 278,
+			"deletions": 324,
+			"timestamp": "2026-04-14T19:42:40+02:00"
+		},
+		{
+			"hash": "b857063",
+			"short": "refactor: rename eventstream -> activity, cycles -> period",
+			"type": null,
+			"scope": null,
+			"additions": 698,
+			"deletions": 674,
+			"timestamp": "2026-04-14T19:45:43+02:00"
+		},
+		{
+			"hash": "7c1c6cd",
+			"short": "chore(audit): module complexity reports + workbench map",
+			"type": "chore",
+			"scope": "audit",
+			"additions": 1453,
+			"deletions": 0,
+			"timestamp": "2026-04-14T19:47:42+02:00"
+		},
+		{
+			"hash": "d11f6ae",
+			"short": "chore: ignore vite-plugin-pwa dev-dist output",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-04-14T19:50:03+02:00"
+		},
+		{
+			"hash": "73e3fdb",
+			"short": "feat(meditate): add meditation module with presets, sessions, breathing UI",
+			"type": "feat",
+			"scope": "meditate",
+			"additions": 2161,
+			"deletions": 0,
+			"timestamp": "2026-04-14T19:50:13+02:00"
+		},
+		{
+			"hash": "f36da05",
+			"short": "docs: add Context Intelligence research report",
+			"type": null,
+			"scope": null,
+			"additions": 199,
+			"deletions": 0,
+			"timestamp": "2026-04-14T19:50:25+02:00"
+		},
+		{
+			"hash": "93bb94a",
+			"short": "fix(types): drop .ts extensions + narrow Uint8Array buffer type",
+			"type": "fix",
+			"scope": "types",
+			"additions": 8,
+			"deletions": 8,
+			"timestamp": "2026-04-14T20:07:22+02:00"
+		},
+		{
+			"hash": "9a6ccf5",
+			"short": "fix(a11y): clear pre-push svelte-check warnings",
+			"type": "fix",
+			"scope": "a11y",
+			"additions": 11,
+			"deletions": 1,
+			"timestamp": "2026-04-14T20:12:14+02:00"
+		},
+		{
+			"hash": "66f8e86",
+			"short": "fix(web): add missing pako dep for backup import",
+			"type": "fix",
+			"scope": "web",
+			"additions": 163,
+			"deletions": 270,
+			"timestamp": "2026-04-14T20:29:31+02:00"
+		},
+		{
+			"hash": "bb278fb",
+			"short": "fix(types): use .js extensions for shared-types re-exports",
+			"type": "fix",
+			"scope": "types",
+			"additions": 7,
+			"deletions": 7,
+			"timestamp": "2026-04-14T20:44:18+02:00"
+		},
+		{
+			"hash": "2fb2bb6",
+			"short": "feat(kontext): singleton markdown doc with inline editor",
+			"type": "feat",
+			"scope": "kontext",
+			"additions": 433,
+			"deletions": 0,
+			"timestamp": "2026-04-14T20:46:04+02:00"
+		},
+		{
+			"hash": "a18506c",
+			"short": "feat(events): Actor attribution on every DomainEvent",
+			"type": "feat",
+			"scope": "events",
+			"additions": 257,
+			"deletions": 21,
+			"timestamp": "2026-04-14T20:48:03+02:00"
+		},
+		{
+			"hash": "d1a0d09",
+			"short": "feat(data): stamp actor on records and pending changes via Dexie hooks",
+			"type": "feat",
+			"scope": "data",
+			"additions": 67,
+			"deletions": 15,
+			"timestamp": "2026-04-14T20:48:30+02:00"
+		},
+		{
+			"hash": "e38257b",
+			"short": "feat(ai): policy-gated tool executor with pendingProposals lifecycle",
+			"type": "feat",
+			"scope": "ai",
+			"additions": 715,
+			"deletions": 19,
+			"timestamp": "2026-04-14T20:48:53+02:00"
+		},
+		{
+			"hash": "513e3c7",
+			"short": "fix(types): enable allowImportingTsExtensions, restore .ts on shared-types",
+			"type": "fix",
+			"scope": "types",
+			"additions": 8,
+			"deletions": 7,
+			"timestamp": "2026-04-14T20:54:35+02:00"
+		},
+		{
+			"hash": "7a1f11c",
+			"short": "feat(ai): inline proposal inbox in the todo module",
+			"type": "feat",
+			"scope": "ai",
+			"additions": 339,
+			"deletions": 0,
+			"timestamp": "2026-04-14T20:58:46+02:00"
+		},
+		{
+			"hash": "851a281",
+			"short": "refactor: rename zitare -> quotes (Zitate)",
+			"type": null,
+			"scope": null,
+			"additions": 836,
+			"deletions": 721,
+			"timestamp": "2026-04-14T20:59:16+02:00"
+		},
+		{
+			"hash": "0f3fd4e",
+			"short": "docs(ai): document Actor attribution + AI Workbench pilot",
+			"type": "docs",
+			"scope": "ai",
+			"additions": 174,
+			"deletions": 2,
+			"timestamp": "2026-04-14T21:05:30+02:00"
+		},
+		{
+			"hash": "d7bf8a2",
+			"short": "feat(ai): Mission datamodel — long-lived autonomous work items",
+			"type": "feat",
+			"scope": "ai",
+			"additions": 635,
+			"deletions": 0,
+			"timestamp": "2026-04-14T21:10:19+02:00"
+		},
+		{
+			"hash": "72d5c70",
+			"short": "feat(ai): Mission Planner LLM task + prompt/parser",
+			"type": "feat",
+			"scope": "ai",
+			"additions": 548,
+			"deletions": 0,
+			"timestamp": "2026-04-14T21:16:10+02:00"
+		},
+		{
+			"hash": "1c6201b",
+			"short": "feat(ai): MissionRunner — orchestrates Planner + proposal staging",
+			"type": "feat",
+			"scope": "ai",
+			"additions": 511,
+			"deletions": 0,
+			"timestamp": "2026-04-14T21:20:29+02:00"
+		},
+		{
+			"hash": "7535480",
+			"short": "feat(ai): production wiring for Mission Runner + default input resolvers",
+			"type": "feat",
+			"scope": "ai",
+			"additions": 228,
+			"deletions": 0,
+			"timestamp": "2026-04-14T21:24:13+02:00"
+		},
+		{
+			"hash": "b7a76ca",
+			"short": "docs(ai): mark Planner + Runner (Steps 4+5) as done in Workbench roadmap",
+			"type": "docs",
+			"scope": "ai",
+			"additions": 11,
+			"deletions": 4,
+			"timestamp": "2026-04-14T21:24:51+02:00"
+		},
+		{
+			"hash": "3a8c019",
+			"short": "feat(ai): Missions UI under /companion/missions",
+			"type": "feat",
+			"scope": "ai",
+			"additions": 740,
+			"deletions": 0,
+			"timestamp": "2026-04-14T21:34:11+02:00"
+		},
+		{
+			"hash": "41052f7",
+			"short": "feat(ai): input picker — link notes / kontext / goals to a Mission",
+			"type": "feat",
+			"scope": "ai",
+			"additions": 398,
+			"deletions": 2,
+			"timestamp": "2026-04-14T22:25:07+02:00"
+		},
+		{
+			"hash": "bf6b9cd",
+			"short": "docs(ai): mark Missions UI + input picker (Step 6) done; document resolver/indexer symmetry",
+			"type": "docs",
+			"scope": "ai",
+			"additions": 22,
+			"deletions": 4,
+			"timestamp": "2026-04-14T22:30:20+02:00"
+		},
+		{
+			"hash": "2fe9522",
+			"short": "feat(ai): Workbench timeline — cross-module AI activity lens",
+			"type": "feat",
+			"scope": "ai",
+			"additions": 473,
+			"deletions": 0,
+			"timestamp": "2026-04-14T23:21:04+02:00"
+		},
+		{
+			"hash": "90e6d4d",
+			"short": "refactor(projections): wrap streak-tracker writes in system actor",
+			"type": "refactor",
+			"scope": "projections",
+			"additions": 21,
+			"deletions": 12,
+			"timestamp": "2026-04-14T23:23:16+02:00"
+		},
+		{
+			"hash": "6425135",
+			"short": "docs(ai): mark Workbench + projection system-actor done; renumber roadmap",
+			"type": "docs",
+			"scope": "ai",
+			"additions": 9,
+			"deletions": 2,
+			"timestamp": "2026-04-14T23:23:41+02:00"
+		},
+		{
+			"hash": "bfa1c02",
+			"short": "feat(mana-sync): persist actor JSON on every sync_changes row",
+			"type": "feat",
+			"scope": "mana-sync",
+			"additions": 123,
+			"deletions": 18,
+			"timestamp": "2026-04-14T23:31:01+02:00"
+		},
+		{
+			"hash": "615b1c2",
+			"short": "feat(sync): thread actor through webapp sync client",
+			"type": "feat",
+			"scope": "sync",
+			"additions": 24,
+			"deletions": 1,
+			"timestamp": "2026-04-14T23:35:08+02:00"
+		},
+		{
+			"hash": "5922abb",
+			"short": "feat(sync): stamp __lastActor + __fieldActors on incoming server changes",
+			"type": "feat",
+			"scope": "sync",
+			"additions": 49,
+			"deletions": 3,
+			"timestamp": "2026-04-14T23:37:19+02:00"
+		},
+		{
+			"hash": "5c53c6d",
+			"short": "docs(ai): mark Step 8 (mana-sync actor field) done; document sync_changes.actor",
+			"type": "docs",
+			"scope": "ai",
+			"additions": 13,
+			"deletions": 2,
+			"timestamp": "2026-04-14T23:37:55+02:00"
+		},
+		{
+			"hash": "b9710e6",
+			"short": "feat(mana-ai): scaffold server-side Mission Runner (v0.1)",
+			"type": "feat",
+			"scope": "mana-ai",
+			"additions": 636,
+			"deletions": 0,
+			"timestamp": "2026-04-14T23:48:30+02:00"
+		},
+		{
+			"hash": "1191952",
+			"short": "docs(ai): mark Step 9 scaffolded; register mana-ai in root services list",
+			"type": "docs",
+			"scope": "ai",
+			"additions": 10,
+			"deletions": 2,
+			"timestamp": "2026-04-14T23:49:22+02:00"
+		},
+		{
+			"hash": "0d90b12",
+			"short": "feat(shared-ai): extract planner + mission types to @mana/shared-ai",
+			"type": "feat",
+			"scope": "shared-ai",
+			"additions": 724,
+			"deletions": 625,
+			"timestamp": "2026-04-15T00:01:57+02:00"
+		},
+		{
+			"hash": "203fe3e",
+			"short": "feat(mana-ai): wire shared-ai planner + real mana-llm calls (v0.2)",
+			"type": "feat",
+			"scope": "mana-ai",
+			"additions": 185,
+			"deletions": 27,
+			"timestamp": "2026-04-15T00:06:22+02:00"
+		},
+		{
+			"hash": "7e17142",
+			"short": "docs(mana-ai): bump status to v0.2 — plans end-to-end, write-back open",
+			"type": "docs",
+			"scope": "mana-ai",
+			"additions": 9,
+			"deletions": 8,
+			"timestamp": "2026-04-15T00:07:01+02:00"
+		},
+		{
+			"hash": "5e01763",
+			"short": "feat(ai): close the loop — server write-back + webapp staging effect",
+			"type": "feat",
+			"scope": "ai",
+			"additions": 522,
+			"deletions": 43,
+			"timestamp": "2026-04-15T00:29:30+02:00"
+		},
+		{
+			"hash": "39b24b2",
+			"short": "docs(ai): mark Step 9 complete — close-the-loop shipped in v0.3",
+			"type": "docs",
+			"scope": "ai",
+			"additions": 27,
+			"deletions": 20,
+			"timestamp": "2026-04-15T00:30:31+02:00"
+		},
+		{
+			"hash": "a842594",
+			"short": "feat(mana-ai): server-side input resolvers (goals for now)",
+			"type": "feat",
+			"scope": "mana-ai",
+			"additions": 281,
+			"deletions": 10,
+			"timestamp": "2026-04-15T00:42:45+02:00"
+		},
+		{
+			"hash": "4b67316",
+			"short": "feat(ai): add tasks + calendar events as Mission inputs (webapp side)",
+			"type": "feat",
+			"scope": "ai",
+			"additions": 103,
+			"deletions": 0,
+			"timestamp": "2026-04-15T00:44:59+02:00"
+		},
+		{
+			"hash": "dccd9c5",
+			"short": "docs(mana-ai): server-side resolvers shipped; document plaintext-only scope",
+			"type": "docs",
+			"scope": "mana-ai",
+			"additions": 1,
+			"deletions": 2,
+			"timestamp": "2026-04-15T00:45:39+02:00"
+		},
+		{
+			"hash": "4be5e29",
+			"short": "feat(shared-ai): canonical proposable-tool list + drift guard on mana-ai",
+			"type": "feat",
+			"scope": "shared-ai",
+			"additions": 163,
+			"deletions": 36,
+			"timestamp": "2026-04-15T00:52:38+02:00"
+		},
+		{
+			"hash": "4d6e6e6",
+			"short": "feat(mana-web): keyboard shortcuts for workbench + nav bars",
+			"type": "feat",
+			"scope": "mana-web",
+			"additions": 174,
+			"deletions": 37,
+			"timestamp": "2026-04-15T00:53:42+02:00"
+		},
+		{
+			"hash": "9bc44c0",
+			"short": "feat(ai): roll out AiProposalInbox to calendar / places / drink / food",
+			"type": "feat",
+			"scope": "ai",
+			"additions": 15,
+			"deletions": 0,
+			"timestamp": "2026-04-15T00:54:59+02:00"
+		},
+		{
+			"hash": "98547b9",
+			"short": "feat(ai): freitext feedback on proposal rejection",
+			"type": "feat",
+			"scope": "ai",
+			"additions": 97,
+			"deletions": 24,
+			"timestamp": "2026-04-15T00:56:39+02:00"
+		},
+		{
+			"hash": "ce64655",
+			"short": "fix(ai): bubble proposal-reject feedback into Mission iteration",
+			"type": "fix",
+			"scope": "ai",
+			"additions": 23,
+			"deletions": 0,
+			"timestamp": "2026-04-15T00:57:25+02:00"
+		},
+		{
+			"hash": "b03bbe1",
+			"short": "feat(shared-ui): unify bottom-stack bars with shared Pill component",
+			"type": "feat",
+			"scope": "shared-ui",
+			"additions": 467,
+			"deletions": 460,
+			"timestamp": "2026-04-15T00:58:46+02:00"
+		},
+		{
+			"hash": "ad1659f",
+			"short": "refactor(mana-ai): RLS-scope mission reads via per-user two-phase query",
+			"type": "refactor",
+			"scope": "mana-ai",
+			"additions": 205,
+			"deletions": 25,
+			"timestamp": "2026-04-15T01:06:17+02:00"
+		},
+		{
+			"hash": "24eb8b3",
+			"short": "refactor(shared-ui): extract search-core for highlight + debounce",
+			"type": "refactor",
+			"scope": "shared-ui",
+			"additions": 161,
+			"deletions": 204,
+			"timestamp": "2026-04-15T01:06:37+02:00"
+		},
+		{
+			"hash": "9bc77dd",
+			"short": "docs(mana-ai): contract test + RLS scoping shipped; narrow remaining work",
+			"type": "docs",
+			"scope": "mana-ai",
+			"additions": 1,
+			"deletions": 2,
+			"timestamp": "2026-04-15T01:07:10+02:00"
+		},
+		{
+			"hash": "99efb93",
+			"short": "refactor(arcade, shared-ui): migrate CommandBar to GlobalSpotlight, delete CommandBar",
+			"type": "refactor",
+			"scope": "arcade, shared-ui",
+			"additions": 63,
+			"deletions": 1171,
+			"timestamp": "2026-04-15T01:17:55+02:00"
+		},
+		{
+			"hash": "ad5f670",
+			"short": "feat(ai): revert-per-iteration button in the Workbench timeline",
+			"type": "feat",
+			"scope": "ai",
+			"additions": 346,
+			"deletions": 2,
+			"timestamp": "2026-04-15T01:18:14+02:00"
+		},
+		{
+			"hash": "a047f6c",
+			"short": "docs(ai): Revert-per-iteration shipped in Workbench",
+			"type": "docs",
+			"scope": "ai",
+			"additions": 4,
+			"deletions": 1,
+			"timestamp": "2026-04-15T01:19:16+02:00"
+		},
+		{
+			"hash": "5d4bf20",
+			"short": "refactor(shared-ui): migrate PillNav nav items to shared Pill component",
+			"type": "refactor",
+			"scope": "shared-ui",
+			"additions": 94,
+			"deletions": 89,
+			"timestamp": "2026-04-15T01:25:18+02:00"
+		},
+		{
+			"hash": "8fd9b7d",
+			"short": "perf(mana-ai): materialize mission snapshots, drop per-tick full replay",
+			"type": "perf",
+			"scope": "mana-ai",
+			"additions": 314,
+			"deletions": 51,
+			"timestamp": "2026-04-15T01:28:24+02:00"
+		},
+		{
+			"hash": "5ca5976",
+			"short": "docs(ai): materialized snapshot shipped, roadmap functionally complete",
+			"type": "docs",
+			"scope": "ai",
+			"additions": 13,
+			"deletions": 5,
+			"timestamp": "2026-04-15T01:29:31+02:00"
+		},
+		{
+			"hash": "767b64c",
+			"short": "refactor(shared-ui): migrate remaining PillNav triggers to Pill",
+			"type": "refactor",
+			"scope": "shared-ui",
+			"additions": 36,
+			"deletions": 129,
+			"timestamp": "2026-04-15T01:31:30+02:00"
+		},
+		{
+			"hash": "0bf01f4",
+			"short": "feat(mana-ai): Prometheus /metrics endpoint + status.mana.how integration",
+			"type": "feat",
+			"scope": "mana-ai",
+			"additions": 184,
+			"deletions": 3,
+			"timestamp": "2026-04-15T01:41:40+02:00"
+		},
+		{
+			"hash": "ce944ef",
+			"short": "docs(ai): document observability + Revert + full scope in webapp CLAUDE.md",
+			"type": "docs",
+			"scope": "ai",
+			"additions": 12,
+			"deletions": 6,
+			"timestamp": "2026-04-15T01:53:37+02:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

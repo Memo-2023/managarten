@@ -1,0 +1,377 @@
+{
+	"date": "2026-04-13",
+	"day_number": 82,
+	"weekday": "Montag",
+	"commits": 31,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 31
+		}
+	],
+	"additions": 27839,
+	"deletions": 1402,
+	"net_lines": 26437,
+	"files_changed": 230,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-04-13T14:07:42.000Z",
+		"last_commit_at": "2026-04-13T22:14:55.000Z",
+		"total_span_minutes": 487,
+		"active_minutes": 197,
+		"pauses": [
+			{
+				"from": "16:45",
+				"to": "20:25",
+				"minutes": 220
+			},
+			{
+				"from": "20:47",
+				"to": "21:19",
+				"minutes": 32
+			},
+			{
+				"from": "21:23",
+				"to": "22:01",
+				"minutes": 38
+			}
+		],
+		"longest_focus_minutes": 133
+	},
+	"top_dirs": [
+		{
+			"path": "apps/mana/apps/web",
+			"pct": 80
+		},
+		{
+			"path": "services/mana-mail/src",
+			"pct": 6
+		},
+		{
+			"path": "packages/shared-branding/src",
+			"pct": 4
+		},
+		{
+			"path": "apps/mana/apps/landing",
+			"pct": 2
+		},
+		{
+			"path": "docs/architecture/COMPANION_BRAIN_ARCHITECTURE.md",
+			"pct": 1
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 225
+		},
+		{
+			"ext": ".svelte",
+			"count": 45
+		},
+		{
+			"ext": ".md",
+			"count": 13
+		},
+		{
+			"ext": ".astro",
+			"count": 6
+		},
+		{
+			"ext": ".sh",
+			"count": 2
+		},
+		{
+			"ext": ".json",
+			"count": 2
+		}
+	],
+	"tags": ["brain", "landing", "mail", "workbench", "recipes"],
+	"commits_list": [
+		{
+			"hash": "aa3f5d6",
+			"short": "feat(landing): add /features USP page with ratings and comparison",
+			"type": "feat",
+			"scope": "landing",
+			"additions": 1032,
+			"deletions": 1,
+			"timestamp": "2026-04-13T16:07:42+02:00"
+		},
+		{
+			"hash": "ca30874",
+			"short": "feat(landing): add simple/tech toggle on features page",
+			"type": "feat",
+			"scope": "landing",
+			"additions": 716,
+			"deletions": 215,
+			"timestamp": "2026-04-13T16:26:39+02:00"
+		},
+		{
+			"hash": "e97d7d1",
+			"short": "refactor(landing): replace star ratings with flowing text summary",
+			"type": "refactor",
+			"scope": "landing",
+			"additions": 72,
+			"deletions": 224,
+			"timestamp": "2026-04-13T16:35:02+02:00"
+		},
+		{
+			"hash": "bfa237d",
+			"short": "style(landing): make flow links subtler with underline instead of pills",
+			"type": "style",
+			"scope": "landing",
+			"additions": 5,
+			"deletions": 12,
+			"timestamp": "2026-04-13T16:39:22+02:00"
+		},
+		{
+			"hash": "971ad37",
+			"short": "style(landing): use generic tool categories instead of brand names",
+			"type": "style",
+			"scope": "landing",
+			"additions": 8,
+			"deletions": 8,
+			"timestamp": "2026-04-13T16:43:35+02:00"
+		},
+		{
+			"hash": "6516002",
+			"short": "feat(workbench): improve fullscreen, scene bar styling, and inline scene creation",
+			"type": "feat",
+			"scope": "workbench",
+			"additions": 242,
+			"deletions": 138,
+			"timestamp": "2026-04-13T16:45:09+02:00"
+		},
+		{
+			"hash": "f5b9d0a",
+			"short": "feat(recipes): add recipe module with local-first data, encryption, and card UI",
+			"type": "feat",
+			"scope": "recipes",
+			"additions": 1453,
+			"deletions": 0,
+			"timestamp": "2026-04-13T16:45:41+02:00"
+		},
+		{
+			"hash": "e927c1f",
+			"short": "feat(brain): add Domain Event Bus and emit events from 5 pilot modules",
+			"type": "feat",
+			"scope": "brain",
+			"additions": 2116,
+			"deletions": 3,
+			"timestamp": "2026-04-13T20:25:46+02:00"
+		},
+		{
+			"hash": "aabf130",
+			"short": "feat(stretch): add stretch module with guided routines, assessment, and reminders",
+			"type": "feat",
+			"scope": "stretch",
+			"additions": 5341,
+			"deletions": 1,
+			"timestamp": "2026-04-13T20:29:06+02:00"
+		},
+		{
+			"hash": "40e1145",
+			"short": "feat(brain): add Projection Engine with DaySnapshot, Streaks, and Context Document",
+			"type": "feat",
+			"scope": "brain",
+			"additions": 540,
+			"deletions": 0,
+			"timestamp": "2026-04-13T20:35:36+02:00"
+		},
+		{
+			"hash": "a3de6b3",
+			"short": "feat(mail): add mana-mail service and frontend module (Phase 1 MVP)",
+			"type": "feat",
+			"scope": "mail",
+			"additions": 2908,
+			"deletions": 1,
+			"timestamp": "2026-04-13T20:35:54+02:00"
+		},
+		{
+			"hash": "9066b6c",
+			"short": "feat(brain): add Goal system, Pulse Rule Engine, and Feedback Loop",
+			"type": "feat",
+			"scope": "brain",
+			"additions": 748,
+			"deletions": 0,
+			"timestamp": "2026-04-13T20:40:42+02:00"
+		},
+		{
+			"hash": "a2f0540",
+			"short": "chore(mail): add infra — port 3042, DB schema setup, pnpm install",
+			"type": "chore",
+			"scope": "mail",
+			"additions": 304,
+			"deletions": 171,
+			"timestamp": "2026-04-13T20:42:12+02:00"
+		},
+		{
+			"hash": "777810d",
+			"short": "docs(mail): add TODO checklist for remaining Phase 1-4 work",
+			"type": "docs",
+			"scope": "mail",
+			"additions": 40,
+			"deletions": 0,
+			"timestamp": "2026-04-13T20:46:00+02:00"
+		},
+		{
+			"hash": "66dd684",
+			"short": "feat(brain): add Tool Layer with LLM-accessible module operations",
+			"type": "feat",
+			"scope": "brain",
+			"additions": 626,
+			"deletions": 0,
+			"timestamp": "2026-04-13T20:47:32+02:00"
+		},
+		{
+			"hash": "1e992d3",
+			"short": "feat(sleep): add sleep module with tracking, hygiene checklists, and stats",
+			"type": "feat",
+			"scope": "sleep",
+			"additions": 2737,
+			"deletions": 2,
+			"timestamp": "2026-04-13T21:19:52+02:00"
+		},
+		{
+			"hash": "46db527",
+			"short": "feat(brain): add Companion Chat module with LLM tool calling",
+			"type": "feat",
+			"scope": "brain",
+			"additions": 1100,
+			"deletions": 113,
+			"timestamp": "2026-04-13T21:23:38+02:00"
+		},
+		{
+			"hash": "41357b2",
+			"short": "feat(brain): add Ritual system with guided routines and step execution",
+			"type": "feat",
+			"scope": "brain",
+			"additions": 1074,
+			"deletions": 0,
+			"timestamp": "2026-04-13T22:01:37+02:00"
+		},
+		{
+			"hash": "87a1dd6",
+			"short": "feat(brain): add Semantic Memory, Pattern Extractors, and Correlation Engine",
+			"type": "feat",
+			"scope": "brain",
+			"additions": 670,
+			"deletions": 6,
+			"timestamp": "2026-04-13T22:07:46+02:00"
+		},
+		{
+			"hash": "0847ec8",
+			"short": "docs(brain): update architecture plan with Phase 5-7 completion and testing guide",
+			"type": "docs",
+			"scope": "brain",
+			"additions": 232,
+			"deletions": 36,
+			"timestamp": "2026-04-13T22:11:04+02:00"
+		},
+		{
+			"hash": "e1884cf",
+			"short": "fix(brain): fix companion page not rendering — schema version + query robustness",
+			"type": "fix",
+			"scope": "brain",
+			"additions": 42,
+			"deletions": 21,
+			"timestamp": "2026-04-13T22:19:59+02:00"
+		},
+		{
+			"hash": "4211ce6",
+			"short": "feat(brain): add 4 Companion Brain workbench pages",
+			"type": "feat",
+			"scope": "brain",
+			"additions": 820,
+			"deletions": 0,
+			"timestamp": "2026-04-13T22:33:53+02:00"
+		},
+		{
+			"hash": "c51382a",
+			"short": "feat(brain): add domain events + tools for habits, journal, notes, contacts, body",
+			"type": "feat",
+			"scope": "brain",
+			"additions": 480,
+			"deletions": 0,
+			"timestamp": "2026-04-13T22:48:15+02:00"
+		},
+		{
+			"hash": "7752ba9",
+			"short": "feat(brain): add domain events + tools for finance, dreams, cards, times, events",
+			"type": "feat",
+			"scope": "brain",
+			"additions": 300,
+			"deletions": 0,
+			"timestamp": "2026-04-13T23:00:01+02:00"
+		},
+		{
+			"hash": "c7de862",
+			"short": "feat(brain): add domain events + tools for music, storage, chat, memoro, skilltree",
+			"type": "feat",
+			"scope": "brain",
+			"additions": 251,
+			"deletions": 0,
+			"timestamp": "2026-04-13T23:07:34+02:00"
+		},
+		{
+			"hash": "c95aaa4",
+			"short": "feat(brain): add domain events + tools for remaining 9 modules",
+			"type": "feat",
+			"scope": "brain",
+			"additions": 287,
+			"deletions": 0,
+			"timestamp": "2026-04-13T23:26:57+02:00"
+		},
+		{
+			"hash": "6d7e4d0",
+			"short": "docs(brain): comprehensive status update — 29 modules, TODOs, architecture review",
+			"type": "docs",
+			"scope": "brain",
+			"additions": 101,
+			"deletions": 1,
+			"timestamp": "2026-04-13T23:28:01+02:00"
+		},
+		{
+			"hash": "d6d50e4",
+			"short": "feat(brain): add meditate+sleep, parallelize DaySnapshot, deprecate _activity",
+			"type": "feat",
+			"scope": "brain",
+			"additions": 1941,
+			"deletions": 94,
+			"timestamp": "2026-04-13T23:37:33+02:00"
+		},
+		{
+			"hash": "677f6b7",
+			"short": "feat(brain): add NudgeToast, server LLM fallback, trigger-event bridge",
+			"type": "feat",
+			"scope": "brain",
+			"additions": 509,
+			"deletions": 239,
+			"timestamp": "2026-04-13T23:45:37+02:00"
+		},
+		{
+			"hash": "399e927",
+			"short": "feat(brain): add Goal Editor UI and event-driven incremental streaks",
+			"type": "feat",
+			"scope": "brain",
+			"additions": 465,
+			"deletions": 108,
+			"timestamp": "2026-04-13T23:52:45+02:00"
+		},
+		{
+			"hash": "5ae7899",
+			"short": "test(brain): add 29 unit tests for Event Bus, Tools, Goals, Streaks, Correlations",
+			"type": "test",
+			"scope": "brain",
+			"additions": 679,
+			"deletions": 8,
+			"timestamp": "2026-04-14T00:14:55+02:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

@@ -1,0 +1,440 @@
+{
+	"date": "2026-03-21",
+	"day_number": 60,
+	"weekday": "Samstag",
+	"commits": 38,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 38
+		}
+	],
+	"additions": 13207,
+	"deletions": 4844,
+	"net_lines": 8363,
+	"files_changed": 229,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-03-21T09:48:31.000Z",
+		"last_commit_at": "2026-03-21T20:26:05.000Z",
+		"total_span_minutes": 638,
+		"active_minutes": 118,
+		"pauses": [
+			{
+				"from": "11:31",
+				"to": "12:15",
+				"minutes": 44
+			},
+			{
+				"from": "13:17",
+				"to": "15:26",
+				"minutes": 129
+			},
+			{
+				"from": "15:30",
+				"to": "21:17",
+				"minutes": 347
+			}
+		],
+		"longest_focus_minutes": 62
+	},
+	"top_dirs": [
+		{
+			"path": "apps/storage/apps/web",
+			"pct": 20
+		},
+		{
+			"path": "apps/picture/apps/web",
+			"pct": 9
+		},
+		{
+			"path": "apps/storage/apps/backend",
+			"pct": 9
+		},
+		{
+			"path": "apps/contacts/apps/web",
+			"pct": 6
+		},
+		{
+			"path": "games/whopixels/js",
+			"pct": 5
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 123
+		},
+		{
+			"ext": ".svelte",
+			"count": 70
+		},
+		{
+			"ext": ".json",
+			"count": 19
+		},
+		{
+			"ext": ".js",
+			"count": 17
+		},
+		{
+			"ext": ".md",
+			"count": 12
+		},
+		{
+			"ext": "<no-ext>",
+			"count": 10
+		}
+	],
+	"tags": ["storage", "calendar", "mukke", "contacts", "whopixels"],
+	"commits_list": [
+		{
+			"hash": "683a4c5",
+			"short": "feat(docker): add shared NestJS builder base image",
+			"type": "feat",
+			"scope": "docker",
+			"additions": 112,
+			"deletions": 317,
+			"timestamp": "2026-03-21T10:48:31+01:00"
+		},
+		{
+			"hash": "5b4da89",
+			"short": "feat(ci): add format check and tests to PR validation pipeline",
+			"type": "feat",
+			"scope": "ci",
+			"additions": 7,
+			"deletions": 1,
+			"timestamp": "2026-03-21T10:51:11+01:00"
+		},
+		{
+			"hash": "8a0ab38",
+			"short": "chore: fix wallpaper-generator test script and update CLAUDE.md test count",
+			"type": null,
+			"scope": null,
+			"additions": 5,
+			"deletions": 5,
+			"timestamp": "2026-03-21T10:54:21+01:00"
+		},
+		{
+			"hash": "4770e15",
+			"short": "fix(calendar): improve onboarding UX — clearer progress, better selection, apply preferences",
+			"type": "fix",
+			"scope": "calendar",
+			"additions": 66,
+			"deletions": 75,
+			"timestamp": "2026-03-21T11:00:28+01:00"
+		},
+		{
+			"hash": "b51f18a",
+			"short": "feat(mukke): add right-click context menu to library songs",
+			"type": "feat",
+			"scope": "mukke",
+			"additions": 70,
+			"deletions": 0,
+			"timestamp": "2026-03-21T11:05:12+01:00"
+		},
+		{
+			"hash": "c3927c8",
+			"short": "fix(calendar): use 1-hour default duration for grid click instead of 15 minutes",
+			"type": "fix",
+			"scope": "calendar",
+			"additions": 5,
+			"deletions": 2,
+			"timestamp": "2026-03-21T11:05:15+01:00"
+		},
+		{
+			"hash": "7a1ae12",
+			"short": "feat(mukke): support all common audio formats for upload and playback",
+			"type": "feat",
+			"scope": "mukke",
+			"additions": 38,
+			"deletions": 6,
+			"timestamp": "2026-03-21T11:09:25+01:00"
+		},
+		{
+			"hash": "99091ec",
+			"short": "docs+test: add audio format docs and shared-storage utils tests",
+			"type": null,
+			"scope": null,
+			"additions": 95,
+			"deletions": 0,
+			"timestamp": "2026-03-21T11:12:58+01:00"
+		},
+		{
+			"hash": "afa9f99",
+			"short": "feat(contacts): add \"My Card\" self-contact — auto-created on first load",
+			"type": "feat",
+			"scope": "contacts",
+			"additions": 185,
+			"deletions": 21,
+			"timestamp": "2026-03-21T11:14:44+01:00"
+		},
+		{
+			"hash": "a336728",
+			"short": "feat(calendar): add recurrence selector to quick event overlay",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 37,
+			"deletions": 0,
+			"timestamp": "2026-03-21T11:19:04+01:00"
+		},
+		{
+			"hash": "debd55f",
+			"short": "feat(calendar): implement UnifiedBar — replace standalone bottom bars with layered system",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 491,
+			"deletions": 726,
+			"timestamp": "2026-03-21T11:19:37+01:00"
+		},
+		{
+			"hash": "bbc5919",
+			"short": "fix(mukke): redirect root page to login instead of showing landing page",
+			"type": "fix",
+			"scope": "mukke",
+			"additions": 6,
+			"deletions": 113,
+			"timestamp": "2026-03-21T11:19:52+01:00"
+		},
+		{
+			"hash": "78526f1",
+			"short": "fix(storage): improve SEO, accessibility, and best practices for higher audit score",
+			"type": "fix",
+			"scope": "storage",
+			"additions": 182,
+			"deletions": 73,
+			"timestamp": "2026-03-21T11:22:29+01:00"
+		},
+		{
+			"hash": "16fe3aa",
+			"short": "feat(contacts): add onboarding wizard — sort preference, import option, tips",
+			"type": "feat",
+			"scope": "contacts",
+			"additions": 572,
+			"deletions": 446,
+			"timestamp": "2026-03-21T11:31:38+01:00"
+		},
+		{
+			"hash": "481a88d",
+			"short": "feat(todo): add onboarding wizard — default view, display mode, tips",
+			"type": "feat",
+			"scope": "todo",
+			"additions": 282,
+			"deletions": 4,
+			"timestamp": "2026-03-21T12:15:08+01:00"
+		},
+		{
+			"hash": "a17a3a7",
+			"short": "feat(storage): add tests, file preview modal, and fix Dockerfile ports",
+			"type": "feat",
+			"scope": "storage",
+			"additions": 2093,
+			"deletions": 8,
+			"timestamp": "2026-03-21T12:16:28+01:00"
+		},
+		{
+			"hash": "ec8847c",
+			"short": "fix(search): correct health check URL to /api/v1/health",
+			"type": "fix",
+			"scope": "search",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-03-21T12:32:08+01:00"
+		},
+		{
+			"hash": "62a13d2",
+			"short": "fix(contacts): stop pruning 'docs' dirs — breaks googleapis sub-modules",
+			"type": "fix",
+			"scope": "contacts",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-03-21T12:35:17+01:00"
+		},
+		{
+			"hash": "a6a5265",
+			"short": "docs(storage): update audit score 55 → 70 after tests, preview, and a11y improvements",
+			"type": "docs",
+			"scope": "storage",
+			"additions": 47,
+			"deletions": 23,
+			"timestamp": "2026-03-21T12:39:43+01:00"
+		},
+		{
+			"hash": "fc5dfe2",
+			"short": "feat: show build date/time on login screen across all apps",
+			"type": null,
+			"scope": null,
+			"additions": 210,
+			"deletions": 34,
+			"timestamp": "2026-03-21T12:40:57+01:00"
+		},
+		{
+			"hash": "403b1c7",
+			"short": "feat(storage): add controller tests, Caddy config, and PWA improvements",
+			"type": "feat",
+			"scope": "storage",
+			"additions": 944,
+			"deletions": 18,
+			"timestamp": "2026-03-21T12:48:11+01:00"
+		},
+		{
+			"hash": "a12cbeb",
+			"short": "docs(storage): update audit score 70 → 73, status beta → production",
+			"type": "docs",
+			"scope": "storage",
+			"additions": 30,
+			"deletions": 28,
+			"timestamp": "2026-03-21T12:48:54+01:00"
+		},
+		{
+			"hash": "4bbe4a2",
+			"short": "feat(storage): add drag & drop file moving and Playwright E2E tests",
+			"type": "feat",
+			"scope": "storage",
+			"additions": 534,
+			"deletions": 6,
+			"timestamp": "2026-03-21T13:16:29+01:00"
+		},
+		{
+			"hash": "161f105",
+			"short": "docs(storage): update audit score 73 → 75 with drag & drop and E2E tests",
+			"type": "docs",
+			"scope": "storage",
+			"additions": 23,
+			"deletions": 23,
+			"timestamp": "2026-03-21T13:17:22+01:00"
+		},
+		{
+			"hash": "c0c11c3",
+			"short": "feat(whopixels): major refactor with 20 improvements across architecture, gameplay, UX, security, and i18n",
+			"type": "feat",
+			"scope": "whopixels",
+			"additions": 2888,
+			"deletions": 1451,
+			"timestamp": "2026-03-21T15:26:40+01:00"
+		},
+		{
+			"hash": "c26a48e",
+			"short": "fix(picture): resolve critical issues — dead stores, type-check, test coverage",
+			"type": "fix",
+			"scope": "picture",
+			"additions": 1073,
+			"deletions": 1315,
+			"timestamp": "2026-03-21T15:27:58+01:00"
+		},
+		{
+			"hash": "9dc5570",
+			"short": "feat(whopixels): update Phaser from 3.55.2 to 3.80.1",
+			"type": "feat",
+			"scope": "whopixels",
+			"additions": 13,
+			"deletions": 17,
+			"timestamp": "2026-03-21T15:29:24+01:00"
+		},
+		{
+			"hash": "2ffd259",
+			"short": "feat(storage): add animations, drag feedback, integration tests, and optimize Dockerfile",
+			"type": "feat",
+			"scope": "storage",
+			"additions": 753,
+			"deletions": 61,
+			"timestamp": "2026-03-21T15:30:10+01:00"
+		},
+		{
+			"hash": "512627b",
+			"short": "docs(storage): update audit score 75 → 78 with animations and integration tests",
+			"type": "docs",
+			"scope": "storage",
+			"additions": 12,
+			"deletions": 12,
+			"timestamp": "2026-03-21T15:30:50+01:00"
+		},
+		{
+			"hash": "b735f14",
+			"short": "feat(picture): PWA support, API timeouts, batch fix, credit/history endpoints",
+			"type": "feat",
+			"scope": "picture",
+			"additions": 225,
+			"deletions": 39,
+			"timestamp": "2026-03-21T21:17:44+01:00"
+		},
+		{
+			"hash": "190b64c",
+			"short": "fix(glitchtip): use python3 for health check — wget not in image",
+			"type": "fix",
+			"scope": "glitchtip",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-03-21T21:18:12+01:00"
+		},
+		{
+			"hash": "c7b105b",
+			"short": "docs: add devlog for 2026-03-21 — WhoPixels refactor, Storage animations, Picture hardening",
+			"type": null,
+			"scope": null,
+			"additions": 241,
+			"deletions": 0,
+			"timestamp": "2026-03-21T21:22:20+01:00"
+		},
+		{
+			"hash": "9085ddd",
+			"short": "feat(storage): add rate limiting, file versioning endpoints, and version tests",
+			"type": "feat",
+			"scope": "storage",
+			"additions": 387,
+			"deletions": 4,
+			"timestamp": "2026-03-21T21:23:28+01:00"
+		},
+		{
+			"hash": "05a595d",
+			"short": "feat(storage): add file version history modal with upload support",
+			"type": "feat",
+			"scope": "storage",
+			"additions": 423,
+			"deletions": 0,
+			"timestamp": "2026-03-21T21:23:57+01:00"
+		},
+		{
+			"hash": "7641035",
+			"short": "docs(storage): update audit score 78 → 82 with versioning and rate limiting",
+			"type": "docs",
+			"scope": "storage",
+			"additions": 13,
+			"deletions": 13,
+			"timestamp": "2026-03-21T21:24:35+01:00"
+		},
+		{
+			"hash": "7d2eb33",
+			"short": "feat(infra): add Picture/Storage to Caddyfile and Windows GPU server setup plan",
+			"type": "feat",
+			"scope": "infra",
+			"additions": 709,
+			"deletions": 0,
+			"timestamp": "2026-03-21T21:25:33+01:00"
+		},
+		{
+			"hash": "8537d7c",
+			"short": "test(calendar): add tests for sync API, recurrence store, and external calendars",
+			"type": "test",
+			"scope": "calendar",
+			"additions": 430,
+			"deletions": 0,
+			"timestamp": "2026-03-21T21:25:38+01:00"
+		},
+		{
+			"hash": "ac3269b",
+			"short": "chore: update pnpm-lock.yaml",
+			"type": null,
+			"scope": null,
+			"additions": 3,
+			"deletions": 0,
+			"timestamp": "2026-03-21T21:26:05+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

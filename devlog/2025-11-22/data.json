@@ -1,0 +1,127 @@
+{
+	"date": "2025-11-22",
+	"day_number": 1,
+	"weekday": "Samstag",
+	"commits": 5,
+	"authors": [
+		{
+			"name": "Till-JS",
+			"count": 5
+		}
+	],
+	"additions": 516933,
+	"deletions": 124,
+	"net_lines": 516809,
+	"files_changed": 2475,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2025-11-22T22:38:24.000Z",
+		"last_commit_at": "2025-11-22T22:59:55.000Z",
+		"total_span_minutes": 22,
+		"active_minutes": 22,
+		"pauses": [],
+		"longest_focus_minutes": 22
+	},
+	"top_dirs": [
+		{
+			"path": "memoro/apps/landing",
+			"pct": 26
+		},
+		{
+			"path": "memoro/apps/mobile",
+			"pct": 23
+		},
+		{
+			"path": "maerchenzauber/apps/mobile",
+			"pct": 9
+		},
+		{
+			"path": "memoro/apps/web",
+			"pct": 7
+		},
+		{
+			"path": "maerchenzauber/apps/backend",
+			"pct": 7
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 504
+		},
+		{
+			"ext": ".tsx",
+			"count": 417
+		},
+		{
+			"ext": ".md",
+			"count": 368
+		},
+		{
+			"ext": ".mdx",
+			"count": 240
+		},
+		{
+			"ext": ".astro",
+			"count": 210
+		},
+		{
+			"ext": ".json",
+			"count": 177
+		}
+	],
+	"tags": [],
+	"commits_list": [
+		{
+			"hash": "e7f5f94",
+			"short": "chore: initial commit - consolidate 4 projects into monorepo",
+			"type": null,
+			"scope": null,
+			"additions": 487047,
+			"deletions": 0,
+			"timestamp": "2025-11-22T23:38:24+01:00"
+		},
+		{
+			"hash": "2c58d03",
+			"short": "feat: add monorepo configuration and shared packages structure",
+			"type": null,
+			"scope": null,
+			"additions": 738,
+			"deletions": 0,
+			"timestamp": "2025-11-22T23:41:52+01:00"
+		},
+		{
+			"hash": "6613f45",
+			"short": "docs: add dependency alignment guide",
+			"type": null,
+			"scope": null,
+			"additions": 174,
+			"deletions": 0,
+			"timestamp": "2025-11-22T23:42:39+01:00"
+		},
+		{
+			"hash": "f3b428e",
+			"short": "feat: align dependencies across all projects",
+			"type": null,
+			"scope": null,
+			"additions": 28669,
+			"deletions": 44,
+			"timestamp": "2025-11-22T23:53:07+01:00"
+		},
+		{
+			"hash": "725db63",
+			"short": "chore: cleanup turbo config and fix peer dependencies",
+			"type": null,
+			"scope": null,
+			"additions": 305,
+			"deletions": 80,
+			"timestamp": "2025-11-22T23:59:55+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

@@ -1,0 +1,251 @@
+{
+	"date": "2025-12-11",
+	"day_number": 17,
+	"weekday": "Donnerstag",
+	"commits": 16,
+	"authors": [
+		{
+			"name": "Till-JS",
+			"count": 15
+		},
+		{
+			"name": "Wuesteon",
+			"count": 1
+		}
+	],
+	"additions": 18555,
+	"deletions": 6771,
+	"net_lines": 11784,
+	"files_changed": 111,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2025-12-11T15:00:08.000Z",
+		"last_commit_at": "2025-12-12T02:51:53.000Z",
+		"total_span_minutes": 712,
+		"active_minutes": 65,
+		"pauses": [
+			{
+				"from": "16:12",
+				"to": "18:48",
+				"minutes": 156
+			},
+			{
+				"from": "18:48",
+				"to": "23:49",
+				"minutes": 301
+			},
+			{
+				"from": "23:49",
+				"to": "02:17",
+				"minutes": 148
+			},
+			{
+				"from": "03:05",
+				"to": "03:48",
+				"minutes": 42
+			}
+		],
+		"longest_focus_minutes": 49
+	},
+	"top_dirs": [
+		{
+			"path": "apps/calendar/apps/web",
+			"pct": 30
+		},
+		{
+			"path": "packages/shared-ui/src",
+			"pct": 15
+		},
+		{
+			"path": "apps/contacts/apps/web",
+			"pct": 12
+		},
+		{
+			"path": "apps/todo/apps/web",
+			"pct": 9
+		},
+		{
+			"path": "services/mana-core-auth/src",
+			"pct": 6
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".svelte",
+			"count": 81
+		},
+		{
+			"ext": ".ts",
+			"count": 66
+		},
+		{
+			"ext": ".json",
+			"count": 19
+		},
+		{
+			"ext": ".md",
+			"count": 4
+		},
+		{
+			"ext": ".css",
+			"count": 3
+		},
+		{
+			"ext": ".yaml",
+			"count": 2
+		}
+	],
+	"tags": ["calendar", "contacts", "shared-ui", "settings", "theme"],
+	"commits_list": [
+		{
+			"hash": "309faba",
+			"short": "feat(contacts): integrate contacts into Todo and Calendar apps",
+			"type": "feat",
+			"scope": "contacts",
+			"additions": 6014,
+			"deletions": 252,
+			"timestamp": "2025-12-11T16:00:08+01:00"
+		},
+		{
+			"hash": "876d81f",
+			"short": "Merge branch 'till-dev' into till-dev-backup",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 0,
+			"timestamp": "2025-12-11T16:12:26+01:00"
+		},
+		{
+			"hash": "0ecbf69",
+			"short": "feat(contacts): integrate contacts into Todo and Calendar apps",
+			"type": "feat",
+			"scope": "contacts",
+			"additions": 5791,
+			"deletions": 53,
+			"timestamp": "2025-12-11T16:00:08+01:00"
+		},
+		{
+			"hash": "5921cfd",
+			"short": "Merge branch 'till-dev-backup' into till-dev",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 0,
+			"timestamp": "2025-12-11T18:48:28+01:00"
+		},
+		{
+			"hash": "c6f8b9f",
+			"short": "feat(settings): add device-specific settings storage",
+			"type": "feat",
+			"scope": "settings",
+			"additions": 857,
+			"deletions": 410,
+			"timestamp": "2025-12-11T23:49:18+01:00"
+		},
+		{
+			"hash": "0f10a38",
+			"short": "feat(shared-ui): add QuickInputBar and PillToolbar components",
+			"type": "feat",
+			"scope": "shared-ui",
+			"additions": 3697,
+			"deletions": 121,
+			"timestamp": "2025-12-12T02:17:17+01:00"
+		},
+		{
+			"hash": "db701fd",
+			"short": "fix(calendar): improve DateStrip today and range highlighting",
+			"type": "fix",
+			"scope": "calendar",
+			"additions": 51,
+			"deletions": 108,
+			"timestamp": "2025-12-12T02:26:54+01:00"
+		},
+		{
+			"hash": "12ba2cf",
+			"short": "refactor(theme): remove custom theme editor and community themes",
+			"type": "refactor",
+			"scope": "theme",
+			"additions": 44,
+			"deletions": 3395,
+			"timestamp": "2025-12-12T02:34:43+01:00"
+		},
+		{
+			"hash": "e473a02",
+			"short": "refactor(auth): remove themes module from mana-core-auth",
+			"type": "refactor",
+			"scope": "auth",
+			"additions": 0,
+			"deletions": 1188,
+			"timestamp": "2025-12-12T02:35:18+01:00"
+		},
+		{
+			"hash": "21f2b28",
+			"short": "fix(shared-ui): improve PillNavigation and PillDropdown components",
+			"type": "fix",
+			"scope": "shared-ui",
+			"additions": 44,
+			"deletions": 10,
+			"timestamp": "2025-12-12T02:37:18+01:00"
+		},
+		{
+			"hash": "b42db50",
+			"short": "feat(calendar): improve calendar UI with new components",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 495,
+			"deletions": 510,
+			"timestamp": "2025-12-12T02:37:43+01:00"
+		},
+		{
+			"hash": "5cd550c",
+			"short": "fix(contacts): improve ContactList and FilterBar styling",
+			"type": "fix",
+			"scope": "contacts",
+			"additions": 391,
+			"deletions": 310,
+			"timestamp": "2025-12-12T02:40:44+01:00"
+		},
+		{
+			"hash": "7d03a52",
+			"short": "fix: misc UI improvements across todo and shared-tailwind",
+			"type": null,
+			"scope": null,
+			"additions": 494,
+			"deletions": 346,
+			"timestamp": "2025-12-12T02:42:25+01:00"
+		},
+		{
+			"hash": "74e2dab",
+			"short": "feat(calendar): add moon phases to DateStrip component",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 90,
+			"deletions": 62,
+			"timestamp": "2025-12-12T03:05:53+01:00"
+		},
+		{
+			"hash": "c6677a8",
+			"short": "docs(architecture): add Workspace Orchestrator architecture decision",
+			"type": "docs",
+			"scope": "architecture",
+			"additions": 507,
+			"deletions": 0,
+			"timestamp": "2025-12-12T03:48:11+01:00"
+		},
+		{
+			"hash": "7ff8213",
+			"short": "feat(calendar): add default calendars and event indicators",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 80,
+			"deletions": 6,
+			"timestamp": "2025-12-12T03:51:53+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

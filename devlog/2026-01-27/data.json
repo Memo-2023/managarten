@@ -1,0 +1,201 @@
+{
+	"date": "2026-01-27",
+	"day_number": 36,
+	"weekday": "Dienstag",
+	"commits": 11,
+	"authors": [
+		{
+			"name": "Till-JS",
+			"count": 7
+		},
+		{
+			"name": "Claude",
+			"count": 4
+		}
+	],
+	"additions": 7365,
+	"deletions": 257,
+	"net_lines": 7108,
+	"files_changed": 106,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-01-27T14:04:20.000Z",
+		"last_commit_at": "2026-01-28T00:44:28.000Z",
+		"total_span_minutes": 640,
+		"active_minutes": 37,
+		"pauses": [
+			{
+				"from": "15:05",
+				"to": "15:57",
+				"minutes": 52
+			},
+			{
+				"from": "15:57",
+				"to": "16:51",
+				"minutes": 54
+			},
+			{
+				"from": "16:58",
+				"to": "01:14",
+				"minutes": 497
+			}
+		],
+		"longest_focus_minutes": 30
+	},
+	"top_dirs": [
+		{
+			"path": "services/matrix-project-doc-bot/src",
+			"pct": 15
+		},
+		{
+			"path": "services/matrix-stats-bot/src",
+			"pct": 13
+		},
+		{
+			"path": "apps/chat/apps/web",
+			"pct": 7
+		},
+		{
+			"path": "services/matrix-ollama-bot/src",
+			"pct": 7
+		},
+		{
+			"path": "packages/shared-branding/src",
+			"pct": 6
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 55
+		},
+		{
+			"ext": ".svelte",
+			"count": 15
+		},
+		{
+			"ext": ".json",
+			"count": 14
+		},
+		{
+			"ext": ".md",
+			"count": 7
+		},
+		{
+			"ext": ".sh",
+			"count": 5
+		},
+		{
+			"ext": ".yml",
+			"count": 4
+		}
+	],
+	"tags": ["matrix", "docker", "health-check", "telegram-bot"],
+	"commits_list": [
+		{
+			"hash": "ac164c6",
+			"short": "fix(docker): correct presi-backend health check path",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-01-27T15:04:20+01:00"
+		},
+		{
+			"hash": "7252498",
+			"short": "fix(health-check): correct presi-backend health endpoint path",
+			"type": "fix",
+			"scope": "health-check",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-01-27T15:05:04+01:00"
+		},
+		{
+			"hash": "876fd43",
+			"short": "🔥 chore: remove maerchenzauber from codebase",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 231,
+			"timestamp": "2026-01-27T15:57:19+01:00"
+		},
+		{
+			"hash": "6402f28",
+			"short": "feat(telegram-bot): add local STT support and Prometheus metrics",
+			"type": "feat",
+			"scope": "telegram-bot",
+			"additions": 1433,
+			"deletions": 12,
+			"timestamp": "2026-01-27T16:51:09+01:00"
+		},
+		{
+			"hash": "14c83cb",
+			"short": "✨ feat(shared-auth-ui): add GuestWelcomeModal for guest onboarding",
+			"type": null,
+			"scope": null,
+			"additions": 873,
+			"deletions": 7,
+			"timestamp": "2026-01-27T16:57:14+01:00"
+		},
+		{
+			"hash": "ca00672",
+			"short": "✨ feat(chat): add model comparison feature",
+			"type": null,
+			"scope": null,
+			"additions": 716,
+			"deletions": 1,
+			"timestamp": "2026-01-27T16:57:56+01:00"
+		},
+		{
+			"hash": "e72f3b7",
+			"short": "🧑‍💻 feat(dx): improve local development experience",
+			"type": null,
+			"scope": null,
+			"additions": 138,
+			"deletions": 4,
+			"timestamp": "2026-01-27T16:58:11+01:00"
+		},
+		{
+			"hash": "28637df",
+			"short": "📝 docs: add Matrix self-hosting plan for GDPR-compliant bots",
+			"type": null,
+			"scope": null,
+			"additions": 674,
+			"deletions": 0,
+			"timestamp": "2026-01-28T00:14:54Z"
+		},
+		{
+			"hash": "3aa9e86",
+			"short": "feat(matrix): add self-hosted Matrix infrastructure for GDPR compliance",
+			"type": "feat",
+			"scope": "matrix",
+			"additions": 490,
+			"deletions": 0,
+			"timestamp": "2026-01-28T00:20:12Z"
+		},
+		{
+			"hash": "aabe328",
+			"short": "feat(matrix): add Matrix Ollama Bot service",
+			"type": "feat",
+			"scope": "matrix",
+			"additions": 823,
+			"deletions": 0,
+			"timestamp": "2026-01-28T00:35:35Z"
+		},
+		{
+			"hash": "7c5e9e3",
+			"short": "feat(matrix): add Stats Bot and Project Doc Bot services",
+			"type": "feat",
+			"scope": "matrix",
+			"additions": 2215,
+			"deletions": 0,
+			"timestamp": "2026-01-28T00:44:28Z"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

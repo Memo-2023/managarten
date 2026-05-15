@@ -1,0 +1,130 @@
+{
+	"date": "2026-03-07",
+	"day_number": 52,
+	"weekday": "Samstag",
+	"commits": 5,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 5
+		}
+	],
+	"additions": 3828,
+	"deletions": 2574,
+	"net_lines": 1254,
+	"files_changed": 8,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-03-07T07:23:56.000Z",
+		"last_commit_at": "2026-03-07T09:30:53.000Z",
+		"total_span_minutes": 127,
+		"active_minutes": 29,
+		"pauses": [
+			{
+				"from": "08:23",
+				"to": "08:55",
+				"minutes": 32
+			},
+			{
+				"from": "08:55",
+				"to": "10:01",
+				"minutes": 66
+			}
+		],
+		"longest_focus_minutes": 30
+	},
+	"top_dirs": [
+		{
+			"path": "apps/matrix/apps/mobile",
+			"pct": 58
+		},
+		{
+			"path": "pnpm-lock.yaml",
+			"pct": 25
+		},
+		{
+			"path": "apps/matrix/apps/web",
+			"pct": 17
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".json",
+			"count": 3
+		},
+		{
+			"ext": ".yaml",
+			"count": 3
+		},
+		{
+			"ext": ".tsx",
+			"count": 2
+		},
+		{
+			"ext": ".svelte",
+			"count": 2
+		},
+		{
+			"ext": ".ts",
+			"count": 1
+		},
+		{
+			"ext": ".js",
+			"count": 1
+		}
+	],
+	"tags": ["matrix-mobile", "matrix-web"],
+	"commits_list": [
+		{
+			"hash": "10b880b",
+			"short": "feat(matrix-mobile): upgrade to Expo SDK 55",
+			"type": "feat",
+			"scope": "matrix-mobile",
+			"additions": 3592,
+			"deletions": 2399,
+			"timestamp": "2026-03-07T08:23:56+01:00"
+		},
+		{
+			"hash": "538833a",
+			"short": "fix(matrix-mobile): add react-native-worklets for Reanimated 4.2 compatibility",
+			"type": "fix",
+			"scope": "matrix-mobile",
+			"additions": 215,
+			"deletions": 173,
+			"timestamp": "2026-03-07T08:55:42+01:00"
+		},
+		{
+			"hash": "d9b3775",
+			"short": "fix(matrix-mobile): add react-native-css-interop as explicit dependency",
+			"type": "fix",
+			"scope": "matrix-mobile",
+			"additions": 4,
+			"deletions": 0,
+			"timestamp": "2026-03-07T10:01:19+01:00"
+		},
+		{
+			"hash": "b840a21",
+			"short": "fix(matrix-mobile): block matrix-sdk-crypto-wasm in Metro resolver",
+			"type": "fix",
+			"scope": "matrix-mobile",
+			"additions": 8,
+			"deletions": 0,
+			"timestamp": "2026-03-07T10:24:08+01:00"
+		},
+		{
+			"hash": "f784612",
+			"short": "fix(matrix-web): prevent chat input bar from being hidden behind PillNavigation",
+			"type": "fix",
+			"scope": "matrix-web",
+			"additions": 9,
+			"deletions": 2,
+			"timestamp": "2026-03-07T10:30:53+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

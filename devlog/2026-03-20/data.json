@@ -1,0 +1,561 @@
+{
+	"date": "2026-03-20",
+	"day_number": 59,
+	"weekday": "Freitag",
+	"commits": 52,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 52
+		}
+	],
+	"additions": 13375,
+	"deletions": 5388,
+	"net_lines": 7987,
+	"files_changed": 201,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-03-20T15:38:05.000Z",
+		"last_commit_at": "2026-03-20T20:13:03.000Z",
+		"total_span_minutes": 275,
+		"active_minutes": 163,
+		"pauses": [
+			{
+				"from": "17:41",
+				"to": "18:46",
+				"minutes": 65
+			},
+			{
+				"from": "20:01",
+				"to": "20:48",
+				"minutes": 47
+			}
+		],
+		"longest_focus_minutes": 75
+	},
+	"top_dirs": [
+		{
+			"path": "apps/calendar/apps/web",
+			"pct": 22
+		},
+		{
+			"path": "packages/shared-storage/src",
+			"pct": 11
+		},
+		{
+			"path": "apps/mukke/apps/web",
+			"pct": 6
+		},
+		{
+			"path": "apps/contacts/apps/backend",
+			"pct": 3
+		},
+		{
+			"path": "apps/picture/apps/web",
+			"pct": 3
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 92
+		},
+		{
+			"ext": "<no-ext>",
+			"count": 80
+		},
+		{
+			"ext": ".svelte",
+			"count": 36
+		},
+		{
+			"ext": ".yml",
+			"count": 16
+		},
+		{
+			"ext": ".js",
+			"count": 11
+		},
+		{
+			"ext": ".json",
+			"count": 9
+		}
+	],
+	"tags": ["calendar", "storage", "picture", "auth", "docker"],
+	"commits_list": [
+		{
+			"hash": "a183640",
+			"short": "refactor(docker): switch calendar-web to local build",
+			"type": "refactor",
+			"scope": "docker",
+			"additions": 4,
+			"deletions": 1,
+			"timestamp": "2026-03-20T16:38:05+01:00"
+		},
+		{
+			"hash": "58bdf98",
+			"short": "fix(calendar): add patches dir to web Dockerfile",
+			"type": "fix",
+			"scope": "calendar",
+			"additions": 3,
+			"deletions": 0,
+			"timestamp": "2026-03-20T16:38:47+01:00"
+		},
+		{
+			"hash": "98d1d1c",
+			"short": "fix(calendar): add shared-pwa package to web Dockerfile",
+			"type": "fix",
+			"scope": "calendar",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-03-20T16:40:24+01:00"
+		},
+		{
+			"hash": "93e1c7d",
+			"short": "refactor(calendar): simplify settings from 41 to 18 persisted preferences",
+			"type": "refactor",
+			"scope": "calendar",
+			"additions": 303,
+			"deletions": 478,
+			"timestamp": "2026-03-20T16:40:47+01:00"
+		},
+		{
+			"hash": "26d8eb0",
+			"short": "fix(calendar): add shared-app-onboarding to web Dockerfile",
+			"type": "fix",
+			"scope": "calendar",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-03-20T16:45:55+01:00"
+		},
+		{
+			"hash": "a5940ab",
+			"short": "feat(mukke): clickable songs in library, player error handling & cover fallbacks",
+			"type": "feat",
+			"scope": "mukke",
+			"additions": 125,
+			"deletions": 9,
+			"timestamp": "2026-03-20T17:05:07+01:00"
+		},
+		{
+			"hash": "3f91c46",
+			"short": "feat(infra): add deploy tracking with PostgreSQL, Pushgateway & Grafana dashboard",
+			"type": "feat",
+			"scope": "infra",
+			"additions": 928,
+			"deletions": 33,
+			"timestamp": "2026-03-20T17:08:03+01:00"
+		},
+		{
+			"hash": "dea632c",
+			"short": "fix(caddy): update all reverse proxy ports to match docker containers",
+			"type": "fix",
+			"scope": "caddy",
+			"additions": 13,
+			"deletions": 13,
+			"timestamp": "2026-03-20T17:09:09+01:00"
+		},
+		{
+			"hash": "67326b7",
+			"short": "fix(shared-api-client): add useRuntimeUrl flag for cross-app clients",
+			"type": "fix",
+			"scope": "shared-api-client",
+			"additions": 7,
+			"deletions": 1,
+			"timestamp": "2026-03-20T17:11:31+01:00"
+		},
+		{
+			"hash": "70b1c44",
+			"short": "test(mukke): add vitest setup and 34 frontend tests for player & library stores",
+			"type": "test",
+			"scope": "mukke",
+			"additions": 658,
+			"deletions": 2,
+			"timestamp": "2026-03-20T17:16:47+01:00"
+		},
+		{
+			"hash": "e124869",
+			"short": "fix(infra): make deploy tracking Bash 3.x compatible (macOS runner)",
+			"type": "fix",
+			"scope": "infra",
+			"additions": 42,
+			"deletions": 46,
+			"timestamp": "2026-03-20T17:27:31+01:00"
+		},
+		{
+			"hash": "e7fb207",
+			"short": "fix(docker): add cross-app CORS origins to todo-backend",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-03-20T17:30:45+01:00"
+		},
+		{
+			"hash": "d3a3bc7",
+			"short": "refactor(calendar): remove tag groups hierarchy and legacy drag-drop composables",
+			"type": "refactor",
+			"scope": "calendar",
+			"additions": 213,
+			"deletions": 2281,
+			"timestamp": "2026-03-20T17:33:57+01:00"
+		},
+		{
+			"hash": "42fe39c",
+			"short": "fix(infra): fix deploy tracking dashboard datasource UIDs and instant queries",
+			"type": "fix",
+			"scope": "infra",
+			"additions": 6,
+			"deletions": 0,
+			"timestamp": "2026-03-20T17:35:41+01:00"
+		},
+		{
+			"hash": "1057d69",
+			"short": "ci(cd): add mukke-backend and mukke-web to CD pipeline",
+			"type": "ci",
+			"scope": "cd",
+			"additions": 9,
+			"deletions": 1,
+			"timestamp": "2026-03-20T17:39:49+01:00"
+		},
+		{
+			"hash": "43a2226",
+			"short": "perf(auth): optimize Dockerfile from ~740MB to ~350MB",
+			"type": "perf",
+			"scope": "auth",
+			"additions": 18,
+			"deletions": 19,
+			"timestamp": "2026-03-20T17:41:05+01:00"
+		},
+		{
+			"hash": "ab42c26",
+			"short": "feat(calendar): add CalDAV/iCal sync UI and recurring events support",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 1720,
+			"deletions": 2,
+			"timestamp": "2026-03-20T18:46:33+01:00"
+		},
+		{
+			"hash": "41fbd2f",
+			"short": "feat(storage): improve shared-storage robustness, scalability, and DX",
+			"type": "feat",
+			"scope": "storage",
+			"additions": 1315,
+			"deletions": 648,
+			"timestamp": "2026-03-20T18:52:34+01:00"
+		},
+		{
+			"hash": "9858723",
+			"short": "perf(auth): optimize Dockerfile from ~740MB to ~320MB",
+			"type": "perf",
+			"scope": "auth",
+			"additions": 10,
+			"deletions": 3,
+			"timestamp": "2026-03-20T18:55:24+01:00"
+		},
+		{
+			"hash": "eb859c1",
+			"short": "fix(auth): use SameSite=None for cross-subdomain SSO",
+			"type": "fix",
+			"scope": "auth",
+			"additions": 4,
+			"deletions": 2,
+			"timestamp": "2026-03-20T18:55:34+01:00"
+		},
+		{
+			"hash": "5c9e16f",
+			"short": "fix(calendar): integrate recurrence dialog and external calendars into UI",
+			"type": "fix",
+			"scope": "calendar",
+			"additions": 142,
+			"deletions": 6,
+			"timestamp": "2026-03-20T19:22:28+01:00"
+		},
+		{
+			"hash": "7206023",
+			"short": "fix(shared-auth): set SSO session cookie on login",
+			"type": "fix",
+			"scope": "shared-auth",
+			"additions": 13,
+			"deletions": 0,
+			"timestamp": "2026-03-20T19:27:33+01:00"
+		},
+		{
+			"hash": "01c4d3a",
+			"short": "feat(storage): cleanup buckets, add file-size validation and bulk delete",
+			"type": "feat",
+			"scope": "storage",
+			"additions": 106,
+			"deletions": 8,
+			"timestamp": "2026-03-20T19:27:42+01:00"
+		},
+		{
+			"hash": "511b51e",
+			"short": "test(calendar): add tests for CalDAV sync API, external calendars store, and recurrence",
+			"type": "test",
+			"scope": "calendar",
+			"additions": 73,
+			"deletions": 43,
+			"timestamp": "2026-03-20T19:31:34+01:00"
+		},
+		{
+			"hash": "822e753",
+			"short": "feat(shared): add DevBuildBadge component and getBuildDefines() helper",
+			"type": "feat",
+			"scope": "shared",
+			"additions": 105,
+			"deletions": 2,
+			"timestamp": "2026-03-20T19:34:21+01:00"
+		},
+		{
+			"hash": "b0e5a9c",
+			"short": "feat(storage): add upload hooks, metrics integration, and presigned multipart",
+			"type": "feat",
+			"scope": "storage",
+			"additions": 708,
+			"deletions": 28,
+			"timestamp": "2026-03-20T19:36:46+01:00"
+		},
+		{
+			"hash": "152fa5f",
+			"short": "feat(storage): add deleteByPrefix, copy, getMetadata and prod lifecycle rules",
+			"type": "feat",
+			"scope": "storage",
+			"additions": 191,
+			"deletions": 0,
+			"timestamp": "2026-03-20T19:40:17+01:00"
+		},
+		{
+			"hash": "70671e2",
+			"short": "perf(docker): prune devDeps and cleanup node_modules in all backend Dockerfiles",
+			"type": "perf",
+			"scope": "docker",
+			"additions": 35,
+			"deletions": 0,
+			"timestamp": "2026-03-20T19:42:01+01:00"
+		},
+		{
+			"hash": "aeabdca",
+			"short": "refactor(calendar): extract WeekView inline logic into composables (1600→903 LOC)",
+			"type": "refactor",
+			"scope": "calendar",
+			"additions": 339,
+			"deletions": 797,
+			"timestamp": "2026-03-20T19:43:19+01:00"
+		},
+		{
+			"hash": "8c2aa26",
+			"short": "perf(auth): replace bcrypt with bcryptjs (pure JS, no native build tools)",
+			"type": "perf",
+			"scope": "auth",
+			"additions": 314,
+			"deletions": 146,
+			"timestamp": "2026-03-20T19:46:16+01:00"
+		},
+		{
+			"hash": "8511c2c",
+			"short": "feat(cd): add Matrix notification on deploy failure",
+			"type": "feat",
+			"scope": "cd",
+			"additions": 2684,
+			"deletions": 0,
+			"timestamp": "2026-03-20T19:47:53+01:00"
+		},
+		{
+			"hash": "5832326",
+			"short": "docs(storage): update README with complete API documentation",
+			"type": "docs",
+			"scope": "storage",
+			"additions": 189,
+			"deletions": 95,
+			"timestamp": "2026-03-20T19:49:16+01:00"
+		},
+		{
+			"hash": "2eb280c",
+			"short": "test(calendar): add composable unit tests and WeekView E2E interaction tests",
+			"type": "test",
+			"scope": "calendar",
+			"additions": 591,
+			"deletions": 0,
+			"timestamp": "2026-03-20T19:51:23+01:00"
+		},
+		{
+			"hash": "d9ccb5e",
+			"short": "feat(games): add whopixels hosting at whopxl.mana.how",
+			"type": "feat",
+			"scope": "games",
+			"additions": 348,
+			"deletions": 77,
+			"timestamp": "2026-03-20T19:57:50+01:00"
+		},
+		{
+			"hash": "ecec3d5",
+			"short": "fix(contacts): optimize storage usage and fix photo orphan bug",
+			"type": "fix",
+			"scope": "contacts",
+			"additions": 68,
+			"deletions": 45,
+			"timestamp": "2026-03-20T20:01:43+01:00"
+		},
+		{
+			"hash": "6806ef8",
+			"short": "feat(calendar): add reminder UI for creating and managing event reminders",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 443,
+			"deletions": 3,
+			"timestamp": "2026-03-20T20:48:26+01:00"
+		},
+		{
+			"hash": "1ffcfa0",
+			"short": "docs(calendar): mark reminders as implemented in complexity audit",
+			"type": "docs",
+			"scope": "calendar",
+			"additions": 8,
+			"deletions": 3,
+			"timestamp": "2026-03-20T20:48:44+01:00"
+		},
+		{
+			"hash": "3ac976f",
+			"short": "feat(picture): migrate web app from Netlify to Docker/Mac Mini deployment",
+			"type": "feat",
+			"scope": "picture",
+			"additions": 77,
+			"deletions": 37,
+			"timestamp": "2026-03-20T20:50:12+01:00"
+		},
+		{
+			"hash": "b38e5ae",
+			"short": "fix(contacts): clean up orphaned photos on duplicate merge",
+			"type": "fix",
+			"scope": "contacts",
+			"additions": 19,
+			"deletions": 2,
+			"timestamp": "2026-03-20T20:50:44+01:00"
+		},
+		{
+			"hash": "56c3086",
+			"short": "test(calendar): add reminders API client tests",
+			"type": "test",
+			"scope": "calendar",
+			"additions": 83,
+			"deletions": 0,
+			"timestamp": "2026-03-20T20:52:23+01:00"
+		},
+		{
+			"hash": "15cde62",
+			"short": "refactor(mukke): optimize storage usage in song and beat services",
+			"type": "refactor",
+			"scope": "mukke",
+			"additions": 41,
+			"deletions": 37,
+			"timestamp": "2026-03-20T20:53:23+01:00"
+		},
+		{
+			"hash": "887b60c",
+			"short": "fix(picture): fix health endpoint and port consistency for Docker deployment",
+			"type": "fix",
+			"scope": "picture",
+			"additions": 9,
+			"deletions": 7,
+			"timestamp": "2026-03-20T20:54:27+01:00"
+		},
+		{
+			"hash": "69eac20",
+			"short": "refactor(picture): optimize storage service",
+			"type": "refactor",
+			"scope": "picture",
+			"additions": 30,
+			"deletions": 37,
+			"timestamp": "2026-03-20T20:56:44+01:00"
+		},
+		{
+			"hash": "e5ba591",
+			"short": "refactor(storage): optimize cloud drive storage service",
+			"type": "refactor",
+			"scope": "storage",
+			"additions": 22,
+			"deletions": 9,
+			"timestamp": "2026-03-20T20:57:18+01:00"
+		},
+		{
+			"hash": "6476521",
+			"short": "fix(picture): add patches directory to web Dockerfile",
+			"type": "fix",
+			"scope": "picture",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-03-20T20:57:38+01:00"
+		},
+		{
+			"hash": "e64c298",
+			"short": "refactor(auth,planta): optimize storage usage",
+			"type": "refactor",
+			"scope": "auth,planta",
+			"additions": 61,
+			"deletions": 107,
+			"timestamp": "2026-03-20T20:59:14+01:00"
+		},
+		{
+			"hash": "e57b645",
+			"short": "fix(picture): add missing PUBLIC_GOOGLE/APPLE_CLIENT_ID build args to Dockerfile",
+			"type": "fix",
+			"scope": "picture",
+			"additions": 4,
+			"deletions": 0,
+			"timestamp": "2026-03-20T20:59:34+01:00"
+		},
+		{
+			"hash": "9df908d",
+			"short": "refactor(calendar): simplify UnifiedBar and extract ViewCarousel gestures",
+			"type": "refactor",
+			"scope": "calendar",
+			"additions": 292,
+			"deletions": 338,
+			"timestamp": "2026-03-20T21:04:25+01:00"
+		},
+		{
+			"hash": "3bace08",
+			"short": "feat(calendar): add calendar sharing UI and service error boundaries",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 818,
+			"deletions": 2,
+			"timestamp": "2026-03-20T21:11:15+01:00"
+		},
+		{
+			"hash": "72ee82e",
+			"short": "docs(calendar): update complexity audit — all items resolved",
+			"type": "docs",
+			"scope": "calendar",
+			"additions": 18,
+			"deletions": 12,
+			"timestamp": "2026-03-20T21:11:55+01:00"
+		},
+		{
+			"hash": "1f9714d",
+			"short": "docs(devlog): add 2026-03-20 cross-app SSO & infrastructure fixes",
+			"type": "docs",
+			"scope": "devlog",
+			"additions": 150,
+			"deletions": 0,
+			"timestamp": "2026-03-20T21:12:33+01:00"
+		},
+		{
+			"hash": "df2bf9e",
+			"short": "fix(deploy): fix image size measurement in deploy metrics",
+			"type": "fix",
+			"scope": "deploy",
+			"additions": 12,
+			"deletions": 7,
+			"timestamp": "2026-03-20T21:13:03+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

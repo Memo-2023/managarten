@@ -1,0 +1,108 @@
+{
+	"date": "2026-01-24",
+	"day_number": 33,
+	"weekday": "Samstag",
+	"commits": 4,
+	"authors": [
+		{
+			"name": "Till-JS",
+			"count": 4
+		}
+	],
+	"additions": 591,
+	"deletions": 156,
+	"net_lines": 435,
+	"files_changed": 16,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-01-24T23:00:09.000Z",
+		"last_commit_at": "2026-01-25T02:07:08.000Z",
+		"total_span_minutes": 187,
+		"active_minutes": 9,
+		"pauses": [
+			{
+				"from": "00:00",
+				"to": "02:58",
+				"minutes": 178
+			}
+		],
+		"longest_focus_minutes": 9
+	},
+	"top_dirs": [
+		{
+			"path": "apps/contacts/apps/web",
+			"pct": 35
+		},
+		{
+			"path": "apps/clock/apps/web",
+			"pct": 29
+		},
+		{
+			"path": "apps/calendar/apps/web",
+			"pct": 6
+		},
+		{
+			"path": "apps/chat/apps/web",
+			"pct": 6
+		},
+		{
+			"path": "apps/manacore/apps/web",
+			"pct": 6
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".svelte",
+			"count": 15
+		},
+		{
+			"ext": ".ts",
+			"count": 2
+		}
+	],
+	"tags": ["clock", "contacts", "web"],
+	"commits_list": [
+		{
+			"hash": "753e6fd",
+			"short": "feat(contacts): add session-first guest mode",
+			"type": "feat",
+			"scope": "contacts",
+			"additions": 545,
+			"deletions": 28,
+			"timestamp": "2026-01-25T00:00:09+01:00"
+		},
+		{
+			"hash": "6713919",
+			"short": "fix(web): fix userSettings.nav undefined error in guest mode",
+			"type": "fix",
+			"scope": "web",
+			"additions": 41,
+			"deletions": 118,
+			"timestamp": "2026-01-25T02:58:04+01:00"
+		},
+		{
+			"hash": "1e7bfd4",
+			"short": "fix(clock): remove auth redirect from dashboard for guest mode",
+			"type": "fix",
+			"scope": "clock",
+			"additions": 1,
+			"deletions": 4,
+			"timestamp": "2026-01-25T03:00:40+01:00"
+		},
+		{
+			"hash": "b095532",
+			"short": "fix(clock): load alarms/timers in guest mode",
+			"type": "fix",
+			"scope": "clock",
+			"additions": 4,
+			"deletions": 6,
+			"timestamp": "2026-01-25T03:07:08+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

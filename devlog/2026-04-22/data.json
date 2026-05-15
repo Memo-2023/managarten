@@ -1,0 +1,671 @@
+{
+	"date": "2026-04-22",
+	"day_number": 91,
+	"weekday": "Mittwoch",
+	"commits": 62,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 62
+		}
+	],
+	"additions": 34592,
+	"deletions": 23643,
+	"net_lines": 10949,
+	"files_changed": 390,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-04-22T12:12:18.000Z",
+		"last_commit_at": "2026-04-23T00:34:22.000Z",
+		"total_span_minutes": 742,
+		"active_minutes": 245,
+		"pauses": [
+			{
+				"from": "14:21",
+				"to": "14:53",
+				"minutes": 31
+			},
+			{
+				"from": "16:28",
+				"to": "17:00",
+				"minutes": 33
+			},
+			{
+				"from": "19:16",
+				"to": "22:42",
+				"minutes": 206
+			},
+			{
+				"from": "22:43",
+				"to": "00:36",
+				"minutes": 114
+			},
+			{
+				"from": "00:38",
+				"to": "01:51",
+				"minutes": 73
+			},
+			{
+				"from": "01:51",
+				"to": "02:31",
+				"minutes": 40
+			}
+		],
+		"longest_focus_minutes": 136
+	},
+	"top_dirs": [
+		{
+			"path": "apps/mana/apps/web",
+			"pct": 83
+		},
+		{
+			"path": "services/mana-research/src",
+			"pct": 3
+		},
+		{
+			"path": "package.json",
+			"pct": 1
+		},
+		{
+			"path": "docs/plans/space-scoped-data-model.md",
+			"pct": 1
+		},
+		{
+			"path": "services/mana-ai/src",
+			"pct": 1
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".svelte",
+			"count": 382
+		},
+		{
+			"ext": ".ts",
+			"count": 77
+		},
+		{
+			"ext": ".md",
+			"count": 30
+		},
+		{
+			"ext": ".json",
+			"count": 15
+		},
+		{
+			"ext": ".mjs",
+			"count": 13
+		},
+		{
+			"ext": ".svelte}",
+			"count": 4
+		}
+	],
+	"tags": ["plans", "theming", "articles", "db", "mana-research"],
+	"commits_list": [
+		{
+			"hash": "7611d10",
+			"short": "feat(articles): M8 highlights view + stats + dashboard widget",
+			"type": "feat",
+			"scope": "articles",
+			"additions": 631,
+			"deletions": 2,
+			"timestamp": "2026-04-22T14:12:18+02:00"
+		},
+		{
+			"hash": "5bf3ea8",
+			"short": "refactor(admin): drop nav tabs + overview duplication from layout",
+			"type": "refactor",
+			"scope": "admin",
+			"additions": 50,
+			"deletions": 194,
+			"timestamp": "2026-04-22T14:16:56+02:00"
+		},
+		{
+			"hash": "97d1dd0",
+			"short": "fix(articles): snapshot scroller ref in HighlightLayer effect teardown",
+			"type": "fix",
+			"scope": "articles",
+			"additions": 14,
+			"deletions": 5,
+			"timestamp": "2026-04-22T14:21:32+02:00"
+		},
+		{
+			"hash": "8647bfd",
+			"short": "Create tipps-module.md",
+			"type": null,
+			"scope": null,
+			"additions": 228,
+			"deletions": 0,
+			"timestamp": "2026-04-22T14:21:57+02:00"
+		},
+		{
+			"hash": "3e65637",
+			"short": "revert(apps): settings pages back to routes (not workbench cards)",
+			"type": "revert",
+			"scope": "apps",
+			"additions": 493,
+			"deletions": 578,
+			"timestamp": "2026-04-22T14:53:15+02:00"
+		},
+		{
+			"hash": "43b4570",
+			"short": "refactor(admin): fuse admin-* cards into one tabbed admin card",
+			"type": "refactor",
+			"scope": "admin",
+			"additions": 580,
+			"deletions": 624,
+			"timestamp": "2026-04-22T15:04:12+02:00"
+		},
+		{
+			"hash": "dc22240",
+			"short": "docs(plans): revise workbench-cards plan for cards-for-workflows rule",
+			"type": "docs",
+			"scope": "plans",
+			"additions": 159,
+			"deletions": 123,
+			"timestamp": "2026-04-22T15:05:48+02:00"
+		},
+		{
+			"hash": "a2a43b1",
+			"short": "refactor(theming): migrate 6 ListViews + ai-missions badges to theme tokens",
+			"type": "refactor",
+			"scope": "theming",
+			"additions": 188,
+			"deletions": 75,
+			"timestamp": "2026-04-22T15:23:55+02:00"
+		},
+		{
+			"hash": "86c205f",
+			"short": "refactor(theming): migrate remaining 12 ListViews to theme tokens",
+			"type": "refactor",
+			"scope": "theming",
+			"additions": 129,
+			"deletions": 124,
+			"timestamp": "2026-04-22T15:29:43+02:00"
+		},
+		{
+			"hash": "efe1810",
+			"short": "feat(articles): browser-HTML bookmarklet + consent-wall detection + auto-save",
+			"type": "feat",
+			"scope": "articles",
+			"additions": 589,
+			"deletions": 91,
+			"timestamp": "2026-04-22T15:29:53+02:00"
+		},
+		{
+			"hash": "db2023a",
+			"short": "docs(plans): per-Space vs user-global tags — decision deferred",
+			"type": "docs",
+			"scope": "plans",
+			"additions": 221,
+			"deletions": 0,
+			"timestamp": "2026-04-22T15:32:15+02:00"
+		},
+		{
+			"hash": "7d6a340",
+			"short": "refactor(theming): migrate remaining 738 token violations across routes + components",
+			"type": "refactor",
+			"scope": "theming",
+			"additions": 747,
+			"deletions": 460,
+			"timestamp": "2026-04-22T15:42:55+02:00"
+		},
+		{
+			"hash": "470f3b1",
+			"short": "docs(plans): space-scoped data model (Modell β) — commit plan",
+			"type": "docs",
+			"scope": "plans",
+			"additions": 342,
+			"deletions": 0,
+			"timestamp": "2026-04-22T15:54:31+02:00"
+		},
+		{
+			"hash": "46c03e6",
+			"short": "feat(articles): reader UI polish — full-bleed + unified floating toolbar",
+			"type": "feat",
+			"scope": "articles",
+			"additions": 327,
+			"deletions": 184,
+			"timestamp": "2026-04-22T15:55:56+02:00"
+		},
+		{
+			"hash": "ea71d3c",
+			"short": "refactor(theming): replace transition-all with specific transitions",
+			"type": "refactor",
+			"scope": "theming",
+			"additions": 285,
+			"deletions": 102,
+			"timestamp": "2026-04-22T15:57:49+02:00"
+		},
+		{
+			"hash": "129971f",
+			"short": "docs(plans): revise space-scoped plan — remove legacy residues",
+			"type": "docs",
+			"scope": "plans",
+			"additions": 339,
+			"deletions": 234,
+			"timestamp": "2026-04-22T16:23:42+02:00"
+		},
+		{
+			"hash": "9db0441",
+			"short": "docs(plans): Phase 1 audit — space-scoped migration",
+			"type": "docs",
+			"scope": "plans",
+			"additions": 118,
+			"deletions": 4,
+			"timestamp": "2026-04-22T16:28:00+02:00"
+		},
+		{
+			"hash": "3e09ff6",
+			"short": "fix(a11y): resolve 30 svelte-check warnings across 8 files",
+			"type": "fix",
+			"scope": "a11y",
+			"additions": 90,
+			"deletions": 24,
+			"timestamp": "2026-04-22T17:00:59+02:00"
+		},
+		{
+			"hash": "766ad2e",
+			"short": "feat(crypto): Phase 2a — declare encryption intent for tags/scenes/missions",
+			"type": "feat",
+			"scope": "crypto",
+			"additions": 36,
+			"deletions": 4,
+			"timestamp": "2026-04-22T17:07:05+02:00"
+		},
+		{
+			"hash": "430aa30",
+			"short": "refactor(theming): re-apply theme validator suite after parallel rebase",
+			"type": "refactor",
+			"scope": "theming",
+			"additions": 411,
+			"deletions": 17,
+			"timestamp": "2026-04-22T17:07:48+02:00"
+		},
+		{
+			"hash": "07e35d7",
+			"short": "feat(db): Phase 2b — Dexie v34 schema for space-scoped data model",
+			"type": "feat",
+			"scope": "db",
+			"additions": 28,
+			"deletions": 0,
+			"timestamp": "2026-04-22T17:15:48+02:00"
+		},
+		{
+			"hash": "eec369b",
+			"short": "chore(i18n): add coverage audit + migration inventory",
+			"type": "chore",
+			"scope": "i18n",
+			"additions": 324,
+			"deletions": 0,
+			"timestamp": "2026-04-22T17:16:55+02:00"
+		},
+		{
+			"hash": "52af8c0",
+			"short": "refactor(theming): migrate who semantic colours to theme tokens",
+			"type": "refactor",
+			"scope": "theming",
+			"additions": 28,
+			"deletions": 12,
+			"timestamp": "2026-04-22T17:19:53+02:00"
+		},
+		{
+			"hash": "4d91e2d",
+			"short": "chore(services): add port-drift audit",
+			"type": "chore",
+			"scope": "services",
+			"additions": 156,
+			"deletions": 0,
+			"timestamp": "2026-04-22T17:22:37+02:00"
+		},
+		{
+			"hash": "35d9e02",
+			"short": "feat(tag-presets): Phase 2d.1 — CRUD store + encryption for user-level presets",
+			"type": "feat",
+			"scope": "tag-presets",
+			"additions": 237,
+			"deletions": 1,
+			"timestamp": "2026-04-22T17:26:39+02:00"
+		},
+		{
+			"hash": "219ccd3",
+			"short": "chore(web): harden pnpm check with --fail-on-warnings",
+			"type": "chore",
+			"scope": "web",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-04-22T17:33:50+02:00"
+		},
+		{
+			"hash": "8a82f3c",
+			"short": "feat(kontext): Phase 2d.2 — kontextDoc is per-Space, not user-singleton",
+			"type": "feat",
+			"scope": "kontext",
+			"additions": 67,
+			"deletions": 25,
+			"timestamp": "2026-04-22T17:35:23+02:00"
+		},
+		{
+			"hash": "68c0eb2",
+			"short": "chore(test + audit): add test-coverage audit + wire audit:all",
+			"type": "chore",
+			"scope": "test + audit",
+			"additions": 182,
+			"deletions": 0,
+			"timestamp": "2026-04-22T17:38:12+02:00"
+		},
+		{
+			"hash": "a36e543",
+			"short": "feat(agents): Phase 2d.3 — SpaceType-aware default agent bootstrap",
+			"type": "feat",
+			"scope": "agents",
+			"additions": 97,
+			"deletions": 23,
+			"timestamp": "2026-04-22T17:40:28+02:00"
+		},
+		{
+			"hash": "72a5995",
+			"short": "feat(articles): M9 workbench homepage — 4-tab shell + QuickAdd + StatsView",
+			"type": "feat",
+			"scope": "articles",
+			"additions": 1267,
+			"deletions": 274,
+			"timestamp": "2026-04-22T17:50:38+02:00"
+		},
+		{
+			"hash": "3b85d7d",
+			"short": "chore(bundle): add bundle-size audit + snapshot inventory",
+			"type": "chore",
+			"scope": "bundle",
+			"additions": 425,
+			"deletions": 13,
+			"timestamp": "2026-04-22T17:52:08+02:00"
+		},
+		{
+			"hash": "f10a95e",
+			"short": "feat(mana-research): add Gemini 3.1 Pro Deep Research async providers",
+			"type": "feat",
+			"scope": "mana-research",
+			"additions": 592,
+			"deletions": 23,
+			"timestamp": "2026-04-22T17:55:30+02:00"
+		},
+		{
+			"hash": "2a18cb5",
+			"short": "feat(mana-ai): v0.7 — cross-tick Deep Research Max pre-planning",
+			"type": "feat",
+			"scope": "mana-ai",
+			"additions": 947,
+			"deletions": 8,
+			"timestamp": "2026-04-22T17:56:06+02:00"
+		},
+		{
+			"hash": "9f4ebd8",
+			"short": "docs(plans): log shipping status for space-scoped phases 2a–2d.4",
+			"type": "docs",
+			"scope": "plans",
+			"additions": 22,
+			"deletions": 0,
+			"timestamp": "2026-04-22T17:56:30+02:00"
+		},
+		{
+			"hash": "596e5a7",
+			"short": "feat(tag-presets): Phase 2d.5a — applyPresetToSpace + copyTagsBetweenSpaces",
+			"type": "feat",
+			"scope": "tag-presets",
+			"additions": 177,
+			"deletions": 0,
+			"timestamp": "2026-04-22T18:02:06+02:00"
+		},
+		{
+			"hash": "4d5a96e",
+			"short": "perf(invoices): lazy-load pdf-lib + swissqrbill, -516 KB on route",
+			"type": "perf",
+			"scope": "invoices",
+			"additions": 252,
+			"deletions": 48,
+			"timestamp": "2026-04-22T18:03:53+02:00"
+		},
+		{
+			"hash": "81a426a",
+			"short": "feat(spaces): Phase 2d.5b — tag-source picker in SpaceCreateDialog",
+			"type": "feat",
+			"scope": "spaces",
+			"additions": 75,
+			"deletions": 2,
+			"timestamp": "2026-04-22T18:04:59+02:00"
+		},
+		{
+			"hash": "ef76815",
+			"short": "docs(optimizable): add README index + refresh frontend-consistency tracker",
+			"type": "docs",
+			"scope": "optimizable",
+			"additions": 163,
+			"deletions": 37,
+			"timestamp": "2026-04-22T18:07:44+02:00"
+		},
+		{
+			"hash": "0f8fbb3",
+			"short": "feat(settings): Phase 2d.6 — Tag-Presets management UI",
+			"type": "feat",
+			"scope": "settings",
+			"additions": 381,
+			"deletions": 2,
+			"timestamp": "2026-04-22T18:10:28+02:00"
+		},
+		{
+			"hash": "09e6a8b",
+			"short": "feat(crypto): Phase 2e — flip encryption on for tags/scenes/missions",
+			"type": "feat",
+			"scope": "crypto",
+			"additions": 26,
+			"deletions": 24,
+			"timestamp": "2026-04-22T18:13:34+02:00"
+		},
+		{
+			"hash": "4867300",
+			"short": "fix(mana-research): wire REDIS_PASSWORD into compose REDIS_URL",
+			"type": "fix",
+			"scope": "mana-research",
+			"additions": 6,
+			"deletions": 1,
+			"timestamp": "2026-04-22T18:20:31+02:00"
+		},
+		{
+			"hash": "d5b889a",
+			"short": "docs(gemini-deep-research): Mac-Mini deploy log 2026-04-22",
+			"type": "docs",
+			"scope": "gemini-deep-research",
+			"additions": 21,
+			"deletions": 1,
+			"timestamp": "2026-04-22T18:22:31+02:00"
+		},
+		{
+			"hash": "e9b9544",
+			"short": "feat(db): Phase 2c — stop stamping userId on data-record writes",
+			"type": "feat",
+			"scope": "db",
+			"additions": 47,
+			"deletions": 8,
+			"timestamp": "2026-04-22T18:27:11+02:00"
+		},
+		{
+			"hash": "c413ab7",
+			"short": "test(mana-research): fixture-based tests for Gemini poll-response parser",
+			"type": "test",
+			"scope": "mana-research",
+			"additions": 375,
+			"deletions": 0,
+			"timestamp": "2026-04-22T18:34:33+02:00"
+		},
+		{
+			"hash": "be9213a",
+			"short": "docs(plans): log 2d.5/2d.6/2e/2c/2e-followup to the shipping table",
+			"type": "docs",
+			"scope": "plans",
+			"additions": 25,
+			"deletions": 10,
+			"timestamp": "2026-04-22T18:35:51+02:00"
+		},
+		{
+			"hash": "f4c6624",
+			"short": "feat(db): Phase 2c follow-up — Dexie v35 hard userId drop on data tables",
+			"type": "feat",
+			"scope": "db",
+			"additions": 70,
+			"deletions": 0,
+			"timestamp": "2026-04-22T18:43:09+02:00"
+		},
+		{
+			"hash": "c31dcdd",
+			"short": "Revert \"test(mana-research): fixture-based tests for Gemini poll-response parser\"",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 375,
+			"timestamp": "2026-04-22T18:43:48+02:00"
+		},
+		{
+			"hash": "3a7bc7f",
+			"short": "test(mana-research): fixture-based tests for Gemini poll-response parser",
+			"type": "test",
+			"scope": "mana-research",
+			"additions": 208,
+			"deletions": 0,
+			"timestamp": "2026-04-22T18:44:21+02:00"
+		},
+		{
+			"hash": "fd1ea47",
+			"short": "feat(backup): client-driven v2 snapshot export, drop server-side backup",
+			"type": "feat",
+			"scope": "backup",
+			"additions": 2142,
+			"deletions": 1527,
+			"timestamp": "2026-04-22T18:46:29+02:00"
+		},
+		{
+			"hash": "8c3d6e7",
+			"short": "test(backup): add v2 export/import round-trip + fix cross-account adoption",
+			"type": "test",
+			"scope": "backup",
+			"additions": 270,
+			"deletions": 4,
+			"timestamp": "2026-04-22T18:59:19+02:00"
+		},
+		{
+			"hash": "59a679a",
+			"short": "docs(optimizable): add manual-test-backlog as the \"zu testen\" register",
+			"type": "docs",
+			"scope": "optimizable",
+			"additions": 78,
+			"deletions": 0,
+			"timestamp": "2026-04-22T19:02:55+02:00"
+		},
+		{
+			"hash": "ce5d1f1",
+			"short": "feat(db): Phase 2c-followup #2 — strip Space-scope fields from user-level tables",
+			"type": "feat",
+			"scope": "db",
+			"additions": 71,
+			"deletions": 19,
+			"timestamp": "2026-04-22T19:13:37+02:00"
+		},
+		{
+			"hash": "4250747",
+			"short": "docs(plans): log v35+v36 hard cleanups + backend-coherence audit",
+			"type": "docs",
+			"scope": "plans",
+			"additions": 25,
+			"deletions": 0,
+			"timestamp": "2026-04-22T19:16:34+02:00"
+		},
+		{
+			"hash": "af4fd27",
+			"short": "feat(crypto): restore at-rest encryption sweep (lost to revert)",
+			"type": "feat",
+			"scope": "crypto",
+			"additions": 167,
+			"deletions": 0,
+			"timestamp": "2026-04-22T22:42:53+02:00"
+		},
+		{
+			"hash": "4c2fbec",
+			"short": "docs(plans): point at-rest-sweep row at the restored commit",
+			"type": "docs",
+			"scope": "plans",
+			"additions": 7,
+			"deletions": 6,
+			"timestamp": "2026-04-22T22:43:19+02:00"
+		},
+		{
+			"hash": "13b785b",
+			"short": "refactor(shell): unify card + route chrome into ModuleShell + RoutePage",
+			"type": "refactor",
+			"scope": "shell",
+			"additions": 243,
+			"deletions": 99,
+			"timestamp": "2026-04-23T00:36:54+02:00"
+		},
+		{
+			"hash": "3a68a63",
+			"short": "feat(picture,api): GPT-Image-2 image generation",
+			"type": "feat",
+			"scope": "picture,api",
+			"additions": 457,
+			"deletions": 129,
+			"timestamp": "2026-04-23T00:37:15+02:00"
+		},
+		{
+			"hash": "e21f214",
+			"short": "refactor(routes): wrap every (app) route in RoutePage / ModuleShell",
+			"type": "refactor",
+			"scope": "routes",
+			"additions": 18323,
+			"deletions": 17571,
+			"timestamp": "2026-04-23T00:37:53+02:00"
+		},
+		{
+			"hash": "2d86c6d",
+			"short": "refactor(picture): unify ListView for carousel + route contexts",
+			"type": "refactor",
+			"scope": "picture",
+			"additions": 475,
+			"deletions": 395,
+			"timestamp": "2026-04-23T00:38:14+02:00"
+		},
+		{
+			"hash": "738eb1b",
+			"short": "fix(ci): CD workflow detect-changes sees full push range + unified services",
+			"type": "fix",
+			"scope": "ci",
+			"additions": 155,
+			"deletions": 160,
+			"timestamp": "2026-04-23T01:51:01+02:00"
+		},
+		{
+			"hash": "c1498c1",
+			"short": "fix(infra): include shared-types in mana-auth Dockerfile installer",
+			"type": "fix",
+			"scope": "infra",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-04-23T02:31:20+02:00"
+		},
+		{
+			"hash": "5c08653",
+			"short": "fix(infra): include shared-ai + shared-rss in mana-api Dockerfile installer",
+			"type": "fix",
+			"scope": "infra",
+			"additions": 2,
+			"deletions": 0,
+			"timestamp": "2026-04-23T02:34:22+02:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

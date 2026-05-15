@@ -1,0 +1,280 @@
+{
+	"date": "2026-02-12",
+	"day_number": 45,
+	"weekday": "Donnerstag",
+	"commits": 22,
+	"authors": [
+		{
+			"name": "Till-JS",
+			"count": 22
+		}
+	],
+	"additions": 9395,
+	"deletions": 126,
+	"net_lines": 9269,
+	"files_changed": 84,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-02-12T11:51:49.000Z",
+		"last_commit_at": "2026-02-12T13:35:34.000Z",
+		"total_span_minutes": 104,
+		"active_minutes": 104,
+		"pauses": [],
+		"longest_focus_minutes": 104
+	},
+	"top_dirs": [
+		{
+			"path": "scripts/mac-mini/launchd",
+			"pct": 14
+		},
+		{
+			"path": "apps/storage/apps/backend",
+			"pct": 8
+		},
+		{
+			"path": "services/mana-core-auth/src",
+			"pct": 7
+		},
+		{
+			"path": "apps/clock/apps/backend",
+			"pct": 7
+		},
+		{
+			"path": "apps/photos/apps/backend",
+			"pct": 7
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 42
+		},
+		{
+			"ext": ".sh",
+			"count": 12
+		},
+		{
+			"ext": ".plist",
+			"count": 12
+		},
+		{
+			"ext": ".svelte",
+			"count": 10
+		},
+		{
+			"ext": ".md",
+			"count": 10
+		},
+		{
+			"ext": ".yml",
+			"count": 8
+		}
+	],
+	"tags": ["matrix", "admin", "docker", "auth", "monitoring"],
+	"commits_list": [
+		{
+			"hash": "2fe7f84",
+			"short": "🔧 fix(mac-mini): add container recovery and update health check ports",
+			"type": null,
+			"scope": null,
+			"additions": 261,
+			"deletions": 33,
+			"timestamp": "2026-02-12T12:51:49+01:00"
+		},
+		{
+			"hash": "759b227",
+			"short": "🔧 fix(mac-mini): correct user path in LaunchD plist",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-02-12T13:15:06+01:00"
+		},
+		{
+			"hash": "9881e84",
+			"short": "✨ feat(auth): add GDPR self-service endpoints for user data",
+			"type": null,
+			"scope": null,
+			"additions": 928,
+			"deletions": 13,
+			"timestamp": "2026-02-12T13:20:08+01:00"
+		},
+		{
+			"hash": "3e37003",
+			"short": "🔧 fix(docker): build mana-search and skilltree-web locally",
+			"type": null,
+			"scope": null,
+			"additions": 15,
+			"deletions": 2,
+			"timestamp": "2026-02-12T13:22:42+01:00"
+		},
+		{
+			"hash": "bc8cd98",
+			"short": "fix(auth): correct MeController route prefix",
+			"type": "fix",
+			"scope": "auth",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-02-12T13:22:58+01:00"
+		},
+		{
+			"hash": "6548d83",
+			"short": "🐛 fix(mana-search): use pnpm deploy to fix symlink issue in Docker",
+			"type": null,
+			"scope": null,
+			"additions": 5,
+			"deletions": 4,
+			"timestamp": "2026-02-12T13:24:55+01:00"
+		},
+		{
+			"hash": "177e4ee",
+			"short": "fix(docker): add missing shared packages to manacore-web Dockerfile",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 5,
+			"deletions": 0,
+			"timestamp": "2026-02-12T13:26:45+01:00"
+		},
+		{
+			"hash": "d5e18c9",
+			"short": "🔧 fix(mac-mini): update health checks and disable missing services",
+			"type": null,
+			"scope": null,
+			"additions": 3702,
+			"deletions": 10,
+			"timestamp": "2026-02-12T13:28:55+01:00"
+		},
+		{
+			"hash": "7d40946",
+			"short": "fix(docker): add backend URLs to auth service for GDPR data aggregation",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 8,
+			"deletions": 0,
+			"timestamp": "2026-02-12T13:33:33+01:00"
+		},
+		{
+			"hash": "3de2f25",
+			"short": "✨ feat(mac-mini): add stability improvements",
+			"type": null,
+			"scope": null,
+			"additions": 615,
+			"deletions": 23,
+			"timestamp": "2026-02-12T13:33:44+01:00"
+		},
+		{
+			"hash": "02a5172",
+			"short": "feat(admin): add GDPR user-data endpoints to photos, clock, storage backends",
+			"type": "feat",
+			"scope": "admin",
+			"additions": 830,
+			"deletions": 1,
+			"timestamp": "2026-02-12T13:43:16+01:00"
+		},
+		{
+			"hash": "acc8de3",
+			"short": "feat(monitoring): add alerting stack and maintenance scripts",
+			"type": "feat",
+			"scope": "monitoring",
+			"additions": 996,
+			"deletions": 10,
+			"timestamp": "2026-02-12T13:46:57+01:00"
+		},
+		{
+			"hash": "42c0069",
+			"short": "fix(admin): remove duplicate api/v1 prefix from controller routes",
+			"type": "fix",
+			"scope": "admin",
+			"additions": 3,
+			"deletions": 3,
+			"timestamp": "2026-02-12T13:49:52+01:00"
+		},
+		{
+			"hash": "cdb6e25",
+			"short": "fix(admin): storage backend needs api/v1 prefix in controller",
+			"type": "fix",
+			"scope": "admin",
+			"additions": 1955,
+			"deletions": 11,
+			"timestamp": "2026-02-12T13:59:33+01:00"
+		},
+		{
+			"hash": "650f4f6",
+			"short": "fix(matrix): add missing props to Message.svelte interface",
+			"type": "fix",
+			"scope": "matrix",
+			"additions": 4,
+			"deletions": 0,
+			"timestamp": "2026-02-12T14:02:09+01:00"
+		},
+		{
+			"hash": "7a2acd4",
+			"short": "🐛 fix(admin): remove api/v1 prefix from admin controllers",
+			"type": null,
+			"scope": null,
+			"additions": 7,
+			"deletions": 7,
+			"timestamp": "2026-02-12T14:03:00+01:00"
+		},
+		{
+			"hash": "027d3d2",
+			"short": "feat(matrix): restore last selected chat on app load",
+			"type": "feat",
+			"scope": "matrix",
+			"additions": 15,
+			"deletions": 0,
+			"timestamp": "2026-02-12T14:07:05+01:00"
+		},
+		{
+			"hash": "cb08931",
+			"short": "🔧 chore(docker): build presi-backend locally on Mac Mini",
+			"type": null,
+			"scope": null,
+			"additions": 4,
+			"deletions": 1,
+			"timestamp": "2026-02-12T14:09:46+01:00"
+		},
+		{
+			"hash": "aa13473",
+			"short": "🐛 fix(calendar): change user ID fields to text type",
+			"type": null,
+			"scope": null,
+			"additions": 3,
+			"deletions": 3,
+			"timestamp": "2026-02-12T14:12:24+01:00"
+		},
+		{
+			"hash": "5cd067a",
+			"short": "fix(matrix): check _rooms array for last room restoration",
+			"type": "fix",
+			"scope": "matrix",
+			"additions": 6,
+			"deletions": 2,
+			"timestamp": "2026-02-12T14:28:57+01:00"
+		},
+		{
+			"hash": "8768d62",
+			"short": "debug(matrix): add logging for room restoration",
+			"type": "debug",
+			"scope": "matrix",
+			"additions": 12,
+			"deletions": 0,
+			"timestamp": "2026-02-12T14:32:46+01:00"
+		},
+		{
+			"hash": "49e619d",
+			"short": "feat(matrix): add FAB to open sidebar on mobile",
+			"type": "feat",
+			"scope": "matrix",
+			"additions": 19,
+			"deletions": 1,
+			"timestamp": "2026-02-12T14:35:34+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

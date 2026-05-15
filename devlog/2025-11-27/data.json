@@ -1,0 +1,326 @@
+{
+	"date": "2025-11-27",
+	"day_number": 5,
+	"weekday": "Donnerstag",
+	"commits": 26,
+	"authors": [
+		{
+			"name": "Till-JS",
+			"count": 16
+		},
+		{
+			"name": "Wuesteon",
+			"count": 10
+		}
+	],
+	"additions": 1450995,
+	"deletions": 768187,
+	"net_lines": 682808,
+	"files_changed": 4526,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2025-11-27T13:21:49.000Z",
+		"last_commit_at": "2025-11-27T18:53:03.000Z",
+		"total_span_minutes": 331,
+		"active_minutes": 239,
+		"pauses": [
+			{
+				"from": "15:54",
+				"to": "17:26",
+				"minutes": 92
+			}
+		],
+		"longest_focus_minutes": 147
+	},
+	"top_dirs": [
+		{
+			"path": "apps/memoro/apps/mobile",
+			"pct": 10
+		},
+		{
+			"path": "apps/bauntown/apps/landing",
+			"pct": 8
+		},
+		{
+			"path": "apps/quote/apps/mobile",
+			"pct": 6
+		},
+		{
+			"path": "apps/memoro/apps/landing",
+			"pct": 5
+		},
+		{
+			"path": "apps/uload/apps/web",
+			"pct": 4
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 1705
+		},
+		{
+			"ext": ".tsx",
+			"count": 823
+		},
+		{
+			"ext": ".md",
+			"count": 812
+		},
+		{
+			"ext": ".svelte",
+			"count": 489
+		},
+		{
+			"ext": ".astro",
+			"count": 471
+		},
+		{
+			"ext": ".json",
+			"count": 461
+		}
+	],
+	"tags": ["picture", "presi", "ci", "transcriber", "quote"],
+	"commits_list": [
+		{
+			"hash": "4b08c41",
+			"short": "feat(transcriber): Add YouTube transcriber app to monorepo",
+			"type": "feat",
+			"scope": "transcriber",
+			"additions": 19436,
+			"deletions": 411,
+			"timestamp": "2025-11-27T14:21:49+01:00"
+		},
+		{
+			"hash": "3a8d6bc",
+			"short": "feat(picture): migrate batch generation from Supabase to NestJS API",
+			"type": "feat",
+			"scope": "picture",
+			"additions": 3934,
+			"deletions": 249,
+			"timestamp": "2025-11-27T14:44:01+01:00"
+		},
+		{
+			"hash": "ea3285d",
+			"short": "feat(quote): integrate Quote app into monorepo",
+			"type": "feat",
+			"scope": "quote",
+			"additions": 645599,
+			"deletions": 8,
+			"timestamp": "2025-11-27T14:44:33+01:00"
+		},
+		{
+			"hash": "cb56575",
+			"short": "feat(wisekeep): rename transcriber app to wisekeep",
+			"type": "feat",
+			"scope": "wisekeep",
+			"additions": 28,
+			"deletions": 24,
+			"timestamp": "2025-11-27T14:44:44+01:00"
+		},
+		{
+			"hash": "14aace0",
+			"short": "feat(manadeck): migrate stores to backend API and remove audio features",
+			"type": "feat",
+			"scope": "manadeck",
+			"additions": 2394,
+			"deletions": 1611,
+			"timestamp": "2025-11-27T14:47:14+01:00"
+		},
+		{
+			"hash": "c561c4c",
+			"short": "feat(picture): migrate from Supabase to NestJS backend API",
+			"type": "feat",
+			"scope": "picture",
+			"additions": 2622,
+			"deletions": 8531,
+			"timestamp": "2025-11-27T14:47:23+01:00"
+		},
+		{
+			"hash": "cc6ca02",
+			"short": "chore(nutriphi): update config and type definitions",
+			"type": "chore",
+			"scope": "nutriphi",
+			"additions": 3,
+			"deletions": 13,
+			"timestamp": "2025-11-27T14:47:28+01:00"
+		},
+		{
+			"hash": "7abfc4c",
+			"short": "docs: add Hetzner deployment guide and update lockfile",
+			"type": null,
+			"scope": null,
+			"additions": 1572,
+			"deletions": 261,
+			"timestamp": "2025-11-27T14:47:35+01:00"
+		},
+		{
+			"hash": "4f7052b",
+			"short": "chore: add games folder structure to monorepo",
+			"type": null,
+			"scope": null,
+			"additions": 12,
+			"deletions": 1,
+			"timestamp": "2025-11-27T15:06:59+01:00"
+		},
+		{
+			"hash": "d35ba76",
+			"short": "chore: add bauntown project to monorepo configuration",
+			"type": null,
+			"scope": null,
+			"additions": 4792,
+			"deletions": 1141,
+			"timestamp": "2025-11-27T15:10:15+01:00"
+		},
+		{
+			"hash": "5b1e12e",
+			"short": "feat: add new projects bauntown, presi, voxel-lava, whopixels",
+			"type": null,
+			"scope": null,
+			"additions": 46356,
+			"deletions": 0,
+			"timestamp": "2025-11-27T15:11:53+01:00"
+		},
+		{
+			"hash": "58a342b",
+			"short": "feat(reader): integrate reader app into monorepo structure",
+			"type": "feat",
+			"scope": "reader",
+			"additions": 9831,
+			"deletions": 7,
+			"timestamp": "2025-11-27T15:31:38+01:00"
+		},
+		{
+			"hash": "607ca19",
+			"short": "feat: integrate presi and voxel-lava into monorepo structure",
+			"type": null,
+			"scope": null,
+			"additions": 4188,
+			"deletions": 609,
+			"timestamp": "2025-11-27T15:33:28+01:00"
+		},
+		{
+			"hash": "1c64359",
+			"short": "feat(presi): add share deck feature for public presentation viewing",
+			"type": "feat",
+			"scope": "presi",
+			"additions": 736,
+			"deletions": 15,
+			"timestamp": "2025-11-27T15:38:25+01:00"
+		},
+		{
+			"hash": "658ebe0",
+			"short": "docs(voxel-lava): add project documentation and env config",
+			"type": "docs",
+			"scope": "voxel-lava",
+			"additions": 152,
+			"deletions": 0,
+			"timestamp": "2025-11-27T15:46:57+01:00"
+		},
+		{
+			"hash": "9e14119",
+			"short": "fix(presi): fix TypeScript errors and add missing theme module",
+			"type": "fix",
+			"scope": "presi",
+			"additions": 77,
+			"deletions": 26,
+			"timestamp": "2025-11-27T15:54:21+01:00"
+		},
+		{
+			"hash": "74dc689",
+			"short": "first implementation",
+			"type": null,
+			"scope": null,
+			"additions": 28993,
+			"deletions": 3028,
+			"timestamp": "2025-11-27T17:26:18+01:00"
+		},
+		{
+			"hash": "0ec0396",
+			"short": "Merge branch 'feature/cicd' into cicd/integration",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 0,
+			"timestamp": "2025-11-27T17:34:13+01:00"
+		},
+		{
+			"hash": "f55962e",
+			"short": "docs: add comprehensive CI/CD documentation hub",
+			"type": null,
+			"scope": null,
+			"additions": 3152,
+			"deletions": 0,
+			"timestamp": "2025-11-27T18:04:07+01:00"
+		},
+		{
+			"hash": "0241f55",
+			"short": "fix(cicd): docker paths, formatting config,    and documentation",
+			"type": "fix",
+			"scope": "cicd",
+			"additions": 2173,
+			"deletions": 187,
+			"timestamp": "2025-11-27T18:33:08+01:00"
+		},
+		{
+			"hash": "d36b321",
+			"short": "style: auto-format codebase with Prettier",
+			"type": null,
+			"scope": null,
+			"additions": 673657,
+			"deletions": 751910,
+			"timestamp": "2025-11-27T18:33:16+01:00"
+		},
+		{
+			"hash": "47a3bf9",
+			"short": "🩹 fix(memoro): remove orphaned patch file",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 30,
+			"timestamp": "2025-11-27T18:41:22+01:00"
+		},
+		{
+			"hash": "c012226",
+			"short": "🔥 fix(docker): remove deprecated mana-core-nestjs-package",
+			"type": null,
+			"scope": null,
+			"additions": 4,
+			"deletions": 72,
+			"timestamp": "2025-11-27T18:59:48+01:00"
+		},
+		{
+			"hash": "e6f7a4a",
+			"short": "🔧 ci: simplify to focus on chat and manacore only",
+			"type": null,
+			"scope": null,
+			"additions": 7,
+			"deletions": 48,
+			"timestamp": "2025-11-27T19:21:06+01:00"
+		},
+		{
+			"hash": "0cea08f",
+			"short": "fix(ci): resolve turbo recursive build loop and filter issues",
+			"type": "fix",
+			"scope": "ci",
+			"additions": 1276,
+			"deletions": 5,
+			"timestamp": "2025-11-27T19:26:28+01:00"
+		},
+		{
+			"hash": "8f7c639",
+			"short": "fix(ci): make format check non-blocking",
+			"type": "fix",
+			"scope": "ci",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2025-11-27T19:53:03+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

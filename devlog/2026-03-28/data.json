@@ -1,0 +1,882 @@
+{
+	"date": "2026-03-28",
+	"day_number": 67,
+	"weekday": "Samstag",
+	"commits": 86,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 86
+		}
+	],
+	"additions": 185513,
+	"deletions": 109083,
+	"net_lines": 76430,
+	"files_changed": 2585,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-03-28T09:11:28.000Z",
+		"last_commit_at": "2026-03-29T00:08:51.000Z",
+		"total_span_minutes": 897,
+		"active_minutes": 247,
+		"pauses": [
+			{
+				"from": "10:27",
+				"to": "16:03",
+				"minutes": 336
+			},
+			{
+				"from": "16:34",
+				"to": "17:35",
+				"minutes": 61
+			},
+			{
+				"from": "18:33",
+				"to": "20:28",
+				"minutes": 115
+			},
+			{
+				"from": "22:45",
+				"to": "23:28",
+				"minutes": 43
+			},
+			{
+				"from": "23:33",
+				"to": "01:08",
+				"minutes": 95
+			}
+		],
+		"longest_focus_minutes": 137
+	},
+	"top_dirs": [
+		{
+			"path": "apps-archived/uload/apps",
+			"pct": 11
+		},
+		{
+			"path": "apps-archived/bauntown/apps",
+			"pct": 9
+		},
+		{
+			"path": "apps-archived/uload/docs",
+			"pct": 4
+		},
+		{
+			"path": "apps-archived/wisekeep/apps",
+			"pct": 4
+		},
+		{
+			"path": "apps/calendar/apps/backend",
+			"pct": 4
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 1197
+		},
+		{
+			"ext": ".md",
+			"count": 309
+		},
+		{
+			"ext": ".svelte",
+			"count": 303
+		},
+		{
+			"ext": ".json",
+			"count": 286
+		},
+		{
+			"ext": "<no-ext>",
+			"count": 125
+		},
+		{
+			"ext": ".astro",
+			"count": 112
+		}
+	],
+	"tags": ["docker", "landing", "infra", "packages", "apps"],
+	"commits_list": [
+		{
+			"hash": "87d7966",
+			"short": "feat(infra): add Forgejo runner registration script",
+			"type": "feat",
+			"scope": "infra",
+			"additions": 49,
+			"deletions": 0,
+			"timestamp": "2026-03-28T10:11:28+01:00"
+		},
+		{
+			"hash": "3fca0de",
+			"short": "feat(shared-hono): add credit client for Hono backends",
+			"type": "feat",
+			"scope": "shared-hono",
+			"additions": 129,
+			"deletions": 1,
+			"timestamp": "2026-03-28T10:13:34+01:00"
+		},
+		{
+			"hash": "5a9949f",
+			"short": "docs: update overview — shared-hono credits done, sync is generic, assess backends",
+			"type": null,
+			"scope": null,
+			"additions": 8,
+			"deletions": 5,
+			"timestamp": "2026-03-28T10:15:04+01:00"
+		},
+		{
+			"hash": "79080d6",
+			"short": "fix(apps): use explicit AuthServiceInterface in all 21 auth stores, re-enable type-check",
+			"type": "fix",
+			"scope": "apps",
+			"additions": 37,
+			"deletions": 37,
+			"timestamp": "2026-03-28T10:15:23+01:00"
+		},
+		{
+			"hash": "7e931b1",
+			"short": "refactor(services): rename Go services, remove -go suffix",
+			"type": "refactor",
+			"scope": "services",
+			"additions": 41,
+			"deletions": 38,
+			"timestamp": "2026-03-28T10:18:40+01:00"
+		},
+		{
+			"hash": "4c5e945",
+			"short": "docs: update CLAUDE.md with current project state",
+			"type": null,
+			"scope": null,
+			"additions": 44,
+			"deletions": 26,
+			"timestamp": "2026-03-28T10:21:54+01:00"
+		},
+		{
+			"hash": "b60877e",
+			"short": "feat(packages): add shared-go package with httputil and envutil",
+			"type": "feat",
+			"scope": "packages",
+			"additions": 214,
+			"deletions": 0,
+			"timestamp": "2026-03-28T10:24:01+01:00"
+		},
+		{
+			"hash": "5d02b04",
+			"short": "refactor(infra): remove citycorners + skilltree NestJS backends, clean up CI/CD",
+			"type": "refactor",
+			"scope": "infra",
+			"additions": 13,
+			"deletions": 5355,
+			"timestamp": "2026-03-28T10:24:23+01:00"
+		},
+		{
+			"hash": "8ccf8ff",
+			"short": "chore: misc fixes, new services, lockfile cleanup",
+			"type": null,
+			"scope": null,
+			"additions": 1668,
+			"deletions": 3445,
+			"timestamp": "2026-03-28T10:27:35+01:00"
+		},
+		{
+			"hash": "f628026",
+			"short": "fix(build): add handleHttpError for missing favicon.png in 4 apps",
+			"type": "fix",
+			"scope": "build",
+			"additions": 24,
+			"deletions": 0,
+			"timestamp": "2026-03-28T16:03:19+01:00"
+		},
+		{
+			"hash": "4d26196",
+			"short": "fix(tests): update calendar event tests for pure function API, delete orphaned todo tests",
+			"type": "fix",
+			"scope": "tests",
+			"additions": 170,
+			"deletions": 672,
+			"timestamp": "2026-03-28T16:11:08+01:00"
+		},
+		{
+			"hash": "d3d11e6",
+			"short": "feat(apps): create Hono compute servers for Traces, Planta, NutriPhi",
+			"type": "feat",
+			"scope": "apps",
+			"additions": 1161,
+			"deletions": 221,
+			"timestamp": "2026-03-28T16:16:57+01:00"
+		},
+		{
+			"hash": "9c1d16f",
+			"short": "chore(packages): delete unused packages shared-gpu and nutriphi-database",
+			"type": "chore",
+			"scope": "packages",
+			"additions": 0,
+			"deletions": 867,
+			"timestamp": "2026-03-28T16:19:19+01:00"
+		},
+		{
+			"hash": "ba6dbf1",
+			"short": "feat(apps): create Hono compute servers for Context, ManaDeck, Questions",
+			"type": "feat",
+			"scope": "apps",
+			"additions": 431,
+			"deletions": 0,
+			"timestamp": "2026-03-28T16:23:00+01:00"
+		},
+		{
+			"hash": "bf4d9cb",
+			"short": "refactor(go-services): integrate shared-go into crawler + gateway, fix Dockerfiles",
+			"type": "refactor",
+			"scope": "go-services",
+			"additions": 1313,
+			"deletions": 1379,
+			"timestamp": "2026-03-28T16:25:30+01:00"
+		},
+		{
+			"hash": "1aeb987",
+			"short": "refactor(packages): consolidate 3 feedback packages into @manacore/feedback",
+			"type": "refactor",
+			"scope": "packages",
+			"additions": 617,
+			"deletions": 317,
+			"timestamp": "2026-03-28T16:27:11+01:00"
+		},
+		{
+			"hash": "0181d3f",
+			"short": "feat(apps): create Hono compute servers for Chat, Mukke, Picture",
+			"type": "feat",
+			"scope": "apps",
+			"additions": 4,
+			"deletions": 7,
+			"timestamp": "2026-03-28T16:28:14+01:00"
+		},
+		{
+			"hash": "9d3c1cb",
+			"short": "fix: calendar test failures + storage lint error",
+			"type": null,
+			"scope": null,
+			"additions": 422,
+			"deletions": 1540,
+			"timestamp": "2026-03-28T16:30:46+01:00"
+		},
+		{
+			"hash": "22fe807",
+			"short": "fix(docker): add shared-go COPY to all Go service Dockerfiles",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 16,
+			"deletions": 8,
+			"timestamp": "2026-03-28T16:34:40+01:00"
+		},
+		{
+			"hash": "1104c04",
+			"short": "feat(todo): add Board View Editor UI for creating and editing views",
+			"type": "feat",
+			"scope": "todo",
+			"additions": 1423,
+			"deletions": 5,
+			"timestamp": "2026-03-28T17:35:43+01:00"
+		},
+		{
+			"hash": "d70ab97",
+			"short": "refactor(packages): consolidate 4 help packages into @manacore/help",
+			"type": "refactor",
+			"scope": "packages",
+			"additions": 368,
+			"deletions": 69099,
+			"timestamp": "2026-03-28T17:36:32+01:00"
+		},
+		{
+			"hash": "1f32083",
+			"short": "refactor(packages): consolidate 2 subscription packages into @manacore/subscriptions",
+			"type": "refactor",
+			"scope": "packages",
+			"additions": 115,
+			"deletions": 211,
+			"timestamp": "2026-03-28T17:40:47+01:00"
+		},
+		{
+			"hash": "edd42e4",
+			"short": "docs: add comprehensive architecture migration report",
+			"type": null,
+			"scope": null,
+			"additions": 373,
+			"deletions": 0,
+			"timestamp": "2026-03-28T17:42:12+01:00"
+		},
+		{
+			"hash": "b7e67ae",
+			"short": "docs: add devlog for Local-First + NestJS elimination migration",
+			"type": null,
+			"scope": null,
+			"additions": 332,
+			"deletions": 0,
+			"timestamp": "2026-03-28T17:45:46+01:00"
+		},
+		{
+			"hash": "11db6c6",
+			"short": "refactor(packages): consolidate 3 credit packages into @manacore/credits",
+			"type": "refactor",
+			"scope": "packages",
+			"additions": 100,
+			"deletions": 293,
+			"timestamp": "2026-03-28T17:46:26+01:00"
+		},
+		{
+			"hash": "7e5167c",
+			"short": "fix(infra): fix Forgejo runner image, command, and permissions",
+			"type": "fix",
+			"scope": "infra",
+			"additions": 3,
+			"deletions": 1,
+			"timestamp": "2026-03-28T17:46:51+01:00"
+		},
+		{
+			"hash": "cbd19c2",
+			"short": "docs: update local-first migration plan to reflect completed phases 4+5",
+			"type": null,
+			"scope": null,
+			"additions": 84,
+			"deletions": 32,
+			"timestamp": "2026-03-28T17:50:25+01:00"
+		},
+		{
+			"hash": "5e05c53",
+			"short": "fix(packages): fix type errors in consolidated packages + add missing files",
+			"type": "fix",
+			"scope": "packages",
+			"additions": 3761,
+			"deletions": 6185,
+			"timestamp": "2026-03-28T17:53:34+01:00"
+		},
+		{
+			"hash": "18fae3b",
+			"short": "feat(infra): add docker-compose for new Hono services + DB init",
+			"type": "feat",
+			"scope": "infra",
+			"additions": 124,
+			"deletions": 303,
+			"timestamp": "2026-03-28T17:54:24+01:00"
+		},
+		{
+			"hash": "4aa8d87",
+			"short": "chore: commit remaining changes from recent sessions",
+			"type": null,
+			"scope": null,
+			"additions": 288,
+			"deletions": 38,
+			"timestamp": "2026-03-28T17:54:51+01:00"
+		},
+		{
+			"hash": "7dd8fa8",
+			"short": "test(mana-sync): add E2E sync flow test script",
+			"type": "test",
+			"scope": "mana-sync",
+			"additions": 179,
+			"deletions": 0,
+			"timestamp": "2026-03-28T17:56:47+01:00"
+		},
+		{
+			"hash": "899f615",
+			"short": "feat(infra+ui): deploy script v2, schema push, SyncIndicator component",
+			"type": "feat",
+			"scope": "infra+ui",
+			"additions": 302,
+			"deletions": 0,
+			"timestamp": "2026-03-28T18:02:06+01:00"
+		},
+		{
+			"hash": "82fee01",
+			"short": "docs(manascore): update scores after Local-First + Hono migration",
+			"type": "docs",
+			"scope": "manascore",
+			"additions": 64,
+			"deletions": 0,
+			"timestamp": "2026-03-28T18:03:08+01:00"
+		},
+		{
+			"hash": "e35bbcd",
+			"short": "fix(infra): remove depends_on references to deleted backend services",
+			"type": "fix",
+			"scope": "infra",
+			"additions": 2,
+			"deletions": 26,
+			"timestamp": "2026-03-28T18:03:20+01:00"
+		},
+		{
+			"hash": "e7bcb23",
+			"short": "refactor(auth): centralize auth stores — 21 apps use createManaAuthStore factory",
+			"type": "refactor",
+			"scope": "auth",
+			"additions": 430,
+			"deletions": 6802,
+			"timestamp": "2026-03-28T18:04:27+01:00"
+		},
+		{
+			"hash": "099a40b",
+			"short": "chore: replace all mana-core-auth references with mana-auth",
+			"type": null,
+			"scope": null,
+			"additions": 70,
+			"deletions": 97,
+			"timestamp": "2026-03-28T18:05:31+01:00"
+		},
+		{
+			"hash": "79a53cf",
+			"short": "fix(infra): sync Prometheus + cloudflared ports with current deployment",
+			"type": "fix",
+			"scope": "infra",
+			"additions": 3,
+			"deletions": 3,
+			"timestamp": "2026-03-28T18:07:12+01:00"
+		},
+		{
+			"hash": "456f99b",
+			"short": "feat(ci): add smoke tests workflow + Lighthouse audit script",
+			"type": "feat",
+			"scope": "ci",
+			"additions": 151,
+			"deletions": 0,
+			"timestamp": "2026-03-28T18:09:37+01:00"
+		},
+		{
+			"hash": "27b70e8",
+			"short": "chore(mobile): align all 7 Expo apps to SDK 55",
+			"type": "chore",
+			"scope": "mobile",
+			"additions": 195,
+			"deletions": 110,
+			"timestamp": "2026-03-28T18:10:14+01:00"
+		},
+		{
+			"hash": "73181ab",
+			"short": "refactor(mana-media): migrate from NestJS to Hono/Bun",
+			"type": "refactor",
+			"scope": "mana-media",
+			"additions": 624,
+			"deletions": 1238,
+			"timestamp": "2026-03-28T18:12:42+01:00"
+		},
+		{
+			"hash": "7201dd4",
+			"short": "docs: update migration plan and CLAUDE.md for NestJS elimination",
+			"type": null,
+			"scope": null,
+			"additions": 11,
+			"deletions": 7,
+			"timestamp": "2026-03-28T18:13:51+01:00"
+		},
+		{
+			"hash": "e18ac29",
+			"short": "docs: update architecture migration report with Phase 2 results",
+			"type": null,
+			"scope": null,
+			"additions": 167,
+			"deletions": 15,
+			"timestamp": "2026-03-28T18:13:58+01:00"
+		},
+		{
+			"hash": "a81a153",
+			"short": "perf(web): disable SSR for all local-first apps",
+			"type": "perf",
+			"scope": "web",
+			"additions": 31,
+			"deletions": 0,
+			"timestamp": "2026-03-28T18:14:57+01:00"
+		},
+		{
+			"hash": "d9e2aef",
+			"short": "fix(todo): homepage loading state + completed date on task items",
+			"type": "fix",
+			"scope": "todo",
+			"additions": 89,
+			"deletions": 35,
+			"timestamp": "2026-03-28T18:15:26+01:00"
+		},
+		{
+			"hash": "38c192b",
+			"short": "chore: update pnpm-lock.yaml",
+			"type": null,
+			"scope": null,
+			"additions": 2006,
+			"deletions": 7419,
+			"timestamp": "2026-03-28T18:17:31+01:00"
+		},
+		{
+			"hash": "09ccf32",
+			"short": "fix(mana-auth): fix schema import paths (.schema → .ts)",
+			"type": "fix",
+			"scope": "mana-auth",
+			"additions": 2,
+			"deletions": 2,
+			"timestamp": "2026-03-28T18:17:57+01:00"
+		},
+		{
+			"hash": "1cb48b7",
+			"short": "docs: update devlog + migration report with Phase 2 results",
+			"type": null,
+			"scope": null,
+			"additions": 58,
+			"deletions": 5,
+			"timestamp": "2026-03-28T18:18:54+01:00"
+		},
+		{
+			"hash": "92557ee",
+			"short": "feat(infra): add load testing + finalize CI/CD for Go and Hono services",
+			"type": "feat",
+			"scope": "infra",
+			"additions": 642,
+			"deletions": 8,
+			"timestamp": "2026-03-28T18:22:33+01:00"
+		},
+		{
+			"hash": "9ba0553",
+			"short": "fix(docker): update sveltekit-base with renamed/new packages",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 4,
+			"deletions": 6,
+			"timestamp": "2026-03-28T18:23:44+01:00"
+		},
+		{
+			"hash": "b91d4fb",
+			"short": "fix(help): add missing marked dependency",
+			"type": "fix",
+			"scope": "help",
+			"additions": 152,
+			"deletions": 233,
+			"timestamp": "2026-03-28T18:27:17+01:00"
+		},
+		{
+			"hash": "bda77cb",
+			"short": "feat(ui): add SyncIndicator to all 19 app layouts",
+			"type": "feat",
+			"scope": "ui",
+			"additions": 83,
+			"deletions": 87,
+			"timestamp": "2026-03-28T18:27:30+01:00"
+		},
+		{
+			"hash": "be0e5c6",
+			"short": "docs: update devlog with Phase 3 — mana-media migration, load testing, CI/CD",
+			"type": null,
+			"scope": null,
+			"additions": 129,
+			"deletions": 11,
+			"timestamp": "2026-03-28T18:28:05+01:00"
+		},
+		{
+			"hash": "2ce95d6",
+			"short": "chore: sync pnpm-lock.yaml with help package deps",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-03-28T18:28:19+01:00"
+		},
+		{
+			"hash": "353f284",
+			"short": "refactor(landing): simplify apps page to responsive grid with real app URLs",
+			"type": "refactor",
+			"scope": "landing",
+			"additions": 95,
+			"deletions": 286,
+			"timestamp": "2026-03-28T18:33:05+01:00"
+		},
+		{
+			"hash": "83a51d0",
+			"short": "fix(landing): fix content schema errors for manascore and devlog entries",
+			"type": "fix",
+			"scope": "landing",
+			"additions": 13,
+			"deletions": 2,
+			"timestamp": "2026-03-28T20:28:14+01:00"
+		},
+		{
+			"hash": "105a7b0",
+			"short": "fix(docker): add missing packages to sveltekit-base Dockerfile",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 9,
+			"deletions": 0,
+			"timestamp": "2026-03-28T20:46:07+01:00"
+		},
+		{
+			"hash": "9ff2e91",
+			"short": "fix(help): re-export schemas from content.ts for loader.ts compatibility",
+			"type": "fix",
+			"scope": "help",
+			"additions": 16,
+			"deletions": 0,
+			"timestamp": "2026-03-28T20:52:07+01:00"
+		},
+		{
+			"hash": "abf2353",
+			"short": "fix(help): fix createSearcher import path in HelpSearch.svelte",
+			"type": "fix",
+			"scope": "help",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-03-28T20:55:33+01:00"
+		},
+		{
+			"hash": "9643c9b",
+			"short": "fix(docker): regenerate Dockerfiles for consolidated packages",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 90,
+			"deletions": 68,
+			"timestamp": "2026-03-28T21:09:44+01:00"
+		},
+		{
+			"hash": "dbf7121",
+			"short": "fix(landing): remove gaps, rounded corners, and heading from apps grid",
+			"type": "fix",
+			"scope": "landing",
+			"additions": 14,
+			"deletions": 32,
+			"timestamp": "2026-03-28T21:11:53+01:00"
+		},
+		{
+			"hash": "1636738",
+			"short": "fix(docker): use --no-frozen-lockfile in all web Dockerfiles",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 20,
+			"deletions": 20,
+			"timestamp": "2026-03-28T21:12:03+01:00"
+		},
+		{
+			"hash": "9276d9a",
+			"short": "feat: GPU offload, signup limit, load tests & capacity planning",
+			"type": null,
+			"scope": null,
+			"additions": 683,
+			"deletions": 14,
+			"timestamp": "2026-03-28T21:14:24+01:00"
+		},
+		{
+			"hash": "3575211",
+			"short": "feat(landing): add thematic cluster headings to apps grid",
+			"type": "feat",
+			"scope": "landing",
+			"additions": 81,
+			"deletions": 44,
+			"timestamp": "2026-03-28T21:15:28+01:00"
+		},
+		{
+			"hash": "3f4a100",
+			"short": "fix(docker): remove backend-only packages from sveltekit-base",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 3,
+			"deletions": 4,
+			"timestamp": "2026-03-28T21:17:46+01:00"
+		},
+		{
+			"hash": "466f7f3",
+			"short": "fix(landing): heading tiles span only 1 cell like app tiles",
+			"type": "fix",
+			"scope": "landing",
+			"additions": 0,
+			"deletions": 16,
+			"timestamp": "2026-03-28T21:19:27+01:00"
+		},
+		{
+			"hash": "0aeb046",
+			"short": "fix: remove stale react-native-reanimated patch (upgraded to 4.2.1)",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 3,
+			"timestamp": "2026-03-28T21:20:17+01:00"
+		},
+		{
+			"hash": "b34ca93",
+			"short": "fix(docker): strip mobile-only patchedDependencies before pnpm install",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 2,
+			"deletions": 0,
+			"timestamp": "2026-03-28T21:20:19+01:00"
+		},
+		{
+			"hash": "99f1595",
+			"short": "fix(docker): remove broken sed that corrupted package.json",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 0,
+			"deletions": 2,
+			"timestamp": "2026-03-28T21:21:42+01:00"
+		},
+		{
+			"hash": "b45ddbb",
+			"short": "refactor: remove local AI services from Mac Mini, GPU-only architecture",
+			"type": null,
+			"scope": null,
+			"additions": 109,
+			"deletions": 369,
+			"timestamp": "2026-03-28T21:23:37+01:00"
+		},
+		{
+			"hash": "a60e5f8",
+			"short": "fix(ui): remove duplicate SyncIndicator imports from 9 layouts",
+			"type": "fix",
+			"scope": "ui",
+			"additions": 0,
+			"deletions": 10,
+			"timestamp": "2026-03-28T21:29:05+01:00"
+		},
+		{
+			"hash": "e94a413",
+			"short": "fix(docker): remove picture-backend from compose (replaced by Hono server)",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 3,
+			"deletions": 43,
+			"timestamp": "2026-03-28T21:31:48+01:00"
+		},
+		{
+			"hash": "8e7fe45",
+			"short": "fix(docker): add NODE_OPTIONS to calendar-web Dockerfile (OOM fix)",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 4,
+			"deletions": 4,
+			"timestamp": "2026-03-28T21:34:38+01:00"
+		},
+		{
+			"hash": "f4cbbcc",
+			"short": "feat(landing): replace emojis with Phosphor icons on apps page",
+			"type": "feat",
+			"scope": "landing",
+			"additions": 380,
+			"deletions": 352,
+			"timestamp": "2026-03-28T21:35:33+01:00"
+		},
+		{
+			"hash": "5477e6e",
+			"short": "fix(docker): add eslint-config + remove stale patches from all web Dockerfiles",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 37,
+			"deletions": 33,
+			"timestamp": "2026-03-28T21:42:06+01:00"
+		},
+		{
+			"hash": "0f0cca9",
+			"short": "fix(docker): ensure eslint-config in all web Dockerfiles, deduplicate",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 0,
+			"deletions": 20,
+			"timestamp": "2026-03-28T21:42:35+01:00"
+		},
+		{
+			"hash": "de54af6",
+			"short": "fix(landing): full-width category headings above app grid rows",
+			"type": "fix",
+			"scope": "landing",
+			"additions": 91,
+			"deletions": 67,
+			"timestamp": "2026-03-28T21:42:41+01:00"
+		},
+		{
+			"hash": "fb25900",
+			"short": "fix(docker): fix broken COPY line concatenation in all web Dockerfiles",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 30,
+			"deletions": 15,
+			"timestamp": "2026-03-28T21:47:12+01:00"
+		},
+		{
+			"hash": "bb85a8d",
+			"short": "fix(landing): vertical columns layout - each category as a column",
+			"type": "fix",
+			"scope": "landing",
+			"additions": 13,
+			"deletions": 19,
+			"timestamp": "2026-03-28T21:48:38+01:00"
+		},
+		{
+			"hash": "45ebfea",
+			"short": "refactor(docker): standardize all web Dockerfiles to use sveltekit-base",
+			"type": "refactor",
+			"scope": "docker",
+			"additions": 160,
+			"deletions": 1339,
+			"timestamp": "2026-03-28T21:56:44+01:00"
+		},
+		{
+			"hash": "53f90ce",
+			"short": "fix(docker): add content package build step in zitare Dockerfile",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 2,
+			"deletions": 0,
+			"timestamp": "2026-03-28T22:18:28+01:00"
+		},
+		{
+			"hash": "559025b",
+			"short": "feat: Colima migration script, devlog & capacity docs update",
+			"type": null,
+			"scope": null,
+			"additions": 618,
+			"deletions": 1,
+			"timestamp": "2026-03-28T22:18:59+01:00"
+		},
+		{
+			"hash": "d935e07",
+			"short": "fix: make colima migration resilient to TSDB file changes",
+			"type": null,
+			"scope": null,
+			"additions": 3,
+			"deletions": 2,
+			"timestamp": "2026-03-28T22:25:34+01:00"
+		},
+		{
+			"hash": "3f0e330",
+			"short": "feat: add Taktik time tracking app with full MVP",
+			"type": null,
+			"scope": null,
+			"additions": 4632,
+			"deletions": 68,
+			"timestamp": "2026-03-28T22:45:19+01:00"
+		},
+		{
+			"hash": "4a91fd7",
+			"short": "feat(taktik): add timer indicator, settings, templates, CSV export, keyboard shortcuts",
+			"type": "feat",
+			"scope": "taktik",
+			"additions": 693,
+			"deletions": 25,
+			"timestamp": "2026-03-28T23:28:18+01:00"
+		},
+		{
+			"hash": "79a270a",
+			"short": "test(taktik): add unit tests and comprehensive documentation",
+			"type": "test",
+			"scope": "taktik",
+			"additions": 769,
+			"deletions": 35,
+			"timestamp": "2026-03-28T23:33:43+01:00"
+		},
+		{
+			"hash": "076e0c8",
+			"short": "chore: restore archived apps (bauntown, news, reader, uload, wisekeep)",
+			"type": null,
+			"scope": null,
+			"additions": 158214,
+			"deletions": 0,
+			"timestamp": "2026-03-29T01:08:51+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

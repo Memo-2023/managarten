@@ -1,0 +1,147 @@
+{
+	"date": "2025-11-26",
+	"day_number": 4,
+	"weekday": "Mittwoch",
+	"commits": 5,
+	"authors": [
+		{
+			"name": "Wuesteon",
+			"count": 3
+		},
+		{
+			"name": "Till-JS",
+			"count": 2
+		}
+	],
+	"additions": 10169,
+	"deletions": 1909,
+	"net_lines": 8260,
+	"files_changed": 139,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2025-11-26T12:08:50.000Z",
+		"last_commit_at": "2025-11-27T01:25:37.000Z",
+		"total_span_minutes": 797,
+		"active_minutes": 12,
+		"pauses": [
+			{
+				"from": "13:08",
+				"to": "13:50",
+				"minutes": 42
+			},
+			{
+				"from": "14:02",
+				"to": "17:26",
+				"minutes": 203
+			},
+			{
+				"from": "17:26",
+				"to": "02:25",
+				"minutes": 540
+			}
+		],
+		"longest_focus_minutes": 12
+	},
+	"top_dirs": [
+		{
+			"path": "apps/picture/apps/backend",
+			"pct": 37
+		},
+		{
+			"path": "apps/picture/apps/web",
+			"pct": 18
+		},
+		{
+			"path": "apps/chat/apps/mobile",
+			"pct": 10
+		},
+		{
+			"path": "apps/nutriphi/apps/backend",
+			"pct": 7
+		},
+		{
+			"path": "apps/nutriphi/apps/mobile",
+			"pct": 6
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 105
+		},
+		{
+			"ext": ".json",
+			"count": 16
+		},
+		{
+			"ext": ".tsx",
+			"count": 9
+		},
+		{
+			"ext": ".md",
+			"count": 3
+		},
+		{
+			"ext": ".mjs",
+			"count": 3
+		},
+		{
+			"ext": ".example",
+			"count": 3
+		}
+	],
+	"tags": [],
+	"commits_list": [
+		{
+			"hash": "2328b89",
+			"short": "🧑‍💻 chore: add centralized environment variable system",
+			"type": null,
+			"scope": null,
+			"additions": 675,
+			"deletions": 2,
+			"timestamp": "2025-11-26T13:08:50+01:00"
+		},
+		{
+			"hash": "5b7d6fa",
+			"short": "fix env",
+			"type": null,
+			"scope": null,
+			"additions": 10,
+			"deletions": 10,
+			"timestamp": "2025-11-26T13:50:52+01:00"
+		},
+		{
+			"hash": "c6b95ee",
+			"short": "🧑‍💻 chore: add build:packages script and auto-build on install",
+			"type": null,
+			"scope": null,
+			"additions": 2,
+			"deletions": 1,
+			"timestamp": "2025-11-26T14:02:48+01:00"
+		},
+		{
+			"hash": "046a0e3",
+			"short": "Fix: Picture App envs",
+			"type": null,
+			"scope": null,
+			"additions": 31,
+			"deletions": 0,
+			"timestamp": "2025-11-26T17:26:07+01:00"
+		},
+		{
+			"hash": "98efa6f",
+			"short": "Feat: Refactor postgress",
+			"type": null,
+			"scope": null,
+			"additions": 9451,
+			"deletions": 1896,
+			"timestamp": "2025-11-27T02:25:37+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

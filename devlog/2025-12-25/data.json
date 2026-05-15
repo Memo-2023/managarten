@@ -1,0 +1,193 @@
+{
+	"date": "2025-12-25",
+	"day_number": 27,
+	"weekday": "Donnerstag",
+	"commits": 10,
+	"authors": [
+		{
+			"name": "Wuesteon",
+			"count": 10
+		}
+	],
+	"additions": 5662,
+	"deletions": 1295856,
+	"net_lines": -1290194,
+	"files_changed": 5022,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2025-12-25T16:07:55.000Z",
+		"last_commit_at": "2025-12-25T20:09:27.000Z",
+		"total_span_minutes": 242,
+		"active_minutes": 46,
+		"pauses": [
+			{
+				"from": "17:23",
+				"to": "17:57",
+				"minutes": 34
+			},
+			{
+				"from": "17:58",
+				"to": "19:12",
+				"minutes": 74
+			},
+			{
+				"from": "19:12",
+				"to": "20:03",
+				"minutes": 51
+			},
+			{
+				"from": "20:07",
+				"to": "20:44",
+				"minutes": 37
+			}
+		],
+		"longest_focus_minutes": 25
+	},
+	"top_dirs": [
+		{
+			"path": "apps-archived/memoro/apps",
+			"pct": 27
+		},
+		{
+			"path": "apps-archived/maerchenzauber/apps",
+			"pct": 10
+		},
+		{
+			"path": "apps-archived/uload/apps",
+			"pct": 6
+		},
+		{
+			"path": "apps-archived/bauntown/apps",
+			"pct": 5
+		},
+		{
+			"path": "apps/zitare/apps/mobile",
+			"pct": 4
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 1439
+		},
+		{
+			"ext": ".md",
+			"count": 665
+		},
+		{
+			"ext": ".svelte",
+			"count": 538
+		},
+		{
+			"ext": ".tsx",
+			"count": 534
+		},
+		{
+			"ext": ".json",
+			"count": 375
+		},
+		{
+			"ext": ".astro",
+			"count": 347
+		}
+	],
+	"tags": ["tests"],
+	"commits_list": [
+		{
+			"hash": "9bba761",
+			"short": "fix todo backend docker file",
+			"type": null,
+			"scope": null,
+			"additions": 9,
+			"deletions": 7,
+			"timestamp": "2025-12-25T17:07:55+01:00"
+		},
+		{
+			"hash": "079b55a",
+			"short": "delete old apps due to context pollution",
+			"type": null,
+			"scope": null,
+			"additions": 71,
+			"deletions": 1292371,
+			"timestamp": "2025-12-25T17:23:14+01:00"
+		},
+		{
+			"hash": "5b7d3c6",
+			"short": "🔧 chore: enforce monorepo best practices with automated validation",
+			"type": null,
+			"scope": null,
+			"additions": 304,
+			"deletions": 25,
+			"timestamp": "2025-12-25T17:57:00+01:00"
+		},
+		{
+			"hash": "9dbd6e6",
+			"short": "✨ feat(auth): implement sliding window refresh token expiration",
+			"type": null,
+			"scope": null,
+			"additions": 128,
+			"deletions": 2936,
+			"timestamp": "2025-12-25T17:58:20+01:00"
+		},
+		{
+			"hash": "3048972",
+			"short": "✅ test: implement comprehensive automated testing system with daily CI/CD",
+			"type": null,
+			"scope": null,
+			"additions": 5017,
+			"deletions": 16,
+			"timestamp": "2025-12-25T19:12:27+01:00"
+		},
+		{
+			"hash": "cfc5c10",
+			"short": "fix(tests): add missing service mocks to e2e integration tests",
+			"type": "fix",
+			"scope": "tests",
+			"additions": 28,
+			"deletions": 1,
+			"timestamp": "2025-12-25T20:03:14+01:00"
+		},
+		{
+			"hash": "dfdd045",
+			"short": "🔧 refactor(ci): simplify daily tests to auth + integration only",
+			"type": null,
+			"scope": null,
+			"additions": 75,
+			"deletions": 488,
+			"timestamp": "2025-12-25T20:07:25+01:00"
+		},
+		{
+			"hash": "2186cb3",
+			"short": "🐛 fix(ci): use db:migrate instead of db:push for test databases",
+			"type": null,
+			"scope": null,
+			"additions": 3,
+			"deletions": 7,
+			"timestamp": "2025-12-25T20:44:38+01:00"
+		},
+		{
+			"hash": "111e7dd",
+			"short": "🐛 fix(docker): add missing build-shared-packages.sh script for Docker builds",
+			"type": null,
+			"scope": null,
+			"additions": 26,
+			"deletions": 0,
+			"timestamp": "2025-12-25T20:51:15+01:00"
+		},
+		{
+			"hash": "7b365ed",
+			"short": "🐛 fix(docker): remove unnecessary build step for todo shared package",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 5,
+			"timestamp": "2025-12-25T21:09:27+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

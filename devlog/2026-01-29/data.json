@@ -1,0 +1,1133 @@
+{
+	"date": "2026-01-29",
+	"day_number": 38,
+	"weekday": "Donnerstag",
+	"commits": 113,
+	"authors": [
+		{
+			"name": "Till-JS",
+			"count": 107
+		},
+		{
+			"name": "Till JS",
+			"count": 5
+		},
+		{
+			"name": "Claude",
+			"count": 1
+		}
+	],
+	"additions": 51520,
+	"deletions": 12296,
+	"net_lines": 39224,
+	"files_changed": 792,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-01-29T11:05:32.000Z",
+		"last_commit_at": "2026-01-29T22:27:36.000Z",
+		"total_span_minutes": 682,
+		"active_minutes": 423,
+		"pauses": [
+			{
+				"from": "15:24",
+				"to": "16:02",
+				"minutes": 38
+			},
+			{
+				"from": "18:51",
+				"to": "20:41",
+				"minutes": 110
+			},
+			{
+				"from": "20:45",
+				"to": "21:28",
+				"minutes": 43
+			},
+			{
+				"from": "21:28",
+				"to": "22:00",
+				"minutes": 32
+			},
+			{
+				"from": "22:17",
+				"to": "22:54",
+				"minutes": 36
+			}
+		],
+		"longest_focus_minutes": 199
+	},
+	"top_dirs": [
+		{
+			"path": "apps/matrix/apps/web",
+			"pct": 12
+		},
+		{
+			"path": "services/mana-api-gateway/src",
+			"pct": 5
+		},
+		{
+			"path": "services/mana-notify/src",
+			"pct": 5
+		},
+		{
+			"path": "apps/skilltree/apps/web",
+			"pct": 4
+		},
+		{
+			"path": "apps/calendar/apps/web",
+			"pct": 4
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 467
+		},
+		{
+			"ext": ".svelte",
+			"count": 262
+		},
+		{
+			"ext": ".json",
+			"count": 153
+		},
+		{
+			"ext": ".md",
+			"count": 49
+		},
+		{
+			"ext": ".py",
+			"count": 29
+		},
+		{
+			"ext": ".mdx",
+			"count": 27
+		}
+	],
+	"tags": ["matrix", "matrix-web", "auth", "skilltree", "tts-bot"],
+	"commits_list": [
+		{
+			"hash": "076e551",
+			"short": "feat(skilltree): connect web app to backend API",
+			"type": "feat",
+			"scope": "skilltree",
+			"additions": 637,
+			"deletions": 60,
+			"timestamp": "2026-01-29T11:05:32Z"
+		},
+		{
+			"hash": "df5a9e2",
+			"short": "Merge pull request #24 from Memo-2023/claude/review-server-services-NrMEv",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 0,
+			"timestamp": "2026-01-29T12:09:01+01:00"
+		},
+		{
+			"hash": "f623c1f",
+			"short": "Merge pull request #25 from Memo-2023/claude/matrix-client-options-F0UhN",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 0,
+			"timestamp": "2026-01-29T12:10:20+01:00"
+		},
+		{
+			"hash": "8692690",
+			"short": "Merge pull request #26 from Memo-2023/claude/matrix-setup-documentation-Ketxw",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 0,
+			"timestamp": "2026-01-29T12:12:02+01:00"
+		},
+		{
+			"hash": "a930e28",
+			"short": "Merge pull request #27 from Memo-2023/claude/plan-questions-app-UKqD5",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 0,
+			"timestamp": "2026-01-29T12:12:29+01:00"
+		},
+		{
+			"hash": "5e92a52",
+			"short": "Merge pull request #28 from Memo-2023/claude/skill-tree-app-planning-CO4xH",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 0,
+			"timestamp": "2026-01-29T12:13:20+01:00"
+		},
+		{
+			"hash": "e145c64",
+			"short": "📝 docs(devlog): add 2026-01-28 massive feature sprint devlog",
+			"type": null,
+			"scope": null,
+			"additions": 596,
+			"deletions": 0,
+			"timestamp": "2026-01-29T12:19:38+01:00"
+		},
+		{
+			"hash": "2021cf9",
+			"short": "feat(matrix): configure OIDC SSO with Mana Core Auth",
+			"type": "feat",
+			"scope": "matrix",
+			"additions": 2,
+			"deletions": 2,
+			"timestamp": "2026-01-29T12:20:44+01:00"
+		},
+		{
+			"hash": "e46a4c9",
+			"short": "fix(auth): expose JWKS at /api/auth/jwks for OIDC discovery",
+			"type": "fix",
+			"scope": "auth",
+			"additions": 12,
+			"deletions": 1,
+			"timestamp": "2026-01-29T12:21:39+01:00"
+		},
+		{
+			"hash": "42dafe5",
+			"short": "fix(auth): fix global prefix exclusion for OIDC routes",
+			"type": "fix",
+			"scope": "auth",
+			"additions": 6,
+			"deletions": 0,
+			"timestamp": "2026-01-29T12:31:25+01:00"
+		},
+		{
+			"hash": "c3dd770",
+			"short": "✅ test(skilltree): add comprehensive test suite for web and backend",
+			"type": null,
+			"scope": null,
+			"additions": 925,
+			"deletions": 2,
+			"timestamp": "2026-01-29T12:43:19+01:00"
+		},
+		{
+			"hash": "baea194",
+			"short": "fix(auth): add OAuth2 routes for OIDC discovery compatibility",
+			"type": "fix",
+			"scope": "auth",
+			"additions": 76,
+			"deletions": 33,
+			"timestamp": "2026-01-29T12:48:50+01:00"
+		},
+		{
+			"hash": "ac976f2",
+			"short": "🔧 chore(skilltree): add dev commands and database setup",
+			"type": null,
+			"scope": null,
+			"additions": 39,
+			"deletions": 3,
+			"timestamp": "2026-01-29T12:50:43+01:00"
+		},
+		{
+			"hash": "0c1008d",
+			"short": "debug(auth): add detailed logging for OIDC handler response",
+			"type": "debug",
+			"scope": "auth",
+			"additions": 18,
+			"deletions": 4,
+			"timestamp": "2026-01-29T12:51:56+01:00"
+		},
+		{
+			"hash": "29c5d2b",
+			"short": "feat(auth): add OIDC login page for Matrix SSO",
+			"type": "feat",
+			"scope": "auth",
+			"additions": 257,
+			"deletions": 1,
+			"timestamp": "2026-01-29T12:55:02+01:00"
+		},
+		{
+			"hash": "1fcd5de",
+			"short": "🔧 chore(skilltree): add environment configuration",
+			"type": null,
+			"scope": null,
+			"additions": 45,
+			"deletions": 14,
+			"timestamp": "2026-01-29T12:55:36+01:00"
+		},
+		{
+			"hash": "b150a16",
+			"short": "docs(auth): add Matrix SSO integration documentation",
+			"type": "docs",
+			"scope": "auth",
+			"additions": 192,
+			"deletions": 15,
+			"timestamp": "2026-01-29T12:57:48+01:00"
+		},
+		{
+			"hash": "fe8d816",
+			"short": "📝 docs: add mana-search service to monorepo documentation",
+			"type": null,
+			"scope": null,
+			"additions": 113,
+			"deletions": 1,
+			"timestamp": "2026-01-29T12:58:30+01:00"
+		},
+		{
+			"hash": "176aa05",
+			"short": "feat(matrix-web): add SSO login button for Mana Core",
+			"type": "feat",
+			"scope": "matrix-web",
+			"additions": 31,
+			"deletions": 1,
+			"timestamp": "2026-01-29T13:02:58+01:00"
+		},
+		{
+			"hash": "677eb82",
+			"short": "🐛 fix(mana-search): fix SearXNG docker config for local development",
+			"type": null,
+			"scope": null,
+			"additions": 1948,
+			"deletions": 181,
+			"timestamp": "2026-01-29T13:07:21+01:00"
+		},
+		{
+			"hash": "c21f780",
+			"short": "📝 docs: add questions app and mana-search service to COMMANDS.md",
+			"type": null,
+			"scope": null,
+			"additions": 81,
+			"deletions": 3,
+			"timestamp": "2026-01-29T13:08:34+01:00"
+		},
+		{
+			"hash": "b89749d",
+			"short": "♻️ refactor: migrate all web apps to Phosphor icons",
+			"type": null,
+			"scope": null,
+			"additions": 1829,
+			"deletions": 997,
+			"timestamp": "2026-01-29T13:15:13+01:00"
+		},
+		{
+			"hash": "f5247b5",
+			"short": "💄 style(questions): fix class directive syntax for Phosphor icons",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-01-29T13:17:31+01:00"
+		},
+		{
+			"hash": "da4b1e6",
+			"short": "📝 docs: add monorepo consistency report",
+			"type": null,
+			"scope": null,
+			"additions": 293,
+			"deletions": 0,
+			"timestamp": "2026-01-29T13:30:19+01:00"
+		},
+		{
+			"hash": "91143a4",
+			"short": "✨ feat(questions): unify auth pages with shared components",
+			"type": null,
+			"scope": null,
+			"additions": 138,
+			"deletions": 257,
+			"timestamp": "2026-01-29T13:30:37+01:00"
+		},
+		{
+			"hash": "1733580",
+			"short": "fix(types): resolve TypeScript errors across multiple packages",
+			"type": "fix",
+			"scope": "types",
+			"additions": 314,
+			"deletions": 37,
+			"timestamp": "2026-01-29T13:33:01+01:00"
+		},
+		{
+			"hash": "3d15539",
+			"short": "feat(questions): add PillNavigation and QuickInputBar",
+			"type": "feat",
+			"scope": "questions",
+			"additions": 255,
+			"deletions": 129,
+			"timestamp": "2026-01-29T13:38:16+01:00"
+		},
+		{
+			"hash": "52c4206",
+			"short": "⚡ perf: migrate Tailwind from PostCSS to Vite plugin",
+			"type": null,
+			"scope": null,
+			"additions": 427,
+			"deletions": 296,
+			"timestamp": "2026-01-29T13:45:42+01:00"
+		},
+		{
+			"hash": "f3424c2",
+			"short": "⬆️ chore: standardize web app dependencies",
+			"type": null,
+			"scope": null,
+			"additions": 108,
+			"deletions": 108,
+			"timestamp": "2026-01-29T13:49:55+01:00"
+		},
+		{
+			"hash": "51ec8f8",
+			"short": "feat(skilltree): add central auth pages with shared components",
+			"type": "feat",
+			"scope": "skilltree",
+			"additions": 182,
+			"deletions": 2,
+			"timestamp": "2026-01-29T13:55:22+01:00"
+		},
+		{
+			"hash": "6d0d9d4",
+			"short": "✨ feat(questions): add demo mode for unauthenticated users",
+			"type": null,
+			"scope": null,
+			"additions": 397,
+			"deletions": 16,
+			"timestamp": "2026-01-29T13:57:20+01:00"
+		},
+		{
+			"hash": "14ce457",
+			"short": "refactor(shared-ui): centralize toast system across all web apps",
+			"type": "refactor",
+			"scope": "shared-ui",
+			"additions": 487,
+			"deletions": 1249,
+			"timestamp": "2026-01-29T14:03:29+01:00"
+		},
+		{
+			"hash": "aa5fc45",
+			"short": "♻️ refactor(shared-ui): remove lucide-svelte dependency",
+			"type": null,
+			"scope": null,
+			"additions": 4,
+			"deletions": 17,
+			"timestamp": "2026-01-29T14:05:46+01:00"
+		},
+		{
+			"hash": "55afb39",
+			"short": "📝 docs: update consistency report with completed items",
+			"type": null,
+			"scope": null,
+			"additions": 48,
+			"deletions": 50,
+			"timestamp": "2026-01-29T14:07:31+01:00"
+		},
+		{
+			"hash": "2b3210d",
+			"short": "chore(matrix): add Dockerfile and docker-compose config for web app",
+			"type": "chore",
+			"scope": "matrix",
+			"additions": 97,
+			"deletions": 0,
+			"timestamp": "2026-01-29T14:08:19+01:00"
+		},
+		{
+			"hash": "e23d119",
+			"short": "✨ feat: add @manacore/shared-api-client package",
+			"type": null,
+			"scope": null,
+			"additions": 550,
+			"deletions": 280,
+			"timestamp": "2026-01-29T14:19:55+01:00"
+		},
+		{
+			"hash": "fa78769",
+			"short": "📝 docs: update consistency report with API client progress",
+			"type": null,
+			"scope": null,
+			"additions": 9,
+			"deletions": 3,
+			"timestamp": "2026-01-29T14:20:55+01:00"
+		},
+		{
+			"hash": "5322709",
+			"short": "♻️ refactor: migrate todo, contacts, storage to shared-api-client",
+			"type": null,
+			"scope": null,
+			"additions": 189,
+			"deletions": 183,
+			"timestamp": "2026-01-29T14:27:11+01:00"
+		},
+		{
+			"hash": "75b5fb2",
+			"short": "feat(matrix): update web app design to match chat app",
+			"type": "feat",
+			"scope": "matrix",
+			"additions": 342,
+			"deletions": 210,
+			"timestamp": "2026-01-29T14:31:56+01:00"
+		},
+		{
+			"hash": "1e5175e",
+			"short": "♻️ refactor: migrate calendar, picture, nutriphi, planta, questions, skilltree to shared-api-client",
+			"type": null,
+			"scope": null,
+			"additions": 357,
+			"deletions": 432,
+			"timestamp": "2026-01-29T14:32:47+01:00"
+		},
+		{
+			"hash": "cc130cc",
+			"short": "feat(matrix): add PillNavigation and theming integration",
+			"type": "feat",
+			"scope": "matrix",
+			"additions": 349,
+			"deletions": 78,
+			"timestamp": "2026-01-29T14:41:59+01:00"
+		},
+		{
+			"hash": "a938ed8",
+			"short": "fix(matrix): add shared-branding and shared-ui to Dockerfile",
+			"type": "fix",
+			"scope": "matrix",
+			"additions": 183,
+			"deletions": 396,
+			"timestamp": "2026-01-29T14:43:41+01:00"
+		},
+		{
+			"hash": "5a08157",
+			"short": "🌐 feat: add i18n support to 6 web apps",
+			"type": null,
+			"scope": null,
+			"additions": 3444,
+			"deletions": 60,
+			"timestamp": "2026-01-29T14:47:58+01:00"
+		},
+		{
+			"hash": "d492212",
+			"short": "fix(matrix): use valid theme variant 'lavender' instead of 'purple'",
+			"type": "fix",
+			"scope": "matrix",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-01-29T14:49:14+01:00"
+		},
+		{
+			"hash": "f911243",
+			"short": "fix(matrix): use padding-bottom for bottom navigation",
+			"type": "fix",
+			"scope": "matrix",
+			"additions": 2,
+			"deletions": 2,
+			"timestamp": "2026-01-29T14:52:56+01:00"
+		},
+		{
+			"hash": "0c150df",
+			"short": "✨ feat(auth): add resend verification email to all login pages",
+			"type": null,
+			"scope": null,
+			"additions": 690,
+			"deletions": 109,
+			"timestamp": "2026-01-29T14:55:49+01:00"
+		},
+		{
+			"hash": "0d559c9",
+			"short": "feat(matrix): show DMs and rooms as sections instead of tabs",
+			"type": "feat",
+			"scope": "matrix",
+			"additions": 68,
+			"deletions": 55,
+			"timestamp": "2026-01-29T14:56:28+01:00"
+		},
+		{
+			"hash": "69d405c",
+			"short": "♻️ refactor: centralize AuthGateModal in shared-auth-ui",
+			"type": null,
+			"scope": null,
+			"additions": 363,
+			"deletions": 698,
+			"timestamp": "2026-01-29T15:03:52+01:00"
+		},
+		{
+			"hash": "aca66b2",
+			"short": "feat(matrix): add voice note recording and playback",
+			"type": "feat",
+			"scope": "matrix",
+			"additions": 259,
+			"deletions": 12,
+			"timestamp": "2026-01-29T15:12:44+01:00"
+		},
+		{
+			"hash": "cdac341",
+			"short": "♻️ refactor: centralize global error handler in shared-ui",
+			"type": null,
+			"scope": null,
+			"additions": 307,
+			"deletions": 119,
+			"timestamp": "2026-01-29T15:17:17+01:00"
+		},
+		{
+			"hash": "8804ab7",
+			"short": "♻️ refactor: centralize AppLoadingSkeleton in shared-ui",
+			"type": null,
+			"scope": null,
+			"additions": 494,
+			"deletions": 306,
+			"timestamp": "2026-01-29T15:24:29+01:00"
+		},
+		{
+			"hash": "7442b09",
+			"short": "fix(matrix): wait for i18n to load before rendering",
+			"type": "fix",
+			"scope": "matrix",
+			"additions": 13,
+			"deletions": 6,
+			"timestamp": "2026-01-29T16:02:26+01:00"
+		},
+		{
+			"hash": "58a0516",
+			"short": "feat(matrix): add TTS bot for text-to-speech conversion",
+			"type": "feat",
+			"scope": "matrix",
+			"additions": 1497,
+			"deletions": 172,
+			"timestamp": "2026-01-29T16:03:26+01:00"
+		},
+		{
+			"hash": "41354d5",
+			"short": "fix(matrix-tts-bot): fix Dockerfile pnpm install",
+			"type": "fix",
+			"scope": "matrix-tts-bot",
+			"additions": 2,
+			"deletions": 2,
+			"timestamp": "2026-01-29T16:04:08+01:00"
+		},
+		{
+			"hash": "56d49f8",
+			"short": "fix(matrix): handle invalid timestamps gracefully",
+			"type": "fix",
+			"scope": "matrix",
+			"additions": 8,
+			"deletions": 3,
+			"timestamp": "2026-01-29T16:04:50+01:00"
+		},
+		{
+			"hash": "68a8ad6",
+			"short": "fix(tts-bot): change port to 3033 to avoid conflict with nutriphi",
+			"type": "fix",
+			"scope": "tts-bot",
+			"additions": 208,
+			"deletions": 7,
+			"timestamp": "2026-01-29T16:06:25+01:00"
+		},
+		{
+			"hash": "d37f589",
+			"short": "fix(matrix): validate lastMessageTime before formatting in RoomItem",
+			"type": "fix",
+			"scope": "matrix",
+			"additions": 9,
+			"deletions": 8,
+			"timestamp": "2026-01-29T16:08:06+01:00"
+		},
+		{
+			"hash": "33073ab",
+			"short": "feat(matrix): add room invitations UI with accept/decline",
+			"type": "feat",
+			"scope": "matrix",
+			"additions": 119,
+			"deletions": 5,
+			"timestamp": "2026-01-29T16:13:52+01:00"
+		},
+		{
+			"hash": "0a6a1dc",
+			"short": "📝 docs: add consolidation opportunities analysis",
+			"type": null,
+			"scope": null,
+			"additions": 451,
+			"deletions": 0,
+			"timestamp": "2026-01-29T16:14:08+01:00"
+		},
+		{
+			"hash": "1348fca",
+			"short": "♻️ refactor: remove duplicated code (Quick Wins)",
+			"type": null,
+			"scope": null,
+			"additions": 9,
+			"deletions": 78,
+			"timestamp": "2026-01-29T16:19:18+01:00"
+		},
+		{
+			"hash": "ff56030",
+			"short": "fix(matrix): enable independent scrolling for panels",
+			"type": "fix",
+			"scope": "matrix",
+			"additions": 3,
+			"deletions": 1,
+			"timestamp": "2026-01-29T16:20:23+01:00"
+		},
+		{
+			"hash": "f0adea0",
+			"short": "fix(tts-bot): use MP3 format and prevent duplicate messages",
+			"type": "fix",
+			"scope": "tts-bot",
+			"additions": 22,
+			"deletions": 5,
+			"timestamp": "2026-01-29T16:20:26+01:00"
+		},
+		{
+			"hash": "a1ca002",
+			"short": "♻️ refactor: migrate 6 backends to shared-nestjs-metrics",
+			"type": null,
+			"scope": null,
+			"additions": 54,
+			"deletions": 709,
+			"timestamp": "2026-01-29T16:23:32+01:00"
+		},
+		{
+			"hash": "3e73a7a",
+			"short": "📝 docs: update consolidation report with completed tasks",
+			"type": null,
+			"scope": null,
+			"additions": 18,
+			"deletions": 18,
+			"timestamp": "2026-01-29T16:24:05+01:00"
+		},
+		{
+			"hash": "9f47131",
+			"short": "fix(matrix): improve sidebar and message input layout",
+			"type": "fix",
+			"scope": "matrix",
+			"additions": 115,
+			"deletions": 118,
+			"timestamp": "2026-01-29T16:25:05+01:00"
+		},
+		{
+			"hash": "4681ba8",
+			"short": "♻️ refactor: create createAppSettingsStore factory and migrate 3 apps",
+			"type": null,
+			"scope": null,
+			"additions": 361,
+			"deletions": 544,
+			"timestamp": "2026-01-29T16:30:22+01:00"
+		},
+		{
+			"hash": "86c40ec",
+			"short": "fix(matrix-web): fix sidebar gap and chat scrolling layout",
+			"type": "fix",
+			"scope": "matrix-web",
+			"additions": 76,
+			"deletions": 34,
+			"timestamp": "2026-01-29T16:36:24+01:00"
+		},
+		{
+			"hash": "d0d2855",
+			"short": "🔧 chore: create @manacore/shared-tsconfig and migrate 13 backends",
+			"type": null,
+			"scope": null,
+			"additions": 113,
+			"deletions": 309,
+			"timestamp": "2026-01-29T16:38:57+01:00"
+		},
+		{
+			"hash": "188290b",
+			"short": "♻️ refactor: migrate 15 web apps to @manacore/shared-vite-config",
+			"type": null,
+			"scope": null,
+			"additions": 224,
+			"deletions": 512,
+			"timestamp": "2026-01-29T16:47:55+01:00"
+		},
+		{
+			"hash": "6807543",
+			"short": "🔧 chore: create @manacore/shared-drizzle-config and migrate 16 configs",
+			"type": null,
+			"scope": null,
+			"additions": 281,
+			"deletions": 177,
+			"timestamp": "2026-01-29T16:54:44+01:00"
+		},
+		{
+			"hash": "017cb91",
+			"short": "feat(matrix-web): add emoji reactions support",
+			"type": "feat",
+			"scope": "matrix-web",
+			"additions": 134,
+			"deletions": 4,
+			"timestamp": "2026-01-29T16:56:10+01:00"
+		},
+		{
+			"hash": "f652f28",
+			"short": "chore: switch matrix-web to local build in production compose",
+			"type": null,
+			"scope": null,
+			"additions": 4,
+			"deletions": 1,
+			"timestamp": "2026-01-29T16:59:13+01:00"
+		},
+		{
+			"hash": "b5e6fd4",
+			"short": "fix(matrix-web): add missing shared packages to Dockerfile",
+			"type": "fix",
+			"scope": "matrix-web",
+			"additions": 3,
+			"deletions": 0,
+			"timestamp": "2026-01-29T17:00:00+01:00"
+		},
+		{
+			"hash": "035c753",
+			"short": "fix(matrix-web): inline vite config for Docker build compatibility",
+			"type": "fix",
+			"scope": "matrix-web",
+			"additions": 74,
+			"deletions": 35,
+			"timestamp": "2026-01-29T17:01:10+01:00"
+		},
+		{
+			"hash": "c14cd6c",
+			"short": "feat(matrix-web): add clickable links and link previews",
+			"type": "feat",
+			"scope": "matrix-web",
+			"additions": 63,
+			"deletions": 1,
+			"timestamp": "2026-01-29T17:03:46+01:00"
+		},
+		{
+			"hash": "bf719f1",
+			"short": "♻️ refactor: create createSimpleNavigationStores and migrate 10 apps",
+			"type": null,
+			"scope": null,
+			"additions": 150,
+			"deletions": 82,
+			"timestamp": "2026-01-29T17:04:32+01:00"
+		},
+		{
+			"hash": "5f07eb7",
+			"short": "feat(matrix-web): add markdown formatting support",
+			"type": "feat",
+			"scope": "matrix-web",
+			"additions": 32,
+			"deletions": 4,
+			"timestamp": "2026-01-29T17:05:26+01:00"
+		},
+		{
+			"hash": "95cd142",
+			"short": "fix(matrix-web): add shared-stores to Dockerfile",
+			"type": "fix",
+			"scope": "matrix-web",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-01-29T17:06:29+01:00"
+		},
+		{
+			"hash": "5663c3d",
+			"short": "fix(matrix-web): inline navigation stores to avoid shared-stores dependency",
+			"type": "fix",
+			"scope": "matrix-web",
+			"additions": 38,
+			"deletions": 4,
+			"timestamp": "2026-01-29T17:08:39+01:00"
+		},
+		{
+			"hash": "2d16f7c",
+			"short": "🔧 chore: create @manacore/shared-logger and migrate 2 mobile apps",
+			"type": null,
+			"scope": null,
+			"additions": 254,
+			"deletions": 129,
+			"timestamp": "2026-01-29T17:12:48+01:00"
+		},
+		{
+			"hash": "c4483e2",
+			"short": "🔥 remove: delete Picture Button/Card duplicates, use @manacore/shared-ui",
+			"type": null,
+			"scope": null,
+			"additions": 15,
+			"deletions": 92,
+			"timestamp": "2026-01-29T17:15:55+01:00"
+		},
+		{
+			"hash": "84fca40",
+			"short": "feat(matrix-web): add online status indicators for DMs",
+			"type": "feat",
+			"scope": "matrix-web",
+			"additions": 128,
+			"deletions": 12,
+			"timestamp": "2026-01-29T17:16:02+01:00"
+		},
+		{
+			"hash": "840f6d7",
+			"short": "feat(matrix-web): add read receipt indicators",
+			"type": "feat",
+			"scope": "matrix-web",
+			"additions": 85,
+			"deletions": 4,
+			"timestamp": "2026-01-29T17:24:03+01:00"
+		},
+		{
+			"hash": "fbd315e",
+			"short": "🔧 chore: create @manacore/shared-nestjs-setup and migrate 8 backends",
+			"type": null,
+			"scope": null,
+			"additions": 280,
+			"deletions": 314,
+			"timestamp": "2026-01-29T17:25:51+01:00"
+		},
+		{
+			"hash": "6f1b265",
+			"short": "✨ feat: add mana-api-gateway for monetizing core services",
+			"type": null,
+			"scope": null,
+			"additions": 2507,
+			"deletions": 0,
+			"timestamp": "2026-01-29T17:30:21+01:00"
+		},
+		{
+			"hash": "f2cd862",
+			"short": "🚸 ux(matrix-web): improve mobile responsiveness",
+			"type": null,
+			"scope": null,
+			"additions": 1231,
+			"deletions": 85,
+			"timestamp": "2026-01-29T17:37:35+01:00"
+		},
+		{
+			"hash": "dff153c",
+			"short": "💄 style(matrix-web): redesign login page to match central auth UI",
+			"type": null,
+			"scope": null,
+			"additions": 783,
+			"deletions": 469,
+			"timestamp": "2026-01-29T17:43:51+01:00"
+		},
+		{
+			"hash": "4b322f5",
+			"short": "📝 docs: add Astro Starlight public documentation site",
+			"type": null,
+			"scope": null,
+			"additions": 7351,
+			"deletions": 88,
+			"timestamp": "2026-01-29T18:01:15+01:00"
+		},
+		{
+			"hash": "fc0ed63",
+			"short": "✨ feat(api-gateway): add Swagger, admin endpoints, and scheduler",
+			"type": null,
+			"scope": null,
+			"additions": 1059,
+			"deletions": 1,
+			"timestamp": "2026-01-29T18:03:16+01:00"
+		},
+		{
+			"hash": "4c1beb9",
+			"short": "🌙 feat(docs): set dark mode as default theme",
+			"type": null,
+			"scope": null,
+			"additions": 13,
+			"deletions": 0,
+			"timestamp": "2026-01-29T18:22:23+01:00"
+		},
+		{
+			"hash": "271496b",
+			"short": "🚀 ci: add mana-search and api-gateway to Docker builds",
+			"type": null,
+			"scope": null,
+			"additions": 400,
+			"deletions": 277,
+			"timestamp": "2026-01-29T18:34:18+01:00"
+		},
+		{
+			"hash": "59d5d20",
+			"short": "♻️ refactor: migrate 12 backends to shared-nestjs-health module",
+			"type": null,
+			"scope": null,
+			"additions": 4,
+			"deletions": 0,
+			"timestamp": "2026-01-29T18:35:10+01:00"
+		},
+		{
+			"hash": "f651773",
+			"short": "🚸 ux(matrix-web): add settings access from chat sidebar",
+			"type": null,
+			"scope": null,
+			"additions": 17,
+			"deletions": 8,
+			"timestamp": "2026-01-29T18:36:18+01:00"
+		},
+		{
+			"hash": "60b7cad",
+			"short": "🔧 chore: gitignore build artifacts and misc updates",
+			"type": null,
+			"scope": null,
+			"additions": 995,
+			"deletions": 531,
+			"timestamp": "2026-01-29T18:37:42+01:00"
+		},
+		{
+			"hash": "4492273",
+			"short": "✨ feat(matrix-web): add browser notifications for new messages",
+			"type": null,
+			"scope": null,
+			"additions": 317,
+			"deletions": 3,
+			"timestamp": "2026-01-29T18:38:43+01:00"
+		},
+		{
+			"hash": "9ffbf35",
+			"short": "🔧 fix(docker): update Dockerfiles for monorepo-aware builds",
+			"type": null,
+			"scope": null,
+			"additions": 44,
+			"deletions": 41,
+			"timestamp": "2026-01-29T18:39:05+01:00"
+		},
+		{
+			"hash": "5777c76",
+			"short": "✨ feat(matrix-web): add message search functionality",
+			"type": null,
+			"scope": null,
+			"additions": 277,
+			"deletions": 2,
+			"timestamp": "2026-01-29T18:41:06+01:00"
+		},
+		{
+			"hash": "b097d89",
+			"short": "✨ feat(matrix-web): add theme mode selector in settings",
+			"type": null,
+			"scope": null,
+			"additions": 143,
+			"deletions": 150,
+			"timestamp": "2026-01-29T18:50:27+01:00"
+		},
+		{
+			"hash": "5a30826",
+			"short": "✨ feat(matrix-web): add keyboard shortcuts for quick actions",
+			"type": null,
+			"scope": null,
+			"additions": 14,
+			"deletions": 0,
+			"timestamp": "2026-01-29T18:51:12+01:00"
+		},
+		{
+			"hash": "c3e340f",
+			"short": "🔧 chore: fix missing shared package dependencies",
+			"type": null,
+			"scope": null,
+			"additions": 10,
+			"deletions": 2,
+			"timestamp": "2026-01-29T20:41:39+01:00"
+		},
+		{
+			"hash": "22a0fee",
+			"short": "📝 docs: complete consolidation opportunities analysis",
+			"type": null,
+			"scope": null,
+			"additions": 33,
+			"deletions": 8,
+			"timestamp": "2026-01-29T20:45:28+01:00"
+		},
+		{
+			"hash": "c64b4d6",
+			"short": "✨ feat(matrix-web): add VoIP/video call support",
+			"type": null,
+			"scope": null,
+			"additions": 782,
+			"deletions": 10,
+			"timestamp": "2026-01-29T21:28:35+01:00"
+		},
+		{
+			"hash": "4a3295d",
+			"short": "✨ feat(mana-crawler): add web crawler service",
+			"type": null,
+			"scope": null,
+			"additions": 2795,
+			"deletions": 0,
+			"timestamp": "2026-01-29T22:00:36+01:00"
+		},
+		{
+			"hash": "1495dbe",
+			"short": "✨ feat(mana-llm): add central LLM abstraction service",
+			"type": null,
+			"scope": null,
+			"additions": 2270,
+			"deletions": 1,
+			"timestamp": "2026-01-29T22:01:00+01:00"
+		},
+		{
+			"hash": "b5fa0f4",
+			"short": "✨ feat(mana-notify): add central notification service",
+			"type": null,
+			"scope": null,
+			"additions": 4824,
+			"deletions": 0,
+			"timestamp": "2026-01-29T22:07:38+01:00"
+		},
+		{
+			"hash": "0023394",
+			"short": "✨ feat(matrix-web): add screen sharing, presence display, and extended emoji picker",
+			"type": null,
+			"scope": null,
+			"additions": 171,
+			"deletions": 25,
+			"timestamp": "2026-01-29T22:14:28+01:00"
+		},
+		{
+			"hash": "60cc0be",
+			"short": "fix(docker): use node-based healthchecks for mana-core-auth and nutriphi-web",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 3,
+			"deletions": 2,
+			"timestamp": "2026-01-29T22:17:43+01:00"
+		},
+		{
+			"hash": "7b2ac78",
+			"short": "✨ feat(matrix-web): add @mention autocomplete, message forwarding, and improved typing indicator",
+			"type": null,
+			"scope": null,
+			"additions": 408,
+			"deletions": 14,
+			"timestamp": "2026-01-29T22:54:00+01:00"
+		},
+		{
+			"hash": "384244f",
+			"short": "♻️ refactor: migrate bots and chat-backend to mana-llm",
+			"type": null,
+			"scope": null,
+			"additions": 275,
+			"deletions": 179,
+			"timestamp": "2026-01-29T22:56:26+01:00"
+		},
+		{
+			"hash": "f4c49fe",
+			"short": "fix(mana-notify): resolve BullMQ circular import issue",
+			"type": "fix",
+			"scope": "mana-notify",
+			"additions": 1400,
+			"deletions": 8,
+			"timestamp": "2026-01-29T22:58:47+01:00"
+		},
+		{
+			"hash": "971e269",
+			"short": "🔧 chore: update pnpm-lock and bot sync token",
+			"type": null,
+			"scope": null,
+			"additions": 683,
+			"deletions": 298,
+			"timestamp": "2026-01-29T22:59:41+01:00"
+		},
+		{
+			"hash": "7ffee52",
+			"short": "fix(notify-client): don't send undefined emailOptions",
+			"type": "fix",
+			"scope": "notify-client",
+			"additions": 24,
+			"deletions": 12,
+			"timestamp": "2026-01-29T23:25:46+01:00"
+		},
+		{
+			"hash": "aae5ef6",
+			"short": "📝 docs: replace devlog with comprehensive microservices & consolidation post",
+			"type": null,
+			"scope": null,
+			"additions": 678,
+			"deletions": 268,
+			"timestamp": "2026-01-29T23:27:36+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

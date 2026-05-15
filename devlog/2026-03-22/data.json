@@ -1,0 +1,325 @@
+{
+	"date": "2026-03-22",
+	"day_number": 61,
+	"weekday": "Sonntag",
+	"commits": 27,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 27
+		}
+	],
+	"additions": 5493,
+	"deletions": 2856,
+	"net_lines": 2637,
+	"files_changed": 191,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-03-22T16:40:45.000Z",
+		"last_commit_at": "2026-03-22T18:16:47.000Z",
+		"total_span_minutes": 96,
+		"active_minutes": 96,
+		"pauses": [],
+		"longest_focus_minutes": 96
+	},
+	"top_dirs": [
+		{
+			"path": "apps/mukke/apps/web",
+			"pct": 8
+		},
+		{
+			"path": "apps/storage/apps/web",
+			"pct": 6
+		},
+		{
+			"path": "apps/todo/apps/web",
+			"pct": 6
+		},
+		{
+			"path": "apps/manacore/apps/web",
+			"pct": 5
+		},
+		{
+			"path": "apps/calendar/apps/web",
+			"pct": 5
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 83
+		},
+		{
+			"ext": ".svelte",
+			"count": 36
+		},
+		{
+			"ext": ".json",
+			"count": 32
+		},
+		{
+			"ext": ".astro",
+			"count": 27
+		},
+		{
+			"ext": ".md",
+			"count": 20
+		},
+		{
+			"ext": ".html",
+			"count": 19
+		}
+	],
+	"tags": ["analytics", "storage", "mukke", "manacore", "calendar"],
+	"commits_list": [
+		{
+			"hash": "fa116df",
+			"short": "feat(manacore): add App Hub as new default home page",
+			"type": "feat",
+			"scope": "manacore",
+			"additions": 508,
+			"deletions": 3,
+			"timestamp": "2026-03-22T17:40:45+01:00"
+		},
+		{
+			"hash": "28d8cfc",
+			"short": "fix(manacore): copy patches directory in Dockerfile for pnpm install",
+			"type": "fix",
+			"scope": "manacore",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-03-22T17:43:17+01:00"
+		},
+		{
+			"hash": "79becc9",
+			"short": "fix(calendar): add auth gate to prevent 401 errors and fix CSP for analytics",
+			"type": "fix",
+			"scope": "calendar",
+			"additions": 118,
+			"deletions": 106,
+			"timestamp": "2026-03-22T17:49:07+01:00"
+		},
+		{
+			"hash": "6b2b703",
+			"short": "fix(calendar): scroll to current time and show time label on indicator",
+			"type": "fix",
+			"scope": "calendar",
+			"additions": 24,
+			"deletions": 9,
+			"timestamp": "2026-03-22T17:52:32+01:00"
+		},
+		{
+			"hash": "97b6100",
+			"short": "fix(storage): use runtime env vars instead of hardcoded localhost URLs",
+			"type": "fix",
+			"scope": "storage",
+			"additions": 80,
+			"deletions": 2,
+			"timestamp": "2026-03-22T17:59:36+01:00"
+		},
+		{
+			"hash": "93a7c90",
+			"short": "feat(storage): add storage to CD pipeline and fix Docker config",
+			"type": "feat",
+			"scope": "storage",
+			"additions": 21,
+			"deletions": 13,
+			"timestamp": "2026-03-22T18:02:40+01:00"
+		},
+		{
+			"hash": "9bdb997",
+			"short": "refactor(pwa): replace custom service workers with Vite PWA plugin and centralize offline page",
+			"type": "refactor",
+			"scope": "pwa",
+			"additions": 262,
+			"deletions": 2023,
+			"timestamp": "2026-03-22T18:16:43+01:00"
+		},
+		{
+			"hash": "50d084b",
+			"short": "fix(todo): add missing patches directory to web Dockerfile",
+			"type": "fix",
+			"scope": "todo",
+			"additions": 3,
+			"deletions": 0,
+			"timestamp": "2026-03-22T18:24:10+01:00"
+		},
+		{
+			"hash": "db2a0e6",
+			"short": "fix(storage): copy patches directory in Dockerfile for pnpm install",
+			"type": "fix",
+			"scope": "storage",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-03-22T18:24:59+01:00"
+		},
+		{
+			"hash": "87516bb",
+			"short": "fix(storage): add Umami analytics injection to hooks.server.ts",
+			"type": "fix",
+			"scope": "storage",
+			"additions": 2,
+			"deletions": 1,
+			"timestamp": "2026-03-22T18:25:10+01:00"
+		},
+		{
+			"hash": "e01b740",
+			"short": "refactor(analytics): centralize Umami tracking via env vars and shared utility",
+			"type": "refactor",
+			"scope": "analytics",
+			"additions": 319,
+			"deletions": 52,
+			"timestamp": "2026-03-22T18:27:31+01:00"
+		},
+		{
+			"hash": "0786e6b",
+			"short": "feat(mukke): add real-time frequency bars visualizer",
+			"type": "feat",
+			"scope": "mukke",
+			"additions": 284,
+			"deletions": 3,
+			"timestamp": "2026-03-22T18:30:33+01:00"
+		},
+		{
+			"hash": "2d7ca7e",
+			"short": "docs(mukke): add comprehensive visualizer system concept",
+			"type": "docs",
+			"scope": "mukke",
+			"additions": 490,
+			"deletions": 0,
+			"timestamp": "2026-03-22T18:34:42+01:00"
+		},
+		{
+			"hash": "2c26fce",
+			"short": "fix: replace all manacore.app URLs with mana.how",
+			"type": null,
+			"scope": null,
+			"additions": 100,
+			"deletions": 103,
+			"timestamp": "2026-03-22T18:40:37+01:00"
+		},
+		{
+			"hash": "f043db2",
+			"short": "feat(analytics): add automatic auth event tracking via shared-auth",
+			"type": "feat",
+			"scope": "analytics",
+			"additions": 44,
+			"deletions": 2,
+			"timestamp": "2026-03-22T18:44:03+01:00"
+		},
+		{
+			"hash": "6c140c1",
+			"short": "docs(mukke): add visualizer alternatives and technology comparison",
+			"type": "docs",
+			"scope": "mukke",
+			"additions": 417,
+			"deletions": 0,
+			"timestamp": "2026-03-22T18:46:58+01:00"
+		},
+		{
+			"hash": "7954416",
+			"short": "feat(analytics): add key action tracking to todo, calendar, chat, contacts",
+			"type": "feat",
+			"scope": "analytics",
+			"additions": 12,
+			"deletions": 0,
+			"timestamp": "2026-03-22T18:48:18+01:00"
+		},
+		{
+			"hash": "f5ee3aa",
+			"short": "feat(security): add unified CSP headers to all 17 web apps",
+			"type": "feat",
+			"scope": "security",
+			"additions": 246,
+			"deletions": 58,
+			"timestamp": "2026-03-22T18:53:40+01:00"
+		},
+		{
+			"hash": "cc9679d",
+			"short": "refactor(analytics): centralize landing page Umami tracking via env vars",
+			"type": "refactor",
+			"scope": "analytics",
+			"additions": 216,
+			"deletions": 25,
+			"timestamp": "2026-03-22T19:03:02+01:00"
+		},
+		{
+			"hash": "45c11a1",
+			"short": "feat(analytics): add event tracking to picture, storage, clock, mukke, planta",
+			"type": "feat",
+			"scope": "analytics",
+			"additions": 12,
+			"deletions": 0,
+			"timestamp": "2026-03-22T19:07:06+01:00"
+		},
+		{
+			"hash": "420926a",
+			"short": "fix(infra): add no-cache headers for PWA files in Caddyfile",
+			"type": "fix",
+			"scope": "infra",
+			"additions": 17,
+			"deletions": 0,
+			"timestamp": "2026-03-22T19:10:49+01:00"
+		},
+		{
+			"hash": "287bbed",
+			"short": "feat(analytics): add automatic CTA tracking to all 10 landing pages",
+			"type": "feat",
+			"scope": "analytics",
+			"additions": 155,
+			"deletions": 0,
+			"timestamp": "2026-03-22T19:13:24+01:00"
+		},
+		{
+			"hash": "a4e41ee",
+			"short": "fix(storage): add shared-pwa package to web Dockerfile",
+			"type": "fix",
+			"scope": "storage",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-03-22T19:14:07+01:00"
+		},
+		{
+			"hash": "7cad407",
+			"short": "feat(error-tracking): add browser error tracking to all 19 SvelteKit web apps",
+			"type": "feat",
+			"scope": "error-tracking",
+			"additions": 443,
+			"deletions": 5,
+			"timestamp": "2026-03-22T19:16:21+01:00"
+		},
+		{
+			"hash": "42b32cb",
+			"short": "feat(mukke): add pluggable visualizer system with Butterchurn and Particle modes",
+			"type": "feat",
+			"scope": "mukke",
+			"additions": 577,
+			"deletions": 3,
+			"timestamp": "2026-03-22T19:16:34+01:00"
+		},
+		{
+			"hash": "04487ba",
+			"short": "docs(observability): add observability gaps analysis document",
+			"type": "docs",
+			"scope": "observability",
+			"additions": 468,
+			"deletions": 0,
+			"timestamp": "2026-03-22T19:16:42+01:00"
+		},
+		{
+			"hash": "c438583",
+			"short": "chore: update pnpm-lock.yaml",
+			"type": null,
+			"scope": null,
+			"additions": 672,
+			"deletions": 448,
+			"timestamp": "2026-03-22T19:16:47+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

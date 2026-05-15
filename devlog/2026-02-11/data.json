@@ -1,0 +1,359 @@
+{
+	"date": "2026-02-11",
+	"day_number": 44,
+	"weekday": "Mittwoch",
+	"commits": 29,
+	"authors": [
+		{
+			"name": "Till-JS",
+			"count": 29
+		}
+	],
+	"additions": 14772,
+	"deletions": 1668,
+	"net_lines": 13104,
+	"files_changed": 190,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-02-11T13:59:18.000Z",
+		"last_commit_at": "2026-02-12T01:34:00.000Z",
+		"total_span_minutes": 695,
+		"active_minutes": 129,
+		"pauses": [
+			{
+				"from": "14:59",
+				"to": "16:10",
+				"minutes": 71
+			},
+			{
+				"from": "16:47",
+				"to": "17:39",
+				"minutes": 53
+			},
+			{
+				"from": "18:21",
+				"to": "01:43",
+				"minutes": 442
+			}
+		],
+		"longest_focus_minutes": 50
+	},
+	"top_dirs": [
+		{
+			"path": "apps/photos/apps/web",
+			"pct": 17
+		},
+		{
+			"path": "apps/photos/apps/backend",
+			"pct": 13
+		},
+		{
+			"path": "services/mana-core-auth/src",
+			"pct": 7
+		},
+		{
+			"path": "apps/presi/apps/backend",
+			"pct": 5
+		},
+		{
+			"path": "services/mana-media/apps",
+			"pct": 5
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 110
+		},
+		{
+			"ext": "<no-ext>",
+			"count": 40
+		},
+		{
+			"ext": ".svelte",
+			"count": 25
+		},
+		{
+			"ext": ".json",
+			"count": 16
+		},
+		{
+			"ext": ".py",
+			"count": 13
+		},
+		{
+			"ext": ".yml",
+			"count": 8
+		}
+	],
+	"tags": ["photos", "mana-media"],
+	"commits_list": [
+		{
+			"hash": "a2e2a5b",
+			"short": "✨ feat(admin): add user data dashboard for cross-project data visualization",
+			"type": null,
+			"scope": null,
+			"additions": 3785,
+			"deletions": 403,
+			"timestamp": "2026-02-11T14:59:18+01:00"
+		},
+		{
+			"hash": "6039407",
+			"short": "✨ feat(mana-stt): add vLLM integration for Voxtral transcription",
+			"type": null,
+			"scope": null,
+			"additions": 1060,
+			"deletions": 162,
+			"timestamp": "2026-02-11T16:10:00+01:00"
+		},
+		{
+			"hash": "7c9c264",
+			"short": "🐛 fix(mana-stt): adjust vLLM config for CPU mode",
+			"type": null,
+			"scope": null,
+			"additions": 7,
+			"deletions": 2,
+			"timestamp": "2026-02-11T16:14:14+01:00"
+		},
+		{
+			"hash": "21d50d1",
+			"short": "📝 docs(mana-stt): document Whisper + Mistral API architecture",
+			"type": null,
+			"scope": null,
+			"additions": 27,
+			"deletions": 7,
+			"timestamp": "2026-02-11T16:34:03+01:00"
+		},
+		{
+			"hash": "e7e6281",
+			"short": "🔧 fix(docker): add missing shared packages to all backend Dockerfiles",
+			"type": null,
+			"scope": null,
+			"additions": 171,
+			"deletions": 31,
+			"timestamp": "2026-02-11T16:47:00+01:00"
+		},
+		{
+			"hash": "99a23d0",
+			"short": "🚀 feat(infra): expose STT and TTS APIs externally",
+			"type": null,
+			"scope": null,
+			"additions": 6,
+			"deletions": 0,
+			"timestamp": "2026-02-11T17:39:59+01:00"
+		},
+		{
+			"hash": "5cd8b63",
+			"short": "🐛 fix(infra): correct TTS API port to 3022",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-02-11T17:41:27+01:00"
+		},
+		{
+			"hash": "d3392f6",
+			"short": "🔧 fix(ci): disable ARM64 for storage-backend due to QEMU issues",
+			"type": null,
+			"scope": null,
+			"additions": 2,
+			"deletions": 1,
+			"timestamp": "2026-02-11T17:51:26+01:00"
+		},
+		{
+			"hash": "90c2f85",
+			"short": "✨ feat(photos): add Photos app with mana-media EXIF integration",
+			"type": null,
+			"scope": null,
+			"additions": 6829,
+			"deletions": 441,
+			"timestamp": "2026-02-11T17:58:44+01:00"
+		},
+		{
+			"hash": "4f9d992",
+			"short": "🔧 fix(docker): add missing shared packages to storage-web Dockerfile",
+			"type": null,
+			"scope": null,
+			"additions": 2,
+			"deletions": 1,
+			"timestamp": "2026-02-11T18:00:51+01:00"
+		},
+		{
+			"hash": "aab304f",
+			"short": "🔒️ feat(stt,tts): add API key authentication with rate limiting",
+			"type": null,
+			"scope": null,
+			"additions": 527,
+			"deletions": 8,
+			"timestamp": "2026-02-11T18:04:22+01:00"
+		},
+		{
+			"hash": "8ddc4eb",
+			"short": "🔧 fix(docker): build shared-vite-config in storage-web Dockerfile",
+			"type": null,
+			"scope": null,
+			"additions": 3,
+			"deletions": 0,
+			"timestamp": "2026-02-11T18:05:07+01:00"
+		},
+		{
+			"hash": "4130823",
+			"short": "🔧 fix(docker): add shared-stores and shared-types to storage-web",
+			"type": null,
+			"scope": null,
+			"additions": 2,
+			"deletions": 0,
+			"timestamp": "2026-02-11T18:09:40+01:00"
+		},
+		{
+			"hash": "91f175c",
+			"short": "🐛 fix(deps): add missing shared-stores dependency to web apps",
+			"type": null,
+			"scope": null,
+			"additions": 433,
+			"deletions": 508,
+			"timestamp": "2026-02-11T18:19:38+01:00"
+		},
+		{
+			"hash": "5ce4e42",
+			"short": "🚀 feat(photos): add Docker deployment configuration",
+			"type": null,
+			"scope": null,
+			"additions": 278,
+			"deletions": 7,
+			"timestamp": "2026-02-11T18:21:19+01:00"
+		},
+		{
+			"hash": "36563f4",
+			"short": "🔧 fix(photos): remove unused nestjs-integration dependency",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 16,
+			"timestamp": "2026-02-12T01:43:44+01:00"
+		},
+		{
+			"hash": "898f5d2",
+			"short": "🔧 chore(stt,tts): update launchd plists to load .env files",
+			"type": null,
+			"scope": null,
+			"additions": 40,
+			"deletions": 3,
+			"timestamp": "2026-02-12T01:44:46+01:00"
+		},
+		{
+			"hash": "16a7532",
+			"short": "🔧 chore: update lockfile after removing nestjs-integration",
+			"type": null,
+			"scope": null,
+			"additions": 265,
+			"deletions": 5,
+			"timestamp": "2026-02-12T01:45:26+01:00"
+		},
+		{
+			"hash": "741c5bc",
+			"short": "🐛 fix(photos): use valid Svelte 5 event syntax",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-02-12T01:49:11+01:00"
+		},
+		{
+			"hash": "4452d37",
+			"short": "🐛 fix(mana-media): correct path to main.js in Dockerfile",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-02-12T01:55:48+01:00"
+		},
+		{
+			"hash": "aa56ec8",
+			"short": "🔧 fix(photos): temporarily disable mana-media dependency",
+			"type": null,
+			"scope": null,
+			"additions": 3,
+			"deletions": 2,
+			"timestamp": "2026-02-12T01:58:21+01:00"
+		},
+		{
+			"hash": "fc2ee7a",
+			"short": "🐛 fix(photos-backend): correct path to main.js",
+			"type": null,
+			"scope": null,
+			"additions": 10,
+			"deletions": 1,
+			"timestamp": "2026-02-12T01:59:02+01:00"
+		},
+		{
+			"hash": "3353ceb",
+			"short": "feat(photos): add Cloudflare Tunnel routes for photos app",
+			"type": "feat",
+			"scope": "photos",
+			"additions": 6,
+			"deletions": 0,
+			"timestamp": "2026-02-12T02:06:56+01:00"
+		},
+		{
+			"hash": "552dc10",
+			"short": "🔧 fix(docker): add --ignore-scripts to pnpm install in all backend Dockerfiles",
+			"type": null,
+			"scope": null,
+			"additions": 24,
+			"deletions": 24,
+			"timestamp": "2026-02-12T02:10:45+01:00"
+		},
+		{
+			"hash": "8b6ff0c",
+			"short": "✨ feat(auth): add API key management for STT/TTS services",
+			"type": null,
+			"scope": null,
+			"additions": 1238,
+			"deletions": 16,
+			"timestamp": "2026-02-12T02:12:05+01:00"
+		},
+		{
+			"hash": "22a6a64",
+			"short": "fix(mana-media): fix Dockerfile pnpm symlinks for production",
+			"type": "fix",
+			"scope": "mana-media",
+			"additions": 16,
+			"deletions": 7,
+			"timestamp": "2026-02-12T02:19:19+01:00"
+		},
+		{
+			"hash": "10502b5",
+			"short": "fix(photos): re-enable mana-media dependency",
+			"type": "fix",
+			"scope": "photos",
+			"additions": 2,
+			"deletions": 3,
+			"timestamp": "2026-02-12T02:21:39+01:00"
+		},
+		{
+			"hash": "ba3d2a1",
+			"short": "🔧 chore(docker): build backends locally on Mac Mini",
+			"type": null,
+			"scope": null,
+			"additions": 20,
+			"deletions": 5,
+			"timestamp": "2026-02-12T02:23:52+01:00"
+		},
+		{
+			"hash": "03c9267",
+			"short": "🐛 fix(admin): use PostgresJsDatabase instead of NodePgDatabase",
+			"type": null,
+			"scope": null,
+			"additions": 12,
+			"deletions": 12,
+			"timestamp": "2026-02-12T02:34:00+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

@@ -1,0 +1,891 @@
+{
+	"date": "2026-04-01",
+	"day_number": 71,
+	"weekday": "Mittwoch",
+	"commits": 87,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 87
+		}
+	],
+	"additions": 84704,
+	"deletions": 45921,
+	"net_lines": 38783,
+	"files_changed": 1354,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-04-01T08:55:03.000Z",
+		"last_commit_at": "2026-04-01T23:53:54.000Z",
+		"total_span_minutes": 899,
+		"active_minutes": 404,
+		"pauses": [
+			{
+				"from": "12:22",
+				"to": "14:19",
+				"minutes": 117
+			},
+			{
+				"from": "14:19",
+				"to": "14:55",
+				"minutes": 36
+			},
+			{
+				"from": "17:24",
+				"to": "20:18",
+				"minutes": 174
+			},
+			{
+				"from": "23:05",
+				"to": "01:17",
+				"minutes": 132
+			},
+			{
+				"from": "01:17",
+				"to": "01:53",
+				"minutes": 36
+			}
+		],
+		"longest_focus_minutes": 167
+	},
+	"top_dirs": [
+		{
+			"path": "apps/manacore/apps/web",
+			"pct": 31
+		},
+		{
+			"path": "apps/{manadeck => cards}/apps/mobile",
+			"pct": 9
+		},
+		{
+			"path": "apps/memoro/apps/backend",
+			"pct": 8
+		},
+		{
+			"path": "apps/todo/apps/web",
+			"pct": 6
+		},
+		{
+			"path": "apps/{manadeck => cards}/apps/web",
+			"pct": 5
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 588
+		},
+		{
+			"ext": ".svelte",
+			"count": 394
+		},
+		{
+			"ext": ".md",
+			"count": 144
+		},
+		{
+			"ext": ".json",
+			"count": 105
+		},
+		{
+			"ext": ".tsx",
+			"count": 64
+		},
+		{
+			"ext": ".astro",
+			"count": 36
+		}
+	],
+	"tags": ["manacore/web", "manacore", "memoro/server", "todo/web", "memoro"],
+	"commits_list": [
+		{
+			"hash": "aa645c2",
+			"short": "feat(memoro/server): port meetings module to Hono/Bun (Phase 7)",
+			"type": "feat",
+			"scope": "memoro/server",
+			"additions": 607,
+			"deletions": 0,
+			"timestamp": "2026-04-01T10:55:03+02:00"
+		},
+		{
+			"hash": "d097a9d",
+			"short": "fix(manacore/web): add sync server URL build arg to Dockerfile",
+			"type": "fix",
+			"scope": "manacore/web",
+			"additions": 4,
+			"deletions": 0,
+			"timestamp": "2026-04-01T10:56:17+02:00"
+		},
+		{
+			"hash": "3fa218c",
+			"short": "chore(memoro): remove old NestJS backends (Phase 8+9)",
+			"type": "chore",
+			"scope": "memoro",
+			"additions": 1102,
+			"deletions": 34960,
+			"timestamp": "2026-04-01T11:21:03+02:00"
+		},
+		{
+			"hash": "57db32f",
+			"short": "feat(status-page): add app release tier section to status.mana.how",
+			"type": "feat",
+			"scope": "status-page",
+			"additions": 171,
+			"deletions": 13,
+			"timestamp": "2026-04-01T11:32:27+02:00"
+		},
+		{
+			"hash": "9d77f12",
+			"short": "feat(memoro/web): add Dockerfile + docker-compose for production deployment",
+			"type": "feat",
+			"scope": "memoro/web",
+			"additions": 108,
+			"deletions": 828,
+			"timestamp": "2026-04-01T11:42:41+02:00"
+		},
+		{
+			"hash": "29b77f2",
+			"short": "refactor(status-page): show tier badges inline instead of separate section",
+			"type": "refactor",
+			"scope": "status-page",
+			"additions": 32,
+			"deletions": 101,
+			"timestamp": "2026-04-01T11:44:38+02:00"
+		},
+		{
+			"hash": "75a3ea2",
+			"short": "refactor: rename ManaDeck to Cards across entire monorepo",
+			"type": null,
+			"scope": null,
+			"additions": 899,
+			"deletions": 916,
+			"timestamp": "2026-04-01T11:45:21+02:00"
+		},
+		{
+			"hash": "9987847",
+			"short": "feat(shared-branding): add missing apps to registry + fix manadeck alias",
+			"type": "feat",
+			"scope": "shared-branding",
+			"additions": 124,
+			"deletions": 0,
+			"timestamp": "2026-04-01T11:51:49+02:00"
+		},
+		{
+			"hash": "6d5d528",
+			"short": "fix(memoro/web): replace $user with authStore.user (Svelte 5 runes)",
+			"type": "fix",
+			"scope": "memoro/web",
+			"additions": 23,
+			"deletions": 19,
+			"timestamp": "2026-04-01T11:52:47+02:00"
+		},
+		{
+			"hash": "f9514de",
+			"short": "feat(status-page): add ManaCore to app registry + fix mana.how badge",
+			"type": "feat",
+			"scope": "status-page",
+			"additions": 23,
+			"deletions": 4,
+			"timestamp": "2026-04-01T11:59:16+02:00"
+		},
+		{
+			"hash": "d1992f6",
+			"short": "feat(shared-auth-ui): redesign GuestWelcomeModal for better UX",
+			"type": "feat",
+			"scope": "shared-auth-ui",
+			"additions": 84,
+			"deletions": 91,
+			"timestamp": "2026-04-01T11:59:28+02:00"
+		},
+		{
+			"hash": "4dfa2cc",
+			"short": "update(manacore/landing): sync footer with actual production deployment",
+			"type": "update",
+			"scope": "manacore/landing",
+			"additions": 30,
+			"deletions": 25,
+			"timestamp": "2026-04-01T11:59:33+02:00"
+		},
+		{
+			"hash": "ffd608c",
+			"short": "feat(shared-ui, manacore/web): cross-app navigation enhancement (3 phases)",
+			"type": "feat",
+			"scope": "shared-ui, manacore/web",
+			"additions": 1990,
+			"deletions": 138,
+			"timestamp": "2026-04-01T11:59:36+02:00"
+		},
+		{
+			"hash": "075e204",
+			"short": "fix(manacore/landing): improve footer layout and readability",
+			"type": "fix",
+			"scope": "manacore/landing",
+			"additions": 68,
+			"deletions": 37,
+			"timestamp": "2026-04-01T12:09:28+02:00"
+		},
+		{
+			"hash": "4d0e9a6",
+			"short": "feat: add Cmd+K spotlight actions to all 23 apps",
+			"type": null,
+			"scope": null,
+			"additions": 602,
+			"deletions": 27,
+			"timestamp": "2026-04-01T12:11:34+02:00"
+		},
+		{
+			"hash": "1570cc0",
+			"short": "feat(shared-auth-ui): add GuestRegistrationNudge + complete feature texts + improve seed data",
+			"type": "feat",
+			"scope": "shared-auth-ui",
+			"additions": 439,
+			"deletions": 20,
+			"timestamp": "2026-04-01T12:16:55+02:00"
+		},
+		{
+			"hash": "5c66492",
+			"short": "update(shared-branding): update app statuses and availability flags",
+			"type": "update",
+			"scope": "shared-branding",
+			"additions": 504,
+			"deletions": 577,
+			"timestamp": "2026-04-01T12:22:31+02:00"
+		},
+		{
+			"hash": "cb85fba",
+			"short": "feat(todo/web, shared-i18n): complete i18n for Todo web app + add missing common translations",
+			"type": "feat",
+			"scope": "todo/web, shared-i18n",
+			"additions": 2147,
+			"deletions": 250,
+			"timestamp": "2026-04-01T14:19:48+02:00"
+		},
+		{
+			"hash": "408762e",
+			"short": "feat(shared-hono): add rate limiting middleware",
+			"type": "feat",
+			"scope": "shared-hono",
+			"additions": 73,
+			"deletions": 1,
+			"timestamp": "2026-04-01T14:55:22+02:00"
+		},
+		{
+			"hash": "3e99d86",
+			"short": "update(shared-branding, shared-utils): set memoro to published + extend analytics events",
+			"type": "update",
+			"scope": "shared-branding, shared-utils",
+			"additions": 13,
+			"deletions": 7,
+			"timestamp": "2026-04-01T14:55:30+02:00"
+		},
+		{
+			"hash": "bee8bcb",
+			"short": "feat(todo): add reminders with background worker and notification dispatch",
+			"type": "feat",
+			"scope": "todo",
+			"additions": 417,
+			"deletions": 40,
+			"timestamp": "2026-04-01T14:55:42+02:00"
+		},
+		{
+			"hash": "90f6c0d",
+			"short": "feat(memoro): add transcription fallback chain, AI provider fallbacks, and error tracking",
+			"type": "feat",
+			"scope": "memoro",
+			"additions": 879,
+			"deletions": 482,
+			"timestamp": "2026-04-01T14:55:52+02:00"
+		},
+		{
+			"hash": "7b7a00a",
+			"short": "feat(contacts): add landing page + avatar upload and vCard import on server",
+			"type": "feat",
+			"scope": "contacts",
+			"additions": 949,
+			"deletions": 3,
+			"timestamp": "2026-04-01T14:56:08+02:00"
+		},
+		{
+			"hash": "a03de84",
+			"short": "update(calendar/server): integrate shared-hono middleware and rate limiting",
+			"type": "update",
+			"scope": "calendar/server",
+			"additions": 23,
+			"deletions": 4,
+			"timestamp": "2026-04-01T14:56:15+02:00"
+		},
+		{
+			"hash": "da3a140",
+			"short": "update(infra): mana-stt WhisperX + diarization, mana-notify templates, CD pipeline updates",
+			"type": "update",
+			"scope": "infra",
+			"additions": 1245,
+			"deletions": 428,
+			"timestamp": "2026-04-01T14:56:26+02:00"
+		},
+		{
+			"hash": "3c47997",
+			"short": "docs(manascore): add Memoro audit report (58/100 Beta)",
+			"type": "docs",
+			"scope": "manascore",
+			"additions": 227,
+			"deletions": 0,
+			"timestamp": "2026-04-01T14:56:41+02:00"
+		},
+		{
+			"hash": "304c1e8",
+			"short": "feat(memoro/server): add Zod validation, consistent ApiResult responses, and pagination",
+			"type": "feat",
+			"scope": "memoro/server",
+			"additions": 986,
+			"deletions": 858,
+			"timestamp": "2026-04-01T15:18:07+02:00"
+		},
+		{
+			"hash": "1bc134e",
+			"short": "feat(memoro/web, shared-utils): add MemoroEvents analytics tracking",
+			"type": "feat",
+			"scope": "memoro/web, shared-utils",
+			"additions": 54,
+			"deletions": 0,
+			"timestamp": "2026-04-01T15:18:30+02:00"
+		},
+		{
+			"hash": "293fd7b",
+			"short": "update(manascore): bump Memoro from 58 to 72 (Beta → Production)",
+			"type": "update",
+			"scope": "manascore",
+			"additions": 40,
+			"deletions": 33,
+			"timestamp": "2026-04-01T15:18:55+02:00"
+		},
+		{
+			"hash": "b684dde",
+			"short": "feat(calendar, contacts, todo): add server API tests with vitest",
+			"type": "feat",
+			"scope": "calendar, contacts, todo",
+			"additions": 1490,
+			"deletions": 290,
+			"timestamp": "2026-04-01T15:27:58+02:00"
+		},
+		{
+			"hash": "1007c1e",
+			"short": "style: apply prettier formatting to manascore docs, todo web, and auth-ui pages",
+			"type": null,
+			"scope": null,
+			"additions": 1330,
+			"deletions": 1144,
+			"timestamp": "2026-04-01T15:28:30+02:00"
+		},
+		{
+			"hash": "bdf166a",
+			"short": "feat(memoro/server): add Zod schema validation tests with vitest",
+			"type": "feat",
+			"scope": "memoro/server",
+			"additions": 992,
+			"deletions": 535,
+			"timestamp": "2026-04-01T15:43:05+02:00"
+		},
+		{
+			"hash": "d5bb20c",
+			"short": "style: add shared-auth-ui as Tailwind @source across 11 web apps",
+			"type": null,
+			"scope": null,
+			"additions": 11,
+			"deletions": 0,
+			"timestamp": "2026-04-01T15:43:21+02:00"
+		},
+		{
+			"hash": "f6cbba9",
+			"short": "fix(todo): refine kanban quick-add row styling",
+			"type": "fix",
+			"scope": "todo",
+			"additions": 17,
+			"deletions": 10,
+			"timestamp": "2026-04-01T15:43:34+02:00"
+		},
+		{
+			"hash": "32e8edf",
+			"short": "feat(memoro/server): add comprehensive API route tests",
+			"type": "feat",
+			"scope": "memoro/server",
+			"additions": 1771,
+			"deletions": 2,
+			"timestamp": "2026-04-01T16:07:03+02:00"
+		},
+		{
+			"hash": "3413689",
+			"short": "feat(memoro/server): implement invite email, health checks, and update ManaScore",
+			"type": "feat",
+			"scope": "memoro/server",
+			"additions": 243,
+			"deletions": 30,
+			"timestamp": "2026-04-01T16:18:28+02:00"
+		},
+		{
+			"hash": "cb0e67d",
+			"short": "docs: add unified same-origin app migration plan",
+			"type": null,
+			"scope": null,
+			"additions": 1242,
+			"deletions": 0,
+			"timestamp": "2026-04-01T16:22:44+02:00"
+		},
+		{
+			"hash": "c582f16",
+			"short": "feat(memoro/audio-server): add vitest setup and 25 API + config tests",
+			"type": "feat",
+			"scope": "memoro/audio-server",
+			"additions": 562,
+			"deletions": 52,
+			"timestamp": "2026-04-01T16:31:28+02:00"
+		},
+		{
+			"hash": "9aedc89",
+			"short": "docs(memoro/server): add OpenAPI 3.1 spec and update ManaScore to 79",
+			"type": "docs",
+			"scope": "memoro/server",
+			"additions": 943,
+			"deletions": 19,
+			"timestamp": "2026-04-01T16:31:44+02:00"
+		},
+		{
+			"hash": "d3807b4",
+			"short": "feat(manacore): start unified same-origin app — database schema + calc module",
+			"type": "feat",
+			"scope": "manacore",
+			"additions": 2179,
+			"deletions": 0,
+			"timestamp": "2026-04-01T16:35:54+02:00"
+		},
+		{
+			"hash": "8525721",
+			"short": "feat(todo/web): add secondary pages system with centered layout",
+			"type": "feat",
+			"scope": "todo/web",
+			"additions": 697,
+			"deletions": 20,
+			"timestamp": "2026-04-01T16:37:16+02:00"
+		},
+		{
+			"hash": "11a2db8",
+			"short": "fix(memoro): unify error responses, add offline page, align i18n defaults",
+			"type": "fix",
+			"scope": "memoro",
+			"additions": 19,
+			"deletions": 13,
+			"timestamp": "2026-04-01T16:39:11+02:00"
+		},
+		{
+			"hash": "aadd1c7",
+			"short": "feat(todo/web): add \"To Do\" page, remove scroll-snap, allow closing last column",
+			"type": "feat",
+			"scope": "todo/web",
+			"additions": 14,
+			"deletions": 9,
+			"timestamp": "2026-04-01T16:54:12+02:00"
+		},
+		{
+			"hash": "e449172",
+			"short": "feat(manacore): add clock, zitare, moodlit, skilltree, inventar modules + routes",
+			"type": "feat",
+			"scope": "manacore",
+			"additions": 9883,
+			"deletions": 2,
+			"timestamp": "2026-04-01T16:56:42+02:00"
+		},
+		{
+			"hash": "6d51d3e",
+			"short": "feat(todo/web): add page minimize/restore tabs, inline task creation, i18n completed times",
+			"type": "feat",
+			"scope": "todo/web",
+			"additions": 401,
+			"deletions": 33,
+			"timestamp": "2026-04-01T17:19:24+02:00"
+		},
+		{
+			"hash": "e7999fb",
+			"short": "feat(manacore): migrate skilltree, inventar, times, planta, citycorners, photos to unified app",
+			"type": "feat",
+			"scope": "manacore",
+			"additions": 14322,
+			"deletions": 0,
+			"timestamp": "2026-04-01T17:21:20+02:00"
+		},
+		{
+			"hash": "c6ed652",
+			"short": "docs: update unified app migration plan — 12/25 modules done",
+			"type": null,
+			"scope": null,
+			"additions": 25,
+			"deletions": 7,
+			"timestamp": "2026-04-01T17:21:59+02:00"
+		},
+		{
+			"hash": "ce3ed10",
+			"short": "feat(todo/web): replace dead filter system with working tag filtering",
+			"type": "feat",
+			"scope": "todo/web",
+			"additions": 67,
+			"deletions": 1022,
+			"timestamp": "2026-04-01T17:24:33+02:00"
+		},
+		{
+			"hash": "1022d2f",
+			"short": "feat(manacore): migrate presi, uload, context, questions, nutriphi to unified app",
+			"type": "feat",
+			"scope": "manacore",
+			"additions": 7201,
+			"deletions": 0,
+			"timestamp": "2026-04-01T20:18:09+02:00"
+		},
+		{
+			"hash": "7def9c9",
+			"short": "docs: update unified app migration plan — 17/25 modules done",
+			"type": null,
+			"scope": null,
+			"additions": 8,
+			"deletions": 9,
+			"timestamp": "2026-04-01T20:18:40+02:00"
+		},
+		{
+			"hash": "990ade3",
+			"short": "feat(manacore): migrate storage, cards, playground, guides to unified app",
+			"type": "feat",
+			"scope": "manacore",
+			"additions": 3284,
+			"deletions": 0,
+			"timestamp": "2026-04-01T20:28:00+02:00"
+		},
+		{
+			"hash": "933715c",
+			"short": "refactor(todo/web): remove edit mode, rename pages, add inline editing & drag reorder",
+			"type": "refactor",
+			"scope": "todo/web",
+			"additions": 592,
+			"deletions": 629,
+			"timestamp": "2026-04-01T20:31:36+02:00"
+		},
+		{
+			"hash": "9b614cd",
+			"short": "feat(manacore): migrate contacts, todo, calendar, picture, chat, mukke, memoro — Phase 2 complete",
+			"type": "feat",
+			"scope": "manacore",
+			"additions": 10802,
+			"deletions": 0,
+			"timestamp": "2026-04-01T20:48:30+02:00"
+		},
+		{
+			"hash": "9a6aa12",
+			"short": "docs: Phase 2 complete — all 26 modules migrated to unified app",
+			"type": null,
+			"scope": null,
+			"additions": 20,
+			"deletions": 14,
+			"timestamp": "2026-04-01T20:49:06+02:00"
+		},
+		{
+			"hash": "6dc259d",
+			"short": "feat(manacore): Phase 3 — component-based split-screen system",
+			"type": "feat",
+			"scope": "manacore",
+			"additions": 2548,
+			"deletions": 0,
+			"timestamp": "2026-04-01T20:58:34+02:00"
+		},
+		{
+			"hash": "8409f8a",
+			"short": "feat(shared-ui, todo): add cross-type drag & drop system with tag enrichment",
+			"type": "feat",
+			"scope": "shared-ui, todo",
+			"additions": 1343,
+			"deletions": 297,
+			"timestamp": "2026-04-01T21:00:25+02:00"
+		},
+		{
+			"hash": "e94775d",
+			"short": "fix(todo): persist labelIds on task creation and merge metadata on label update",
+			"type": "fix",
+			"scope": "todo",
+			"additions": 4,
+			"deletions": 1,
+			"timestamp": "2026-04-01T21:03:56+02:00"
+		},
+		{
+			"hash": "9549233",
+			"short": "feat(manavoxel): clean up dead code, add portal keys, fix triggers, implement gold economy",
+			"type": "feat",
+			"scope": "manavoxel",
+			"additions": 107,
+			"deletions": 91,
+			"timestamp": "2026-04-01T21:04:25+02:00"
+		},
+		{
+			"hash": "fe052cc",
+			"short": "feat(manacore): Phase 4 — cross-app dashboard widgets",
+			"type": "feat",
+			"scope": "manacore",
+			"additions": 1315,
+			"deletions": 1,
+			"timestamp": "2026-04-01T21:08:03+02:00"
+		},
+		{
+			"hash": "0b460c5",
+			"short": "docs: update plan — Phase 3 + 4 complete (split-screen + widgets)",
+			"type": null,
+			"scope": null,
+			"additions": 8,
+			"deletions": 2,
+			"timestamp": "2026-04-01T21:08:21+02:00"
+		},
+		{
+			"hash": "8fe16b2",
+			"short": "feat(infra): Phase 5 — consolidate to single web container",
+			"type": "feat",
+			"scope": "infra",
+			"additions": 44,
+			"deletions": 671,
+			"timestamp": "2026-04-01T21:17:38+02:00"
+		},
+		{
+			"hash": "59e1e8e",
+			"short": "feat(shared): Phase 6 — update app URLs and navigation for unified app",
+			"type": "feat",
+			"scope": "shared",
+			"additions": 72,
+			"deletions": 88,
+			"timestamp": "2026-04-01T21:19:14+02:00"
+		},
+		{
+			"hash": "a3a472c",
+			"short": "feat(manacore): Phase 7 — unified sync manager for multi-app DB",
+			"type": "feat",
+			"scope": "manacore",
+			"additions": 461,
+			"deletions": 0,
+			"timestamp": "2026-04-01T21:21:01+02:00"
+		},
+		{
+			"hash": "3bf40fc",
+			"short": "docs: migration plan complete — all 7 phases done",
+			"type": null,
+			"scope": null,
+			"additions": 10,
+			"deletions": 4,
+			"timestamp": "2026-04-01T21:21:20+02:00"
+		},
+		{
+			"hash": "bd67e8d",
+			"short": "feat(manacore, shared-ui): integrate cross-type DnD into unified app",
+			"type": "feat",
+			"scope": "manacore, shared-ui",
+			"additions": 174,
+			"deletions": 2,
+			"timestamp": "2026-04-01T21:30:40+02:00"
+		},
+		{
+			"hash": "c81b636",
+			"short": "feat(todo/web): add page maximize/minimize/close controls and default todo page",
+			"type": "feat",
+			"scope": "todo/web",
+			"additions": 809,
+			"deletions": 87,
+			"timestamp": "2026-04-01T21:31:04+02:00"
+		},
+		{
+			"hash": "4f8c3d6",
+			"short": "feat(shared-ui, todo): BottomStack notification system + PillNav bottomOffset",
+			"type": "feat",
+			"scope": "shared-ui, todo",
+			"additions": 4,
+			"deletions": 16,
+			"timestamp": "2026-04-01T21:32:35+02:00"
+		},
+		{
+			"hash": "709e781",
+			"short": "feat(manacore): add DnD tag support to calendar and contacts modules",
+			"type": "feat",
+			"scope": "manacore",
+			"additions": 206,
+			"deletions": 3,
+			"timestamp": "2026-04-01T21:38:33+02:00"
+		},
+		{
+			"hash": "76ae64a",
+			"short": "fix(manacore/web): build fixes for unified app — toast store, Svelte 5 syntax, icon imports",
+			"type": "fix",
+			"scope": "manacore/web",
+			"additions": 67,
+			"deletions": 154,
+			"timestamp": "2026-04-01T21:52:16+02:00"
+		},
+		{
+			"hash": "7fe4662",
+			"short": "fix(manacore/web): add app-specific packages to Dockerfile for production build",
+			"type": "fix",
+			"scope": "manacore/web",
+			"additions": 3,
+			"deletions": 0,
+			"timestamp": "2026-04-01T21:55:20+02:00"
+		},
+		{
+			"hash": "6ac7153",
+			"short": "fix(manacore/web): replace svelte-sonner with local toast store",
+			"type": "fix",
+			"scope": "manacore/web",
+			"additions": 4,
+			"deletions": 4,
+			"timestamp": "2026-04-01T22:03:13+02:00"
+		},
+		{
+			"hash": "d51ee49",
+			"short": "fix(manacore/web): add dexie as direct dependency for Docker build",
+			"type": "fix",
+			"scope": "manacore/web",
+			"additions": 407,
+			"deletions": 281,
+			"timestamp": "2026-04-01T22:19:49+02:00"
+		},
+		{
+			"hash": "f797d70",
+			"short": "feat(shared-ui): add content search support to GlobalSpotlight",
+			"type": "feat",
+			"scope": "shared-ui",
+			"additions": 197,
+			"deletions": 6,
+			"timestamp": "2026-04-01T22:29:51+02:00"
+		},
+		{
+			"hash": "98ca01f",
+			"short": "feat(manacore/web): add cross-app search engine with IndexedDB providers",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 729,
+			"deletions": 1,
+			"timestamp": "2026-04-01T22:29:59+02:00"
+		},
+		{
+			"hash": "8050da3",
+			"short": "feat(shared-uload): add shared package with ShareModal and cross-app link creation",
+			"type": "feat",
+			"scope": "shared-uload",
+			"additions": 506,
+			"deletions": 0,
+			"timestamp": "2026-04-01T22:33:25+02:00"
+		},
+		{
+			"hash": "23b5b8b",
+			"short": "feat(uload/web): add source field tracking and filter for cross-app links",
+			"type": "feat",
+			"scope": "uload/web",
+			"additions": 30,
+			"deletions": 0,
+			"timestamp": "2026-04-01T22:33:34+02:00"
+		},
+		{
+			"hash": "2105cc6",
+			"short": "feat(manacore/web): add share via uLoad to calendar events and contacts",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 60,
+			"deletions": 1,
+			"timestamp": "2026-04-01T22:33:40+02:00"
+		},
+		{
+			"hash": "eeb3827",
+			"short": "feat(manacore/web): add share via uLoad to todo, cards, and chat",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 75,
+			"deletions": 1,
+			"timestamp": "2026-04-01T22:58:06+02:00"
+		},
+		{
+			"hash": "ae73f70",
+			"short": "feat(manacore/web): add share via uLoad to mukke playlists and presi decks",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 43,
+			"deletions": 0,
+			"timestamp": "2026-04-01T22:59:29+02:00"
+		},
+		{
+			"hash": "14701a9",
+			"short": "feat(shared-uload): add password protection and expiration to ShareModal",
+			"type": "feat",
+			"scope": "shared-uload",
+			"additions": 85,
+			"deletions": 5,
+			"timestamp": "2026-04-01T23:03:49+02:00"
+		},
+		{
+			"hash": "28b9532",
+			"short": "feat(manacore/web): add search providers for picture, presi, mukke, zitare, clock",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 414,
+			"deletions": 0,
+			"timestamp": "2026-04-01T23:05:25+02:00"
+		},
+		{
+			"hash": "06107f6",
+			"short": "feat(mana-video-gen): add AI video generation service with LTX-Video",
+			"type": "feat",
+			"scope": "mana-video-gen",
+			"additions": 1017,
+			"deletions": 0,
+			"timestamp": "2026-04-02T01:17:47+02:00"
+		},
+		{
+			"hash": "c4b8a16",
+			"short": "fix(manacore/web): fix Docker build and healthchecks",
+			"type": "fix",
+			"scope": "manacore/web",
+			"additions": 7,
+			"deletions": 2,
+			"timestamp": "2026-04-02T01:53:31+02:00"
+		},
+		{
+			"hash": "982629f",
+			"short": "feat(manacore/web): add subdomain-to-path routing for all apps",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 39,
+			"deletions": 0,
+			"timestamp": "2026-04-02T01:53:36+02:00"
+		},
+		{
+			"hash": "970dc8b",
+			"short": "feat(manacore/web): add leaflet dependency for map views",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 432,
+			"deletions": 501,
+			"timestamp": "2026-04-02T01:53:42+02:00"
+		},
+		{
+			"hash": "4116715",
+			"short": "feat(manacore/web): add todo kanban board components and view grouping",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 1005,
+			"deletions": 0,
+			"timestamp": "2026-04-02T01:53:48+02:00"
+		},
+		{
+			"hash": "ef53824",
+			"short": "feat(local-llm): add client-side LLM inference package with WebLLM",
+			"type": "feat",
+			"scope": "local-llm",
+			"additions": 501,
+			"deletions": 0,
+			"timestamp": "2026-04-02T01:53:54+02:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

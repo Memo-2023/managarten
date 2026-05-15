@@ -1,0 +1,328 @@
+{
+	"date": "2025-11-24",
+	"day_number": 2,
+	"weekday": "Montag",
+	"commits": 25,
+	"authors": [
+		{
+			"name": "Till-JS",
+			"count": 25
+		}
+	],
+	"additions": 233767,
+	"deletions": 33690,
+	"net_lines": 200077,
+	"files_changed": 1557,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2025-11-24T20:09:20.000Z",
+		"last_commit_at": "2025-11-25T03:00:36.000Z",
+		"total_span_minutes": 411,
+		"active_minutes": 188,
+		"pauses": [
+			{
+				"from": "21:09",
+				"to": "21:51",
+				"minutes": 42
+			},
+			{
+				"from": "22:39",
+				"to": "23:54",
+				"minutes": 75
+			},
+			{
+				"from": "00:42",
+				"to": "01:31",
+				"minutes": 49
+			},
+			{
+				"from": "03:03",
+				"to": "04:00",
+				"minutes": 57
+			}
+		],
+		"longest_focus_minutes": 92
+	},
+	"top_dirs": [
+		{
+			"path": "uload/apps/web",
+			"pct": 15
+		},
+		{
+			"path": "picture/apps/mobile",
+			"pct": 9
+		},
+		{
+			"path": "picture/apps/landing",
+			"pct": 9
+		},
+		{
+			"path": "memoro/apps/web",
+			"pct": 7
+		},
+		{
+			"path": "picture/apps/web",
+			"pct": 6
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 474
+		},
+		{
+			"ext": ".svelte",
+			"count": 430
+		},
+		{
+			"ext": ".md",
+			"count": 291
+		},
+		{
+			"ext": ".json",
+			"count": 192
+		},
+		{
+			"ext": ".astro",
+			"count": 81
+		},
+		{
+			"ext": ".tsx",
+			"count": 77
+		}
+	],
+	"tags": ["manadeck", "shared-ui", "maerchenzauber/web", "landing"],
+	"commits_list": [
+		{
+			"hash": "ef70a1a",
+			"short": " Commit Message    feat: implement comprehensive   shared packages architecture   for monorepo    SUMMARY:   Introduce 10 shared packages   to unify common code across   all 4 web apps,   reducing ~3,000 lines of   duplicated code and   establishing consistent   patterns for authentication,   UI components, theming, and   utilities.    NEW SHARED PACKAGES:   - @manacore/shared-auth:   Unified auth logic (token   management, JWT utils,     fetch interceptor,   storage/device/network   adapters)   - @manacore/shared-auth-ui:   Reusable auth UI (LoginPage,   RegisterPage,     OAuth buttons for   Google/Apple)   - @manacore/shared-tailwind:   Unified Tailwind config with 4    themes     (lume, nature, stone, ocean)    and light/dark mode support   - @manacore/shared-icons:   Phosphor-based icon library   (40+ icons)   - @manacore/shared-ui: Atomic   design system (Text, Button,   Badge, Toggle,     Input, Modal)   - @manacore/shared-i18n:   Unified i18n setup with locale    detection   - @manacore/shared-config:   Environment validation with   Zod   - @manacore/shared-subscriptio   n-types: Subscription type   definitions   - @manacore/shared-subscriptio   n-ui: Subscription UI   components (planned)    EXTENDED PACKAGES:   - @manacore/shared-types:   Added auth.ts, theme.ts,   ui.ts, common.ts   - @manacore/shared-utils:   Added format.ts, validation.ts    APP MIGRATIONS:   - memoro/web: Migrated login   (549→46 LOC), tailwind (165→12    LOC),     removed 15+ duplicate   components   - manacore/web: Migrated to   client-side auth with   shared-auth,     added new components (Icon,   ThemeToggle, Logo)   - manadeck/web: Replaced local    authService/tokenManager with    shared-auth,     migrated auth pages   - maerchenzauber/web: Added   auth setup, stores,   components, routes    DELETED FILES (migrated to   shared packages):   - OAuth buttons (Google/Apple)    from memoro, manacore,   manadeck   - Local authService,   tokenManager, deviceManager,   jwt utils   - Duplicate Modal, Toggle,   Text components   - iconPaths and ManaIcon   components   - Subscription-related   components (CostCard,   PackageCard, etc.)    BENEFITS:   - 92% reduction in login page   code   - 93% reduction in tailwind   config code   - Consistent theming across   all apps   - Single source of truth for   auth logic   - Easier maintenance and   updates    BREAKING CHANGES:   - Icon imports now from   @manacore/shared-icons   - Modal imports from   @manacore/shared-ui   - OAuth config via setGoogleCl   ientId()/setAppleConfig()",
+			"type": null,
+			"scope": null,
+			"additions": 11114,
+			"deletions": 3657,
+			"timestamp": "2025-11-24T21:09:20+01:00"
+		},
+		{
+			"hash": "96e0ace",
+			"short": "feat: implement unified theme system across all web apps",
+			"type": null,
+			"scope": null,
+			"additions": 2980,
+			"deletions": 1076,
+			"timestamp": "2025-11-24T21:51:24+01:00"
+		},
+		{
+			"hash": "22cb7d2",
+			"short": "feat: unify UI components, AppSlider, and login screens across apps",
+			"type": null,
+			"scope": null,
+			"additions": 893,
+			"deletions": 22130,
+			"timestamp": "2025-11-24T21:53:44+01:00"
+		},
+		{
+			"hash": "afdc30b",
+			"short": "feat(shared-ui): add navigation components and form elements",
+			"type": "feat",
+			"scope": "shared-ui",
+			"additions": 1536,
+			"deletions": 22,
+			"timestamp": "2025-11-24T22:01:04+01:00"
+		},
+		{
+			"hash": "7d426d5",
+			"short": "feat: add shared-branding package and extend shared-utils",
+			"type": null,
+			"scope": null,
+			"additions": 493,
+			"deletions": 1,
+			"timestamp": "2025-11-24T22:12:24+01:00"
+		},
+		{
+			"hash": "74ccad3",
+			"short": "feat: unify utilities into shared packages (Tier 1)",
+			"type": null,
+			"scope": null,
+			"additions": 878,
+			"deletions": 648,
+			"timestamp": "2025-11-24T22:19:04+01:00"
+		},
+		{
+			"hash": "f93cb99",
+			"short": "fix: add missing @manacore/shared-branding dependency to web apps",
+			"type": null,
+			"scope": null,
+			"additions": 43,
+			"deletions": 12,
+			"timestamp": "2025-11-24T22:30:44+01:00"
+		},
+		{
+			"hash": "1032502",
+			"short": "feat: add Tier 2 shared components (stats, tags, media)",
+			"type": null,
+			"scope": null,
+			"additions": 513,
+			"deletions": 304,
+			"timestamp": "2025-11-24T22:39:15+01:00"
+		},
+		{
+			"hash": "9449fff",
+			"short": "feat: add Tier 3 shared auth store patterns",
+			"type": null,
+			"scope": null,
+			"additions": 717,
+			"deletions": 0,
+			"timestamp": "2025-11-24T23:54:27+01:00"
+		},
+		{
+			"hash": "294d1fc",
+			"short": "refactor: consolidate app logos into shared-branding package (Tier 4)",
+			"type": null,
+			"scope": null,
+			"additions": 112,
+			"deletions": 121,
+			"timestamp": "2025-11-25T00:06:21+01:00"
+		},
+		{
+			"hash": "c87641f",
+			"short": "feat: add shared credit service package (Tier 5)",
+			"type": null,
+			"scope": null,
+			"additions": 619,
+			"deletions": 12,
+			"timestamp": "2025-11-25T00:16:43+01:00"
+		},
+		{
+			"hash": "3c457f9",
+			"short": "feat: add layout components to shared-ui (Tier 6)",
+			"type": null,
+			"scope": null,
+			"additions": 413,
+			"deletions": 7,
+			"timestamp": "2025-11-25T00:28:52+01:00"
+		},
+		{
+			"hash": "5045d70",
+			"short": "feat: add form and layout components to shared-ui (Tier 6b)",
+			"type": null,
+			"scope": null,
+			"additions": 505,
+			"deletions": 1,
+			"timestamp": "2025-11-25T00:36:12+01:00"
+		},
+		{
+			"hash": "cacbd61",
+			"short": "feat: add sidebar enhancement components (Tier 7)",
+			"type": null,
+			"scope": null,
+			"additions": 306,
+			"deletions": 4,
+			"timestamp": "2025-11-25T00:42:46+01:00"
+		},
+		{
+			"hash": "bd869df",
+			"short": "feat: unify navigation with shared PillNavigation component",
+			"type": null,
+			"scope": null,
+			"additions": 984,
+			"deletions": 1520,
+			"timestamp": "2025-11-25T01:31:23+01:00"
+		},
+		{
+			"hash": "926ca23",
+			"short": "feat: add i18n localization with language switcher to all web apps",
+			"type": null,
+			"scope": null,
+			"additions": 7051,
+			"deletions": 2237,
+			"timestamp": "2025-11-25T01:41:25+01:00"
+		},
+		{
+			"hash": "39a9a61",
+			"short": "fix(manadeck): update Badge and Button variants to match shared-ui",
+			"type": "fix",
+			"scope": "manadeck",
+			"additions": 3,
+			"deletions": 3,
+			"timestamp": "2025-11-25T01:42:00+01:00"
+		},
+		{
+			"hash": "10cb295",
+			"short": "feat: add localized AppSlider translations for all web apps",
+			"type": null,
+			"scope": null,
+			"additions": 1084,
+			"deletions": 69,
+			"timestamp": "2025-11-25T02:09:39+01:00"
+		},
+		{
+			"hash": "9c584a2",
+			"short": "feat(maerchenzauber/web): add missing features for mobile app parity",
+			"type": "feat",
+			"scope": "maerchenzauber/web",
+			"additions": 3077,
+			"deletions": 10,
+			"timestamp": "2025-11-25T02:18:20+01:00"
+		},
+		{
+			"hash": "84f9343",
+			"short": "Feat: Login localization, design, märchenzauber feature complete webapp",
+			"type": null,
+			"scope": null,
+			"additions": 3229,
+			"deletions": 150,
+			"timestamp": "2025-11-25T02:19:40+01:00"
+		},
+		{
+			"hash": "1530efa",
+			"short": "feat(manadeck): migrate backend from Supabase to PostgreSQL with Drizzle ORM",
+			"type": "feat",
+			"scope": "manadeck",
+			"additions": 3428,
+			"deletions": 233,
+			"timestamp": "2025-11-25T02:39:39+01:00"
+		},
+		{
+			"hash": "be9df4a",
+			"short": "feat(manadeck): complete Supabase removal from frontend and backend",
+			"type": "feat",
+			"scope": "manadeck",
+			"additions": 91,
+			"deletions": 557,
+			"timestamp": "2025-11-25T02:49:34+01:00"
+		},
+		{
+			"hash": "4bdb5de",
+			"short": "feat(manadeck): implement AI deck generation with Google Gemini",
+			"type": "feat",
+			"scope": "manadeck",
+			"additions": 712,
+			"deletions": 79,
+			"timestamp": "2025-11-25T02:59:46+01:00"
+		},
+		{
+			"hash": "c6c4c5a",
+			"short": "feat(landing): add shared-landing-ui package and manadeck landing page",
+			"type": "feat",
+			"scope": "landing",
+			"additions": 3519,
+			"deletions": 381,
+			"timestamp": "2025-11-25T03:03:41+01:00"
+		},
+		{
+			"hash": "c712a25",
+			"short": "feat: integrate uload and picture, unify package naming",
+			"type": null,
+			"scope": null,
+			"additions": 189467,
+			"deletions": 456,
+			"timestamp": "2025-11-25T04:00:36+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

@@ -1,0 +1,282 @@
+{
+	"date": "2026-04-21",
+	"day_number": 90,
+	"weekday": "Dienstag",
+	"commits": 21,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 21
+		}
+	],
+	"additions": 10753,
+	"deletions": 2708,
+	"net_lines": 8045,
+	"files_changed": 113,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-04-21T11:53:13.000Z",
+		"last_commit_at": "2026-04-21T17:03:33.000Z",
+		"total_span_minutes": 310,
+		"active_minutes": 158,
+		"pauses": [
+			{
+				"from": "13:55",
+				"to": "14:43",
+				"minutes": 48
+			},
+			{
+				"from": "16:32",
+				"to": "18:17",
+				"minutes": 104
+			}
+		],
+		"longest_focus_minutes": 109
+	},
+	"top_dirs": [
+		{
+			"path": "apps/mana/apps/web",
+			"pct": 65
+		},
+		{
+			"path": "services/mana-mail/src",
+			"pct": 16
+		},
+		{
+			"path": "packages/shared-branding/src",
+			"pct": 4
+		},
+		{
+			"path": "docs/plans/articles-module.md",
+			"pct": 2
+		},
+		{
+			"path": "packages/shared-pwa/src",
+			"pct": 2
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 74
+		},
+		{
+			"ext": ".svelte",
+			"count": 55
+		},
+		{
+			"ext": ".json",
+			"count": 6
+		},
+		{
+			"ext": ".md",
+			"count": 4
+		},
+		{
+			"ext": ".yaml",
+			"count": 1
+		},
+		{
+			"ext": ".development",
+			"count": 1
+		}
+	],
+	"tags": ["broadcast", "spaces", "articles", "apps", "ai"],
+	"commits_list": [
+		{
+			"hash": "f17383f",
+			"short": "feat(broadcast): M4 bulk-send via mana-mail + tracking infrastructure",
+			"type": "feat",
+			"scope": "broadcast",
+			"additions": 1410,
+			"deletions": 28,
+			"timestamp": "2026-04-21T13:53:13+02:00"
+		},
+		{
+			"hash": "c9141e3",
+			"short": "fix(spaces): keep process.env out of the browser branch in authBaseUrl",
+			"type": "fix",
+			"scope": "spaces",
+			"additions": 9,
+			"deletions": 2,
+			"timestamp": "2026-04-21T13:55:32+02:00"
+		},
+		{
+			"hash": "d887fc1",
+			"short": "feat(broadcast): settings + detail view + compliance polish",
+			"type": "feat",
+			"scope": "broadcast",
+			"additions": 746,
+			"deletions": 10,
+			"timestamp": "2026-04-21T14:43:36+02:00"
+		},
+		{
+			"hash": "a312d98",
+			"short": "feat(broadcast): click-link tracking + send throttle",
+			"type": "feat",
+			"scope": "broadcast",
+			"additions": 199,
+			"deletions": 2,
+			"timestamp": "2026-04-21T15:07:58+02:00"
+		},
+		{
+			"hash": "c5a76d7",
+			"short": "fix(spaces): SpaceCreateDialog now reads in dark mode + cards all visible",
+			"type": "fix",
+			"scope": "spaces",
+			"additions": 106,
+			"deletions": 43,
+			"timestamp": "2026-04-21T15:20:48+02:00"
+		},
+		{
+			"hash": "75832fa",
+			"short": "feat(broadcast): enhanced ListView + dashboard widget + AI tools",
+			"type": "feat",
+			"scope": "broadcast",
+			"additions": 623,
+			"deletions": 11,
+			"timestamp": "2026-04-21T15:27:59+02:00"
+		},
+		{
+			"hash": "260dd31",
+			"short": "feat(broadcast): M8 DNS auth check (SPF / DKIM / DMARC)",
+			"type": "feat",
+			"scope": "broadcast",
+			"additions": 771,
+			"deletions": 0,
+			"timestamp": "2026-04-21T15:48:03+02:00"
+		},
+		{
+			"hash": "be45dcf",
+			"short": "fix(ai): defer seed-registry side-effect imports to browser boot",
+			"type": "fix",
+			"scope": "ai",
+			"additions": 29,
+			"deletions": 8,
+			"timestamp": "2026-04-21T15:54:00+02:00"
+		},
+		{
+			"hash": "8e70bc9",
+			"short": "fix(spaces): persist active-space choice across reloads via localStorage",
+			"type": "fix",
+			"scope": "spaces",
+			"additions": 73,
+			"deletions": 20,
+			"timestamp": "2026-04-21T16:04:30+02:00"
+		},
+		{
+			"hash": "8f6a4ef",
+			"short": "fix(spaces): /spaces/members dark-mode — theme tokens throughout",
+			"type": "fix",
+			"scope": "spaces",
+			"additions": 139,
+			"deletions": 54,
+			"timestamp": "2026-04-21T16:11:03+02:00"
+		},
+		{
+			"hash": "3357e88",
+			"short": "feat(articles): new read-it-later module — save / read / highlight",
+			"type": "feat",
+			"scope": "articles",
+			"additions": 2819,
+			"deletions": 1,
+			"timestamp": "2026-04-21T16:20:23+02:00"
+		},
+		{
+			"hash": "1861e89",
+			"short": "chore(broadcast): wire mana-mail into env pipeline + push schema",
+			"type": "chore",
+			"scope": "broadcast",
+			"additions": 62,
+			"deletions": 1,
+			"timestamp": "2026-04-21T16:21:57+02:00"
+		},
+		{
+			"hash": "9d6a5a5",
+			"short": "feat(apps): register agents + timeline as MANA_APPS + broadcast URL fix + members page chrome",
+			"type": "feat",
+			"scope": "apps",
+			"additions": 81,
+			"deletions": 88,
+			"timestamp": "2026-04-21T16:32:41+02:00"
+		},
+		{
+			"hash": "04293ed",
+			"short": "feat(articles): M4 tags + status filter, M5 migrate news:type='saved'",
+			"type": "feat",
+			"scope": "articles",
+			"additions": 415,
+			"deletions": 918,
+			"timestamp": "2026-04-21T18:17:04+02:00"
+		},
+		{
+			"hash": "12be75e",
+			"short": "fix(broadcast): track route paths + shared-branding tsconfig",
+			"type": "fix",
+			"scope": "broadcast",
+			"additions": 5,
+			"deletions": 4,
+			"timestamp": "2026-04-21T18:30:47+02:00"
+		},
+		{
+			"hash": "5924f4f",
+			"short": "feat(articles): M6 AI tools — list / save / archive / tag / highlight",
+			"type": "feat",
+			"scope": "articles",
+			"additions": 447,
+			"deletions": 1,
+			"timestamp": "2026-04-21T18:46:13+02:00"
+		},
+		{
+			"hash": "88eca8a",
+			"short": "feat(spaces): Spaces as workbench card + canonical /spaces route",
+			"type": "feat",
+			"scope": "spaces",
+			"additions": 555,
+			"deletions": 492,
+			"timestamp": "2026-04-21T18:53:03+02:00"
+		},
+		{
+			"hash": "92fe23d",
+			"short": "feat(apps): admin panels + module settings as workbench cards",
+			"type": "feat",
+			"scope": "apps",
+			"additions": 1742,
+			"deletions": 1018,
+			"timestamp": "2026-04-21T18:53:46+02:00"
+		},
+		{
+			"hash": "177734a",
+			"short": "fix(tsconfig): unblock shared-types consumers",
+			"type": "fix",
+			"scope": "tsconfig",
+			"additions": 14,
+			"deletions": 1,
+			"timestamp": "2026-04-21T18:53:55+02:00"
+		},
+		{
+			"hash": "831c30e",
+			"short": "docs(plans): workbench-cards migration plan",
+			"type": "docs",
+			"scope": "plans",
+			"additions": 160,
+			"deletions": 0,
+			"timestamp": "2026-04-21T18:57:22+02:00"
+		},
+		{
+			"hash": "8a991f7",
+			"short": "feat(articles): M7 share-target + bookmarklet — save from anywhere",
+			"type": "feat",
+			"scope": "articles",
+			"additions": 348,
+			"deletions": 6,
+			"timestamp": "2026-04-21T19:03:33+02:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

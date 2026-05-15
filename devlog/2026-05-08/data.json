@@ -1,0 +1,378 @@
+{
+	"date": "2026-05-08",
+	"day_number": 101,
+	"weekday": "Freitag",
+	"commits": 30,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 30
+		}
+	],
+	"additions": 2748,
+	"deletions": 57326,
+	"net_lines": -54578,
+	"files_changed": 600,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-05-08T11:19:36.000Z",
+		"last_commit_at": "2026-05-09T00:08:51.000Z",
+		"total_span_minutes": 769,
+		"active_minutes": 143,
+		"pauses": [
+			{
+				"from": "14:33",
+				"to": "18:02",
+				"minutes": 209
+			},
+			{
+				"from": "18:07",
+				"to": "18:40",
+				"minutes": 32
+			},
+			{
+				"from": "18:54",
+				"to": "20:00",
+				"minutes": 66
+			},
+			{
+				"from": "20:36",
+				"to": "01:16",
+				"minutes": 279
+			},
+			{
+				"from": "01:29",
+				"to": "02:08",
+				"minutes": 40
+			}
+		],
+		"longest_focus_minutes": 74
+	},
+	"top_dirs": [
+		{
+			"path": "apps/cards/apps/web",
+			"pct": 10
+		},
+		{
+			"path": "apps/mana/apps/landing",
+			"pct": 9
+		},
+		{
+			"path": "services/mana-auth/src",
+			"pct": 8
+		},
+		{
+			"path": "apps/mana/apps/web",
+			"pct": 8
+		},
+		{
+			"path": "services/cards-server/src",
+			"pct": 7
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 242
+		},
+		{
+			"ext": ".md",
+			"count": 119
+		},
+		{
+			"ext": ".json",
+			"count": 59
+		},
+		{
+			"ext": ".py",
+			"count": 52
+		},
+		{
+			"ext": ".svelte",
+			"count": 38
+		},
+		{
+			"ext": ".go",
+			"count": 22
+		}
+	],
+	"tags": ["cutover", "dev", "decommission", "brand", "env"],
+	"commits_list": [
+		{
+			"hash": "7a96a9a",
+			"short": "chore: add dev:cardecky:full + dev:cards-server scripts",
+			"type": null,
+			"scope": null,
+			"additions": 2,
+			"deletions": 0,
+			"timestamp": "2026-05-08T13:19:36+02:00"
+		},
+		{
+			"hash": "a6a003f",
+			"short": "fix(dev): mana-notify dev script ships explicit DATABASE_URL",
+			"type": "fix",
+			"scope": "dev",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-05-08T13:47:44+02:00"
+		},
+		{
+			"hash": "61f2772",
+			"short": "chore(brand): rename Cards → Cardecky (display, infra, license-IDs)",
+			"type": "chore",
+			"scope": "brand",
+			"additions": 2149,
+			"deletions": 141,
+			"timestamp": "2026-05-08T13:49:47+02:00"
+		},
+		{
+			"hash": "08f4223",
+			"short": "fix(dev): cards-server uses --hot + setup-databases creates mana_notify/credits",
+			"type": "fix",
+			"scope": "dev",
+			"additions": 10,
+			"deletions": 3,
+			"timestamp": "2026-05-08T14:10:55+02:00"
+		},
+		{
+			"hash": "4cca25e",
+			"short": "chore(dev): switch all Bun services from --watch to --hot",
+			"type": "chore",
+			"scope": "dev",
+			"additions": 13,
+			"deletions": 13,
+			"timestamp": "2026-05-08T14:24:24+02:00"
+		},
+		{
+			"hash": "15e2abd",
+			"short": "fix(env): mana-events default port 3065 → 3115",
+			"type": "fix",
+			"scope": "env",
+			"additions": 3,
+			"deletions": 2,
+			"timestamp": "2026-05-08T14:31:03+02:00"
+		},
+		{
+			"hash": "8acf35e",
+			"short": "chore(dev): finish --watch → --hot sweep across remaining Bun services",
+			"type": "chore",
+			"scope": "dev",
+			"additions": 10,
+			"deletions": 10,
+			"timestamp": "2026-05-08T14:33:27+02:00"
+		},
+		{
+			"hash": "364f3c2",
+			"short": "infra(tunnel): add zitare.com / zitare.mana.how / zitare-api.mana.how",
+			"type": "infra",
+			"scope": "tunnel",
+			"additions": 15,
+			"deletions": 0,
+			"timestamp": "2026-05-08T18:02:05+02:00"
+		},
+		{
+			"hash": "7b36206",
+			"short": "feat(auth): SSO + CORS origins for zitare.mana.how/zitare-api.mana.how",
+			"type": "feat",
+			"scope": "auth",
+			"additions": 3,
+			"deletions": 1,
+			"timestamp": "2026-05-08T18:07:39+02:00"
+		},
+		{
+			"hash": "774852b",
+			"short": "feat(cutover): platform services build from ../mana, not from this repo",
+			"type": "feat",
+			"scope": "cutover",
+			"additions": 76,
+			"deletions": 363,
+			"timestamp": "2026-05-08T18:40:08+02:00"
+		},
+		{
+			"hash": "467d833",
+			"short": "fix(apps/api): COPY packages/eslint-config in Dockerfile",
+			"type": "fix",
+			"scope": "apps/api",
+			"additions": 4,
+			"deletions": 0,
+			"timestamp": "2026-05-08T18:44:57+02:00"
+		},
+		{
+			"hash": "879975b",
+			"short": "chore(cutover): remove services/mana-mail/ — moved to mana-platform",
+			"type": "chore",
+			"scope": "cutover",
+			"additions": 0,
+			"deletions": 3070,
+			"timestamp": "2026-05-08T18:53:52+02:00"
+		},
+		{
+			"hash": "3c4a6d4",
+			"short": "chore(cutover): remove services/mana-stt/ — moved to mana-platform",
+			"type": "chore",
+			"scope": "cutover",
+			"additions": 0,
+			"deletions": 2973,
+			"timestamp": "2026-05-08T18:53:53+02:00"
+		},
+		{
+			"hash": "6103d4d",
+			"short": "chore(cutover): remove services/mana-tts/ — moved to mana-platform",
+			"type": "chore",
+			"scope": "cutover",
+			"additions": 0,
+			"deletions": 3360,
+			"timestamp": "2026-05-08T18:53:53+02:00"
+		},
+		{
+			"hash": "2b07f6e",
+			"short": "chore(cutover): remove services/mana-llm/ — moved to mana-platform",
+			"type": "chore",
+			"scope": "cutover",
+			"additions": 0,
+			"deletions": 6371,
+			"timestamp": "2026-05-08T18:53:54+02:00"
+		},
+		{
+			"hash": "af8ef60",
+			"short": "chore(cutover): remove services/mana-notify/ — moved to mana-platform",
+			"type": "chore",
+			"scope": "cutover",
+			"additions": 0,
+			"deletions": 3310,
+			"timestamp": "2026-05-08T18:53:55+02:00"
+		},
+		{
+			"hash": "fcc36ea",
+			"short": "chore(cutover): remove services/mana-media/ — moved to mana-platform",
+			"type": "chore",
+			"scope": "cutover",
+			"additions": 0,
+			"deletions": 2771,
+			"timestamp": "2026-05-08T18:53:55+02:00"
+		},
+		{
+			"hash": "af3f21a",
+			"short": "chore(cutover): remove services/mana-credits/ — moved to mana-platform",
+			"type": "chore",
+			"scope": "cutover",
+			"additions": 0,
+			"deletions": 2704,
+			"timestamp": "2026-05-08T18:53:56+02:00"
+		},
+		{
+			"hash": "0a30b91",
+			"short": "chore(cutover): remove services/mana-auth/ — moved to mana-platform",
+			"type": "chore",
+			"scope": "cutover",
+			"additions": 0,
+			"deletions": 10640,
+			"timestamp": "2026-05-08T18:53:56+02:00"
+		},
+		{
+			"hash": "27798f0",
+			"short": "chore(cutover): regenerate pnpm-lock after removing 8 platform services",
+			"type": "chore",
+			"scope": "cutover",
+			"additions": 113,
+			"deletions": 1023,
+			"timestamp": "2026-05-08T18:54:57+02:00"
+		},
+		{
+			"hash": "f653303",
+			"short": "fix(stalwart): disable healthcheck — distroless image has no wget",
+			"type": "fix",
+			"scope": "stalwart",
+			"additions": 7,
+			"deletions": 5,
+			"timestamp": "2026-05-08T20:00:27+02:00"
+		},
+		{
+			"hash": "ba254f5",
+			"short": "infra: commit git.mana.how cloudflared route + ignore secrets/.bak",
+			"type": null,
+			"scope": null,
+			"additions": 10,
+			"deletions": 0,
+			"timestamp": "2026-05-08T20:03:52+02:00"
+		},
+		{
+			"hash": "9cd8717",
+			"short": "chore(decommission): remove apps/cards/",
+			"type": "chore",
+			"scope": "decommission",
+			"additions": 0,
+			"deletions": 8369,
+			"timestamp": "2026-05-08T20:27:24+02:00"
+		},
+		{
+			"hash": "bc158cb",
+			"short": "chore(decommission): remove services/cards-server/",
+			"type": "chore",
+			"scope": "decommission",
+			"additions": 0,
+			"deletions": 8012,
+			"timestamp": "2026-05-08T20:27:33+02:00"
+		},
+		{
+			"hash": "dd1bab0",
+			"short": "chore(decommission): remove packages/cards-core/",
+			"type": "chore",
+			"scope": "decommission",
+			"additions": 0,
+			"deletions": 699,
+			"timestamp": "2026-05-08T20:27:33+02:00"
+		},
+		{
+			"hash": "ac15de2",
+			"short": "chore(decommission): remove cards module from mana web app",
+			"type": "chore",
+			"scope": "decommission",
+			"additions": 23,
+			"deletions": 3381,
+			"timestamp": "2026-05-08T20:36:33+02:00"
+		},
+		{
+			"hash": "b1b9bbc",
+			"short": "chore: rename repo mana-monorepo → managarten",
+			"type": null,
+			"scope": null,
+			"additions": 90,
+			"deletions": 90,
+			"timestamp": "2026-05-09T01:16:02+02:00"
+		},
+		{
+			"hash": "0aec1d4",
+			"short": "fix(docs): astro starlight repo URL → Memo-2023/managarten",
+			"type": "fix",
+			"scope": "docs",
+			"additions": 2,
+			"deletions": 2,
+			"timestamp": "2026-05-09T01:28:50+02:00"
+		},
+		{
+			"hash": "3581ae0",
+			"short": "chore(macmini): Föderations-Backbone + verein.mana.how + Nutriphi/Cardecky einspielen",
+			"type": "chore",
+			"scope": "macmini",
+			"additions": 77,
+			"deletions": 3,
+			"timestamp": "2026-05-09T01:29:03+02:00"
+		},
+		{
+			"hash": "67963a4",
+			"short": "chore(devlog): Schritte 1+2 der mana/docs/DEVLOG.md-Migration",
+			"type": "chore",
+			"scope": "devlog",
+			"additions": 140,
+			"deletions": 9,
+			"timestamp": "2026-05-09T02:08:51+02:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

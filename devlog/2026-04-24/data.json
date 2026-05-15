@@ -1,0 +1,442 @@
+{
+	"date": "2026-04-24",
+	"day_number": 93,
+	"weekday": "Freitag",
+	"commits": 40,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 40
+		}
+	],
+	"additions": 17569,
+	"deletions": 1247,
+	"net_lines": 16322,
+	"files_changed": 246,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-04-24T11:56:29.000Z",
+		"last_commit_at": "2026-04-24T15:21:43.000Z",
+		"total_span_minutes": 205,
+		"active_minutes": 205,
+		"pauses": [],
+		"longest_focus_minutes": 205
+	},
+	"top_dirs": [
+		{
+			"path": "apps/mana/apps/web",
+			"pct": 84
+		},
+		{
+			"path": "apps/api/src/modules",
+			"pct": 2
+		},
+		{
+			"path": "packages/shared-ai/src",
+			"pct": 2
+		},
+		{
+			"path": "packages/shared-privacy/src",
+			"pct": 2
+		},
+		{
+			"path": "packages/mana-tool-registry/src",
+			"pct": 2
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".svelte",
+			"count": 164
+		},
+		{
+			"ext": ".ts",
+			"count": 127
+		},
+		{
+			"ext": ".json",
+			"count": 22
+		},
+		{
+			"ext": ".md",
+			"count": 7
+		},
+		{
+			"ext": ".mjs",
+			"count": 2
+		},
+		{
+			"ext": ".development",
+			"count": 1
+		}
+	],
+	"tags": ["writing", "comic", "wardrobe", "wardrobe,picture", "shared-privacy"],
+	"commits_list": [
+		{
+			"hash": "0cebb24",
+			"short": "fix(wardrobe): prompt Ganzkörperfoto instead of Portrait for full try-on",
+			"type": "fix",
+			"scope": "wardrobe",
+			"additions": 11,
+			"deletions": 2,
+			"timestamp": "2026-04-24T13:56:29+02:00"
+		},
+		{
+			"hash": "2af2a4d",
+			"short": "feat(places): M5.a — places adopt the unified visibility system",
+			"type": "feat",
+			"scope": "places",
+			"additions": 109,
+			"deletions": 0,
+			"timestamp": "2026-04-24T13:59:15+02:00"
+		},
+		{
+			"hash": "0e0d48a",
+			"short": "feat(recipes): M5.b — recipes adopt the unified visibility system",
+			"type": "feat",
+			"scope": "recipes",
+			"additions": 118,
+			"deletions": 0,
+			"timestamp": "2026-04-24T14:04:14+02:00"
+		},
+		{
+			"hash": "218cf45",
+			"short": "feat(wardrobe): M5.c — outfits adopt the unified visibility system",
+			"type": "feat",
+			"scope": "wardrobe",
+			"additions": 111,
+			"deletions": 1,
+			"timestamp": "2026-04-24T14:08:32+02:00"
+		},
+		{
+			"hash": "9fbdc14",
+			"short": "feat(wardrobe,picture): symmetric wardrobeGarmentId FK + garment try-on strips",
+			"type": "feat",
+			"scope": "wardrobe,picture",
+			"additions": 176,
+			"deletions": 5,
+			"timestamp": "2026-04-24T14:16:40+02:00"
+		},
+		{
+			"hash": "800fc9a",
+			"short": "refactor(picture,wardrobe): extract ImageLightbox, use in garment detail",
+			"type": "refactor",
+			"scope": "picture,wardrobe",
+			"additions": 169,
+			"deletions": 79,
+			"timestamp": "2026-04-24T14:37:58+02:00"
+		},
+		{
+			"hash": "259f6fb",
+			"short": "fix(shared-privacy): default all new records to 'space', not 'private'",
+			"type": "fix",
+			"scope": "shared-privacy",
+			"additions": 45,
+			"deletions": 26,
+			"timestamp": "2026-04-24T14:46:48+02:00"
+		},
+		{
+			"hash": "3c3b2eb",
+			"short": "feat(writing): M1+M2 — new Ghostwriter module with manual draft CRUD",
+			"type": "feat",
+			"scope": "writing",
+			"additions": 3484,
+			"deletions": 0,
+			"timestamp": "2026-04-24T14:59:56+02:00"
+		},
+		{
+			"hash": "d725a8d",
+			"short": "feat(writing): M3 — one-shot prose generation via mana-llm",
+			"type": "feat",
+			"scope": "writing",
+			"additions": 814,
+			"deletions": 11,
+			"timestamp": "2026-04-24T15:11:48+02:00"
+		},
+		{
+			"hash": "1c82a37",
+			"short": "feat(writing): M4 — style system with presets + custom styles",
+			"type": "feat",
+			"scope": "writing",
+			"additions": 620,
+			"deletions": 6,
+			"timestamp": "2026-04-24T15:20:06+02:00"
+		},
+		{
+			"hash": "27c1860",
+			"short": "feat(comic): M1 — Datenschicht + Modul-Registrierung",
+			"type": "feat",
+			"scope": "comic",
+			"additions": 1385,
+			"deletions": 5,
+			"timestamp": "2026-04-24T15:29:51+02:00"
+		},
+		{
+			"hash": "19e0f33",
+			"short": "feat(writing): M6 — selection-refinement tools",
+			"type": "feat",
+			"scope": "writing",
+			"additions": 1014,
+			"deletions": 2,
+			"timestamp": "2026-04-24T15:37:04+02:00"
+		},
+		{
+			"hash": "3551652",
+			"short": "feat(comic): M2 — UI + Single-Panel-Generierung",
+			"type": "feat",
+			"scope": "comic",
+			"additions": 1638,
+			"deletions": 2,
+			"timestamp": "2026-04-24T15:42:27+02:00"
+		},
+		{
+			"hash": "98a68af",
+			"short": "fix(calendar): visibility picker also in the Workbench DetailView",
+			"type": "fix",
+			"scope": "calendar",
+			"additions": 28,
+			"deletions": 7,
+			"timestamp": "2026-04-24T15:49:48+02:00"
+		},
+		{
+			"hash": "8c43c11",
+			"short": "fix(calendar): promote visibility picker to a labeled prop-row",
+			"type": "fix",
+			"scope": "calendar",
+			"additions": 19,
+			"deletions": 19,
+			"timestamp": "2026-04-24T15:52:59+02:00"
+		},
+		{
+			"hash": "bfa923d",
+			"short": "feat(writing): M5 — cross-module references in the briefing",
+			"type": "feat",
+			"scope": "writing",
+			"additions": 722,
+			"deletions": 2,
+			"timestamp": "2026-04-24T15:53:35+02:00"
+		},
+		{
+			"hash": "63f5179",
+			"short": "feat(comic): M3 — Batch-Panel-Generierung (2–4 parallel)",
+			"type": "feat",
+			"scope": "comic",
+			"additions": 421,
+			"deletions": 12,
+			"timestamp": "2026-04-24T15:59:17+02:00"
+		},
+		{
+			"hash": "ed8ec98",
+			"short": "feat(workbench): app picker searches English aliases + IT/FR/ES i18n",
+			"type": "feat",
+			"scope": "workbench",
+			"additions": 149,
+			"deletions": 8,
+			"timestamp": "2026-04-24T16:00:27+02:00"
+		},
+		{
+			"hash": "f2275f7",
+			"short": "feat(writing): M11 — adopt the unified visibility system",
+			"type": "feat",
+			"scope": "writing",
+			"additions": 70,
+			"deletions": 0,
+			"timestamp": "2026-04-24T16:01:05+02:00"
+		},
+		{
+			"hash": "90915b7",
+			"short": "fix(visibility): promote picker to labeled rows across remaining modules",
+			"type": "fix",
+			"scope": "visibility",
+			"additions": 31,
+			"deletions": 18,
+			"timestamp": "2026-04-24T16:03:48+02:00"
+		},
+		{
+			"hash": "8a882a3",
+			"short": "feat(wardrobe,picture): Google Nano Banana as a Try-On option",
+			"type": "feat",
+			"scope": "wardrobe,picture",
+			"additions": 369,
+			"deletions": 52,
+			"timestamp": "2026-04-24T16:04:21+02:00"
+		},
+		{
+			"hash": "6432ef7",
+			"short": "feat(comic): M4 — AI-Storyboard aus Cross-Modul-Text",
+			"type": "feat",
+			"scope": "comic",
+			"additions": 1015,
+			"deletions": 1,
+			"timestamp": "2026-04-24T16:06:03+02:00"
+		},
+		{
+			"hash": "0dadc17",
+			"short": "feat(writing): M10 — publish hooks (export + save-as-article)",
+			"type": "feat",
+			"scope": "writing",
+			"additions": 383,
+			"deletions": 0,
+			"timestamp": "2026-04-24T16:07:39+02:00"
+		},
+		{
+			"hash": "cc51f0b",
+			"short": "chore(env): rotate GEMINI_API_KEY to the key that other Mana services use",
+			"type": "chore",
+			"scope": "env",
+			"additions": 5,
+			"deletions": 2,
+			"timestamp": "2026-04-24T16:12:27+02:00"
+		},
+		{
+			"hash": "d49ad23",
+			"short": "feat(writing): M8 — AI tools exposed through the shared catalog",
+			"type": "feat",
+			"scope": "writing",
+			"additions": 704,
+			"deletions": 1,
+			"timestamp": "2026-04-24T16:19:30+02:00"
+		},
+		{
+			"hash": "87b567e",
+			"short": "i18n: fix IT/FR/ES parity gaps in dashboard + memoro",
+			"type": null,
+			"scope": null,
+			"additions": 671,
+			"deletions": 1,
+			"timestamp": "2026-04-24T16:19:59+02:00"
+		},
+		{
+			"hash": "05b2209",
+			"short": "polish(wardrobe): garment-detail cosmetic pass + slug-cleanup on upload",
+			"type": "polish",
+			"scope": "wardrobe",
+			"additions": 116,
+			"deletions": 45,
+			"timestamp": "2026-04-24T16:24:07+02:00"
+		},
+		{
+			"hash": "9c503b7",
+			"short": "i18n: strip dead legacy keys + fill IT/FR/ES calendar translations",
+			"type": null,
+			"scope": null,
+			"additions": 63,
+			"deletions": 565,
+			"timestamp": "2026-04-24T16:28:10+02:00"
+		},
+		{
+			"hash": "201a085",
+			"short": "feat(scripts): validate:i18n-parity — lock locale key-sets in CI",
+			"type": "feat",
+			"scope": "scripts",
+			"additions": 135,
+			"deletions": 1,
+			"timestamp": "2026-04-24T16:30:35+02:00"
+		},
+		{
+			"hash": "0ee3b14",
+			"short": "polish(wardrobe): unify hover vocabulary + lift the Try-On CTA",
+			"type": "polish",
+			"scope": "wardrobe",
+			"additions": 72,
+			"deletions": 23,
+			"timestamp": "2026-04-24T16:31:11+02:00"
+		},
+		{
+			"hash": "91ae58f",
+			"short": "feat(comic): M6 — Comic-Autor persona-template",
+			"type": "feat",
+			"scope": "comic",
+			"additions": 155,
+			"deletions": 0,
+			"timestamp": "2026-04-24T16:34:55+02:00"
+		},
+		{
+			"hash": "e7398b2",
+			"short": "polish(wardrobe): make Try-On CTA the dominant element + shrink secondary actions",
+			"type": "polish",
+			"scope": "wardrobe",
+			"additions": 44,
+			"deletions": 36,
+			"timestamp": "2026-04-24T16:35:18+02:00"
+		},
+		{
+			"hash": "6545498",
+			"short": "feat(writing): agent.defaultWritingStyleId — M8 persona-linkage follow-up",
+			"type": "feat",
+			"scope": "writing",
+			"additions": 55,
+			"deletions": 2,
+			"timestamp": "2026-04-24T16:36:20+02:00"
+		},
+		{
+			"hash": "6f37e00",
+			"short": "feat(comic): AI_TOOL_CATALOG bridge — webapp-runner kann jetzt Comics",
+			"type": "feat",
+			"scope": "comic",
+			"additions": 451,
+			"deletions": 4,
+			"timestamp": "2026-04-24T16:49:24+02:00"
+		},
+		{
+			"hash": "92bee0d",
+			"short": "feat(unlisted): M8.1 — backend foundation for shareable-link snapshots",
+			"type": "feat",
+			"scope": "unlisted",
+			"additions": 873,
+			"deletions": 4,
+			"timestamp": "2026-04-24T17:12:13+02:00"
+		},
+		{
+			"hash": "c1d643f",
+			"short": "feat(writing): register Writing as a Workbench card",
+			"type": "feat",
+			"scope": "writing",
+			"additions": 43,
+			"deletions": 2,
+			"timestamp": "2026-04-24T17:15:25+02:00"
+		},
+		{
+			"hash": "5501f47",
+			"short": "feat(shared-privacy): M8.2 — unlisted-client + SharedLinkControls",
+			"type": "feat",
+			"scope": "shared-privacy",
+			"additions": 676,
+			"deletions": 0,
+			"timestamp": "2026-04-24T17:18:56+02:00"
+		},
+		{
+			"hash": "364522d",
+			"short": "feat(comic): image-model picker — OpenAI + Nano Banana wählbar",
+			"type": "feat",
+			"scope": "comic",
+			"additions": 252,
+			"deletions": 6,
+			"timestamp": "2026-04-24T17:19:40+02:00"
+		},
+		{
+			"hash": "e794e0c",
+			"short": "feat(i18n): locale-aware formatters, migrate hardcoded de-DE call-sites",
+			"type": "feat",
+			"scope": "i18n",
+			"additions": 337,
+			"deletions": 184,
+			"timestamp": "2026-04-24T17:20:11+02:00"
+		},
+		{
+			"hash": "3f438cf",
+			"short": "refactor(i18n): replace hand-maintained locale list with import.meta.glob",
+			"type": "refactor",
+			"scope": "i18n",
+			"additions": 16,
+			"deletions": 113,
+			"timestamp": "2026-04-24T17:21:43+02:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

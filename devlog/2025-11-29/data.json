@@ -1,0 +1,586 @@
+{
+	"date": "2025-11-29",
+	"day_number": 7,
+	"weekday": "Samstag",
+	"commits": 52,
+	"authors": [
+		{
+			"name": "Till-JS",
+			"count": 52
+		}
+	],
+	"additions": 21935,
+	"deletions": 56265,
+	"net_lines": -34330,
+	"files_changed": 3484,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2025-11-29T05:04:35.000Z",
+		"last_commit_at": "2025-11-30T00:00:43.000Z",
+		"total_span_minutes": 1136,
+		"active_minutes": 194,
+		"pauses": [
+			{
+				"from": "06:06",
+				"to": "06:55",
+				"minutes": 48
+			},
+			{
+				"from": "07:03",
+				"to": "08:55",
+				"minutes": 112
+			},
+			{
+				"from": "09:24",
+				"to": "13:20",
+				"minutes": 236
+			},
+			{
+				"from": "13:24",
+				"to": "15:10",
+				"minutes": 106
+			},
+			{
+				"from": "16:04",
+				"to": "21:40",
+				"minutes": 336
+			},
+			{
+				"from": "21:40",
+				"to": "22:29",
+				"minutes": 48
+			},
+			{
+				"from": "23:10",
+				"to": "00:06",
+				"minutes": 56
+			}
+		],
+		"longest_focus_minutes": 54
+	},
+	"top_dirs": [
+		{
+			"path": "{apps => apps-archived}/memoro/apps",
+			"pct": 37
+		},
+		{
+			"path": "{apps => apps-archived}/maerchenzauber/apps",
+			"pct": 14
+		},
+		{
+			"path": "{apps => apps-archived}/uload/apps",
+			"pct": 8
+		},
+		{
+			"path": "{apps => apps-archived}/bauntown/apps",
+			"pct": 7
+		},
+		{
+			"path": "{apps => apps-archived}/nutriphi/apps",
+			"pct": 4
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 834
+		},
+		{
+			"ext": ".svelte",
+			"count": 582
+		},
+		{
+			"ext": ".md",
+			"count": 551
+		},
+		{
+			"ext": ".tsx",
+			"count": 391
+		},
+		{
+			"ext": ".astro",
+			"count": 265
+		},
+		{
+			"ext": ".mdx",
+			"count": 253
+		}
+	],
+	"tags": ["chat", "shared-ui", "theme", "manacore", "nutriphi"],
+	"commits_list": [
+		{
+			"hash": "8b61399",
+			"short": "feat(nutriphi): migrate to shared auth UI components",
+			"type": "feat",
+			"scope": "nutriphi",
+			"additions": 298,
+			"deletions": 266,
+			"timestamp": "2025-11-29T06:04:35+01:00"
+		},
+		{
+			"hash": "af8bb9b",
+			"short": "fix(wisekeep): improve auth flow and redirect handling",
+			"type": "fix",
+			"scope": "wisekeep",
+			"additions": 25,
+			"deletions": 29,
+			"timestamp": "2025-11-29T06:06:47+01:00"
+		},
+		{
+			"hash": "4eed414",
+			"short": "feat(shared-ui): extend PillNavigation with tab groups and migrate Picture app",
+			"type": "feat",
+			"scope": "shared-ui",
+			"additions": 660,
+			"deletions": 29,
+			"timestamp": "2025-11-29T06:55:14+01:00"
+		},
+		{
+			"hash": "655da23",
+			"short": "fix(presi): resolve CORS issues and add strictPort to all web apps",
+			"type": "fix",
+			"scope": "presi",
+			"additions": 27,
+			"deletions": 4,
+			"timestamp": "2025-11-29T06:58:00+01:00"
+		},
+		{
+			"hash": "b97149a",
+			"short": "feat(icons): migrate to phosphor-svelte for all icon usage",
+			"type": "feat",
+			"scope": "icons",
+			"additions": 256,
+			"deletions": 452,
+			"timestamp": "2025-11-29T07:02:59+01:00"
+		},
+		{
+			"hash": "61d181f",
+			"short": "chore: archive inactive projects to apps-archived/",
+			"type": null,
+			"scope": null,
+			"additions": 411,
+			"deletions": 46614,
+			"timestamp": "2025-11-29T07:03:59+01:00"
+		},
+		{
+			"hash": "1296928",
+			"short": "feat(shared-auth-ui): redesign login page with animations and theme support",
+			"type": "feat",
+			"scope": "shared-auth-ui",
+			"additions": 1076,
+			"deletions": 596,
+			"timestamp": "2025-11-29T08:55:56+01:00"
+		},
+		{
+			"hash": "54383bf",
+			"short": "feat(theme): add ThemePage components and distinct background colors",
+			"type": "feat",
+			"scope": "theme",
+			"additions": 1796,
+			"deletions": 1939,
+			"timestamp": "2025-11-29T09:03:20+01:00"
+		},
+		{
+			"hash": "8a4cc29",
+			"short": "feat(theme): add themes page to picture, manadeck, and presi apps",
+			"type": "feat",
+			"scope": "theme",
+			"additions": 150,
+			"deletions": 6,
+			"timestamp": "2025-11-29T09:14:12+01:00"
+		},
+		{
+			"hash": "b9608bd",
+			"short": "fix(picture): resolve all TypeScript type errors",
+			"type": "fix",
+			"scope": "picture",
+			"additions": 71,
+			"deletions": 82,
+			"timestamp": "2025-11-29T09:17:55+01:00"
+		},
+		{
+			"hash": "f436fbb",
+			"short": "feat(theme): migrate theme emojis to Phosphor icons and integrate theme system into Zitare",
+			"type": "feat",
+			"scope": "theme",
+			"additions": 299,
+			"deletions": 327,
+			"timestamp": "2025-11-29T09:24:32+01:00"
+		},
+		{
+			"hash": "3cfa6a7",
+			"short": "feat(shared-ui): add theme mode selector to PillNavigation dropdown",
+			"type": "feat",
+			"scope": "shared-ui",
+			"additions": 166,
+			"deletions": 10,
+			"timestamp": "2025-11-29T13:20:43+01:00"
+		},
+		{
+			"hash": "7deb5b9",
+			"short": "feat(shared-ui): add reusable settings components with glass styling",
+			"type": "feat",
+			"scope": "shared-ui",
+			"additions": 2402,
+			"deletions": 1233,
+			"timestamp": "2025-11-29T13:22:12+01:00"
+		},
+		{
+			"hash": "95bba8e",
+			"short": "feat(chat): add Google Gemini API support with Flash as default model",
+			"type": "feat",
+			"scope": "chat",
+			"additions": 426,
+			"deletions": 211,
+			"timestamp": "2025-11-29T13:22:58+01:00"
+		},
+		{
+			"hash": "c164403",
+			"short": "fix(shared-ui): improve toggle active state styling",
+			"type": "fix",
+			"scope": "shared-ui",
+			"additions": 21,
+			"deletions": 1,
+			"timestamp": "2025-11-29T13:23:22+01:00"
+		},
+		{
+			"hash": "b68e015",
+			"short": "feat(chat): add settings page and improve chat UI components",
+			"type": "feat",
+			"scope": "chat",
+			"additions": 1454,
+			"deletions": 436,
+			"timestamp": "2025-11-29T13:24:02+01:00"
+		},
+		{
+			"hash": "dde2d51",
+			"short": "feat(shared-ui): add app switcher dropdown to PillNavigation",
+			"type": "feat",
+			"scope": "shared-ui",
+			"additions": 546,
+			"deletions": 9,
+			"timestamp": "2025-11-29T15:10:17+01:00"
+		},
+		{
+			"hash": "9e90cea",
+			"short": "feat(chat): add app switcher to PillNavigation",
+			"type": "feat",
+			"scope": "chat",
+			"additions": 6,
+			"deletions": 0,
+			"timestamp": "2025-11-29T15:12:57+01:00"
+		},
+		{
+			"hash": "f8d8faa",
+			"short": "fix(chat): use correct Gemini model names",
+			"type": "fix",
+			"scope": "chat",
+			"additions": 4,
+			"deletions": 4,
+			"timestamp": "2025-11-29T15:13:34+01:00"
+		},
+		{
+			"hash": "0cd5ad7",
+			"short": "refactor(shared-ui): use PillDropdown for app switcher",
+			"type": "refactor",
+			"scope": "shared-ui",
+			"additions": 61,
+			"deletions": 461,
+			"timestamp": "2025-11-29T15:15:00+01:00"
+		},
+		{
+			"hash": "35a7b0b",
+			"short": "chore(chat): deactivate Azure models, only show Gemini in dropdown",
+			"type": "chore",
+			"scope": "chat",
+			"additions": 9,
+			"deletions": 9,
+			"timestamp": "2025-11-29T15:15:59+01:00"
+		},
+		{
+			"hash": "6150347",
+			"short": "fix(shared-branding): filter archived apps from app switcher",
+			"type": "fix",
+			"scope": "shared-branding",
+			"additions": 17,
+			"deletions": 1,
+			"timestamp": "2025-11-29T15:17:10+01:00"
+		},
+		{
+			"hash": "24eafc5",
+			"short": "fix(chat-web): select default model instead of first model",
+			"type": "fix",
+			"scope": "chat-web",
+			"additions": 26,
+			"deletions": 4,
+			"timestamp": "2025-11-29T15:18:53+01:00"
+		},
+		{
+			"hash": "90c696c",
+			"short": "fix(chat): add PATCH to CORS and use Gemini for title generation",
+			"type": "fix",
+			"scope": "chat",
+			"additions": 21,
+			"deletions": 4,
+			"timestamp": "2025-11-29T15:20:24+01:00"
+		},
+		{
+			"hash": "9b80d13",
+			"short": "fix(chat): update templates page to use Gemini 2.5 Flash as default model",
+			"type": "fix",
+			"scope": "chat",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2025-11-29T15:28:38+01:00"
+		},
+		{
+			"hash": "e28a1aa",
+			"short": "docs(chat): update CLAUDE.md with Gemini AI models and configuration",
+			"type": "docs",
+			"scope": "chat",
+			"additions": 9,
+			"deletions": 10,
+			"timestamp": "2025-11-29T15:29:10+01:00"
+		},
+		{
+			"hash": "606fd9a",
+			"short": "feat(shared-ui): add user dropdown and improve FAB styling",
+			"type": "feat",
+			"scope": "shared-ui",
+			"additions": 5,
+			"deletions": 6,
+			"timestamp": "2025-11-29T15:31:43+01:00"
+		},
+		{
+			"hash": "353cf6a",
+			"short": "feat: rename subscription routes to /mana across all apps",
+			"type": null,
+			"scope": null,
+			"additions": 73,
+			"deletions": 13,
+			"timestamp": "2025-11-29T15:42:32+01:00"
+		},
+		{
+			"hash": "8f58599",
+			"short": "refactor(shared-ui): move Mana button to standalone pill in navigation",
+			"type": "refactor",
+			"scope": "shared-ui",
+			"additions": 17,
+			"deletions": 13,
+			"timestamp": "2025-11-29T15:43:34+01:00"
+		},
+		{
+			"hash": "7819c9c",
+			"short": "feat(chat): redesign chat UI with glassmorphism styling",
+			"type": "feat",
+			"scope": "chat",
+			"additions": 141,
+			"deletions": 96,
+			"timestamp": "2025-11-29T15:45:42+01:00"
+		},
+		{
+			"hash": "f2c7950",
+			"short": "fix(chat): add shared-subscription-ui dependency for mana page",
+			"type": "fix",
+			"scope": "chat",
+			"additions": 183,
+			"deletions": 150,
+			"timestamp": "2025-11-29T15:47:08+01:00"
+		},
+		{
+			"hash": "a324708",
+			"short": "feat(subscription-ui): redesign with glass morphism and responsive layout",
+			"type": "feat",
+			"scope": "subscription-ui",
+			"additions": 848,
+			"deletions": 134,
+			"timestamp": "2025-11-29T16:04:04+01:00"
+		},
+		{
+			"hash": "0467ac3",
+			"short": "fix(chat): align frontend types with backend camelCase and redesign message bubbles",
+			"type": "fix",
+			"scope": "chat",
+			"additions": 532,
+			"deletions": 370,
+			"timestamp": "2025-11-29T16:04:19+01:00"
+		},
+		{
+			"hash": "2dc289c",
+			"short": "feat(chat): add shared profile UI package and integrate into navigation",
+			"type": "feat",
+			"scope": "chat",
+			"additions": 790,
+			"deletions": 363,
+			"timestamp": "2025-11-29T21:40:47+01:00"
+		},
+		{
+			"hash": "a32c4f0",
+			"short": "fix(shared-ui): fix theme mode selector styling in dropdown",
+			"type": "fix",
+			"scope": "shared-ui",
+			"additions": 19,
+			"deletions": 4,
+			"timestamp": "2025-11-29T22:29:04+01:00"
+		},
+		{
+			"hash": "05fe8ca",
+			"short": "feat(chat): add auto title generation, inline renaming, and styled delete modal",
+			"type": "feat",
+			"scope": "chat",
+			"additions": 447,
+			"deletions": 71,
+			"timestamp": "2025-11-29T22:43:41+01:00"
+		},
+		{
+			"hash": "819e4c9",
+			"short": "feat(feedback): add centralized feedback system with AI-generated titles",
+			"type": "feat",
+			"scope": "feedback",
+			"additions": 4197,
+			"deletions": 245,
+			"timestamp": "2025-11-29T22:46:37+01:00"
+		},
+		{
+			"hash": "4f06301",
+			"short": "feat(chat): add conversation pinning and date-based sections",
+			"type": "feat",
+			"scope": "chat",
+			"additions": 295,
+			"deletions": 227,
+			"timestamp": "2025-11-29T23:01:18+01:00"
+		},
+		{
+			"hash": "0893ed7",
+			"short": "feat(chat): add toast notification system and docker AI config",
+			"type": "feat",
+			"scope": "chat",
+			"additions": 175,
+			"deletions": 2,
+			"timestamp": "2025-11-29T23:02:52+01:00"
+		},
+		{
+			"hash": "c85cd45",
+			"short": "feat: improve chat UX and add optional auth for public feedback",
+			"type": null,
+			"scope": null,
+			"additions": 192,
+			"deletions": 53,
+			"timestamp": "2025-11-29T23:10:03+01:00"
+		},
+		{
+			"hash": "9432a73",
+			"short": "feat: integrate shared PageHeader and ProfilePage across all web apps",
+			"type": null,
+			"scope": null,
+			"additions": 1710,
+			"deletions": 1059,
+			"timestamp": "2025-11-30T00:06:29+01:00"
+		},
+		{
+			"hash": "e85ef8b",
+			"short": "chore: add dev:manacore:app script for consistency",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2025-11-30T00:14:57+01:00"
+		},
+		{
+			"hash": "eab69c5",
+			"short": "feat(i18n): add language picker and 5-language support to all auth screens",
+			"type": "feat",
+			"scope": "i18n",
+			"additions": 626,
+			"deletions": 142,
+			"timestamp": "2025-11-30T00:28:14+01:00"
+		},
+		{
+			"hash": "8965328",
+			"short": "feat(manacore): add credits management and improve dashboard",
+			"type": "feat",
+			"scope": "manacore",
+			"additions": 917,
+			"deletions": 253,
+			"timestamp": "2025-11-30T00:29:25+01:00"
+		},
+		{
+			"hash": "52d43b2",
+			"short": "fix(manacore): use correct nav icons for Credits and Feedback",
+			"type": "fix",
+			"scope": "manacore",
+			"additions": 5,
+			"deletions": 5,
+			"timestamp": "2025-11-30T00:34:58+01:00"
+		},
+		{
+			"hash": "2d17b72",
+			"short": "feat(theme): add complete theme support to all web apps",
+			"type": "feat",
+			"scope": "theme",
+			"additions": 49,
+			"deletions": 6,
+			"timestamp": "2025-11-30T00:36:47+01:00"
+		},
+		{
+			"hash": "b970473",
+			"short": "feat(manacore): add Mana subscription page to navigation",
+			"type": "feat",
+			"scope": "manacore",
+			"additions": 30,
+			"deletions": 8,
+			"timestamp": "2025-11-30T00:37:16+01:00"
+		},
+		{
+			"hash": "74b824d",
+			"short": "fix(manacore): use manaHref for proper Mana icon in user dropdown",
+			"type": "fix",
+			"scope": "manacore",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2025-11-30T00:40:54+01:00"
+		},
+		{
+			"hash": "6bb8285",
+			"short": "refactor(apps): unify AppSlider to use centralized MANA_APPS config",
+			"type": "refactor",
+			"scope": "apps",
+			"additions": 60,
+			"deletions": 183,
+			"timestamp": "2025-11-30T00:46:13+01:00"
+		},
+		{
+			"hash": "9a29a8e",
+			"short": "feat: improve language switcher integration across all web apps",
+			"type": null,
+			"scope": null,
+			"additions": 198,
+			"deletions": 64,
+			"timestamp": "2025-11-30T00:46:13+01:00"
+		},
+		{
+			"hash": "2ce19fe",
+			"short": "feat(shared-ui): add submenu and divider support to PillDropdown",
+			"type": "feat",
+			"scope": "shared-ui",
+			"additions": 168,
+			"deletions": 46,
+			"timestamp": "2025-11-30T00:51:37+01:00"
+		},
+		{
+			"hash": "120bc93",
+			"short": "feat(shared-ui): add nested language submenu in PillNavigation",
+			"type": "feat",
+			"scope": "shared-ui",
+			"additions": 18,
+			"deletions": 13,
+			"timestamp": "2025-11-30T01:00:43+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

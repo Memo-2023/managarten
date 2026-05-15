@@ -1,0 +1,570 @@
+{
+	"date": "2026-04-10",
+	"day_number": 79,
+	"weekday": "Freitag",
+	"commits": 53,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 53
+		}
+	],
+	"additions": 21847,
+	"deletions": 3227,
+	"net_lines": 18620,
+	"files_changed": 408,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-04-10T15:23:28.000Z",
+		"last_commit_at": "2026-04-11T02:58:55.000Z",
+		"total_span_minutes": 695,
+		"active_minutes": 183,
+		"pauses": [
+			{
+				"from": "19:28",
+				"to": "22:15",
+				"minutes": 167
+			},
+			{
+				"from": "23:14",
+				"to": "04:58",
+				"minutes": 345
+			}
+		],
+		"longest_focus_minutes": 125
+	},
+	"top_dirs": [
+		{
+			"path": "apps/mana/apps/web",
+			"pct": 71
+		},
+		{
+			"path": "apps/api/src/modules",
+			"pct": 7
+		},
+		{
+			"path": "packages/shared-ui/src",
+			"pct": 4
+		},
+		{
+			"path": "services/mana-credits/src",
+			"pct": 4
+		},
+		{
+			"path": "services/mana-geocoding/src",
+			"pct": 1
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".svelte",
+			"count": 289
+		},
+		{
+			"ext": ".ts",
+			"count": 191
+		},
+		{
+			"ext": ".json",
+			"count": 48
+		},
+		{
+			"ext": ".md",
+			"count": 8
+		},
+		{
+			"ext": ".yml",
+			"count": 7
+		},
+		{
+			"ext": ".go",
+			"count": 3
+		}
+	],
+	"tags": ["mana/web", "guides", "chat", "sync", "timeblocks"],
+	"commits_list": [
+		{
+			"hash": "716466e",
+			"short": "fix(shared-llm): sort candidate tiers privacy-first (browser before server)",
+			"type": "fix",
+			"scope": "shared-llm",
+			"additions": 6,
+			"deletions": 2,
+			"timestamp": "2026-04-10T17:23:28+02:00"
+		},
+		{
+			"hash": "b898756",
+			"short": "fix(mana/web): add logging + toast for encryption vault unlock failures",
+			"type": "fix",
+			"scope": "mana/web",
+			"additions": 82,
+			"deletions": 5,
+			"timestamp": "2026-04-10T17:29:02+02:00"
+		},
+		{
+			"hash": "da03fac",
+			"short": "fix(mana/web+packages): clear all 270 warnings to zero",
+			"type": "fix",
+			"scope": "mana/web+packages",
+			"additions": 1598,
+			"deletions": 347,
+			"timestamp": "2026-04-10T17:34:49+02:00"
+		},
+		{
+			"hash": "26914b1",
+			"short": "fix(body): unblock routine creation + remove duplicate header",
+			"type": "fix",
+			"scope": "body",
+			"additions": 93,
+			"deletions": 41,
+			"timestamp": "2026-04-10T17:36:24+02:00"
+		},
+		{
+			"hash": "f1a7f35",
+			"short": "feat(context): add inline document creation to workbench ListView",
+			"type": "feat",
+			"scope": "context",
+			"additions": 42,
+			"deletions": 3,
+			"timestamp": "2026-04-10T17:36:31+02:00"
+		},
+		{
+			"hash": "05f4da5",
+			"short": "feat(events): wire workbench detail overlay via ViewProps",
+			"type": "feat",
+			"scope": "events",
+			"additions": 37,
+			"deletions": 33,
+			"timestamp": "2026-04-10T17:36:40+02:00"
+		},
+		{
+			"hash": "d3b9805",
+			"short": "feat(mana/web): play Who games inline on workbench page",
+			"type": "feat",
+			"scope": "mana/web",
+			"additions": 107,
+			"deletions": 99,
+			"timestamp": "2026-04-10T17:37:42+02:00"
+		},
+		{
+			"hash": "734f149",
+			"short": "feat(moodlit): add inline mood creation to workbench ListView",
+			"type": "feat",
+			"scope": "moodlit",
+			"additions": 117,
+			"deletions": 1,
+			"timestamp": "2026-04-10T17:38:12+02:00"
+		},
+		{
+			"hash": "e77ae5d",
+			"short": "feat(who): add character dossier system for staged fact disclosure",
+			"type": "feat",
+			"scope": "who",
+			"additions": 5613,
+			"deletions": 1,
+			"timestamp": "2026-04-10T17:40:16+02:00"
+		},
+		{
+			"hash": "ea4f05d",
+			"short": "feat(inventory): add quick item creation to workbench ListView",
+			"type": "feat",
+			"scope": "inventory",
+			"additions": 150,
+			"deletions": 1,
+			"timestamp": "2026-04-10T17:40:28+02:00"
+		},
+		{
+			"hash": "2c56780",
+			"short": "feat(mana/web): add shared voice transcription helper",
+			"type": "feat",
+			"scope": "mana/web",
+			"additions": 52,
+			"deletions": 0,
+			"timestamp": "2026-04-10T17:41:27+02:00"
+		},
+		{
+			"hash": "f17d748",
+			"short": "feat(picture): add inline upload to workbench ListView",
+			"type": "feat",
+			"scope": "picture",
+			"additions": 350,
+			"deletions": 29,
+			"timestamp": "2026-04-10T17:42:31+02:00"
+		},
+		{
+			"hash": "4f17626",
+			"short": "feat(guides): complete module with types, CRUD, detail view, and run tracking",
+			"type": "feat",
+			"scope": "guides",
+			"additions": 1645,
+			"deletions": 121,
+			"timestamp": "2026-04-10T17:51:19+02:00"
+		},
+		{
+			"hash": "6cc4024",
+			"short": "feat(chat): wire AI streaming completions in chat detail page",
+			"type": "feat",
+			"scope": "chat",
+			"additions": 197,
+			"deletions": 15,
+			"timestamp": "2026-04-10T17:52:02+02:00"
+		},
+		{
+			"hash": "fa09914",
+			"short": "feat(chat): add workbench detail overlay with streaming AI",
+			"type": "feat",
+			"scope": "chat",
+			"additions": 459,
+			"deletions": 28,
+			"timestamp": "2026-04-10T17:52:17+02:00"
+		},
+		{
+			"hash": "adb1649",
+			"short": "refactor(mana/web): architecture cleanup — liveQuery migration, dead types, seed registry",
+			"type": "refactor",
+			"scope": "mana/web",
+			"additions": 198,
+			"deletions": 159,
+			"timestamp": "2026-04-10T18:01:02+02:00"
+		},
+		{
+			"hash": "28c1024",
+			"short": "feat(zitare): smooth transitions, custom quotes, notes, new categories, fuzzy search",
+			"type": "feat",
+			"scope": "zitare",
+			"additions": 857,
+			"deletions": 46,
+			"timestamp": "2026-04-10T18:01:15+02:00"
+		},
+		{
+			"hash": "d7663e9",
+			"short": "feat(playground): persistent chat history, token display, model comparison",
+			"type": "feat",
+			"scope": "playground",
+			"additions": 973,
+			"deletions": 275,
+			"timestamp": "2026-04-10T18:02:27+02:00"
+		},
+		{
+			"hash": "04ce8e5",
+			"short": "fix(chat): add auth header, template system prompts, streaming debounce",
+			"type": "fix",
+			"scope": "chat",
+			"additions": 82,
+			"deletions": 16,
+			"timestamp": "2026-04-10T18:03:43+02:00"
+		},
+		{
+			"hash": "0f7ab60",
+			"short": "feat: top-5 ROI improvements — CI gate, auth fields, body×timeblocks, sync pull, tests",
+			"type": null,
+			"scope": null,
+			"additions": 387,
+			"deletions": 9,
+			"timestamp": "2026-04-10T18:17:32+02:00"
+		},
+		{
+			"hash": "a9956c0",
+			"short": "feat(mana/web): AI tier selector dropdown in PillNavigation",
+			"type": "feat",
+			"scope": "mana/web",
+			"additions": 97,
+			"deletions": 0,
+			"timestamp": "2026-04-10T18:19:27+02:00"
+		},
+		{
+			"hash": "3e81a6e",
+			"short": "fix: dev startup — Redis eviction policy, mana-media port crash, Svelte warnings",
+			"type": null,
+			"scope": null,
+			"additions": 24,
+			"deletions": 25,
+			"timestamp": "2026-04-10T18:33:41+02:00"
+		},
+		{
+			"hash": "7df5154",
+			"short": "fix: revert tier test patch, widen toggleField, add spiral-db prepare",
+			"type": null,
+			"scope": null,
+			"additions": 41,
+			"deletions": 39,
+			"timestamp": "2026-04-10T18:35:20+02:00"
+		},
+		{
+			"hash": "5647b2f",
+			"short": "fix(dx): suppress AZURE_OPENAI_API_KEY warning, honest db:push reporting",
+			"type": "fix",
+			"scope": "dx",
+			"additions": 7,
+			"deletions": 2,
+			"timestamp": "2026-04-10T18:36:35+02:00"
+		},
+		{
+			"hash": "d7dc538",
+			"short": "fix(dx): shortcut mana-media dev startup chain",
+			"type": "fix",
+			"scope": "dx",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-04-10T18:41:44+02:00"
+		},
+		{
+			"hash": "7d18ada",
+			"short": "fix: as-any cast cleanup + spiral-db prepare + locale typing",
+			"type": null,
+			"scope": null,
+			"additions": 20,
+			"deletions": 21,
+			"timestamp": "2026-04-10T18:43:01+02:00"
+		},
+		{
+			"hash": "97610a0",
+			"short": "feat(sync): batched push with PUSH_BATCH_SIZE = 200",
+			"type": "feat",
+			"scope": "sync",
+			"additions": 15,
+			"deletions": 3,
+			"timestamp": "2026-04-10T18:43:33+02:00"
+		},
+		{
+			"hash": "a8da25c",
+			"short": "fix(guides): move {@const} out of <div> to fix Svelte 5 build error",
+			"type": "fix",
+			"scope": "guides",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-04-10T18:45:37+02:00"
+		},
+		{
+			"hash": "3e812e8",
+			"short": "fix(guides): add stub GUIDES export so build passes",
+			"type": "fix",
+			"scope": "guides",
+			"additions": 4,
+			"deletions": 0,
+			"timestamp": "2026-04-10T18:51:01+02:00"
+		},
+		{
+			"hash": "6ee1df3",
+			"short": "feat(timeblocks): integrate planta, dreams, skilltree, cycles modules",
+			"type": "feat",
+			"scope": "timeblocks",
+			"additions": 247,
+			"deletions": 25,
+			"timestamp": "2026-04-10T18:54:04+02:00"
+		},
+		{
+			"hash": "29ad31c",
+			"short": "feat(timeblocks): integrate guides, places, cards modules",
+			"type": "feat",
+			"scope": "timeblocks",
+			"additions": 154,
+			"deletions": 12,
+			"timestamp": "2026-04-10T19:07:59+02:00"
+		},
+		{
+			"hash": "e068335",
+			"short": "refactor(credits): simplify credit system — remove productivity credits, guild pools, complex gift types",
+			"type": "refactor",
+			"scope": "credits",
+			"additions": 143,
+			"deletions": 922,
+			"timestamp": "2026-04-10T19:08:42+02:00"
+		},
+		{
+			"hash": "cbfe995",
+			"short": "feat(timeblocks): integrate music, moodlit, presi modules",
+			"type": "feat",
+			"scope": "timeblocks",
+			"additions": 140,
+			"deletions": 7,
+			"timestamp": "2026-04-10T19:19:54+02:00"
+		},
+		{
+			"hash": "0f634b2",
+			"short": "refactor(workbench): replace minimize tabs + scene tabs with unified bottom bar",
+			"type": "refactor",
+			"scope": "workbench",
+			"additions": 349,
+			"deletions": 263,
+			"timestamp": "2026-04-10T19:22:35+02:00"
+		},
+		{
+			"hash": "e429682",
+			"short": "feat(journal): add journal module with voice capture, mood tracking, and encryption",
+			"type": "feat",
+			"scope": "journal",
+			"additions": 1461,
+			"deletions": 0,
+			"timestamp": "2026-04-10T19:23:19+02:00"
+		},
+		{
+			"hash": "4d133fa",
+			"short": "fix(mana/web): resolve 14 pre-existing svelte-check type errors",
+			"type": "fix",
+			"scope": "mana/web",
+			"additions": 29,
+			"deletions": 1,
+			"timestamp": "2026-04-10T19:28:37+02:00"
+		},
+		{
+			"hash": "30440f3",
+			"short": "chore(branding): set all module tiers to guest for testing",
+			"type": "chore",
+			"scope": "branding",
+			"additions": 54,
+			"deletions": 37,
+			"timestamp": "2026-04-10T22:15:37+02:00"
+		},
+		{
+			"hash": "f9b6720",
+			"short": "feat: E2E smoke test, lazy widget loading, typed module context",
+			"type": null,
+			"scope": null,
+			"additions": 278,
+			"deletions": 3,
+			"timestamp": "2026-04-10T22:17:57+02:00"
+		},
+		{
+			"hash": "5c2ea61",
+			"short": "feat(credits): add sync billing — monthly credit subscription for cloud sync",
+			"type": "feat",
+			"scope": "credits",
+			"additions": 1082,
+			"deletions": 29,
+			"timestamp": "2026-04-10T22:21:58+02:00"
+		},
+		{
+			"hash": "e943ac9",
+			"short": "docs: add firsts module design document",
+			"type": null,
+			"scope": null,
+			"additions": 252,
+			"deletions": 0,
+			"timestamp": "2026-04-10T22:23:21+02:00"
+		},
+		{
+			"hash": "ab62157",
+			"short": "feat(firsts): add first-times module with dream-to-lived tracking",
+			"type": "feat",
+			"scope": "firsts",
+			"additions": 1875,
+			"deletions": 1,
+			"timestamp": "2026-04-10T22:23:32+02:00"
+		},
+		{
+			"hash": "7102063",
+			"short": "fix(calendar): add timezone fallback in test mock to match Calendar type",
+			"type": "fix",
+			"scope": "calendar",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-04-10T22:26:30+02:00"
+		},
+		{
+			"hash": "ed76f53",
+			"short": "feat(sync): Phase 2 — server-side billing gate, cron charging, email notifications",
+			"type": "feat",
+			"scope": "sync",
+			"additions": 209,
+			"deletions": 13,
+			"timestamp": "2026-04-10T22:28:57+02:00"
+		},
+		{
+			"hash": "56d7f9a",
+			"short": "docs(mana-sync): document billing middleware, new env vars, project structure",
+			"type": "docs",
+			"scope": "mana-sync",
+			"additions": 9,
+			"deletions": 2,
+			"timestamp": "2026-04-10T22:38:23+02:00"
+		},
+		{
+			"hash": "b8cd33d",
+			"short": "fix(a11y): replace 215 suppression comments with real fixes",
+			"type": "fix",
+			"scope": "a11y",
+			"additions": 399,
+			"deletions": 319,
+			"timestamp": "2026-04-10T22:43:05+02:00"
+		},
+		{
+			"hash": "d2c9795",
+			"short": "feat(sync): add sync status PillNav dropdown + onboarding step",
+			"type": "feat",
+			"scope": "sync",
+			"additions": 252,
+			"deletions": 0,
+			"timestamp": "2026-04-10T22:51:00+02:00"
+		},
+		{
+			"hash": "f5ad492",
+			"short": "refactor(workbench): redesign page cards — rounder corners, unified header, remove DnD",
+			"type": "refactor",
+			"scope": "workbench",
+			"additions": 72,
+			"deletions": 214,
+			"timestamp": "2026-04-10T23:02:10+02:00"
+		},
+		{
+			"hash": "a47a7bf",
+			"short": "feat(places): add self-hosted geocoding with Pelias (DACH)",
+			"type": "feat",
+			"scope": "places",
+			"additions": 1519,
+			"deletions": 34,
+			"timestamp": "2026-04-10T23:02:25+02:00"
+		},
+		{
+			"hash": "82f58e4",
+			"short": "A11y",
+			"type": null,
+			"scope": null,
+			"additions": 7,
+			"deletions": 6,
+			"timestamp": "2026-04-10T23:04:39+02:00"
+		},
+		{
+			"hash": "ecfb267",
+			"short": "fix(firsts): remove invalid JS comment from CSS block",
+			"type": "fix",
+			"scope": "firsts",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-04-10T23:08:25+02:00"
+		},
+		{
+			"hash": "2a177ba",
+			"short": "fix(monitoring): add 10 missing modules to blackbox probes + geocoding to status",
+			"type": "fix",
+			"scope": "monitoring",
+			"additions": 13,
+			"deletions": 0,
+			"timestamp": "2026-04-10T23:13:07+02:00"
+		},
+		{
+			"hash": "68c59c8",
+			"short": "fix(docker): fix mana-credits Dockerfile to resolve workspace deps",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 16,
+			"deletions": 7,
+			"timestamp": "2026-04-10T23:14:07+02:00"
+		},
+		{
+			"hash": "1943a1d",
+			"short": "fix(geocoding): Pelias config for DACH-only import + single-country filter",
+			"type": "fix",
+			"scope": "geocoding",
+			"additions": 30,
+			"deletions": 7,
+			"timestamp": "2026-04-11T04:58:55+02:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

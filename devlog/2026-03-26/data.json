@@ -1,0 +1,648 @@
+{
+	"date": "2026-03-26",
+	"day_number": 65,
+	"weekday": "Donnerstag",
+	"commits": 60,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 60
+		}
+	],
+	"additions": 20994,
+	"deletions": 4284,
+	"net_lines": 16710,
+	"files_changed": 328,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-03-26T07:51:06.000Z",
+		"last_commit_at": "2026-03-26T21:00:12.000Z",
+		"total_span_minutes": 789,
+		"active_minutes": 343,
+		"pauses": [
+			{
+				"from": "09:38",
+				"to": "10:30",
+				"minutes": 51
+			},
+			{
+				"from": "11:00",
+				"to": "11:35",
+				"minutes": 34
+			},
+			{
+				"from": "13:43",
+				"to": "14:23",
+				"minutes": 40
+			},
+			{
+				"from": "14:33",
+				"to": "16:18",
+				"minutes": 104
+			},
+			{
+				"from": "16:18",
+				"to": "19:55",
+				"minutes": 217
+			}
+		],
+		"longest_focus_minutes": 128
+	},
+	"top_dirs": [
+		{
+			"path": "apps/storage/apps/web",
+			"pct": 12
+		},
+		{
+			"path": "apps/zitare/apps/web",
+			"pct": 9
+		},
+		{
+			"path": "services/mana-core-auth/src",
+			"pct": 9
+		},
+		{
+			"path": "apps/citycorners/apps/web",
+			"pct": 4
+		},
+		{
+			"path": "packages/shared-auth-ui/src",
+			"pct": 4
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 206
+		},
+		{
+			"ext": ".svelte",
+			"count": 203
+		},
+		{
+			"ext": ".json",
+			"count": 44
+		},
+		{
+			"ext": "<no-ext>",
+			"count": 12
+		},
+		{
+			"ext": ".md",
+			"count": 6
+		},
+		{
+			"ext": ".yaml",
+			"count": 5
+		}
+	],
+	"tags": ["zitare", "storage", "auth", "todo", "tags"],
+	"commits_list": [
+		{
+			"hash": "5a3ee5c",
+			"short": "feat(todo): improve task UI with priority checkboxes, drag styling, and route fix",
+			"type": "feat",
+			"scope": "todo",
+			"additions": 77,
+			"deletions": 39,
+			"timestamp": "2026-03-26T08:51:06+01:00"
+		},
+		{
+			"hash": "cccf1a2",
+			"short": "fix(todo): add shared-help-content to web Dockerfile",
+			"type": "fix",
+			"scope": "todo",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-03-26T08:57:31+01:00"
+		},
+		{
+			"hash": "3efa2d5",
+			"short": "fix(todo): add shared-feedback-types to web Dockerfile",
+			"type": "fix",
+			"scope": "todo",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-03-26T09:00:51+01:00"
+		},
+		{
+			"hash": "30a0a65",
+			"short": "fix(zitare): add missing Tailwind CSS v4 vite plugin",
+			"type": "fix",
+			"scope": "zitare",
+			"additions": 2,
+			"deletions": 0,
+			"timestamp": "2026-03-26T09:05:29+01:00"
+		},
+		{
+			"hash": "2d11ba6",
+			"short": "refactor(auth): remove all Google/Apple social login code",
+			"type": "refactor",
+			"scope": "auth",
+			"additions": 500,
+			"deletions": 2254,
+			"timestamp": "2026-03-26T09:12:30+01:00"
+		},
+		{
+			"hash": "2150452",
+			"short": "feat(storage): add audio player with frequency visualizer",
+			"type": "feat",
+			"scope": "storage",
+			"additions": 1226,
+			"deletions": 1,
+			"timestamp": "2026-03-26T09:16:27+01:00"
+		},
+		{
+			"hash": "2ebb8a0",
+			"short": "fix(zitare): add shared-help-types and shared-help-ui to web Dockerfile",
+			"type": "fix",
+			"scope": "zitare",
+			"additions": 2,
+			"deletions": 0,
+			"timestamp": "2026-03-26T09:20:43+01:00"
+		},
+		{
+			"hash": "5989652",
+			"short": "feat(storage): add video, PDF, text/code, and markdown preview",
+			"type": "feat",
+			"scope": "storage",
+			"additions": 244,
+			"deletions": 6,
+			"timestamp": "2026-03-26T09:29:12+01:00"
+		},
+		{
+			"hash": "c7cf251",
+			"short": "docs(storage): document file preview system and audio player architecture",
+			"type": "docs",
+			"scope": "storage",
+			"additions": 38,
+			"deletions": 0,
+			"timestamp": "2026-03-26T09:33:11+01:00"
+		},
+		{
+			"hash": "1095202",
+			"short": "fix(todo): increase Node heap size for web Docker build",
+			"type": "fix",
+			"scope": "todo",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-03-26T09:38:51+01:00"
+		},
+		{
+			"hash": "3091da9",
+			"short": "feat(auth): add WebAuthn/Passkey support across all apps",
+			"type": "feat",
+			"scope": "auth",
+			"additions": 1849,
+			"deletions": 4,
+			"timestamp": "2026-03-26T10:30:03+01:00"
+		},
+		{
+			"hash": "c4d5520",
+			"short": "feat(auth): add PasskeyManager component and production config",
+			"type": "feat",
+			"scope": "auth",
+			"additions": 864,
+			"deletions": 0,
+			"timestamp": "2026-03-26T10:49:57+01:00"
+		},
+		{
+			"hash": "ac4baca",
+			"short": "feat(manacore): integrate PasskeyManager in settings page",
+			"type": "feat",
+			"scope": "manacore",
+			"additions": 44,
+			"deletions": 0,
+			"timestamp": "2026-03-26T11:00:59+01:00"
+		},
+		{
+			"hash": "4e3b920",
+			"short": "fix(storage): add shared-types to web Dockerfile",
+			"type": "fix",
+			"scope": "storage",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-03-26T11:35:22+01:00"
+		},
+		{
+			"hash": "46eaea6",
+			"short": "fix(zitare): add shared-help-content to web Dockerfile",
+			"type": "fix",
+			"scope": "zitare",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-03-26T11:43:53+01:00"
+		},
+		{
+			"hash": "259a5c9",
+			"short": "fix(zitare): add spiral-db build step to web Dockerfile",
+			"type": "fix",
+			"scope": "zitare",
+			"additions": 3,
+			"deletions": 0,
+			"timestamp": "2026-03-26T11:46:48+01:00"
+		},
+		{
+			"hash": "7f27f86",
+			"short": "fix(zitare): add all missing transitive dependencies to web Dockerfile",
+			"type": "fix",
+			"scope": "zitare",
+			"additions": 3,
+			"deletions": 0,
+			"timestamp": "2026-03-26T11:50:07+01:00"
+		},
+		{
+			"hash": "099d12d",
+			"short": "fix(zitare): increase Node memory limit for web build",
+			"type": "fix",
+			"scope": "zitare",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-03-26T11:52:30+01:00"
+		},
+		{
+			"hash": "52991a8",
+			"short": "fix(storage): increase Node heap size for web Docker build",
+			"type": "fix",
+			"scope": "storage",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-03-26T12:00:50+01:00"
+		},
+		{
+			"hash": "08629b8",
+			"short": "refactor(zitare): move settings, spiral, themes to account dropdown",
+			"type": "refactor",
+			"scope": "zitare",
+			"additions": 4,
+			"deletions": 3,
+			"timestamp": "2026-03-26T12:12:42+01:00"
+		},
+		{
+			"hash": "c681a5d",
+			"short": "docs(manascore): update Storage score to 87 — rich previews, audio player, live deployed",
+			"type": "docs",
+			"scope": "manascore",
+			"additions": 63,
+			"deletions": 41,
+			"timestamp": "2026-03-26T12:14:59+01:00"
+		},
+		{
+			"hash": "cdfbfcd",
+			"short": "feat(infra): add sveltekit-base image and build-app script for Mac Mini",
+			"type": "feat",
+			"scope": "infra",
+			"additions": 233,
+			"deletions": 61,
+			"timestamp": "2026-03-26T12:17:48+01:00"
+		},
+		{
+			"hash": "ba6b953",
+			"short": "fix(infra): use container names in build-app.sh for reliability",
+			"type": "fix",
+			"scope": "infra",
+			"additions": 35,
+			"deletions": 21,
+			"timestamp": "2026-03-26T12:36:10+01:00"
+		},
+		{
+			"hash": "9f66800",
+			"short": "feat(storage): replace loading spinners with skeleton shimmer screens",
+			"type": "feat",
+			"scope": "storage",
+			"additions": 182,
+			"deletions": 16,
+			"timestamp": "2026-03-26T12:58:36+01:00"
+		},
+		{
+			"hash": "56307a3",
+			"short": "feat(storage): add SVG empty state illustrations for all pages",
+			"type": "feat",
+			"scope": "storage",
+			"additions": 371,
+			"deletions": 39,
+			"timestamp": "2026-03-26T13:01:02+01:00"
+		},
+		{
+			"hash": "5668387",
+			"short": "feat(storage): add ShareModal for creating share links",
+			"type": "feat",
+			"scope": "storage",
+			"additions": 410,
+			"deletions": 6,
+			"timestamp": "2026-03-26T13:04:20+01:00"
+		},
+		{
+			"hash": "a439d5d",
+			"short": "feat(storage): add French, Spanish, and Italian translations",
+			"type": "feat",
+			"scope": "storage",
+			"additions": 234,
+			"deletions": 0,
+			"timestamp": "2026-03-26T13:05:09+01:00"
+		},
+		{
+			"hash": "8b5889e",
+			"short": "feat(storage): add Swagger/OpenAPI documentation",
+			"type": "feat",
+			"scope": "storage",
+			"additions": 506,
+			"deletions": 481,
+			"timestamp": "2026-03-26T13:10:44+01:00"
+		},
+		{
+			"hash": "1c844f4",
+			"short": "fix(manacore): increase Node heap size for Docker build",
+			"type": "fix",
+			"scope": "manacore",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-03-26T13:13:53+01:00"
+		},
+		{
+			"hash": "8692b08",
+			"short": "feat(storage): add structured logging with Pino",
+			"type": "feat",
+			"scope": "storage",
+			"additions": 393,
+			"deletions": 109,
+			"timestamp": "2026-03-26T13:18:58+01:00"
+		},
+		{
+			"hash": "9611544",
+			"short": "feat(storage): show real storage usage stats in settings",
+			"type": "feat",
+			"scope": "storage",
+			"additions": 38,
+			"deletions": 3,
+			"timestamp": "2026-03-26T13:20:54+01:00"
+		},
+		{
+			"hash": "5c69dc7",
+			"short": "feat(storage): add file tagging UI with TagPicker component",
+			"type": "feat",
+			"scope": "storage",
+			"additions": 339,
+			"deletions": 0,
+			"timestamp": "2026-03-26T13:39:44+01:00"
+		},
+		{
+			"hash": "a85682d",
+			"short": "feat(storage): add bulk file operations with multi-select",
+			"type": "feat",
+			"scope": "storage",
+			"additions": 275,
+			"deletions": 2,
+			"timestamp": "2026-03-26T13:42:45+01:00"
+		},
+		{
+			"hash": "8a1cb2d",
+			"short": "feat(storage): add integration E2E tests with real backend",
+			"type": "feat",
+			"scope": "storage",
+			"additions": 181,
+			"deletions": 0,
+			"timestamp": "2026-03-26T13:43:51+01:00"
+		},
+		{
+			"hash": "e676ba6",
+			"short": "fix(web): use JSON.stringify for env var injection in all hooks.server.ts",
+			"type": "fix",
+			"scope": "web",
+			"additions": 101,
+			"deletions": 63,
+			"timestamp": "2026-03-26T14:23:29+01:00"
+		},
+		{
+			"hash": "6efeadb",
+			"short": "docs: add base images and build-app.sh documentation",
+			"type": null,
+			"scope": null,
+			"additions": 56,
+			"deletions": 0,
+			"timestamp": "2026-03-26T14:26:26+01:00"
+		},
+		{
+			"hash": "13681df",
+			"short": "feat(shared): add helpHref/themesHref to PillNav, shared Mana & Privacy FAQs",
+			"type": "feat",
+			"scope": "shared",
+			"additions": 242,
+			"deletions": 11,
+			"timestamp": "2026-03-26T14:28:38+01:00"
+		},
+		{
+			"hash": "40ace53",
+			"short": "feat(help): improve help content across all 18 apps, add shared Mana & Privacy FAQs",
+			"type": "feat",
+			"scope": "help",
+			"additions": 1439,
+			"deletions": 189,
+			"timestamp": "2026-03-26T14:32:23+01:00"
+		},
+		{
+			"hash": "cf9cbeb",
+			"short": "feat(apps): add missing help, feedback, profile, themes, auth pages for cross-app consistency",
+			"type": "feat",
+			"scope": "apps",
+			"additions": 953,
+			"deletions": 0,
+			"timestamp": "2026-03-26T14:33:34+01:00"
+		},
+		{
+			"hash": "90e6135",
+			"short": "feat(zitare): complete i18n coverage for all pages",
+			"type": "feat",
+			"scope": "zitare",
+			"additions": 209,
+			"deletions": 72,
+			"timestamp": "2026-03-26T16:18:00+01:00"
+		},
+		{
+			"hash": "f5a9edc",
+			"short": "feat(auth): add TOTP two-factor authentication across all apps",
+			"type": "feat",
+			"scope": "auth",
+			"additions": 1794,
+			"deletions": 163,
+			"timestamp": "2026-03-26T19:55:09+01:00"
+		},
+		{
+			"hash": "96ff16b",
+			"short": "feat(zitare): add loading states to list operations",
+			"type": "feat",
+			"scope": "zitare",
+			"additions": 82,
+			"deletions": 29,
+			"timestamp": "2026-03-26T19:57:26+01:00"
+		},
+		{
+			"hash": "326acf0",
+			"short": "fix(zitare): add error feedback for silent API failures",
+			"type": "fix",
+			"scope": "zitare",
+			"additions": 20,
+			"deletions": 5,
+			"timestamp": "2026-03-26T20:03:07+01:00"
+		},
+		{
+			"hash": "2b0b902",
+			"short": "fix(credit-operations): point package exports to compiled dist/ instead of raw src/",
+			"type": "fix",
+			"scope": "credit-operations",
+			"additions": 4,
+			"deletions": 5,
+			"timestamp": "2026-03-26T20:03:22+01:00"
+		},
+		{
+			"hash": "5bb96db",
+			"short": "feat(zitare): add maxlength validation to list create form",
+			"type": "feat",
+			"scope": "zitare",
+			"additions": 2,
+			"deletions": 0,
+			"timestamp": "2026-03-26T20:10:03+01:00"
+		},
+		{
+			"hash": "6107d57",
+			"short": "feat(zitare): expand settings with display options",
+			"type": "feat",
+			"scope": "zitare",
+			"additions": 120,
+			"deletions": 1,
+			"timestamp": "2026-03-26T20:28:22+01:00"
+		},
+		{
+			"hash": "b7d1d2e",
+			"short": "feat(zitare): add category filter chips to search results",
+			"type": "feat",
+			"scope": "zitare",
+			"additions": 81,
+			"deletions": 11,
+			"timestamp": "2026-03-26T20:30:04+01:00"
+		},
+		{
+			"hash": "e0e9ede",
+			"short": "test(auth): add passkey and 2FA controller tests (35 tests)",
+			"type": "test",
+			"scope": "auth",
+			"additions": 1092,
+			"deletions": 0,
+			"timestamp": "2026-03-26T20:35:06+01:00"
+		},
+		{
+			"hash": "7c7e5eb",
+			"short": "feat(zitare): add favorites count badge and respect display settings",
+			"type": "feat",
+			"scope": "zitare",
+			"additions": 14,
+			"deletions": 2,
+			"timestamp": "2026-03-26T20:43:31+01:00"
+		},
+		{
+			"hash": "0c479b3",
+			"short": "feat(tags): implement cross-app tag system with groups and entity links",
+			"type": "feat",
+			"scope": "tags",
+			"additions": 1412,
+			"deletions": 5,
+			"timestamp": "2026-03-26T20:43:34+01:00"
+		},
+		{
+			"hash": "40b55eb",
+			"short": "feat(zitare): add search and sort to category detail page",
+			"type": "feat",
+			"scope": "zitare",
+			"additions": 88,
+			"deletions": 11,
+			"timestamp": "2026-03-26T20:47:35+01:00"
+		},
+		{
+			"hash": "1316ef5",
+			"short": "feat(zitare): show author bio on quote cards",
+			"type": "feat",
+			"scope": "zitare",
+			"additions": 30,
+			"deletions": 1,
+			"timestamp": "2026-03-26T20:48:33+01:00"
+		},
+		{
+			"hash": "ce900d5",
+			"short": "feat(todo): integrate shared TagStrip and createTagStore",
+			"type": "feat",
+			"scope": "todo",
+			"additions": 333,
+			"deletions": 103,
+			"timestamp": "2026-03-26T20:51:55+01:00"
+		},
+		{
+			"hash": "69aa837",
+			"short": "feat(contacts,calendar): integrate shared TagStrip and createTagStore",
+			"type": "feat",
+			"scope": "contacts,calendar",
+			"additions": 154,
+			"deletions": 175,
+			"timestamp": "2026-03-26T21:05:50+01:00"
+		},
+		{
+			"hash": "7073756",
+			"short": "feat(auth): UX improvements for passkeys, 2FA, and password management",
+			"type": "feat",
+			"scope": "auth",
+			"additions": 903,
+			"deletions": 208,
+			"timestamp": "2026-03-26T21:15:09+01:00"
+		},
+		{
+			"hash": "9c8bae3",
+			"short": "fix(shared-nestjs-auth): accept multiple JWT issuers for Docker/public URL mismatch",
+			"type": "fix",
+			"scope": "shared-nestjs-auth",
+			"additions": 12,
+			"deletions": 3,
+			"timestamp": "2026-03-26T21:18:03+01:00"
+		},
+		{
+			"hash": "91116bf",
+			"short": "feat(apps): integrate shared TagStrip into all 15 remaining apps",
+			"type": "feat",
+			"scope": "apps",
+			"additions": 1852,
+			"deletions": 93,
+			"timestamp": "2026-03-26T21:41:14+01:00"
+		},
+		{
+			"hash": "11ab265",
+			"short": "fix(tags): add FK constraint, token validation, input validation",
+			"type": "fix",
+			"scope": "tags",
+			"additions": 46,
+			"deletions": 8,
+			"timestamp": "2026-03-26T21:49:21+01:00"
+		},
+		{
+			"hash": "0dfd603",
+			"short": "feat(auth): rate limit feedback, audit log UI, and E2E tests",
+			"type": "feat",
+			"scope": "auth",
+			"additions": 1061,
+			"deletions": 2,
+			"timestamp": "2026-03-26T21:58:56+01:00"
+		},
+		{
+			"hash": "4ddff84",
+			"short": "fix(tags): transaction on sync, scroll indicator, backend tests (37 tests)",
+			"type": "fix",
+			"scope": "tags",
+			"additions": 770,
+			"deletions": 37,
+			"timestamp": "2026-03-26T22:00:12+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

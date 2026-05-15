@@ -1,0 +1,96 @@
+{
+	"date": "2026-04-04",
+	"day_number": 74,
+	"weekday": "Samstag",
+	"commits": 2,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 2
+		}
+	],
+	"additions": 299,
+	"deletions": 318,
+	"net_lines": -19,
+	"files_changed": 23,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-04-04T08:38:30.000Z",
+		"last_commit_at": "2026-04-04T08:38:57.000Z",
+		"total_span_minutes": 0,
+		"active_minutes": 0,
+		"pauses": [],
+		"longest_focus_minutes": 0
+	},
+	"top_dirs": [
+		{
+			"path": "apps/manacore/apps/web",
+			"pct": 57
+		},
+		{
+			"path": "apps/api/src/modules",
+			"pct": 22
+		},
+		{
+			"path": ".env.development",
+			"pct": 4
+		},
+		{
+			"path": "apps/api/package.json",
+			"pct": 4
+		},
+		{
+			"path": "apps/api/src/lib",
+			"pct": 4
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 13
+		},
+		{
+			"ext": ".svelte",
+			"count": 7
+		},
+		{
+			"ext": ".development",
+			"count": 1
+		},
+		{
+			"ext": ".json",
+			"count": 1
+		},
+		{
+			"ext": ".yaml",
+			"count": 1
+		}
+	],
+	"tags": ["api", "manacore/web"],
+	"commits_list": [
+		{
+			"hash": "502813f",
+			"short": "feat(api): route all image uploads through mana-media for CAS, thumbnails & Photos gallery",
+			"type": "feat",
+			"scope": "api",
+			"additions": 238,
+			"deletions": 213,
+			"timestamp": "2026-04-04T10:38:30+02:00"
+		},
+		{
+			"hash": "5fd9c1d",
+			"short": "fix(manacore/web): resolve effect_update_depth_exceeded and Dexie transaction errors",
+			"type": "fix",
+			"scope": "manacore/web",
+			"additions": 61,
+			"deletions": 105,
+			"timestamp": "2026-04-04T10:38:57+02:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

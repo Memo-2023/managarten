@@ -1,0 +1,316 @@
+{
+	"date": "2026-05-06",
+	"day_number": 99,
+	"weekday": "Mittwoch",
+	"commits": 22,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 22
+		}
+	],
+	"additions": 9709,
+	"deletions": 8067,
+	"net_lines": 1642,
+	"files_changed": 171,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-05-06T11:39:50.000Z",
+		"last_commit_at": "2026-05-07T00:39:43.000Z",
+		"total_span_minutes": 780,
+		"active_minutes": 85,
+		"pauses": [
+			{
+				"from": "13:39",
+				"to": "14:09",
+				"minutes": 30
+			},
+			{
+				"from": "14:09",
+				"to": "14:56",
+				"minutes": 47
+			},
+			{
+				"from": "15:31",
+				"to": "16:27",
+				"minutes": 56
+			},
+			{
+				"from": "16:27",
+				"to": "17:18",
+				"minutes": 50
+			},
+			{
+				"from": "17:18",
+				"to": "20:38",
+				"minutes": 200
+			},
+			{
+				"from": "20:39",
+				"to": "01:20",
+				"minutes": 281
+			},
+			{
+				"from": "02:03",
+				"to": "02:34",
+				"minutes": 31
+			}
+		],
+		"longest_focus_minutes": 43
+	},
+	"top_dirs": [
+		{
+			"path": "apps/mana/apps/web",
+			"pct": 45
+		},
+		{
+			"path": "apps/cards/apps/web",
+			"pct": 13
+		},
+		{
+			"path": "apps/cards/apps/landing",
+			"pct": 8
+		},
+		{
+			"path": "apps/api/src/modules",
+			"pct": 4
+		},
+		{
+			"path": "packages/cards-core/src",
+			"pct": 4
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 89
+		},
+		{
+			"ext": ".json",
+			"count": 41
+		},
+		{
+			"ext": ".svelte",
+			"count": 32
+		},
+		{
+			"ext": ".md",
+			"count": 17
+		},
+		{
+			"ext": ".astro",
+			"count": 9
+		},
+		{
+			"ext": ".yml",
+			"count": 7
+		}
+	],
+	"tags": ["forms", "infra", "cards", "cards-web", "mana-auth"],
+	"commits_list": [
+		{
+			"hash": "cb9d79d",
+			"short": "feat(articles): finale polish — Help-Eintrag + intentional-console + 5-Locale i18n (#16,#10,#17)",
+			"type": "feat",
+			"scope": "articles",
+			"additions": 443,
+			"deletions": 67,
+			"timestamp": "2026-05-06T13:39:50+02:00"
+		},
+		{
+			"hash": "38e0ae2",
+			"short": "feat(forms): M10a wiederkehrende Forms — cohort-tagging + UI",
+			"type": "feat",
+			"scope": "forms",
+			"additions": 470,
+			"deletions": 11,
+			"timestamp": "2026-05-06T14:09:55+02:00"
+		},
+		{
+			"hash": "664b824",
+			"short": "feat(forms): M10b wave-send — Empfänger + Manueller Trigger + Due-Banner",
+			"type": "feat",
+			"scope": "forms",
+			"additions": 555,
+			"deletions": 7,
+			"timestamp": "2026-05-06T14:56:28+02:00"
+		},
+		{
+			"hash": "7d8e562",
+			"short": "feat(forms): M10c auto-scheduler + mana-mail bulk-send",
+			"type": "feat",
+			"scope": "forms",
+			"additions": 430,
+			"deletions": 5,
+			"timestamp": "2026-05-06T15:15:12+02:00"
+		},
+		{
+			"hash": "c1ed45e",
+			"short": "feat(forms): M9 form-as-conversation — Typeform-Chat-Render",
+			"type": "feat",
+			"scope": "forms",
+			"additions": 774,
+			"deletions": 6,
+			"timestamp": "2026-05-06T15:22:56+02:00"
+		},
+		{
+			"hash": "6d67db4",
+			"short": "feat(forms): M9b conversation LLM-extract — free-text → typed Antwort",
+			"type": "feat",
+			"scope": "forms",
+			"additions": 468,
+			"deletions": 0,
+			"timestamp": "2026-05-06T15:31:25+02:00"
+		},
+		{
+			"hash": "82dbfe6",
+			"short": "feat(forms): M7c auto-sync zu library + space_member",
+			"type": "feat",
+			"scope": "forms",
+			"additions": 497,
+			"deletions": 35,
+			"timestamp": "2026-05-06T16:27:40+02:00"
+		},
+		{
+			"hash": "795b39e",
+			"short": "feat(forms): M10d headless wave-cron — server-worker + private internal_meta",
+			"type": "feat",
+			"scope": "forms",
+			"additions": 502,
+			"deletions": 5,
+			"timestamp": "2026-05-06T17:18:05+02:00"
+		},
+		{
+			"hash": "546b94d",
+			"short": "feat(personas): move admin + internal endpoints from mana-auth to apps/api",
+			"type": "feat",
+			"scope": "personas",
+			"additions": 636,
+			"deletions": 25,
+			"timestamp": "2026-05-06T20:38:29+02:00"
+		},
+		{
+			"hash": "1b579ab",
+			"short": "chore(mana-events): move from port 3065 to 3115 — collision with platform mana-media",
+			"type": "chore",
+			"scope": "mana-events",
+			"additions": 15,
+			"deletions": 13,
+			"timestamp": "2026-05-06T20:38:46+02:00"
+		},
+		{
+			"hash": "c14aef9",
+			"short": "docs(infra): Mac-Mini ↔ Windows-GPU-Box workload-split — Plan Option C",
+			"type": "docs",
+			"scope": "infra",
+			"additions": 381,
+			"deletions": 0,
+			"timestamp": "2026-05-06T20:39:01+02:00"
+		},
+		{
+			"hash": "c8a292b",
+			"short": "tunnel: route memoro.mana.how + memoro-app/api/audio to standalone Memoro stack",
+			"type": null,
+			"scope": null,
+			"additions": 20,
+			"deletions": 2,
+			"timestamp": "2026-05-06T20:39:12+02:00"
+		},
+		{
+			"hash": "950b822",
+			"short": "docs(cards): Phase-1 Spinoff-Guidelines — Core-Gameloop, Stack, Datenpfad",
+			"type": "docs",
+			"scope": "cards",
+			"additions": 261,
+			"deletions": 0,
+			"timestamp": "2026-05-06T20:39:26+02:00"
+		},
+		{
+			"hash": "0a544ac",
+			"short": "feat(cards): Phase-1 Spinoff — standalone cards.mana.how + cards-core extraction",
+			"type": "feat",
+			"scope": "cards",
+			"additions": 4090,
+			"deletions": 7466,
+			"timestamp": "2026-05-07T01:20:43+02:00"
+		},
+		{
+			"hash": "f94c047",
+			"short": "chore: silence pre-existing svelte-check a11y warnings",
+			"type": null,
+			"scope": null,
+			"additions": 9,
+			"deletions": 0,
+			"timestamp": "2026-05-07T01:34:36+02:00"
+		},
+		{
+			"hash": "86f14bc",
+			"short": "fix(cards-web): drop unused @mana/shared-crypto dep — not in sveltekit-base image",
+			"type": "fix",
+			"scope": "cards-web",
+			"additions": 0,
+			"deletions": 4,
+			"timestamp": "2026-05-07T01:46:50+02:00"
+		},
+		{
+			"hash": "dd2e609",
+			"short": "fix(docker): COPY packages/cards-core in SvelteKit Dockerfiles",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 77,
+			"deletions": 14,
+			"timestamp": "2026-05-07T01:47:07+02:00"
+		},
+		{
+			"hash": "8b71d29",
+			"short": "feat(mana-auth): wire Glitchtip/Sentry error tracking via shared-error-tracking",
+			"type": "feat",
+			"scope": "mana-auth",
+			"additions": 29,
+			"deletions": 1,
+			"timestamp": "2026-05-07T01:55:07+02:00"
+		},
+		{
+			"hash": "96c0616",
+			"short": "fix(cards-web): inject __PUBLIC_MANA_AUTH_URL__ on SSR — login was 404",
+			"type": "fix",
+			"scope": "cards-web",
+			"additions": 32,
+			"deletions": 0,
+			"timestamp": "2026-05-07T02:02:29+02:00"
+		},
+		{
+			"hash": "1bac7cf",
+			"short": "fix(mana-auth): COPY packages/shared-error-tracking in Dockerfile",
+			"type": "fix",
+			"scope": "mana-auth",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-05-07T02:03:25+02:00"
+		},
+		{
+			"hash": "f422fd6",
+			"short": "fix(shared-error-tracking): point main at src/, strip dashes from Glitchtip DSN",
+			"type": "fix",
+			"scope": "shared-error-tracking",
+			"additions": 19,
+			"deletions": 19,
+			"timestamp": "2026-05-07T02:34:54+02:00"
+		},
+		{
+			"hash": "0db64cb",
+			"short": "chore(infra): drop migrated services from Mini compose + tunnel config",
+			"type": "chore",
+			"scope": "infra",
+			"additions": 0,
+			"deletions": 387,
+			"timestamp": "2026-05-07T02:39:43+02:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

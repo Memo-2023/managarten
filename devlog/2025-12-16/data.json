@@ -1,0 +1,223 @@
+{
+	"date": "2025-12-16",
+	"day_number": 22,
+	"weekday": "Dienstag",
+	"commits": 13,
+	"authors": [
+		{
+			"name": "Wuesteon",
+			"count": 6
+		},
+		{
+			"name": "Till-JS",
+			"count": 6
+		},
+		{
+			"name": "Nils Weiser",
+			"count": 1
+		}
+	],
+	"additions": 5334,
+	"deletions": 2788,
+	"net_lines": 2546,
+	"files_changed": 96,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2025-12-16T16:37:19.000Z",
+		"last_commit_at": "2025-12-16T20:12:25.000Z",
+		"total_span_minutes": 215,
+		"active_minutes": 74,
+		"pauses": [
+			{
+				"from": "18:39",
+				"to": "19:17",
+				"minutes": 37
+			},
+			{
+				"from": "19:27",
+				"to": "20:28",
+				"minutes": 61
+			},
+			{
+				"from": "20:29",
+				"to": "21:12",
+				"minutes": 43
+			}
+		],
+		"longest_focus_minutes": 63
+	},
+	"top_dirs": [
+		{
+			"path": "apps/calendar/apps/web",
+			"pct": 29
+		},
+		{
+			"path": "packages/shared-i18n/src",
+			"pct": 6
+		},
+		{
+			"path": "apps/calendar/apps/backend",
+			"pct": 4
+		},
+		{
+			"path": "services/mana-core-auth/src",
+			"pct": 4
+		},
+		{
+			"path": "games/voxelava/apps",
+			"pct": 3
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".svelte",
+			"count": 34
+		},
+		{
+			"ext": ".ts",
+			"count": 31
+		},
+		{
+			"ext": ".md",
+			"count": 18
+		},
+		{
+			"ext": ".json",
+			"count": 14
+		},
+		{
+			"ext": ".yml",
+			"count": 4
+		},
+		{
+			"ext": ".backup",
+			"count": 1
+		}
+	],
+	"tags": ["calendar"],
+	"commits_list": [
+		{
+			"hash": "ad495b2",
+			"short": "📝 docs: restructure CLAUDE.md and documentation (74% reduction)",
+			"type": null,
+			"scope": null,
+			"additions": 1006,
+			"deletions": 1898,
+			"timestamp": "2025-12-16T17:37:19+01:00"
+		},
+		{
+			"hash": "781bc52",
+			"short": "fix(calendar): equal cell heights in month view on smaller screens",
+			"type": "fix",
+			"scope": "calendar",
+			"additions": 7,
+			"deletions": 2,
+			"timestamp": "2025-12-16T17:43:38+01:00"
+		},
+		{
+			"hash": "c7c451e",
+			"short": "feat(calendar): add tag filtering to calendar views",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 195,
+			"deletions": 23,
+			"timestamp": "2025-12-16T17:59:28+01:00"
+		},
+		{
+			"hash": "484efcc",
+			"short": "style(calendar): use neutral colors for TagStrip action buttons",
+			"type": "style",
+			"scope": "calendar",
+			"additions": 12,
+			"deletions": 12,
+			"timestamp": "2025-12-16T18:08:11+01:00"
+		},
+		{
+			"hash": "31f187b",
+			"short": "feat(calendar): integrate network view into homepage with heatmap stats",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 950,
+			"deletions": 401,
+			"timestamp": "2025-12-16T18:35:03+01:00"
+		},
+		{
+			"hash": "ea85621",
+			"short": "feat(calendar): show settings as modal on homepage",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 1249,
+			"deletions": 1,
+			"timestamp": "2025-12-16T18:37:11+01:00"
+		},
+		{
+			"hash": "6035994",
+			"short": "feat(calendar): add stats sidebar section and heatmap support in year view",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 511,
+			"deletions": 6,
+			"timestamp": "2025-12-16T18:39:59+01:00"
+		},
+		{
+			"hash": "285e142",
+			"short": "Merge branch 'dev' into till-dev",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 0,
+			"timestamp": "2025-12-16T19:17:07+01:00"
+		},
+		{
+			"hash": "11324b5",
+			"short": "Merge pull request #19 from Memo-2023/till-dev",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 0,
+			"timestamp": "2025-12-16T19:27:03+01:00"
+		},
+		{
+			"hash": "d3e11b3",
+			"short": "🐛 fix(auth): require name field in registration forms",
+			"type": null,
+			"scope": null,
+			"additions": 151,
+			"deletions": 56,
+			"timestamp": "2025-12-16T20:28:28+01:00"
+		},
+		{
+			"hash": "3e3e9f3",
+			"short": "🩹 fix(voxelava): fix type errors in level types and user profile",
+			"type": null,
+			"scope": null,
+			"additions": 9,
+			"deletions": 29,
+			"timestamp": "2025-12-16T20:29:38+01:00"
+		},
+		{
+			"hash": "8c973e4",
+			"short": "  1. Brevo email integration (API key, sender settings)   2. URL configuration fix (BASE_URL, FRONTEND_URL)   3. Password reset URL pointing to frontend instead of API",
+			"type": null,
+			"scope": null,
+			"additions": 42,
+			"deletions": 4,
+			"timestamp": "2025-12-16T21:12:25+01:00"
+		},
+		{
+			"hash": "4c44764",
+			"short": "  1. Brevo email integration (API key, sender settings)   2. URL configuration fix (BASE_URL, FRONTEND_URL)   3. Password reset URL pointing to frontend instead of API",
+			"type": null,
+			"scope": null,
+			"additions": 1202,
+			"deletions": 356,
+			"timestamp": "2025-12-16T21:12:25+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

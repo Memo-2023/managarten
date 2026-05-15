@@ -1,0 +1,809 @@
+{
+	"date": "2026-03-24",
+	"day_number": 63,
+	"weekday": "Dienstag",
+	"commits": 79,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 79
+		}
+	],
+	"additions": 24763,
+	"deletions": 4636,
+	"net_lines": 20127,
+	"files_changed": 364,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-03-24T08:41:33.000Z",
+		"last_commit_at": "2026-03-24T21:38:46.000Z",
+		"total_span_minutes": 777,
+		"active_minutes": 285,
+		"pauses": [
+			{
+				"from": "12:42",
+				"to": "19:18",
+				"minutes": 396
+			},
+			{
+				"from": "20:26",
+				"to": "21:13",
+				"minutes": 47
+			},
+			{
+				"from": "21:28",
+				"to": "22:18",
+				"minutes": 49
+			}
+		],
+		"longest_focus_minutes": 181
+	},
+	"top_dirs": [
+		{
+			"path": "apps/manacore/apps/landing",
+			"pct": 10
+		},
+		{
+			"path": "apps/manacore/apps/web",
+			"pct": 10
+		},
+		{
+			"path": "apps/calendar/apps/web",
+			"pct": 9
+		},
+		{
+			"path": "apps/todo/apps/web",
+			"pct": 6
+		},
+		{
+			"path": "apps/citycorners/apps/web",
+			"pct": 6
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 163
+		},
+		{
+			"ext": ".svelte",
+			"count": 115
+		},
+		{
+			"ext": ".json",
+			"count": 53
+		},
+		{
+			"ext": ".md",
+			"count": 51
+		},
+		{
+			"ext": "<no-ext>",
+			"count": 41
+		},
+		{
+			"ext": ".astro",
+			"count": 21
+		}
+	],
+	"tags": ["manacore", "infra", "todo", "citycorners", "manascore"],
+	"commits_list": [
+		{
+			"hash": "56ffcba",
+			"short": "feat: add Ollama memory optimization, LLM metrics, and chat streaming",
+			"type": null,
+			"scope": null,
+			"additions": 463,
+			"deletions": 30,
+			"timestamp": "2026-03-24T09:41:33+01:00"
+		},
+		{
+			"hash": "52e9aa5",
+			"short": "docs: add devlog for evening session 2026-03-23",
+			"type": null,
+			"scope": null,
+			"additions": 270,
+			"deletions": 0,
+			"timestamp": "2026-03-24T09:47:54+01:00"
+		},
+		{
+			"hash": "8bc52f4",
+			"short": "fix(calendar,todo): production readiness improvements",
+			"type": "fix",
+			"scope": "calendar,todo",
+			"additions": 172,
+			"deletions": 8,
+			"timestamp": "2026-03-24T09:57:24+01:00"
+		},
+		{
+			"hash": "c27f6f8",
+			"short": "feat(shared-ui): add focusTrap action and apply to shared Modal",
+			"type": "feat",
+			"scope": "shared-ui",
+			"additions": 75,
+			"deletions": 0,
+			"timestamp": "2026-03-24T10:04:04+01:00"
+		},
+		{
+			"hash": "fea6a8e",
+			"short": "feat: add it.mana.how landing page for European tech sovereignty",
+			"type": null,
+			"scope": null,
+			"additions": 1209,
+			"deletions": 0,
+			"timestamp": "2026-03-24T10:04:59+01:00"
+		},
+		{
+			"hash": "5b77369",
+			"short": "feat(calendar,todo): add focus trapping to all modals",
+			"type": "feat",
+			"scope": "calendar,todo",
+			"additions": 32,
+			"deletions": 11,
+			"timestamp": "2026-03-24T10:06:32+01:00"
+		},
+		{
+			"hash": "d7cef38",
+			"short": "feat(calendar): localize all toast messages with i18n",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 144,
+			"deletions": 29,
+			"timestamp": "2026-03-24T10:06:41+01:00"
+		},
+		{
+			"hash": "44a9e02",
+			"short": "feat(manacore): add costs overview tab to credits page",
+			"type": "feat",
+			"scope": "manacore",
+			"additions": 200,
+			"deletions": 192,
+			"timestamp": "2026-03-24T10:10:44+01:00"
+		},
+		{
+			"hash": "51f80f4",
+			"short": "docs: add Cloudflare Pages domain configuration guide",
+			"type": null,
+			"scope": null,
+			"additions": 109,
+			"deletions": 0,
+			"timestamp": "2026-03-24T10:15:41+01:00"
+		},
+		{
+			"hash": "1a91bd7",
+			"short": "test(calendar-web): add E2E test for 404 error page",
+			"type": "test",
+			"scope": "calendar-web",
+			"additions": 19,
+			"deletions": 0,
+			"timestamp": "2026-03-24T10:22:56+01:00"
+		},
+		{
+			"hash": "0110bff",
+			"short": "feat(calendar): localize sync and sharing settings pages",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 784,
+			"deletions": 88,
+			"timestamp": "2026-03-24T10:28:02+01:00"
+		},
+		{
+			"hash": "c4bdc6a",
+			"short": "feat(calendar): localize main settings page with i18n",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 155,
+			"deletions": 95,
+			"timestamp": "2026-03-24T10:30:13+01:00"
+		},
+		{
+			"hash": "490f822",
+			"short": "docs(calendar,todo): add production readiness audit to CLAUDE.md",
+			"type": "docs",
+			"scope": "calendar,todo",
+			"additions": 95,
+			"deletions": 2,
+			"timestamp": "2026-03-24T10:34:15+01:00"
+		},
+		{
+			"hash": "6cab9a3",
+			"short": "fix(infra): remove n8n and increase health check intervals to fix port exhaustion",
+			"type": "fix",
+			"scope": "infra",
+			"additions": 237,
+			"deletions": 129,
+			"timestamp": "2026-03-24T10:35:45+01:00"
+		},
+		{
+			"hash": "124b4f7",
+			"short": "fix(infra): route GlitchTip DSNs internally to avoid Cloudflare roundtrip",
+			"type": "fix",
+			"scope": "infra",
+			"additions": 13,
+			"deletions": 13,
+			"timestamp": "2026-03-24T10:36:59+01:00"
+		},
+		{
+			"hash": "0ddbad9",
+			"short": "docs: update calendar and todo production readiness audits",
+			"type": null,
+			"scope": null,
+			"additions": 202,
+			"deletions": 65,
+			"timestamp": "2026-03-24T10:37:07+01:00"
+		},
+		{
+			"hash": "fc7d294",
+			"short": "feat(picture): add local image generation via mana-image-gen",
+			"type": "feat",
+			"scope": "picture",
+			"additions": 169,
+			"deletions": 4,
+			"timestamp": "2026-03-24T10:38:30+01:00"
+		},
+		{
+			"hash": "357fbb3",
+			"short": "feat(manacore): rename audits to ManaScore + add methodology page",
+			"type": "feat",
+			"scope": "manacore",
+			"additions": 205,
+			"deletions": 13,
+			"timestamp": "2026-03-24T10:43:07+01:00"
+		},
+		{
+			"hash": "62c5ddd",
+			"short": "feat(project-doc-bot): migrate to shared-llm, remove OpenAI dependency",
+			"type": "feat",
+			"scope": "project-doc-bot",
+			"additions": 136,
+			"deletions": 91,
+			"timestamp": "2026-03-24T10:44:56+01:00"
+		},
+		{
+			"hash": "5611f38",
+			"short": "feat(citycorners): UX quick wins for web app",
+			"type": "feat",
+			"scope": "citycorners",
+			"additions": 279,
+			"deletions": 63,
+			"timestamp": "2026-03-24T11:07:38+01:00"
+		},
+		{
+			"hash": "cc55ca5",
+			"short": "fix(mana-core-auth): add shared-llm package to Dockerfile",
+			"type": "fix",
+			"scope": "mana-core-auth",
+			"additions": 6,
+			"deletions": 2,
+			"timestamp": "2026-03-24T11:13:28+01:00"
+		},
+		{
+			"hash": "57a2841",
+			"short": "fix(manacore): fix syntax error in LandingEditor bind:value",
+			"type": "fix",
+			"scope": "manacore",
+			"additions": 2,
+			"deletions": 2,
+			"timestamp": "2026-03-24T11:15:39+01:00"
+		},
+		{
+			"hash": "169821d",
+			"short": "feat(monitoring): add LLM Grafana dashboard, Prometheus scraping, and alerts",
+			"type": "feat",
+			"scope": "monitoring",
+			"additions": 477,
+			"deletions": 1,
+			"timestamp": "2026-03-24T11:16:27+01:00"
+		},
+		{
+			"hash": "9795645",
+			"short": "fix(manacore): fix @const syntax error in ContextDocsWidget",
+			"type": "fix",
+			"scope": "manacore",
+			"additions": 2,
+			"deletions": 3,
+			"timestamp": "2026-03-24T11:17:45+01:00"
+		},
+		{
+			"hash": "3952691",
+			"short": "feat(infra): add pgBackRest for PostgreSQL Point-in-Time Recovery",
+			"type": "feat",
+			"scope": "infra",
+			"additions": 251,
+			"deletions": 0,
+			"timestamp": "2026-03-24T11:18:33+01:00"
+		},
+		{
+			"hash": "58fb3e8",
+			"short": "feat(citycorners): add owner tracking, edit/delete UI, and pagination",
+			"type": "feat",
+			"scope": "citycorners",
+			"additions": 651,
+			"deletions": 58,
+			"timestamp": "2026-03-24T11:19:15+01:00"
+		},
+		{
+			"hash": "c4cc852",
+			"short": "fix(manacore): add credit-operations package to web Dockerfile",
+			"type": "fix",
+			"scope": "manacore",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-03-24T11:21:31+01:00"
+		},
+		{
+			"hash": "8e39039",
+			"short": "feat(citycorners): add photo gallery, nearby locations, and search history",
+			"type": "feat",
+			"scope": "citycorners",
+			"additions": 379,
+			"deletions": 23,
+			"timestamp": "2026-03-24T11:25:17+01:00"
+		},
+		{
+			"hash": "817ad84",
+			"short": "fix(manacore): build credit-operations package in web Dockerfile",
+			"type": "fix",
+			"scope": "manacore",
+			"additions": 3,
+			"deletions": 0,
+			"timestamp": "2026-03-24T11:26:31+01:00"
+		},
+		{
+			"hash": "3c6253a",
+			"short": "fix(manacore): use --ignore-scripts in Dockerfile install step",
+			"type": "fix",
+			"scope": "manacore",
+			"additions": 2,
+			"deletions": 2,
+			"timestamp": "2026-03-24T11:28:42+01:00"
+		},
+		{
+			"hash": "c213473",
+			"short": "fix(credit-operations): export TypeScript source directly",
+			"type": "fix",
+			"scope": "credit-operations",
+			"additions": 7,
+			"deletions": 10,
+			"timestamp": "2026-03-24T11:31:20+01:00"
+		},
+		{
+			"hash": "7813e3b",
+			"short": "fix(infra): use correct pgbackrest Docker image (woblerr/pgbackrest)",
+			"type": "fix",
+			"scope": "infra",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-03-24T11:34:44+01:00"
+		},
+		{
+			"hash": "d3ae384",
+			"short": "feat(manascore): add score trend visualization with sparkline charts",
+			"type": "feat",
+			"scope": "manascore",
+			"additions": 167,
+			"deletions": 20,
+			"timestamp": "2026-03-24T11:35:12+01:00"
+		},
+		{
+			"hash": "fcd7c82",
+			"short": "fix(infra): simplify PostgreSQL backup to pg_dumpall + pg_basebackup",
+			"type": "fix",
+			"scope": "infra",
+			"additions": 114,
+			"deletions": 169,
+			"timestamp": "2026-03-24T11:39:20+01:00"
+		},
+		{
+			"hash": "e06e8cc",
+			"short": "fix(infra): use postgres -c flags instead of config_file override",
+			"type": "fix",
+			"scope": "infra",
+			"additions": 11,
+			"deletions": 2,
+			"timestamp": "2026-03-24T11:42:42+01:00"
+		},
+		{
+			"hash": "986f168",
+			"short": "feat(manascore): add Lighthouse score integration",
+			"type": "feat",
+			"scope": "manascore",
+			"additions": 98,
+			"deletions": 0,
+			"timestamp": "2026-03-24T11:46:16+01:00"
+		},
+		{
+			"hash": "e060884",
+			"short": "fix(infra): add healthcheck start_period, restore shared-llm dep in project-doc-bot",
+			"type": "fix",
+			"scope": "infra",
+			"additions": 36,
+			"deletions": 35,
+			"timestamp": "2026-03-24T11:48:13+01:00"
+		},
+		{
+			"hash": "954b204",
+			"short": "fix(manacore): fix dashboard grid layout - widgets were col-span-1",
+			"type": "fix",
+			"scope": "manacore",
+			"additions": 4,
+			"deletions": 4,
+			"timestamp": "2026-03-24T11:49:12+01:00"
+		},
+		{
+			"hash": "e3115b3",
+			"short": "feat(infra): add Cloudflare fallback plan + self-hosted landing pages",
+			"type": "feat",
+			"scope": "infra",
+			"additions": 733,
+			"deletions": 27,
+			"timestamp": "2026-03-24T12:07:40+01:00"
+		},
+		{
+			"hash": "000b74a",
+			"short": "fix(web): add appReady gate to prevent auth race condition in all apps",
+			"type": "fix",
+			"scope": "web",
+			"additions": 503,
+			"deletions": 437,
+			"timestamp": "2026-03-24T12:15:35+01:00"
+		},
+		{
+			"hash": "02215df",
+			"short": "feat(skilltree): add achievement system with 26 achievements + monetization report",
+			"type": "feat",
+			"scope": "skilltree",
+			"additions": 2266,
+			"deletions": 38,
+			"timestamp": "2026-03-24T12:17:43+01:00"
+		},
+		{
+			"hash": "61c23d5",
+			"short": "fix(manacore): improve dashboard layout polish",
+			"type": "fix",
+			"scope": "manacore",
+			"additions": 185,
+			"deletions": 100,
+			"timestamp": "2026-03-24T12:21:51+01:00"
+		},
+		{
+			"hash": "06694ea",
+			"short": "feat(manascore): add API conformity and cross-app consistency checks",
+			"type": "feat",
+			"scope": "manascore",
+			"additions": 206,
+			"deletions": 0,
+			"timestamp": "2026-03-24T12:24:45+01:00"
+		},
+		{
+			"hash": "94d7e2b",
+			"short": "feat(citycorners): add slugs, contacts, collections, clustering, rate limiting, soft deletes",
+			"type": "feat",
+			"scope": "citycorners",
+			"additions": 1731,
+			"deletions": 553,
+			"timestamp": "2026-03-24T12:27:29+01:00"
+		},
+		{
+			"hash": "6d231ee",
+			"short": "docs: document ManaScore extended metrics and add to root CLAUDE.md",
+			"type": null,
+			"scope": null,
+			"additions": 93,
+			"deletions": 0,
+			"timestamp": "2026-03-24T12:30:58+01:00"
+		},
+		{
+			"hash": "9139b01",
+			"short": "fix(infra): use 127.0.0.1 in nginx healthcheck (alpine resolves localhost to IPv6)",
+			"type": "fix",
+			"scope": "infra",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-03-24T12:38:10+01:00"
+		},
+		{
+			"hash": "46925de",
+			"short": "fix(project-doc-bot): restore shared-llm dependency in package.json",
+			"type": "fix",
+			"scope": "project-doc-bot",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-03-24T12:40:58+01:00"
+		},
+		{
+			"hash": "1f35206",
+			"short": "docs: update Cloudflare domains guide and tech independence roadmap",
+			"type": null,
+			"scope": null,
+			"additions": 132,
+			"deletions": 88,
+			"timestamp": "2026-03-24T12:42:55+01:00"
+		},
+		{
+			"hash": "9431af6",
+			"short": "docs(manascore): update scores for storage, todo, and calendar",
+			"type": "docs",
+			"scope": "manascore",
+			"additions": 34,
+			"deletions": 25,
+			"timestamp": "2026-03-24T19:18:53+01:00"
+		},
+		{
+			"hash": "994abf3",
+			"short": "fix(zitare): add missing patches/ COPY to web Dockerfile",
+			"type": "fix",
+			"scope": "zitare",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-03-24T19:20:44+01:00"
+		},
+		{
+			"hash": "91daba0",
+			"short": "fix(storage): add PWA icons and meta tags to fix build and enable install",
+			"type": "fix",
+			"scope": "storage",
+			"additions": 63,
+			"deletions": 4,
+			"timestamp": "2026-03-24T19:22:16+01:00"
+		},
+		{
+			"hash": "c868650",
+			"short": "fix(zitare): add shared-pwa to web Dockerfile",
+			"type": "fix",
+			"scope": "zitare",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-03-24T19:22:43+01:00"
+		},
+		{
+			"hash": "233a3c0",
+			"short": "docs: add devlog for morning session 2026-03-24",
+			"type": null,
+			"scope": null,
+			"additions": 246,
+			"deletions": 0,
+			"timestamp": "2026-03-24T19:28:31+01:00"
+		},
+		{
+			"hash": "c964479",
+			"short": "fix(todo): improve drag-and-drop handles and fix reorder persistence",
+			"type": "fix",
+			"scope": "todo",
+			"additions": 22,
+			"deletions": 9,
+			"timestamp": "2026-03-24T19:43:30+01:00"
+		},
+		{
+			"hash": "f42f9ce",
+			"short": "fix(todo): swap checkbox/priority order, enlarge priority dot, remove chevron",
+			"type": "fix",
+			"scope": "todo",
+			"additions": 8,
+			"deletions": 25,
+			"timestamp": "2026-03-24T19:46:33+01:00"
+		},
+		{
+			"hash": "4b4cdd8",
+			"short": "feat(todo): inline title editing on click",
+			"type": "feat",
+			"scope": "todo",
+			"additions": 78,
+			"deletions": 12,
+			"timestamp": "2026-03-24T19:49:39+01:00"
+		},
+		{
+			"hash": "ea37288",
+			"short": "feat(todo): long press to open expanded edit form on mobile",
+			"type": "feat",
+			"scope": "todo",
+			"additions": 34,
+			"deletions": 1,
+			"timestamp": "2026-03-24T19:56:04+01:00"
+		},
+		{
+			"hash": "caa126f",
+			"short": "fix(zitare): add missing shared-utils dependency to web package",
+			"type": "fix",
+			"scope": "zitare",
+			"additions": 627,
+			"deletions": 547,
+			"timestamp": "2026-03-24T20:01:34+01:00"
+		},
+		{
+			"hash": "7648437",
+			"short": "feat(manacore): add Seenplatte ecosystem observatory visualization",
+			"type": "feat",
+			"scope": "manacore",
+			"additions": 1638,
+			"deletions": 0,
+			"timestamp": "2026-03-24T20:01:49+01:00"
+		},
+		{
+			"hash": "6c4fd39",
+			"short": "fix(zitare): add spiral-db to web Dockerfile",
+			"type": "fix",
+			"scope": "zitare",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-03-24T20:04:21+01:00"
+		},
+		{
+			"hash": "10df359",
+			"short": "fix(todo): simplify section headers - remove chevron, count, and collapse",
+			"type": "fix",
+			"scope": "todo",
+			"additions": 14,
+			"deletions": 57,
+			"timestamp": "2026-03-24T20:05:06+01:00"
+		},
+		{
+			"hash": "a2605e8",
+			"short": "feat(infra): add Dockerfile dependency validator + fix 16 missing COPYs",
+			"type": "feat",
+			"scope": "infra",
+			"additions": 286,
+			"deletions": 7,
+			"timestamp": "2026-03-24T20:25:54+01:00"
+		},
+		{
+			"hash": "d080236",
+			"short": "refactor(shared-auth): single fetch interceptor for multiple URLs",
+			"type": "refactor",
+			"scope": "shared-auth",
+			"additions": 35,
+			"deletions": 17,
+			"timestamp": "2026-03-24T20:26:03+01:00"
+		},
+		{
+			"hash": "5b5849e",
+			"short": "perf(auth): cache JWKS locally instead of HTTP self-call",
+			"type": "perf",
+			"scope": "auth",
+			"additions": 158,
+			"deletions": 38,
+			"timestamp": "2026-03-24T20:26:16+01:00"
+		},
+		{
+			"hash": "d6eacc1",
+			"short": "fix(todo): add ReorderTasksDto to fix validation error on task reorder",
+			"type": "fix",
+			"scope": "todo",
+			"additions": 4,
+			"deletions": 4,
+			"timestamp": "2026-03-24T20:26:30+01:00"
+		},
+		{
+			"hash": "04f5afe",
+			"short": "feat(landing): replace simple footer with rich mega footer",
+			"type": "feat",
+			"scope": "landing",
+			"additions": 371,
+			"deletions": 39,
+			"timestamp": "2026-03-24T21:13:46+01:00"
+		},
+		{
+			"hash": "47dbe00",
+			"short": "fix(manacore): show all open tasks in dashboard widget, not just today",
+			"type": "fix",
+			"scope": "manacore",
+			"additions": 65,
+			"deletions": 14,
+			"timestamp": "2026-03-24T21:22:36+01:00"
+		},
+		{
+			"hash": "decd79d",
+			"short": "ci: add Docker build validation workflow for PRs",
+			"type": null,
+			"scope": null,
+			"additions": 123,
+			"deletions": 0,
+			"timestamp": "2026-03-24T21:23:59+01:00"
+		},
+		{
+			"hash": "02db491",
+			"short": "fix(observatory): use inline styles to ensure SVG renders correctly",
+			"type": "fix",
+			"scope": "observatory",
+			"additions": 9,
+			"deletions": 5,
+			"timestamp": "2026-03-24T21:24:25+01:00"
+		},
+		{
+			"hash": "d644066",
+			"short": "feat(auth): add session expired banner when token refresh fails",
+			"type": "feat",
+			"scope": "auth",
+			"additions": 376,
+			"deletions": 0,
+			"timestamp": "2026-03-24T21:24:28+01:00"
+		},
+		{
+			"hash": "db077aa",
+			"short": "fix(manacore): add missing date-fns dependency for Docker build",
+			"type": "fix",
+			"scope": "manacore",
+			"additions": 3,
+			"deletions": 0,
+			"timestamp": "2026-03-24T21:27:01+01:00"
+		},
+		{
+			"hash": "5c2a8d0",
+			"short": "fix(manacore): add date-fns to package.json for Docker build",
+			"type": "fix",
+			"scope": "manacore",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-03-24T21:28:54+01:00"
+		},
+		{
+			"hash": "5286404",
+			"short": "feat(parsers): add intelligent quick-create parsers for 6 apps with multilingual support",
+			"type": "feat",
+			"scope": "parsers",
+			"additions": 3291,
+			"deletions": 94,
+			"timestamp": "2026-03-24T22:18:05+01:00"
+		},
+		{
+			"hash": "23dac32",
+			"short": "feat(observatory): add tooltips, detail panel, radar chart, and atmosphere",
+			"type": "feat",
+			"scope": "observatory",
+			"additions": 906,
+			"deletions": 50,
+			"timestamp": "2026-03-24T22:21:04+01:00"
+		},
+		{
+			"hash": "90c438e",
+			"short": "feat(infra): auto-generate Dockerfile COPY statements from package.json",
+			"type": "feat",
+			"scope": "infra",
+			"additions": 591,
+			"deletions": 218,
+			"timestamp": "2026-03-24T22:33:07+01:00"
+		},
+		{
+			"hash": "bf7517d",
+			"short": "feat(auth): add SessionExpiredBanner to all remaining web apps",
+			"type": "feat",
+			"scope": "auth",
+			"additions": 842,
+			"deletions": 19,
+			"timestamp": "2026-03-24T22:35:13+01:00"
+		},
+		{
+			"hash": "f2488f8",
+			"short": "feat(infra): add workspace dependency audit script",
+			"type": "feat",
+			"scope": "infra",
+			"additions": 696,
+			"deletions": 231,
+			"timestamp": "2026-03-24T22:36:11+01:00"
+		},
+		{
+			"hash": "8356ac6",
+			"short": "test(auth): add unit tests for local JWKS cache",
+			"type": "test",
+			"scope": "auth",
+			"additions": 353,
+			"deletions": 0,
+			"timestamp": "2026-03-24T22:36:22+01:00"
+		},
+		{
+			"hash": "42dd7d2",
+			"short": "fix(shared-help): harden help system with XSS protection, i18n, type safety, and reference implementation",
+			"type": "fix",
+			"scope": "shared-help",
+			"additions": 855,
+			"deletions": 811,
+			"timestamp": "2026-03-24T22:38:46+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

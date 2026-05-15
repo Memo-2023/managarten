@@ -1,0 +1,419 @@
+{
+	"date": "2025-12-08",
+	"day_number": 14,
+	"weekday": "Montag",
+	"commits": 34,
+	"authors": [
+		{
+			"name": "Wuesteon",
+			"count": 34
+		}
+	],
+	"additions": 5273,
+	"deletions": 3519,
+	"net_lines": 1754,
+	"files_changed": 90,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2025-12-08T11:53:42.000Z",
+		"last_commit_at": "2025-12-09T01:13:11.000Z",
+		"total_span_minutes": 799,
+		"active_minutes": 358,
+		"pauses": [
+			{
+				"from": "12:56",
+				"to": "14:38",
+				"minutes": 102
+			},
+			{
+				"from": "14:44",
+				"to": "15:51",
+				"minutes": 68
+			},
+			{
+				"from": "17:04",
+				"to": "17:35",
+				"minutes": 31
+			},
+			{
+				"from": "19:51",
+				"to": "20:49",
+				"minutes": 58
+			},
+			{
+				"from": "23:11",
+				"to": "01:00",
+				"minutes": 109
+			},
+			{
+				"from": "01:00",
+				"to": "02:13",
+				"minutes": 73
+			}
+		],
+		"longest_focus_minutes": 141
+	},
+	"top_dirs": [
+		{
+			"path": "apps/manacore/apps/web",
+			"pct": 23
+		},
+		{
+			"path": "apps/calendar/apps/web",
+			"pct": 9
+		},
+		{
+			"path": "apps/clock/apps/web",
+			"pct": 9
+		},
+		{
+			"path": "apps/todo/apps/web",
+			"pct": 8
+		},
+		{
+			"path": "services/mana-core-auth/src",
+			"pct": 7
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 40
+		},
+		{
+			"ext": "<no-ext>",
+			"count": 29
+		},
+		{
+			"ext": ".yml",
+			"count": 17
+		},
+		{
+			"ext": ".md",
+			"count": 13
+		},
+		{
+			"ext": ".json",
+			"count": 9
+		},
+		{
+			"ext": ".svelte",
+			"count": 7
+		}
+	],
+	"tags": ["ci", "web", "staging", "todo-web", "docker"],
+	"commits_list": [
+		{
+			"hash": "8de629d",
+			"short": "🚀 ci: add dev branch workflow with PR validation",
+			"type": null,
+			"scope": null,
+			"additions": 80,
+			"deletions": 13,
+			"timestamp": "2025-12-08T12:53:42+01:00"
+		},
+		{
+			"hash": "e423785",
+			"short": "🔧 ci: remove auto-deploy, keep manual/tag-based only",
+			"type": null,
+			"scope": null,
+			"additions": 6,
+			"deletions": 21,
+			"timestamp": "2025-12-08T12:56:06+01:00"
+		},
+		{
+			"hash": "67a15cc",
+			"short": "🧑‍💻 dx: add automatic database setup and dev:*:full commands",
+			"type": null,
+			"scope": null,
+			"additions": 515,
+			"deletions": 18,
+			"timestamp": "2025-12-08T14:38:18+01:00"
+		},
+		{
+			"hash": "541e227",
+			"short": "🙈 chore: ignore claude-flow metrics from git tracking",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 662,
+			"timestamp": "2025-12-08T14:38:41+01:00"
+		},
+		{
+			"hash": "60756f7",
+			"short": "small linting fixes",
+			"type": null,
+			"scope": null,
+			"additions": 5,
+			"deletions": 7,
+			"timestamp": "2025-12-08T14:44:17+01:00"
+		},
+		{
+			"hash": "bb4e12c",
+			"short": "🐛 fix: resolve auth issues in Manacore, Calendar, and Clock apps",
+			"type": null,
+			"scope": null,
+			"additions": 35,
+			"deletions": 69,
+			"timestamp": "2025-12-08T15:51:57+01:00"
+		},
+		{
+			"hash": "5e0b5a8",
+			"short": "🚀 ci: add Docker deployment for Manacore, Todo, Calendar, and Clock apps",
+			"type": null,
+			"scope": null,
+			"additions": 898,
+			"deletions": 0,
+			"timestamp": "2025-12-08T16:04:50+01:00"
+		},
+		{
+			"hash": "63a5674",
+			"short": "🐛 fix: add build args for SvelteKit env vars in web Dockerfiles",
+			"type": null,
+			"scope": null,
+			"additions": 38,
+			"deletions": 0,
+			"timestamp": "2025-12-08T16:15:42+01:00"
+		},
+		{
+			"hash": "f0d57c1",
+			"short": "🐛 fix: switch web apps to adapter-node for Docker builds",
+			"type": null,
+			"scope": null,
+			"additions": 482,
+			"deletions": 287,
+			"timestamp": "2025-12-08T16:30:04+01:00"
+		},
+		{
+			"hash": "48c5cb4",
+			"short": "🐛 fix: add MIDDLEWARE_URL to manacore-web Dockerfile",
+			"type": null,
+			"scope": null,
+			"additions": 2,
+			"deletions": 0,
+			"timestamp": "2025-12-08T16:37:18+01:00"
+		},
+		{
+			"hash": "ee091c4",
+			"short": "♻️ refactor: migrate manacore-web from Supabase to mana-core-auth",
+			"type": null,
+			"scope": null,
+			"additions": 350,
+			"deletions": 632,
+			"timestamp": "2025-12-08T17:04:35+01:00"
+		},
+		{
+			"hash": "9746db1",
+			"short": "🚀 ci: add manacore, todo, calendar, clock to tagged deployment workflow",
+			"type": null,
+			"scope": null,
+			"additions": 35,
+			"deletions": 4,
+			"timestamp": "2025-12-08T17:35:11+01:00"
+		},
+		{
+			"hash": "59ce92a",
+			"short": "🔧 fix: deployment workflow - lowercase image prefix, service names, and port fixes",
+			"type": null,
+			"scope": null,
+			"additions": 15,
+			"deletions": 7,
+			"timestamp": "2025-12-08T17:54:40+01:00"
+		},
+		{
+			"hash": "73dfe57",
+			"short": "🔧 fix: add GHCR authentication for staging server",
+			"type": null,
+			"scope": null,
+			"additions": 6,
+			"deletions": 0,
+			"timestamp": "2025-12-08T18:13:17+01:00"
+		},
+		{
+			"hash": "3485bf0",
+			"short": "fix(ci): use GITHUB_TOKEN for GHCR auth on staging server",
+			"type": "fix",
+			"scope": "ci",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2025-12-08T18:16:11+01:00"
+		},
+		{
+			"hash": "aa8cbb1",
+			"short": "fix(ci): correct health check path for backend deployments",
+			"type": "fix",
+			"scope": "ci",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2025-12-08T18:41:45+01:00"
+		},
+		{
+			"hash": "17c4932",
+			"short": "fix(todo-web): remove silent npm install failure in Dockerfile",
+			"type": "fix",
+			"scope": "todo-web",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2025-12-08T18:58:31+01:00"
+		},
+		{
+			"hash": "ef44c06",
+			"short": "fix(web): remove silent npm install failures in all web Dockerfiles",
+			"type": "fix",
+			"scope": "web",
+			"additions": 4,
+			"deletions": 4,
+			"timestamp": "2025-12-08T18:59:08+01:00"
+		},
+		{
+			"hash": "75d9d18",
+			"short": "fix(web): copy node_modules from builder instead of npm install",
+			"type": "fix",
+			"scope": "web",
+			"additions": 10,
+			"deletions": 20,
+			"timestamp": "2025-12-08T19:24:52+01:00"
+		},
+		{
+			"hash": "fd1c0ee",
+			"short": "fix(docker): preserve pnpm symlink structure in web Dockerfiles",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 45,
+			"deletions": 15,
+			"timestamp": "2025-12-08T19:38:49+01:00"
+		},
+		{
+			"hash": "828b6d7",
+			"short": "docs: add pnpm Docker symlinks troubleshooting guide",
+			"type": null,
+			"scope": null,
+			"additions": 129,
+			"deletions": 0,
+			"timestamp": "2025-12-08T19:51:14+01:00"
+		},
+		{
+			"hash": "3d717eb",
+			"short": "fix(web): add runtime env injection for auth URLs in todo, calendar, clock",
+			"type": "fix",
+			"scope": "web",
+			"additions": 176,
+			"deletions": 19,
+			"timestamp": "2025-12-08T20:49:39+01:00"
+		},
+		{
+			"hash": "7f7b8b6",
+			"short": "docs: add SvelteKit runtime env injection guidelines and troubleshooting",
+			"type": null,
+			"scope": null,
+			"additions": 222,
+			"deletions": 3,
+			"timestamp": "2025-12-08T20:54:13+01:00"
+		},
+		{
+			"hash": "c96820d",
+			"short": "fix(ci): pass version tags to docker-compose via .env file",
+			"type": "fix",
+			"scope": "ci",
+			"additions": 39,
+			"deletions": 2,
+			"timestamp": "2025-12-08T21:23:36+01:00"
+		},
+		{
+			"hash": "e02e2b3",
+			"short": "fix(staging): add all web app origins to mana-core-auth CORS",
+			"type": "fix",
+			"scope": "staging",
+			"additions": 2,
+			"deletions": 2,
+			"timestamp": "2025-12-08T21:28:06+01:00"
+		},
+		{
+			"hash": "7caeea4",
+			"short": "fix(manacore-web): add runtime env injection for auth URLs",
+			"type": "fix",
+			"scope": "manacore-web",
+			"additions": 39,
+			"deletions": 10,
+			"timestamp": "2025-12-08T21:47:02+01:00"
+		},
+		{
+			"hash": "4398fbc",
+			"short": "fix(manacore-web,todo-web): use runtime URLs for backend API services",
+			"type": "fix",
+			"scope": "manacore-web,todo-web",
+			"additions": 123,
+			"deletions": 24,
+			"timestamp": "2025-12-08T22:03:12+01:00"
+		},
+		{
+			"hash": "a50e4e5",
+			"short": "fix(staging): add manacore-web origin to backend CORS configs",
+			"type": "fix",
+			"scope": "staging",
+			"additions": 3,
+			"deletions": 3,
+			"timestamp": "2025-12-08T22:27:34+01:00"
+		},
+		{
+			"hash": "66bc3e9",
+			"short": "docs: add staging deployment issues troubleshooting guide",
+			"type": null,
+			"scope": null,
+			"additions": 267,
+			"deletions": 0,
+			"timestamp": "2025-12-08T22:43:53+01:00"
+		},
+		{
+			"hash": "6db8753",
+			"short": "debug(auth): add detailed logging to JwtAuthGuard",
+			"type": "debug",
+			"scope": "auth",
+			"additions": 10,
+			"deletions": 2,
+			"timestamp": "2025-12-08T22:52:59+01:00"
+		},
+		{
+			"hash": "81a2970",
+			"short": "docs: add tag naming convention for mana-core-auth",
+			"type": null,
+			"scope": null,
+			"additions": 12,
+			"deletions": 0,
+			"timestamp": "2025-12-08T23:02:40+01:00"
+		},
+		{
+			"hash": "d074e6d",
+			"short": "docs: comprehensive staging deployment troubleshooting guide",
+			"type": null,
+			"scope": null,
+			"additions": 132,
+			"deletions": 3,
+			"timestamp": "2025-12-08T23:11:01+01:00"
+		},
+		{
+			"hash": "18a7b2d",
+			"short": "docs: add setup templates and checklists for recurring tasks",
+			"type": null,
+			"scope": null,
+			"additions": 450,
+			"deletions": 0,
+			"timestamp": "2025-12-09T01:00:02+01:00"
+		},
+		{
+			"hash": "8af0172",
+			"short": "✨ feat(db): add production-safe migration system with advisory locks",
+			"type": null,
+			"scope": null,
+			"additions": 1139,
+			"deletions": 1689,
+			"timestamp": "2025-12-09T02:13:11+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

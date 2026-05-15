@@ -1,0 +1,117 @@
+{
+	"date": "2026-03-12",
+	"day_number": 54,
+	"weekday": "Donnerstag",
+	"commits": 5,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 5
+		}
+	],
+	"additions": 2145,
+	"deletions": 814,
+	"net_lines": 1331,
+	"files_changed": 8,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-03-12T09:26:12.000Z",
+		"last_commit_at": "2026-03-12T18:08:52.000Z",
+		"total_span_minutes": 523,
+		"active_minutes": 51,
+		"pauses": [
+			{
+				"from": "11:16",
+				"to": "19:08",
+				"minutes": 472
+			}
+		],
+		"longest_focus_minutes": 50
+	},
+	"top_dirs": [
+		{
+			"path": "apps/matrix/apps/mobile",
+			"pct": 77
+		},
+		{
+			"path": "pnpm-lock.yaml",
+			"pct": 23
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".json",
+			"count": 6
+		},
+		{
+			"ext": ".yaml",
+			"count": 3
+		},
+		{
+			"ext": ".tsx",
+			"count": 2
+		},
+		{
+			"ext": ".sh",
+			"count": 1
+		},
+		{
+			"ext": ".js",
+			"count": 1
+		}
+	],
+	"tags": ["matrix-mobile"],
+	"commits_list": [
+		{
+			"hash": "b35b9fd",
+			"short": "fix(matrix-mobile): align dependency versions with Expo SDK 55",
+			"type": "fix",
+			"scope": "matrix-mobile",
+			"additions": 2060,
+			"deletions": 723,
+			"timestamp": "2026-03-12T10:26:12+01:00"
+		},
+		{
+			"hash": "2491440",
+			"short": "fix(matrix-mobile): migrate from expo-av to expo-audio for SDK 55 compatibility",
+			"type": "fix",
+			"scope": "matrix-mobile",
+			"additions": 67,
+			"deletions": 81,
+			"timestamp": "2026-03-12T10:48:20+01:00"
+		},
+		{
+			"hash": "50b1a07",
+			"short": "fix(matrix-mobile): use sdk-55 build image instead of deprecated default",
+			"type": "fix",
+			"scope": "matrix-mobile",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-03-12T10:49:03+01:00"
+		},
+		{
+			"hash": "713f4f7",
+			"short": "fix(matrix-mobile): add babel-preset-expo as explicit dependency for EAS Build",
+			"type": "fix",
+			"scope": "matrix-mobile",
+			"additions": 4,
+			"deletions": 0,
+			"timestamp": "2026-03-12T11:16:38+01:00"
+		},
+		{
+			"hash": "402e135",
+			"short": "fix(matrix-mobile): add EAS Build pre-install hook for pnpm hoisted mode",
+			"type": "fix",
+			"scope": "matrix-mobile",
+			"additions": 13,
+			"deletions": 9,
+			"timestamp": "2026-03-12T19:08:52+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

@@ -1,0 +1,414 @@
+{
+	"date": "2025-12-03",
+	"day_number": 10,
+	"weekday": "Mittwoch",
+	"commits": 32,
+	"authors": [
+		{
+			"name": "Till-JS",
+			"count": 16
+		},
+		{
+			"name": "Wuesteon",
+			"count": 15
+		},
+		{
+			"name": "Nils Weiser",
+			"count": 1
+		}
+	],
+	"additions": 51262,
+	"deletions": 7445,
+	"net_lines": 43817,
+	"files_changed": 691,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2025-12-03T10:54:17.000Z",
+		"last_commit_at": "2025-12-04T03:21:15.000Z",
+		"total_span_minutes": 987,
+		"active_minutes": 200,
+		"pauses": [
+			{
+				"from": "11:57",
+				"to": "12:44",
+				"minutes": 47
+			},
+			{
+				"from": "12:46",
+				"to": "13:45",
+				"minutes": 59
+			},
+			{
+				"from": "13:58",
+				"to": "15:37",
+				"minutes": 99
+			},
+			{
+				"from": "16:27",
+				"to": "23:42",
+				"minutes": 435
+			},
+			{
+				"from": "23:42",
+				"to": "00:32",
+				"minutes": 50
+			},
+			{
+				"from": "02:43",
+				"to": "03:22",
+				"minutes": 38
+			},
+			{
+				"from": "03:22",
+				"to": "04:21",
+				"minutes": 59
+			}
+		],
+		"longest_focus_minutes": 132
+	},
+	"top_dirs": [
+		{
+			"path": "apps/clock/apps/web",
+			"pct": 7
+		},
+		{
+			"path": "apps/mail/apps/backend",
+			"pct": 7
+		},
+		{
+			"path": "apps/calendar/apps/web",
+			"pct": 5
+		},
+		{
+			"path": "apps/todo/apps/backend",
+			"pct": 5
+		},
+		{
+			"path": "apps/todo/apps/web",
+			"pct": 5
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 323
+		},
+		{
+			"ext": ".json",
+			"count": 130
+		},
+		{
+			"ext": ".svelte",
+			"count": 115
+		},
+		{
+			"ext": ".js",
+			"count": 63
+		},
+		{
+			"ext": ".tsx",
+			"count": 56
+		},
+		{
+			"ext": ".mjs",
+			"count": 39
+		}
+	],
+	"tags": [],
+	"commits_list": [
+		{
+			"hash": "e56485f",
+			"short": "✨ feat(calendar): improve header UI and add quick event overlay",
+			"type": null,
+			"scope": null,
+			"additions": 606,
+			"deletions": 31,
+			"timestamp": "2025-12-03T11:54:17+01:00"
+		},
+		{
+			"hash": "ba746fc",
+			"short": "Merge branch 'main' of https://github.com/Memo-2023/manacore-monorepo",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 0,
+			"timestamp": "2025-12-03T11:57:30+01:00"
+		},
+		{
+			"hash": "80f8a03",
+			"short": "✨ feat(calendar): add event detail modal and structured location fields",
+			"type": null,
+			"scope": null,
+			"additions": 2580,
+			"deletions": 809,
+			"timestamp": "2025-12-03T12:44:39+01:00"
+		},
+		{
+			"hash": "110c677",
+			"short": "🐛 fix(calendar): shift FAB buttons when PillNav is in sidebar mode",
+			"type": null,
+			"scope": null,
+			"additions": 7,
+			"deletions": 1,
+			"timestamp": "2025-12-03T12:46:34+01:00"
+		},
+		{
+			"hash": "0086e33",
+			"short": "🔧 chore(voxel-lava): add ESLint v9 flat config for backend",
+			"type": null,
+			"scope": null,
+			"additions": 379,
+			"deletions": 105,
+			"timestamp": "2025-12-03T13:45:37+01:00"
+		},
+		{
+			"hash": "fd962c3",
+			"short": "🔧 chore: add root ESLint config and enable lint in pre-commit",
+			"type": null,
+			"scope": null,
+			"additions": 367,
+			"deletions": 327,
+			"timestamp": "2025-12-03T13:49:57+01:00"
+		},
+		{
+			"hash": "f720a25",
+			"short": "🔧 chore: enforce stricter ESLint rules",
+			"type": null,
+			"scope": null,
+			"additions": 4,
+			"deletions": 5,
+			"timestamp": "2025-12-03T13:52:30+01:00"
+		},
+		{
+			"hash": "ec23630",
+			"short": "🔧 chore: add lint:root and lint:fix scripts",
+			"type": null,
+			"scope": null,
+			"additions": 2,
+			"deletions": 0,
+			"timestamp": "2025-12-03T13:58:40+01:00"
+		},
+		{
+			"hash": "2ef457e",
+			"short": "✨ feat(clock): add complete Clock app with backend, web, and landing",
+			"type": null,
+			"scope": null,
+			"additions": 7517,
+			"deletions": 2,
+			"timestamp": "2025-12-03T15:37:51+01:00"
+		},
+		{
+			"hash": "eca8ca6",
+			"short": "🐛 fix(clock): rename theme.ts to theme.svelte.ts for Svelte 5 runes",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 0,
+			"timestamp": "2025-12-03T15:46:48+01:00"
+		},
+		{
+			"hash": "32eef40",
+			"short": "🐛 fix(clock): update theme.svelte imports",
+			"type": null,
+			"scope": null,
+			"additions": 3,
+			"deletions": 3,
+			"timestamp": "2025-12-03T15:49:08+01:00"
+		},
+		{
+			"hash": "79b629b",
+			"short": "✨ feat(contacts): add import/export with Google Contacts integration",
+			"type": null,
+			"scope": null,
+			"additions": 5302,
+			"deletions": 6,
+			"timestamp": "2025-12-03T15:54:31+01:00"
+		},
+		{
+			"hash": "180eced",
+			"short": "✨ feat(contacts): add import/export with Google Contacts integration",
+			"type": null,
+			"scope": null,
+			"additions": 4182,
+			"deletions": 5,
+			"timestamp": "2025-12-03T15:55:04+01:00"
+		},
+		{
+			"hash": "79dd564",
+			"short": "🐛 fix(clock): use 'lume' as default theme variant instead of 'amber'",
+			"type": null,
+			"scope": null,
+			"additions": 40,
+			"deletions": 24,
+			"timestamp": "2025-12-03T15:58:34+01:00"
+		},
+		{
+			"hash": "604727c",
+			"short": "✨ feat(mail): add complete Mail app with backend, web, mobile, and landing",
+			"type": null,
+			"scope": null,
+			"additions": 15653,
+			"deletions": 0,
+			"timestamp": "2025-12-03T16:06:32+01:00"
+		},
+		{
+			"hash": "2126cd5",
+			"short": "✨ feat(clock): redesign timer page with better UX",
+			"type": null,
+			"scope": null,
+			"additions": 448,
+			"deletions": 138,
+			"timestamp": "2025-12-03T16:09:58+01:00"
+		},
+		{
+			"hash": "8dcf543",
+			"short": "🐛 fix(clock): fix i18n initialization and add missing nav icons",
+			"type": null,
+			"scope": null,
+			"additions": 37,
+			"deletions": 6,
+			"timestamp": "2025-12-03T16:11:01+01:00"
+		},
+		{
+			"hash": "043acf3",
+			"short": "🐛 fix(clock): fix Svelte class directive syntax errors",
+			"type": null,
+			"scope": null,
+			"additions": 3,
+			"deletions": 10,
+			"timestamp": "2025-12-03T16:12:17+01:00"
+		},
+		{
+			"hash": "cda3004",
+			"short": "🔧 chore: misc updates across contacts, mail, and shared-ui",
+			"type": null,
+			"scope": null,
+			"additions": 4615,
+			"deletions": 2027,
+			"timestamp": "2025-12-03T16:13:50+01:00"
+		},
+		{
+			"hash": "39b8a56",
+			"short": "🔧 chore: extend CORS origins and update todo theme",
+			"type": null,
+			"scope": null,
+			"additions": 2,
+			"deletions": 2,
+			"timestamp": "2025-12-03T16:27:18+01:00"
+		},
+		{
+			"hash": "16cb8e7",
+			"short": "improve code quality",
+			"type": null,
+			"scope": null,
+			"additions": 2355,
+			"deletions": 2590,
+			"timestamp": "2025-12-03T23:42:37+01:00"
+		},
+		{
+			"hash": "e9caa4a",
+			"short": "fix lint",
+			"type": null,
+			"scope": null,
+			"additions": 1784,
+			"deletions": 728,
+			"timestamp": "2025-12-04T00:32:13+01:00"
+		},
+		{
+			"hash": "843cf1e",
+			"short": "fixes",
+			"type": null,
+			"scope": null,
+			"additions": 400,
+			"deletions": 55,
+			"timestamp": "2025-12-04T00:51:40+01:00"
+		},
+		{
+			"hash": "4900106",
+			"short": "🎨 style: fix Prettier formatting issues",
+			"type": null,
+			"scope": null,
+			"additions": 776,
+			"deletions": 379,
+			"timestamp": "2025-12-04T01:05:10+01:00"
+		},
+		{
+			"hash": "5ea7767",
+			"short": "🐛 fix(chat-backend): add missing shared-nestjs-auth package to Dockerfile",
+			"type": null,
+			"scope": null,
+			"additions": 4,
+			"deletions": 0,
+			"timestamp": "2025-12-04T01:16:02+01:00"
+		},
+		{
+			"hash": "16a6050",
+			"short": "🐛 fix(ci): correct GitHub context property in test workflow",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2025-12-04T01:26:04+01:00"
+		},
+		{
+			"hash": "88c10e4",
+			"short": "Merge pull request #8 from Memo-2023/feat/code-quality",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 0,
+			"timestamp": "2025-12-04T01:37:17+01:00"
+		},
+		{
+			"hash": "e32e4b1",
+			"short": "🐛 fix(build): remove recursive build scripts from parent packages",
+			"type": null,
+			"scope": null,
+			"additions": 1394,
+			"deletions": 15,
+			"timestamp": "2025-12-04T01:59:53+01:00"
+		},
+		{
+			"hash": "aca6cdb",
+			"short": "🐛 fix(build): fix build errors and add troubleshooting docs",
+			"type": null,
+			"scope": null,
+			"additions": 2604,
+			"deletions": 22,
+			"timestamp": "2025-12-04T02:19:11+01:00"
+		},
+		{
+			"hash": "a87e138",
+			"short": "🐛 fix(docker): fix manadeck backend Dockerfile to use pnpm",
+			"type": null,
+			"scope": null,
+			"additions": 43,
+			"deletions": 36,
+			"timestamp": "2025-12-04T02:43:58+01:00"
+		},
+		{
+			"hash": "f7986bc",
+			"short": "🐛 fix(cd): fix staging deployment registry authentication and missing images",
+			"type": null,
+			"scope": null,
+			"additions": 99,
+			"deletions": 88,
+			"timestamp": "2025-12-04T03:22:07+01:00"
+		},
+		{
+			"hash": "cf2b6aa",
+			"short": "🐛 fix(cd): fix postgres startup and health check issues in staging",
+			"type": null,
+			"scope": null,
+			"additions": 55,
+			"deletions": 30,
+			"timestamp": "2025-12-04T04:21:15+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

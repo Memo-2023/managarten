@@ -1,0 +1,610 @@
+{
+	"date": "2026-02-14",
+	"day_number": 47,
+	"weekday": "Samstag",
+	"commits": 58,
+	"authors": [
+		{
+			"name": "Till-JS",
+			"count": 58
+		}
+	],
+	"additions": 9314,
+	"deletions": 2460,
+	"net_lines": 6854,
+	"files_changed": 146,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-02-14T09:55:13.000Z",
+		"last_commit_at": "2026-02-14T13:34:14.000Z",
+		"total_span_minutes": 219,
+		"active_minutes": 176,
+		"pauses": [
+			{
+				"from": "12:50",
+				"to": "13:32",
+				"minutes": 43
+			}
+		],
+		"longest_focus_minutes": 115
+	},
+	"top_dirs": [
+		{
+			"path": "apps/manacore/apps/web",
+			"pct": 7
+		},
+		{
+			"path": "services/matrix-stats-bot/src",
+			"pct": 7
+		},
+		{
+			"path": "services/matrix-clock-bot/src",
+			"pct": 7
+		},
+		{
+			"path": "apps/matrix/apps/web",
+			"pct": 5
+		},
+		{
+			"path": "docker-compose.macmini.yml",
+			"pct": 5
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 118
+		},
+		{
+			"ext": ".svelte",
+			"count": 15
+		},
+		{
+			"ext": ".html",
+			"count": 15
+		},
+		{
+			"ext": ".md",
+			"count": 13
+		},
+		{
+			"ext": ".yml",
+			"count": 10
+		},
+		{
+			"ext": ".json",
+			"count": 8
+		}
+	],
+	"tags": ["matrix-tts-bot", "clock-bot", "matrix-stt-bot", "docker", "stats-bot"],
+	"commits_list": [
+		{
+			"hash": "7c0bc73",
+			"short": "✨ feat(matrix): add drag & drop file upload to chat",
+			"type": null,
+			"scope": null,
+			"additions": 131,
+			"deletions": 3,
+			"timestamp": "2026-02-14T10:55:13+01:00"
+		},
+		{
+			"hash": "1c9c230",
+			"short": "fix(matrix-tts-bot): add API key authentication for mana-tts service",
+			"type": "fix",
+			"scope": "matrix-tts-bot",
+			"additions": 18,
+			"deletions": 2,
+			"timestamp": "2026-02-14T10:59:08+01:00"
+		},
+		{
+			"hash": "5e01c83",
+			"short": "✨ feat(matrix): improve chat UI with WhatsApp-style input and emoji picker",
+			"type": null,
+			"scope": null,
+			"additions": 199,
+			"deletions": 40,
+			"timestamp": "2026-02-14T11:02:36+01:00"
+		},
+		{
+			"hash": "70e45ed",
+			"short": "fix(matrix-stats-bot): adapt to Umami v2 API response format",
+			"type": "fix",
+			"scope": "matrix-stats-bot",
+			"additions": 121,
+			"deletions": 40,
+			"timestamp": "2026-02-14T11:03:03+01:00"
+		},
+		{
+			"hash": "fa7fb3c",
+			"short": "🩹 fix(matrix-bots): use authenticated media download for all bots",
+			"type": null,
+			"scope": null,
+			"additions": 44,
+			"deletions": 61,
+			"timestamp": "2026-02-14T11:04:13+01:00"
+		},
+		{
+			"hash": "e013384",
+			"short": "chore(docker): build matrix-tts-bot locally instead of from registry",
+			"type": "chore",
+			"scope": "docker",
+			"additions": 4,
+			"deletions": 1,
+			"timestamp": "2026-02-14T11:04:44+01:00"
+		},
+		{
+			"hash": "aff2db9",
+			"short": "✨ feat(matrix): add recently used emojis section in emoji picker",
+			"type": null,
+			"scope": null,
+			"additions": 71,
+			"deletions": 97,
+			"timestamp": "2026-02-14T11:08:31+01:00"
+		},
+		{
+			"hash": "0f234a0",
+			"short": "fix(matrix-tts-bot): use WAV format for better Matrix compatibility",
+			"type": "fix",
+			"scope": "matrix-tts-bot",
+			"additions": 5,
+			"deletions": 5,
+			"timestamp": "2026-02-14T11:09:56+01:00"
+		},
+		{
+			"hash": "c843531",
+			"short": "feat(analytics): update Umami tracking IDs for all web apps",
+			"type": "feat",
+			"scope": "analytics",
+			"additions": 21,
+			"deletions": 9,
+			"timestamp": "2026-02-14T11:14:16+01:00"
+		},
+		{
+			"hash": "ff1affb",
+			"short": "🩹 fix(nutriphi-bot): add automatic token refresh on JWT expiration",
+			"type": null,
+			"scope": null,
+			"additions": 199,
+			"deletions": 77,
+			"timestamp": "2026-02-14T11:18:19+01:00"
+		},
+		{
+			"hash": "4a26926",
+			"short": "🩹 fix(bot-services): export LOGIN_MESSAGES and auth error helpers",
+			"type": null,
+			"scope": null,
+			"additions": 244,
+			"deletions": 12,
+			"timestamp": "2026-02-14T11:19:55+01:00"
+		},
+		{
+			"hash": "e88597c",
+			"short": "✨ feat(gifts): add gift code creation script and initial codes",
+			"type": null,
+			"scope": null,
+			"additions": 199,
+			"deletions": 0,
+			"timestamp": "2026-02-14T11:23:08+01:00"
+		},
+		{
+			"hash": "bd7f197",
+			"short": "feat(stats-bot): add infrastructure monitoring commands",
+			"type": "feat",
+			"scope": "stats-bot",
+			"additions": 446,
+			"deletions": 48,
+			"timestamp": "2026-02-14T11:24:31+01:00"
+		},
+		{
+			"hash": "c698318",
+			"short": "chore(deploy): add PROMETHEUS_URL to stats-bot config",
+			"type": "chore",
+			"scope": "deploy",
+			"additions": 3,
+			"deletions": 0,
+			"timestamp": "2026-02-14T11:25:18+01:00"
+		},
+		{
+			"hash": "d81b8ae",
+			"short": "🔒 refactor(bots): remove !login command and enforce OIDC-only auth",
+			"type": null,
+			"scope": null,
+			"additions": 158,
+			"deletions": 786,
+			"timestamp": "2026-02-14T11:26:58+01:00"
+		},
+		{
+			"hash": "83c75ce",
+			"short": "🩹 fix(nutriphi-bot): use correct API field name for image analysis",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-02-14T11:28:46+01:00"
+		},
+		{
+			"hash": "2521a1e",
+			"short": "feat(matrix): sync recent emojis across apps via mana-core-auth",
+			"type": "feat",
+			"scope": "matrix",
+			"additions": 256,
+			"deletions": 42,
+			"timestamp": "2026-02-14T11:30:17+01:00"
+		},
+		{
+			"hash": "67f3d30",
+			"short": "fix(matrix-tts-bot): use /synthesize/auto endpoint for German voices",
+			"type": "fix",
+			"scope": "matrix-tts-bot",
+			"additions": 5,
+			"deletions": 8,
+			"timestamp": "2026-02-14T11:30:37+01:00"
+		},
+		{
+			"hash": "0099e1e",
+			"short": "chore(matrix-tts-bot): set German (de_thorsten) as default voice",
+			"type": "chore",
+			"scope": "matrix-tts-bot",
+			"additions": 2,
+			"deletions": 2,
+			"timestamp": "2026-02-14T11:55:47+01:00"
+		},
+		{
+			"hash": "acd8d02",
+			"short": "🔧 fix(clock-bot): use local build with SSO-Link auth",
+			"type": null,
+			"scope": null,
+			"additions": 13,
+			"deletions": 2,
+			"timestamp": "2026-02-14T11:57:53+01:00"
+		},
+		{
+			"hash": "a4ef703",
+			"short": "✨ feat(manacore): add gift code web UI",
+			"type": null,
+			"scope": null,
+			"additions": 1693,
+			"deletions": 0,
+			"timestamp": "2026-02-14T12:01:24+01:00"
+		},
+		{
+			"hash": "c221f92",
+			"short": "🩹 fix(nutriphi): update Gemini model from expired gemini-2.0-flash-exp to gemini-2.5-flash",
+			"type": null,
+			"scope": null,
+			"additions": 2,
+			"deletions": 2,
+			"timestamp": "2026-02-14T12:06:40+01:00"
+		},
+		{
+			"hash": "5af965e",
+			"short": "feat(clock-bot): add live timer progress with message editing",
+			"type": "feat",
+			"scope": "clock-bot",
+			"additions": 255,
+			"deletions": 8,
+			"timestamp": "2026-02-14T12:07:28+01:00"
+		},
+		{
+			"hash": "01b0112",
+			"short": "🩹 fix(mana-tts): add Piper/German voice support to /synthesize/auto endpoint",
+			"type": null,
+			"scope": null,
+			"additions": 40,
+			"deletions": 0,
+			"timestamp": "2026-02-14T12:08:17+01:00"
+		},
+		{
+			"hash": "4b950b7",
+			"short": "✨ feat(tts): add de_kerstin female German voice and set as default",
+			"type": null,
+			"scope": null,
+			"additions": 54,
+			"deletions": 31,
+			"timestamp": "2026-02-14T12:16:58+01:00"
+		},
+		{
+			"hash": "acf4512",
+			"short": "fix(session): add auto-refresh for expired JWT tokens",
+			"type": "fix",
+			"scope": "session",
+			"additions": 335,
+			"deletions": 11,
+			"timestamp": "2026-02-14T12:19:08+01:00"
+		},
+		{
+			"hash": "209a474",
+			"short": "🩹 fix(gifts): add duplicate claim check to first_come type",
+			"type": null,
+			"scope": null,
+			"additions": 18,
+			"deletions": 11,
+			"timestamp": "2026-02-14T12:19:43+01:00"
+		},
+		{
+			"hash": "1245109",
+			"short": "📝 docs(tts): document German voice support (Piper/Kerstin)",
+			"type": null,
+			"scope": null,
+			"additions": 66,
+			"deletions": 13,
+			"timestamp": "2026-02-14T12:21:40+01:00"
+		},
+		{
+			"hash": "139c040",
+			"short": "refactor(stats-bot): swap commands - !stats for personal, !global for global",
+			"type": "refactor",
+			"scope": "stats-bot",
+			"additions": 15,
+			"deletions": 15,
+			"timestamp": "2026-02-14T12:26:52+01:00"
+		},
+		{
+			"hash": "07ac2e8",
+			"short": "🔧 fix(stats-bot): add Redis and Matrix-SSO-Link for auto-login",
+			"type": null,
+			"scope": null,
+			"additions": 10,
+			"deletions": 2,
+			"timestamp": "2026-02-14T12:31:35+01:00"
+		},
+		{
+			"hash": "b1eaa88",
+			"short": "📝 docs(stats-bot): add Redis and Matrix-SSO-Link environment variables",
+			"type": null,
+			"scope": null,
+			"additions": 20,
+			"deletions": 3,
+			"timestamp": "2026-02-14T12:35:15+01:00"
+		},
+		{
+			"hash": "c13c313",
+			"short": "🐛 fix(gifts): reorder controller routes to fix 'me/*' matching",
+			"type": null,
+			"scope": null,
+			"additions": 642,
+			"deletions": 26,
+			"timestamp": "2026-02-14T12:38:23+01:00"
+		},
+		{
+			"hash": "e4ac539",
+			"short": "chore: update pnpm-lock.yaml for clock-bot @types/express",
+			"type": null,
+			"scope": null,
+			"additions": 456,
+			"deletions": 435,
+			"timestamp": "2026-02-14T12:39:16+01:00"
+		},
+		{
+			"hash": "531ed3e",
+			"short": "📝 docs(nutriphi): update Gemini model version to 2.5 Flash",
+			"type": null,
+			"scope": null,
+			"additions": 4,
+			"deletions": 2,
+			"timestamp": "2026-02-14T12:41:32+01:00"
+		},
+		{
+			"hash": "a6fc1cb",
+			"short": "feat(onboarding): add Matrix onboarding bot for profile setup",
+			"type": "feat",
+			"scope": "onboarding",
+			"additions": 1456,
+			"deletions": 0,
+			"timestamp": "2026-02-14T12:42:41+01:00"
+		},
+		{
+			"hash": "0a41640",
+			"short": "chore(onboarding-bot): add bot user creation script",
+			"type": "chore",
+			"scope": "onboarding-bot",
+			"additions": 110,
+			"deletions": 0,
+			"timestamp": "2026-02-14T12:43:29+01:00"
+		},
+		{
+			"hash": "5025bfa",
+			"short": "fix(clock-bot): optimize widget styling for Element info panel",
+			"type": "fix",
+			"scope": "clock-bot",
+			"additions": 89,
+			"deletions": 44,
+			"timestamp": "2026-02-14T12:46:19+01:00"
+		},
+		{
+			"hash": "8dad8a8",
+			"short": "🐛 fix(manacore-web): use runtime auth URL instead of hardcoded localhost",
+			"type": null,
+			"scope": null,
+			"additions": 39,
+			"deletions": 22,
+			"timestamp": "2026-02-14T12:47:40+01:00"
+		},
+		{
+			"hash": "1052dca",
+			"short": "🐛 fix(nutriphi-web): add missing shared packages to Dockerfile",
+			"type": null,
+			"scope": null,
+			"additions": 2,
+			"deletions": 0,
+			"timestamp": "2026-02-14T12:50:01+01:00"
+		},
+		{
+			"hash": "db7f2df",
+			"short": "🐛 fix(nutriphi-web): add shared-api-client to Dockerfile",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-02-14T13:32:52+01:00"
+		},
+		{
+			"hash": "992181c",
+			"short": "✨ feat(clock-bot): add timer status to room topic (Phase 3)",
+			"type": null,
+			"scope": null,
+			"additions": 125,
+			"deletions": 4,
+			"timestamp": "2026-02-14T13:36:08+01:00"
+		},
+		{
+			"hash": "c8ab4bb",
+			"short": "🐛 fix(nutriphi-web): fix i18n hydration error",
+			"type": null,
+			"scope": null,
+			"additions": 18,
+			"deletions": 7,
+			"timestamp": "2026-02-14T13:39:35+01:00"
+		},
+		{
+			"hash": "2e8b3b9",
+			"short": "fix(matrix-bot-common): ignore messages from other bots",
+			"type": "fix",
+			"scope": "matrix-bot-common",
+			"additions": 15,
+			"deletions": 0,
+			"timestamp": "2026-02-14T13:40:59+01:00"
+		},
+		{
+			"hash": "5ef04ea",
+			"short": "🐛 fix(nutriphi-backend): change user_id from uuid to text",
+			"type": null,
+			"scope": null,
+			"additions": 4,
+			"deletions": 4,
+			"timestamp": "2026-02-14T13:44:05+01:00"
+		},
+		{
+			"hash": "ba818ef",
+			"short": "fix(clock-bot): improve room topic error logging",
+			"type": "fix",
+			"scope": "clock-bot",
+			"additions": 4,
+			"deletions": 2,
+			"timestamp": "2026-02-14T13:47:15+01:00"
+		},
+		{
+			"hash": "72b1625",
+			"short": "🐛 fix(gifts): convert undefined sourceAppId to null for Drizzle",
+			"type": null,
+			"scope": null,
+			"additions": 3,
+			"deletions": 3,
+			"timestamp": "2026-02-14T13:50:01+01:00"
+		},
+		{
+			"hash": "102f0df",
+			"short": "🔧 chore(clock-bot): improve room topic error logging",
+			"type": null,
+			"scope": null,
+			"additions": 9,
+			"deletions": 2,
+			"timestamp": "2026-02-14T13:52:20+01:00"
+		},
+		{
+			"hash": "ab677b2",
+			"short": "🐛 fix(gifts): explicitly set nullable fields to null in DB inserts",
+			"type": null,
+			"scope": null,
+			"additions": 6,
+			"deletions": 0,
+			"timestamp": "2026-02-14T14:02:46+01:00"
+		},
+		{
+			"hash": "97264cd",
+			"short": "🔧 chore(clock-bot): add detailed topic update logging",
+			"type": null,
+			"scope": null,
+			"additions": 4,
+			"deletions": 1,
+			"timestamp": "2026-02-14T14:03:04+01:00"
+		},
+		{
+			"hash": "43ac782",
+			"short": "docs(matrix-bot-common): document bot-to-bot loop prevention",
+			"type": "docs",
+			"scope": "matrix-bot-common",
+			"additions": 5,
+			"deletions": 0,
+			"timestamp": "2026-02-14T14:05:34+01:00"
+		},
+		{
+			"hash": "79f1155",
+			"short": "✨ feat(nutriphi-bot): auto-analyze text meal descriptions",
+			"type": null,
+			"scope": null,
+			"additions": 139,
+			"deletions": 0,
+			"timestamp": "2026-02-14T14:18:10+01:00"
+		},
+		{
+			"hash": "d7236d6",
+			"short": "debug: add detailed logging for gift redemption",
+			"type": null,
+			"scope": null,
+			"additions": 65,
+			"deletions": 30,
+			"timestamp": "2026-02-14T14:28:37+01:00"
+		},
+		{
+			"hash": "e357f9f",
+			"short": "feat(matrix-stt-bot): add speech-to-text Matrix bot",
+			"type": "feat",
+			"scope": "matrix-stt-bot",
+			"additions": 1375,
+			"deletions": 508,
+			"timestamp": "2026-02-14T14:29:34+01:00"
+		},
+		{
+			"hash": "69f2eaf",
+			"short": "🐛 fix(matrix-bot-common): ignore edit events to prevent bot duplicate responses",
+			"type": null,
+			"scope": null,
+			"additions": 10,
+			"deletions": 0,
+			"timestamp": "2026-02-14T14:30:49+01:00"
+		},
+		{
+			"hash": "c703935",
+			"short": "feat(docker): add matrix-stt-bot to Mac Mini deployment",
+			"type": "feat",
+			"scope": "docker",
+			"additions": 33,
+			"deletions": 0,
+			"timestamp": "2026-02-14T14:31:01+01:00"
+		},
+		{
+			"hash": "aabc4a6",
+			"short": "🔧 chore: build matrix-mana-bot locally for quick fixes",
+			"type": null,
+			"scope": null,
+			"additions": 5,
+			"deletions": 2,
+			"timestamp": "2026-02-14T14:31:45+01:00"
+		},
+		{
+			"hash": "0a439bb",
+			"short": "fix(matrix-stt-bot): fix Dockerfile build order and port",
+			"type": "fix",
+			"scope": "matrix-stt-bot",
+			"additions": 5,
+			"deletions": 5,
+			"timestamp": "2026-02-14T14:32:23+01:00"
+		},
+		{
+			"hash": "ec83958",
+			"short": "fix(matrix-stt-bot): use same Dockerfile pattern as TTS bot",
+			"type": "fix",
+			"scope": "matrix-stt-bot",
+			"additions": 42,
+			"deletions": 31,
+			"timestamp": "2026-02-14T14:34:14+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

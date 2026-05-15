@@ -1,0 +1,201 @@
+{
+	"date": "2025-12-13",
+	"day_number": 19,
+	"weekday": "Samstag",
+	"commits": 15,
+	"authors": [
+		{
+			"name": "Till-JS",
+			"count": 15
+		}
+	],
+	"additions": 1827,
+	"deletions": 421,
+	"net_lines": 1406,
+	"files_changed": 32,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2025-12-13T12:50:42.000Z",
+		"last_commit_at": "2025-12-13T14:06:41.000Z",
+		"total_span_minutes": 76,
+		"active_minutes": 76,
+		"pauses": [],
+		"longest_focus_minutes": 76
+	},
+	"top_dirs": [
+		{
+			"path": "apps/calendar/apps/web",
+			"pct": 68
+		},
+		{
+			"path": "packages/shared-ui/src",
+			"pct": 28
+		},
+		{
+			"path": "apps/calendar/packages/shared",
+			"pct": 2
+		},
+		{
+			"path": "packages/shared-tailwind/src",
+			"pct": 2
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".svelte",
+			"count": 48
+		},
+		{
+			"ext": ".ts",
+			"count": 11
+		},
+		{
+			"ext": ".css",
+			"count": 1
+		}
+	],
+	"tags": ["calendar", "ui"],
+	"commits_list": [
+		{
+			"hash": "7d16664",
+			"short": "style(calendar): align FAB with InputBar height and position",
+			"type": "style",
+			"scope": "calendar",
+			"additions": 16,
+			"deletions": 14,
+			"timestamp": "2025-12-13T13:50:42+01:00"
+		},
+		{
+			"hash": "4444e89",
+			"short": "style(calendar): add more spacing between InputBar and toolbar",
+			"type": "style",
+			"scope": "calendar",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2025-12-13T13:51:21+01:00"
+		},
+		{
+			"hash": "15b2d5d",
+			"short": "style(calendar): increase spacing between InputBar and toolbar to 8rem",
+			"type": "style",
+			"scope": "calendar",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2025-12-13T13:52:34+01:00"
+		},
+		{
+			"hash": "ef69274",
+			"short": "fix(calendar): increase spacing between InputBar and toolbar correctly",
+			"type": "fix",
+			"scope": "calendar",
+			"additions": 19,
+			"deletions": 15,
+			"timestamp": "2025-12-13T13:55:13+01:00"
+		},
+		{
+			"hash": "5ebdc35",
+			"short": "style(calendar): reduce toolbar spacing slightly (150px → 140px)",
+			"type": "style",
+			"scope": "calendar",
+			"additions": 4,
+			"deletions": 4,
+			"timestamp": "2025-12-13T13:56:18+01:00"
+		},
+		{
+			"hash": "e8ec273",
+			"short": "feat(calendar): make toolbar content horizontally scrollable on mobile",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 314,
+			"deletions": 4,
+			"timestamp": "2025-12-13T13:57:28+01:00"
+		},
+		{
+			"hash": "faa9412",
+			"short": "style(calendar): add fade effect to DateStrip edges",
+			"type": "style",
+			"scope": "calendar",
+			"additions": 8,
+			"deletions": 0,
+			"timestamp": "2025-12-13T14:02:30+01:00"
+		},
+		{
+			"hash": "cc37db8",
+			"short": "feat(calendar): improve FAB positioning on mobile and subtle close styling",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 18,
+			"deletions": 3,
+			"timestamp": "2025-12-13T14:04:51+01:00"
+		},
+		{
+			"hash": "10d4170",
+			"short": "feat(calendar): add event context menu and fix event persistence",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 287,
+			"deletions": 14,
+			"timestamp": "2025-12-13T14:24:08+01:00"
+		},
+		{
+			"hash": "a1c3eaf",
+			"short": "feat(calendar): add context menu support to MonthView and MultiDayView",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 32,
+			"deletions": 3,
+			"timestamp": "2025-12-13T14:34:22+01:00"
+		},
+		{
+			"hash": "88c91e2",
+			"short": "fix(ui): replace hardcoded colors with theme variables",
+			"type": "fix",
+			"scope": "ui",
+			"additions": 140,
+			"deletions": 247,
+			"timestamp": "2025-12-13T14:40:16+01:00"
+		},
+		{
+			"hash": "8eb295d",
+			"short": "feat(calendar): add responsible person and attendees to events",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 576,
+			"deletions": 5,
+			"timestamp": "2025-12-13T14:53:53+01:00"
+		},
+		{
+			"hash": "bd89871",
+			"short": "feat(ui): add elevation system for overlays and modals",
+			"type": "feat",
+			"scope": "ui",
+			"additions": 104,
+			"deletions": 27,
+			"timestamp": "2025-12-13T15:00:33+01:00"
+		},
+		{
+			"hash": "2777447",
+			"short": "fix(calendar): improve all-day events row positioning and styling",
+			"type": "fix",
+			"scope": "calendar",
+			"additions": 81,
+			"deletions": 66,
+			"timestamp": "2025-12-13T15:05:11+01:00"
+		},
+		{
+			"hash": "c710f43",
+			"short": "feat(calendar): add DateStrip context menu with display settings",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 226,
+			"deletions": 18,
+			"timestamp": "2025-12-13T15:06:41+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

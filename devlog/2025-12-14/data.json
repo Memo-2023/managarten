@@ -1,0 +1,536 @@
+{
+	"date": "2025-12-14",
+	"day_number": 20,
+	"weekday": "Sonntag",
+	"commits": 48,
+	"authors": [
+		{
+			"name": "Till-JS",
+			"count": 48
+		}
+	],
+	"additions": 20781,
+	"deletions": 9666,
+	"net_lines": 11115,
+	"files_changed": 175,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2025-12-14T13:39:27.000Z",
+		"last_commit_at": "2025-12-15T02:37:01.000Z",
+		"total_span_minutes": 778,
+		"active_minutes": 273,
+		"pauses": [
+			{
+				"from": "15:35",
+				"to": "16:14",
+				"minutes": 39
+			},
+			{
+				"from": "16:32",
+				"to": "19:42",
+				"minutes": 190
+			},
+			{
+				"from": "19:42",
+				"to": "20:49",
+				"minutes": 67
+			},
+			{
+				"from": "21:43",
+				"to": "22:20",
+				"minutes": 37
+			},
+			{
+				"from": "23:43",
+				"to": "02:35",
+				"minutes": 172
+			}
+		],
+		"longest_focus_minutes": 83
+	},
+	"top_dirs": [
+		{
+			"path": "apps/calendar/apps/web",
+			"pct": 47
+		},
+		{
+			"path": "apps/contacts/apps/web",
+			"pct": 28
+		},
+		{
+			"path": "packages/shared-ui/src",
+			"pct": 15
+		},
+		{
+			"path": "apps/calendar/apps/backend",
+			"pct": 5
+		},
+		{
+			"path": "apps/contacts/apps/backend",
+			"pct": 2
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".svelte",
+			"count": 184
+		},
+		{
+			"ext": ".ts",
+			"count": 109
+		},
+		{
+			"ext": ".mjs",
+			"count": 1
+		},
+		{
+			"ext": ".json",
+			"count": 1
+		},
+		{
+			"ext": ".yaml",
+			"count": 1
+		}
+	],
+	"tags": ["calendar", "contacts", "shared-ui", "ui"],
+	"commits_list": [
+		{
+			"hash": "6bea47d",
+			"short": "refactor(calendar): consolidate code patterns and reduce duplication",
+			"type": "refactor",
+			"scope": "calendar",
+			"additions": 288,
+			"deletions": 349,
+			"timestamp": "2025-12-14T14:39:27+01:00"
+		},
+		{
+			"hash": "cab1905",
+			"short": "fix(calendar): prevent event resize jump on drag start",
+			"type": "fix",
+			"scope": "calendar",
+			"additions": 61,
+			"deletions": 14,
+			"timestamp": "2025-12-14T15:07:43+01:00"
+		},
+		{
+			"hash": "5190b14",
+			"short": "feat(ui): add ConfirmationPopover component for inline confirmations",
+			"type": "feat",
+			"scope": "ui",
+			"additions": 434,
+			"deletions": 22,
+			"timestamp": "2025-12-14T15:09:16+01:00"
+		},
+		{
+			"hash": "b720f64",
+			"short": "feat(calendar): replace calendar dropdown with horizontal pills",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 680,
+			"deletions": 344,
+			"timestamp": "2025-12-14T15:19:22+01:00"
+		},
+		{
+			"hash": "4098283",
+			"short": "feat(calendar): filter events by calendar visibility",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 62,
+			"deletions": 14,
+			"timestamp": "2025-12-14T15:22:03+01:00"
+		},
+		{
+			"hash": "7bbeb7c",
+			"short": "feat(calendar): improve settings page UI and add default calendar selection",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 30,
+			"deletions": 4,
+			"timestamp": "2025-12-14T15:22:44+01:00"
+		},
+		{
+			"hash": "9eb3f42",
+			"short": "feat(calendar): add week number display to DateStrip",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 54,
+			"deletions": 0,
+			"timestamp": "2025-12-14T15:35:51+01:00"
+		},
+		{
+			"hash": "863f296",
+			"short": "feat(ui): add shared ExpandableToolbar and unify toolbar dropdowns",
+			"type": "feat",
+			"scope": "ui",
+			"additions": 2343,
+			"deletions": 783,
+			"timestamp": "2025-12-14T16:14:30+01:00"
+		},
+		{
+			"hash": "6ce385a",
+			"short": "style: apply formatting fixes from pre-commit hooks",
+			"type": null,
+			"scope": null,
+			"additions": 540,
+			"deletions": 11,
+			"timestamp": "2025-12-14T16:16:29+01:00"
+		},
+		{
+			"hash": "d76f2dd",
+			"short": "style: format NewContactModal component",
+			"type": null,
+			"scope": null,
+			"additions": 323,
+			"deletions": 7,
+			"timestamp": "2025-12-14T16:18:00+01:00"
+		},
+		{
+			"hash": "3f27e47",
+			"short": "fix(contacts): improve new contact card and sticky section headers",
+			"type": "fix",
+			"scope": "contacts",
+			"additions": 22,
+			"deletions": 27,
+			"timestamp": "2025-12-14T16:31:38+01:00"
+		},
+		{
+			"hash": "6862622",
+			"short": "feat(contacts): unify network page toolbar with ExpandableToolbar pattern",
+			"type": "feat",
+			"scope": "contacts",
+			"additions": 451,
+			"deletions": 305,
+			"timestamp": "2025-12-14T16:32:59+01:00"
+		},
+		{
+			"hash": "4b6a4c7",
+			"short": "feat(contacts): add collapsible alphabet-nav with FAB toggle",
+			"type": "feat",
+			"scope": "contacts",
+			"additions": 294,
+			"deletions": 21,
+			"timestamp": "2025-12-14T19:42:38+01:00"
+		},
+		{
+			"hash": "cdc3cd3",
+			"short": "feat(calendar): add birthday integration from contacts service",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 995,
+			"deletions": 85,
+			"timestamp": "2025-12-14T20:49:08+01:00"
+		},
+		{
+			"hash": "c4fe9ea",
+			"short": "refactor(calendar): extract shared constants and event filtering utilities",
+			"type": "refactor",
+			"scope": "calendar",
+			"additions": 337,
+			"deletions": 207,
+			"timestamp": "2025-12-14T21:07:52+01:00"
+		},
+		{
+			"hash": "026c165",
+			"short": "fix(contacts): resolve Svelte 5 hydration error",
+			"type": "fix",
+			"scope": "contacts",
+			"additions": 774,
+			"deletions": 27,
+			"timestamp": "2025-12-14T21:13:22+01:00"
+		},
+		{
+			"hash": "5bf275d",
+			"short": "refactor(calendar): add comprehensive drag/drop composables",
+			"type": "refactor",
+			"scope": "calendar",
+			"additions": 807,
+			"deletions": 173,
+			"timestamp": "2025-12-14T21:13:58+01:00"
+		},
+		{
+			"hash": "e0ef152",
+			"short": "feat(calendar): add minimize button to DateStrip",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 54,
+			"deletions": 0,
+			"timestamp": "2025-12-14T21:17:22+01:00"
+		},
+		{
+			"hash": "668957a",
+			"short": "refactor(calendar): extract birthday popover logic into composable",
+			"type": "refactor",
+			"scope": "calendar",
+			"additions": 76,
+			"deletions": 66,
+			"timestamp": "2025-12-14T21:18:50+01:00"
+		},
+		{
+			"hash": "b966c91",
+			"short": "refactor(calendar): extract EventCard component from views",
+			"type": "refactor",
+			"scope": "calendar",
+			"additions": 400,
+			"deletions": 370,
+			"timestamp": "2025-12-14T21:26:32+01:00"
+		},
+		{
+			"hash": "0badca2",
+			"short": "feat(calendar): add configurable ViewModePill for quick view switching",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 329,
+			"deletions": 0,
+			"timestamp": "2025-12-14T21:29:03+01:00"
+		},
+		{
+			"hash": "cc28cc7",
+			"short": "feat(calendar): add birthday calendar and collapsible date strip",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 197,
+			"deletions": 1,
+			"timestamp": "2025-12-14T21:29:58+01:00"
+		},
+		{
+			"hash": "48edd85",
+			"short": "refactor(calendar): improve agenda and event components",
+			"type": "refactor",
+			"scope": "calendar",
+			"additions": 76,
+			"deletions": 57,
+			"timestamp": "2025-12-14T21:30:24+01:00"
+		},
+		{
+			"hash": "d353fb0",
+			"short": "refactor(contacts): remove favorites functionality",
+			"type": "refactor",
+			"scope": "contacts",
+			"additions": 0,
+			"deletions": 2066,
+			"timestamp": "2025-12-14T21:30:55+01:00"
+		},
+		{
+			"hash": "c7a9e88",
+			"short": "refactor(contacts): remove network and new contact pages",
+			"type": "refactor",
+			"scope": "contacts",
+			"additions": 0,
+			"deletions": 1327,
+			"timestamp": "2025-12-14T21:31:12+01:00"
+		},
+		{
+			"hash": "fc3129a",
+			"short": "refactor(contacts): major component and API refactoring",
+			"type": "refactor",
+			"scope": "contacts",
+			"additions": 1812,
+			"deletions": 1175,
+			"timestamp": "2025-12-14T21:31:36+01:00"
+		},
+		{
+			"hash": "bc0db4d",
+			"short": "feat(shared-ui): add FilterDropdown export and InputBar FAB support",
+			"type": "feat",
+			"scope": "shared-ui",
+			"additions": 15,
+			"deletions": 3,
+			"timestamp": "2025-12-14T21:32:03+01:00"
+		},
+		{
+			"hash": "bed7c4e",
+			"short": "chore: update pnpm-lock.yaml",
+			"type": null,
+			"scope": null,
+			"additions": 210,
+			"deletions": 327,
+			"timestamp": "2025-12-14T21:32:16+01:00"
+		},
+		{
+			"hash": "1ff172f",
+			"short": "feat(contacts): add birthday and custom dates support",
+			"type": "feat",
+			"scope": "contacts",
+			"additions": 462,
+			"deletions": 1,
+			"timestamp": "2025-12-14T21:43:17+01:00"
+		},
+		{
+			"hash": "9e71139",
+			"short": "feat(shared-ui): add InputBar context menu with settings",
+			"type": "feat",
+			"scope": "shared-ui",
+			"additions": 849,
+			"deletions": 11,
+			"timestamp": "2025-12-14T22:20:00+01:00"
+		},
+		{
+			"hash": "e0d7b3d",
+			"short": "feat(calendar): add swipe navigation for calendar views",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 618,
+			"deletions": 65,
+			"timestamp": "2025-12-14T22:22:15+01:00"
+		},
+		{
+			"hash": "9e0c8cb",
+			"short": "refactor(contacts): use InputBar settings store for autoFocus",
+			"type": "refactor",
+			"scope": "contacts",
+			"additions": 0,
+			"deletions": 1,
+			"timestamp": "2025-12-14T22:22:40+01:00"
+		},
+		{
+			"hash": "781225a",
+			"short": "fix(shared-ui): add backdrop to ContextMenu to block clicks behind",
+			"type": "fix",
+			"scope": "shared-ui",
+			"additions": 19,
+			"deletions": 0,
+			"timestamp": "2025-12-14T22:46:36+01:00"
+		},
+		{
+			"hash": "4e391bd",
+			"short": "refine(calendar): improve swipe navigation UX",
+			"type": "refine",
+			"scope": "calendar",
+			"additions": 10,
+			"deletions": 20,
+			"timestamp": "2025-12-14T22:57:17+01:00"
+		},
+		{
+			"hash": "dca7d97",
+			"short": "feat(calendar): improve swipe to smooth linear scrolling",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 66,
+			"deletions": 21,
+			"timestamp": "2025-12-14T23:06:19+01:00"
+		},
+		{
+			"hash": "0ebc3d0",
+			"short": "fix(calendar): use pure JS animation for truly linear swipe",
+			"type": "fix",
+			"scope": "calendar",
+			"additions": 53,
+			"deletions": 25,
+			"timestamp": "2025-12-14T23:08:58+01:00"
+		},
+		{
+			"hash": "3929911",
+			"short": "feat(calendar): enable fast multi-page navigation",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 67,
+			"deletions": 10,
+			"timestamp": "2025-12-14T23:14:39+01:00"
+		},
+		{
+			"hash": "a86f8e4",
+			"short": "refactor(calendar): simplify swipe to instant navigation",
+			"type": "refactor",
+			"scope": "calendar",
+			"additions": 45,
+			"deletions": 299,
+			"timestamp": "2025-12-14T23:19:39+01:00"
+		},
+		{
+			"hash": "78fb495",
+			"short": "feat(calendar): add visual scrolling with instant snap",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 123,
+			"deletions": 33,
+			"timestamp": "2025-12-14T23:21:24+01:00"
+		},
+		{
+			"hash": "1f7b93a",
+			"short": "feat(calendar): add context menu to CalendarHeader with display settings",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 206,
+			"deletions": 7,
+			"timestamp": "2025-12-14T23:25:29+01:00"
+		},
+		{
+			"hash": "20bc954",
+			"short": "fix(calendar): prevent double navigation with lock mechanism",
+			"type": "fix",
+			"scope": "calendar",
+			"additions": 27,
+			"deletions": 11,
+			"timestamp": "2025-12-14T23:25:43+01:00"
+		},
+		{
+			"hash": "5ac8de7",
+			"short": "revert(calendar): restore animated swipe navigation",
+			"type": "revert",
+			"scope": "calendar",
+			"additions": 194,
+			"deletions": 46,
+			"timestamp": "2025-12-14T23:30:55+01:00"
+		},
+		{
+			"hash": "c712cc7",
+			"short": "feat(shared-ui): add reusable HelpModal system with keyboard shortcuts and syntax panels",
+			"type": "feat",
+			"scope": "shared-ui",
+			"additions": 1238,
+			"deletions": 195,
+			"timestamp": "2025-12-14T23:43:19+01:00"
+		},
+		{
+			"hash": "1395291",
+			"short": "feat(calendar): combine calendar/tasks pill with sidebar toggle and mobile splitscreen",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 420,
+			"deletions": 511,
+			"timestamp": "2025-12-15T02:35:35+01:00"
+		},
+		{
+			"hash": "3edb65c",
+			"short": "feat(calendar): add number labels to ViewSwitcher and extended day views",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 627,
+			"deletions": 63,
+			"timestamp": "2025-12-15T02:54:10+01:00"
+		},
+		{
+			"hash": "a6d4393",
+			"short": "feat(calendar): add immersive/fullscreen mode toggle",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 306,
+			"deletions": 99,
+			"timestamp": "2025-12-15T03:22:30+01:00"
+		},
+		{
+			"hash": "893c6ef",
+			"short": "feat(shared-ui): unify ImmersiveModeToggle across Calendar, Contacts, and Todo apps",
+			"type": "feat",
+			"scope": "shared-ui",
+			"additions": 246,
+			"deletions": 121,
+			"timestamp": "2025-12-15T03:34:15+01:00"
+		},
+		{
+			"hash": "bc0eeca",
+			"short": "Feat: Tagmodal, fullscreenmode, tag groups, onepage design philosophy",
+			"type": null,
+			"scope": null,
+			"additions": 3541,
+			"deletions": 342,
+			"timestamp": "2025-12-15T03:37:01+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

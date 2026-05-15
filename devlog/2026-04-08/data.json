@@ -1,0 +1,971 @@
+{
+	"date": "2026-04-08",
+	"day_number": 77,
+	"weekday": "Mittwoch",
+	"commits": 97,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 97
+		}
+	],
+	"additions": 25634,
+	"deletions": 54194,
+	"net_lines": -28560,
+	"files_changed": 631,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-04-08T09:47:59.000Z",
+		"last_commit_at": "2026-04-09T00:06:10.000Z",
+		"total_span_minutes": 858,
+		"active_minutes": 445,
+		"pauses": [
+			{
+				"from": "13:14",
+				"to": "15:36",
+				"minutes": 141
+			},
+			{
+				"from": "18:40",
+				"to": "22:10",
+				"minutes": 210
+			},
+			{
+				"from": "23:27",
+				"to": "00:29",
+				"minutes": 62
+			}
+		],
+		"longest_focus_minutes": 185
+	},
+	"top_dirs": [
+		{
+			"path": "apps/mana/apps/web",
+			"pct": 30
+		},
+		{
+			"path": "apps/matrix/apps/web",
+			"pct": 10
+		},
+		{
+			"path": "apps/matrix/apps/mobile",
+			"pct": 7
+		},
+		{
+			"path": "services/mana-matrix-bot/internal",
+			"pct": 6
+		},
+		{
+			"path": "packages/shared-llm/src",
+			"pct": 4
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 241
+		},
+		{
+			"ext": ".svelte",
+			"count": 166
+		},
+		{
+			"ext": ".md",
+			"count": 75
+		},
+		{
+			"ext": ".go",
+			"count": 52
+		},
+		{
+			"ext": ".json",
+			"count": 51
+		},
+		{
+			"ext": ".sh",
+			"count": 33
+		}
+	],
+	"tags": ["mana/web", "local-llm", "csp", "mana-auth", "todo"],
+	"commits_list": [
+		{
+			"hash": "142a65a",
+			"short": "docs: Phase 9 documentation roundup — close encryption-shaped doc gaps",
+			"type": null,
+			"scope": null,
+			"additions": 481,
+			"deletions": 130,
+			"timestamp": "2026-04-08T11:47:59+02:00"
+		},
+		{
+			"hash": "b6486a8",
+			"short": "fix(mana-video-gen): typo in get_model_info — total_mem → total_memory",
+			"type": "fix",
+			"scope": "mana-video-gen",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-04-08T11:59:40+02:00"
+		},
+		{
+			"hash": "fe3fc9e",
+			"short": "docs: trim CLAUDE.md files — remove stale + duplicated guidance",
+			"type": null,
+			"scope": null,
+			"additions": 182,
+			"deletions": 1234,
+			"timestamp": "2026-04-08T11:59:51+02:00"
+		},
+		{
+			"hash": "ed8ab44",
+			"short": "feat(sync): conflict visualization with restore-my-version toast",
+			"type": "feat",
+			"scope": "sync",
+			"additions": 771,
+			"deletions": 0,
+			"timestamp": "2026-04-08T12:01:17+02:00"
+		},
+		{
+			"hash": "b3523f8",
+			"short": "chore: cleanup leftover dirs from ManaCore→Mana rename + document apps/api",
+			"type": null,
+			"scope": null,
+			"additions": 13,
+			"deletions": 442,
+			"timestamp": "2026-04-08T12:12:02+02:00"
+		},
+		{
+			"hash": "c8ed58b",
+			"short": "fix(mana,ui): integrate guest nudge into bottom stack + theme it",
+			"type": "fix",
+			"scope": "mana,ui",
+			"additions": 47,
+			"deletions": 35,
+			"timestamp": "2026-04-08T12:13:05+02:00"
+		},
+		{
+			"hash": "5581295",
+			"short": "chore: tidy root files + reorganize a few stale docs",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 557,
+			"timestamp": "2026-04-08T12:15:27+02:00"
+		},
+		{
+			"hash": "a3a4745",
+			"short": "docs(audit): file-bytes encryption implementation plan + audit roll-up",
+			"type": "docs",
+			"scope": "audit",
+			"additions": 387,
+			"deletions": 10,
+			"timestamp": "2026-04-08T12:17:15+02:00"
+		},
+		{
+			"hash": "b0a08ce",
+			"short": "docs(services): add CLAUDE.md for stt + events, fix stale entries, flag port collisions",
+			"type": "docs",
+			"scope": "services",
+			"additions": 198,
+			"deletions": 9,
+			"timestamp": "2026-04-08T12:23:48+02:00"
+		},
+		{
+			"hash": "3c91691",
+			"short": "fix(mana-image-gen): align source default port with production reality",
+			"type": "fix",
+			"scope": "mana-image-gen",
+			"additions": 58,
+			"deletions": 30,
+			"timestamp": "2026-04-08T12:30:33+02:00"
+		},
+		{
+			"hash": "ff7dc5d",
+			"short": "feat(auth): structured error codes + conditional passkey UI",
+			"type": "feat",
+			"scope": "auth",
+			"additions": 35,
+			"deletions": 7,
+			"timestamp": "2026-04-08T12:40:51+02:00"
+		},
+		{
+			"hash": "abe0a21",
+			"short": "refactor(auth-ui): tighten LoginPage UX, a11y, and dead code",
+			"type": "refactor",
+			"scope": "auth-ui",
+			"additions": 203,
+			"deletions": 185,
+			"timestamp": "2026-04-08T12:41:19+02:00"
+		},
+		{
+			"hash": "b8e18b7",
+			"short": "chore(ai-services): adopt Windows GPU as source of truth for llm/stt/tts",
+			"type": "chore",
+			"scope": "ai-services",
+			"additions": 1619,
+			"deletions": 1257,
+			"timestamp": "2026-04-08T12:46:03+02:00"
+		},
+		{
+			"hash": "c7b4388",
+			"short": "feat(mana-image-gen): replace Mac flux2.c implementation with Windows GPU diffusers",
+			"type": "feat",
+			"scope": "mana-image-gen",
+			"additions": 547,
+			"deletions": 592,
+			"timestamp": "2026-04-08T13:02:42+02:00"
+		},
+		{
+			"hash": "f434703",
+			"short": "chore(mac-mini): remove all AI service infrastructure (moved to Windows GPU)",
+			"type": "chore",
+			"scope": "mac-mini",
+			"additions": 232,
+			"deletions": 1920,
+			"timestamp": "2026-04-08T13:06:40+02:00"
+		},
+		{
+			"hash": "4cb1bc1",
+			"short": "fix(mana-voice-bot): move default port 3050 → 3024 + Windows GPU deployment notes",
+			"type": "fix",
+			"scope": "mana-voice-bot",
+			"additions": 137,
+			"deletions": 133,
+			"timestamp": "2026-04-08T13:14:57+02:00"
+		},
+		{
+			"hash": "2b44946",
+			"short": "fix(mana/web): unblock voice capture — permissions policy, notification mount, dev SW",
+			"type": "fix",
+			"scope": "mana/web",
+			"additions": 32,
+			"deletions": 3,
+			"timestamp": "2026-04-08T15:36:03+02:00"
+		},
+		{
+			"hash": "45958ad",
+			"short": "feat(mana/web): global requireAuth() gate for guest-blocked features",
+			"type": "feat",
+			"scope": "mana/web",
+			"additions": 356,
+			"deletions": 2,
+			"timestamp": "2026-04-08T15:36:38+02:00"
+		},
+		{
+			"hash": "f567826",
+			"short": "chore(deps): reconcile pnpm-lock with package.json drift",
+			"type": "chore",
+			"scope": "deps",
+			"additions": 180,
+			"deletions": 282,
+			"timestamp": "2026-04-08T15:41:14+02:00"
+		},
+		{
+			"hash": "0d1d3b9",
+			"short": "fix(mana-auth): declare missing nanoid dependency",
+			"type": "fix",
+			"scope": "mana-auth",
+			"additions": 13,
+			"deletions": 2,
+			"timestamp": "2026-04-08T15:50:14+02:00"
+		},
+		{
+			"hash": "079cc39",
+			"short": "refactor(mana/web): extract shared <VoiceCaptureBar> for module voice capture",
+			"type": "refactor",
+			"scope": "mana/web",
+			"additions": 334,
+			"deletions": 568,
+			"timestamp": "2026-04-08T15:51:22+02:00"
+		},
+		{
+			"hash": "e0e8019",
+			"short": "fix(mac-mini): pass MANA_AUTH_KEK through to mana-auth container",
+			"type": "fix",
+			"scope": "mac-mini",
+			"additions": 4,
+			"deletions": 2,
+			"timestamp": "2026-04-08T15:58:19+02:00"
+		},
+		{
+			"hash": "9b3d7c7",
+			"short": "feat(notes): voice capture in workbench ListView via shared <VoiceCaptureBar>",
+			"type": "feat",
+			"scope": "notes",
+			"additions": 193,
+			"deletions": 1,
+			"timestamp": "2026-04-08T15:59:42+02:00"
+		},
+		{
+			"hash": "b841a24",
+			"short": "feat(todo): voice quick-add in workbench ListView via shared <VoiceCaptureBar>",
+			"type": "feat",
+			"scope": "todo",
+			"additions": 60,
+			"deletions": 0,
+			"timestamp": "2026-04-08T16:01:50+02:00"
+		},
+		{
+			"hash": "b48c9ff",
+			"short": "refactor(mana/web): migrate dreams + memoro to /api/v1/voice/transcribe",
+			"type": "refactor",
+			"scope": "mana/web",
+			"additions": 10,
+			"deletions": 216,
+			"timestamp": "2026-04-08T16:05:49+02:00"
+		},
+		{
+			"hash": "c32a5a5",
+			"short": "feat(todo): LLM-parse spoken tasks into title + dueDate + priority",
+			"type": "feat",
+			"scope": "todo",
+			"additions": 193,
+			"deletions": 17,
+			"timestamp": "2026-04-08T16:08:09+02:00"
+		},
+		{
+			"hash": "d8da11a",
+			"short": "feat(todo): typed quick-add gets the same LLM enrichment as voice",
+			"type": "feat",
+			"scope": "todo",
+			"additions": 70,
+			"deletions": 18,
+			"timestamp": "2026-04-08T16:12:17+02:00"
+		},
+		{
+			"hash": "55cc75e",
+			"short": "fix(mana-auth): /api/v1/auth/login uses wrong cookie name in production",
+			"type": "fix",
+			"scope": "mana-auth",
+			"additions": 11,
+			"deletions": 2,
+			"timestamp": "2026-04-08T16:20:18+02:00"
+		},
+		{
+			"hash": "d37483a",
+			"short": "feat(todo): map LLM topic hints to existing workspace tags",
+			"type": "feat",
+			"scope": "todo",
+			"additions": 70,
+			"deletions": 7,
+			"timestamp": "2026-04-08T16:21:32+02:00"
+		},
+		{
+			"hash": "4eb5dfe",
+			"short": "feat(mana/web): named workbench scenes (Home, Deep Work, …)",
+			"type": "feat",
+			"scope": "mana/web",
+			"additions": 1413,
+			"deletions": 106,
+			"timestamp": "2026-04-08T16:25:13+02:00"
+		},
+		{
+			"hash": "8e8b6ac",
+			"short": "fix(mana-auth) + chore: rewrite /api/v1/auth/login JWT mint, remove Matrix stack",
+			"type": null,
+			"scope": null,
+			"additions": 88,
+			"deletions": 29437,
+			"timestamp": "2026-04-08T16:25:55+02:00"
+		},
+		{
+			"hash": "e337243",
+			"short": "test(mana/web): unit tests for voice quick-add matchers + fix habit ranking",
+			"type": "test",
+			"scope": "mana/web",
+			"additions": 262,
+			"deletions": 24,
+			"timestamp": "2026-04-08T16:37:11+02:00"
+		},
+		{
+			"hash": "2514831",
+			"short": "chore(matrix): scrub final matrix references after subsystem removal",
+			"type": "chore",
+			"scope": "matrix",
+			"additions": 1,
+			"deletions": 31,
+			"timestamp": "2026-04-08T16:37:40+02:00"
+		},
+		{
+			"hash": "029c797",
+			"short": "feat(mana/web): pass MANA_LLM_API_KEY from voice parse proxies",
+			"type": "feat",
+			"scope": "mana/web",
+			"additions": 41,
+			"deletions": 2,
+			"timestamp": "2026-04-08T16:40:26+02:00"
+		},
+		{
+			"hash": "da6e2f3",
+			"short": "chore(deps): update pnpm-lock after Matrix stack removal",
+			"type": "chore",
+			"scope": "deps",
+			"additions": 269,
+			"deletions": 634,
+			"timestamp": "2026-04-08T16:41:15+02:00"
+		},
+		{
+			"hash": "7f38213",
+			"short": "fix(mana-llm): route Ollama through gpu-proxy instead of LAN IP",
+			"type": "fix",
+			"scope": "mana-llm",
+			"additions": 15,
+			"deletions": 1,
+			"timestamp": "2026-04-08T16:46:14+02:00"
+		},
+		{
+			"hash": "bfeeef7",
+			"short": "chore(matrix): final scrub of stale matrix references",
+			"type": "chore",
+			"scope": "matrix",
+			"additions": 1259,
+			"deletions": 734,
+			"timestamp": "2026-04-08T16:47:54+02:00"
+		},
+		{
+			"hash": "b505024",
+			"short": "fix(voice/parse-task): guard against gemma3:4b hallucinating dueDate + priority",
+			"type": "fix",
+			"scope": "voice/parse-task",
+			"additions": 136,
+			"deletions": 11,
+			"timestamp": "2026-04-08T16:50:19+02:00"
+		},
+		{
+			"hash": "68e8897",
+			"short": "chore(env): default MANA_LLM_URL to llm.mana.how",
+			"type": "chore",
+			"scope": "env",
+			"additions": 6,
+			"deletions": 2,
+			"timestamp": "2026-04-08T16:55:01+02:00"
+		},
+		{
+			"hash": "7007140",
+			"short": "fix(voice): switch to gemma3:12b + few-shot prompt for parse-task",
+			"type": "fix",
+			"scope": "voice",
+			"additions": 47,
+			"deletions": 31,
+			"timestamp": "2026-04-08T16:59:32+02:00"
+		},
+		{
+			"hash": "0119e48",
+			"short": "test(voice/parse-task): unit tests for coerce + transcriptMentions guards",
+			"type": "test",
+			"scope": "voice/parse-task",
+			"additions": 197,
+			"deletions": 2,
+			"timestamp": "2026-04-08T17:04:52+02:00"
+		},
+		{
+			"hash": "4f6609a",
+			"short": "docs(devlog): backfill daily devlogs for 2026-04-01 through 2026-04-07",
+			"type": "docs",
+			"scope": "devlog",
+			"additions": 1801,
+			"deletions": 0,
+			"timestamp": "2026-04-08T17:11:10+02:00"
+		},
+		{
+			"hash": "3b41b39",
+			"short": "fix(voice/parse-task): extract helpers to coerce.ts so prod build passes",
+			"type": "fix",
+			"scope": "voice/parse-task",
+			"additions": 181,
+			"deletions": 157,
+			"timestamp": "2026-04-08T17:12:26+02:00"
+		},
+		{
+			"hash": "5af4dda",
+			"short": "test(integration): end-to-end auth flow test with Mailpit + CI gating",
+			"type": "test",
+			"scope": "integration",
+			"additions": 612,
+			"deletions": 0,
+			"timestamp": "2026-04-08T17:14:02+02:00"
+		},
+		{
+			"hash": "a7f3577",
+			"short": "fix(voice): set MANA_LLM_URL on mana-web — $env/dynamic/private hides PUBLIC_",
+			"type": "fix",
+			"scope": "voice",
+			"additions": 19,
+			"deletions": 5,
+			"timestamp": "2026-04-08T17:20:03+02:00"
+		},
+		{
+			"hash": "e8de377",
+			"short": "fix(macmini): mount prometheus config directly so /-/reload picks up edits",
+			"type": "fix",
+			"scope": "macmini",
+			"additions": 23,
+			"deletions": 4,
+			"timestamp": "2026-04-08T17:25:48+02:00"
+		},
+		{
+			"hash": "d3a1f00",
+			"short": "feat(crypto): roll places + locationLogs into the encryption registry",
+			"type": "feat",
+			"scope": "crypto",
+			"additions": 51,
+			"deletions": 7,
+			"timestamp": "2026-04-08T17:41:00+02:00"
+		},
+		{
+			"hash": "93748c0",
+			"short": "feat(playground): real LLM playground module backed by mana-llm + saved snippets",
+			"type": "feat",
+			"scope": "playground",
+			"additions": 670,
+			"deletions": 78,
+			"timestamp": "2026-04-08T17:41:18+02:00"
+		},
+		{
+			"hash": "4fce6a3",
+			"short": "feat(env): persistent dev secrets via .env.secrets override",
+			"type": "feat",
+			"scope": "env",
+			"additions": 333,
+			"deletions": 6,
+			"timestamp": "2026-04-08T17:50:37+02:00"
+		},
+		{
+			"hash": "ed74629",
+			"short": "fix(mana-auth): security_events INSERT crashed on undefined optional fields",
+			"type": "fix",
+			"scope": "mana-auth",
+			"additions": 17,
+			"deletions": 2,
+			"timestamp": "2026-04-08T17:59:23+02:00"
+		},
+		{
+			"hash": "4fd5ff3",
+			"short": "feat(local-llm): add Gemma 2 + allow HF/MLC hosts in CSP",
+			"type": "feat",
+			"scope": "local-llm",
+			"additions": 22,
+			"deletions": 0,
+			"timestamp": "2026-04-08T18:00:57+02:00"
+		},
+		{
+			"hash": "01632df",
+			"short": "docs(devlog): voice quick-add pipeline + LLM parsing live in prod",
+			"type": "docs",
+			"scope": "devlog",
+			"additions": 358,
+			"deletions": 0,
+			"timestamp": "2026-04-08T18:01:21+02:00"
+		},
+		{
+			"hash": "624f5ce",
+			"short": "fix(csp): allow wasm-unsafe-eval so @mana/local-llm can instantiate WebLLM",
+			"type": "fix",
+			"scope": "csp",
+			"additions": 5,
+			"deletions": 1,
+			"timestamp": "2026-04-08T18:05:30+02:00"
+		},
+		{
+			"hash": "09f81d7",
+			"short": "test(integration): assert security_events audit rows after register + login",
+			"type": "test",
+			"scope": "integration",
+			"additions": 26,
+			"deletions": 1,
+			"timestamp": "2026-04-08T18:05:57+02:00"
+		},
+		{
+			"hash": "2a437a5",
+			"short": "fix(mana/web): EncryptionIntroBanner sits inside the bottom-stack",
+			"type": "fix",
+			"scope": "mana/web",
+			"additions": 27,
+			"deletions": 13,
+			"timestamp": "2026-04-08T18:08:35+02:00"
+		},
+		{
+			"hash": "94ab125",
+			"short": "fix(mana/web): SessionWarning + SuggestionToast into bottom-stack",
+			"type": "fix",
+			"scope": "mana/web",
+			"additions": 32,
+			"deletions": 20,
+			"timestamp": "2026-04-08T18:16:55+02:00"
+		},
+		{
+			"hash": "c5e5963",
+			"short": "fix(macmini): repair container auto-recovery (broken --env-file path)",
+			"type": "fix",
+			"scope": "macmini",
+			"additions": 201,
+			"deletions": 272,
+			"timestamp": "2026-04-08T18:17:31+02:00"
+		},
+		{
+			"hash": "a9178ec",
+			"short": "fix(docker): drop stale shared-subscription-* COPY lines from sveltekit-base",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 4,
+			"deletions": 2,
+			"timestamp": "2026-04-08T18:28:59+02:00"
+		},
+		{
+			"hash": "d941ff2",
+			"short": "fix(mana-auth): account lockout was structurally dead + add failure-path tests",
+			"type": "fix",
+			"scope": "mana-auth",
+			"additions": 258,
+			"deletions": 9,
+			"timestamp": "2026-04-08T18:29:00+02:00"
+		},
+		{
+			"hash": "c3cb9dd",
+			"short": "refactor(mana/web): consolidate ListView scaffolding into BaseListView",
+			"type": "refactor",
+			"scope": "mana/web",
+			"additions": 877,
+			"deletions": 1043,
+			"timestamp": "2026-04-08T18:40:47+02:00"
+		},
+		{
+			"hash": "30787e3",
+			"short": "refactor(mana/web): consolidate DetailView scaffolding into DetailViewShell + useDetailEntity",
+			"type": "refactor",
+			"scope": "mana/web",
+			"additions": 1467,
+			"deletions": 4567,
+			"timestamp": "2026-04-08T22:10:42+02:00"
+		},
+		{
+			"hash": "e828519",
+			"short": "feat(questions): deep-research module — mana-search + mana-llm pipeline",
+			"type": "feat",
+			"scope": "questions",
+			"additions": 2221,
+			"deletions": 4,
+			"timestamp": "2026-04-08T22:15:35+02:00"
+		},
+		{
+			"hash": "83828e5",
+			"short": "fix(research): handle zero-hit retrieval — skip empty insert + graceful summary",
+			"type": "fix",
+			"scope": "research",
+			"additions": 33,
+			"deletions": 11,
+			"timestamp": "2026-04-08T22:19:17+02:00"
+		},
+		{
+			"hash": "1f26aa4",
+			"short": "feat(local-llm): swap WebLLM/Qwen for transformers.js + Gemma 4 E2B",
+			"type": "feat",
+			"scope": "local-llm",
+			"additions": 374,
+			"deletions": 265,
+			"timestamp": "2026-04-08T22:22:32+02:00"
+		},
+		{
+			"hash": "3dc16bb",
+			"short": "refactor(mana/web): extract addTagId / removeTagIdWithUndo helpers",
+			"type": "refactor",
+			"scope": "mana/web",
+			"additions": 96,
+			"deletions": 39,
+			"timestamp": "2026-04-08T22:26:15+02:00"
+		},
+		{
+			"hash": "048184b",
+			"short": "fix(macmini): auto-rebuild stale sveltekit-base before per-app web builds",
+			"type": "fix",
+			"scope": "macmini",
+			"additions": 269,
+			"deletions": 460,
+			"timestamp": "2026-04-08T22:34:29+02:00"
+		},
+		{
+			"hash": "30766f1",
+			"short": "fix(macmini): auto-rebuild stale sveltekit-base before per-app web builds",
+			"type": "fix",
+			"scope": "macmini",
+			"additions": 60,
+			"deletions": 2,
+			"timestamp": "2026-04-08T22:35:46+02:00"
+		},
+		{
+			"hash": "63a91e3",
+			"short": "fix(research): use /v1/chat/completions for mana-llm (not /api/v1/)",
+			"type": "fix",
+			"scope": "research",
+			"additions": 3,
+			"deletions": 3,
+			"timestamp": "2026-04-08T22:37:07+02:00"
+		},
+		{
+			"hash": "0af9094",
+			"short": "fix(csp): allow HF XET CDN (cas-bridge.xethub.hf.co) for transformers.js",
+			"type": "fix",
+			"scope": "csp",
+			"additions": 12,
+			"deletions": 3,
+			"timestamp": "2026-04-08T22:51:50+02:00"
+		},
+		{
+			"hash": "243c09d",
+			"short": "refactor(mana/web): extract useItemContextMenu helper for ListView right-click menus",
+			"type": "refactor",
+			"scope": "mana/web",
+			"additions": 191,
+			"deletions": 214,
+			"timestamp": "2026-04-08T22:55:31+02:00"
+		},
+		{
+			"hash": "b50a5c9",
+			"short": "fix(local-llm): allow jsdelivr in CSP + aggregate transformers.js progress",
+			"type": "fix",
+			"scope": "local-llm",
+			"additions": 67,
+			"deletions": 19,
+			"timestamp": "2026-04-08T22:56:52+02:00"
+		},
+		{
+			"hash": "8772a9b",
+			"short": "fix(csp): also allow jsdelivr in connect-src for transformers.js WASM preload",
+			"type": "fix",
+			"scope": "csp",
+			"additions": 6,
+			"deletions": 1,
+			"timestamp": "2026-04-08T22:59:52+02:00"
+		},
+		{
+			"hash": "9602339",
+			"short": "refactor(mana/web): extract QuickActionsList molecule shared by both widget variants",
+			"type": "refactor",
+			"scope": "mana/web",
+			"additions": 97,
+			"deletions": 42,
+			"timestamp": "2026-04-08T23:02:09+02:00"
+		},
+		{
+			"hash": "e4e3360",
+			"short": "fix(csp): move jsdelivr allowlist to mana-web hooks (Vite SSR cache workaround)",
+			"type": "fix",
+			"scope": "csp",
+			"additions": 12,
+			"deletions": 13,
+			"timestamp": "2026-04-08T23:03:38+02:00"
+		},
+		{
+			"hash": "cc6ebee",
+			"short": "fix(csp): allow blob: in script-src so onnxruntime-web Worker can spawn",
+			"type": "fix",
+			"scope": "csp",
+			"additions": 8,
+			"deletions": 1,
+			"timestamp": "2026-04-08T23:06:33+02:00"
+		},
+		{
+			"hash": "7f1513b",
+			"short": "fix(local-llm): handle null model.generate() return + bogus return_tensor",
+			"type": "fix",
+			"scope": "local-llm",
+			"additions": 71,
+			"deletions": 34,
+			"timestamp": "2026-04-08T23:15:33+02:00"
+		},
+		{
+			"hash": "e8423e7",
+			"short": "fix(local-llm): use two-step tokenization to fix Gemma 4 generate crash",
+			"type": "fix",
+			"scope": "local-llm",
+			"additions": 20,
+			"deletions": 11,
+			"timestamp": "2026-04-08T23:19:24+02:00"
+		},
+		{
+			"hash": "7901a5d",
+			"short": "docs(local-llm): document browser-local LLM stack and CSP requirements",
+			"type": "docs",
+			"scope": "local-llm",
+			"additions": 190,
+			"deletions": 0,
+			"timestamp": "2026-04-08T23:27:50+02:00"
+		},
+		{
+			"hash": "74140e1",
+			"short": "refactor(mana/web): migrate zitare DetailView to theme tokens (P5 phase 1 sample)",
+			"type": "refactor",
+			"scope": "mana/web",
+			"additions": 20,
+			"deletions": 35,
+			"timestamp": "2026-04-09T00:29:39+02:00"
+		},
+		{
+			"hash": "6fd4655",
+			"short": "fix(questions): unwrap \\$state proxy for tags before Dexie write",
+			"type": "fix",
+			"scope": "questions",
+			"additions": 5,
+			"deletions": 1,
+			"timestamp": "2026-04-09T00:31:53+02:00"
+		},
+		{
+			"hash": "7618518",
+			"short": "Revert \"refactor(mana/web): migrate zitare DetailView to theme tokens (P5 phase 1 sample)\"",
+			"type": null,
+			"scope": null,
+			"additions": 35,
+			"deletions": 20,
+			"timestamp": "2026-04-09T00:36:43+02:00"
+		},
+		{
+			"hash": "56065c8",
+			"short": "fix(mana/web): unwrap $state proxy in workbench-scenes Dexie writes",
+			"type": "fix",
+			"scope": "mana/web",
+			"additions": 1415,
+			"deletions": 1665,
+			"timestamp": "2026-04-09T00:44:00+02:00"
+		},
+		{
+			"hash": "1702caa",
+			"short": "feat(shared-llm) + fix(mana/web): tiered LLM orchestrator + workbench proxy fix",
+			"type": null,
+			"scope": null,
+			"additions": 539,
+			"deletions": 0,
+			"timestamp": "2026-04-09T01:05:14+02:00"
+		},
+		{
+			"hash": "752f31b",
+			"short": "fix(mana/web): handle vault-locked race + add guest plaintext fallback",
+			"type": "fix",
+			"scope": "mana/web",
+			"additions": 151,
+			"deletions": 9,
+			"timestamp": "2026-04-09T01:11:21+02:00"
+		},
+		{
+			"hash": "3a3cd12",
+			"short": "feat(mana/web): unified guest-mode prompt in the bottom-stack notification slot",
+			"type": "feat",
+			"scope": "mana/web",
+			"additions": 144,
+			"deletions": 3,
+			"timestamp": "2026-04-09T01:11:54+02:00"
+		},
+		{
+			"hash": "919fcca",
+			"short": "refactor(shared-tailwind): rewrite themes.css to single-layer shadcn convention",
+			"type": "refactor",
+			"scope": "shared-tailwind",
+			"additions": 1099,
+			"deletions": 5425,
+			"timestamp": "2026-04-09T01:13:06+02:00"
+		},
+		{
+			"hash": "45f368f",
+			"short": "feat(local-llm): Phase 3 — move inference into a Web Worker",
+			"type": "feat",
+			"scope": "local-llm",
+			"additions": 509,
+			"deletions": 296,
+			"timestamp": "2026-04-09T01:27:10+02:00"
+		},
+		{
+			"hash": "2d3c2bf",
+			"short": "fix(local-llm): set Vite worker.format='es' for code-splitting support",
+			"type": "fix",
+			"scope": "local-llm",
+			"additions": 10,
+			"deletions": 0,
+			"timestamp": "2026-04-09T01:33:03+02:00"
+		},
+		{
+			"hash": "6e20c29",
+			"short": "fix(mana/web): wrap var(--color-X) usages with hsl() in non-Phase-6 components",
+			"type": "fix",
+			"scope": "mana/web",
+			"additions": 82,
+			"deletions": 82,
+			"timestamp": "2026-04-09T01:45:34+02:00"
+		},
+		{
+			"hash": "3b5d58e",
+			"short": "feat(shared-llm): Phase 4 — persistent LLM task queue",
+			"type": "feat",
+			"scope": "shared-llm",
+			"additions": 567,
+			"deletions": 251,
+			"timestamp": "2026-04-09T01:51:20+02:00"
+		},
+		{
+			"hash": "c06e685",
+			"short": "refactor(mana/web): migrate zitare DetailView to theme tokens (P5 phase 6)",
+			"type": "refactor",
+			"scope": "mana/web",
+			"additions": 20,
+			"deletions": 35,
+			"timestamp": "2026-04-09T01:52:15+02:00"
+		},
+		{
+			"hash": "73d8e5c",
+			"short": "fix(mana/web): drop stray closing paren from hsl(var(--color-X))) CSS",
+			"type": "fix",
+			"scope": "mana/web",
+			"additions": 14,
+			"deletions": 14,
+			"timestamp": "2026-04-09T01:59:10+02:00"
+		},
+		{
+			"hash": "7bc7b0d",
+			"short": "refactor(mana/web): migrate calendar/ListView style to theme tokens (P5)",
+			"type": "refactor",
+			"scope": "mana/web",
+			"additions": 21,
+			"deletions": 52,
+			"timestamp": "2026-04-09T02:03:05+02:00"
+		},
+		{
+			"hash": "d9cd92c",
+			"short": "refactor(mana/web): migrate contacts/ListView style to theme tokens (P5)",
+			"type": "refactor",
+			"scope": "mana/web",
+			"additions": 20,
+			"deletions": 55,
+			"timestamp": "2026-04-09T02:03:43+02:00"
+		},
+		{
+			"hash": "d5440bb",
+			"short": "refactor(mana/web): migrate todo/ListView style to theme tokens (P5)",
+			"type": "refactor",
+			"scope": "mana/web",
+			"additions": 24,
+			"deletions": 62,
+			"timestamp": "2026-04-09T02:04:27+02:00"
+		},
+		{
+			"hash": "01a10b2",
+			"short": "refactor(mana/web): migrate notes/ListView style to theme tokens (P5)",
+			"type": "refactor",
+			"scope": "mana/web",
+			"additions": 29,
+			"deletions": 92,
+			"timestamp": "2026-04-09T02:05:13+02:00"
+		},
+		{
+			"hash": "606b836",
+			"short": "refactor(mana/web): migrate finance/ListView style to theme tokens (P5)",
+			"type": "refactor",
+			"scope": "mana/web",
+			"additions": 44,
+			"deletions": 111,
+			"timestamp": "2026-04-09T02:06:10+02:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

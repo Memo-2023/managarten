@@ -1,0 +1,295 @@
+{
+	"date": "2026-04-18",
+	"day_number": 87,
+	"weekday": "Samstag",
+	"commits": 23,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 23
+		}
+	],
+	"additions": 8915,
+	"deletions": 906,
+	"net_lines": 8009,
+	"files_changed": 75,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-04-18T13:30:46.000Z",
+		"last_commit_at": "2026-04-18T16:51:34.000Z",
+		"total_span_minutes": 201,
+		"active_minutes": 122,
+		"pauses": [
+			{
+				"from": "17:31",
+				"to": "18:50",
+				"minutes": 79
+			}
+		],
+		"longest_focus_minutes": 121
+	},
+	"top_dirs": [
+		{
+			"path": "apps/mana/apps/web",
+			"pct": 43
+		},
+		{
+			"path": "services/mana-events/src",
+			"pct": 40
+		},
+		{
+			"path": "packages/shared-ai/src",
+			"pct": 4
+		},
+		{
+			"path": "services/mana-research/src",
+			"pct": 3
+		},
+		{
+			"path": "docs/plans/event-discovery.md",
+			"pct": 1
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 62
+		},
+		{
+			"ext": ".svelte",
+			"count": 23
+		},
+		{
+			"ext": ".md",
+			"count": 5
+		},
+		{
+			"ext": ".yaml",
+			"count": 1
+		},
+		{
+			"ext": ".json",
+			"count": 1
+		},
+		{
+			"ext": ".mjs",
+			"count": 1
+		}
+	],
+	"tags": ["workbench", "events", "research", "research-lab", "page-carousel"],
+	"commits_list": [
+		{
+			"hash": "b5d55fd",
+			"short": "feat(events): add Event Discovery — Phase 1 + 2",
+			"type": "feat",
+			"scope": "events",
+			"additions": 5106,
+			"deletions": 46,
+			"timestamp": "2026-04-18T15:30:46+02:00"
+		},
+		{
+			"hash": "2f226a9",
+			"short": "feat(workbench): user-visible error toasts + stale-SW safety net",
+			"type": "feat",
+			"scope": "workbench",
+			"additions": 52,
+			"deletions": 21,
+			"timestamp": "2026-04-18T15:34:08+02:00"
+		},
+		{
+			"hash": "2c0d866",
+			"short": "feat(events): Phase 3 — AI tools, Event-Scout template, feedback loop",
+			"type": "feat",
+			"scope": "events",
+			"additions": 406,
+			"deletions": 0,
+			"timestamp": "2026-04-18T15:37:28+02:00"
+		},
+		{
+			"hash": "4d82381",
+			"short": "perf(workbench): LRU-evict PageCarousel's mounted-cards cache",
+			"type": "perf",
+			"scope": "workbench",
+			"additions": 18,
+			"deletions": 7,
+			"timestamp": "2026-04-18T15:38:08+02:00"
+		},
+		{
+			"hash": "ed801cf",
+			"short": "feat(events): Phase 4 — provider adapters for Eventbrite + Meetup",
+			"type": "feat",
+			"scope": "events",
+			"additions": 708,
+			"deletions": 44,
+			"timestamp": "2026-04-18T15:43:40+02:00"
+		},
+		{
+			"hash": "0a928c1",
+			"short": "fix(workbench): replace brittle setTimeout with tick() in scene rename",
+			"type": "fix",
+			"scope": "workbench",
+			"additions": 8,
+			"deletions": 8,
+			"timestamp": "2026-04-18T15:50:57+02:00"
+		},
+		{
+			"hash": "4e5c317",
+			"short": "feat(workbench): MRU fallback for active scene + atomic reorderScenes",
+			"type": "feat",
+			"scope": "workbench",
+			"additions": 54,
+			"deletions": 5,
+			"timestamp": "2026-04-18T16:02:23+02:00"
+		},
+		{
+			"hash": "afdbc43",
+			"short": "refactor(page-carousel): name the IntersectionObserver magic numbers",
+			"type": "refactor",
+			"scope": "page-carousel",
+			"additions": 9,
+			"deletions": 5,
+			"timestamp": "2026-04-18T16:08:27+02:00"
+		},
+		{
+			"hash": "120a191",
+			"short": "test(workbench): pure-helper coverage for toScene + pickActiveId",
+			"type": "test",
+			"scope": "workbench",
+			"additions": 167,
+			"deletions": 2,
+			"timestamp": "2026-04-18T16:19:14+02:00"
+		},
+		{
+			"hash": "5d67179",
+			"short": "docs(workbench): plan for scene-scope empty state",
+			"type": "docs",
+			"scope": "workbench",
+			"additions": 158,
+			"deletions": 0,
+			"timestamp": "2026-04-18T16:23:13+02:00"
+		},
+		{
+			"hash": "536fc89",
+			"short": "fix(research): Claude Opus 4.7 rejects `temperature` param + log executor errors",
+			"type": "fix",
+			"scope": "research",
+			"additions": 20,
+			"deletions": 14,
+			"timestamp": "2026-04-18T16:36:22+02:00"
+		},
+		{
+			"hash": "97abd25",
+			"short": "fix(events): Eventbrite provider — switch from dead API to web scraping",
+			"type": "fix",
+			"scope": "events",
+			"additions": 61,
+			"deletions": 156,
+			"timestamp": "2026-04-18T16:51:58+02:00"
+		},
+		{
+			"hash": "f09a84a",
+			"short": "feat(workbench): scope-aware empty state for scoped modules",
+			"type": "feat",
+			"scope": "workbench",
+			"additions": 162,
+			"deletions": 4,
+			"timestamp": "2026-04-18T16:52:14+02:00"
+		},
+		{
+			"hash": "dcec0d3",
+			"short": "feat(workbench): scope-active badge on scene pills",
+			"type": "feat",
+			"scope": "workbench",
+			"additions": 21,
+			"deletions": 1,
+			"timestamp": "2026-04-18T16:59:53+02:00"
+		},
+		{
+			"hash": "85537cb",
+			"short": "fix(research): default Gemini to 2.5-flash (2.0-flash deprecated for new users)",
+			"type": "fix",
+			"scope": "research",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-04-18T17:01:24+02:00"
+		},
+		{
+			"hash": "0f4535c",
+			"short": "feat(workbench): interactive scope badge — click to clear, tooltip lists tags",
+			"type": "feat",
+			"scope": "workbench",
+			"additions": 51,
+			"deletions": 1,
+			"timestamp": "2026-04-18T17:05:05+02:00"
+		},
+		{
+			"hash": "20ec81e",
+			"short": "style(research-lab): drop duplicate h2 title (PageShell already renders it)",
+			"type": "style",
+			"scope": "research-lab",
+			"additions": 7,
+			"deletions": 14,
+			"timestamp": "2026-04-18T17:12:27+02:00"
+		},
+		{
+			"hash": "e813401",
+			"short": "style(research-lab): move help into MODULE_HELP, drop subtitle, keys-button to footer",
+			"type": "style",
+			"scope": "research-lab",
+			"additions": 48,
+			"deletions": 23,
+			"timestamp": "2026-04-18T17:16:51+02:00"
+		},
+		{
+			"hash": "cd59450",
+			"short": "chore: clear svelte-check errors + document scene-scope pattern",
+			"type": null,
+			"scope": null,
+			"additions": 27,
+			"deletions": 1,
+			"timestamp": "2026-04-18T17:24:52+02:00"
+		},
+		{
+			"hash": "b19f5a7",
+			"short": "docs(help-content): add MODULE_HELP entries for 17 missing modules",
+			"type": "docs",
+			"scope": "help-content",
+			"additions": 221,
+			"deletions": 0,
+			"timestamp": "2026-04-18T17:31:30+02:00"
+		},
+		{
+			"hash": "8dd3dbc",
+			"short": "docs(mana-research): step-by-step API_KEYS.md setup guide",
+			"type": "docs",
+			"scope": "mana-research",
+			"additions": 390,
+			"deletions": 0,
+			"timestamp": "2026-04-18T18:50:06+02:00"
+		},
+		{
+			"hash": "cce296a",
+			"short": "style(settings): rework \"Daten & Sync\" tab to match other sections",
+			"type": "style",
+			"scope": "settings",
+			"additions": 1182,
+			"deletions": 553,
+			"timestamp": "2026-04-18T18:51:19+02:00"
+		},
+		{
+			"hash": "4efdcff",
+			"short": "feat(workbench): register Quiz as first-class app (Kreativ)",
+			"type": "feat",
+			"scope": "workbench",
+			"additions": 38,
+			"deletions": 0,
+			"timestamp": "2026-04-18T18:51:34+02:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

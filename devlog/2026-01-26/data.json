@@ -1,0 +1,631 @@
+{
+	"date": "2026-01-26",
+	"day_number": 35,
+	"weekday": "Montag",
+	"commits": 57,
+	"authors": [
+		{
+			"name": "Till-JS",
+			"count": 57
+		}
+	],
+	"additions": 16578,
+	"deletions": 3468,
+	"net_lines": 13110,
+	"files_changed": 184,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-01-26T08:35:01.000Z",
+		"last_commit_at": "2026-01-27T02:39:32.000Z",
+		"total_span_minutes": 1085,
+		"active_minutes": 268,
+		"pauses": [
+			{
+				"from": "11:14",
+				"to": "12:14",
+				"minutes": 59
+			},
+			{
+				"from": "12:14",
+				"to": "14:07",
+				"minutes": 113
+			},
+			{
+				"from": "14:07",
+				"to": "14:54",
+				"minutes": 47
+			},
+			{
+				"from": "16:29",
+				"to": "20:28",
+				"minutes": 239
+			},
+			{
+				"from": "20:43",
+				"to": "21:20",
+				"minutes": 37
+			},
+			{
+				"from": "21:20",
+				"to": "01:31",
+				"minutes": 251
+			},
+			{
+				"from": "02:13",
+				"to": "03:24",
+				"minutes": 71
+			}
+		],
+		"longest_focus_minutes": 100
+	},
+	"top_dirs": [
+		{
+			"path": "services/mana-core-auth/src",
+			"pct": 11
+		},
+		{
+			"path": "apps/todo/apps/web",
+			"pct": 8
+		},
+		{
+			"path": "docker-compose.macmini.yml",
+			"pct": 8
+		},
+		{
+			"path": "services/telegram-project-doc-bot/src",
+			"pct": 7
+		},
+		{
+			"path": "apps/chat/apps/backend",
+			"pct": 6
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 116
+		},
+		{
+			"ext": ".svelte",
+			"count": 33
+		},
+		{
+			"ext": ".yml",
+			"count": 26
+		},
+		{
+			"ext": ".json",
+			"count": 19
+		},
+		{
+			"ext": ".md",
+			"count": 15
+		},
+		{
+			"ext": ".py",
+			"count": 9
+		}
+	],
+	"tags": ["auth", "docker", "stt", "todo", "metrics"],
+	"commits_list": [
+		{
+			"hash": "1c5a1b8",
+			"short": "feat(metrics): add Prometheus metrics to all backends",
+			"type": "feat",
+			"scope": "metrics",
+			"additions": 611,
+			"deletions": 14,
+			"timestamp": "2026-01-26T09:35:01+01:00"
+		},
+		{
+			"hash": "b7d4893",
+			"short": "docs: add daily report for 2026-01-25",
+			"type": null,
+			"scope": null,
+			"additions": 299,
+			"deletions": 0,
+			"timestamp": "2026-01-26T09:38:57+01:00"
+		},
+		{
+			"hash": "475246a",
+			"short": "fix(todo): correct health check endpoints",
+			"type": "fix",
+			"scope": "todo",
+			"additions": 11,
+			"deletions": 1,
+			"timestamp": "2026-01-26T09:44:17+01:00"
+		},
+		{
+			"hash": "41dea77",
+			"short": "fix(watchtower): use existing TELEGRAM env vars for notifications",
+			"type": "fix",
+			"scope": "watchtower",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-01-26T09:45:39+01:00"
+		},
+		{
+			"hash": "8c259a0",
+			"short": "feat(monitoring): add comprehensive Grafana dashboards and alerting",
+			"type": "feat",
+			"scope": "monitoring",
+			"additions": 2029,
+			"deletions": 0,
+			"timestamp": "2026-01-26T09:47:18+01:00"
+		},
+		{
+			"hash": "8820532",
+			"short": "🔧 chore(watchtower): add debug logging for telegram notifications",
+			"type": null,
+			"scope": null,
+			"additions": 3,
+			"deletions": 1,
+			"timestamp": "2026-01-26T09:53:45+01:00"
+		},
+		{
+			"hash": "cacebab",
+			"short": "🔧 chore(watchtower): switch to n8n webhook for notifications",
+			"type": null,
+			"scope": null,
+			"additions": 4,
+			"deletions": 3,
+			"timestamp": "2026-01-26T10:00:49+01:00"
+		},
+		{
+			"hash": "d2b1a1c",
+			"short": "🔧 chore(watchtower): use URL-encoded telegram token from env",
+			"type": null,
+			"scope": null,
+			"additions": 3,
+			"deletions": 4,
+			"timestamp": "2026-01-26T10:01:43+01:00"
+		},
+		{
+			"hash": "bbc536d",
+			"short": "fix(docker): correct todo-backend health check path in compose",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-01-26T10:02:24+01:00"
+		},
+		{
+			"hash": "98c08fd",
+			"short": "🔧 chore(watchtower): disable broken telegram notifications",
+			"type": null,
+			"scope": null,
+			"additions": 2,
+			"deletions": 4,
+			"timestamp": "2026-01-26T10:02:48+01:00"
+		},
+		{
+			"hash": "57a7a39",
+			"short": "fix(docker): use root path for todo-web health check",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-01-26T10:04:35+01:00"
+		},
+		{
+			"hash": "0b35e71",
+			"short": "fix(docker): use 127.0.0.1 instead of localhost in health checks",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 21,
+			"deletions": 21,
+			"timestamp": "2026-01-26T10:07:21+01:00"
+		},
+		{
+			"hash": "2480d92",
+			"short": "🔧 chore(watchtower): try list format for telegram notification URL",
+			"type": null,
+			"scope": null,
+			"additions": 107,
+			"deletions": 7,
+			"timestamp": "2026-01-26T10:14:30+01:00"
+		},
+		{
+			"hash": "4573f6e",
+			"short": "feat(web): add /health endpoints to all web apps",
+			"type": "feat",
+			"scope": "web",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-01-26T10:15:04+01:00"
+		},
+		{
+			"hash": "ebd0e53",
+			"short": "🔧 chore(watchtower): switch to nickfedor fork with telegram notifications",
+			"type": null,
+			"scope": null,
+			"additions": 15,
+			"deletions": 1,
+			"timestamp": "2026-01-26T10:29:57+01:00"
+		},
+		{
+			"hash": "618c58c",
+			"short": "feat(ci): add Telegram notifications and Grafana CI/CD dashboard",
+			"type": "feat",
+			"scope": "ci",
+			"additions": 1100,
+			"deletions": 0,
+			"timestamp": "2026-01-26T10:31:17+01:00"
+		},
+		{
+			"hash": "5cf3c33",
+			"short": "fix(calendar): correct port to 3016",
+			"type": "fix",
+			"scope": "calendar",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-01-26T10:37:49+01:00"
+		},
+		{
+			"hash": "412344e",
+			"short": "chore(infra): add pushgateway to Cloudflare tunnel",
+			"type": "chore",
+			"scope": "infra",
+			"additions": 2,
+			"deletions": 0,
+			"timestamp": "2026-01-26T10:38:19+01:00"
+		},
+		{
+			"hash": "edf13b7",
+			"short": "revert: fix CI by reverting Telegram notifications",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 1100,
+			"timestamp": "2026-01-26T10:40:10+01:00"
+		},
+		{
+			"hash": "9fedb7c",
+			"short": "fix(docker): correct health check paths for mana-core-auth and clock-backend",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 2,
+			"deletions": 2,
+			"timestamp": "2026-01-26T10:49:58+01:00"
+		},
+		{
+			"hash": "0cd2bc8",
+			"short": "✨ feat(stats): add user statistics to Prometheus metrics and Grafana",
+			"type": null,
+			"scope": null,
+			"additions": 798,
+			"deletions": 13,
+			"timestamp": "2026-01-26T10:53:57+01:00"
+		},
+		{
+			"hash": "d49ff9a",
+			"short": "🩹 fix(docker): correct contacts-backend health check path",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-01-26T10:54:14+01:00"
+		},
+		{
+			"hash": "bbc051d",
+			"short": "fix(docker): correct chat-backend health check path",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-01-26T11:03:11+01:00"
+		},
+		{
+			"hash": "79e3c09",
+			"short": "fix(docker): correct calendar-backend health check path",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-01-26T11:13:58+01:00"
+		},
+		{
+			"hash": "021c6e7",
+			"short": "🔧 fix(telegram-bot): improve database connection logging and error messages",
+			"type": null,
+			"scope": null,
+			"additions": 23,
+			"deletions": 9,
+			"timestamp": "2026-01-26T11:14:52+01:00"
+		},
+		{
+			"hash": "85e8ff0",
+			"short": "fix(auth): reduce minimum password length to 8 characters",
+			"type": "fix",
+			"scope": "auth",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-01-26T12:14:10+01:00"
+		},
+		{
+			"hash": "fafa550",
+			"short": "feat(auth): add Brevo SMTP email service for transactional emails",
+			"type": "feat",
+			"scope": "auth",
+			"additions": 1317,
+			"deletions": 518,
+			"timestamp": "2026-01-26T14:07:31+01:00"
+		},
+		{
+			"hash": "f173a22",
+			"short": "fix(auth): fix inviter name access in sendInvitationEmail",
+			"type": "fix",
+			"scope": "auth",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-01-26T14:54:39+01:00"
+		},
+		{
+			"hash": "8e1f443",
+			"short": "fix(auth): use correct Better Auth API method for password reset",
+			"type": "fix",
+			"scope": "auth",
+			"additions": 3,
+			"deletions": 2,
+			"timestamp": "2026-01-26T15:20:16+01:00"
+		},
+		{
+			"hash": "4973cf8",
+			"short": "feat(todo): consolidate bars using ExpandableToolbar pattern from Calendar app",
+			"type": "feat",
+			"scope": "todo",
+			"additions": 524,
+			"deletions": 844,
+			"timestamp": "2026-01-26T15:33:24+01:00"
+		},
+		{
+			"hash": "5098250",
+			"short": "feat(auth): enable email verification for new user registrations",
+			"type": "feat",
+			"scope": "auth",
+			"additions": 67,
+			"deletions": 5,
+			"timestamp": "2026-01-26T15:35:25+01:00"
+		},
+		{
+			"hash": "2975e5d",
+			"short": "fix(auth): add explicit types to email handlers",
+			"type": "fix",
+			"scope": "auth",
+			"additions": 14,
+			"deletions": 2,
+			"timestamp": "2026-01-26T15:41:00+01:00"
+		},
+		{
+			"hash": "3f64c74",
+			"short": "feat(telegram-ollama-bot): add Telegram bot for local LLM inference via Ollama",
+			"type": "feat",
+			"scope": "telegram-ollama-bot",
+			"additions": 1034,
+			"deletions": 94,
+			"timestamp": "2026-01-26T15:43:41+01:00"
+		},
+		{
+			"hash": "aa7f5fb",
+			"short": "docs: add Telegram Ollama Bot documentation to MAC_MINI_SERVER.md",
+			"type": null,
+			"scope": null,
+			"additions": 102,
+			"deletions": 5,
+			"timestamp": "2026-01-26T15:53:18+01:00"
+		},
+		{
+			"hash": "14aaf01",
+			"short": "fix(auth): move email verification config to correct location",
+			"type": "fix",
+			"scope": "auth",
+			"additions": 21,
+			"deletions": 17,
+			"timestamp": "2026-01-26T15:54:35+01:00"
+		},
+		{
+			"hash": "6f51f1a",
+			"short": "feat(chat-backend): integrate Ollama for local LLM inference",
+			"type": "feat",
+			"scope": "chat-backend",
+			"additions": 280,
+			"deletions": 16,
+			"timestamp": "2026-01-26T16:03:03+01:00"
+		},
+		{
+			"hash": "08ebdf5",
+			"short": "feat(docker): add Ollama configuration to chat-backend",
+			"type": "feat",
+			"scope": "docker",
+			"additions": 5,
+			"deletions": 0,
+			"timestamp": "2026-01-26T16:05:38+01:00"
+		},
+		{
+			"hash": "def7249",
+			"short": "🚸 feat(todo): redesign homepage empty state and section visibility",
+			"type": null,
+			"scope": null,
+			"additions": 318,
+			"deletions": 96,
+			"timestamp": "2026-01-26T16:29:42+01:00"
+		},
+		{
+			"hash": "ad4ae93",
+			"short": "feat(auth): add email verification endpoint for Better Auth",
+			"type": "feat",
+			"scope": "auth",
+			"additions": 103,
+			"deletions": 3,
+			"timestamp": "2026-01-26T20:28:30+01:00"
+		},
+		{
+			"hash": "be365a0",
+			"short": "feat(manacore): add email verification result pages",
+			"type": "feat",
+			"scope": "manacore",
+			"additions": 117,
+			"deletions": 0,
+			"timestamp": "2026-01-26T20:43:02+01:00"
+		},
+		{
+			"hash": "3df7157",
+			"short": "🐛 fix(calendar): fix app hanging and layout issues",
+			"type": null,
+			"scope": null,
+			"additions": 47,
+			"deletions": 61,
+			"timestamp": "2026-01-26T21:20:29+01:00"
+		},
+		{
+			"hash": "2ccd063",
+			"short": "✨ feat(auth): redirect users to source app after email verification",
+			"type": null,
+			"scope": null,
+			"additions": 285,
+			"deletions": 30,
+			"timestamp": "2026-01-27T01:31:31+01:00"
+		},
+		{
+			"hash": "09b8d7b",
+			"short": "✨ feat(auth-ui): show email verified banner on login pages",
+			"type": null,
+			"scope": null,
+			"additions": 162,
+			"deletions": 2,
+			"timestamp": "2026-01-27T01:31:55+01:00"
+		},
+		{
+			"hash": "cb3c1ff",
+			"short": "♻️ refactor(todo): replace edit modal with inline task editing",
+			"type": null,
+			"scope": null,
+			"additions": 848,
+			"deletions": 263,
+			"timestamp": "2026-01-27T01:32:14+01:00"
+		},
+		{
+			"hash": "d8b61d0",
+			"short": "📝 docs: add design UX guidelines and local model documentation",
+			"type": null,
+			"scope": null,
+			"additions": 1698,
+			"deletions": 0,
+			"timestamp": "2026-01-27T01:32:31+01:00"
+		},
+		{
+			"hash": "aeabd21",
+			"short": "✨ feat(storage): add verified banner to login page",
+			"type": null,
+			"scope": null,
+			"additions": 7,
+			"deletions": 0,
+			"timestamp": "2026-01-27T01:32:59+01:00"
+		},
+		{
+			"hash": "bf0fa04",
+			"short": "✨ feat(stt): add speech-to-text service for Mac Mini",
+			"type": null,
+			"scope": null,
+			"additions": 1206,
+			"deletions": 0,
+			"timestamp": "2026-01-27T01:33:10+01:00"
+		},
+		{
+			"hash": "92a700a",
+			"short": "fix(stt): change default model to large-v3 (large-v3-turbo not supported by lightning-whisper-mlx)",
+			"type": "fix",
+			"scope": "stt",
+			"additions": 11,
+			"deletions": 16,
+			"timestamp": "2026-01-27T01:36:49+01:00"
+		},
+		{
+			"hash": "9bd699a",
+			"short": "fix(stt): add Homebrew to PATH for ffmpeg",
+			"type": "fix",
+			"scope": "stt",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-01-27T01:52:09+01:00"
+		},
+		{
+			"hash": "49255ac",
+			"short": "fix(stt): use correct AutoModel for Voxtral multimodal architecture",
+			"type": "fix",
+			"scope": "stt",
+			"additions": 58,
+			"deletions": 17,
+			"timestamp": "2026-01-27T01:58:32+01:00"
+		},
+		{
+			"hash": "e7e3561",
+			"short": "📝 docs: add external services analysis and self-hosting guide",
+			"type": null,
+			"scope": null,
+			"additions": 543,
+			"deletions": 0,
+			"timestamp": "2026-01-27T02:04:31+01:00"
+		},
+		{
+			"hash": "a2233dc",
+			"short": "fix(stt): properly encode audio as base64 for Voxtral",
+			"type": "fix",
+			"scope": "stt",
+			"additions": 24,
+			"deletions": 27,
+			"timestamp": "2026-01-27T02:13:34+01:00"
+		},
+		{
+			"hash": "bff80b5",
+			"short": "fix(stt): remove unsupported add_generation_prompt kwarg",
+			"type": "fix",
+			"scope": "stt",
+			"additions": 0,
+			"deletions": 1,
+			"timestamp": "2026-01-27T03:24:43+01:00"
+		},
+		{
+			"hash": "7c20d88",
+			"short": "✨ feat(services): add telegram-project-doc-bot service",
+			"type": null,
+			"scope": null,
+			"additions": 2432,
+			"deletions": 247,
+			"timestamp": "2026-01-27T03:29:08+01:00"
+		},
+		{
+			"hash": "c4c00dc",
+			"short": "📝 docs: add devlog for 2026-01-26 monitoring, auth & AI updates",
+			"type": null,
+			"scope": null,
+			"additions": 285,
+			"deletions": 0,
+			"timestamp": "2026-01-27T03:37:59+01:00"
+		},
+		{
+			"hash": "fe8cb3c",
+			"short": "🐛 fix(health-check): correct health endpoint paths",
+			"type": null,
+			"scope": null,
+			"additions": 25,
+			"deletions": 10,
+			"timestamp": "2026-01-27T03:39:16+01:00"
+		},
+		{
+			"hash": "d1e9c87",
+			"short": "fix(todo): correct health check URL in startup log",
+			"type": "fix",
+			"scope": "todo",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-01-27T03:39:32+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

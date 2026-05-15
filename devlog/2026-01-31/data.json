@@ -1,0 +1,575 @@
+{
+	"date": "2026-01-31",
+	"day_number": 40,
+	"weekday": "Samstag",
+	"commits": 53,
+	"authors": [
+		{
+			"name": "Till-JS",
+			"count": 53
+		}
+	],
+	"additions": 24147,
+	"deletions": 19564,
+	"net_lines": 4583,
+	"files_changed": 433,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-01-31T22:30:16.000Z",
+		"last_commit_at": "2026-02-01T04:58:47.000Z",
+		"total_span_minutes": 389,
+		"active_minutes": 250,
+		"pauses": [
+			{
+				"from": "23:30",
+				"to": "00:07",
+				"minutes": 37
+			},
+			{
+				"from": "01:17",
+				"to": "02:21",
+				"minutes": 64
+			},
+			{
+				"from": "04:18",
+				"to": "04:56",
+				"minutes": 38
+			}
+		],
+		"longest_focus_minutes": 118
+	},
+	"top_dirs": [
+		{
+			"path": "services/matrix-mana-bot/src",
+			"pct": 5
+		},
+		{
+			"path": "packages/matrix-bot-common/src",
+			"pct": 4
+		},
+		{
+			"path": "apps/matrix/apps/web",
+			"pct": 3
+		},
+		{
+			"path": "services/mana-media/apps",
+			"pct": 3
+		},
+		{
+			"path": "services/telegram-project-doc-bot/src",
+			"pct": 3
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 374
+		},
+		{
+			"ext": ".json",
+			"count": 97
+		},
+		{
+			"ext": ".md",
+			"count": 26
+		},
+		{
+			"ext": ".svelte",
+			"count": 16
+		},
+		{
+			"ext": ".yaml",
+			"count": 15
+		},
+		{
+			"ext": ".yml",
+			"count": 14
+		}
+	],
+	"tags": ["matrix-mana-bot", "matrix-bot-common", "mana-voice-bot", "bot-services", "seed"],
+	"commits_list": [
+		{
+			"hash": "d605366",
+			"short": "✨ feat(llm-playground): add model comparison feature",
+			"type": null,
+			"scope": null,
+			"additions": 695,
+			"deletions": 523,
+			"timestamp": "2026-01-31T23:30:16+01:00"
+		},
+		{
+			"hash": "d2f00c1",
+			"short": "📝 docs(landing): add blueprints section for architecture decisions",
+			"type": null,
+			"scope": null,
+			"additions": 1856,
+			"deletions": 0,
+			"timestamp": "2026-02-01T00:07:34+01:00"
+		},
+		{
+			"hash": "a341aa1",
+			"short": "🔥 remove: Telegram bots - Matrix-only strategy",
+			"type": null,
+			"scope": null,
+			"additions": 2093,
+			"deletions": 9379,
+			"timestamp": "2026-02-01T00:17:14+01:00"
+		},
+		{
+			"hash": "2137404",
+			"short": "✨ feat(llm-playground): add model metadata system and SSD documentation",
+			"type": null,
+			"scope": null,
+			"additions": 310,
+			"deletions": 14,
+			"timestamp": "2026-02-01T00:24:34+01:00"
+		},
+		{
+			"hash": "508ae12",
+			"short": "🏗️ refactor: restructure docker-compose with new port schema and naming",
+			"type": null,
+			"scope": null,
+			"additions": 688,
+			"deletions": 835,
+			"timestamp": "2026-02-01T00:37:12+01:00"
+		},
+		{
+			"hash": "9b61831",
+			"short": "♻️ refactor: consolidate SessionService & TranscriptionService in @manacore/bot-services",
+			"type": null,
+			"scope": null,
+			"additions": 974,
+			"deletions": 863,
+			"timestamp": "2026-02-01T00:37:54+01:00"
+		},
+		{
+			"hash": "2b979d5",
+			"short": "♻️ refactor: migrate all remaining bots to shared services",
+			"type": null,
+			"scope": null,
+			"additions": 600,
+			"deletions": 1353,
+			"timestamp": "2026-02-01T00:50:48+01:00"
+		},
+		{
+			"hash": "145b0b6",
+			"short": "✨ feat: create @manacore/matrix-bot-common shared package",
+			"type": null,
+			"scope": null,
+			"additions": 1592,
+			"deletions": 438,
+			"timestamp": "2026-02-01T01:02:55+01:00"
+		},
+		{
+			"hash": "83f2d63",
+			"short": "♻️ refactor: migrate 19 Matrix bots to shared HealthController",
+			"type": null,
+			"scope": null,
+			"additions": 483,
+			"deletions": 331,
+			"timestamp": "2026-02-01T01:17:01+01:00"
+		},
+		{
+			"hash": "f4d8ed4",
+			"short": "feat(mana-voice-bot): add German voice-to-voice assistant service",
+			"type": "feat",
+			"scope": "mana-voice-bot",
+			"additions": 691,
+			"deletions": 0,
+			"timestamp": "2026-02-01T02:21:13+01:00"
+		},
+		{
+			"hash": "2567ea6",
+			"short": "♻️ refactor: migrate all 18 Matrix bots to extend BaseMatrixService",
+			"type": null,
+			"scope": null,
+			"additions": 1478,
+			"deletions": 2727,
+			"timestamp": "2026-02-01T02:47:11+01:00"
+		},
+		{
+			"hash": "4d8c7f1",
+			"short": "🔧 chore: temporarily disable OIDC in synapse config",
+			"type": null,
+			"scope": null,
+			"additions": 22,
+			"deletions": 25,
+			"timestamp": "2026-02-01T02:49:45+01:00"
+		},
+		{
+			"hash": "f04c27f",
+			"short": "♻️ refactor: migrate 5 Matrix bots to shared utilities",
+			"type": null,
+			"scope": null,
+			"additions": 324,
+			"deletions": 245,
+			"timestamp": "2026-02-01T02:57:21+01:00"
+		},
+		{
+			"hash": "db07b56",
+			"short": "feat(matrix-mana-bot): add voice input support (Phase 1)",
+			"type": "feat",
+			"scope": "matrix-mana-bot",
+			"additions": 833,
+			"deletions": 13,
+			"timestamp": "2026-02-01T02:59:13+01:00"
+		},
+		{
+			"hash": "48dfcd1",
+			"short": "feat(matrix-mana-bot): add voice output/TTS support (Phase 2)",
+			"type": "feat",
+			"scope": "matrix-mana-bot",
+			"additions": 247,
+			"deletions": 4,
+			"timestamp": "2026-02-01T03:02:37+01:00"
+		},
+		{
+			"hash": "7a2e037",
+			"short": "♻️ refactor: migrate 4 more bots to use UserListMapper",
+			"type": null,
+			"scope": null,
+			"additions": 89,
+			"deletions": 105,
+			"timestamp": "2026-02-01T03:03:10+01:00"
+		},
+		{
+			"hash": "e892e8d",
+			"short": "feat(matrix-mana-bot): add smart voice formatting (Phase 3)",
+			"type": "feat",
+			"scope": "matrix-mana-bot",
+			"additions": 378,
+			"deletions": 67,
+			"timestamp": "2026-02-01T03:05:51+01:00"
+		},
+		{
+			"hash": "462ef00",
+			"short": "feat(matrix-mana-bot): add persistent voice preferences (Phase 4)",
+			"type": "feat",
+			"scope": "matrix-mana-bot",
+			"additions": 240,
+			"deletions": 45,
+			"timestamp": "2026-02-01T03:08:52+01:00"
+		},
+		{
+			"hash": "867a1a7",
+			"short": "♻️ refactor: migrate 5 bots to KeywordCommandDetector",
+			"type": null,
+			"scope": null,
+			"additions": 291,
+			"deletions": 168,
+			"timestamp": "2026-02-01T03:11:58+01:00"
+		},
+		{
+			"hash": "5c8120f",
+			"short": "✨ feat(manalink): add PWA support and rebrand Matrix client",
+			"type": null,
+			"scope": null,
+			"additions": 340,
+			"deletions": 70,
+			"timestamp": "2026-02-01T03:25:45+01:00"
+		},
+		{
+			"hash": "cd28a83",
+			"short": "✨ feat(mana-media): add unified media processing platform MVP",
+			"type": null,
+			"scope": null,
+			"additions": 5318,
+			"deletions": 0,
+			"timestamp": "2026-02-01T03:25:53+01:00"
+		},
+		{
+			"hash": "c28410b",
+			"short": "🔧 chore: enable OIDC for Matrix Synapse",
+			"type": null,
+			"scope": null,
+			"additions": 23,
+			"deletions": 23,
+			"timestamp": "2026-02-01T03:25:59+01:00"
+		},
+		{
+			"hash": "a23430f",
+			"short": "✨ feat: add KeywordCommandDetector to all 19 Matrix bots",
+			"type": null,
+			"scope": null,
+			"additions": 261,
+			"deletions": 36,
+			"timestamp": "2026-02-01T03:26:25+01:00"
+		},
+		{
+			"hash": "6a675e5",
+			"short": "🐛 fix: resolve tsconfig and dependency errors",
+			"type": null,
+			"scope": null,
+			"additions": 792,
+			"deletions": 311,
+			"timestamp": "2026-02-01T03:32:46+01:00"
+		},
+		{
+			"hash": "cfaf9f2",
+			"short": "fix(matrix-bot-common): use explicit ESM imports for Node.js v25 compatibility",
+			"type": "fix",
+			"scope": "matrix-bot-common",
+			"additions": 7,
+			"deletions": 7,
+			"timestamp": "2026-02-01T03:34:07+01:00"
+		},
+		{
+			"hash": "12f1288",
+			"short": "build(matrix-bot-common): add build step for Node.js v25 compatibility",
+			"type": "build",
+			"scope": "matrix-bot-common",
+			"additions": 37,
+			"deletions": 11,
+			"timestamp": "2026-02-01T03:37:20+01:00"
+		},
+		{
+			"hash": "c29939e",
+			"short": "✨ feat: add voice transcription support to Matrix bots",
+			"type": null,
+			"scope": null,
+			"additions": 894,
+			"deletions": 419,
+			"timestamp": "2026-02-01T03:37:30+01:00"
+		},
+		{
+			"hash": "5b4b128",
+			"short": "build(bot-services): add build step for Node.js v25 compatibility",
+			"type": "build",
+			"scope": "bot-services",
+			"additions": 78,
+			"deletions": 40,
+			"timestamp": "2026-02-01T03:40:05+01:00"
+		},
+		{
+			"hash": "2a03a7c",
+			"short": "fix(matrix-mana-bot): import service modules in OrchestrationModule",
+			"type": "fix",
+			"scope": "matrix-mana-bot",
+			"additions": 8,
+			"deletions": 1,
+			"timestamp": "2026-02-01T03:41:13+01:00"
+		},
+		{
+			"hash": "8370005",
+			"short": "fix(matrix-mana-bot): make service modules global for DI",
+			"type": "fix",
+			"scope": "matrix-mana-bot",
+			"additions": 40,
+			"deletions": 35,
+			"timestamp": "2026-02-01T03:42:36+01:00"
+		},
+		{
+			"hash": "0229b1c",
+			"short": "🐛 fix: resolve tsconfig issues across all NestJS backends",
+			"type": null,
+			"scope": null,
+			"additions": 407,
+			"deletions": 460,
+			"timestamp": "2026-02-01T03:47:17+01:00"
+		},
+		{
+			"hash": "191c7b4",
+			"short": "🐛 fix(mana-core-auth): handle form-urlencoded token requests",
+			"type": null,
+			"scope": null,
+			"additions": 24,
+			"deletions": 1,
+			"timestamp": "2026-02-01T03:48:55+01:00"
+		},
+		{
+			"hash": "5500832",
+			"short": "🐛 fix(mana-core-auth): add explicit urlencoded body parser for OAuth token endpoint",
+			"type": null,
+			"scope": null,
+			"additions": 581,
+			"deletions": 158,
+			"timestamp": "2026-02-01T03:56:17+01:00"
+		},
+		{
+			"hash": "03abacc",
+			"short": "🐛 fix(web-apps): fix Vite type compatibility and Svelte 5 store issues",
+			"type": null,
+			"scope": null,
+			"additions": 185,
+			"deletions": 138,
+			"timestamp": "2026-02-01T04:00:29+01:00"
+		},
+		{
+			"hash": "0d98647",
+			"short": "🐛 fix(mana-core-auth): use body-parser for urlencoded OAuth token requests",
+			"type": null,
+			"scope": null,
+			"additions": 220,
+			"deletions": 446,
+			"timestamp": "2026-02-01T04:00:44+01:00"
+		},
+		{
+			"hash": "582f743",
+			"short": "🐛 fix(matrix-web): fix icon title prop type errors",
+			"type": null,
+			"scope": null,
+			"additions": 49,
+			"deletions": 13,
+			"timestamp": "2026-02-01T04:02:35+01:00"
+		},
+		{
+			"hash": "793b6d8",
+			"short": "fix(matrix-bot-common): use authenticated media API for downloads",
+			"type": "fix",
+			"scope": "matrix-bot-common",
+			"additions": 33,
+			"deletions": 3,
+			"timestamp": "2026-02-01T04:07:38+01:00"
+		},
+		{
+			"hash": "4599db5",
+			"short": "📝 docs(mana-core-auth): add comment explaining OAuth token form-urlencoded support",
+			"type": null,
+			"scope": null,
+			"additions": 3,
+			"deletions": 0,
+			"timestamp": "2026-02-01T04:12:16+01:00"
+		},
+		{
+			"hash": "0653972",
+			"short": "📝 docs: add daily report for 2026-02-01",
+			"type": null,
+			"scope": null,
+			"additions": 574,
+			"deletions": 0,
+			"timestamp": "2026-02-01T04:18:55+01:00"
+		},
+		{
+			"hash": "06c85ec",
+			"short": "🔧 fix: type errors in element.mana.how, mana-media, @todo/web, @calendar/web",
+			"type": null,
+			"scope": null,
+			"additions": 11,
+			"deletions": 10,
+			"timestamp": "2026-02-01T04:56:29+01:00"
+		},
+		{
+			"hash": "c3044cb",
+			"short": "🚸 ux: simplify Manalink login - SSO primary, manual login hidden",
+			"type": null,
+			"scope": null,
+			"additions": 204,
+			"deletions": 132,
+			"timestamp": "2026-02-01T05:00:03+01:00"
+		},
+		{
+			"hash": "fe96354",
+			"short": "🔧 fix(cloudflared): correct matrix.mana.how port (8008 → 4000)",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-02-01T05:01:20+01:00"
+		},
+		{
+			"hash": "fd61692",
+			"short": "🌱 seed: add test user t@t.de to dev seed script",
+			"type": null,
+			"scope": null,
+			"additions": 58,
+			"deletions": 47,
+			"timestamp": "2026-02-01T05:07:39+01:00"
+		},
+		{
+			"hash": "d4784e9",
+			"short": "🔧 fix(cloudflared): update all service ports to match Docker mappings",
+			"type": null,
+			"scope": null,
+			"additions": 44,
+			"deletions": 24,
+			"timestamp": "2026-02-01T05:07:58+01:00"
+		},
+		{
+			"hash": "f35c05e",
+			"short": "🔧 feat(grafana): enable anonymous viewer access",
+			"type": null,
+			"scope": null,
+			"additions": 2,
+			"deletions": 0,
+			"timestamp": "2026-02-01T05:10:39+01:00"
+		},
+		{
+			"hash": "805477b",
+			"short": "fix(seed): use simple password for test user (encoding issues with special chars)",
+			"type": "fix",
+			"scope": "seed",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-02-01T05:13:42+01:00"
+		},
+		{
+			"hash": "9b7d8c3",
+			"short": "🐛 fix(grafana): correct VictoriaMetrics datasource port (8428 → 9090)",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-02-01T05:13:48+01:00"
+		},
+		{
+			"hash": "23887c2",
+			"short": "📦 feat(grafana): install Infinity datasource plugin for Business Metrics",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-02-01T05:18:02+01:00"
+		},
+		{
+			"hash": "24c8a79",
+			"short": "🔧 fix(matrix-web): correct port config to match actual container (5180)",
+			"type": null,
+			"scope": null,
+			"additions": 3,
+			"deletions": 3,
+			"timestamp": "2026-02-01T05:19:18+01:00"
+		},
+		{
+			"hash": "aafc693",
+			"short": "🏠 feat(grafana): set Master Overview as home dashboard",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-02-01T05:29:33+01:00"
+		},
+		{
+			"hash": "dac6a85",
+			"short": "🔧 fix(prometheus): correct backend ports and add missing services",
+			"type": null,
+			"scope": null,
+			"additions": 26,
+			"deletions": 5,
+			"timestamp": "2026-02-01T05:51:50+01:00"
+		},
+		{
+			"hash": "1b39aa8",
+			"short": "🔧 fix(prometheus): disable non-existent scrape targets",
+			"type": null,
+			"scope": null,
+			"additions": 33,
+			"deletions": 33,
+			"timestamp": "2026-02-01T05:53:22+01:00"
+		},
+		{
+			"hash": "b4493ce",
+			"short": "debug: add token endpoint logging",
+			"type": null,
+			"scope": null,
+			"additions": 3,
+			"deletions": 0,
+			"timestamp": "2026-02-01T05:58:47+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

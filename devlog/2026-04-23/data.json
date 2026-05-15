@@ -1,0 +1,895 @@
+{
+	"date": "2026-04-23",
+	"day_number": 92,
+	"weekday": "Donnerstag",
+	"commits": 88,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 88
+		}
+	],
+	"additions": 44269,
+	"deletions": 2706,
+	"net_lines": 41563,
+	"files_changed": 370,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-04-23T11:01:29.000Z",
+		"last_commit_at": "2026-04-24T00:41:27.000Z",
+		"total_span_minutes": 820,
+		"active_minutes": 441,
+		"pauses": [
+			{
+				"from": "15:36",
+				"to": "18:09",
+				"minutes": 153
+			},
+			{
+				"from": "19:14",
+				"to": "21:07",
+				"minutes": 113
+			},
+			{
+				"from": "21:53",
+				"to": "22:24",
+				"minutes": 31
+			},
+			{
+				"from": "00:09",
+				"to": "01:31",
+				"minutes": 82
+			}
+		],
+		"longest_focus_minutes": 155
+	},
+	"top_dirs": [
+		{
+			"path": "apps/mana/apps/web",
+			"pct": 39
+		},
+		{
+			"path": "packages/website-blocks/src",
+			"pct": 11
+		},
+		{
+			"path": "apps/api/src/modules",
+			"pct": 5
+		},
+		{
+			"path": "services/mana-auth/src",
+			"pct": 5
+		},
+		{
+			"path": "packages/shared-ai/src",
+			"pct": 5
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 350
+		},
+		{
+			"ext": ".svelte",
+			"count": 118
+		},
+		{
+			"ext": ".md",
+			"count": 41
+		},
+		{
+			"ext": ".json",
+			"count": 28
+		},
+		{
+			"ext": ".sql",
+			"count": 7
+		},
+		{
+			"ext": ".yaml",
+			"count": 6
+		}
+	],
+	"tags": ["website", "wardrobe", "personas", "plans", "shared-ai"],
+	"commits_list": [
+		{
+			"hash": "f719d17",
+			"short": "chore(infra): unify prod deploy on .env.macmini + document missing keys",
+			"type": "chore",
+			"scope": "infra",
+			"additions": 50,
+			"deletions": 6,
+			"timestamp": "2026-04-23T13:01:29+02:00"
+		},
+		{
+			"hash": "16c8818",
+			"short": "feat(mcp): M1+M1.5 MCP gateway + tool-registry + shared-crypto",
+			"type": "feat",
+			"scope": "mcp",
+			"additions": 2855,
+			"deletions": 257,
+			"timestamp": "2026-04-23T13:18:35+02:00"
+		},
+		{
+			"hash": "32c95a3",
+			"short": "chore(diagnostics): headless prod smoke scripts",
+			"type": "chore",
+			"scope": "diagnostics",
+			"additions": 258,
+			"deletions": 0,
+			"timestamp": "2026-04-23T13:42:52+02:00"
+		},
+		{
+			"hash": "89258eb",
+			"short": "feat(profile,api): meImages foundation for AI reference generation (M1)",
+			"type": "feat",
+			"scope": "profile,api",
+			"additions": 790,
+			"deletions": 4,
+			"timestamp": "2026-04-23T13:50:53+02:00"
+		},
+		{
+			"hash": "69f1261",
+			"short": "feat(infra): route events.mana.how + research.mana.how through tunnel",
+			"type": "feat",
+			"scope": "infra",
+			"additions": 4,
+			"deletions": 0,
+			"timestamp": "2026-04-23T13:51:53+02:00"
+		},
+		{
+			"hash": "493db0c",
+			"short": "feat(personas): M2.a-c — persona schemas + admin endpoints + seed pipeline",
+			"type": "feat",
+			"scope": "personas",
+			"additions": 849,
+			"deletions": 8,
+			"timestamp": "2026-04-23T13:55:14+02:00"
+		},
+		{
+			"hash": "e5d230e",
+			"short": "feat(agent-loop): M1 — policy gate + reminder channel + parallel reads",
+			"type": "feat",
+			"scope": "agent-loop",
+			"additions": 2550,
+			"deletions": 29,
+			"timestamp": "2026-04-23T13:56:40+02:00"
+		},
+		{
+			"hash": "faa472b",
+			"short": "feat(mana-ai): first live reminder producers — token budget + retry-loop",
+			"type": "feat",
+			"scope": "mana-ai",
+			"additions": 330,
+			"deletions": 4,
+			"timestamp": "2026-04-23T14:00:04+02:00"
+		},
+		{
+			"hash": "a1caeaa",
+			"short": "feat(personas): M3.a — scaffold mana-persona-runner service on :3070",
+			"type": "feat",
+			"scope": "personas",
+			"additions": 422,
+			"deletions": 2,
+			"timestamp": "2026-04-23T14:00:43+02:00"
+		},
+		{
+			"hash": "a64a7e3",
+			"short": "feat(profile): UI for me-images management at /profile/me-images (M2)",
+			"type": "feat",
+			"scope": "profile",
+			"additions": 564,
+			"deletions": 5,
+			"timestamp": "2026-04-23T14:01:40+02:00"
+		},
+		{
+			"hash": "54a12ff",
+			"short": "feat(webapp): wire isParallelSafe in Companion chat + Mission runner",
+			"type": "feat",
+			"scope": "webapp",
+			"additions": 5522,
+			"deletions": 111,
+			"timestamp": "2026-04-23T14:11:24+02:00"
+		},
+		{
+			"hash": "38dc806",
+			"short": "feat(personas): M3.b-d — tick loop + Claude Agent SDK + persistence",
+			"type": "feat",
+			"scope": "personas",
+			"additions": 240,
+			"deletions": 0,
+			"timestamp": "2026-04-23T14:16:36+02:00"
+		},
+		{
+			"hash": "f07eae3",
+			"short": "feat(personas): M3.b-d — tick loop + Claude Agent SDK + persistence (real)",
+			"type": "feat",
+			"scope": "personas",
+			"additions": 884,
+			"deletions": 19,
+			"timestamp": "2026-04-23T14:18:31+02:00"
+		},
+		{
+			"hash": "c94ab01",
+			"short": "feat(mana-mcp): Prometheus metrics for policy gate + tool invocations",
+			"type": "feat",
+			"scope": "mana-mcp",
+			"additions": 89,
+			"deletions": 3,
+			"timestamp": "2026-04-23T14:23:08+02:00"
+		},
+		{
+			"hash": "d087b47",
+			"short": "chore(observability): scrape mana-mcp at :3069",
+			"type": "chore",
+			"scope": "observability",
+			"additions": 237,
+			"deletions": 14,
+			"timestamp": "2026-04-23T14:24:13+02:00"
+		},
+		{
+			"hash": "25c3bb6",
+			"short": "docs(mana-mcp,mana-ai): CLAUDE.md coverage for M1 agent-loop primitives",
+			"type": "docs",
+			"scope": "mana-mcp,mana-ai",
+			"additions": 32,
+			"deletions": 0,
+			"timestamp": "2026-04-23T14:25:14+02:00"
+		},
+		{
+			"hash": "7a4f889",
+			"short": "feat(website): M3 — 5 more blocks, containers, upload, themes",
+			"type": "feat",
+			"scope": "website",
+			"additions": 2899,
+			"deletions": 40,
+			"timestamp": "2026-04-23T14:27:49+02:00"
+		},
+		{
+			"hash": "79d1126",
+			"short": "feat(personas): M5.a — Playwright visual suite scaffold",
+			"type": "feat",
+			"scope": "personas",
+			"additions": 398,
+			"deletions": 1,
+			"timestamp": "2026-04-23T14:33:06+02:00"
+		},
+		{
+			"hash": "57be0f6",
+			"short": "feat(website): M4 — forms + moduleEmbed",
+			"type": "feat",
+			"scope": "website",
+			"additions": 1817,
+			"deletions": 2,
+			"timestamp": "2026-04-23T14:36:52+02:00"
+		},
+		{
+			"hash": "e2b5ac3",
+			"short": "feat(profile): migrate auth.users.image into meImages + avatar autosync (M2.5)",
+			"type": "feat",
+			"scope": "profile",
+			"additions": 211,
+			"deletions": 216,
+			"timestamp": "2026-04-23T14:38:20+02:00"
+		},
+		{
+			"hash": "fc635f9",
+			"short": "feat(tool-registry): me.listReferenceImages + me.generateWithReference (M5)",
+			"type": "feat",
+			"scope": "tool-registry",
+			"additions": 257,
+			"deletions": 1,
+			"timestamp": "2026-04-23T14:43:56+02:00"
+		},
+		{
+			"hash": "8f28372",
+			"short": "feat(agent-loop): activate retryLoopReminder via LoopState.recentCalls",
+			"type": "feat",
+			"scope": "agent-loop",
+			"additions": 171,
+			"deletions": 24,
+			"timestamp": "2026-04-23T15:02:40+02:00"
+		},
+		{
+			"hash": "9589feb",
+			"short": "fix(infra): mana-web COPY + research URL + Umami version pin",
+			"type": "fix",
+			"scope": "infra",
+			"additions": 16,
+			"deletions": 1,
+			"timestamp": "2026-04-23T15:05:47+02:00"
+		},
+		{
+			"hash": "638f9c3",
+			"short": "docs(plans): me-images M1-M5 status + new wardrobe plan",
+			"type": "docs",
+			"scope": "plans",
+			"additions": 429,
+			"deletions": 46,
+			"timestamp": "2026-04-23T15:08:45+02:00"
+		},
+		{
+			"hash": "3edf680",
+			"short": "feat(mana-ai): telemetry for reminder producers (mana_ai_reminders_emitted_total)",
+			"type": "feat",
+			"scope": "mana-ai",
+			"additions": 100,
+			"deletions": 40,
+			"timestamp": "2026-04-23T15:10:27+02:00"
+		},
+		{
+			"hash": "13efae8",
+			"short": "feat(website): M5 — AI tools + starter templates",
+			"type": "feat",
+			"scope": "website",
+			"additions": 1486,
+			"deletions": 235,
+			"timestamp": "2026-04-23T15:14:45+02:00"
+		},
+		{
+			"hash": "13361eb",
+			"short": "feat(shared-ai): compactHistory() — context-window compactor primitive (M2.1)",
+			"type": "feat",
+			"scope": "shared-ai",
+			"additions": 475,
+			"deletions": 0,
+			"timestamp": "2026-04-23T15:21:10+02:00"
+		},
+		{
+			"hash": "aab1e30",
+			"short": "docs(plans): wardrobe is space-scoped, allow in all six space types",
+			"type": "docs",
+			"scope": "plans",
+			"additions": 30,
+			"deletions": 6,
+			"timestamp": "2026-04-23T15:23:10+02:00"
+		},
+		{
+			"hash": "3d8214a",
+			"short": "feat(shared-ai): wire compactor into runPlannerLoop (M2.2)",
+			"type": "feat",
+			"scope": "shared-ai",
+			"additions": 236,
+			"deletions": 2,
+			"timestamp": "2026-04-23T15:25:35+02:00"
+		},
+		{
+			"hash": "5a5e24f",
+			"short": "chore(docker): drop obsolete services/mana-search/docker-compose.dev.yml",
+			"type": "chore",
+			"scope": "docker",
+			"additions": 0,
+			"deletions": 58,
+			"timestamp": "2026-04-23T15:27:19+02:00"
+		},
+		{
+			"hash": "83a4606",
+			"short": "feat(mana-ai): wire context-window compactor into mission runner (M2.3)",
+			"type": "feat",
+			"scope": "mana-ai",
+			"additions": 68,
+			"deletions": 1,
+			"timestamp": "2026-04-23T15:28:20+02:00"
+		},
+		{
+			"hash": "3eca5ac",
+			"short": "feat(website): M6 — subdomain publish + custom-domain foundation",
+			"type": "feat",
+			"scope": "website",
+			"additions": 1078,
+			"deletions": 17,
+			"timestamp": "2026-04-23T15:29:42+02:00"
+		},
+		{
+			"hash": "703ef69",
+			"short": "feat(webapp): wire context-window compactor into Companion + Mission runner (M2.4)",
+			"type": "feat",
+			"scope": "webapp",
+			"additions": 43,
+			"deletions": 0,
+			"timestamp": "2026-04-23T15:33:18+02:00"
+		},
+		{
+			"hash": "eb8fac2",
+			"short": "fix(personas): exact tool_use_id pairing + CI drift audit",
+			"type": "fix",
+			"scope": "personas",
+			"additions": 150,
+			"deletions": 12,
+			"timestamp": "2026-04-23T15:34:52+02:00"
+		},
+		{
+			"hash": "700861f",
+			"short": "feat(pill-nav): show Anmelden pill for guests next to menu icon",
+			"type": "feat",
+			"scope": "pill-nav",
+			"additions": 10,
+			"deletions": 15,
+			"timestamp": "2026-04-23T15:36:09+02:00"
+		},
+		{
+			"hash": "be8f561",
+			"short": "chore(setup:db): surface drizzle-kit errors instead of catch-all",
+			"type": "chore",
+			"scope": "setup:db",
+			"additions": 7,
+			"deletions": 1,
+			"timestamp": "2026-04-23T15:36:18+02:00"
+		},
+		{
+			"hash": "72f7978",
+			"short": "feat(agent-loop): expose compactionsDone + compactedReminder producer",
+			"type": "feat",
+			"scope": "agent-loop",
+			"additions": 122,
+			"deletions": 0,
+			"timestamp": "2026-04-23T15:36:21+02:00"
+		},
+		{
+			"hash": "52f53c8",
+			"short": "chore(mana-auth): add 005 persona tables migration",
+			"type": "chore",
+			"scope": "mana-auth",
+			"additions": 77,
+			"deletions": 0,
+			"timestamp": "2026-04-23T15:36:26+02:00"
+		},
+		{
+			"hash": "89388fb",
+			"short": "refactor(mana-auth): move enums from public to auth schema",
+			"type": "refactor",
+			"scope": "mana-auth",
+			"additions": 101,
+			"deletions": 12,
+			"timestamp": "2026-04-23T15:36:39+02:00"
+		},
+		{
+			"hash": "004b3b7",
+			"short": "chore(observability): Grafana dashboard for agent-loop metrics",
+			"type": "chore",
+			"scope": "observability",
+			"additions": 412,
+			"deletions": 0,
+			"timestamp": "2026-04-23T18:09:32+02:00"
+		},
+		{
+			"hash": "cb9a9bb",
+			"short": "refactor(profile,tool-registry): flip meImages from user-scoped to space-scoped (v40)",
+			"type": "refactor",
+			"scope": "profile,tool-registry",
+			"additions": 235,
+			"deletions": 36,
+			"timestamp": "2026-04-23T18:09:57+02:00"
+		},
+		{
+			"hash": "d68dbc9",
+			"short": "docs(optimizable): add MCP + personas live-smoke to manual-test-backlog",
+			"type": "docs",
+			"scope": "optimizable",
+			"additions": 60,
+			"deletions": 0,
+			"timestamp": "2026-04-23T18:12:06+02:00"
+		},
+		{
+			"hash": "2769241",
+			"short": "docs(plans): agent-loop plan reflects M1 shipped + M2 core shipped",
+			"type": "docs",
+			"scope": "plans",
+			"additions": 50,
+			"deletions": 15,
+			"timestamp": "2026-04-23T18:12:58+02:00"
+		},
+		{
+			"hash": "f7536bc",
+			"short": "feat(shared-ai): route compactor to Haiku-tier model by default (M2.5)",
+			"type": "feat",
+			"scope": "shared-ai",
+			"additions": 83,
+			"deletions": 16,
+			"timestamp": "2026-04-23T18:26:50+02:00"
+		},
+		{
+			"hash": "4fc9d6c",
+			"short": "feat(wardrobe): module foundation — garments + outfits space-scoped data layer (M1)",
+			"type": "feat",
+			"scope": "wardrobe",
+			"additions": 1951,
+			"deletions": 51,
+			"timestamp": "2026-04-23T18:27:37+02:00"
+		},
+		{
+			"hash": "d518169",
+			"short": "feat(website): M7 — observability + analytics + GC + M2-polish",
+			"type": "feat",
+			"scope": "website",
+			"additions": 3,
+			"deletions": 0,
+			"timestamp": "2026-04-23T18:30:49+02:00"
+		},
+		{
+			"hash": "5a49bcb",
+			"short": "feat(wardrobe): garments UI — /wardrobe + /wardrobe/garment/[id] (M2)",
+			"type": "feat",
+			"scope": "wardrobe",
+			"additions": 926,
+			"deletions": 0,
+			"timestamp": "2026-04-23T18:37:38+02:00"
+		},
+		{
+			"hash": "4966ca6",
+			"short": "feat(tool-registry): add mood module (log/today/recent)",
+			"type": "feat",
+			"scope": "tool-registry",
+			"additions": 265,
+			"deletions": 0,
+			"timestamp": "2026-04-23T18:39:00+02:00"
+		},
+		{
+			"hash": "507af32",
+			"short": "docs(plans): spec for per-Space destructive-tools opt-in",
+			"type": "docs",
+			"scope": "plans",
+			"additions": 373,
+			"deletions": 0,
+			"timestamp": "2026-04-23T18:39:56+02:00"
+		},
+		{
+			"hash": "441f956",
+			"short": "docs(website): smoketest walkthrough + manual-test-backlog entry",
+			"type": "docs",
+			"scope": "website",
+			"additions": 524,
+			"deletions": 0,
+			"timestamp": "2026-04-23T18:42:42+02:00"
+		},
+		{
+			"hash": "2b89bf7",
+			"short": "feat(wardrobe): outfits composer + detail page + tab switcher (M3)",
+			"type": "feat",
+			"scope": "wardrobe",
+			"additions": 997,
+			"deletions": 5,
+			"timestamp": "2026-04-23T18:45:21+02:00"
+		},
+		{
+			"hash": "d56ad39",
+			"short": "feat(wardrobe,picture): try-on integration — outfit → OpenAI edit (M4)",
+			"type": "feat",
+			"scope": "wardrobe,picture",
+			"additions": 352,
+			"deletions": 27,
+			"timestamp": "2026-04-23T18:52:57+02:00"
+		},
+		{
+			"hash": "66b7e08",
+			"short": "feat(shared-ai): runSubAgent() primitive — Claude-Code I2A pattern (M3.1)",
+			"type": "feat",
+			"scope": "shared-ai",
+			"additions": 1138,
+			"deletions": 2,
+			"timestamp": "2026-04-23T18:59:05+02:00"
+		},
+		{
+			"hash": "7e3f53f",
+			"short": "feat(tool-registry): wardrobe.* MCP tools — listGarments/listOutfits/createOutfit/tryOn (M5)",
+			"type": "feat",
+			"scope": "tool-registry",
+			"additions": 116,
+			"deletions": 129,
+			"timestamp": "2026-04-23T18:59:31+02:00"
+		},
+		{
+			"hash": "101af46",
+			"short": "feat(shared-ai): LLM-facing `task` tool wrapper for runSubAgent (M3.2)",
+			"type": "feat",
+			"scope": "shared-ai",
+			"additions": 489,
+			"deletions": 0,
+			"timestamp": "2026-04-23T19:05:09+02:00"
+		},
+		{
+			"hash": "66bfcb3",
+			"short": "feat(webapp): wire `task` tool into Companion chat + Mission runner (M3.3)",
+			"type": "feat",
+			"scope": "webapp",
+			"additions": 102,
+			"deletions": 41,
+			"timestamp": "2026-04-23T19:14:36+02:00"
+		},
+		{
+			"hash": "f20ace0",
+			"short": "test(website): broad automated coverage across the builder surface",
+			"type": "test",
+			"scope": "website",
+			"additions": 844,
+			"deletions": 39,
+			"timestamp": "2026-04-23T21:07:40+02:00"
+		},
+		{
+			"hash": "e082033",
+			"short": "feat(wardrobe): solo-garment try-on + plan-doc status updates (M4.1)",
+			"type": "feat",
+			"scope": "wardrobe",
+			"additions": 406,
+			"deletions": 103,
+			"timestamp": "2026-04-23T21:14:35+02:00"
+		},
+		{
+			"hash": "36c427d",
+			"short": "fix(scope): align scope filter with guest-mode write hook",
+			"type": "fix",
+			"scope": "scope",
+			"additions": 80,
+			"deletions": 11,
+			"timestamp": "2026-04-23T21:25:29+02:00"
+		},
+		{
+			"hash": "645993d",
+			"short": "feat(webapp): register wardrobe in workbench app-registry",
+			"type": "feat",
+			"scope": "webapp",
+			"additions": 15,
+			"deletions": 0,
+			"timestamp": "2026-04-23T21:32:13+02:00"
+		},
+		{
+			"hash": "c404db5",
+			"short": "fix(website): publish failed with uuid type error on Better-Auth ids",
+			"type": "fix",
+			"scope": "website",
+			"additions": 31,
+			"deletions": 6,
+			"timestamp": "2026-04-23T21:43:57+02:00"
+		},
+		{
+			"hash": "2531420",
+			"short": "fix(wardrobe): strip route-idiom wrapper from ListView so it fits both shells",
+			"type": "fix",
+			"scope": "wardrobe",
+			"additions": 69,
+			"deletions": 14,
+			"timestamp": "2026-04-23T21:53:19+02:00"
+		},
+		{
+			"hash": "bdd4e05",
+			"short": "feat(website): reorder blocks via up/down arrows in inspector",
+			"type": "feat",
+			"scope": "website",
+			"additions": 123,
+			"deletions": 8,
+			"timestamp": "2026-04-23T22:24:00+02:00"
+		},
+		{
+			"hash": "5a92e11",
+			"short": "feat(onboarding): M1 — data model + endpoints + client store",
+			"type": "feat",
+			"scope": "onboarding",
+			"additions": 504,
+			"deletions": 0,
+			"timestamp": "2026-04-23T22:24:49+02:00"
+		},
+		{
+			"hash": "5aecf8b",
+			"short": "feat(onboarding): M2 — route guard + shell + Screen 1 (name)",
+			"type": "feat",
+			"scope": "onboarding",
+			"additions": 698,
+			"deletions": 238,
+			"timestamp": "2026-04-23T22:49:52+02:00"
+		},
+		{
+			"hash": "d1ac8a6",
+			"short": "feat(onboarding): M3 — Screen 2 (Look — theme mode + variant)",
+			"type": "feat",
+			"scope": "onboarding",
+			"additions": 380,
+			"deletions": 3,
+			"timestamp": "2026-04-23T22:58:47+02:00"
+		},
+		{
+			"hash": "1198d01",
+			"short": "feat(onboarding): M4 — Screen 3 (Templates) + finish handler",
+			"type": "feat",
+			"scope": "onboarding",
+			"additions": 579,
+			"deletions": 0,
+			"timestamp": "2026-04-23T23:03:00+02:00"
+		},
+		{
+			"hash": "aa79090",
+			"short": "feat(website): full-bleed editor + unified sidebar with Seiten/Einfügen/Block tabs",
+			"type": "feat",
+			"scope": "website",
+			"additions": 156,
+			"deletions": 55,
+			"timestamp": "2026-04-23T23:03:19+02:00"
+		},
+		{
+			"hash": "bb8e7c2",
+			"short": "feat(onboarding): M5 — settings re-trigger",
+			"type": "feat",
+			"scope": "onboarding",
+			"additions": 55,
+			"deletions": 0,
+			"timestamp": "2026-04-23T23:05:26+02:00"
+		},
+		{
+			"hash": "aeba23f",
+			"short": "feat(profile,wardrobe,picture): inline me-image upload instead of deep-link",
+			"type": "feat",
+			"scope": "profile,wardrobe,picture",
+			"additions": 305,
+			"deletions": 59,
+			"timestamp": "2026-04-23T23:08:13+02:00"
+		},
+		{
+			"hash": "00ddd1e",
+			"short": "fix(api/profile): send credentials cross-origin so Better-Auth updateUser works",
+			"type": "fix",
+			"scope": "api/profile",
+			"additions": 7,
+			"deletions": 0,
+			"timestamp": "2026-04-23T23:16:43+02:00"
+		},
+		{
+			"hash": "4f40fda",
+			"short": "fix(mana-web): copy packages/website-blocks into the build context",
+			"type": "fix",
+			"scope": "mana-web",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-04-23T23:19:02+02:00"
+		},
+		{
+			"hash": "81c0d8c",
+			"short": "feat(website): session-scoped undo/redo for the editor",
+			"type": "feat",
+			"scope": "website",
+			"additions": 381,
+			"deletions": 7,
+			"timestamp": "2026-04-23T23:21:42+02:00"
+		},
+		{
+			"hash": "62267f3",
+			"short": "feat(wardrobe): upload feedback + success confirmation on face-ref banner",
+			"type": "feat",
+			"scope": "wardrobe",
+			"additions": 143,
+			"deletions": 30,
+			"timestamp": "2026-04-23T23:29:03+02:00"
+		},
+		{
+			"hash": "4093b91",
+			"short": "fix(profile): setPrimary no longer overwrites face-ref with avatar",
+			"type": "fix",
+			"scope": "profile",
+			"additions": 139,
+			"deletions": 23,
+			"timestamp": "2026-04-23T23:38:59+02:00"
+		},
+		{
+			"hash": "ca2809d",
+			"short": "docs(plans): visibility-system — unified 4-tier privacy model (planning)",
+			"type": "docs",
+			"scope": "plans",
+			"additions": 274,
+			"deletions": 0,
+			"timestamp": "2026-04-23T23:50:17+02:00"
+		},
+		{
+			"hash": "2b5a7b1",
+			"short": "refactor(wardrobe): lift upload zone to top, move intro behind help icon",
+			"type": "refactor",
+			"scope": "wardrobe",
+			"additions": 52,
+			"deletions": 47,
+			"timestamp": "2026-04-24T00:09:56+02:00"
+		},
+		{
+			"hash": "f9ca6ca",
+			"short": "chore(branding): drop wardrobe tier to guest for local testing [LOCAL PATCH]",
+			"type": "chore",
+			"scope": "branding",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-04-24T01:31:28+02:00"
+		},
+		{
+			"hash": "15bedde",
+			"short": "fix(picture): use image[] array syntax for multi-ref gpt-image-2 edits",
+			"type": "fix",
+			"scope": "picture",
+			"additions": 41,
+			"deletions": 8,
+			"timestamp": "2026-04-24T01:43:01+02:00"
+		},
+		{
+			"hash": "b204958",
+			"short": "feat(picture): fall back to gpt-image-1 when gpt-image-2 org-unverified",
+			"type": "feat",
+			"scope": "picture",
+			"additions": 62,
+			"deletions": 20,
+			"timestamp": "2026-04-24T01:50:21+02:00"
+		},
+		{
+			"hash": "e666540",
+			"short": "feat(auth): error-classification layer + passkey end-to-end",
+			"type": "feat",
+			"scope": "auth",
+			"additions": 3333,
+			"deletions": 435,
+			"timestamp": "2026-04-24T01:52:51+02:00"
+		},
+		{
+			"hash": "91fd88e",
+			"short": "fix(picture): normalize Try-On refs to clean RGB PNG before OpenAI call",
+			"type": "fix",
+			"scope": "picture",
+			"additions": 41,
+			"deletions": 11,
+			"timestamp": "2026-04-24T01:55:00+02:00"
+		},
+		{
+			"hash": "49935c9",
+			"short": "feat(shared-privacy): M1 — visibility foundation package",
+			"type": "feat",
+			"scope": "shared-privacy",
+			"additions": 994,
+			"deletions": 42,
+			"timestamp": "2026-04-24T01:59:11+02:00"
+		},
+		{
+			"hash": "d5ae2f1",
+			"short": "feat(library): M2 — adopt unified visibility system as the pilot module",
+			"type": "feat",
+			"scope": "library",
+			"additions": 121,
+			"deletions": 10,
+			"timestamp": "2026-04-24T02:08:29+02:00"
+		},
+		{
+			"hash": "0e9f574",
+			"short": "feat(picture): M3 — boards adopt the unified visibility system (soft)",
+			"type": "feat",
+			"scope": "picture",
+			"additions": 100,
+			"deletions": 17,
+			"timestamp": "2026-04-24T02:23:56+02:00"
+		},
+		{
+			"hash": "ac44d51",
+			"short": "feat(calendar): M4.a — events adopt the unified visibility system",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 177,
+			"deletions": 3,
+			"timestamp": "2026-04-24T02:32:25+02:00"
+		},
+		{
+			"hash": "015a2c1",
+			"short": "feat(todo): M4.b — tasks adopt the unified visibility system",
+			"type": "feat",
+			"scope": "todo",
+			"additions": 119,
+			"deletions": 2,
+			"timestamp": "2026-04-24T02:37:32+02:00"
+		},
+		{
+			"hash": "95e85bd",
+			"short": "feat(goals): M4.c — goals adopt the unified visibility system",
+			"type": "feat",
+			"scope": "goals",
+			"additions": 105,
+			"deletions": 0,
+			"timestamp": "2026-04-24T02:41:27+02:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

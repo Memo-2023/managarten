@@ -1,0 +1,169 @@
+{
+	"date": "2026-03-17",
+	"day_number": 56,
+	"weekday": "Dienstag",
+	"commits": 9,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 9
+		}
+	],
+	"additions": 8218,
+	"deletions": 2875,
+	"net_lines": 5343,
+	"files_changed": 105,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-03-17T11:22:56.000Z",
+		"last_commit_at": "2026-03-17T12:26:17.000Z",
+		"total_span_minutes": 63,
+		"active_minutes": 28,
+		"pauses": [
+			{
+				"from": "12:33",
+				"to": "13:08",
+				"minutes": 35
+			}
+		],
+		"longest_focus_minutes": 18
+	},
+	"top_dirs": [
+		{
+			"path": "apps/mukke/apps/mobile",
+			"pct": 52
+		},
+		{
+			"path": "apps/matrix/apps/mobile",
+			"pct": 18
+		},
+		{
+			"path": "apps/calendar/apps/web",
+			"pct": 8
+		},
+		{
+			"path": "apps/traces/apps/mobile",
+			"pct": 4
+		},
+		{
+			"path": "services/mana-core-auth/src",
+			"pct": 3
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".tsx",
+			"count": 47
+		},
+		{
+			"ext": ".ts",
+			"count": 26
+		},
+		{
+			"ext": ".json",
+			"count": 14
+		},
+		{
+			"ext": ".js",
+			"count": 6
+		},
+		{
+			"ext": ".png",
+			"count": 4
+		},
+		{
+			"ext": ".gitignore",
+			"count": 3
+		}
+	],
+	"tags": ["auth", "calendar", "devtools", "traces", "mukke"],
+	"commits_list": [
+		{
+			"hash": "14ca0ae",
+			"short": "fix(auth): align reset-password min length to 8 characters",
+			"type": "fix",
+			"scope": "auth",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-03-17T12:22:56+01:00"
+		},
+		{
+			"hash": "f922d2c",
+			"short": "fix(auth): return proper 403 for unverified email on login",
+			"type": "fix",
+			"scope": "auth",
+			"additions": 9,
+			"deletions": 0,
+			"timestamp": "2026-03-17T12:33:27+01:00"
+		},
+		{
+			"hash": "6e1af0d",
+			"short": "feat(calendar): add Playwright E2E tests for web app",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 2925,
+			"deletions": 1017,
+			"timestamp": "2026-03-17T13:08:09+01:00"
+		},
+		{
+			"hash": "77b82c5",
+			"short": "fix(devtools): fix pre-commit hook - add eslint-config dep, remove type-check",
+			"type": "fix",
+			"scope": "devtools",
+			"additions": 0,
+			"deletions": 1,
+			"timestamp": "2026-03-17T13:08:51+01:00"
+		},
+		{
+			"hash": "abbe12e",
+			"short": "test: verify pre-commit hook works",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-03-17T13:11:24+01:00"
+		},
+		{
+			"hash": "d4c1192",
+			"short": "Revert \"test: verify pre-commit hook works\"",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 1,
+			"timestamp": "2026-03-17T13:11:31+01:00"
+		},
+		{
+			"hash": "3dc6ec1",
+			"short": "fix(traces): configure EAS Build for TestFlight and fix bot-services build",
+			"type": "fix",
+			"scope": "traces",
+			"additions": 1028,
+			"deletions": 1614,
+			"timestamp": "2026-03-17T13:16:38+01:00"
+		},
+		{
+			"hash": "6c91805",
+			"short": "feat(mukke): add offline-first iOS music player app",
+			"type": "feat",
+			"scope": "mukke",
+			"additions": 4035,
+			"deletions": 241,
+			"timestamp": "2026-03-17T13:23:58+01:00"
+		},
+		{
+			"hash": "ee6e9ec",
+			"short": "docs(calendar): add settings audit documentation",
+			"type": "docs",
+			"scope": "calendar",
+			"additions": 219,
+			"deletions": 0,
+			"timestamp": "2026-03-17T13:26:17+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

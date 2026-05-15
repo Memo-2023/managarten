@@ -1,0 +1,613 @@
+{
+	"date": "2025-12-04",
+	"day_number": 11,
+	"weekday": "Donnerstag",
+	"commits": 54,
+	"authors": [
+		{
+			"name": "Till-JS",
+			"count": 28
+		},
+		{
+			"name": "Wuesteon",
+			"count": 26
+		}
+	],
+	"additions": 115646,
+	"deletions": 36556,
+	"net_lines": 79090,
+	"files_changed": 1050,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2025-12-04T14:37:34.000Z",
+		"last_commit_at": "2025-12-05T03:26:34.000Z",
+		"total_span_minutes": 769,
+		"active_minutes": 275,
+		"pauses": [
+			{
+				"from": "17:46",
+				"to": "19:08",
+				"minutes": 82
+			},
+			{
+				"from": "19:09",
+				"to": "21:53",
+				"minutes": 164
+			},
+			{
+				"from": "21:53",
+				"to": "22:58",
+				"minutes": 65
+			},
+			{
+				"from": "23:40",
+				"to": "00:15",
+				"minutes": 35
+			},
+			{
+				"from": "00:15",
+				"to": "00:50",
+				"minutes": 35
+			},
+			{
+				"from": "00:50",
+				"to": "01:33",
+				"minutes": 43
+			},
+			{
+				"from": "01:33",
+				"to": "02:10",
+				"minutes": 38
+			},
+			{
+				"from": "02:12",
+				"to": "02:45",
+				"minutes": 32
+			}
+		],
+		"longest_focus_minutes": 129
+	},
+	"top_dirs": [
+		{
+			"path": "games/figgos/{ => apps",
+			"pct": 6
+		},
+		{
+			"path": "apps/clock/apps/web",
+			"pct": 6
+		},
+		{
+			"path": "apps/finance/apps/backend",
+			"pct": 5
+		},
+		{
+			"path": "apps/finance/apps/web",
+			"pct": 5
+		},
+		{
+			"path": "apps/manacore/apps/web",
+			"pct": 5
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 482
+		},
+		{
+			"ext": ".svelte",
+			"count": 274
+		},
+		{
+			"ext": ".tsx",
+			"count": 125
+		},
+		{
+			"ext": ".json",
+			"count": 102
+		},
+		{
+			"ext": ".md",
+			"count": 26
+		},
+		{
+			"ext": ".yml",
+			"count": 20
+		}
+	],
+	"tags": ["ci", "staging", "chat-web", "manacore", "cd"],
+	"commits_list": [
+		{
+			"hash": "9eb0b51",
+			"short": "✨ feat(clock): add 10 new clock face designs",
+			"type": null,
+			"scope": null,
+			"additions": 5937,
+			"deletions": 10,
+			"timestamp": "2025-12-04T15:37:34+01:00"
+		},
+		{
+			"hash": "10f4da8",
+			"short": "✨ feat(manacore): add configurable cross-app dashboard with widgets",
+			"type": null,
+			"scope": null,
+			"additions": 2641,
+			"deletions": 176,
+			"timestamp": "2025-12-04T15:41:24+01:00"
+		},
+		{
+			"hash": "6080902",
+			"short": "✨ feat(clock): add multi-stopwatch support with improved UI",
+			"type": null,
+			"scope": null,
+			"additions": 851,
+			"deletions": 132,
+			"timestamp": "2025-12-04T15:42:12+01:00"
+		},
+		{
+			"hash": "03b77ee",
+			"short": "✨ feat(clock): add life clock page with minimal homepage redesign",
+			"type": null,
+			"scope": null,
+			"additions": 1864,
+			"deletions": 124,
+			"timestamp": "2025-12-04T16:00:54+01:00"
+		},
+		{
+			"hash": "949b9c8",
+			"short": "🎮 feat(games): add figgos game to monorepo",
+			"type": null,
+			"scope": null,
+			"additions": 7769,
+			"deletions": 0,
+			"timestamp": "2025-12-04T16:26:25+01:00"
+		},
+		{
+			"hash": "5b3c5ff",
+			"short": "🐛 fix: resolve type-check errors in finance and moodlit",
+			"type": null,
+			"scope": null,
+			"additions": 30,
+			"deletions": 0,
+			"timestamp": "2025-12-04T16:30:01+01:00"
+		},
+		{
+			"hash": "bbe540c",
+			"short": "✨ feat: add global start page setting across all apps",
+			"type": null,
+			"scope": null,
+			"additions": 602,
+			"deletions": 22,
+			"timestamp": "2025-12-04T16:31:04+01:00"
+		},
+		{
+			"hash": "ad0051a",
+			"short": "✨ feat(finance): add complete finance app with budget tracking",
+			"type": null,
+			"scope": null,
+			"additions": 10502,
+			"deletions": 0,
+			"timestamp": "2025-12-04T16:41:43+01:00"
+		},
+		{
+			"hash": "b7eeae9",
+			"short": "✨ feat(moodlit): add complete web app with fullscreen moods and sequences",
+			"type": null,
+			"scope": null,
+			"additions": 8104,
+			"deletions": 2,
+			"timestamp": "2025-12-04T16:53:56+01:00"
+		},
+		{
+			"hash": "234703a",
+			"short": "♻️ refactor(cd): hardcode non-sensitive config in staging workflow",
+			"type": null,
+			"scope": null,
+			"additions": 188,
+			"deletions": 20,
+			"timestamp": "2025-12-04T17:11:36+01:00"
+		},
+		{
+			"hash": "f80b864",
+			"short": "✨ feat(clock): add interactive world map to world clock page",
+			"type": null,
+			"scope": null,
+			"additions": 558,
+			"deletions": 26,
+			"timestamp": "2025-12-04T17:25:58+01:00"
+		},
+		{
+			"hash": "9dee75e",
+			"short": "✨ feat(clock): improve UI across alarms, timers, pomodoro, and world clock pages",
+			"type": null,
+			"scope": null,
+			"additions": 752,
+			"deletions": 624,
+			"timestamp": "2025-12-04T17:26:50+01:00"
+		},
+		{
+			"hash": "05d074c",
+			"short": "🔧 refactor(figgos): restructure to standard monorepo pattern",
+			"type": null,
+			"scope": null,
+			"additions": 2207,
+			"deletions": 63,
+			"timestamp": "2025-12-04T17:27:15+01:00"
+		},
+		{
+			"hash": "ed985d9",
+			"short": "✨ feat(shared-ui): add centered mode to PageHeader component",
+			"type": null,
+			"scope": null,
+			"additions": 76,
+			"deletions": 21,
+			"timestamp": "2025-12-04T17:27:43+01:00"
+		},
+		{
+			"hash": "1b11ebc",
+			"short": "🐛 fix(shared-feedback-ui): use CreateFeedbackInput type in handleSubmit",
+			"type": null,
+			"scope": null,
+			"additions": 6,
+			"deletions": 2,
+			"timestamp": "2025-12-04T17:27:58+01:00"
+		},
+		{
+			"hash": "c93aca0",
+			"short": "📝 docs: update COMMANDS.md and add APP-IDEAS.md",
+			"type": null,
+			"scope": null,
+			"additions": 170,
+			"deletions": 0,
+			"timestamp": "2025-12-04T17:28:16+01:00"
+		},
+		{
+			"hash": "040d044",
+			"short": "🐛 fix(mana-core-auth): add ConfigModule import to AiModule",
+			"type": null,
+			"scope": null,
+			"additions": 2,
+			"deletions": 0,
+			"timestamp": "2025-12-04T17:46:39+01:00"
+		},
+		{
+			"hash": "d69cc60",
+			"short": "🐛 fix(auth): remove type-only import of ConfigService in AiService",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2025-12-04T19:08:37+01:00"
+		},
+		{
+			"hash": "a865da9",
+			"short": "📝 docs: add NestJS dependency injection troubleshooting",
+			"type": null,
+			"scope": null,
+			"additions": 136,
+			"deletions": 0,
+			"timestamp": "2025-12-04T19:09:38+01:00"
+		},
+		{
+			"hash": "60ecc24",
+			"short": "🐛 fix(auth): remove all type-only ConfigService imports",
+			"type": null,
+			"scope": null,
+			"additions": 6,
+			"deletions": 6,
+			"timestamp": "2025-12-04T21:53:28+01:00"
+		},
+		{
+			"hash": "9b26caf",
+			"short": "🐛 fix(mana-core-auth): remove type-only imports from services and controllers",
+			"type": null,
+			"scope": null,
+			"additions": 5,
+			"deletions": 5,
+			"timestamp": "2025-12-04T22:58:45+01:00"
+		},
+		{
+			"hash": "b8f9bc1",
+			"short": "🐛 fix(chat-backend): remove type-only ConfigService import",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2025-12-04T23:02:26+01:00"
+		},
+		{
+			"hash": "9c47119",
+			"short": "Fix wrong type   import, make auth and chat work",
+			"type": null,
+			"scope": null,
+			"additions": 24453,
+			"deletions": 443,
+			"timestamp": "2025-12-04T23:25:25+01:00"
+		},
+		{
+			"hash": "952f246",
+			"short": "fix styleing",
+			"type": null,
+			"scope": null,
+			"additions": 371,
+			"deletions": 147,
+			"timestamp": "2025-12-04T23:40:25+01:00"
+		},
+		{
+			"hash": "b6115a6",
+			"short": "add health route",
+			"type": null,
+			"scope": null,
+			"additions": 15719,
+			"deletions": 15698,
+			"timestamp": "2025-12-05T00:15:44+01:00"
+		},
+		{
+			"hash": "6c3b297",
+			"short": "fix route",
+			"type": null,
+			"scope": null,
+			"additions": 15859,
+			"deletions": 15859,
+			"timestamp": "2025-12-05T00:50:23+01:00"
+		},
+		{
+			"hash": "80f8005",
+			"short": "refactor(staging): simplify CI/CD to mana-core-auth + chat-backend only",
+			"type": "refactor",
+			"scope": "staging",
+			"additions": 600,
+			"deletions": 158,
+			"timestamp": "2025-12-05T01:33:01+01:00"
+		},
+		{
+			"hash": "714298f",
+			"short": "feat(chat-web): add Docker deployment for chat frontend",
+			"type": "feat",
+			"scope": "chat-web",
+			"additions": 424,
+			"deletions": 332,
+			"timestamp": "2025-12-05T02:10:32+01:00"
+		},
+		{
+			"hash": "1ecdee4",
+			"short": "chore(ci): simplify pipelines for rapid testing",
+			"type": "chore",
+			"scope": "ci",
+			"additions": 756,
+			"deletions": 56,
+			"timestamp": "2025-12-05T02:12:59+01:00"
+		},
+		{
+			"hash": "eaf82b4",
+			"short": "fix(ci): remove validate job - Docker builds are self-contained",
+			"type": "fix",
+			"scope": "ci",
+			"additions": 10,
+			"deletions": 56,
+			"timestamp": "2025-12-05T02:45:06+01:00"
+		},
+		{
+			"hash": "8253fbb",
+			"short": "chore(ci): disable test workflows for rapid iteration",
+			"type": "chore",
+			"scope": "ci",
+			"additions": 0,
+			"deletions": 0,
+			"timestamp": "2025-12-05T02:47:20+01:00"
+		},
+		{
+			"hash": "be37808",
+			"short": "fix(chat-web): use runtime env vars instead of static imports",
+			"type": "fix",
+			"scope": "chat-web",
+			"additions": 17,
+			"deletions": 6,
+			"timestamp": "2025-12-05T02:49:32+01:00"
+		},
+		{
+			"hash": "c1d14a4",
+			"short": "chore(ci): rename backup files to .bak to prevent GitHub detection",
+			"type": "chore",
+			"scope": "ci",
+			"additions": 0,
+			"deletions": 562,
+			"timestamp": "2025-12-05T03:04:01+01:00"
+		},
+		{
+			"hash": "0aa9ba0",
+			"short": "chore(ci): disable PR and dependency workflows for minimal setup",
+			"type": "chore",
+			"scope": "ci",
+			"additions": 0,
+			"deletions": 0,
+			"timestamp": "2025-12-05T03:06:24+01:00"
+		},
+		{
+			"hash": "4a56c88",
+			"short": "fix(staging): correct chat-backend health check path to /api/v1/health",
+			"type": "fix",
+			"scope": "staging",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2025-12-05T03:32:22+01:00"
+		},
+		{
+			"hash": "0c05097",
+			"short": "docs: add staging deployment troubleshooting guide",
+			"type": null,
+			"scope": null,
+			"additions": 296,
+			"deletions": 1,
+			"timestamp": "2025-12-05T03:35:10+01:00"
+		},
+		{
+			"hash": "cfbc8a2",
+			"short": "♻️ refactor: unify web app patterns across monorepo",
+			"type": null,
+			"scope": null,
+			"additions": 2215,
+			"deletions": 175,
+			"timestamp": "2025-12-05T03:35:26+01:00"
+		},
+		{
+			"hash": "acb5d74",
+			"short": "📝 docs: add release plan and manacore roadmap",
+			"type": null,
+			"scope": null,
+			"additions": 1405,
+			"deletions": 113,
+			"timestamp": "2025-12-05T03:38:27+01:00"
+		},
+		{
+			"hash": "4460807",
+			"short": "fix(chat-web): inject runtime env vars for client-side auth",
+			"type": "fix",
+			"scope": "chat-web",
+			"additions": 29,
+			"deletions": 10,
+			"timestamp": "2025-12-05T03:38:53+01:00"
+		},
+		{
+			"hash": "5fd5423",
+			"short": "feat(manacore): add Picture, ManaDeck, and Clock dashboard widgets",
+			"type": "feat",
+			"scope": "manacore",
+			"additions": 961,
+			"deletions": 2,
+			"timestamp": "2025-12-05T03:45:07+01:00"
+		},
+		{
+			"hash": "00281a8",
+			"short": "fix(staging): add CORS_ORIGINS to mana-core-auth",
+			"type": "fix",
+			"scope": "staging",
+			"additions": 2,
+			"deletions": 0,
+			"timestamp": "2025-12-05T03:56:30+01:00"
+		},
+		{
+			"hash": "113495a",
+			"short": "docs: add client-side env injection and CORS troubleshooting",
+			"type": null,
+			"scope": null,
+			"additions": 158,
+			"deletions": 0,
+			"timestamp": "2025-12-05T04:09:11+01:00"
+		},
+		{
+			"hash": "0fe3975",
+			"short": "fix(cd): use drizzle-kit push for schema migration",
+			"type": "fix",
+			"scope": "cd",
+			"additions": 68,
+			"deletions": 2,
+			"timestamp": "2025-12-05T04:16:32+01:00"
+		},
+		{
+			"hash": "f1ed3e3",
+			"short": "feat(inventory): add new Inventory app scaffolding",
+			"type": "feat",
+			"scope": "inventory",
+			"additions": 7270,
+			"deletions": 2,
+			"timestamp": "2025-12-05T04:19:36+01:00"
+		},
+		{
+			"hash": "a514879",
+			"short": "refactor(calendar): reorganize routes into (app) layout group",
+			"type": "refactor",
+			"scope": "calendar",
+			"additions": 269,
+			"deletions": 261,
+			"timestamp": "2025-12-05T04:19:51+01:00"
+		},
+		{
+			"hash": "4a41b45",
+			"short": "refactor(clock): reorganize routes into (app) layout group",
+			"type": "refactor",
+			"scope": "clock",
+			"additions": 257,
+			"deletions": 256,
+			"timestamp": "2025-12-05T04:19:56+01:00"
+		},
+		{
+			"hash": "ebec369",
+			"short": "refactor(finance): reorganize routes into (app) layout group",
+			"type": "refactor",
+			"scope": "finance",
+			"additions": 346,
+			"deletions": 173,
+			"timestamp": "2025-12-05T04:20:02+01:00"
+		},
+		{
+			"hash": "2f7450b",
+			"short": "refactor(mail): reorganize routes into (app) layout group",
+			"type": "refactor",
+			"scope": "mail",
+			"additions": 318,
+			"deletions": 221,
+			"timestamp": "2025-12-05T04:20:06+01:00"
+		},
+		{
+			"hash": "4a6d946",
+			"short": "refactor(presi): reorganize routes into (app) and (auth) layout groups",
+			"type": "refactor",
+			"scope": "presi",
+			"additions": 258,
+			"deletions": 251,
+			"timestamp": "2025-12-05T04:20:11+01:00"
+		},
+		{
+			"hash": "862560f",
+			"short": "refactor(todo): reorganize routes into (app) layout group",
+			"type": "refactor",
+			"scope": "todo",
+			"additions": 263,
+			"deletions": 243,
+			"timestamp": "2025-12-05T04:20:16+01:00"
+		},
+		{
+			"hash": "fd3341f",
+			"short": "refactor(zitare): reorganize routes into (app) layout group",
+			"type": "refactor",
+			"scope": "zitare",
+			"additions": 283,
+			"deletions": 267,
+			"timestamp": "2025-12-05T04:20:21+01:00"
+		},
+		{
+			"hash": "fca93a9",
+			"short": "fix(manacore): update app layout",
+			"type": "fix",
+			"scope": "manacore",
+			"additions": 8,
+			"deletions": 2,
+			"timestamp": "2025-12-05T04:20:27+01:00"
+		},
+		{
+			"hash": "c3c272a",
+			"short": "chore: update config files and dependencies",
+			"type": null,
+			"scope": null,
+			"additions": 585,
+			"deletions": 23,
+			"timestamp": "2025-12-05T04:20:35+01:00"
+		},
+		{
+			"hash": "da4f05a",
+			"short": "fix(shared-auth): add UUID fallback for HTTP contexts",
+			"type": "fix",
+			"scope": "shared-auth",
+			"additions": 37,
+			"deletions": 1,
+			"timestamp": "2025-12-05T04:26:34+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

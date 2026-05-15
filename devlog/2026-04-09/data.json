@@ -1,0 +1,1228 @@
+{
+	"date": "2026-04-09",
+	"day_number": 78,
+	"weekday": "Donnerstag",
+	"commits": 125,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 125
+		}
+	],
+	"additions": 24904,
+	"deletions": 26063,
+	"net_lines": -1159,
+	"files_changed": 537,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-04-09T09:49:29.000Z",
+		"last_commit_at": "2026-04-10T00:51:41.000Z",
+		"total_span_minutes": 902,
+		"active_minutes": 403,
+		"pauses": [
+			{
+				"from": "13:25",
+				"to": "14:05",
+				"minutes": 40
+			},
+			{
+				"from": "15:14",
+				"to": "15:44",
+				"minutes": 30
+			},
+			{
+				"from": "18:52",
+				"to": "19:34",
+				"minutes": 42
+			},
+			{
+				"from": "20:25",
+				"to": "02:51",
+				"minutes": 387
+			}
+		],
+		"longest_focus_minutes": 188
+	},
+	"top_dirs": [
+		{
+			"path": "apps/mana/apps/web",
+			"pct": 58
+		},
+		{
+			"path": "packages/shared-errors/src",
+			"pct": 3
+		},
+		{
+			"path": "packages/cards-database/src",
+			"pct": 2
+		},
+		{
+			"path": "apps/api/src/modules",
+			"pct": 2
+		},
+		{
+			"path": "packages/help/src",
+			"pct": 2
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 268
+		},
+		{
+			"ext": ".svelte",
+			"count": 254
+		},
+		{
+			"ext": ".json",
+			"count": 82
+		},
+		{
+			"ext": ".js",
+			"count": 21
+		},
+		{
+			"ext": ".md",
+			"count": 15
+		},
+		{
+			"ext": ".yml",
+			"count": 9
+		}
+	],
+	"tags": ["mana/web", "mana/web/nutriphi", "mana/web/news", "api", "memoro"],
+	"commits_list": [
+		{
+			"hash": "feb19d8",
+			"short": "refactor(mana/web): migrate cycles/ListView style to theme tokens (P5)",
+			"type": "refactor",
+			"scope": "mana/web",
+			"additions": 19,
+			"deletions": 41,
+			"timestamp": "2026-04-09T11:49:29+02:00"
+		},
+		{
+			"hash": "0b9f85c",
+			"short": "refactor(mana/web): migrate dreams/ListView style to theme tokens (P5)",
+			"type": "refactor",
+			"scope": "mana/web",
+			"additions": 73,
+			"deletions": 137,
+			"timestamp": "2026-04-09T11:49:31+02:00"
+		},
+		{
+			"hash": "7a0959e",
+			"short": "refactor(mana/web): migrate PageShell to theme tokens (P5)",
+			"type": "refactor",
+			"scope": "mana/web",
+			"additions": 24,
+			"deletions": 76,
+			"timestamp": "2026-04-09T11:53:35+02:00"
+		},
+		{
+			"hash": "b4dd646",
+			"short": "feat(memoro): auto-generate voice memo titles via the LLM task queue",
+			"type": "feat",
+			"scope": "memoro",
+			"additions": 202,
+			"deletions": 0,
+			"timestamp": "2026-04-09T11:55:26+02:00"
+		},
+		{
+			"hash": "e19a81c",
+			"short": "test(mana-auth): sso-config consistency spec",
+			"type": "test",
+			"scope": "mana-auth",
+			"additions": 126,
+			"deletions": 0,
+			"timestamp": "2026-04-09T11:55:30+02:00"
+		},
+		{
+			"hash": "4884899",
+			"short": "chore(packages): remove 4 dead zero-consumer packages",
+			"type": "chore",
+			"scope": "packages",
+			"additions": 0,
+			"deletions": 4702,
+			"timestamp": "2026-04-09T11:56:25+02:00"
+		},
+		{
+			"hash": "12be86b",
+			"short": "chore: remove abandoned per-product workspace artifacts",
+			"type": null,
+			"scope": null,
+			"additions": 3,
+			"deletions": 5893,
+			"timestamp": "2026-04-09T11:56:51+02:00"
+		},
+		{
+			"hash": "034a07d",
+			"short": "chore(workspace): remove redundant nested lockfiles + workspace.yaml",
+			"type": "chore",
+			"scope": "workspace",
+			"additions": 0,
+			"deletions": 7189,
+			"timestamp": "2026-04-09T11:57:11+02:00"
+		},
+		{
+			"hash": "b2bc28d",
+			"short": "docs: refactoring audit April 2026",
+			"type": null,
+			"scope": null,
+			"additions": 738,
+			"deletions": 0,
+			"timestamp": "2026-04-09T11:57:33+02:00"
+		},
+		{
+			"hash": "2375167",
+			"short": "refactor(mana/web): migrate foundation shells + workbench scenes to theme tokens (P5)",
+			"type": "refactor",
+			"scope": "mana/web",
+			"additions": 122,
+			"deletions": 333,
+			"timestamp": "2026-04-09T12:02:54+02:00"
+		},
+		{
+			"hash": "94d7dd4",
+			"short": "feat(mana/web): tier-gate workbench picker, openApps, and per-route navigation",
+			"type": "feat",
+			"scope": "mana/web",
+			"additions": 180,
+			"deletions": 6,
+			"timestamp": "2026-04-09T12:08:49+02:00"
+		},
+		{
+			"hash": "e52b6e2",
+			"short": "chore(shared-branding): set all apps to requiredTier 'guest' (testing only)",
+			"type": "chore",
+			"scope": "shared-branding",
+			"additions": 36,
+			"deletions": 36,
+			"timestamp": "2026-04-09T12:14:02+02:00"
+		},
+		{
+			"hash": "7b25f3a",
+			"short": "refactor(mana/web): migrate module DetailViews + sub-views to theme tokens (P5)",
+			"type": "refactor",
+			"scope": "mana/web",
+			"additions": 176,
+			"deletions": 471,
+			"timestamp": "2026-04-09T12:15:47+02:00"
+		},
+		{
+			"hash": "fbb71f9",
+			"short": "feat(admin): replace mock dashboard stats with real /admin/stats endpoint",
+			"type": "feat",
+			"scope": "admin",
+			"additions": 109,
+			"deletions": 36,
+			"timestamp": "2026-04-09T12:20:18+02:00"
+		},
+		{
+			"hash": "ddde284",
+			"short": "fix(memoro): decrypt DetailView fields + stamp createdAt on memo create",
+			"type": "fix",
+			"scope": "memoro",
+			"additions": 17,
+			"deletions": 1,
+			"timestamp": "2026-04-09T12:22:01+02:00"
+		},
+		{
+			"hash": "38a02b7",
+			"short": "chore(dev): add setup-dev-user script for local founder accounts",
+			"type": "chore",
+			"scope": "dev",
+			"additions": 149,
+			"deletions": 1,
+			"timestamp": "2026-04-09T12:23:15+02:00"
+		},
+		{
+			"hash": "c8da226",
+			"short": "fix(skilltree): define the missing branch accent colors",
+			"type": "fix",
+			"scope": "skilltree",
+			"additions": 22,
+			"deletions": 7,
+			"timestamp": "2026-04-09T12:23:55+02:00"
+		},
+		{
+			"hash": "32b0bf9",
+			"short": "fix(docker): drop more stale shared package COPY lines from sveltekit-base",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 3,
+			"deletions": 5,
+			"timestamp": "2026-04-09T12:25:45+02:00"
+		},
+		{
+			"hash": "b8f2d8f",
+			"short": "docs(local-dev): document setup-dev-user + the three founder accounts",
+			"type": "docs",
+			"scope": "local-dev",
+			"additions": 63,
+			"deletions": 0,
+			"timestamp": "2026-04-09T12:26:37+02:00"
+		},
+		{
+			"hash": "5052926",
+			"short": "refactor(mana/web): migrate chrome/notification components to theme tokens (P5)",
+			"type": "refactor",
+			"scope": "mana/web",
+			"additions": 18,
+			"deletions": 17,
+			"timestamp": "2026-04-09T12:27:09+02:00"
+		},
+		{
+			"hash": "7f6b416",
+			"short": "test(load): k6 script for the unified apps/api server",
+			"type": "test",
+			"scope": "load",
+			"additions": 302,
+			"deletions": 0,
+			"timestamp": "2026-04-09T12:27:54+02:00"
+		},
+		{
+			"hash": "5c41ebe",
+			"short": "style(mana/web/automations): migrate ListView to theme tokens (P5)",
+			"type": "style",
+			"scope": "mana/web/automations",
+			"additions": 40,
+			"deletions": 32,
+			"timestamp": "2026-04-09T12:34:32+02:00"
+		},
+		{
+			"hash": "d2e44c8",
+			"short": "chore(packages): remove 2 zero-consumer config packages",
+			"type": "chore",
+			"scope": "packages",
+			"additions": 53,
+			"deletions": 744,
+			"timestamp": "2026-04-09T12:35:40+02:00"
+		},
+		{
+			"hash": "a7fbd29",
+			"short": "style(mana/web): migrate photos/times/contacts module helpers to theme tokens (P5)",
+			"type": "style",
+			"scope": "mana/web",
+			"additions": 58,
+			"deletions": 53,
+			"timestamp": "2026-04-09T12:37:29+02:00"
+		},
+		{
+			"hash": "526d92f",
+			"short": "fix(memoro): diagnostic logs + loading states + transcription source label",
+			"type": "fix",
+			"scope": "memoro",
+			"additions": 185,
+			"deletions": 38,
+			"timestamp": "2026-04-09T12:41:28+02:00"
+		},
+		{
+			"hash": "4423c03",
+			"short": "fix(docker): drop packages/shared-config (deleted) from sveltekit-base",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-04-09T12:43:17+02:00"
+		},
+		{
+			"hash": "0987b08",
+			"short": "style(mana/web): migrate (app) page-level routes to theme tokens (P5)",
+			"type": "style",
+			"scope": "mana/web",
+			"additions": 83,
+			"deletions": 77,
+			"timestamp": "2026-04-09T12:43:24+02:00"
+		},
+		{
+			"hash": "9760269",
+			"short": "fix(memoro): generateTitle empty-result fallback + watcher diagnostics",
+			"type": "fix",
+			"scope": "memoro",
+			"additions": 64,
+			"deletions": 19,
+			"timestamp": "2026-04-09T12:53:35+02:00"
+		},
+		{
+			"hash": "ea8ca13",
+			"short": "fix(mana/web): wrap bare var(--color-X) refs in hsl() across 19 files (P5)",
+			"type": "fix",
+			"scope": "mana/web",
+			"additions": 189,
+			"deletions": 193,
+			"timestamp": "2026-04-09T13:02:33+02:00"
+		},
+		{
+			"hash": "d8591b3",
+			"short": "fix(generate-title): few-shot prompt + rolling cleanup + date label for short transcripts",
+			"type": "fix",
+			"scope": "generate-title",
+			"additions": 76,
+			"deletions": 31,
+			"timestamp": "2026-04-09T13:03:16+02:00"
+		},
+		{
+			"hash": "43d19b5",
+			"short": "docs(shared-tailwind/themes): document hsl() wrap rule + token allowlist",
+			"type": "docs",
+			"scope": "shared-tailwind/themes",
+			"additions": 31,
+			"deletions": 1,
+			"timestamp": "2026-04-09T13:05:16+02:00"
+		},
+		{
+			"hash": "32419a6",
+			"short": "docs(who): RFC for the historical-figure guessing module",
+			"type": "docs",
+			"scope": "who",
+			"additions": 415,
+			"deletions": 0,
+			"timestamp": "2026-04-09T13:08:07+02:00"
+		},
+		{
+			"hash": "74b5808",
+			"short": "feat(api): who module — LLM character-guessing endpoint cluster",
+			"type": "feat",
+			"scope": "api",
+			"additions": 830,
+			"deletions": 0,
+			"timestamp": "2026-04-09T13:09:46+02:00"
+		},
+		{
+			"hash": "f24438f",
+			"short": "feat(mana/web): who module — frontend (game store + UI + routes)",
+			"type": "feat",
+			"scope": "mana/web",
+			"additions": 1018,
+			"deletions": 0,
+			"timestamp": "2026-04-09T13:10:34+02:00"
+		},
+		{
+			"hash": "65c4d93",
+			"short": "feat(shared-branding): register the who module in mana-apps + new icon",
+			"type": "feat",
+			"scope": "shared-branding",
+			"additions": 22,
+			"deletions": 0,
+			"timestamp": "2026-04-09T13:10:55+02:00"
+		},
+		{
+			"hash": "ef780cf",
+			"short": "chore: remove whopixels — superseded by the who module",
+			"type": null,
+			"scope": null,
+			"additions": 4,
+			"deletions": 3666,
+			"timestamp": "2026-04-09T13:11:36+02:00"
+		},
+		{
+			"hash": "0450c86",
+			"short": "fix(shared-llm): SSE shape diagnostics + simpler title prompt + fragment detection",
+			"type": "fix",
+			"scope": "shared-llm",
+			"additions": 117,
+			"deletions": 31,
+			"timestamp": "2026-04-09T13:12:13+02:00"
+		},
+		{
+			"hash": "be8c048",
+			"short": "fix(mana/web/sync): drain leftover pending changes on startup",
+			"type": "fix",
+			"scope": "mana/web/sync",
+			"additions": 26,
+			"deletions": 0,
+			"timestamp": "2026-04-09T13:24:51+02:00"
+		},
+		{
+			"hash": "b83e8d6",
+			"short": "fix(mana/web): seed pending-changes badge count on mount",
+			"type": "fix",
+			"scope": "mana/web",
+			"additions": 10,
+			"deletions": 3,
+			"timestamp": "2026-04-09T13:25:06+02:00"
+		},
+		{
+			"hash": "60fedbb",
+			"short": "feat(mana/web/planta): photo upload, AI identification, tags, watering history, i18n + tests",
+			"type": "feat",
+			"scope": "mana/web/planta",
+			"additions": 1451,
+			"deletions": 248,
+			"timestamp": "2026-04-09T14:05:13+02:00"
+		},
+		{
+			"hash": "b68fcc8",
+			"short": "fix(mana/web/planta): /planta routes — layout fix, i18n, nullability, button nesting",
+			"type": "fix",
+			"scope": "mana/web/planta",
+			"additions": 215,
+			"deletions": 98,
+			"timestamp": "2026-04-09T14:05:56+02:00"
+		},
+		{
+			"hash": "ad61893",
+			"short": "chore(planta): remove orphan apps/planta/packages/shared",
+			"type": "chore",
+			"scope": "planta",
+			"additions": 271,
+			"deletions": 383,
+			"timestamp": "2026-04-09T14:06:11+02:00"
+		},
+		{
+			"hash": "233cf28",
+			"short": "fix(shared-llm): switch remote backend to non-streaming, drop credentials",
+			"type": "fix",
+			"scope": "shared-llm",
+			"additions": 58,
+			"deletions": 91,
+			"timestamp": "2026-04-09T14:07:06+02:00"
+		},
+		{
+			"hash": "7750c46",
+			"short": "feat(api): production deploy — Dockerfile + docker-compose service",
+			"type": "feat",
+			"scope": "api",
+			"additions": 125,
+			"deletions": 0,
+			"timestamp": "2026-04-09T14:08:59+02:00"
+		},
+		{
+			"hash": "6cbb1f6",
+			"short": "fix(api/Dockerfile): switch builder stage to node:20-alpine",
+			"type": "fix",
+			"scope": "api/Dockerfile",
+			"additions": 14,
+			"deletions": 7,
+			"timestamp": "2026-04-09T14:10:59+02:00"
+		},
+		{
+			"hash": "7fa3afc",
+			"short": "fix(mana/web/sync): push fresh writes immediately via listener bridge",
+			"type": "fix",
+			"scope": "mana/web/sync",
+			"additions": 41,
+			"deletions": 11,
+			"timestamp": "2026-04-09T14:13:25+02:00"
+		},
+		{
+			"hash": "2f00d9c",
+			"short": "feat(memoro): show title source label below the title input",
+			"type": "feat",
+			"scope": "memoro",
+			"additions": 75,
+			"deletions": 0,
+			"timestamp": "2026-04-09T14:19:59+02:00"
+		},
+		{
+			"hash": "e3029ef",
+			"short": "fix(api/deploy): use mana-api.mana.how to avoid api.mana.how conflict",
+			"type": "fix",
+			"scope": "api/deploy",
+			"additions": 39,
+			"deletions": 2,
+			"timestamp": "2026-04-09T14:21:06+02:00"
+		},
+		{
+			"hash": "b8bfc4d",
+			"short": "fix(branding): drop who module's required tier from beta to public",
+			"type": "fix",
+			"scope": "branding",
+			"additions": 6,
+			"deletions": 1,
+			"timestamp": "2026-04-09T14:27:18+02:00"
+		},
+		{
+			"hash": "a130f8e",
+			"short": "feat(mana/web): clickable page titles open route in new tab",
+			"type": "feat",
+			"scope": "mana/web",
+			"additions": 59,
+			"deletions": 4,
+			"timestamp": "2026-04-09T14:27:51+02:00"
+		},
+		{
+			"hash": "41c705a",
+			"short": "feat(mana/web): per-module icons + wire workbench title link",
+			"type": "feat",
+			"scope": "mana/web",
+			"additions": 69,
+			"deletions": 1,
+			"timestamp": "2026-04-09T14:28:01+02:00"
+		},
+		{
+			"hash": "ab0ca99",
+			"short": "feat(mana/web): app picker — autofocused search + alphabetical order",
+			"type": "feat",
+			"scope": "mana/web",
+			"additions": 81,
+			"deletions": 3,
+			"timestamp": "2026-04-09T14:37:04+02:00"
+		},
+		{
+			"hash": "f0faae0",
+			"short": "feat(mana/web): same-origin proxy for /api/v1/who/* → mana-api",
+			"type": "feat",
+			"scope": "mana/web",
+			"additions": 119,
+			"deletions": 6,
+			"timestamp": "2026-04-09T15:06:04+02:00"
+		},
+		{
+			"hash": "07b130f",
+			"short": "fix(shared-branding): add missing 'who' entry to APP_URLS",
+			"type": "fix",
+			"scope": "shared-branding",
+			"additions": 6,
+			"deletions": 5,
+			"timestamp": "2026-04-09T15:08:02+02:00"
+		},
+		{
+			"hash": "e6564cf",
+			"short": "fix(mana/web): add standard mobile-web-app-capable meta tag",
+			"type": "fix",
+			"scope": "mana/web",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-04-09T15:08:12+02:00"
+		},
+		{
+			"hash": "693d20e",
+			"short": "refactor(api/nutriphi): split photo flow into /photos/upload + /analysis/photo",
+			"type": "refactor",
+			"scope": "api/nutriphi",
+			"additions": 37,
+			"deletions": 29,
+			"timestamp": "2026-04-09T15:13:45+02:00"
+		},
+		{
+			"hash": "189249b",
+			"short": "feat(mana/web/nutriphi): photo capture + AI meal recognition flow",
+			"type": "feat",
+			"scope": "mana/web/nutriphi",
+			"additions": 630,
+			"deletions": 45,
+			"timestamp": "2026-04-09T15:14:07+02:00"
+		},
+		{
+			"hash": "c7fd936",
+			"short": "test(mana/web/nutriphi): integration tests for meal mutations + encryption",
+			"type": "test",
+			"scope": "mana/web/nutriphi",
+			"additions": 223,
+			"deletions": 0,
+			"timestamp": "2026-04-09T15:14:24+02:00"
+		},
+		{
+			"hash": "e00e6f5",
+			"short": "refactor(shared-branding): derive APP_URLS from APP_ICONS",
+			"type": "refactor",
+			"scope": "shared-branding",
+			"additions": 49,
+			"deletions": 45,
+			"timestamp": "2026-04-09T15:14:52+02:00"
+		},
+		{
+			"hash": "de4f766",
+			"short": "feat(mana/web/nutriphi): extend meal schema (foods + thumbnail) + update mutation",
+			"type": "feat",
+			"scope": "mana/web/nutriphi",
+			"additions": 92,
+			"deletions": 10,
+			"timestamp": "2026-04-09T15:44:55+02:00"
+		},
+		{
+			"hash": "4fd6a5c",
+			"short": "feat(mana/web/nutriphi): meal detail page + foods breakdown + thumbnail-aware lists",
+			"type": "feat",
+			"scope": "mana/web/nutriphi",
+			"additions": 595,
+			"deletions": 35,
+			"timestamp": "2026-04-09T15:45:21+02:00"
+		},
+		{
+			"hash": "23f13d7",
+			"short": "test(mana/web/nutriphi): cover mealMutations.update",
+			"type": "test",
+			"scope": "mana/web/nutriphi",
+			"additions": 70,
+			"deletions": 0,
+			"timestamp": "2026-04-09T15:45:35+02:00"
+		},
+		{
+			"hash": "51f4087",
+			"short": "fix(api/who): use /v1/chat/completions path for mana-llm",
+			"type": "fix",
+			"scope": "api/who",
+			"additions": 4,
+			"deletions": 1,
+			"timestamp": "2026-04-09T15:48:09+02:00"
+		},
+		{
+			"hash": "45790ff",
+			"short": "refactor(mana): rename inventar → inventory across the codebase",
+			"type": "refactor",
+			"scope": "mana",
+			"additions": 173,
+			"deletions": 147,
+			"timestamp": "2026-04-09T15:50:24+02:00"
+		},
+		{
+			"hash": "9ef97a1",
+			"short": "feat(news): backend ingester service + curated feed API",
+			"type": "feat",
+			"scope": "news",
+			"additions": 1058,
+			"deletions": 64,
+			"timestamp": "2026-04-09T15:53:26+02:00"
+		},
+		{
+			"hash": "de7e359",
+			"short": "feat(mana/web/news): client data layer + module library",
+			"type": "feat",
+			"scope": "mana/web/news",
+			"additions": 1331,
+			"deletions": 0,
+			"timestamp": "2026-04-09T15:53:52+02:00"
+		},
+		{
+			"hash": "8167d26",
+			"short": "feat(mana/web/news): web routes + i18n locales",
+			"type": "feat",
+			"scope": "mana/web/news",
+			"additions": 2918,
+			"deletions": 0,
+			"timestamp": "2026-04-09T15:54:25+02:00"
+		},
+		{
+			"hash": "e579e29",
+			"short": "feat(mana/web/news): workbench ListView + dashboard widget",
+			"type": "feat",
+			"scope": "mana/web/news",
+			"additions": 521,
+			"deletions": 1,
+			"timestamp": "2026-04-09T15:54:57+02:00"
+		},
+		{
+			"hash": "c184991",
+			"short": "feat(mana/web/nutriphi): inline text + photo quick-add in workbench ListView",
+			"type": "feat",
+			"scope": "mana/web/nutriphi",
+			"additions": 146,
+			"deletions": 8,
+			"timestamp": "2026-04-09T16:05:13+02:00"
+		},
+		{
+			"hash": "df72a92",
+			"short": "test(mana/web): consistency guard for workbench-registry ↔ MANA_APPS",
+			"type": "test",
+			"scope": "mana/web",
+			"additions": 78,
+			"deletions": 0,
+			"timestamp": "2026-04-09T16:05:17+02:00"
+		},
+		{
+			"hash": "c9e1624",
+			"short": "feat(shared-llm): bump mana-server default model to gemma4:e4b",
+			"type": "feat",
+			"scope": "shared-llm",
+			"additions": 20,
+			"deletions": 11,
+			"timestamp": "2026-04-09T16:06:33+02:00"
+		},
+		{
+			"hash": "68d1bda",
+			"short": "fix(news-ingester): drop unused @mana/shared-hono workspace dep",
+			"type": "fix",
+			"scope": "news-ingester",
+			"additions": 0,
+			"deletions": 1,
+			"timestamp": "2026-04-09T16:11:58+02:00"
+		},
+		{
+			"hash": "5480a8d",
+			"short": "feat(mana/web/nutriphi): global quick-input adapter for the search bar",
+			"type": "feat",
+			"scope": "mana/web/nutriphi",
+			"additions": 221,
+			"deletions": 0,
+			"timestamp": "2026-04-09T16:14:37+02:00"
+		},
+		{
+			"hash": "6124ae9",
+			"short": "fix(mana/web): bump Dexie schema to v3 for the who tables",
+			"type": "fix",
+			"scope": "mana/web",
+			"additions": 34,
+			"deletions": 8,
+			"timestamp": "2026-04-09T16:14:39+02:00"
+		},
+		{
+			"hash": "bd748b0",
+			"short": "feat(mana/web/nutriphi): context menu quick-action for \"Neue Mahlzeit\"",
+			"type": "feat",
+			"scope": "mana/web/nutriphi",
+			"additions": 11,
+			"deletions": 0,
+			"timestamp": "2026-04-09T16:14:50+02:00"
+		},
+		{
+			"hash": "dad174a",
+			"short": "fix(news-ingester): silence JSDOM CSS errors + add process-level safety net",
+			"type": "fix",
+			"scope": "news-ingester",
+			"additions": 30,
+			"deletions": 2,
+			"timestamp": "2026-04-09T16:15:46+02:00"
+		},
+		{
+			"hash": "422eb9f",
+			"short": "fix(mana/web/who): log sendMessage failures to console",
+			"type": "fix",
+			"scope": "mana/web/who",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-04-09T16:19:19+02:00"
+		},
+		{
+			"hash": "52159ee",
+			"short": "fix(news-ingester): disable Readability fallback to break crash loop",
+			"type": "fix",
+			"scope": "news-ingester",
+			"additions": 22,
+			"deletions": 4,
+			"timestamp": "2026-04-09T16:21:09+02:00"
+		},
+		{
+			"hash": "a412ccc",
+			"short": "feat(mana/web/body): new module — combined fitness training + body comp tracking",
+			"type": "feat",
+			"scope": "mana/web/body",
+			"additions": 1297,
+			"deletions": 0,
+			"timestamp": "2026-04-09T16:28:19+02:00"
+		},
+		{
+			"hash": "b2db42b",
+			"short": "feat(mana/web/body): UI components, route, i18n, dashboard widget",
+			"type": "feat",
+			"scope": "mana/web/body",
+			"additions": 1439,
+			"deletions": 1,
+			"timestamp": "2026-04-09T16:28:55+02:00"
+		},
+		{
+			"hash": "8adef1b",
+			"short": "fix(shared-llm): fall back to message.reasoning when content is empty",
+			"type": "fix",
+			"scope": "shared-llm",
+			"additions": 11,
+			"deletions": 2,
+			"timestamp": "2026-04-09T16:29:22+02:00"
+		},
+		{
+			"hash": "3993400",
+			"short": "chore(infra): make cloudflared-config.yml the single source of truth",
+			"type": "chore",
+			"scope": "infra",
+			"additions": 225,
+			"deletions": 25,
+			"timestamp": "2026-04-09T16:37:21+02:00"
+		},
+		{
+			"hash": "92f8221",
+			"short": "docs(shared-llm): correct the mana-server tier topology in code + CLAUDE.md",
+			"type": "docs",
+			"scope": "shared-llm",
+			"additions": 26,
+			"deletions": 5,
+			"timestamp": "2026-04-09T16:40:34+02:00"
+		},
+		{
+			"hash": "77ad489",
+			"short": "fix(mana/web/who): set createdAt + use simple gameId index for messages",
+			"type": "fix",
+			"scope": "mana/web/who",
+			"additions": 24,
+			"deletions": 12,
+			"timestamp": "2026-04-09T16:41:36+02:00"
+		},
+		{
+			"hash": "b2f3b31",
+			"short": "feat(mana/web/body): exercise picker, routines, phases, progression chart",
+			"type": "feat",
+			"scope": "mana/web/body",
+			"additions": 1276,
+			"deletions": 38,
+			"timestamp": "2026-04-09T16:55:51+02:00"
+		},
+		{
+			"hash": "56130cd",
+			"short": "test(mana/web/body): integration tests for bodyStore mutations",
+			"type": "test",
+			"scope": "mana/web/body",
+			"additions": 294,
+			"deletions": 0,
+			"timestamp": "2026-04-09T16:56:17+02:00"
+		},
+		{
+			"hash": "63e1ef8",
+			"short": "fix(mana/web/who): chat bubble Tailwind classes — v3 → v4 syntax",
+			"type": "fix",
+			"scope": "mana/web/who",
+			"additions": 16,
+			"deletions": 16,
+			"timestamp": "2026-04-09T16:56:34+02:00"
+		},
+		{
+			"hash": "c2a75bb",
+			"short": "feat(shared-types): add Zod schemas for AI structured outputs",
+			"type": "feat",
+			"scope": "shared-types",
+			"additions": 399,
+			"deletions": 270,
+			"timestamp": "2026-04-09T16:59:28+02:00"
+		},
+		{
+			"hash": "0c0e31d",
+			"short": "refactor(api): use Vercel AI SDK + Zod for nutriphi/planta vision routes",
+			"type": "refactor",
+			"scope": "api",
+			"additions": 85,
+			"deletions": 95,
+			"timestamp": "2026-04-09T16:59:51+02:00"
+		},
+		{
+			"hash": "f9b8399",
+			"short": "refactor(mana/web): consume shared AI Zod schemas via z.infer",
+			"type": "refactor",
+			"scope": "mana/web",
+			"additions": 19,
+			"deletions": 42,
+			"timestamp": "2026-04-09T17:00:13+02:00"
+		},
+		{
+			"hash": "59b5114",
+			"short": "fix(mana/web/who): surface guestPrompt on JWT expiry",
+			"type": "fix",
+			"scope": "mana/web/who",
+			"additions": 25,
+			"deletions": 1,
+			"timestamp": "2026-04-09T17:10:03+02:00"
+		},
+		{
+			"hash": "4fab323",
+			"short": "fix(mana/web/news): use client-side API URL + snapshot $state arrays",
+			"type": "fix",
+			"scope": "mana/web/news",
+			"additions": 28,
+			"deletions": 19,
+			"timestamp": "2026-04-09T17:16:44+02:00"
+		},
+		{
+			"hash": "bd231cd",
+			"short": "feat(api/web): wire-format envelope versioning + Anthropic prompt-cache hints",
+			"type": "feat",
+			"scope": "api/web",
+			"additions": 238,
+			"deletions": 17,
+			"timestamp": "2026-04-09T17:17:18+02:00"
+		},
+		{
+			"hash": "967f938",
+			"short": "feat(mana/web/body): full i18n + calorie × weight correlation chart",
+			"type": "feat",
+			"scope": "mana/web/body",
+			"additions": 475,
+			"deletions": 3,
+			"timestamp": "2026-04-09T17:19:20+02:00"
+		},
+		{
+			"hash": "5110065",
+			"short": "feat(mana/web/sync): expose debug info, surface silent push failures",
+			"type": "feat",
+			"scope": "mana/web/sync",
+			"additions": 69,
+			"deletions": 3,
+			"timestamp": "2026-04-09T17:20:22+02:00"
+		},
+		{
+			"hash": "2804072",
+			"short": "docs(sync): add SYNC_DEBUG runbook with new debug API in Schritt C",
+			"type": "docs",
+			"scope": "sync",
+			"additions": 157,
+			"deletions": 0,
+			"timestamp": "2026-04-09T17:20:46+02:00"
+		},
+		{
+			"hash": "9d1b251",
+			"short": "fix(api/who): server-side validation of [IDENTITY_REVEALED] sentinel",
+			"type": "fix",
+			"scope": "api/who",
+			"additions": 51,
+			"deletions": 12,
+			"timestamp": "2026-04-09T17:21:14+02:00"
+		},
+		{
+			"hash": "5aeae87",
+			"short": "feat(api/web): wire-format envelope versioning + Anthropic prompt-cache hints",
+			"type": "feat",
+			"scope": "api/web",
+			"additions": 305,
+			"deletions": 16,
+			"timestamp": "2026-04-09T17:21:19+02:00"
+		},
+		{
+			"hash": "1b26623",
+			"short": "fix(api/Dockerfile): copy @mana/shared-types into the build context",
+			"type": "fix",
+			"scope": "api/Dockerfile",
+			"additions": 4,
+			"deletions": 1,
+			"timestamp": "2026-04-09T17:25:23+02:00"
+		},
+		{
+			"hash": "a50dc82",
+			"short": "chore(infra): tunnel id 1435166a (locally-managed rebuild result)",
+			"type": "chore",
+			"scope": "infra",
+			"additions": 2,
+			"deletions": 2,
+			"timestamp": "2026-04-09T17:29:29+02:00"
+		},
+		{
+			"hash": "77b2d1e",
+			"short": "chore(infra): smarter tunnel rebuild — apex via API + sane probes",
+			"type": "chore",
+			"scope": "infra",
+			"additions": 135,
+			"deletions": 4,
+			"timestamp": "2026-04-09T17:52:40+02:00"
+		},
+		{
+			"hash": "6c0f88f",
+			"short": "chore(infra): pre-commit validator for cloudflared-config.yml",
+			"type": "chore",
+			"scope": "infra",
+			"additions": 177,
+			"deletions": 0,
+			"timestamp": "2026-04-09T18:02:51+02:00"
+		},
+		{
+			"hash": "3ccfc3b",
+			"short": "fix(api): correct mana-llm path prefix and model name in vision routes",
+			"type": "fix",
+			"scope": "api",
+			"additions": 12,
+			"deletions": 4,
+			"timestamp": "2026-04-09T18:11:43+02:00"
+		},
+		{
+			"hash": "3ef095a",
+			"short": "fix(mana-llm/ollama): pass response_format to Ollama + strip markdown fences",
+			"type": "fix",
+			"scope": "mana-llm/ollama",
+			"additions": 58,
+			"deletions": 1,
+			"timestamp": "2026-04-09T18:12:01+02:00"
+		},
+		{
+			"hash": "0426b66",
+			"short": "fix(mana/web/nutriphi): widen goal state types from literal to number",
+			"type": "fix",
+			"scope": "mana/web/nutriphi",
+			"additions": 10,
+			"deletions": 7,
+			"timestamp": "2026-04-09T18:12:13+02:00"
+		},
+		{
+			"hash": "ff6118f",
+			"short": "fix(mana/web): migrate liveQuery hooks to useLiveQueryWithDefault",
+			"type": "fix",
+			"scope": "mana/web",
+			"additions": 82,
+			"deletions": 74,
+			"timestamp": "2026-04-09T18:12:15+02:00"
+		},
+		{
+			"hash": "b32de06",
+			"short": "fix(mana/web): coerce $page.params.* away from string|undefined",
+			"type": "fix",
+			"scope": "mana/web",
+			"additions": 22,
+			"deletions": 20,
+			"timestamp": "2026-04-09T18:12:54+02:00"
+		},
+		{
+			"hash": "9bf73ff",
+			"short": "fix(help): correct broken imports + tighten SupportedLanguage typing",
+			"type": "fix",
+			"scope": "help",
+			"additions": 22,
+			"deletions": 13,
+			"timestamp": "2026-04-09T18:13:18+02:00"
+		},
+		{
+			"hash": "7ba381f",
+			"short": "fix(mana/web/news): Bearer token + Dexie v4 schema upgrade",
+			"type": "fix",
+			"scope": "mana/web/news",
+			"additions": 61,
+			"deletions": 26,
+			"timestamp": "2026-04-09T18:42:49+02:00"
+		},
+		{
+			"hash": "05d9d19",
+			"short": "fix(shared-auth): proxy passkey/2FA/session methods through ManaAuthStore",
+			"type": "fix",
+			"scope": "shared-auth",
+			"additions": 81,
+			"deletions": 1,
+			"timestamp": "2026-04-09T18:48:00+02:00"
+		},
+		{
+			"hash": "697d96d",
+			"short": "fix(mana/web): unblock api-keys, reset-password, dashboard widgets, skilltree stats",
+			"type": "fix",
+			"scope": "mana/web",
+			"additions": 35,
+			"deletions": 50,
+			"timestamp": "2026-04-09T18:48:28+02:00"
+		},
+		{
+			"hash": "cb87d23",
+			"short": "fix(help): import search types from search-types, not content",
+			"type": "fix",
+			"scope": "help",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-04-09T18:48:39+02:00"
+		},
+		{
+			"hash": "5520f13",
+			"short": "fix(mana-llm): add response_format to ChatCompletionRequest model",
+			"type": "fix",
+			"scope": "mana-llm",
+			"additions": 26,
+			"deletions": 18,
+			"timestamp": "2026-04-09T18:50:54+02:00"
+		},
+		{
+			"hash": "3b035e9",
+			"short": "fix(mana/web/news): use getValidToken + guard prefs against locked vault",
+			"type": "fix",
+			"scope": "mana/web/news",
+			"additions": 18,
+			"deletions": 6,
+			"timestamp": "2026-04-09T18:52:51+02:00"
+		},
+		{
+			"hash": "958819f",
+			"short": "fix(api): default vision model to ollama/gemma3:4b",
+			"type": "fix",
+			"scope": "api",
+			"additions": 8,
+			"deletions": 6,
+			"timestamp": "2026-04-09T19:34:32+02:00"
+		},
+		{
+			"hash": "f3effe9",
+			"short": "fix(mana/web/news): instant onboarding handoff to feed branch",
+			"type": "fix",
+			"scope": "mana/web/news",
+			"additions": 56,
+			"deletions": 12,
+			"timestamp": "2026-04-09T19:41:31+02:00"
+		},
+		{
+			"hash": "55bf493",
+			"short": "fix(api): set supportsStructuredOutputs=true on mana-llm provider",
+			"type": "fix",
+			"scope": "api",
+			"additions": 10,
+			"deletions": 0,
+			"timestamp": "2026-04-09T19:44:13+02:00"
+		},
+		{
+			"hash": "acfbcfe",
+			"short": "feat(mana/web/news): \"interested\" keeps article visible + saved badge",
+			"type": "feat",
+			"scope": "mana/web/news",
+			"additions": 106,
+			"deletions": 19,
+			"timestamp": "2026-04-09T19:48:53+02:00"
+		},
+		{
+			"hash": "c172ce9",
+			"short": "fix(mana/web): replace h2/h3 with div in AiSettings + AiTierStep",
+			"type": "fix",
+			"scope": "mana/web",
+			"additions": 4,
+			"deletions": 4,
+			"timestamp": "2026-04-09T19:50:04+02:00"
+		},
+		{
+			"hash": "3c7bfc6",
+			"short": "feat(mana/web): register body, events, who, guides in workbench app registry",
+			"type": "feat",
+			"scope": "mana/web",
+			"additions": 121,
+			"deletions": 0,
+			"timestamp": "2026-04-09T20:18:30+02:00"
+		},
+		{
+			"hash": "83eaf71",
+			"short": "fix(macmini): clean up container conflicts in build-app.sh restart cycle",
+			"type": "fix",
+			"scope": "macmini",
+			"additions": 38,
+			"deletions": 1,
+			"timestamp": "2026-04-09T20:22:52+02:00"
+		},
+		{
+			"hash": "ab24db3",
+			"short": "fix(packages): cross-package broken imports + missing exports",
+			"type": "fix",
+			"scope": "packages",
+			"additions": 25,
+			"deletions": 26,
+			"timestamp": "2026-04-09T20:23:34+02:00"
+		},
+		{
+			"hash": "c31ce44",
+			"short": "fix(packages): modal keydown handlers, $derived.by usage, UserData fields",
+			"type": "fix",
+			"scope": "packages",
+			"additions": 26,
+			"deletions": 13,
+			"timestamp": "2026-04-09T20:24:05+02:00"
+		},
+		{
+			"hash": "80b23dd",
+			"short": "fix(mana/web): clear remaining type errors — long-tail sweep",
+			"type": "fix",
+			"scope": "mana/web",
+			"additions": 110,
+			"deletions": 66,
+			"timestamp": "2026-04-09T20:25:08+02:00"
+		},
+		{
+			"hash": "64b8ab3",
+			"short": "fix(mana-media): commit initial schema migration + run on startup",
+			"type": "fix",
+			"scope": "mana-media",
+			"additions": 697,
+			"deletions": 0,
+			"timestamp": "2026-04-10T02:51:41+02:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

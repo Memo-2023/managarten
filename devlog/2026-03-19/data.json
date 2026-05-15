@@ -1,0 +1,783 @@
+{
+	"date": "2026-03-19",
+	"day_number": 58,
+	"weekday": "Donnerstag",
+	"commits": 75,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 75
+		}
+	],
+	"additions": 49268,
+	"deletions": 9876,
+	"net_lines": 39392,
+	"files_changed": 833,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-03-19T08:02:35.000Z",
+		"last_commit_at": "2026-03-19T21:39:50.000Z",
+		"total_span_minutes": 817,
+		"active_minutes": 382,
+		"pauses": [
+			{
+				"from": "10:35",
+				"to": "11:12",
+				"minutes": 37
+			},
+			{
+				"from": "11:27",
+				"to": "12:09",
+				"minutes": 42
+			},
+			{
+				"from": "12:54",
+				"to": "13:30",
+				"minutes": 35
+			},
+			{
+				"from": "13:30",
+				"to": "14:41",
+				"minutes": 71
+			},
+			{
+				"from": "16:38",
+				"to": "20:48",
+				"minutes": 250
+			}
+		],
+		"longest_focus_minutes": 117
+	},
+	"top_dirs": [
+		{
+			"path": "apps/mukke/apps/backend",
+			"pct": 9
+		},
+		{
+			"path": "apps/mukke/apps/web",
+			"pct": 9
+		},
+		{
+			"path": "apps/manacore/apps/landing",
+			"pct": 8
+		},
+		{
+			"path": "apps/context/apps/web",
+			"pct": 6
+		},
+		{
+			"path": "{apps => apps-archived}/mukke/apps",
+			"pct": 6
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 477
+		},
+		{
+			"ext": ".svelte",
+			"count": 167
+		},
+		{
+			"ext": ".json",
+			"count": 148
+		},
+		{
+			"ext": ".md",
+			"count": 86
+		},
+		{
+			"ext": "<no-ext>",
+			"count": 36
+		},
+		{
+			"ext": ".tsx",
+			"count": 31
+		}
+	],
+	"tags": ["mukke", "audits", "auth", "docker", "manacore"],
+	"commits_list": [
+		{
+			"hash": "7f4edb3",
+			"short": "fix: upgrade calendar jest to v30 and add rate limiting to contacts/todo backends",
+			"type": null,
+			"scope": null,
+			"additions": 165,
+			"deletions": 13,
+			"timestamp": "2026-03-19T09:02:35+01:00"
+		},
+		{
+			"hash": "ea4b585",
+			"short": "feat(context): add NestJS backend, PostgreSQL database, and migrate web app from Supabase to API",
+			"type": "feat",
+			"scope": "context",
+			"additions": 4018,
+			"deletions": 338,
+			"timestamp": "2026-03-19T09:28:01+01:00"
+		},
+		{
+			"hash": "7a56699",
+			"short": "feat(mukke): rename LightWrite to Mukke and add music library, player, playlists",
+			"type": "feat",
+			"scope": "mukke",
+			"additions": 12397,
+			"deletions": 66,
+			"timestamp": "2026-03-19T09:55:56+01:00"
+		},
+		{
+			"hash": "8e4b331",
+			"short": "fix(calendar,contacts,todo): pre-launch architecture audit fixes",
+			"type": "fix",
+			"scope": "calendar,contacts,todo",
+			"additions": 795,
+			"deletions": 425,
+			"timestamp": "2026-03-19T10:00:08+01:00"
+		},
+		{
+			"hash": "0e496f7",
+			"short": "fix(auth): add missing reset-password page to 13 apps",
+			"type": "fix",
+			"scope": "auth",
+			"additions": 2797,
+			"deletions": 0,
+			"timestamp": "2026-03-19T10:13:18+01:00"
+		},
+		{
+			"hash": "313db76",
+			"short": "chore: remove old lightwrite directory (renamed to mukke)",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 6766,
+			"timestamp": "2026-03-19T10:15:11+01:00"
+		},
+		{
+			"hash": "8c9d01a",
+			"short": "feat(audits): add production readiness scoring system with 19 app audits",
+			"type": "feat",
+			"scope": "audits",
+			"additions": 2123,
+			"deletions": 0,
+			"timestamp": "2026-03-19T10:20:18+01:00"
+		},
+		{
+			"hash": "83d0b64",
+			"short": "docs(devlog): add 9 missing devlogs from Feb 16 to Mar 18",
+			"type": "docs",
+			"scope": "devlog",
+			"additions": 2105,
+			"deletions": 0,
+			"timestamp": "2026-03-19T10:35:46+01:00"
+		},
+		{
+			"hash": "135c636",
+			"short": "fix(calendar,contacts,todo): second round of pre-launch audit fixes",
+			"type": "fix",
+			"scope": "calendar,contacts,todo",
+			"additions": 134,
+			"deletions": 45,
+			"timestamp": "2026-03-19T11:12:20+01:00"
+		},
+		{
+			"hash": "30ee708",
+			"short": "feat(branding): add Context and Mukke app branding",
+			"type": "feat",
+			"scope": "branding",
+			"additions": 37,
+			"deletions": 1,
+			"timestamp": "2026-03-19T11:15:09+01:00"
+		},
+		{
+			"hash": "2ea7bb7",
+			"short": "feat(context): add SvelteKit web app with Svelte 5 runes",
+			"type": "feat",
+			"scope": "context",
+			"additions": 3904,
+			"deletions": 0,
+			"timestamp": "2026-03-19T11:15:20+01:00"
+		},
+		{
+			"hash": "f53e460",
+			"short": "test(calendar): add 69 backend unit tests for event-tags, sync, and notifications",
+			"type": "test",
+			"scope": "calendar",
+			"additions": 1201,
+			"deletions": 0,
+			"timestamp": "2026-03-19T11:26:21+01:00"
+		},
+		{
+			"hash": "5345e19",
+			"short": "test(contacts): add 34 backend unit tests for tags, notes, activities, duplicates",
+			"type": "test",
+			"scope": "contacts",
+			"additions": 833,
+			"deletions": 0,
+			"timestamp": "2026-03-19T11:26:24+01:00"
+		},
+		{
+			"hash": "42c266b",
+			"short": "test(todo): add 54 backend unit tests for kanban boards and reminders",
+			"type": "test",
+			"scope": "todo",
+			"additions": 905,
+			"deletions": 0,
+			"timestamp": "2026-03-19T11:26:26+01:00"
+		},
+		{
+			"hash": "eda1bd7",
+			"short": "feat(ux): add error boundaries and expand i18n to 5 languages",
+			"type": "feat",
+			"scope": "ux",
+			"additions": 988,
+			"deletions": 1,
+			"timestamp": "2026-03-19T11:26:30+01:00"
+		},
+		{
+			"hash": "66e2cdc",
+			"short": "docs(audits): update calendar, contacts, todo scores to 90",
+			"type": "docs",
+			"scope": "audits",
+			"additions": 25,
+			"deletions": 25,
+			"timestamp": "2026-03-19T11:27:07+01:00"
+		},
+		{
+			"hash": "c15bd05",
+			"short": "test(calendar,contacts,todo): add controller unit tests for all 3 apps",
+			"type": "test",
+			"scope": "calendar,contacts,todo",
+			"additions": 702,
+			"deletions": 0,
+			"timestamp": "2026-03-19T12:09:01+01:00"
+		},
+		{
+			"hash": "24a6efa",
+			"short": "fix(mukke): add patches dir to Dockerfiles for pnpm install",
+			"type": "fix",
+			"scope": "mukke",
+			"additions": 2,
+			"deletions": 0,
+			"timestamp": "2026-03-19T12:11:50+01:00"
+		},
+		{
+			"hash": "7d0b2db",
+			"short": "docs(audits): update scores after controller tests and i18n expansion",
+			"type": "docs",
+			"scope": "audits",
+			"additions": 15,
+			"deletions": 15,
+			"timestamp": "2026-03-19T12:13:13+01:00"
+		},
+		{
+			"hash": "271836d",
+			"short": "test(contacts,todo): add Playwright E2E test suites",
+			"type": "test",
+			"scope": "contacts,todo",
+			"additions": 1003,
+			"deletions": 2,
+			"timestamp": "2026-03-19T12:24:50+01:00"
+		},
+		{
+			"hash": "4c342a5",
+			"short": "docs(audits): update contacts and todo scores after E2E tests",
+			"type": "docs",
+			"scope": "audits",
+			"additions": 10,
+			"deletions": 10,
+			"timestamp": "2026-03-19T12:25:23+01:00"
+		},
+		{
+			"hash": "217c486",
+			"short": "feat(swagger): add OpenAPI documentation to calendar, contacts, and todo backends",
+			"type": "feat",
+			"scope": "swagger",
+			"additions": 94,
+			"deletions": 69,
+			"timestamp": "2026-03-19T12:38:28+01:00"
+		},
+		{
+			"hash": "9fc237d",
+			"short": "feat(a11y): add skip-to-content links and ARIA labels to calendar, contacts, todo",
+			"type": "feat",
+			"scope": "a11y",
+			"additions": 40,
+			"deletions": 2,
+			"timestamp": "2026-03-19T12:41:23+01:00"
+		},
+		{
+			"hash": "212ec16",
+			"short": "docs(audits): update scores after Swagger and accessibility improvements",
+			"type": "docs",
+			"scope": "audits",
+			"additions": 15,
+			"deletions": 15,
+			"timestamp": "2026-03-19T12:42:12+01:00"
+		},
+		{
+			"hash": "54c1326",
+			"short": "fix(mukke): lint fixes, rate limiting, DB indexes, and prod config",
+			"type": "fix",
+			"scope": "mukke",
+			"additions": 327,
+			"deletions": 142,
+			"timestamp": "2026-03-19T12:54:49+01:00"
+		},
+		{
+			"hash": "b11e128",
+			"short": "feat(error-tracking): add GlitchTip integration with shared error-tracking package",
+			"type": "feat",
+			"scope": "error-tracking",
+			"additions": 1337,
+			"deletions": 297,
+			"timestamp": "2026-03-19T13:30:13+01:00"
+		},
+		{
+			"hash": "34c6b9c",
+			"short": "feat(mukke): add ID3 tag extraction, editor UI, and tag writing",
+			"type": "feat",
+			"scope": "mukke",
+			"additions": 512,
+			"deletions": 16,
+			"timestamp": "2026-03-19T14:41:18+01:00"
+		},
+		{
+			"hash": "3da6cf2",
+			"short": "docs(mukke): add ID3 tag endpoints to CLAUDE.md",
+			"type": "docs",
+			"scope": "mukke",
+			"additions": 3,
+			"deletions": 0,
+			"timestamp": "2026-03-19T14:42:44+01:00"
+		},
+		{
+			"hash": "8f0c747",
+			"short": "fix(chat,picture,mukke): production readiness audit fixes and tests",
+			"type": "fix",
+			"scope": "chat,picture,mukke",
+			"additions": 4240,
+			"deletions": 325,
+			"timestamp": "2026-03-19T14:46:29+01:00"
+		},
+		{
+			"hash": "87c61f4",
+			"short": "fix(glitchtip): add REDIS_URL with auth to GlitchTip containers",
+			"type": "fix",
+			"scope": "glitchtip",
+			"additions": 2,
+			"deletions": 0,
+			"timestamp": "2026-03-19T14:57:50+01:00"
+		},
+		{
+			"hash": "b34e787",
+			"short": "fix(mukke): wire up resend verification email on login and register pages",
+			"type": "fix",
+			"scope": "mukke",
+			"additions": 2,
+			"deletions": 4,
+			"timestamp": "2026-03-19T14:57:56+01:00"
+		},
+		{
+			"hash": "a35014a",
+			"short": "docs: add GlitchTip error tracking documentation",
+			"type": null,
+			"scope": null,
+			"additions": 173,
+			"deletions": 0,
+			"timestamp": "2026-03-19T15:01:08+01:00"
+		},
+		{
+			"hash": "08d19ab",
+			"short": "feat(error-tracking): add GLITCHTIP_DSN to calendar, contacts, todo backends",
+			"type": "feat",
+			"scope": "error-tracking",
+			"additions": 3,
+			"deletions": 0,
+			"timestamp": "2026-03-19T15:03:24+01:00"
+		},
+		{
+			"hash": "817ccfe",
+			"short": "fix(auth): improve email verification error detection in signIn",
+			"type": "fix",
+			"scope": "auth",
+			"additions": 31,
+			"deletions": 1,
+			"timestamp": "2026-03-19T15:05:04+01:00"
+		},
+		{
+			"hash": "2c21f6c",
+			"short": "fix(auth): use --no-frozen-lockfile in Dockerfile",
+			"type": "fix",
+			"scope": "auth",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-03-19T15:08:15+01:00"
+		},
+		{
+			"hash": "baf96cb",
+			"short": "fix(auth): copy patches dir in Dockerfile to fix pnpm install",
+			"type": "fix",
+			"scope": "auth",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-03-19T15:09:03+01:00"
+		},
+		{
+			"hash": "3b89310",
+			"short": "fix(auth): scope pnpm install to auth service in Dockerfile",
+			"type": "fix",
+			"scope": "auth",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-03-19T15:10:08+01:00"
+		},
+		{
+			"hash": "01cd7e9",
+			"short": "docs(audits): update chat, picture, mukke audit reports with improved scores",
+			"type": "docs",
+			"scope": "audits",
+			"additions": 125,
+			"deletions": 62,
+			"timestamp": "2026-03-19T15:24:05+01:00"
+		},
+		{
+			"hash": "dcaa3c5",
+			"short": "fix(docker): add shared-error-tracking and shared-nestjs-setup to backend Dockerfiles",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 12,
+			"deletions": 4,
+			"timestamp": "2026-03-19T15:28:30+01:00"
+		},
+		{
+			"hash": "8a88838",
+			"short": "fix(docker): add patches directory to backend Dockerfiles",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 3,
+			"deletions": 3,
+			"timestamp": "2026-03-19T15:30:34+01:00"
+		},
+		{
+			"hash": "c1f6326",
+			"short": "feat(mukke): add month/day fields and auto-set date from file timestamp",
+			"type": "feat",
+			"scope": "mukke",
+			"additions": 119,
+			"deletions": 24,
+			"timestamp": "2026-03-19T15:31:50+01:00"
+		},
+		{
+			"hash": "0077041",
+			"short": "fix(docker): correct build order for shared packages in backend Dockerfiles",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 7,
+			"deletions": 10,
+			"timestamp": "2026-03-19T15:41:16+01:00"
+		},
+		{
+			"hash": "3e7fd8f",
+			"short": "fix(todo): add shared-nestjs-setup dependency to todo backend",
+			"type": "fix",
+			"scope": "todo",
+			"additions": 143,
+			"deletions": 147,
+			"timestamp": "2026-03-19T15:45:41+01:00"
+		},
+		{
+			"hash": "1d14892",
+			"short": "refactor(mukke): replace custom sidebar with shared PillNavigation",
+			"type": "refactor",
+			"scope": "mukke",
+			"additions": 295,
+			"deletions": 356,
+			"timestamp": "2026-03-19T15:49:59+01:00"
+		},
+		{
+			"hash": "08cc1ee",
+			"short": "fix(mukke): add shared-splitscreen to web Dockerfile",
+			"type": "fix",
+			"scope": "mukke",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-03-19T15:51:30+01:00"
+		},
+		{
+			"hash": "bd7129a",
+			"short": "fix(glitchtip): use correct DSN format without hyphens in keys",
+			"type": "fix",
+			"scope": "glitchtip",
+			"additions": 6,
+			"deletions": 6,
+			"timestamp": "2026-03-19T15:51:54+01:00"
+		},
+		{
+			"hash": "97d5b13",
+			"short": "feat(versioning): add semantic versioning and changesets to all apps",
+			"type": "feat",
+			"scope": "versioning",
+			"additions": 267,
+			"deletions": 78,
+			"timestamp": "2026-03-19T16:20:18+01:00"
+		},
+		{
+			"hash": "442a584",
+			"short": "feat(mukke): add settings, themes, feedback, and help pages",
+			"type": "feat",
+			"scope": "mukke",
+			"additions": 174,
+			"deletions": 0,
+			"timestamp": "2026-03-19T16:26:21+01:00"
+		},
+		{
+			"hash": "4faa0e2",
+			"short": "fix(mukke): add feedback packages to web Dockerfile",
+			"type": "fix",
+			"scope": "mukke",
+			"additions": 3,
+			"deletions": 0,
+			"timestamp": "2026-03-19T16:26:49+01:00"
+		},
+		{
+			"hash": "47b9e41",
+			"short": "feat(error-tracking): add GlitchTip integration to all 15 remaining backends",
+			"type": "feat",
+			"scope": "error-tracking",
+			"additions": 120,
+			"deletions": 0,
+			"timestamp": "2026-03-19T16:38:03+01:00"
+		},
+		{
+			"hash": "789ce0a",
+			"short": "feat(glitchtip): enable open user registration",
+			"type": "feat",
+			"scope": "glitchtip",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-03-19T20:48:05+01:00"
+		},
+		{
+			"hash": "e848fa5",
+			"short": "feat(mukke): display album cover art in library, playlists, and song lists",
+			"type": "feat",
+			"scope": "mukke",
+			"additions": 376,
+			"deletions": 58,
+			"timestamp": "2026-03-19T20:59:45+01:00"
+		},
+		{
+			"hash": "ac9ce55",
+			"short": "refactor(nav): move feedback pill into user dropdown across all apps",
+			"type": "refactor",
+			"scope": "nav",
+			"additions": 18,
+			"deletions": 17,
+			"timestamp": "2026-03-19T21:00:38+01:00"
+		},
+		{
+			"hash": "bc5b468",
+			"short": "feat(audits): add monitoring tools section with GlitchTip guest credentials",
+			"type": "feat",
+			"scope": "audits",
+			"additions": 51,
+			"deletions": 0,
+			"timestamp": "2026-03-19T21:04:13+01:00"
+		},
+		{
+			"hash": "47f4f89",
+			"short": "fix: update GlitchTip guest password to meet 8-char minimum",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-03-19T21:06:56+01:00"
+		},
+		{
+			"hash": "afbf5ef",
+			"short": "fix(nav): add missing Phosphor icons for Mukke, Context, Todo, and Storage",
+			"type": "fix",
+			"scope": "nav",
+			"additions": 17,
+			"deletions": 0,
+			"timestamp": "2026-03-19T21:07:54+01:00"
+		},
+		{
+			"hash": "f264e9f",
+			"short": "feat(grafana): add GlitchTip error tracking dashboard",
+			"type": "feat",
+			"scope": "grafana",
+			"additions": 189,
+			"deletions": 0,
+			"timestamp": "2026-03-19T21:14:09+01:00"
+		},
+		{
+			"hash": "1486277",
+			"short": "feat(audits): add login credentials for all monitoring tools",
+			"type": "feat",
+			"scope": "audits",
+			"additions": 4,
+			"deletions": 2,
+			"timestamp": "2026-03-19T21:17:07+01:00"
+		},
+		{
+			"hash": "bb69f78",
+			"short": "fix(auth): add missing trusted origins for cross-app SSO",
+			"type": "fix",
+			"scope": "auth",
+			"additions": 319,
+			"deletions": 12,
+			"timestamp": "2026-03-19T21:17:34+01:00"
+		},
+		{
+			"hash": "764f451",
+			"short": "feat(audits): use Umami public share link instead of login credentials",
+			"type": "feat",
+			"scope": "audits",
+			"additions": 2,
+			"deletions": 2,
+			"timestamp": "2026-03-19T21:21:25+01:00"
+		},
+		{
+			"hash": "aa8197b",
+			"short": "docs(audit): update ManaCore production readiness audit from 65 to 80",
+			"type": "docs",
+			"scope": "audit",
+			"additions": 142,
+			"deletions": 34,
+			"timestamp": "2026-03-19T21:21:35+01:00"
+		},
+		{
+			"hash": "32fba2b",
+			"short": "docs: update monitoring and error tracking documentation",
+			"type": null,
+			"scope": null,
+			"additions": 45,
+			"deletions": 1,
+			"timestamp": "2026-03-19T21:25:02+01:00"
+		},
+		{
+			"hash": "135b65b",
+			"short": "test(manacore): add 48 unit tests for dashboard, API client, and credits",
+			"type": "test",
+			"scope": "manacore",
+			"additions": 579,
+			"deletions": 11,
+			"timestamp": "2026-03-19T21:26:51+01:00"
+		},
+		{
+			"hash": "322f551",
+			"short": "docs(auth): document SSO checklist for adding new apps",
+			"type": "docs",
+			"scope": "auth",
+			"additions": 15,
+			"deletions": 0,
+			"timestamp": "2026-03-19T21:32:35+01:00"
+		},
+		{
+			"hash": "a536439",
+			"short": "feat(manacore): add error boundary and 10 more unit tests (score 82→84)",
+			"type": "feat",
+			"scope": "manacore",
+			"additions": 302,
+			"deletions": 12,
+			"timestamp": "2026-03-19T21:34:06+01:00"
+		},
+		{
+			"hash": "64c9d49",
+			"short": "test(manacore): add widget service tests for contacts, storage, todo (score 84→86)",
+			"type": "test",
+			"scope": "manacore",
+			"additions": 424,
+			"deletions": 8,
+			"timestamp": "2026-03-19T21:36:29+01:00"
+		},
+		{
+			"hash": "77995f2",
+			"short": "test(manacore): add calendar, chat, zitare service tests (score 86→88)",
+			"type": "test",
+			"scope": "manacore",
+			"additions": 429,
+			"deletions": 8,
+			"timestamp": "2026-03-19T21:43:59+01:00"
+		},
+		{
+			"hash": "2d22d14",
+			"short": "feat(error-tracking): complete GlitchTip integration for all backends",
+			"type": "feat",
+			"scope": "error-tracking",
+			"additions": 26,
+			"deletions": 1,
+			"timestamp": "2026-03-19T21:47:27+01:00"
+		},
+		{
+			"hash": "14b6a89",
+			"short": "fix(docker): add patches, shared-error-tracking, shared-nestjs-setup to all Dockerfiles",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 118,
+			"deletions": 0,
+			"timestamp": "2026-03-19T21:58:29+01:00"
+		},
+		{
+			"hash": "effa57f",
+			"short": "feat(manacore): add Mukke, Presi, Context dashboard widgets",
+			"type": "feat",
+			"scope": "manacore",
+			"additions": 734,
+			"deletions": 3,
+			"timestamp": "2026-03-19T21:59:47+01:00"
+		},
+		{
+			"hash": "f7df8e9",
+			"short": "feat(auth): add audit logging, account lockout, and API key rate limiting",
+			"type": "feat",
+			"scope": "auth",
+			"additions": 700,
+			"deletions": 68,
+			"timestamp": "2026-03-19T22:09:58+01:00"
+		},
+		{
+			"hash": "e84e163",
+			"short": "test(presi): add 72 tests, rate limiting, error boundary (score 55→81)",
+			"type": "test",
+			"scope": "presi",
+			"additions": 1947,
+			"deletions": 279,
+			"timestamp": "2026-03-19T22:24:38+01:00"
+		},
+		{
+			"hash": "4104bf1",
+			"short": "refactor(docker): switch nutriphi and skilltree to local builds",
+			"type": "refactor",
+			"scope": "docker",
+			"additions": 8,
+			"deletions": 2,
+			"timestamp": "2026-03-19T22:29:59+01:00"
+		},
+		{
+			"hash": "fd0516f",
+			"short": "feat(presi): add DB indexes, Swagger docs, hardened validation (score 81→86)",
+			"type": "feat",
+			"scope": "presi",
+			"additions": 223,
+			"deletions": 86,
+			"timestamp": "2026-03-19T22:35:11+01:00"
+		},
+		{
+			"hash": "482bef7",
+			"short": "docs(devlog): add 2026-03-19 security hardening & error tracking",
+			"type": "docs",
+			"scope": "devlog",
+			"additions": 382,
+			"deletions": 0,
+			"timestamp": "2026-03-19T22:39:50+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

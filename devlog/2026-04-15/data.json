@@ -1,0 +1,837 @@
+{
+	"date": "2026-04-15",
+	"day_number": 84,
+	"weekday": "Mittwoch",
+	"commits": 81,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 81
+		}
+	],
+	"additions": 22946,
+	"deletions": 7192,
+	"net_lines": 15754,
+	"files_changed": 335,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-04-15T11:11:16.000Z",
+		"last_commit_at": "2026-04-15T23:10:10.000Z",
+		"total_span_minutes": 719,
+		"active_minutes": 407,
+		"pauses": [
+			{
+				"from": "15:51",
+				"to": "18:09",
+				"minutes": 137
+			},
+			{
+				"from": "18:18",
+				"to": "18:51",
+				"minutes": 33
+			},
+			{
+				"from": "19:42",
+				"to": "20:13",
+				"minutes": 31
+			},
+			{
+				"from": "20:54",
+				"to": "21:24",
+				"minutes": 31
+			},
+			{
+				"from": "22:56",
+				"to": "00:16",
+				"minutes": 80
+			}
+		],
+		"longest_focus_minutes": 161
+	},
+	"top_dirs": [
+		{
+			"path": "apps/mana/apps/web",
+			"pct": 59
+		},
+		{
+			"path": "packages/shared-ai/src",
+			"pct": 8
+		},
+		{
+			"path": "services/mana-ai/src",
+			"pct": 7
+		},
+		{
+			"path": "packages/shared-ui/src",
+			"pct": 5
+		},
+		{
+			"path": "packages/shared-auth-ui/src",
+			"pct": 2
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".svelte",
+			"count": 206
+		},
+		{
+			"ext": ".ts",
+			"count": 190
+		},
+		{
+			"ext": ".md",
+			"count": 21
+		},
+		{
+			"ext": ".json",
+			"count": 13
+		},
+		{
+			"ext": ".yml",
+			"count": 7
+		},
+		{
+			"ext": "<no-ext>",
+			"count": 6
+		}
+	],
+	"tags": ["ai", "workbench", "ai-missions", "dev", "infra"],
+	"commits_list": [
+		{
+			"hash": "9686198",
+			"short": "feat(companion): refactor into PageCarousel — every AI feature is a page",
+			"type": "feat",
+			"scope": "companion",
+			"additions": 2795,
+			"deletions": 1635,
+			"timestamp": "2026-04-15T13:11:16+02:00"
+		},
+		{
+			"hash": "37e39a5",
+			"short": "feat(ai): AI features as top-level workbench apps (not sub-routes)",
+			"type": "feat",
+			"scope": "ai",
+			"additions": 927,
+			"deletions": 1732,
+			"timestamp": "2026-04-15T13:23:20+02:00"
+		},
+		{
+			"hash": "9809b06",
+			"short": "feat(app-registry): new 'AI' category at top of the app picker",
+			"type": "feat",
+			"scope": "app-registry",
+			"additions": 24,
+			"deletions": 11,
+			"timestamp": "2026-04-15T13:34:07+02:00"
+		},
+		{
+			"hash": "6882ffb",
+			"short": "feat(shared-ai): Mission Key-Grant contract + plan for encrypted server-side runs",
+			"type": "feat",
+			"scope": "shared-ai",
+			"additions": 610,
+			"deletions": 0,
+			"timestamp": "2026-04-15T13:41:35+02:00"
+		},
+		{
+			"hash": "9a3025f",
+			"short": "feat(ai,auth): Mission Grant endpoint + unwrap helper + audit table",
+			"type": "feat",
+			"scope": "ai,auth",
+			"additions": 1203,
+			"deletions": 152,
+			"timestamp": "2026-04-15T13:41:59+02:00"
+		},
+		{
+			"hash": "a6d51af",
+			"short": "feat(mana-ai): encrypted resolver + tick uses Mission Grant to decrypt scoped inputs",
+			"type": "feat",
+			"scope": "mana-ai",
+			"additions": 818,
+			"deletions": 21,
+			"timestamp": "2026-04-15T13:42:31+02:00"
+		},
+		{
+			"hash": "394931e",
+			"short": "fix(ai-missions): strip Svelte \\$state Proxies before Dexie writes",
+			"type": "fix",
+			"scope": "ai-missions",
+			"additions": 15,
+			"deletions": 6,
+			"timestamp": "2026-04-15T13:44:05+02:00"
+		},
+		{
+			"hash": "4b29f6d",
+			"short": "fix(ai-missions): swap structuredClone for JSON-roundtrip deepClone",
+			"type": "fix",
+			"scope": "ai-missions",
+			"additions": 47,
+			"deletions": 6,
+			"timestamp": "2026-04-15T13:50:05+02:00"
+		},
+		{
+			"hash": "74bbfda",
+			"short": "feat(ai): Mission Grant consent UI + Workbench audit tab",
+			"type": "feat",
+			"scope": "ai",
+			"additions": 950,
+			"deletions": 10,
+			"timestamp": "2026-04-15T13:53:11+02:00"
+		},
+		{
+			"hash": "bb3da78",
+			"short": "feat(ai): Mission Grant rollout gating — flag, alerts, runbook, user docs",
+			"type": "feat",
+			"scope": "ai",
+			"additions": 204,
+			"deletions": 15,
+			"timestamp": "2026-04-15T14:02:47+02:00"
+		},
+		{
+			"hash": "ef47adb",
+			"short": "feat(ai-missions): live phase + elapsed + cancel for running iterations",
+			"type": "feat",
+			"scope": "ai-missions",
+			"additions": 357,
+			"deletions": 44,
+			"timestamp": "2026-04-15T14:15:48+02:00"
+		},
+		{
+			"hash": "003f75f",
+			"short": "chore(web): unblock pre-push hook",
+			"type": "chore",
+			"scope": "web",
+			"additions": 458,
+			"deletions": 43,
+			"timestamp": "2026-04-15T14:21:35+02:00"
+		},
+		{
+			"hash": "7f1520d",
+			"short": "chore(dev): wire mana-crawler into the local dev stack",
+			"type": "chore",
+			"scope": "dev",
+			"additions": 13,
+			"deletions": 2,
+			"timestamp": "2026-04-15T14:23:54+02:00"
+		},
+		{
+			"hash": "121a0c0",
+			"short": "feat(api): POST /api/v1/context/import-url — crawler + optional LLM summary",
+			"type": "feat",
+			"scope": "api",
+			"additions": 180,
+			"deletions": 0,
+			"timestamp": "2026-04-15T14:24:19+02:00"
+		},
+		{
+			"hash": "12072c6",
+			"short": "feat(kontext): URL import helpers — API client + appendContent",
+			"type": "feat",
+			"scope": "kontext",
+			"additions": 54,
+			"deletions": 1,
+			"timestamp": "2026-04-15T14:24:38+02:00"
+		},
+		{
+			"hash": "cb384bc",
+			"short": "feat(infra): deploy mana-ai + wire Mission Grant keys via docker-compose",
+			"type": "feat",
+			"scope": "infra",
+			"additions": 79,
+			"deletions": 6,
+			"timestamp": "2026-04-15T14:24:50+02:00"
+		},
+		{
+			"hash": "6acb044",
+			"short": "feat(kontext,notes): cross-module handoff — save Kontext as a Note",
+			"type": "feat",
+			"scope": "kontext,notes",
+			"additions": 67,
+			"deletions": 0,
+			"timestamp": "2026-04-15T14:24:56+02:00"
+		},
+		{
+			"hash": "f0f5b7d",
+			"short": "fix(infra): relocate mana-ai from 3066 to 3067 — port clash with news-ingester",
+			"type": "fix",
+			"scope": "infra",
+			"additions": 16,
+			"deletions": 16,
+			"timestamp": "2026-04-15T14:32:07+02:00"
+		},
+		{
+			"hash": "70c62e7",
+			"short": "fix(infra): include shared-logger in mana-ai + mana-auth Dockerfile installers",
+			"type": "fix",
+			"scope": "infra",
+			"additions": 2,
+			"deletions": 0,
+			"timestamp": "2026-04-15T14:34:08+02:00"
+		},
+		{
+			"hash": "2497a65",
+			"short": "feat(ai-missions): richer error surfacing + retry button on failed runs",
+			"type": "feat",
+			"scope": "ai-missions",
+			"additions": 137,
+			"deletions": 17,
+			"timestamp": "2026-04-15T14:37:15+02:00"
+		},
+		{
+			"hash": "572820f",
+			"short": "feat(infra): wire mana-ai URL + PUBLIC_AI_MISSION_GRANTS flag into mana-web",
+			"type": "feat",
+			"scope": "infra",
+			"additions": 10,
+			"deletions": 0,
+			"timestamp": "2026-04-15T15:03:42+02:00"
+		},
+		{
+			"hash": "eb30d49",
+			"short": "fix(web-docker): copy packages/shared-ai into build context",
+			"type": "fix",
+			"scope": "web-docker",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-04-15T15:07:41+02:00"
+		},
+		{
+			"hash": "98347cf",
+			"short": "fix(web): add workbox-window as explicit devDependency",
+			"type": "fix",
+			"scope": "web",
+			"additions": 4,
+			"deletions": 0,
+			"timestamp": "2026-04-15T15:12:33+02:00"
+		},
+		{
+			"hash": "39c85cc",
+			"short": "feat(shared-ui): add \"Anmelden\" entry to the guest user-menu bar",
+			"type": "feat",
+			"scope": "shared-ui",
+			"additions": 22,
+			"deletions": 2,
+			"timestamp": "2026-04-15T15:31:53+02:00"
+		},
+		{
+			"hash": "fffd3eb",
+			"short": "style(shared-ui): drop hover-lift transforms from pills and chips",
+			"type": "style",
+			"scope": "shared-ui",
+			"additions": 0,
+			"deletions": 9,
+			"timestamp": "2026-04-15T15:32:18+02:00"
+		},
+		{
+			"hash": "87eabcd",
+			"short": "style(shared-ui): remove TagStrip edge fade gradients",
+			"type": "style",
+			"scope": "shared-ui",
+			"additions": 0,
+			"deletions": 16,
+			"timestamp": "2026-04-15T15:32:28+02:00"
+		},
+		{
+			"hash": "6b1e8e8",
+			"short": "fix(web): guard PwaUpdatePrompt against SSR navigator access",
+			"type": "fix",
+			"scope": "web",
+			"additions": 17,
+			"deletions": 12,
+			"timestamp": "2026-04-15T15:33:35+02:00"
+		},
+		{
+			"hash": "298bf7e",
+			"short": "fix(auth-ui): narrow login/register form and drop stuck skip link",
+			"type": "fix",
+			"scope": "auth-ui",
+			"additions": 6,
+			"deletions": 16,
+			"timestamp": "2026-04-15T15:45:41+02:00"
+		},
+		{
+			"hash": "82cf190",
+			"short": "feat(tunnel): route mana-ai.mana.how → mana-ai:3067",
+			"type": "feat",
+			"scope": "tunnel",
+			"additions": 10,
+			"deletions": 0,
+			"timestamp": "2026-04-15T15:51:59+02:00"
+		},
+		{
+			"hash": "0ef650d",
+			"short": "chore(dev): run mana-credits locally and gift sync to dev users",
+			"type": "chore",
+			"scope": "dev",
+			"additions": 27,
+			"deletions": 2,
+			"timestamp": "2026-04-15T18:09:26+02:00"
+		},
+		{
+			"hash": "c5a4c51",
+			"short": "fix(mana-crawler): default DATABASE_URL to mana_platform in dev",
+			"type": "fix",
+			"scope": "mana-crawler",
+			"additions": 2,
+			"deletions": 2,
+			"timestamp": "2026-04-15T18:18:19+02:00"
+		},
+		{
+			"hash": "53fb323",
+			"short": "chore(dev): also grant role=admin in setup-dev-user.sh",
+			"type": "chore",
+			"scope": "dev",
+			"additions": 9,
+			"deletions": 2,
+			"timestamp": "2026-04-15T18:18:31+02:00"
+		},
+		{
+			"hash": "eaf97ae",
+			"short": "fix(api): unblock tsc by dropping rootDir and allowing .ts imports",
+			"type": "fix",
+			"scope": "api",
+			"additions": 2,
+			"deletions": 2,
+			"timestamp": "2026-04-15T18:51:26+02:00"
+		},
+		{
+			"hash": "4c8034f",
+			"short": "chore(dev): seed real credit balance in setup-dev-user.sh",
+			"type": "chore",
+			"scope": "dev",
+			"additions": 23,
+			"deletions": 2,
+			"timestamp": "2026-04-15T18:51:39+02:00"
+		},
+		{
+			"hash": "fdb8e60",
+			"short": "feat(ai): web-research pre-step + auto-kontext + save_news_article tool",
+			"type": "feat",
+			"scope": "ai",
+			"additions": 182,
+			"deletions": 5,
+			"timestamp": "2026-04-15T19:10:13+02:00"
+		},
+		{
+			"hash": "901d450",
+			"short": "refactor(shared-ui): fold Cloud Sync pill into the user menu bar",
+			"type": "refactor",
+			"scope": "shared-ui",
+			"additions": 15,
+			"deletions": 24,
+			"timestamp": "2026-04-15T19:11:47+02:00"
+		},
+		{
+			"hash": "0da7458",
+			"short": "fix(ai): surface web-research failures to the planner instead of hallucinating",
+			"type": "fix",
+			"scope": "ai",
+			"additions": 27,
+			"deletions": 6,
+			"timestamp": "2026-04-15T19:23:59+02:00"
+		},
+		{
+			"hash": "714c235",
+			"short": "feat(workbench): scene description field, drop scene icon",
+			"type": "feat",
+			"scope": "workbench",
+			"additions": 18,
+			"deletions": 16,
+			"timestamp": "2026-04-15T19:41:50+02:00"
+		},
+		{
+			"hash": "8f3ffef",
+			"short": "feat(page-carousel): optional leading snippet before first page",
+			"type": "feat",
+			"scope": "page-carousel",
+			"additions": 15,
+			"deletions": 0,
+			"timestamp": "2026-04-15T19:42:04+02:00"
+		},
+		{
+			"hash": "db8e681",
+			"short": "feat(workbench): render scene header left of the first page",
+			"type": "feat",
+			"scope": "workbench",
+			"additions": 133,
+			"deletions": 7,
+			"timestamp": "2026-04-15T19:42:20+02:00"
+		},
+		{
+			"hash": "f7b5c9b",
+			"short": "feat(workbench): inline-edit the scene header, no modal",
+			"type": "feat",
+			"scope": "workbench",
+			"additions": 133,
+			"deletions": 31,
+			"timestamp": "2026-04-15T20:13:41+02:00"
+		},
+		{
+			"hash": "1771063",
+			"short": "refactor(actor): identity-aware Actor for Multi-Agent Workbench (Phase 1)",
+			"type": "refactor",
+			"scope": "actor",
+			"additions": 571,
+			"deletions": 116,
+			"timestamp": "2026-04-15T20:13:57+02:00"
+		},
+		{
+			"hash": "e2ea0cd",
+			"short": "fix(workbench): tighten SceneHeader spacing and keep contenteditable clean",
+			"type": "fix",
+			"scope": "workbench",
+			"additions": 4,
+			"deletions": 2,
+			"timestamp": "2026-04-15T20:14:31+02:00"
+		},
+		{
+			"hash": "6e842a8",
+			"short": "fix(workbench): set SceneHeader text via refs instead of inline mustache",
+			"type": "fix",
+			"scope": "workbench",
+			"additions": 27,
+			"deletions": 12,
+			"timestamp": "2026-04-15T20:16:21+02:00"
+		},
+		{
+			"hash": "d5c351d",
+			"short": "feat(ai): per-iteration debug log — capture prompt + response + inputs",
+			"type": "feat",
+			"scope": "ai",
+			"additions": 467,
+			"deletions": 16,
+			"timestamp": "2026-04-15T20:33:17+02:00"
+		},
+		{
+			"hash": "bc77b36",
+			"short": "feat(agents): Agent CRUD + default bootstrap + Mission.agentId (Phase 2)",
+			"type": "feat",
+			"scope": "agents",
+			"additions": 830,
+			"deletions": 6,
+			"timestamp": "2026-04-15T20:35:49+02:00"
+		},
+		{
+			"hash": "6811362",
+			"short": "refactor(workbench): drop per-card height and free-form resize",
+			"type": "refactor",
+			"scope": "workbench",
+			"additions": 14,
+			"deletions": 25,
+			"timestamp": "2026-04-15T20:37:03+02:00"
+		},
+		{
+			"hash": "8b6b736",
+			"short": "feat(page-carousel): five-preset width picker replaces drag handle",
+			"type": "feat",
+			"scope": "page-carousel",
+			"additions": 163,
+			"deletions": 102,
+			"timestamp": "2026-04-15T20:37:19+02:00"
+		},
+		{
+			"hash": "0af50f0",
+			"short": "feat(mana-ai): agent-aware tick loop + snapshot projection (Phase 3)",
+			"type": "feat",
+			"scope": "mana-ai",
+			"additions": 560,
+			"deletions": 17,
+			"timestamp": "2026-04-15T20:46:57+02:00"
+		},
+		{
+			"hash": "3b99356",
+			"short": "feat(quiz): new Quiz module — build & play private quizzes (Phase 1)",
+			"type": "feat",
+			"scope": "quiz",
+			"additions": 1978,
+			"deletions": 0,
+			"timestamp": "2026-04-15T20:54:07+02:00"
+		},
+		{
+			"hash": "988c17a",
+			"short": "feat(quiz): edit existing questions + wire up guest seed",
+			"type": "feat",
+			"scope": "quiz",
+			"additions": 143,
+			"deletions": 420,
+			"timestamp": "2026-04-15T21:24:53+02:00"
+		},
+		{
+			"hash": "f06ca2c",
+			"short": "feat(ai-missions): inline AiProposalInbox in mission detail (cross-module)",
+			"type": "feat",
+			"scope": "ai-missions",
+			"additions": 31,
+			"deletions": 4,
+			"timestamp": "2026-04-15T21:33:06+02:00"
+		},
+		{
+			"hash": "db959b6",
+			"short": "feat(workbench): auto-scroll on scene switch, unify rename to inline",
+			"type": "feat",
+			"scope": "workbench",
+			"additions": 40,
+			"deletions": 238,
+			"timestamp": "2026-04-15T21:34:22+02:00"
+		},
+		{
+			"hash": "32f4c0d",
+			"short": "feat(page-carousel): empty-state message when scene has no apps",
+			"type": "feat",
+			"scope": "page-carousel",
+			"additions": 41,
+			"deletions": 3,
+			"timestamp": "2026-04-15T21:34:39+02:00"
+		},
+		{
+			"hash": "968e080",
+			"short": "chore(workbench): delete dead SceneTabs component",
+			"type": "chore",
+			"scope": "workbench",
+			"additions": 0,
+			"deletions": 205,
+			"timestamp": "2026-04-15T21:34:54+02:00"
+		},
+		{
+			"hash": "f7426ab",
+			"short": "feat(ai): policy is read from the owning agent (Phase 4)",
+			"type": "feat",
+			"scope": "ai",
+			"additions": 49,
+			"deletions": 2,
+			"timestamp": "2026-04-15T21:43:04+02:00"
+		},
+		{
+			"hash": "f2faaf1",
+			"short": "refactor(pill-nav): drop Settings entry, guard on settingsHref",
+			"type": "refactor",
+			"scope": "pill-nav",
+			"additions": 10,
+			"deletions": 9,
+			"timestamp": "2026-04-15T21:43:29+02:00"
+		},
+		{
+			"hash": "aebbcdd",
+			"short": "refactor(settings): unify section headers across tabs",
+			"type": "refactor",
+			"scope": "settings",
+			"additions": 31,
+			"deletions": 19,
+			"timestamp": "2026-04-15T21:48:41+02:00"
+		},
+		{
+			"hash": "cacbfb0",
+			"short": "fix(settings): wire ListView to GeneralSection instead of inlining",
+			"type": "fix",
+			"scope": "settings",
+			"additions": 4,
+			"deletions": 17,
+			"timestamp": "2026-04-15T21:52:18+02:00"
+		},
+		{
+			"hash": "51e6a20",
+			"short": "feat(ai-agents): Agents UI + Scene binding + Mission picker (Phase 5)",
+			"type": "feat",
+			"scope": "ai-agents",
+			"additions": 984,
+			"deletions": 2,
+			"timestamp": "2026-04-15T21:56:02+02:00"
+		},
+		{
+			"hash": "cda70b6",
+			"short": "fix(css): alias bare --muted/--primary etc. to --color-* tokens",
+			"type": "fix",
+			"scope": "css",
+			"additions": 20,
+			"deletions": 0,
+			"timestamp": "2026-04-15T21:57:29+02:00"
+		},
+		{
+			"hash": "98668b6",
+			"short": "fix(ai): swap web-research pre-step from deep-research → news-research RSS",
+			"type": "fix",
+			"scope": "ai",
+			"additions": 42,
+			"deletions": 24,
+			"timestamp": "2026-04-15T22:07:29+02:00"
+		},
+		{
+			"hash": "7c89eb6",
+			"short": "feat(ai): workbench agent filter + proposal agent chip + docs (Phase 6+7)",
+			"type": "feat",
+			"scope": "ai",
+			"additions": 162,
+			"deletions": 15,
+			"timestamp": "2026-04-15T22:08:42+02:00"
+		},
+		{
+			"hash": "6da317d",
+			"short": "refactor(theme): migrate shared packages to --color-* token naming",
+			"type": "refactor",
+			"scope": "theme",
+			"additions": 245,
+			"deletions": 260,
+			"timestamp": "2026-04-15T22:11:42+02:00"
+		},
+		{
+			"hash": "e8077a4",
+			"short": "docs: flesh out Multi-Agent plan shipping log + Team Workbench forward plan",
+			"type": null,
+			"scope": null,
+			"additions": 554,
+			"deletions": 54,
+			"timestamp": "2026-04-15T22:17:04+02:00"
+		},
+		{
+			"hash": "5ae7f99",
+			"short": "fix(css): correct @source paths — Tailwind was scanning no shared packages",
+			"type": "fix",
+			"scope": "css",
+			"additions": 10,
+			"deletions": 8,
+			"timestamp": "2026-04-15T22:17:15+02:00"
+		},
+		{
+			"hash": "b768a0f",
+			"short": "refactor(shared-rss): extract RSS parsing + Readability into one package",
+			"type": "refactor",
+			"scope": "shared-rss",
+			"additions": 415,
+			"deletions": 253,
+			"timestamp": "2026-04-15T22:30:44+02:00"
+		},
+		{
+			"hash": "fdd643f",
+			"short": "feat(news-research): RSS feed discovery, filter, and AI-context export",
+			"type": "feat",
+			"scope": "news-research",
+			"additions": 1586,
+			"deletions": 2,
+			"timestamp": "2026-04-15T22:31:07+02:00"
+		},
+		{
+			"hash": "115afea",
+			"short": "chore(dev): wire SearXNG + mana-search into dev:mana:all",
+			"type": "chore",
+			"scope": "dev",
+			"additions": 29,
+			"deletions": 4,
+			"timestamp": "2026-04-15T22:31:29+02:00"
+		},
+		{
+			"hash": "cd22e42",
+			"short": "refactor(theme): migrate all remaining bare shadcn tokens to --color-*",
+			"type": "refactor",
+			"scope": "theme",
+			"additions": 1308,
+			"deletions": 1120,
+			"timestamp": "2026-04-15T22:56:59+02:00"
+		},
+		{
+			"hash": "fdc1c00",
+			"short": "refactor(theme): migrate --theme-* tokens in shared-auth-ui",
+			"type": "refactor",
+			"scope": "theme",
+			"additions": 95,
+			"deletions": 95,
+			"timestamp": "2026-04-16T00:16:39+02:00"
+		},
+		{
+			"hash": "4d9b16a",
+			"short": "feat(notes): list + update + append + add_tag tools for the AI",
+			"type": "feat",
+			"scope": "notes",
+			"additions": 252,
+			"deletions": 0,
+			"timestamp": "2026-04-16T00:24:48+02:00"
+		},
+		{
+			"hash": "7822340",
+			"short": "feat(ai-agents): Template gallery — 3 ready-to-use agent bundles",
+			"type": "feat",
+			"scope": "ai-agents",
+			"additions": 1150,
+			"deletions": 6,
+			"timestamp": "2026-04-16T00:36:39+02:00"
+		},
+		{
+			"hash": "5311909",
+			"short": "chore(theme): theme-track shared-auth-ui primaryColor + drop dead tailwind.config.js",
+			"type": "chore",
+			"scope": "theme",
+			"additions": 8,
+			"deletions": 40,
+			"timestamp": "2026-04-16T00:37:11+02:00"
+		},
+		{
+			"hash": "e440f13",
+			"short": "feat(workbench): welcome placeholder for the Home scene description",
+			"type": "feat",
+			"scope": "workbench",
+			"additions": 50,
+			"deletions": 1,
+			"timestamp": "2026-04-16T00:41:07+02:00"
+		},
+		{
+			"hash": "8299bf0",
+			"short": "feat(ai): reasoning loop — agent chains auto tools before asking for approval",
+			"type": "feat",
+			"scope": "ai",
+			"additions": 263,
+			"deletions": 77,
+			"timestamp": "2026-04-16T00:43:52+02:00"
+		},
+		{
+			"hash": "8a5d200",
+			"short": "fix(ai): bump planner maxTokens 1024→4096 + teach prompt about the loop",
+			"type": "fix",
+			"scope": "ai",
+			"additions": 11,
+			"deletions": 5,
+			"timestamp": "2026-04-16T00:55:18+02:00"
+		},
+		{
+			"hash": "fc028fa",
+			"short": "chore(lint): audit:theme-tokens guard against bare --muted / --theme-* drift",
+			"type": "chore",
+			"scope": "lint",
+			"additions": 246,
+			"deletions": 2,
+			"timestamp": "2026-04-16T00:58:13+02:00"
+		},
+		{
+			"hash": "a524997",
+			"short": "refactor(tailwind): centralize @source list in @mana/shared-tailwind/sources.css",
+			"type": "refactor",
+			"scope": "tailwind",
+			"additions": 29,
+			"deletions": 12,
+			"timestamp": "2026-04-16T00:59:33+02:00"
+		},
+		{
+			"hash": "a08e45c",
+			"short": "feat(templates): generalise to WorkbenchTemplate + ship Calmness pilot (T1)",
+			"type": "feat",
+			"scope": "templates",
+			"additions": 886,
+			"deletions": 118,
+			"timestamp": "2026-04-16T01:07:41+02:00"
+		},
+		{
+			"hash": "4f76d39",
+			"short": "feat(workbench): ?app=<appId> deep-links into the active scene",
+			"type": "feat",
+			"scope": "workbench",
+			"additions": 26,
+			"deletions": 10,
+			"timestamp": "2026-04-16T01:10:10+02:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

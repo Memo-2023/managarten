@@ -1,0 +1,127 @@
+{
+	"date": "2026-03-18",
+	"day_number": 57,
+	"weekday": "Mittwoch",
+	"commits": 5,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 5
+		}
+	],
+	"additions": 4111,
+	"deletions": 1739,
+	"net_lines": 2372,
+	"files_changed": 30,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-03-18T15:55:52.000Z",
+		"last_commit_at": "2026-03-18T16:41:53.000Z",
+		"total_span_minutes": 46,
+		"active_minutes": 46,
+		"pauses": [],
+		"longest_focus_minutes": 46
+	},
+	"top_dirs": [
+		{
+			"path": "apps/contacts/apps/web",
+			"pct": 42
+		},
+		{
+			"path": "apps/todo/apps/web",
+			"pct": 21
+		},
+		{
+			"path": "pnpm-lock.yaml",
+			"pct": 9
+		},
+		{
+			"path": "apps/calendar/apps/web",
+			"pct": 9
+		},
+		{
+			"path": "apps/contacts/apps/backend",
+			"pct": 9
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 19
+		},
+		{
+			"ext": ".json",
+			"count": 4
+		},
+		{
+			"ext": ".svelte",
+			"count": 3
+		},
+		{
+			"ext": ".yaml",
+			"count": 3
+		},
+		{
+			"ext": ".html",
+			"count": 2
+		},
+		{
+			"ext": ".yml",
+			"count": 1
+		}
+	],
+	"tags": ["contacts", "todo"],
+	"commits_list": [
+		{
+			"hash": "5d86753",
+			"short": "fix(contacts): add missing PUBLIC_TODO_BACKEND_URL to contacts-web production config",
+			"type": "fix",
+			"scope": "contacts",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-03-18T16:55:52+01:00"
+		},
+		{
+			"hash": "a5d2701",
+			"short": "fix(contacts): add default title and remove unused network view remnants",
+			"type": "fix",
+			"scope": "contacts",
+			"additions": 601,
+			"deletions": 545,
+			"timestamp": "2026-03-18T17:05:45+01:00"
+		},
+		{
+			"hash": "8debd2b",
+			"short": "test(contacts): add unit tests for web app (62 tests)",
+			"type": "test",
+			"scope": "contacts",
+			"additions": 626,
+			"deletions": 1,
+			"timestamp": "2026-03-18T17:14:19+01:00"
+		},
+		{
+			"hash": "8f71ed1",
+			"short": "fix(todo): add default title, remove unused d3-force, add unit tests (39 tests)",
+			"type": "fix",
+			"scope": "todo",
+			"additions": 410,
+			"deletions": 526,
+			"timestamp": "2026-03-18T17:28:52+01:00"
+		},
+		{
+			"hash": "37a6991",
+			"short": "test: expand test coverage across calendar, contacts, and todo apps",
+			"type": null,
+			"scope": null,
+			"additions": 2473,
+			"deletions": 667,
+			"timestamp": "2026-03-18T17:41:53+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

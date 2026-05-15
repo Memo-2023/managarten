@@ -1,0 +1,287 @@
+{
+	"date": "2025-12-12",
+	"day_number": 18,
+	"weekday": "Freitag",
+	"commits": 19,
+	"authors": [
+		{
+			"name": "Till-JS",
+			"count": 12
+		},
+		{
+			"name": "Wuesteon",
+			"count": 5
+		},
+		{
+			"name": "Nils Weiser",
+			"count": 2
+		}
+	],
+	"additions": 5204,
+	"deletions": 3478,
+	"net_lines": 1726,
+	"files_changed": 70,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2025-12-12T10:57:55.000Z",
+		"last_commit_at": "2025-12-12T20:58:26.000Z",
+		"total_span_minutes": 601,
+		"active_minutes": 74,
+		"pauses": [
+			{
+				"from": "12:15",
+				"to": "13:00",
+				"minutes": 45
+			},
+			{
+				"from": "13:25",
+				"to": "14:12",
+				"minutes": 47
+			},
+			{
+				"from": "14:12",
+				"to": "14:54",
+				"minutes": 42
+			},
+			{
+				"from": "14:54",
+				"to": "20:47",
+				"minutes": 354
+			},
+			{
+				"from": "20:56",
+				"to": "21:36",
+				"minutes": 39
+			}
+		],
+		"longest_focus_minutes": 25
+	},
+	"top_dirs": [
+		{
+			"path": "apps/calendar/apps/web",
+			"pct": 42
+		},
+		{
+			"path": "packages/shared-splitscreen/src",
+			"pct": 15
+		},
+		{
+			"path": "packages/shared-ui/src",
+			"pct": 11
+		},
+		{
+			"path": "apps/chat/apps/backend",
+			"pct": 4
+		},
+		{
+			"path": "pnpm-lock.yaml",
+			"pct": 3
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".svelte",
+			"count": 56
+		},
+		{
+			"ext": ".ts",
+			"count": 28
+		},
+		{
+			"ext": ".json",
+			"count": 6
+		},
+		{
+			"ext": ".md",
+			"count": 4
+		},
+		{
+			"ext": ".yaml",
+			"count": 3
+		},
+		{
+			"ext": ".svelte}",
+			"count": 1
+		}
+	],
+	"tags": ["calendar", "splitscreen", "shared-ui"],
+	"commits_list": [
+		{
+			"hash": "51912a2",
+			"short": "feat(calendar): add search highlighting to calendar views",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 221,
+			"deletions": 18,
+			"timestamp": "2025-12-12T11:57:55+01:00"
+		},
+		{
+			"hash": "8a75b34",
+			"short": "refactor(shared-ui): rename QuickInputBar to InputBar",
+			"type": "refactor",
+			"scope": "shared-ui",
+			"additions": 271,
+			"deletions": 560,
+			"timestamp": "2025-12-12T11:58:13+01:00"
+		},
+		{
+			"hash": "f51708d",
+			"short": "fix(calendar): fix QuickEventOverlay z-index stacking issue",
+			"type": "fix",
+			"scope": "calendar",
+			"additions": 44,
+			"deletions": 20,
+			"timestamp": "2025-12-12T12:15:01+01:00"
+		},
+		{
+			"hash": "f2ac3e2",
+			"short": "feat(splitscreen): add split-screen feature for multi-app side-by-side view",
+			"type": "feat",
+			"scope": "splitscreen",
+			"additions": 2773,
+			"deletions": 534,
+			"timestamp": "2025-12-12T13:00:26+01:00"
+		},
+		{
+			"hash": "448cfb9",
+			"short": "fix(calendar): improve toolbar UX and fix build warnings",
+			"type": "fix",
+			"scope": "calendar",
+			"additions": 457,
+			"deletions": 157,
+			"timestamp": "2025-12-12T13:03:31+01:00"
+		},
+		{
+			"hash": "287a62a",
+			"short": "fix(splitscreen): fix resize handle not working after first drag",
+			"type": "fix",
+			"scope": "splitscreen",
+			"additions": 42,
+			"deletions": 14,
+			"timestamp": "2025-12-12T13:12:41+01:00"
+		},
+		{
+			"hash": "81f77c4",
+			"short": "feat(calendar): improve navigation layout controls and sidebar integration",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 261,
+			"deletions": 10,
+			"timestamp": "2025-12-12T13:13:45+01:00"
+		},
+		{
+			"hash": "b349083",
+			"short": "fix(calendar): add shared-splitscreen to Dockerfile",
+			"type": "fix",
+			"scope": "calendar",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2025-12-12T13:25:42+01:00"
+		},
+		{
+			"hash": "4357902",
+			"short": "Merge remote-tracking branch 'origin/dev' into till-dev",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 0,
+			"timestamp": "2025-12-12T14:12:14+01:00"
+		},
+		{
+			"hash": "b44e515",
+			"short": "Merge pull request #16 from Memo-2023/till-dev",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 0,
+			"timestamp": "2025-12-12T14:54:12+01:00"
+		},
+		{
+			"hash": "0fa154c",
+			"short": "🐛 fix(shared-auth): add automatic token refresh on 401 responses",
+			"type": null,
+			"scope": null,
+			"additions": 106,
+			"deletions": 18,
+			"timestamp": "2025-12-12T20:47:43+01:00"
+		},
+		{
+			"hash": "3f9bc57",
+			"short": "♻️ refactor(chat): simplify chat service and update seed data",
+			"type": null,
+			"scope": null,
+			"additions": 76,
+			"deletions": 394,
+			"timestamp": "2025-12-12T20:48:10+01:00"
+		},
+		{
+			"hash": "a9aeffa",
+			"short": "♻️ refactor(picture): simplify credit system to production-only",
+			"type": null,
+			"scope": null,
+			"additions": 36,
+			"deletions": 67,
+			"timestamp": "2025-12-12T20:49:38+01:00"
+		},
+		{
+			"hash": "612f6a1",
+			"short": "🔧 chore: switch chat backend to OpenRouter API",
+			"type": null,
+			"scope": null,
+			"additions": 260,
+			"deletions": 1234,
+			"timestamp": "2025-12-12T20:50:03+01:00"
+		},
+		{
+			"hash": "35ce678",
+			"short": "Merge pull request #17 from Memo-2023/chat-picture",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 0,
+			"timestamp": "2025-12-12T20:56:59+01:00"
+		},
+		{
+			"hash": "b7057ed",
+			"short": "feat(calendar): improve DateStrip today button and fix initial date display",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 56,
+			"deletions": 22,
+			"timestamp": "2025-12-12T21:36:19+01:00"
+		},
+		{
+			"hash": "502ba0c",
+			"short": "♻️ refactor(calendar): integrate agenda as view type and improve DayView layout",
+			"type": null,
+			"scope": null,
+			"additions": 496,
+			"deletions": 343,
+			"timestamp": "2025-12-12T21:51:05+01:00"
+		},
+		{
+			"hash": "4d1db20",
+			"short": "feat(calendar): convert toolbar to collapsed FAB next to InputBar",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 16,
+			"deletions": 30,
+			"timestamp": "2025-12-12T21:55:07+01:00"
+		},
+		{
+			"hash": "11da7d2",
+			"short": "fix(calendar): toolbar opens below InputBar and pushes content up",
+			"type": "fix",
+			"scope": "calendar",
+			"additions": 88,
+			"deletions": 57,
+			"timestamp": "2025-12-12T21:58:26+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

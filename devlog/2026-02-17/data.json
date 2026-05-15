@@ -1,0 +1,322 @@
+{
+	"date": "2026-02-17",
+	"day_number": 50,
+	"weekday": "Dienstag",
+	"commits": 26,
+	"authors": [
+		{
+			"name": "Till-JS",
+			"count": 26
+		}
+	],
+	"additions": 15891,
+	"deletions": 8613,
+	"net_lines": 7278,
+	"files_changed": 161,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-02-17T09:40:08.000Z",
+		"last_commit_at": "2026-02-17T13:19:31.000Z",
+		"total_span_minutes": 219,
+		"active_minutes": 129,
+		"pauses": [
+			{
+				"from": "11:08",
+				"to": "12:38",
+				"minutes": 90
+			}
+		],
+		"longest_focus_minutes": 101
+	},
+	"top_dirs": [
+		{
+			"path": "packages/bot-services/src",
+			"pct": 12
+		},
+		{
+			"path": "apps/manacore/apps/web",
+			"pct": 10
+		},
+		{
+			"path": "services/mana-core-auth/src",
+			"pct": 9
+		},
+		{
+			"path": "packages/wallpaper-generator/src",
+			"pct": 9
+		},
+		{
+			"path": "packages/spiral-db/src",
+			"pct": 6
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 114
+		},
+		{
+			"ext": ".svelte",
+			"count": 29
+		},
+		{
+			"ext": ".json",
+			"count": 14
+		},
+		{
+			"ext": ".md",
+			"count": 8
+		},
+		{
+			"ext": "<no-ext>",
+			"count": 6
+		},
+		{
+			"ext": ".yml",
+			"count": 3
+		}
+	],
+	"tags": ["manacore", "planta-bot", "planta-backend", "bot-services", "manacore-web"],
+	"commits_list": [
+		{
+			"hash": "9704e88",
+			"short": "✨ feat(planta-bot): add AI plant identification via image upload",
+			"type": null,
+			"scope": null,
+			"additions": 299,
+			"deletions": 7,
+			"timestamp": "2026-02-17T10:40:08+01:00"
+		},
+		{
+			"hash": "f1518e8",
+			"short": "✨ feat(spiral-db): add pixel-based spiral database package",
+			"type": null,
+			"scope": null,
+			"additions": 3046,
+			"deletions": 0,
+			"timestamp": "2026-02-17T10:42:09+01:00"
+		},
+		{
+			"hash": "c999999",
+			"short": "feat(planta): add Docker deployment for planta-backend and matrix-planta-bot",
+			"type": "feat",
+			"scope": "planta",
+			"additions": 181,
+			"deletions": 0,
+			"timestamp": "2026-02-17T10:45:35+01:00"
+		},
+		{
+			"hash": "d9c5554",
+			"short": "feat(manacore): add QR code export to my-data page",
+			"type": "feat",
+			"scope": "manacore",
+			"additions": 1924,
+			"deletions": 908,
+			"timestamp": "2026-02-17T10:47:24+01:00"
+		},
+		{
+			"hash": "ceac544",
+			"short": "fix(planta-bot): rewrite Dockerfile to use pnpm workspace pattern",
+			"type": "fix",
+			"scope": "planta-bot",
+			"additions": 51,
+			"deletions": 21,
+			"timestamp": "2026-02-17T10:48:55+01:00"
+		},
+		{
+			"hash": "c5c8907",
+			"short": "fix(planta-backend): add shared-drizzle-config to Dockerfile",
+			"type": "fix",
+			"scope": "planta-backend",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-02-17T10:51:16+01:00"
+		},
+		{
+			"hash": "4c3ca3b",
+			"short": "✨ feat(todo): integrate spiral-db visualization",
+			"type": null,
+			"scope": null,
+			"additions": 1522,
+			"deletions": 508,
+			"timestamp": "2026-02-17T10:55:29+01:00"
+		},
+		{
+			"hash": "3b00303",
+			"short": "fix(planta-backend): correct health check endpoint to /api/v1/health",
+			"type": "fix",
+			"scope": "planta-backend",
+			"additions": 3,
+			"deletions": 3,
+			"timestamp": "2026-02-17T10:55:40+01:00"
+		},
+		{
+			"hash": "dcf4438",
+			"short": "✨ feat(mana-bot): add daily morning summary feature",
+			"type": null,
+			"scope": null,
+			"additions": 2781,
+			"deletions": 7,
+			"timestamp": "2026-02-17T11:01:47+01:00"
+		},
+		{
+			"hash": "352388b",
+			"short": "docs(manacore): add comprehensive Mana Values manifest",
+			"type": "docs",
+			"scope": "manacore",
+			"additions": 429,
+			"deletions": 34,
+			"timestamp": "2026-02-17T11:08:11+01:00"
+		},
+		{
+			"hash": "07a4c1c",
+			"short": "debug: add message handler logging for planta-bot investigation",
+			"type": null,
+			"scope": null,
+			"additions": 7,
+			"deletions": 1,
+			"timestamp": "2026-02-17T12:38:27+01:00"
+		},
+		{
+			"hash": "9faa1fc",
+			"short": "debug: add detailed logging to planta bot handleTextMessage",
+			"type": null,
+			"scope": null,
+			"additions": 51,
+			"deletions": 4,
+			"timestamp": "2026-02-17T12:40:57+01:00"
+		},
+		{
+			"hash": "9b01c09",
+			"short": "fix(bot-services): remove SessionModule import from I18nModule to prevent DI conflicts",
+			"type": "fix",
+			"scope": "bot-services",
+			"additions": 12,
+			"deletions": 6,
+			"timestamp": "2026-02-17T12:46:33+01:00"
+		},
+		{
+			"hash": "fd30fdc",
+			"short": "fix(bot-services): add global: true to I18nModule dynamic module config",
+			"type": "fix",
+			"scope": "bot-services",
+			"additions": 3,
+			"deletions": 2,
+			"timestamp": "2026-02-17T12:48:28+01:00"
+		},
+		{
+			"hash": "c480231",
+			"short": "fix(planta-bot): make I18nService optional to diagnose DI issue",
+			"type": "fix",
+			"scope": "planta-bot",
+			"additions": 7,
+			"deletions": 5,
+			"timestamp": "2026-02-17T12:51:04+01:00"
+		},
+		{
+			"hash": "e5109da",
+			"short": "feat(wallpaper-generator): add device wallpaper generation package",
+			"type": "feat",
+			"scope": "wallpaper-generator",
+			"additions": 5151,
+			"deletions": 434,
+			"timestamp": "2026-02-17T12:57:43+01:00"
+		},
+		{
+			"hash": "497b12c",
+			"short": "♻️ refactor(shared-ui): simplify PillNavigation - remove sidebar mode",
+			"type": null,
+			"scope": null,
+			"additions": 77,
+			"deletions": 1104,
+			"timestamp": "2026-02-17T13:27:23+01:00"
+		},
+		{
+			"hash": "03d90f2",
+			"short": "fix(lightwrite): add /api/v1 prefix to backend API calls",
+			"type": "fix",
+			"scope": "lightwrite",
+			"additions": 5,
+			"deletions": 4,
+			"timestamp": "2026-02-17T13:41:12+01:00"
+		},
+		{
+			"hash": "1d44f91",
+			"short": "fix(manacore-web): add missing packages to Dockerfile",
+			"type": "fix",
+			"scope": "manacore-web",
+			"additions": 19,
+			"deletions": 5538,
+			"timestamp": "2026-02-17T13:43:08+01:00"
+		},
+		{
+			"hash": "9517e1e",
+			"short": "🐛 fix(todo): add missing packages to Dockerfile for spiral-db",
+			"type": null,
+			"scope": null,
+			"additions": 2,
+			"deletions": 0,
+			"timestamp": "2026-02-17T13:48:05+01:00"
+		},
+		{
+			"hash": "bf5df28",
+			"short": "🔧 chore(todo): switch todo-web to local build for spiral-db",
+			"type": null,
+			"scope": null,
+			"additions": 4,
+			"deletions": 1,
+			"timestamp": "2026-02-17T13:49:29+01:00"
+		},
+		{
+			"hash": "212f499",
+			"short": "fix(manacore-web): handle contacts API response format",
+			"type": "fix",
+			"scope": "manacore-web",
+			"additions": 25,
+			"deletions": 10,
+			"timestamp": "2026-02-17T13:56:47+01:00"
+		},
+		{
+			"hash": "5c630c3",
+			"short": "feat(nutriphi-bot): add smart meal feedback with positive aspects and improvement suggestions",
+			"type": "feat",
+			"scope": "nutriphi-bot",
+			"additions": 219,
+			"deletions": 10,
+			"timestamp": "2026-02-17T14:09:33+01:00"
+		},
+		{
+			"hash": "845859c",
+			"short": "✨ feat(todo): add PNG import functionality to spiral page",
+			"type": null,
+			"scope": null,
+			"additions": 64,
+			"deletions": 0,
+			"timestamp": "2026-02-17T14:11:50+01:00"
+		},
+		{
+			"hash": "a336cc2",
+			"short": "fix(nutriphi-bot): make I18nService optional to fix DI error",
+			"type": "fix",
+			"scope": "nutriphi-bot",
+			"additions": 7,
+			"deletions": 5,
+			"timestamp": "2026-02-17T14:14:07+01:00"
+		},
+		{
+			"hash": "216a868",
+			"short": "🐛 fix(todo): await async importFromPngBytes call",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-02-17T14:19:31+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

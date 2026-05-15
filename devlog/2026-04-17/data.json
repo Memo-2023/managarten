@@ -1,0 +1,397 @@
+{
+	"date": "2026-04-17",
+	"day_number": 86,
+	"weekday": "Freitag",
+	"commits": 35,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 35
+		}
+	],
+	"additions": 16786,
+	"deletions": 2350,
+	"net_lines": 14436,
+	"files_changed": 258,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-04-17T11:17:22.000Z",
+		"last_commit_at": "2026-04-17T13:46:51.000Z",
+		"total_span_minutes": 149,
+		"active_minutes": 149,
+		"pauses": [],
+		"longest_focus_minutes": 149
+	},
+	"top_dirs": [
+		{
+			"path": "apps/mana/apps/web",
+			"pct": 65
+		},
+		{
+			"path": "services/mana-research/src",
+			"pct": 18
+		},
+		{
+			"path": "packages/shared-research/src",
+			"pct": 2
+		},
+		{
+			"path": "services/mana-credits/src",
+			"pct": 2
+		},
+		{
+			"path": "packages/shared-llm/src",
+			"pct": 1
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 118
+		},
+		{
+			"ext": ".mp3",
+			"count": 92
+		},
+		{
+			"ext": ".svelte",
+			"count": 61
+		},
+		{
+			"ext": ".md",
+			"count": 15
+		},
+		{
+			"ext": ".json",
+			"count": 4
+		},
+		{
+			"ext": ".py",
+			"count": 3
+		}
+	],
+	"tags": ["wetter", "library", "workbench", "research", "llm"],
+	"commits_list": [
+		{
+			"hash": "a252160",
+			"short": "feat(library): M3 — progress tracking (pages, episodes, issues) + restart",
+			"type": "feat",
+			"scope": "library",
+			"additions": 433,
+			"deletions": 11,
+			"timestamp": "2026-04-17T13:17:22+02:00"
+		},
+		{
+			"hash": "96a7202",
+			"short": "feat(wetter): register workbench panel with ListView",
+			"type": "feat",
+			"scope": "wetter",
+			"additions": 341,
+			"deletions": 0,
+			"timestamp": "2026-04-17T13:33:59+02:00"
+		},
+		{
+			"hash": "24704e2",
+			"short": "fix(wetter): mount routes before auth middleware",
+			"type": "fix",
+			"scope": "wetter",
+			"additions": 4,
+			"deletions": 1,
+			"timestamp": "2026-04-17T13:37:17+02:00"
+		},
+		{
+			"hash": "85bba16",
+			"short": "feat(library): register as workbench app (Kreativ category)",
+			"type": "feat",
+			"scope": "library",
+			"additions": 26,
+			"deletions": 0,
+			"timestamp": "2026-04-17T13:53:01+02:00"
+		},
+		{
+			"hash": "9b8c691",
+			"short": "feat(wetter): add multi-model source comparison view",
+			"type": "feat",
+			"scope": "wetter",
+			"additions": 569,
+			"deletions": 1,
+			"timestamp": "2026-04-17T13:57:05+02:00"
+		},
+		{
+			"hash": "fea37c3",
+			"short": "feat(library): drop page h1, move create to inline accordion",
+			"type": "feat",
+			"scope": "library",
+			"additions": 80,
+			"deletions": 94,
+			"timestamp": "2026-04-17T14:02:21+02:00"
+		},
+		{
+			"hash": "5bdacaa",
+			"short": "feat(wishes): add Wünsche module — wishlists with price tracking",
+			"type": "feat",
+			"scope": "wishes",
+			"additions": 1413,
+			"deletions": 1,
+			"timestamp": "2026-04-17T14:02:37+02:00"
+		},
+		{
+			"hash": "d2cf822",
+			"short": "feat(library): move search to top of the controls",
+			"type": "feat",
+			"scope": "library",
+			"additions": 12,
+			"deletions": 15,
+			"timestamp": "2026-04-17T14:06:13+02:00"
+		},
+		{
+			"hash": "cf4d849",
+			"short": "feat(wetter): full feature parity for workbench ListView",
+			"type": "feat",
+			"scope": "wetter",
+			"additions": 114,
+			"deletions": 214,
+			"timestamp": "2026-04-17T14:08:51+02:00"
+		},
+		{
+			"hash": "1add202",
+			"short": "fix(library): make form labels and inputs readable",
+			"type": "fix",
+			"scope": "library",
+			"additions": 30,
+			"deletions": 16,
+			"timestamp": "2026-04-17T14:11:10+02:00"
+		},
+		{
+			"hash": "ef91b61",
+			"short": "feat(wetter): improve location management with save/remove/default",
+			"type": "feat",
+			"scope": "wetter",
+			"additions": 247,
+			"deletions": 61,
+			"timestamp": "2026-04-17T14:13:30+02:00"
+		},
+		{
+			"hash": "fef71dd",
+			"short": "fix(wetter): design improvements — scroll chips, hierarchy, dedup names",
+			"type": "fix",
+			"scope": "wetter",
+			"additions": 166,
+			"deletions": 120,
+			"timestamp": "2026-04-17T14:24:10+02:00"
+		},
+		{
+			"hash": "a2423b4",
+			"short": "fix(wetter): add icons to detail grid (wind, humidity, pressure, UV)",
+			"type": "fix",
+			"scope": "wetter",
+			"additions": 9,
+			"deletions": 0,
+			"timestamp": "2026-04-17T14:27:16+02:00"
+		},
+		{
+			"hash": "2df9ecd",
+			"short": "feat(rituals): rename ai-rituals → rituals, add ceremony step types",
+			"type": "feat",
+			"scope": "rituals",
+			"additions": 813,
+			"deletions": 188,
+			"timestamp": "2026-04-17T14:41:26+02:00"
+		},
+		{
+			"hash": "004fc0b",
+			"short": "feat(credits): add 2-phase debit (reserve/commit/refund)",
+			"type": "feat",
+			"scope": "credits",
+			"additions": 237,
+			"deletions": 3,
+			"timestamp": "2026-04-17T14:41:41+02:00"
+		},
+		{
+			"hash": "2bdb48b",
+			"short": "feat(research): add mana-research service — Phase 1 + 2",
+			"type": "feat",
+			"scope": "research",
+			"additions": 4376,
+			"deletions": 243,
+			"timestamp": "2026-04-17T14:42:25+02:00"
+		},
+		{
+			"hash": "c642e1b",
+			"short": "feat(workbench): add inline module help — ? icon in PageShell header",
+			"type": "feat",
+			"scope": "workbench",
+			"additions": 880,
+			"deletions": 1,
+			"timestamp": "2026-04-17T14:44:48+02:00"
+		},
+		{
+			"hash": "2b96953",
+			"short": "fix(llm): user-friendly error messages when no LLM tier available",
+			"type": "fix",
+			"scope": "llm",
+			"additions": 72,
+			"deletions": 4,
+			"timestamp": "2026-04-17T14:46:39+02:00"
+		},
+		{
+			"hash": "f0c38da",
+			"short": "feat(rituals): switch icon from Lightning to ArrowClockwise",
+			"type": "feat",
+			"scope": "rituals",
+			"additions": 2,
+			"deletions": 1,
+			"timestamp": "2026-04-17T14:51:37+02:00"
+		},
+		{
+			"hash": "928f036",
+			"short": "fix(llm): add deep-link to AI settings in tier error messages",
+			"type": "fix",
+			"scope": "llm",
+			"additions": 6,
+			"deletions": 4,
+			"timestamp": "2026-04-17T14:58:32+02:00"
+		},
+		{
+			"hash": "49f315f",
+			"short": "feat(research): Phase 3a — 4 sync research agents",
+			"type": "feat",
+			"scope": "research",
+			"additions": 879,
+			"deletions": 15,
+			"timestamp": "2026-04-17T15:06:12+02:00"
+		},
+		{
+			"hash": "e60965e",
+			"short": "fix(mobile): disable text selection on list rows to unblock long-press context menu",
+			"type": "fix",
+			"scope": "mobile",
+			"additions": 44,
+			"deletions": 2,
+			"timestamp": "2026-04-17T15:08:04+02:00"
+		},
+		{
+			"hash": "fa31fa0",
+			"short": "fix(workbench): handle ?app= deep-links reactively while page is mounted",
+			"type": "fix",
+			"scope": "workbench",
+			"additions": 19,
+			"deletions": 0,
+			"timestamp": "2026-04-17T15:08:25+02:00"
+		},
+		{
+			"hash": "1cfd059",
+			"short": "fix(llm): user-friendly messages + settings link for all LLM errors",
+			"type": "fix",
+			"scope": "llm",
+			"additions": 28,
+			"deletions": 6,
+			"timestamp": "2026-04-17T15:13:48+02:00"
+		},
+		{
+			"hash": "4aafbf6",
+			"short": "fix(settings): react to anchor deep-links when already mounted",
+			"type": "fix",
+			"scope": "settings",
+			"additions": 39,
+			"deletions": 2,
+			"timestamp": "2026-04-17T15:17:30+02:00"
+		},
+		{
+			"hash": "786ffd7",
+			"short": "feat(research-lab): Phase 4 — UI for side-by-side provider comparison",
+			"type": "feat",
+			"scope": "research-lab",
+			"additions": 1392,
+			"deletions": 0,
+			"timestamp": "2026-04-17T15:21:21+02:00"
+		},
+		{
+			"hash": "8823cc0",
+			"short": "feat(profile): voice interview with pre-rendered TTS audio + Orpheus/Zonos backends",
+			"type": "feat",
+			"scope": "profile",
+			"additions": 1597,
+			"deletions": 31,
+			"timestamp": "2026-04-17T15:22:52+02:00"
+		},
+		{
+			"hash": "a1baf10",
+			"short": "fix(workbench): resilient liveQuery + rmw-safe scene writes",
+			"type": "fix",
+			"scope": "workbench",
+			"additions": 96,
+			"deletions": 35,
+			"timestamp": "2026-04-17T15:23:20+02:00"
+		},
+		{
+			"hash": "38b9fdb",
+			"short": "docs: add Apr 16 devlog, remove duplicate devlogs, update MODULE_REGISTRY",
+			"type": null,
+			"scope": null,
+			"additions": 278,
+			"deletions": 508,
+			"timestamp": "2026-04-17T15:27:00+02:00"
+		},
+		{
+			"hash": "bd1e273",
+			"short": "perf(workbench): persistent IO + stable bar callbacks",
+			"type": "perf",
+			"scope": "workbench",
+			"additions": 65,
+			"deletions": 12,
+			"timestamp": "2026-04-17T15:27:48+02:00"
+		},
+		{
+			"hash": "8f0a74b",
+			"short": "feat(research-lab): tier gate (beta+), 1–5 star ratings, run detail route",
+			"type": "feat",
+			"scope": "research-lab",
+			"additions": 358,
+			"deletions": 16,
+			"timestamp": "2026-04-17T15:28:02+02:00"
+		},
+		{
+			"hash": "011946b",
+			"short": "feat(news-research): add depth=shallow|deep option to research_news tool",
+			"type": "feat",
+			"scope": "news-research",
+			"additions": 73,
+			"deletions": 2,
+			"timestamp": "2026-04-17T15:31:09+02:00"
+		},
+		{
+			"hash": "10bdd64",
+			"short": "refactor(workbench): consolidate deep-link handler, reset store on dispose",
+			"type": "refactor",
+			"scope": "workbench",
+			"additions": 22,
+			"deletions": 25,
+			"timestamp": "2026-04-17T15:35:33+02:00"
+		},
+		{
+			"hash": "7d12022",
+			"short": "feat(research): Phase 3b openai-deep-research async + BYO-keys CRUD & UI",
+			"type": "feat",
+			"scope": "research",
+			"additions": 1032,
+			"deletions": 3,
+			"timestamp": "2026-04-17T15:43:12+02:00"
+		},
+		{
+			"hash": "6771230",
+			"short": "refactor(settings): unify section styling, remove Credits tab",
+			"type": "refactor",
+			"scope": "settings",
+			"additions": 1034,
+			"deletions": 715,
+			"timestamp": "2026-04-17T15:46:51+02:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

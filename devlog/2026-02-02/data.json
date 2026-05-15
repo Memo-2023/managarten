@@ -1,0 +1,462 @@
+{
+	"date": "2026-02-02",
+	"day_number": 42,
+	"weekday": "Montag",
+	"commits": 41,
+	"authors": [
+		{
+			"name": "Till-JS",
+			"count": 41
+		}
+	],
+	"additions": 9491,
+	"deletions": 6409,
+	"net_lines": 3082,
+	"files_changed": 170,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-02-02T12:17:04.000Z",
+		"last_commit_at": "2026-02-02T18:16:56.000Z",
+		"total_span_minutes": 360,
+		"active_minutes": 230,
+		"pauses": [
+			{
+				"from": "13:43",
+				"to": "14:51",
+				"minutes": 68
+			},
+			{
+				"from": "17:30",
+				"to": "18:32",
+				"minutes": 62
+			}
+		],
+		"longest_focus_minutes": 159
+	},
+	"top_dirs": [
+		{
+			"path": "services/mana-media/apps",
+			"pct": 10
+		},
+		{
+			"path": "packages/bot-services/src",
+			"pct": 9
+		},
+		{
+			"path": "services/mana-core-auth/src",
+			"pct": 8
+		},
+		{
+			"path": "apps/calendar/apps/web",
+			"pct": 7
+		},
+		{
+			"path": "services/matrix-nutriphi-bot/src",
+			"pct": 4
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 143
+		},
+		{
+			"ext": ".svelte",
+			"count": 26
+		},
+		{
+			"ext": ".json",
+			"count": 11
+		},
+		{
+			"ext": "<no-ext>",
+			"count": 8
+		},
+		{
+			"ext": ".yaml",
+			"count": 6
+		},
+		{
+			"ext": ".yml",
+			"count": 6
+		}
+	],
+	"tags": ["mana-core-auth", "mana-media", "nutriphi", "docker", "playground"],
+	"commits_list": [
+		{
+			"hash": "feaf27d",
+			"short": "feat(auth): implement cross-subdomain SSO for all web apps",
+			"type": "feat",
+			"scope": "auth",
+			"additions": 491,
+			"deletions": 16,
+			"timestamp": "2026-02-02T13:17:04+01:00"
+		},
+		{
+			"hash": "7bad849",
+			"short": "docs(server): document Docker on external SSD and Matrix Bots",
+			"type": "docs",
+			"scope": "server",
+			"additions": 65,
+			"deletions": 2,
+			"timestamp": "2026-02-02T13:43:39+01:00"
+		},
+		{
+			"hash": "2777f60",
+			"short": "feat(bots): enable Redis SSO for todo-bot and calendar-bot",
+			"type": "feat",
+			"scope": "bots",
+			"additions": 2917,
+			"deletions": 758,
+			"timestamp": "2026-02-02T14:51:23+01:00"
+		},
+		{
+			"hash": "8525020",
+			"short": "feat(playground): integrate shared auth UI for consistent login experience",
+			"type": "feat",
+			"scope": "playground",
+			"additions": 171,
+			"deletions": 228,
+			"timestamp": "2026-02-02T14:53:51+01:00"
+		},
+		{
+			"hash": "a416dad",
+			"short": "fix(playground): add missing shared packages to Dockerfile",
+			"type": "fix",
+			"scope": "playground",
+			"additions": 4,
+			"deletions": 0,
+			"timestamp": "2026-02-02T14:55:02+01:00"
+		},
+		{
+			"hash": "0b46d20",
+			"short": "feat(infra): add mana-llm service to production deployment",
+			"type": "feat",
+			"scope": "infra",
+			"additions": 34,
+			"deletions": 1,
+			"timestamp": "2026-02-02T14:58:44+01:00"
+		},
+		{
+			"hash": "60d2f64",
+			"short": "fix(matrix-bots): update all bots for async SessionService methods",
+			"type": "fix",
+			"scope": "matrix-bots",
+			"additions": 551,
+			"deletions": 350,
+			"timestamp": "2026-02-02T15:04:30+01:00"
+		},
+		{
+			"hash": "aba79f5",
+			"short": "fix(mana-llm): fix SSE double data prefix causing message parsing issues",
+			"type": "fix",
+			"scope": "mana-llm",
+			"additions": 8,
+			"deletions": 9,
+			"timestamp": "2026-02-02T15:29:11+01:00"
+		},
+		{
+			"hash": "23852cf",
+			"short": "feat(matrix-web): add bots page with all 19 Matrix bots",
+			"type": "feat",
+			"scope": "matrix-web",
+			"additions": 793,
+			"deletions": 0,
+			"timestamp": "2026-02-02T15:36:49+01:00"
+		},
+		{
+			"hash": "9d7e6c6",
+			"short": "fix(matrix-web): change bots page to single column layout",
+			"type": "fix",
+			"scope": "matrix-web",
+			"additions": 2,
+			"deletions": 2,
+			"timestamp": "2026-02-02T15:46:35+01:00"
+		},
+		{
+			"hash": "5c688d7",
+			"short": "fix(mana-core-auth): return real refreshToken in SSO session-to-token exchange",
+			"type": "fix",
+			"scope": "mana-core-auth",
+			"additions": 41,
+			"deletions": 1,
+			"timestamp": "2026-02-02T16:05:44+01:00"
+		},
+		{
+			"hash": "c2c80ef",
+			"short": "✨ feat(matrix-bots): add i18n system and direct message fallback",
+			"type": null,
+			"scope": null,
+			"additions": 1626,
+			"deletions": 18,
+			"timestamp": "2026-02-02T16:07:27+01:00"
+		},
+		{
+			"hash": "b404ddc",
+			"short": "fix(nutriphi): increase body size limit to 50mb for image uploads",
+			"type": "fix",
+			"scope": "nutriphi",
+			"additions": 13,
+			"deletions": 2,
+			"timestamp": "2026-02-02T16:08:14+01:00"
+		},
+		{
+			"hash": "509bbb9",
+			"short": "fix(nutriphi): add shared-nestjs-setup to Dockerfile",
+			"type": "fix",
+			"scope": "nutriphi",
+			"additions": 4,
+			"deletions": 0,
+			"timestamp": "2026-02-02T16:09:44+01:00"
+		},
+		{
+			"hash": "ac477aa",
+			"short": "fix(nutriphi): add missing shared packages to Dockerfile",
+			"type": "fix",
+			"scope": "nutriphi",
+			"additions": 5,
+			"deletions": 0,
+			"timestamp": "2026-02-02T16:14:04+01:00"
+		},
+		{
+			"hash": "0cafd4f",
+			"short": "chore: update pnpm-lock.yaml for express dependency",
+			"type": null,
+			"scope": null,
+			"additions": 12,
+			"deletions": 24,
+			"timestamp": "2026-02-02T16:14:51+01:00"
+		},
+		{
+			"hash": "b6925e0",
+			"short": "feat(matrix-bots): enable cross-bot SSO via Redis sessions",
+			"type": "feat",
+			"scope": "matrix-bots",
+			"additions": 33,
+			"deletions": 17,
+			"timestamp": "2026-02-02T16:16:22+01:00"
+		},
+		{
+			"hash": "ad22d26",
+			"short": "fix(nutriphi): add shared-drizzle-config and make db:push non-fatal",
+			"type": "fix",
+			"scope": "nutriphi",
+			"additions": 7,
+			"deletions": 3,
+			"timestamp": "2026-02-02T16:17:22+01:00"
+		},
+		{
+			"hash": "f556665",
+			"short": "fix(shared-nestjs-setup): export compiled JS instead of TypeScript",
+			"type": "fix",
+			"scope": "shared-nestjs-setup",
+			"additions": 9,
+			"deletions": 3,
+			"timestamp": "2026-02-02T16:19:39+01:00"
+		},
+		{
+			"hash": "9c45879",
+			"short": "feat(nutriphi-bot): auto-analyze images when received",
+			"type": "feat",
+			"scope": "nutriphi-bot",
+			"additions": 39,
+			"deletions": 13,
+			"timestamp": "2026-02-02T16:27:03+01:00"
+		},
+		{
+			"hash": "95e9b37",
+			"short": "feat(mana-core-auth): add /api/auth/get-session endpoint for SSO",
+			"type": "feat",
+			"scope": "mana-core-auth",
+			"additions": 46,
+			"deletions": 2,
+			"timestamp": "2026-02-02T16:27:39+01:00"
+		},
+		{
+			"hash": "d64016d",
+			"short": "fix(mana-core-auth): exclude /api/auth/get-session from global prefix",
+			"type": "fix",
+			"scope": "mana-core-auth",
+			"additions": 2,
+			"deletions": 1,
+			"timestamp": "2026-02-02T16:29:17+01:00"
+		},
+		{
+			"hash": "c196144",
+			"short": "fix(mana-core-auth): return real refreshToken from signIn endpoint",
+			"type": "fix",
+			"scope": "mana-core-auth",
+			"additions": 42,
+			"deletions": 2,
+			"timestamp": "2026-02-02T16:37:54+01:00"
+		},
+		{
+			"hash": "0538a6c",
+			"short": "fix(mana-core-auth): use Better Auth signJWT in refresh endpoint",
+			"type": "fix",
+			"scope": "mana-core-auth",
+			"additions": 25,
+			"deletions": 22,
+			"timestamp": "2026-02-02T16:40:37+01:00"
+		},
+		{
+			"hash": "75937d6",
+			"short": "fix(mana-core-auth): align JWT issuer validation with Better Auth signing config",
+			"type": "fix",
+			"scope": "mana-core-auth",
+			"additions": 12,
+			"deletions": 5,
+			"timestamp": "2026-02-02T16:50:04+01:00"
+		},
+		{
+			"hash": "85df234",
+			"short": "✨ feat(mana-core-auth): auto-link Matrix users on OIDC login",
+			"type": null,
+			"scope": null,
+			"additions": 143,
+			"deletions": 2,
+			"timestamp": "2026-02-02T16:50:28+01:00"
+		},
+		{
+			"hash": "ce5f3b5",
+			"short": "chore(docker): build mana-auth locally instead of using GHCR image",
+			"type": "chore",
+			"scope": "docker",
+			"additions": 6,
+			"deletions": 1,
+			"timestamp": "2026-02-02T16:51:25+01:00"
+		},
+		{
+			"hash": "5b3c87b",
+			"short": "fix(docker): use monorepo root as build context for mana-auth",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 2,
+			"deletions": 2,
+			"timestamp": "2026-02-02T16:52:09+01:00"
+		},
+		{
+			"hash": "49c5873",
+			"short": "chore(docker): build contacts-web locally instead of using GHCR image",
+			"type": "chore",
+			"scope": "docker",
+			"additions": 47,
+			"deletions": 1,
+			"timestamp": "2026-02-02T17:06:12+01:00"
+		},
+		{
+			"hash": "1fe498e",
+			"short": "fix(shared-ui): export calculateFadeOpacity from index",
+			"type": "fix",
+			"scope": "shared-ui",
+			"additions": 2,
+			"deletions": 0,
+			"timestamp": "2026-02-02T17:07:49+01:00"
+		},
+		{
+			"hash": "30f0dbe",
+			"short": "feat(contacts-web): add hooks.server.ts for runtime URL injection",
+			"type": "feat",
+			"scope": "contacts-web",
+			"additions": 31,
+			"deletions": 0,
+			"timestamp": "2026-02-02T17:14:03+01:00"
+		},
+		{
+			"hash": "171cf7a",
+			"short": "fix(contacts-web): use runtime URLs instead of build-time baked values",
+			"type": "fix",
+			"scope": "contacts-web",
+			"additions": 35,
+			"deletions": 6,
+			"timestamp": "2026-02-02T17:22:59+01:00"
+		},
+		{
+			"hash": "d4663b5",
+			"short": "feat(mana-media): add centralized media storage with NutriPhi integration",
+			"type": "feat",
+			"scope": "mana-media",
+			"additions": 1871,
+			"deletions": 4176,
+			"timestamp": "2026-02-02T17:30:14+01:00"
+		},
+		{
+			"hash": "cee30ff",
+			"short": "✨ feat(matrix-todo-bot): improve UX with German commands without ! prefix",
+			"type": null,
+			"scope": null,
+			"additions": 162,
+			"deletions": 52,
+			"timestamp": "2026-02-02T18:32:00+01:00"
+		},
+		{
+			"hash": "5c19500",
+			"short": "fix(mana-media): change userId from UUID to TEXT for Matrix user IDs",
+			"type": "fix",
+			"scope": "mana-media",
+			"additions": 2,
+			"deletions": 2,
+			"timestamp": "2026-02-02T18:45:40+01:00"
+		},
+		{
+			"hash": "bd9bd55",
+			"short": "🚸 feat(calendar): hide tasks by default and scroll to midday on load",
+			"type": null,
+			"scope": null,
+			"additions": 132,
+			"deletions": 79,
+			"timestamp": "2026-02-02T18:54:05+01:00"
+		},
+		{
+			"hash": "c965f7e",
+			"short": "fix(mana-media): simplify Dockerfile for pnpm hoisted dependencies",
+			"type": "fix",
+			"scope": "mana-media",
+			"additions": 0,
+			"deletions": 4,
+			"timestamp": "2026-02-02T18:55:49+01:00"
+		},
+		{
+			"hash": "b3dd3c5",
+			"short": "fix(mana-media): fix Dockerfile build and health check paths",
+			"type": "fix",
+			"scope": "mana-media",
+			"additions": 4,
+			"deletions": 11,
+			"timestamp": "2026-02-02T18:57:50+01:00"
+		},
+		{
+			"hash": "c475923",
+			"short": "fix(mana-media): simplify Dockerfile to single build stage",
+			"type": "fix",
+			"scope": "mana-media",
+			"additions": 13,
+			"deletions": 18,
+			"timestamp": "2026-02-02T19:03:05+01:00"
+		},
+		{
+			"hash": "12a9003",
+			"short": "♻️ refactor(calendar): remove sidebar mode from PillNavigation",
+			"type": null,
+			"scope": null,
+			"additions": 23,
+			"deletions": 254,
+			"timestamp": "2026-02-02T19:06:32+01:00"
+		},
+		{
+			"hash": "bf0e788",
+			"short": "♻️ refactor(todo,contacts): remove sidebar mode from PillNavigation",
+			"type": null,
+			"scope": null,
+			"additions": 66,
+			"deletions": 322,
+			"timestamp": "2026-02-02T19:16:56+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

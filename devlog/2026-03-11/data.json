@@ -1,0 +1,120 @@
+{
+	"date": "2026-03-11",
+	"day_number": 53,
+	"weekday": "Mittwoch",
+	"commits": 6,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 6
+		}
+	],
+	"additions": 499,
+	"deletions": 69,
+	"net_lines": 430,
+	"files_changed": 4,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-03-11T10:36:23.000Z",
+		"last_commit_at": "2026-03-11T11:13:25.000Z",
+		"total_span_minutes": 37,
+		"active_minutes": 37,
+		"pauses": [],
+		"longest_focus_minutes": 37
+	},
+	"top_dirs": [
+		{
+			"path": "docs/MAC_MINI_RUNNER_SETUP.md",
+			"pct": 44
+		},
+		{
+			"path": ".github/workflows/cd-macmini.yml",
+			"pct": 33
+		},
+		{
+			"path": "apps/matrix/apps/web",
+			"pct": 11
+		},
+		{
+			"path": "docs/MAC_MINI_SERVER.md",
+			"pct": 11
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".md",
+			"count": 5
+		},
+		{
+			"ext": ".yml",
+			"count": 3
+		},
+		{
+			"ext": "<no-ext>",
+			"count": 1
+		}
+	],
+	"tags": ["ci", "matrix-web"],
+	"commits_list": [
+		{
+			"hash": "e926a39",
+			"short": "feat(ci): add CD pipeline with self-hosted runner for Mac Mini auto-deploy",
+			"type": "feat",
+			"scope": "ci",
+			"additions": 366,
+			"deletions": 0,
+			"timestamp": "2026-03-11T11:36:23+01:00"
+		},
+		{
+			"hash": "2059411",
+			"short": "docs: add SSH setup instructions to Mac Mini runner guide",
+			"type": null,
+			"scope": null,
+			"additions": 74,
+			"deletions": 2,
+			"timestamp": "2026-03-11T11:44:39+01:00"
+		},
+		{
+			"hash": "3096378",
+			"short": "fix(ci): correct Mac Mini username from till to mana",
+			"type": "fix",
+			"scope": "ci",
+			"additions": 4,
+			"deletions": 4,
+			"timestamp": "2026-03-11T11:57:56+01:00"
+		},
+		{
+			"hash": "67843b6",
+			"short": "fix(matrix-web): add missing shared-pwa package to Dockerfile",
+			"type": "fix",
+			"scope": "matrix-web",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-03-11T11:58:51+01:00"
+		},
+		{
+			"hash": "3308a78",
+			"short": "docs: update Mac Mini docs with active runner status and correct SSH config",
+			"type": null,
+			"scope": null,
+			"additions": 53,
+			"deletions": 63,
+			"timestamp": "2026-03-11T12:10:43+01:00"
+		},
+		{
+			"hash": "37fe02e",
+			"short": "fix(ci): add PATH env to CD workflow for docker access on Mac Mini runner",
+			"type": "fix",
+			"scope": "ci",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-03-11T12:13:25+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

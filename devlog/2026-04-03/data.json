@@ -1,0 +1,764 @@
+{
+	"date": "2026-04-03",
+	"day_number": 73,
+	"weekday": "Freitag",
+	"commits": 74,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 74
+		}
+	],
+	"additions": 16622,
+	"deletions": 248970,
+	"net_lines": -232348,
+	"files_changed": 2443,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-04-03T09:36:26.000Z",
+		"last_commit_at": "2026-04-03T19:39:31.000Z",
+		"total_span_minutes": 603,
+		"active_minutes": 345,
+		"pauses": [
+			{
+				"from": "15:23",
+				"to": "16:06",
+				"minutes": 43
+			},
+			{
+				"from": "17:03",
+				"to": "20:04",
+				"minutes": 180
+			},
+			{
+				"from": "20:04",
+				"to": "20:38",
+				"minutes": 35
+			}
+		],
+		"longest_focus_minutes": 227
+	},
+	"top_dirs": [
+		{
+			"path": "apps/manacore/apps/web",
+			"pct": 11
+		},
+		{
+			"path": "apps/memoro/apps/web-archived",
+			"pct": 7
+		},
+		{
+			"path": "apps/calendar/apps/web-archived",
+			"pct": 6
+		},
+		{
+			"path": "apps/todo/apps/web-archived",
+			"pct": 5
+		},
+		{
+			"path": "apps/contacts/apps/web-archived",
+			"pct": 5
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".svelte",
+			"count": 1071
+		},
+		{
+			"ext": ".ts",
+			"count": 1024
+		},
+		{
+			"ext": ".json",
+			"count": 197
+		},
+		{
+			"ext": ".js",
+			"count": 35
+		},
+		{
+			"ext": ".png",
+			"count": 34
+		},
+		{
+			"ext": ".css",
+			"count": 30
+		}
+	],
+	"tags": ["manacore/web", "ui", "docker", "infra", "mana-notify"],
+	"commits_list": [
+		{
+			"hash": "794424d",
+			"short": "fix(ui): open all AppDrawer apps in new tab",
+			"type": "fix",
+			"scope": "ui",
+			"additions": 2,
+			"deletions": 18,
+			"timestamp": "2026-04-03T11:36:26+02:00"
+		},
+		{
+			"hash": "019f3eb",
+			"short": "feat(manacore/web): show tags in detail views with click-to-remove",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 215,
+			"deletions": 2,
+			"timestamp": "2026-04-03T11:37:41+02:00"
+		},
+		{
+			"hash": "f7ee9ea",
+			"short": "fix(branding): rename ManaContacts to Kontakte",
+			"type": "fix",
+			"scope": "branding",
+			"additions": 3,
+			"deletions": 3,
+			"timestamp": "2026-04-03T11:38:53+02:00"
+		},
+		{
+			"hash": "9966e9e",
+			"short": "fix(ui): remove Observatory, API Keys, Gifts from PillNav",
+			"type": "fix",
+			"scope": "ui",
+			"additions": 0,
+			"deletions": 3,
+			"timestamp": "2026-04-03T11:40:32+02:00"
+		},
+		{
+			"hash": "c5906e4",
+			"short": "fix: update all dev scripts to use unified API server",
+			"type": null,
+			"scope": null,
+			"additions": 49,
+			"deletions": 70,
+			"timestamp": "2026-04-03T11:51:46+02:00"
+		},
+		{
+			"hash": "1245fdc",
+			"short": "feat(manacore/web): enhance Times & Zitare pages, add DetailViews, clean up homepage",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 981,
+			"deletions": 127,
+			"timestamp": "2026-04-03T11:52:27+02:00"
+		},
+		{
+			"hash": "2bd8f0b",
+			"short": "fix: change unified API default port from 3050 to 3060",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-04-03T11:54:07+02:00"
+		},
+		{
+			"hash": "c21793b",
+			"short": "fix: resolve all 40 Svelte dev warnings for clean startup",
+			"type": null,
+			"scope": null,
+			"additions": 55,
+			"deletions": 133,
+			"timestamp": "2026-04-03T12:01:17+02:00"
+		},
+		{
+			"hash": "81d5e83",
+			"short": "fix: revert @const to svelte:component (invalid placement in div)",
+			"type": null,
+			"scope": null,
+			"additions": 3,
+			"deletions": 5,
+			"timestamp": "2026-04-03T12:04:18+02:00"
+		},
+		{
+			"hash": "9534d29",
+			"short": "fix: revert client sync from per-app SSE to HTTP polling",
+			"type": null,
+			"scope": null,
+			"additions": 14,
+			"deletions": 17,
+			"timestamp": "2026-04-03T12:31:53+02:00"
+		},
+		{
+			"hash": "d368bd3",
+			"short": "fix: replace bind:clientHeight with calculated bottom chrome height",
+			"type": null,
+			"scope": null,
+			"additions": 5,
+			"deletions": 14,
+			"timestamp": "2026-04-03T12:34:42+02:00"
+		},
+		{
+			"hash": "f0d5ba2",
+			"short": "fix: allow localhost in CSP connect-src during development",
+			"type": null,
+			"scope": null,
+			"additions": 3,
+			"deletions": 0,
+			"timestamp": "2026-04-03T12:37:13+02:00"
+		},
+		{
+			"hash": "d735918",
+			"short": "fix: move bottomChromeHeight after isTagStripVisible declaration",
+			"type": null,
+			"scope": null,
+			"additions": 3,
+			"deletions": 2,
+			"timestamp": "2026-04-03T12:39:14+02:00"
+		},
+		{
+			"hash": "7ee57b7",
+			"short": "feat(manacore/web): add entity descriptor system with cross-module drag-and-drop",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 450,
+			"deletions": 4,
+			"timestamp": "2026-04-03T12:42:38+02:00"
+		},
+		{
+			"hash": "d8ce4ea",
+			"short": "refactor: consolidate codebase — remove archived code, deduplicate packages, standardize middleware",
+			"type": null,
+			"scope": null,
+			"additions": 172,
+			"deletions": 21667,
+			"timestamp": "2026-04-03T12:55:58+02:00"
+		},
+		{
+			"hash": "e1077e2",
+			"short": "fix(manacore/web): fix entity registration hang + registry type errors",
+			"type": "fix",
+			"scope": "manacore/web",
+			"additions": 25,
+			"deletions": 10,
+			"timestamp": "2026-04-03T12:57:59+02:00"
+		},
+		{
+			"hash": "6ced238",
+			"short": "chore: delete 25 web-archived directories, remove stale stubs, clean workspace config",
+			"type": null,
+			"scope": null,
+			"additions": 41,
+			"deletions": 223288,
+			"timestamp": "2026-04-03T13:03:49+02:00"
+		},
+		{
+			"hash": "f819b24",
+			"short": "fix: revert guestMode $state() — caused effect_update_depth_exceeded",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 19,
+			"timestamp": "2026-04-03T13:10:21+02:00"
+		},
+		{
+			"hash": "1bd001e",
+			"short": "fix(manacore/web): restrict page drag to handle only, allow item DnD",
+			"type": "fix",
+			"scope": "manacore/web",
+			"additions": 7,
+			"deletions": 2,
+			"timestamp": "2026-04-03T13:11:58+02:00"
+		},
+		{
+			"hash": "9b8814e",
+			"short": "fix(ui): make homepage PageCarousel full-width (no side padding)",
+			"type": "fix",
+			"scope": "ui",
+			"additions": 17,
+			"deletions": 0,
+			"timestamp": "2026-04-03T13:14:08+02:00"
+		},
+		{
+			"hash": "a15b027",
+			"short": "fix(shared-ui): block click event after drag to prevent detail view opening",
+			"type": "fix",
+			"scope": "shared-ui",
+			"additions": 9,
+			"deletions": 0,
+			"timestamp": "2026-04-03T13:15:53+02:00"
+		},
+		{
+			"hash": "ec7c563",
+			"short": "fix: remove stale references to deleted packages (shared-auth-stores, shared-profile-ui, shared-app-onboarding)",
+			"type": null,
+			"scope": null,
+			"additions": 10,
+			"deletions": 18,
+			"timestamp": "2026-04-03T13:15:58+02:00"
+		},
+		{
+			"hash": "cf03743",
+			"short": "fix(ui): add left scroll offset to PageCarousel",
+			"type": "fix",
+			"scope": "ui",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-04-03T13:16:20+02:00"
+		},
+		{
+			"hash": "d7b146a",
+			"short": "fix(ui): add top padding to workbench on desktop",
+			"type": "fix",
+			"scope": "ui",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-04-03T13:17:20+02:00"
+		},
+		{
+			"hash": "e8a4b98",
+			"short": "fix(ui): full-width draggable header bar on PageShell",
+			"type": "fix",
+			"scope": "ui",
+			"additions": 30,
+			"deletions": 14,
+			"timestamp": "2026-04-03T13:20:53+02:00"
+		},
+		{
+			"hash": "a60799d",
+			"short": "fix(ui): reduce drag handle bar height",
+			"type": "fix",
+			"scope": "ui",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-04-03T13:21:46+02:00"
+		},
+		{
+			"hash": "2529c91",
+			"short": "feat(manacore/web): show item title + app color in drag preview",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 69,
+			"deletions": 14,
+			"timestamp": "2026-04-03T13:24:58+02:00"
+		},
+		{
+			"hash": "ad9bbec",
+			"short": "feat(ui): add left/right arrow buttons to PageShell drag bar",
+			"type": "feat",
+			"scope": "ui",
+			"additions": 107,
+			"deletions": 1,
+			"timestamp": "2026-04-03T13:25:51+02:00"
+		},
+		{
+			"hash": "339e3d3",
+			"short": "feat(ui): move window controls (minimize, maximize, close) into drag bar",
+			"type": "feat",
+			"scope": "ui",
+			"additions": 71,
+			"deletions": 32,
+			"timestamp": "2026-04-03T13:28:37+02:00"
+		},
+		{
+			"hash": "0af8c7c",
+			"short": "fix(ui): make all drag bar icons always visible (not hover-only)",
+			"type": "fix",
+			"scope": "ui",
+			"additions": 0,
+			"deletions": 11,
+			"timestamp": "2026-04-03T13:30:20+02:00"
+		},
+		{
+			"hash": "5828f60",
+			"short": "feat(manacore/web): add habits module with tally board, inline create, and detail view",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 2455,
+			"deletions": 1,
+			"timestamp": "2026-04-03T13:34:07+02:00"
+		},
+		{
+			"hash": "18a94b9",
+			"short": "feat(manacore/web): clickable cross-module links with overlay stacking",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 143,
+			"deletions": 39,
+			"timestamp": "2026-04-03T13:36:40+02:00"
+		},
+		{
+			"hash": "66d6196",
+			"short": "fix: add missing closing brace in PageShell CSS (.move-btn)",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-04-03T13:38:12+02:00"
+		},
+		{
+			"hash": "df74029",
+			"short": "fix(manacore/web): fix cross-module drop — sync entity registration, lazy store imports",
+			"type": "fix",
+			"scope": "manacore/web",
+			"additions": 13,
+			"deletions": 10,
+			"timestamp": "2026-04-03T13:42:31+02:00"
+		},
+		{
+			"hash": "a8480f6",
+			"short": "fix(ui): allow multiple detail views open across AppPages",
+			"type": "fix",
+			"scope": "ui",
+			"additions": 11,
+			"deletions": 2,
+			"timestamp": "2026-04-03T13:48:25+02:00"
+		},
+		{
+			"hash": "9abbf9c",
+			"short": "feat(manacore/web): add notes and finance modules",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 2962,
+			"deletions": 12,
+			"timestamp": "2026-04-03T13:57:37+02:00"
+		},
+		{
+			"hash": "c01eccb",
+			"short": "refactor(manacore/web): merge entity + app registries into unified AppDescriptor",
+			"type": "refactor",
+			"scope": "manacore/web",
+			"additions": 617,
+			"deletions": 699,
+			"timestamp": "2026-04-03T14:01:27+02:00"
+		},
+		{
+			"hash": "4ec4694",
+			"short": "fix(manacore/web): make notes and finance workbench panels directly usable",
+			"type": "fix",
+			"scope": "manacore/web",
+			"additions": 316,
+			"deletions": 379,
+			"timestamp": "2026-04-03T14:02:00+02:00"
+		},
+		{
+			"hash": "b63829a",
+			"short": "fix(manacore/web): redesign notes workbench — compact input, click-to-edit",
+			"type": "fix",
+			"scope": "manacore/web",
+			"additions": 174,
+			"deletions": 204,
+			"timestamp": "2026-04-03T14:04:24+02:00"
+		},
+		{
+			"hash": "09eef96",
+			"short": "fix(manacore/web): align notes and finance ListViews with workbench design system",
+			"type": "fix",
+			"scope": "manacore/web",
+			"additions": 363,
+			"deletions": 265,
+			"timestamp": "2026-04-03T14:08:01+02:00"
+		},
+		{
+			"hash": "e17d622",
+			"short": "fix(manacore/web): fix getTagsByIds missing allTags param in zitare, fix TagDragData cast",
+			"type": "fix",
+			"scope": "manacore/web",
+			"additions": 7,
+			"deletions": 3,
+			"timestamp": "2026-04-03T14:20:34+02:00"
+		},
+		{
+			"hash": "8f5727f",
+			"short": "feat(manacore/web): add places module with GPS location tracking",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 1656,
+			"deletions": 2,
+			"timestamp": "2026-04-03T14:33:56+02:00"
+		},
+		{
+			"hash": "3fa7073",
+			"short": "fix(docker): remove stale clock/packages/shared COPY from mana-web Dockerfile",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 0,
+			"deletions": 1,
+			"timestamp": "2026-04-03T14:36:11+02:00"
+		},
+		{
+			"hash": "4e5709a",
+			"short": "fix(docker): add shared-logger to sveltekit-base Dockerfile",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-04-03T14:41:17+02:00"
+		},
+		{
+			"hash": "a673a69",
+			"short": "feat(manacore/web): add overlay close animation + Escape key support",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 65,
+			"deletions": 22,
+			"timestamp": "2026-04-03T14:42:02+02:00"
+		},
+		{
+			"hash": "8171672",
+			"short": "feat(manacore/web): add undo toasts for delete and tag removal",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 92,
+			"deletions": 18,
+			"timestamp": "2026-04-03T14:50:32+02:00"
+		},
+		{
+			"hash": "543e705",
+			"short": "feat(manacore/web): add undo toasts to all 14 DetailViews + task completion",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 84,
+			"deletions": 11,
+			"timestamp": "2026-04-03T14:55:30+02:00"
+		},
+		{
+			"hash": "62d9eb1",
+			"short": "fix(infra): update status page, prometheus, and cloudflared for unified app",
+			"type": "fix",
+			"scope": "infra",
+			"additions": 106,
+			"deletions": 158,
+			"timestamp": "2026-04-03T14:59:15+02:00"
+		},
+		{
+			"hash": "b2adaaa",
+			"short": "refactor(mana-auth): route emails through mana-notify instead of Nodemailer",
+			"type": "refactor",
+			"scope": "mana-auth",
+			"additions": 26,
+			"deletions": 48,
+			"timestamp": "2026-04-03T15:01:27+02:00"
+		},
+		{
+			"hash": "0bac7e1",
+			"short": "fix(docker): align mana-notify service key with mana-auth",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-04-03T15:05:03+02:00"
+		},
+		{
+			"hash": "c7908e9",
+			"short": "fix(infra): prevent race condition in status-page-gen script execution",
+			"type": "fix",
+			"scope": "infra",
+			"additions": 2,
+			"deletions": 1,
+			"timestamp": "2026-04-03T15:06:13+02:00"
+		},
+		{
+			"hash": "18d4f84",
+			"short": "fix(docker): add Brevo SMTP_USER default for mana-notify",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-04-03T15:07:24+02:00"
+		},
+		{
+			"hash": "0a6fe57",
+			"short": "feat(infra): add Stalwart mail server, route mana-notify SMTP through it",
+			"type": "feat",
+			"scope": "infra",
+			"additions": 26,
+			"deletions": 2,
+			"timestamp": "2026-04-03T15:20:23+02:00"
+		},
+		{
+			"hash": "ed78c34",
+			"short": "fix(docker): correct Stalwart image name to stalwartlabs/stalwart",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 7,
+			"deletions": 4,
+			"timestamp": "2026-04-03T15:21:55+02:00"
+		},
+		{
+			"hash": "f070d02",
+			"short": "fix(docker): correct Stalwart port mapping and healthcheck",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 2,
+			"deletions": 2,
+			"timestamp": "2026-04-03T15:23:16+02:00"
+		},
+		{
+			"hash": "4825aef",
+			"short": "feat(mana-auth): add /api/v1/settings endpoint for user settings sync",
+			"type": "feat",
+			"scope": "mana-auth",
+			"additions": 225,
+			"deletions": 0,
+			"timestamp": "2026-04-03T16:06:11+02:00"
+		},
+		{
+			"hash": "d5b76bd",
+			"short": "feat(docker): connect mana-notify to Stalwart SMTP",
+			"type": "feat",
+			"scope": "docker",
+			"additions": 3,
+			"deletions": 1,
+			"timestamp": "2026-04-03T16:08:33+02:00"
+		},
+		{
+			"hash": "3714b3a",
+			"short": "fix(mana-notify): support insecure TLS for internal SMTP (Stalwart)",
+			"type": "fix",
+			"scope": "mana-notify",
+			"additions": 58,
+			"deletions": 19,
+			"timestamp": "2026-04-03T16:17:57+02:00"
+		},
+		{
+			"hash": "6a75f3f",
+			"short": "fix(workbench): make page width responsive on mobile",
+			"type": "fix",
+			"scope": "workbench",
+			"additions": 19,
+			"deletions": 2,
+			"timestamp": "2026-04-03T16:18:08+02:00"
+		},
+		{
+			"hash": "f592464",
+			"short": "fix(analytics): update Umami website ID after database reset",
+			"type": "fix",
+			"scope": "analytics",
+			"additions": 2,
+			"deletions": 2,
+			"timestamp": "2026-04-03T16:23:09+02:00"
+		},
+		{
+			"hash": "7ac4e09",
+			"short": "fix(mana-notify): rewrite SMTP sender with LOGIN auth and better error logging",
+			"type": "fix",
+			"scope": "mana-notify",
+			"additions": 88,
+			"deletions": 53,
+			"timestamp": "2026-04-03T16:27:26+02:00"
+		},
+		{
+			"hash": "de91094",
+			"short": "chore(manacore): remove legacy per-app IndexedDB migration",
+			"type": "chore",
+			"scope": "manacore",
+			"additions": 0,
+			"deletions": 175,
+			"timestamp": "2026-04-03T16:29:59+02:00"
+		},
+		{
+			"hash": "504a686",
+			"short": "fix(docker): use Stalwart admin account for SMTP sending",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 2,
+			"deletions": 2,
+			"timestamp": "2026-04-03T16:33:04+02:00"
+		},
+		{
+			"hash": "7efe542",
+			"short": "chore: remove legacy migration and compat code (no users yet)",
+			"type": null,
+			"scope": null,
+			"additions": 4,
+			"deletions": 119,
+			"timestamp": "2026-04-03T16:45:49+02:00"
+		},
+		{
+			"hash": "3b4dfb1",
+			"short": "fix(docker): use noreply account with user role for Stalwart SMTP",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 2,
+			"deletions": 2,
+			"timestamp": "2026-04-03T16:59:45+02:00"
+		},
+		{
+			"hash": "7797930",
+			"short": "fix(mana-notify): add Message-ID and Date headers to outgoing emails",
+			"type": "fix",
+			"scope": "mana-notify",
+			"additions": 4,
+			"deletions": 0,
+			"timestamp": "2026-04-03T17:03:46+02:00"
+		},
+		{
+			"hash": "2241663",
+			"short": "docs: add Stalwart mail server documentation",
+			"type": null,
+			"scope": null,
+			"additions": 215,
+			"deletions": 0,
+			"timestamp": "2026-04-03T20:04:09+02:00"
+		},
+		{
+			"hash": "ee03782",
+			"short": "feat(manacore/web): add cross-module trigger registry for automations",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 236,
+			"deletions": 1,
+			"timestamp": "2026-04-03T20:38:41+02:00"
+		},
+		{
+			"hash": "0f38a56",
+			"short": "feat(manacore/web): add automations module with UI for trigger rules",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 764,
+			"deletions": 0,
+			"timestamp": "2026-04-03T20:44:20+02:00"
+		},
+		{
+			"hash": "2dd0812",
+			"short": "feat(manacore/web): proactive automation suggestions (discovery + inline)",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 589,
+			"deletions": 3,
+			"timestamp": "2026-04-03T21:00:23+02:00"
+		},
+		{
+			"hash": "2f87cf9",
+			"short": "feat(manacore/web): add unified context menu system for workbench and app pages",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 920,
+			"deletions": 178,
+			"timestamp": "2026-04-03T21:18:05+02:00"
+		},
+		{
+			"hash": "ebfc2fa",
+			"short": "fix(manacore/web): redesign automations ListView for better readability",
+			"type": "fix",
+			"scope": "manacore/web",
+			"additions": 393,
+			"deletions": 375,
+			"timestamp": "2026-04-03T21:22:28+02:00"
+		},
+		{
+			"hash": "8218037",
+			"short": "feat: add shared Phosphor IconPicker, migrate habits from emoji to icons, add photos upload",
+			"type": null,
+			"scope": null,
+			"additions": 1440,
+			"deletions": 672,
+			"timestamp": "2026-04-03T21:37:01+02:00"
+		},
+		{
+			"hash": "46dae20",
+			"short": "feat(manacore/web): localize app names with i18n (5 languages)",
+			"type": "feat",
+			"scope": "manacore/web",
+			"additions": 182,
+			"deletions": 4,
+			"timestamp": "2026-04-03T21:39:31+02:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

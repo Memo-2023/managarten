@@ -1,0 +1,764 @@
+{
+	"date": "2026-01-28",
+	"day_number": 37,
+	"weekday": "Mittwoch",
+	"commits": 72,
+	"authors": [
+		{
+			"name": "Till-JS",
+			"count": 54
+		},
+		{
+			"name": "Claude",
+			"count": 17
+		},
+		{
+			"name": "Till JS",
+			"count": 1
+		}
+	],
+	"additions": 56325,
+	"deletions": 11567,
+	"net_lines": 44758,
+	"files_changed": 651,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-01-28T10:43:48.000Z",
+		"last_commit_at": "2026-01-29T00:43:59.000Z",
+		"total_span_minutes": 840,
+		"active_minutes": 351,
+		"pauses": [
+			{
+				"from": "11:43",
+				"to": "12:24",
+				"minutes": 41
+			},
+			{
+				"from": "14:23",
+				"to": "14:56",
+				"minutes": 33
+			},
+			{
+				"from": "17:13",
+				"to": "18:49",
+				"minutes": 96
+			},
+			{
+				"from": "18:49",
+				"to": "21:12",
+				"minutes": 143
+			},
+			{
+				"from": "21:41",
+				"to": "00:38",
+				"minutes": 176
+			}
+		],
+		"longest_focus_minutes": 137
+	},
+	"top_dirs": [
+		{
+			"path": "apps/calendar/apps/web",
+			"pct": 6
+		},
+		{
+			"path": "apps/questions/apps/backend",
+			"pct": 6
+		},
+		{
+			"path": "apps/questions/apps/web",
+			"pct": 6
+		},
+		{
+			"path": "apps/matrix/apps/web",
+			"pct": 5
+		},
+		{
+			"path": "apps/calendar/apps/backend",
+			"pct": 5
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 403
+		},
+		{
+			"ext": ".svelte",
+			"count": 111
+		},
+		{
+			"ext": ".json",
+			"count": 88
+		},
+		{
+			"ext": ".md",
+			"count": 32
+		},
+		{
+			"ext": ".yml",
+			"count": 21
+		},
+		{
+			"ext": "<no-ext>",
+			"count": 18
+		}
+	],
+	"tags": ["matrix", "auth", "calendar", "matrix-bots", "matrix-ollama-bot"],
+	"commits_list": [
+		{
+			"hash": "13754f2",
+			"short": "Merge pull request #23 from Memo-2023/claude/gdpr-bot-alternatives-VFgL1",
+			"type": null,
+			"scope": null,
+			"additions": 0,
+			"deletions": 0,
+			"timestamp": "2026-01-28T11:43:48+01:00"
+		},
+		{
+			"hash": "cb13019",
+			"short": "🔥 chore(picture): remove PostHog analytics for GDPR compliance",
+			"type": null,
+			"scope": null,
+			"additions": 2053,
+			"deletions": 1655,
+			"timestamp": "2026-01-28T12:24:22+01:00"
+		},
+		{
+			"hash": "78ff102",
+			"short": "feat(calendar): add production launch features",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 2338,
+			"deletions": 31,
+			"timestamp": "2026-01-28T12:30:01+01:00"
+		},
+		{
+			"hash": "2e73787",
+			"short": "🧹 chore(calendar): cleanup debug logs and stale comments",
+			"type": null,
+			"scope": null,
+			"additions": 7,
+			"deletions": 10,
+			"timestamp": "2026-01-28T12:31:43+01:00"
+		},
+		{
+			"hash": "9dfad01",
+			"short": "📈 feat(monitoring): upgrade to VictoriaMetrics + DuckDB analytics",
+			"type": null,
+			"scope": null,
+			"additions": 2901,
+			"deletions": 18,
+			"timestamp": "2026-01-28T12:38:04+01:00"
+		},
+		{
+			"hash": "b50376d",
+			"short": "fix(matrix-bots): update to matrix-bot-sdk v0.7 API",
+			"type": "fix",
+			"scope": "matrix-bots",
+			"additions": 94,
+			"deletions": 49,
+			"timestamp": "2026-01-28T12:40:28+01:00"
+		},
+		{
+			"hash": "2e71b5f",
+			"short": "feat(calendar): add Google/Apple Calendar sync module",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 1858,
+			"deletions": 3,
+			"timestamp": "2026-01-28T12:41:32+01:00"
+		},
+		{
+			"hash": "5365374",
+			"short": "fix(matrix-bots): add --ignore-scripts to Dockerfiles",
+			"type": "fix",
+			"scope": "matrix-bots",
+			"additions": 8,
+			"deletions": 8,
+			"timestamp": "2026-01-28T12:42:11+01:00"
+		},
+		{
+			"hash": "f778e95",
+			"short": "🐛 fix(auth): use node:20-slim for DuckDB glibc compatibility",
+			"type": null,
+			"scope": null,
+			"additions": 7,
+			"deletions": 5,
+			"timestamp": "2026-01-28T12:44:04+01:00"
+		},
+		{
+			"hash": "9ff709d",
+			"short": "fix(matrix): use local Docker images for Matrix bots",
+			"type": "fix",
+			"scope": "matrix",
+			"additions": 3,
+			"deletions": 3,
+			"timestamp": "2026-01-28T12:45:26+01:00"
+		},
+		{
+			"hash": "b017534",
+			"short": "fix(matrix): use bind mount instead of named volume for Synapse data",
+			"type": "fix",
+			"scope": "matrix",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-01-28T12:47:51+01:00"
+		},
+		{
+			"hash": "b1a8ca8",
+			"short": "fix(matrix): separate config and data mounts for Synapse",
+			"type": "fix",
+			"scope": "matrix",
+			"additions": 4,
+			"deletions": 4,
+			"timestamp": "2026-01-28T12:48:50+01:00"
+		},
+		{
+			"hash": "d614587",
+			"short": "📝 docs: add comprehensive monitoring stack documentation",
+			"type": null,
+			"scope": null,
+			"additions": 308,
+			"deletions": 0,
+			"timestamp": "2026-01-28T12:49:39+01:00"
+		},
+		{
+			"hash": "7f3842b",
+			"short": "fix(matrix): set session_lifetime >= refresh_token_lifetime",
+			"type": "fix",
+			"scope": "matrix",
+			"additions": 2,
+			"deletions": 2,
+			"timestamp": "2026-01-28T12:49:56+01:00"
+		},
+		{
+			"hash": "8e6adfd",
+			"short": "feat(services): add Telegram bot services for NutriPhi, Todo, and Zitare",
+			"type": "feat",
+			"scope": "services",
+			"additions": 4390,
+			"deletions": 0,
+			"timestamp": "2026-01-28T12:52:01+01:00"
+		},
+		{
+			"hash": "f488bd8",
+			"short": "fix(matrix): hardcode database password (env vars not expanded in YAML)",
+			"type": "fix",
+			"scope": "matrix",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-01-28T12:54:11+01:00"
+		},
+		{
+			"hash": "96e64b2",
+			"short": "fix(matrix-bots): exclude crypto-nodejs module that fails on Alpine",
+			"type": "fix",
+			"scope": "matrix-bots",
+			"additions": 24,
+			"deletions": 0,
+			"timestamp": "2026-01-28T12:57:12+01:00"
+		},
+		{
+			"hash": "8eac785",
+			"short": "fix(matrix-project-doc-bot): fix main.js path in Dockerfile",
+			"type": "fix",
+			"scope": "matrix-project-doc-bot",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-01-28T13:01:06+01:00"
+		},
+		{
+			"hash": "2f3473b",
+			"short": "🔥 refactor(calendar): remove statistics and heatmap feature",
+			"type": null,
+			"scope": null,
+			"additions": 6,
+			"deletions": 1461,
+			"timestamp": "2026-01-28T13:10:58+01:00"
+		},
+		{
+			"hash": "1919929",
+			"short": "fix(matrix): hide E2E encryption warnings in Element",
+			"type": "fix",
+			"scope": "matrix",
+			"additions": 52,
+			"deletions": 45,
+			"timestamp": "2026-01-28T13:13:44+01:00"
+		},
+		{
+			"hash": "9a93ca0",
+			"short": "🔥 refactor(calendar): remove Network View feature",
+			"type": null,
+			"scope": null,
+			"additions": 1731,
+			"deletions": 1038,
+			"timestamp": "2026-01-28T13:31:13+01:00"
+		},
+		{
+			"hash": "a44664c",
+			"short": "📝 docs(calendar): update cleanup plan after network view removal",
+			"type": null,
+			"scope": null,
+			"additions": 22,
+			"deletions": 17,
+			"timestamp": "2026-01-28T13:31:42+01:00"
+		},
+		{
+			"hash": "cef8321",
+			"short": "♻️ refactor(calendar): replace session events with demo mode",
+			"type": null,
+			"scope": null,
+			"additions": 220,
+			"deletions": 307,
+			"timestamp": "2026-01-28T13:41:47+01:00"
+		},
+		{
+			"hash": "54752d4",
+			"short": "📝 docs(calendar): update cleanup plan with session events commit hash",
+			"type": null,
+			"scope": null,
+			"additions": 2,
+			"deletions": 1,
+			"timestamp": "2026-01-28T13:42:08+01:00"
+		},
+		{
+			"hash": "836b341",
+			"short": "feat(matrix-ollama-bot): add !all command for model comparison",
+			"type": "feat",
+			"scope": "matrix-ollama-bot",
+			"additions": 76,
+			"deletions": 1,
+			"timestamp": "2026-01-28T13:43:58+01:00"
+		},
+		{
+			"hash": "99fdf1d",
+			"short": "♻️ refactor(todo): remove statistics, network view and session tasks; implement demo mode",
+			"type": null,
+			"scope": null,
+			"additions": 431,
+			"deletions": 2900,
+			"timestamp": "2026-01-28T13:57:59+01:00"
+		},
+		{
+			"hash": "1dc4f58",
+			"short": "feat(todo): prepare for production deployment",
+			"type": "feat",
+			"scope": "todo",
+			"additions": 1511,
+			"deletions": 129,
+			"timestamp": "2026-01-28T14:04:27+01:00"
+		},
+		{
+			"hash": "437d612",
+			"short": "♻️ refactor(contacts): remove statistics, network view and session storage; implement demo mode",
+			"type": null,
+			"scope": null,
+			"additions": 513,
+			"deletions": 2864,
+			"timestamp": "2026-01-28T14:12:19+01:00"
+		},
+		{
+			"hash": "e414532",
+			"short": "feat(matrix-ollama-bot): add vision commands and filter non-chat models",
+			"type": "feat",
+			"scope": "matrix-ollama-bot",
+			"additions": 278,
+			"deletions": 26,
+			"timestamp": "2026-01-28T14:23:30+01:00"
+		},
+		{
+			"hash": "ee63015",
+			"short": "feat(matrix-ollama-bot): add natural language commands and welcome messages",
+			"type": "feat",
+			"scope": "matrix-ollama-bot",
+			"additions": 170,
+			"deletions": 29,
+			"timestamp": "2026-01-28T14:56:32+01:00"
+		},
+		{
+			"hash": "3ff8d38",
+			"short": "✨ feat(nutriphi): prepare for production release with tests and improved UX",
+			"type": null,
+			"scope": null,
+			"additions": 2470,
+			"deletions": 119,
+			"timestamp": "2026-01-28T15:23:35+01:00"
+		},
+		{
+			"hash": "7138236",
+			"short": "feat(calendar): add runtime STT URL injection for production",
+			"type": "feat",
+			"scope": "calendar",
+			"additions": 78,
+			"deletions": 6,
+			"timestamp": "2026-01-28T15:25:39+01:00"
+		},
+		{
+			"hash": "4399138",
+			"short": "feat(todo): add deploy:landing:todo script for Cloudflare Pages",
+			"type": "feat",
+			"scope": "todo",
+			"additions": 1,
+			"deletions": 0,
+			"timestamp": "2026-01-28T15:26:45+01:00"
+		},
+		{
+			"hash": "c031540",
+			"short": "🚀 ci(nutriphi): add production deployment configuration",
+			"type": null,
+			"scope": null,
+			"additions": 312,
+			"deletions": 2,
+			"timestamp": "2026-01-28T15:29:43+01:00"
+		},
+		{
+			"hash": "4fa8608",
+			"short": "🔧 chore: add nutriphi to cloudflare tunnel config",
+			"type": null,
+			"scope": null,
+			"additions": 4,
+			"deletions": 0,
+			"timestamp": "2026-01-28T15:31:39+01:00"
+		},
+		{
+			"hash": "3389252",
+			"short": "fix(todo-web): remove localhost fallbacks triggering local network permission",
+			"type": "fix",
+			"scope": "todo-web",
+			"additions": 14,
+			"deletions": 7,
+			"timestamp": "2026-01-28T15:33:36+01:00"
+		},
+		{
+			"hash": "2c341b5",
+			"short": "feat(matrix): add Matrix Todo Bot service",
+			"type": "feat",
+			"scope": "matrix",
+			"additions": 1257,
+			"deletions": 0,
+			"timestamp": "2026-01-28T15:47:33+01:00"
+		},
+		{
+			"hash": "111fc47",
+			"short": "🐛 fix(auth): implement password reset email link handler",
+			"type": null,
+			"scope": null,
+			"additions": 427,
+			"deletions": 5,
+			"timestamp": "2026-01-28T15:49:33+01:00"
+		},
+		{
+			"hash": "57b9d4c",
+			"short": "feat(matrix-nutriphi-bot): add Matrix bot for nutrition tracking",
+			"type": "feat",
+			"scope": "matrix-nutriphi-bot",
+			"additions": 3174,
+			"deletions": 396,
+			"timestamp": "2026-01-28T15:57:49+01:00"
+		},
+		{
+			"hash": "3b9d99c",
+			"short": "✨ feat(matrix-bots): add voice note transcription via mana-stt",
+			"type": null,
+			"scope": null,
+			"additions": 339,
+			"deletions": 43,
+			"timestamp": "2026-01-28T16:10:20+01:00"
+		},
+		{
+			"hash": "ff427b1",
+			"short": "📝 docs(todo): update commit hash in cleanup plan",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-01-28T16:13:15+01:00"
+		},
+		{
+			"hash": "1e9169c",
+			"short": "📝 docs(landing): add devlog for telegram/matrix bots integration",
+			"type": null,
+			"scope": null,
+			"additions": 396,
+			"deletions": 0,
+			"timestamp": "2026-01-28T16:13:24+01:00"
+		},
+		{
+			"hash": "1f5df44",
+			"short": "🙈 chore(matrix-nutriphi-bot): add dockerignore",
+			"type": null,
+			"scope": null,
+			"additions": 6,
+			"deletions": 0,
+			"timestamp": "2026-01-28T16:13:32+01:00"
+		},
+		{
+			"hash": "bd10762",
+			"short": "🙈 chore: add Python and ML model files to gitignore",
+			"type": null,
+			"scope": null,
+			"additions": 13,
+			"deletions": 0,
+			"timestamp": "2026-01-28T16:15:01+01:00"
+		},
+		{
+			"hash": "dbd14f7",
+			"short": "✨ feat(matrix-clock-bot): add Matrix bot for time tracking",
+			"type": null,
+			"scope": null,
+			"additions": 1437,
+			"deletions": 0,
+			"timestamp": "2026-01-28T16:27:49+01:00"
+		},
+		{
+			"hash": "158aaf7",
+			"short": "feat(auth): add OIDC Provider for Matrix SSO integration",
+			"type": "feat",
+			"scope": "auth",
+			"additions": 258,
+			"deletions": 3,
+			"timestamp": "2026-01-28T16:40:33+01:00"
+		},
+		{
+			"hash": "29595a9",
+			"short": "chore(matrix): add SYNAPSE_OIDC_CLIENT_SECRET env var",
+			"type": "chore",
+			"scope": "matrix",
+			"additions": 35,
+			"deletions": 0,
+			"timestamp": "2026-01-28T16:43:21+01:00"
+		},
+		{
+			"hash": "a532790",
+			"short": "✨ feat(matrix-zitare-bot): add Matrix bot for daily inspiration quotes",
+			"type": null,
+			"scope": null,
+			"additions": 1834,
+			"deletions": 0,
+			"timestamp": "2026-01-28T16:45:11+01:00"
+		},
+		{
+			"hash": "577b961",
+			"short": "🔧 chore: update pnpm-lock.yaml for matrix-zitare-bot",
+			"type": null,
+			"scope": null,
+			"additions": 464,
+			"deletions": 172,
+			"timestamp": "2026-01-28T16:46:58+01:00"
+		},
+		{
+			"hash": "00d28bc",
+			"short": "feat(auth): add OIDC Controller for Matrix SSO endpoints",
+			"type": "feat",
+			"scope": "auth",
+			"additions": 196,
+			"deletions": 3,
+			"timestamp": "2026-01-28T16:49:26+01:00"
+		},
+		{
+			"hash": "9a7afea",
+			"short": "fix(auth): use object syntax for global prefix excludes",
+			"type": "fix",
+			"scope": "auth",
+			"additions": 8,
+			"deletions": 2,
+			"timestamp": "2026-01-28T16:52:27+01:00"
+		},
+		{
+			"hash": "e2a3277",
+			"short": "✨ feat(matrix-clock-bot): add Matrix bot for time tracking",
+			"type": null,
+			"scope": null,
+			"additions": 90,
+			"deletions": 19,
+			"timestamp": "2026-01-28T17:04:45+01:00"
+		},
+		{
+			"hash": "ef7f906",
+			"short": "debug(auth): add OIDC request logging",
+			"type": "debug",
+			"scope": "auth",
+			"additions": 4,
+			"deletions": 0,
+			"timestamp": "2026-01-28T17:05:45+01:00"
+		},
+		{
+			"hash": "f6382ea",
+			"short": "fix(auth): map OIDC routes to Better Auth's /api/auth/oauth2/* paths",
+			"type": "fix",
+			"scope": "auth",
+			"additions": 23,
+			"deletions": 1,
+			"timestamp": "2026-01-28T17:10:41+01:00"
+		},
+		{
+			"hash": "bea066c",
+			"short": "fix(auth): correct JWKS route mapping for OIDC",
+			"type": "fix",
+			"scope": "auth",
+			"additions": 5,
+			"deletions": 1,
+			"timestamp": "2026-01-28T17:13:28+01:00"
+		},
+		{
+			"hash": "9b8a564",
+			"short": "feat(planning): add comprehensive questions app design document",
+			"type": "feat",
+			"scope": "planning",
+			"additions": 1471,
+			"deletions": 0,
+			"timestamp": "2026-01-28T17:49:43Z"
+		},
+		{
+			"hash": "c03f2e5",
+			"short": "docs: add comprehensive guide for recommended server services",
+			"type": null,
+			"scope": null,
+			"additions": 962,
+			"deletions": 0,
+			"timestamp": "2026-01-28T20:12:22Z"
+		},
+		{
+			"hash": "4e622a6",
+			"short": "feat(matrix): add SvelteKit Matrix client (Phase 1)",
+			"type": "feat",
+			"scope": "matrix",
+			"additions": 2453,
+			"deletions": 0,
+			"timestamp": "2026-01-28T20:21:13Z"
+		},
+		{
+			"hash": "590529c",
+			"short": "feat(planning): add mana-search microservice design document",
+			"type": "feat",
+			"scope": "planning",
+			"additions": 1597,
+			"deletions": 0,
+			"timestamp": "2026-01-28T20:27:36Z"
+		},
+		{
+			"hash": "12ad8e8",
+			"short": "feat(skilltree): add SkillTree MVP - gamified skill tracking app",
+			"type": "feat",
+			"scope": "skilltree",
+			"additions": 1655,
+			"deletions": 0,
+			"timestamp": "2026-01-28T20:32:05Z"
+		},
+		{
+			"hash": "5b291c1",
+			"short": "feat(skilltree): add edit, level-up celebration, templates, and tree view",
+			"type": "feat",
+			"scope": "skilltree",
+			"additions": 985,
+			"deletions": 26,
+			"timestamp": "2026-01-28T20:38:49Z"
+		},
+		{
+			"hash": "bd72b4d",
+			"short": "feat(search): implement mana-search microservice",
+			"type": "feat",
+			"scope": "search",
+			"additions": 2219,
+			"deletions": 0,
+			"timestamp": "2026-01-28T20:41:59Z"
+		},
+		{
+			"hash": "c0802af",
+			"short": "fix(search): fix TypeScript errors in extract service",
+			"type": "fix",
+			"scope": "search",
+			"additions": 8,
+			"deletions": 4,
+			"timestamp": "2026-01-28T23:38:00Z"
+		},
+		{
+			"hash": "ec96d4e",
+			"short": "feat(questions): implement questions app NestJS backend",
+			"type": "feat",
+			"scope": "questions",
+			"additions": 2346,
+			"deletions": 2,
+			"timestamp": "2026-01-28T23:52:22Z"
+		},
+		{
+			"hash": "c9f3d8a",
+			"short": "feat(matrix): add Phase 2 features",
+			"type": "feat",
+			"scope": "matrix",
+			"additions": 1304,
+			"deletions": 91,
+			"timestamp": "2026-01-28T23:54:24Z"
+		},
+		{
+			"hash": "7a0b26e",
+			"short": "feat(skilltree): add NestJS backend with Docker deployment",
+			"type": "feat",
+			"scope": "skilltree",
+			"additions": 1255,
+			"deletions": 1,
+			"timestamp": "2026-01-28T23:59:50Z"
+		},
+		{
+			"hash": "f93ca53",
+			"short": "feat(questions): implement SvelteKit web app",
+			"type": "feat",
+			"scope": "questions",
+			"additions": 2399,
+			"deletions": 9,
+			"timestamp": "2026-01-29T00:00:53Z"
+		},
+		{
+			"hash": "68a6c7a",
+			"short": "feat(packages): add @manacore/bot-services shared package",
+			"type": "feat",
+			"scope": "packages",
+			"additions": 2492,
+			"deletions": 0,
+			"timestamp": "2026-01-29T00:07:32Z"
+		},
+		{
+			"hash": "2d879b3",
+			"short": "feat(services): add matrix-mana-bot unified gateway",
+			"type": "feat",
+			"scope": "services",
+			"additions": 1859,
+			"deletions": 0,
+			"timestamp": "2026-01-29T00:23:46Z"
+		},
+		{
+			"hash": "e96d76a",
+			"short": "feat(infra): integrate matrix-mana-bot into deployment",
+			"type": "feat",
+			"scope": "infra",
+			"additions": 476,
+			"deletions": 0,
+			"timestamp": "2026-01-29T00:37:38Z"
+		},
+		{
+			"hash": "370b5d3",
+			"short": "fix(matrix-mana-bot): correct service method calls and add deploy script",
+			"type": "fix",
+			"scope": "matrix-mana-bot",
+			"additions": 141,
+			"deletions": 22,
+			"timestamp": "2026-01-29T00:42:50Z"
+		},
+		{
+			"hash": "928cac6",
+			"short": "feat(questions): add production-ready pages and components",
+			"type": "feat",
+			"scope": "questions",
+			"additions": 845,
+			"deletions": 23,
+			"timestamp": "2026-01-29T00:43:59Z"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

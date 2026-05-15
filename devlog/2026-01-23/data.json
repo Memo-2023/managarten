@@ -1,0 +1,432 @@
+{
+	"date": "2026-01-23",
+	"day_number": 32,
+	"weekday": "Freitag",
+	"commits": 36,
+	"authors": [
+		{
+			"name": "Till-JS",
+			"count": 36
+		}
+	],
+	"additions": 19273,
+	"deletions": 985,
+	"net_lines": 18288,
+	"files_changed": 175,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-01-23T10:48:24.000Z",
+		"last_commit_at": "2026-01-23T20:16:20.000Z",
+		"total_span_minutes": 568,
+		"active_minutes": 257,
+		"pauses": [
+			{
+				"from": "12:47",
+				"to": "13:18",
+				"minutes": 31
+			},
+			{
+				"from": "14:32",
+				"to": "15:31",
+				"minutes": 59
+			},
+			{
+				"from": "16:45",
+				"to": "17:46",
+				"minutes": 62
+			},
+			{
+				"from": "18:03",
+				"to": "20:08",
+				"minutes": 125
+			},
+			{
+				"from": "20:41",
+				"to": "21:15",
+				"minutes": 34
+			}
+		],
+		"longest_focus_minutes": 74
+	},
+	"top_dirs": [
+		{
+			"path": "packages/shared-landing-ui/src",
+			"pct": 8
+		},
+		{
+			"path": "apps/clock/apps/landing",
+			"pct": 7
+		},
+		{
+			"path": "services/telegram-stats-bot/src",
+			"pct": 7
+		},
+		{
+			"path": "apps/manacore/apps/web",
+			"pct": 6
+		},
+		{
+			"path": "apps/clock/apps/web",
+			"pct": 5
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".astro",
+			"count": 48
+		},
+		{
+			"ext": ".ts",
+			"count": 42
+		},
+		{
+			"ext": ".svelte",
+			"count": 29
+		},
+		{
+			"ext": ".html",
+			"count": 21
+		},
+		{
+			"ext": ".sh",
+			"count": 20
+		},
+		{
+			"ext": ".yml",
+			"count": 14
+		}
+	],
+	"tags": ["infra", "mac-mini", "analytics", "landing", "devlog"],
+	"commits_list": [
+		{
+			"hash": "93060dc",
+			"short": "feat(mac-mini): add auto-start and management scripts",
+			"type": "feat",
+			"scope": "mac-mini",
+			"additions": 843,
+			"deletions": 0,
+			"timestamp": "2026-01-23T11:48:24+01:00"
+		},
+		{
+			"hash": "732aa79",
+			"short": "fix(mac-mini): add PATH export for Docker CLI in all scripts",
+			"type": "fix",
+			"scope": "mac-mini",
+			"additions": 18,
+			"deletions": 0,
+			"timestamp": "2026-01-23T12:17:24+01:00"
+		},
+		{
+			"hash": "bff168e",
+			"short": "fix(docker): correct todo-backend health check path",
+			"type": "fix",
+			"scope": "docker",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-01-23T12:18:26+01:00"
+		},
+		{
+			"hash": "c512592",
+			"short": "fix(mac-mini): correct health check endpoints",
+			"type": "fix",
+			"scope": "mac-mini",
+			"additions": 6,
+			"deletions": 7,
+			"timestamp": "2026-01-23T12:21:40+01:00"
+		},
+		{
+			"hash": "650b05b",
+			"short": "fix(clock-backend): specify drizzle config path in entrypoint",
+			"type": "fix",
+			"scope": "clock-backend",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-01-23T12:24:27+01:00"
+		},
+		{
+			"hash": "515d603",
+			"short": "feat(clock-web): add dashboard page for root route",
+			"type": "feat",
+			"scope": "clock-web",
+			"additions": 118,
+			"deletions": 0,
+			"timestamp": "2026-01-23T12:47:14+01:00"
+		},
+		{
+			"hash": "de6151a",
+			"short": "feat(mac-mini): add notification system for health checks",
+			"type": "feat",
+			"scope": "mac-mini",
+			"additions": 386,
+			"deletions": 16,
+			"timestamp": "2026-01-23T13:18:04+01:00"
+		},
+		{
+			"hash": "2b7c665",
+			"short": "docs: add Mac Mini server documentation",
+			"type": null,
+			"scope": null,
+			"additions": 394,
+			"deletions": 0,
+			"timestamp": "2026-01-23T13:42:08+01:00"
+		},
+		{
+			"hash": "c2010ce",
+			"short": "docs: add mail server planning documentation",
+			"type": null,
+			"scope": null,
+			"additions": 971,
+			"deletions": 0,
+			"timestamp": "2026-01-23T13:53:03+01:00"
+		},
+		{
+			"hash": "294074f",
+			"short": "fix(calendar-web): add cross-app API URLs for todo and contacts",
+			"type": "fix",
+			"scope": "calendar-web",
+			"additions": 3,
+			"deletions": 0,
+			"timestamp": "2026-01-23T14:15:15+01:00"
+		},
+		{
+			"hash": "bb5f145",
+			"short": "feat(contacts): add Docker deployment for Mac Mini",
+			"type": "feat",
+			"scope": "contacts",
+			"additions": 309,
+			"deletions": 1,
+			"timestamp": "2026-01-23T14:23:49+01:00"
+		},
+		{
+			"hash": "ad7a84f",
+			"short": "fix(contacts-web): use adapter-node for Docker deployment",
+			"type": "fix",
+			"scope": "contacts-web",
+			"additions": 54,
+			"deletions": 6,
+			"timestamp": "2026-01-23T14:32:16+01:00"
+		},
+		{
+			"hash": "6d86a08",
+			"short": "feat: add monitoring dashboard (Prometheus + Grafana + Umami + Admin)",
+			"type": null,
+			"scope": null,
+			"additions": 2751,
+			"deletions": 531,
+			"timestamp": "2026-01-23T15:31:39+01:00"
+		},
+		{
+			"hash": "264149a",
+			"short": "✨ feat(shared-landing-ui): unify landing pages with shared components",
+			"type": null,
+			"scope": null,
+			"additions": 3589,
+			"deletions": 1,
+			"timestamp": "2026-01-23T15:45:47+01:00"
+		},
+		{
+			"hash": "1868a7f",
+			"short": "refactor: change Umami analytics URL from analytics.mana.how to stats.mana.how",
+			"type": null,
+			"scope": null,
+			"additions": 18,
+			"deletions": 22,
+			"timestamp": "2026-01-23T16:11:24+01:00"
+		},
+		{
+			"hash": "d03aaeb",
+			"short": "fix(contacts-backend): add missing multer dependency",
+			"type": "fix",
+			"scope": "contacts-backend",
+			"additions": 530,
+			"deletions": 154,
+			"timestamp": "2026-01-23T16:18:50+01:00"
+		},
+		{
+			"hash": "639041a",
+			"short": "feat(analytics): add Umami website IDs for all landing pages",
+			"type": "feat",
+			"scope": "analytics",
+			"additions": 11,
+			"deletions": 7,
+			"timestamp": "2026-01-23T16:19:56+01:00"
+		},
+		{
+			"hash": "44e6a63",
+			"short": "feat(analytics): add Umami website IDs for all web apps",
+			"type": "feat",
+			"scope": "analytics",
+			"additions": 6,
+			"deletions": 6,
+			"timestamp": "2026-01-23T16:29:43+01:00"
+		},
+		{
+			"hash": "c399474",
+			"short": "feat(infra): add MinIO for object storage and configure contacts-backend",
+			"type": "feat",
+			"scope": "infra",
+			"additions": 29,
+			"deletions": 0,
+			"timestamp": "2026-01-23T16:45:10+01:00"
+		},
+		{
+			"hash": "d3dd26b",
+			"short": "✨ feat(shared-landing-ui): add centralized Mana pricing system",
+			"type": null,
+			"scope": null,
+			"additions": 1469,
+			"deletions": 2,
+			"timestamp": "2026-01-23T17:46:41+01:00"
+		},
+		{
+			"hash": "5e54bcc",
+			"short": "feat(analytics): add Umami tracking to remaining apps",
+			"type": "feat",
+			"scope": "analytics",
+			"additions": 20,
+			"deletions": 20,
+			"timestamp": "2026-01-23T17:49:18+01:00"
+		},
+		{
+			"hash": "447dfe2",
+			"short": "docs: add production launch guide and URL schema",
+			"type": null,
+			"scope": null,
+			"additions": 446,
+			"deletions": 0,
+			"timestamp": "2026-01-23T17:50:21+01:00"
+		},
+		{
+			"hash": "8f54a56",
+			"short": "feat(clock): add landing page with shared-landing-ui",
+			"type": "feat",
+			"scope": "clock",
+			"additions": 727,
+			"deletions": 0,
+			"timestamp": "2026-01-23T17:50:31+01:00"
+		},
+		{
+			"hash": "87b09eb",
+			"short": "chore(calendar): add wrangler.toml for Cloudflare Pages deployment",
+			"type": "chore",
+			"scope": "calendar",
+			"additions": 7,
+			"deletions": 0,
+			"timestamp": "2026-01-23T17:50:42+01:00"
+		},
+		{
+			"hash": "3e823ae",
+			"short": "feat(infra): add Mac Mini setup script and update production docker-compose",
+			"type": "feat",
+			"scope": "infra",
+			"additions": 321,
+			"deletions": 106,
+			"timestamp": "2026-01-23T17:50:51+01:00"
+		},
+		{
+			"hash": "ead9680",
+			"short": "fix: correct Cloudflare Pages project name for clock landing",
+			"type": null,
+			"scope": null,
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-01-23T17:50:59+01:00"
+		},
+		{
+			"hash": "634bb97",
+			"short": "docs: add daily report for 2026-01-23",
+			"type": null,
+			"scope": null,
+			"additions": 289,
+			"deletions": 0,
+			"timestamp": "2026-01-23T17:53:36+01:00"
+		},
+		{
+			"hash": "b8a84ed",
+			"short": "feat(analytics): add Umami event tracking utilities",
+			"type": "feat",
+			"scope": "analytics",
+			"additions": 613,
+			"deletions": 0,
+			"timestamp": "2026-01-23T17:58:04+01:00"
+		},
+		{
+			"hash": "2596cb7",
+			"short": "feat(landing): add devlog section to ManaCore landing page",
+			"type": "feat",
+			"scope": "landing",
+			"additions": 632,
+			"deletions": 0,
+			"timestamp": "2026-01-23T18:01:03+01:00"
+		},
+		{
+			"hash": "9f00a36",
+			"short": "feat(landing): add devlog section to homepage",
+			"type": "feat",
+			"scope": "landing",
+			"additions": 388,
+			"deletions": 0,
+			"timestamp": "2026-01-23T18:03:19+01:00"
+		},
+		{
+			"hash": "a1d491e",
+			"short": "feat(infra): add n8n workflow automation to Mac Mini",
+			"type": "feat",
+			"scope": "infra",
+			"additions": 79,
+			"deletions": 0,
+			"timestamp": "2026-01-23T20:08:34+01:00"
+		},
+		{
+			"hash": "7a80a71",
+			"short": "feat(infra): add missing tunnel routes for contacts, monitoring, n8n",
+			"type": "feat",
+			"scope": "infra",
+			"additions": 14,
+			"deletions": 0,
+			"timestamp": "2026-01-23T20:36:23+01:00"
+		},
+		{
+			"hash": "f29ef4a",
+			"short": "feat(infra): add Telegram Stats Bot for ManaCore analytics",
+			"type": "feat",
+			"scope": "infra",
+			"additions": 1273,
+			"deletions": 0,
+			"timestamp": "2026-01-23T20:39:04+01:00"
+		},
+		{
+			"hash": "8248a70",
+			"short": "docs(devlog): update daily report with n8n, devlog system, stats bot",
+			"type": "docs",
+			"scope": "devlog",
+			"additions": 78,
+			"deletions": 14,
+			"timestamp": "2026-01-23T20:41:01+01:00"
+		},
+		{
+			"hash": "3aeb88d",
+			"short": "✨ feat(web): add session-first guest mode to all live apps",
+			"type": null,
+			"scope": null,
+			"additions": 2830,
+			"deletions": 85,
+			"timestamp": "2026-01-23T21:15:08+01:00"
+		},
+		{
+			"hash": "54a6ebc",
+			"short": "docs(devlog): add session-first guest mode feature",
+			"type": "docs",
+			"scope": "devlog",
+			"additions": 48,
+			"deletions": 4,
+			"timestamp": "2026-01-23T21:16:20+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

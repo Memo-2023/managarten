@@ -1,0 +1,100 @@
+{
+	"date": "2026-05-09",
+	"day_number": 102,
+	"weekday": "Samstag",
+	"commits": 3,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 3
+		}
+	],
+	"additions": 45,
+	"deletions": 1,
+	"net_lines": 44,
+	"files_changed": 3,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-05-09T11:53:34.000Z",
+		"last_commit_at": "2026-05-09T17:58:15.000Z",
+		"total_span_minutes": 365,
+		"active_minutes": 1,
+		"pauses": [
+			{
+				"from": "13:53",
+				"to": "18:02",
+				"minutes": 249
+			},
+			{
+				"from": "18:02",
+				"to": "19:58",
+				"minutes": 115
+			}
+		],
+		"longest_focus_minutes": 0
+	},
+	"top_dirs": [
+		{
+			"path": "cloudflared-config.yml",
+			"pct": 50
+		},
+		{
+			"path": "docker/nginx/landings.conf",
+			"pct": 25
+		},
+		{
+			"path": "CLAUDE.md",
+			"pct": 25
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".yml",
+			"count": 2
+		},
+		{
+			"ext": ".conf",
+			"count": 1
+		},
+		{
+			"ext": ".md",
+			"count": 1
+		}
+	],
+	"tags": ["CLAUDE"],
+	"commits_list": [
+		{
+			"hash": "2eb70c6",
+			"short": "mana-ev: vier Verein-Domains live, .ch kanonisch, andere als 301",
+			"type": null,
+			"scope": null,
+			"additions": 41,
+			"deletions": 0,
+			"timestamp": "2026-05-09T13:53:34+02:00"
+		},
+		{
+			"hash": "60f5c26",
+			"short": "docs(CLAUDE): correct shared-ui description (Svelte not RN)",
+			"type": "docs",
+			"scope": "CLAUDE",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-05-09T18:02:52+02:00"
+		},
+		{
+			"hash": "7b29dcc",
+			"short": "add design.mana.how tunnel entry → mana-design Storybook (port 3089)",
+			"type": null,
+			"scope": null,
+			"additions": 3,
+			"deletions": 0,
+			"timestamp": "2026-05-09T19:58:15+02:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

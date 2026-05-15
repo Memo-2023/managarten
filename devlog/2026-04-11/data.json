@@ -1,0 +1,350 @@
+{
+	"date": "2026-04-11",
+	"day_number": 80,
+	"weekday": "Samstag",
+	"commits": 28,
+	"authors": [
+		{
+			"name": "Till JS",
+			"count": 28
+		}
+	],
+	"additions": 4425,
+	"deletions": 1225,
+	"net_lines": 3200,
+	"files_changed": 80,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-04-11T13:47:29.000Z",
+		"last_commit_at": "2026-04-11T21:38:30.000Z",
+		"total_span_minutes": 471,
+		"active_minutes": 149,
+		"pauses": [
+			{
+				"from": "17:59",
+				"to": "20:21",
+				"minutes": 142
+			},
+			{
+				"from": "20:38",
+				"to": "22:48",
+				"minutes": 130
+			},
+			{
+				"from": "22:48",
+				"to": "23:38",
+				"minutes": 50
+			}
+		],
+		"longest_focus_minutes": 132
+	},
+	"top_dirs": [
+		{
+			"path": "apps/mana/apps/web",
+			"pct": 50
+		},
+		{
+			"path": "packages/shared-ui/src",
+			"pct": 11
+		},
+		{
+			"path": "services/mana-geocoding/src",
+			"pct": 8
+		},
+		{
+			"path": "packages/shared-theme/src",
+			"pct": 6
+		},
+		{
+			"path": "scripts/generate-status-page.sh",
+			"pct": 5
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".svelte",
+			"count": 36
+		},
+		{
+			"ext": ".ts",
+			"count": 33
+		},
+		{
+			"ext": ".jpg",
+			"count": 8
+		},
+		{
+			"ext": ".yml",
+			"count": 7
+		},
+		{
+			"ext": "<no-ext>",
+			"count": 6
+		},
+		{
+			"ext": ".sh",
+			"count": 6
+		}
+	],
+	"tags": ["geocoding", "workbench", "mana-credits", "web", "status-page"],
+	"commits_list": [
+		{
+			"hash": "1293756",
+			"short": "fix(mana-sync): bump Go base image to 1.25 to match go.mod",
+			"type": "fix",
+			"scope": "mana-sync",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-04-11T15:47:29+02:00"
+		},
+		{
+			"hash": "e82b5c1",
+			"short": "feat(geocoding): auto-categorize places via Pelias taxonomy",
+			"type": "feat",
+			"scope": "geocoding",
+			"additions": 195,
+			"deletions": 156,
+			"timestamp": "2026-04-11T15:48:24+02:00"
+		},
+		{
+			"hash": "3717f42",
+			"short": "fix(mana-sync): update Dockerfile to copy workspace shared-go dependency",
+			"type": "fix",
+			"scope": "mana-sync",
+			"additions": 10,
+			"deletions": 5,
+			"timestamp": "2026-04-11T15:49:01+02:00"
+		},
+		{
+			"hash": "f7de9fd",
+			"short": "docs(geocoding): document the Pelias category patch + import gotchas",
+			"type": "docs",
+			"scope": "geocoding",
+			"additions": 90,
+			"deletions": 17,
+			"timestamp": "2026-04-11T15:50:40+02:00"
+		},
+		{
+			"hash": "f783547",
+			"short": "feat(workbench): match AppPagePicker design to module pages",
+			"type": "feat",
+			"scope": "workbench",
+			"additions": 21,
+			"deletions": 12,
+			"timestamp": "2026-04-11T15:56:00+02:00"
+		},
+		{
+			"hash": "0ba9767",
+			"short": "feat: extend geocoding to events, contacts, photos",
+			"type": null,
+			"scope": null,
+			"additions": 470,
+			"deletions": 25,
+			"timestamp": "2026-04-11T16:01:20+02:00"
+		},
+		{
+			"hash": "957060c",
+			"short": "feat(monitoring): add mana-geocoding + Pelias to prod compose, Prometheus, Grafana, and status.mana.how",
+			"type": "feat",
+			"scope": "monitoring",
+			"additions": 949,
+			"deletions": 155,
+			"timestamp": "2026-04-11T16:11:01+02:00"
+		},
+		{
+			"hash": "12bbe29",
+			"short": "fix(workbench): move @const out of {#if} in AppPagePicker snippet",
+			"type": "fix",
+			"scope": "workbench",
+			"additions": 2,
+			"deletions": 2,
+			"timestamp": "2026-04-11T16:27:12+02:00"
+		},
+		{
+			"hash": "c9a3c8c",
+			"short": "fix(mana-credits): rewrite Dockerfile to use WORKDIR instead of cd",
+			"type": "fix",
+			"scope": "mana-credits",
+			"additions": 4,
+			"deletions": 2,
+			"timestamp": "2026-04-11T16:30:34+02:00"
+		},
+		{
+			"hash": "fa7bfd3",
+			"short": "fix(mana-credits): use pnpm in Dockerfile to handle workspace deps",
+			"type": "fix",
+			"scope": "mana-credits",
+			"additions": 12,
+			"deletions": 11,
+			"timestamp": "2026-04-11T16:32:05+02:00"
+		},
+		{
+			"hash": "3a93c56",
+			"short": "fix(mana-credits): multi-stage Dockerfile with node+pnpm installer",
+			"type": "fix",
+			"scope": "mana-credits",
+			"additions": 17,
+			"deletions": 7,
+			"timestamp": "2026-04-11T16:35:36+02:00"
+		},
+		{
+			"hash": "21360d9",
+			"short": "feat(mana/web): redesign settings page + pill-nav compute selector",
+			"type": "feat",
+			"scope": "mana/web",
+			"additions": 1146,
+			"deletions": 422,
+			"timestamp": "2026-04-11T16:40:57+02:00"
+		},
+		{
+			"hash": "6977d18",
+			"short": "fix(geocoding): don't bind libpostal to host port 4400",
+			"type": "fix",
+			"scope": "geocoding",
+			"additions": 6,
+			"deletions": 2,
+			"timestamp": "2026-04-11T16:41:26+02:00"
+		},
+		{
+			"hash": "c47ce83",
+			"short": "fix(geocoding): proxy Pelias health through wrapper for monitoring",
+			"type": "fix",
+			"scope": "geocoding",
+			"additions": 40,
+			"deletions": 16,
+			"timestamp": "2026-04-11T16:45:43+02:00"
+		},
+		{
+			"hash": "1c94234",
+			"short": "fix(web): point credits/sync API client at credits.mana.how",
+			"type": "fix",
+			"scope": "web",
+			"additions": 26,
+			"deletions": 5,
+			"timestamp": "2026-04-11T17:12:36+02:00"
+		},
+		{
+			"hash": "56a9811",
+			"short": "fix(status-page): replace multi-line awk with shell loop for ash compatibility",
+			"type": "fix",
+			"scope": "status-page",
+			"additions": 22,
+			"deletions": 7,
+			"timestamp": "2026-04-11T17:23:29+02:00"
+		},
+		{
+			"hash": "6f975a5",
+			"short": "fix(status-page): use ${TIER_APPS:-} for set -u safety",
+			"type": "fix",
+			"scope": "status-page",
+			"additions": 1,
+			"deletions": 1,
+			"timestamp": "2026-04-11T17:27:09+02:00"
+		},
+		{
+			"hash": "3ac3a4b",
+			"short": "fix(status-page): drop set -e — heredoc subshells trigger silent exits",
+			"type": "fix",
+			"scope": "status-page",
+			"additions": 6,
+			"deletions": 1,
+			"timestamp": "2026-04-11T17:33:35+02:00"
+		},
+		{
+			"hash": "6373330",
+			"short": "feat(pill-nav): collapse user pills into account dropdown + solid pill backgrounds",
+			"type": "feat",
+			"scope": "pill-nav",
+			"additions": 131,
+			"deletions": 204,
+			"timestamp": "2026-04-11T17:40:19+02:00"
+		},
+		{
+			"hash": "020f327",
+			"short": "fix(geocoding): drop unused Pelias services, raise Bun idleTimeout",
+			"type": "fix",
+			"scope": "geocoding",
+			"additions": 4,
+			"deletions": 9,
+			"timestamp": "2026-04-11T17:41:57+02:00"
+		},
+		{
+			"hash": "69ce4c2",
+			"short": "feat(geocoding): fall back to Pelias /search when /autocomplete is empty",
+			"type": "feat",
+			"scope": "geocoding",
+			"additions": 24,
+			"deletions": 6,
+			"timestamp": "2026-04-11T17:54:57+02:00"
+		},
+		{
+			"hash": "32d9f25",
+			"short": "docs(geocoding): update CLAUDE.md with deploy lessons learned",
+			"type": "docs",
+			"scope": "geocoding",
+			"additions": 76,
+			"deletions": 4,
+			"timestamp": "2026-04-11T17:59:34+02:00"
+		},
+		{
+			"hash": "286e273",
+			"short": "test(geocoding): add unit tests + end-to-end smoke test script",
+			"type": "test",
+			"scope": "geocoding",
+			"additions": 440,
+			"deletions": 17,
+			"timestamp": "2026-04-11T20:21:18+02:00"
+		},
+		{
+			"hash": "0c1eb62",
+			"short": "feat(places): show reverse-geocoded location label during tracking",
+			"type": "feat",
+			"scope": "places",
+			"additions": 76,
+			"deletions": 7,
+			"timestamp": "2026-04-11T20:26:49+02:00"
+		},
+		{
+			"hash": "f3cc853",
+			"short": "feat(places): clickable tracking label + full address + browser proxy",
+			"type": "feat",
+			"scope": "places",
+			"additions": 375,
+			"deletions": 21,
+			"timestamp": "2026-04-11T20:33:48+02:00"
+		},
+		{
+			"hash": "7ba058c",
+			"short": "fix(web): redirect HTTP to HTTPS to fix Safari CORS hang",
+			"type": "fix",
+			"scope": "web",
+			"additions": 174,
+			"deletions": 2,
+			"timestamp": "2026-04-11T20:38:21+02:00"
+		},
+		{
+			"hash": "47aebe3",
+			"short": "fix(web): improve HTTP detection for HTTPS redirect",
+			"type": "fix",
+			"scope": "web",
+			"additions": 19,
+			"deletions": 11,
+			"timestamp": "2026-04-11T22:48:45+02:00"
+		},
+		{
+			"hash": "68c2442",
+			"short": "feat(workbench): paper-grain polish — blend-mode, border, stone palette",
+			"type": "feat",
+			"scope": "workbench",
+			"additions": 88,
+			"deletions": 97,
+			"timestamp": "2026-04-11T23:38:30+02:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

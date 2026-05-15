@@ -1,0 +1,55 @@
+{
+	"date": "2026-05-05",
+	"day_number": 98,
+	"weekday": "Dienstag",
+	"commits": 1,
+	"authors": [
+		{
+			"name": "till",
+			"count": 1
+		}
+	],
+	"additions": 10,
+	"deletions": 0,
+	"net_lines": 10,
+	"files_changed": 1,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2026-05-05T13:46:20.000Z",
+		"last_commit_at": "2026-05-05T13:46:20.000Z",
+		"total_span_minutes": 0,
+		"active_minutes": 0,
+		"pauses": [],
+		"longest_focus_minutes": 0
+	},
+	"top_dirs": [
+		{
+			"path": "cloudflared-config.yml",
+			"pct": 100
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".yml",
+			"count": 1
+		}
+	],
+	"tags": [],
+	"commits_list": [
+		{
+			"hash": "fc1cde9",
+			"short": "tunnel: route admin.mana.how + npm.mana.how to the mana-platform stack",
+			"type": null,
+			"scope": null,
+			"additions": 10,
+			"deletions": 0,
+			"timestamp": "2026-05-05T15:46:20+02:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}

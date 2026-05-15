@@ -1,0 +1,253 @@
+{
+	"date": "2025-11-28",
+	"day_number": 6,
+	"weekday": "Freitag",
+	"commits": 19,
+	"authors": [
+		{
+			"name": "Till-JS",
+			"count": 19
+		}
+	],
+	"additions": 33366,
+	"deletions": 2495,
+	"net_lines": 30871,
+	"files_changed": 483,
+	"new_files": 0,
+	"deleted_files": 0,
+	"session": {
+		"first_commit_at": "2025-11-28T19:13:14.000Z",
+		"last_commit_at": "2025-11-28T20:31:46.000Z",
+		"total_span_minutes": 79,
+		"active_minutes": 79,
+		"pauses": [],
+		"longest_focus_minutes": 79
+	},
+	"top_dirs": [
+		{
+			"path": "apps/{quote => zitare}/apps/mobile",
+			"pct": 37
+		},
+		{
+			"path": "games/mana-games/apps",
+			"pct": 21
+		},
+		{
+			"path": "apps/{quote => zitare}/apps/web",
+			"pct": 5
+		},
+		{
+			"path": "apps/picture/apps/web",
+			"pct": 5
+		},
+		{
+			"path": "apps/{quote => zitare}/packages/web-ui",
+			"pct": 4
+		}
+	],
+	"top_extensions": [
+		{
+			"ext": ".ts",
+			"count": 190
+		},
+		{
+			"ext": ".svelte",
+			"count": 80
+		},
+		{
+			"ext": ".tsx",
+			"count": 44
+		},
+		{
+			"ext": ".json",
+			"count": 33
+		},
+		{
+			"ext": ".astro",
+			"count": 25
+		},
+		{
+			"ext": ".html",
+			"count": 24
+		}
+	],
+	"tags": ["wisekeep", "manadeck", "zitare", "chat", "shared-branding"],
+	"commits_list": [
+		{
+			"hash": "23f8950",
+			"short": "feat(games): add mana-games - AI-powered browser games platform",
+			"type": "feat",
+			"scope": "games",
+			"additions": 29217,
+			"deletions": 0,
+			"timestamp": "2025-11-28T20:13:14+01:00"
+		},
+		{
+			"hash": "75a2527",
+			"short": "feat(zitare): rename quote project to zitare and add global search",
+			"type": "feat",
+			"scope": "zitare",
+			"additions": 841,
+			"deletions": 224,
+			"timestamp": "2025-11-28T20:14:19+01:00"
+		},
+		{
+			"hash": "468b7b7",
+			"short": "fix(zitare): resolve layout overlap with fixed navigation",
+			"type": "fix",
+			"scope": "zitare",
+			"additions": 49,
+			"deletions": 7,
+			"timestamp": "2025-11-28T20:21:20+01:00"
+		},
+		{
+			"hash": "5e15f57",
+			"short": "feat(picture): migrate to mana-core auth and update AI models",
+			"type": "feat",
+			"scope": "picture",
+			"additions": 176,
+			"deletions": 616,
+			"timestamp": "2025-11-28T20:27:39+01:00"
+		},
+		{
+			"hash": "79acf8b",
+			"short": "feat(presi): add PillNavigation and fix auth service JWT parsing",
+			"type": "feat",
+			"scope": "presi",
+			"additions": 540,
+			"deletions": 506,
+			"timestamp": "2025-11-28T20:49:45+01:00"
+		},
+		{
+			"hash": "1958cf2",
+			"short": "fix(chat): resolve CORS and build issues for local development",
+			"type": "fix",
+			"scope": "chat",
+			"additions": 5,
+			"deletions": 2,
+			"timestamp": "2025-11-28T20:51:14+01:00"
+		},
+		{
+			"hash": "0acd7c3",
+			"short": "feat(shared-branding): add global app icons and centralized app config",
+			"type": "feat",
+			"scope": "shared-branding",
+			"additions": 360,
+			"deletions": 26,
+			"timestamp": "2025-11-28T20:54:50+01:00"
+		},
+		{
+			"hash": "87abafd",
+			"short": "feat(chat): migrate auth pages to shared-auth-ui with AppSlider",
+			"type": "feat",
+			"scope": "chat",
+			"additions": 91,
+			"deletions": 275,
+			"timestamp": "2025-11-28T20:57:23+01:00"
+		},
+		{
+			"hash": "eae083a",
+			"short": "feat(shared-branding): add Presi app branding",
+			"type": "feat",
+			"scope": "shared-branding",
+			"additions": 28,
+			"deletions": 1,
+			"timestamp": "2025-11-28T20:58:45+01:00"
+		},
+		{
+			"hash": "f7c9612",
+			"short": "chore(wisekeep): add shared package dependencies",
+			"type": "chore",
+			"scope": "wisekeep",
+			"additions": 6,
+			"deletions": 0,
+			"timestamp": "2025-11-28T20:58:54+01:00"
+		},
+		{
+			"hash": "a34a341",
+			"short": "chore: update pnpm lockfile",
+			"type": null,
+			"scope": null,
+			"additions": 1241,
+			"deletions": 733,
+			"timestamp": "2025-11-28T20:58:59+01:00"
+		},
+		{
+			"hash": "c90c79d",
+			"short": "feat(mana-core-nestjs): add OptionalAuthGuard and Public decorator",
+			"type": "feat",
+			"scope": "mana-core-nestjs",
+			"additions": 100,
+			"deletions": 0,
+			"timestamp": "2025-11-28T21:02:20+01:00"
+		},
+		{
+			"hash": "bc21a25",
+			"short": "feat(manadeck): add mana-core auth integration",
+			"type": "feat",
+			"scope": "manadeck",
+			"additions": 3,
+			"deletions": 0,
+			"timestamp": "2025-11-28T21:03:17+01:00"
+		},
+		{
+			"hash": "6b8ab58",
+			"short": "feat(wisekeep): add auth routes and protected layout",
+			"type": "feat",
+			"scope": "wisekeep",
+			"additions": 554,
+			"deletions": 51,
+			"timestamp": "2025-11-28T21:03:29+01:00"
+		},
+		{
+			"hash": "48df2b8",
+			"short": "chore: update pnpm lockfile",
+			"type": null,
+			"scope": null,
+			"additions": 46,
+			"deletions": 1,
+			"timestamp": "2025-11-28T21:03:34+01:00"
+		},
+		{
+			"hash": "3339aa2",
+			"short": "fix(manadeck): align study session with schema",
+			"type": "fix",
+			"scope": "manadeck",
+			"additions": 3,
+			"deletions": 2,
+			"timestamp": "2025-11-28T21:03:48+01:00"
+		},
+		{
+			"hash": "47056ac",
+			"short": "fix(wisekeep): use dynamic env for API URL",
+			"type": "fix",
+			"scope": "wisekeep",
+			"additions": 2,
+			"deletions": 2,
+			"timestamp": "2025-11-28T21:04:01+01:00"
+		},
+		{
+			"hash": "e3eae2c",
+			"short": "feat(wisekeep): add mana-core authentication to web app",
+			"type": "feat",
+			"scope": "wisekeep",
+			"additions": 65,
+			"deletions": 22,
+			"timestamp": "2025-11-28T21:30:40+01:00"
+		},
+		{
+			"hash": "f1e27f3",
+			"short": "fix(manadeck): resolve backend startup and auth configuration issues",
+			"type": "fix",
+			"scope": "manadeck",
+			"additions": 39,
+			"deletions": 27,
+			"timestamp": "2025-11-28T21:31:46+01:00"
+		}
+	],
+	"review_state": "auto",
+	"llm": {
+		"model": null,
+		"generated_at": null
+	}
+}
