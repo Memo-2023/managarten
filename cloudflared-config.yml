@@ -266,6 +266,26 @@ ingress:
   - hostname: manaspur-api.mana.how
     service: http://localhost:3193
 
+  # ManaMeme (Bild-Meme-Community) — Code/manameme + Code/manameme-native.
+  # ~/projects/manameme/ on the Mac Mini. Port 3196 api / 3197 web.
+  # Phase 8 Cutover 2026-05-15. alpha-Tier-Gate auf Write-Routen,
+  # Reads sind für Guests offen.
+  - hostname: manameme.mana.how
+    service: http://localhost:3197
+  - hostname: manameme-api.mana.how
+    service: http://localhost:3196
+
+  # Seepuls (Event-Aggregator Konstanz/Kreuzlingen, DE+CH) — Code/seepuls.
+  # ~/projects/seepuls/ on the Mac Mini (Deploy pending, Phase β-4).
+  # Ports per mana/docs/PORTS.md: 3095 api / 3096 web. Aggregator-App,
+  # gilt mana/docs/AGGREGATOR_POLICY.md (robots.txt-Pflicht, sichtbare
+  # Attribution, Take-Down ≤ 72h). DNS vorgemerkt, Service liefert 502
+  # bis Container deployed ist.
+  - hostname: seepuls.mana.how
+    service: http://localhost:3096
+  - hostname: seepuls-api.mana.how
+    service: http://localhost:3095
+
   # ============================================
   # Standalone web apps (separate containers)
   # ============================================
