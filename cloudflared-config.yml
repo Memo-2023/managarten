@@ -256,14 +256,14 @@ ingress:
   - hostname: manawald.mana.how
     service: http://localhost:3090
 
-  # Manaspur (GPS-Tracking) — Code/manaspur + Code/manaspur-native.
-  # ~/projects/manaspur/ on the Mac Mini. Port 3193 api / 5183 web.
+  # Viadocu (GPS-Tracking) — Code/viadocu + Code/viadocu-native.
+  # ~/projects/viadocu/ on the Mac Mini. Port 3193 api / 5183 web.
   # Phase 8 Cutover 2026-05-13. Web kommt mit Phase 6 — Hostname
   # ist DNS-only vorgemerkt, der Service liefert vorerst 502 (das
   # ist okay, niemand zeigt drauf).
-  - hostname: manaspur.mana.how
+  - hostname: viadocu.mana.how
     service: http://localhost:5183
-  - hostname: manaspur-api.mana.how
+  - hostname: viadocu-api.mana.how
     service: http://localhost:3193
 
   # ManaMeme (Bild-Meme-Community) — Code/manameme + Code/manameme-native.
