@@ -89,8 +89,12 @@ ingress:
   # cardecky.mana.how → standalone Cardecky SvelteKit container (apps/cards/apps/web).
   # Was pointed at :5000 (the unified mana-web) until the standalone spinoff
   # landed. mana.how/cards still serves the in-mana cards module.
+  # cardecky.mana.how — Cutover 2026-05-17: 301-Redirect zu wordeck.com
+  # (via nginx mana-infra-landings :4400). Alte Bookmarks + Browser-Links
+  # leiten weiter. cards-native v0.9.4 nutzt nur cardecky-api.mana.how
+  # (bleibt direkt) — Universal-Links der alten App brechen bewusst.
   - hostname: cardecky.mana.how
-    service: http://localhost:5181
+    service: http://localhost:4400
   # wordeck.com — Cards-Rebrand (siehe mana/docs/playbooks/WORDECK_REBRAND.md, 2026-05-17).
   # Zeigt auf denselben cards-web-Container wie cardecky.mana.how (port 5181).
   - hostname: wordeck.com
