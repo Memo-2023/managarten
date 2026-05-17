@@ -1380,6 +1380,11 @@ services:
       MANA_CREDITS_URL: http://mana-credits:3002
       MANA_MEDIA_URL: http://mana-media:3011
       MANA_CRAWLER_URL: http://mana-crawler:3014
+      # mana-news-pool — Plattform-Service (Lift-B 2026-05-16). Ersetzt
+      # den ehemaligen news-ingester:3066-Container, der direkt in
+      # mana_platform.news.curated_articles schrieb. apps/api/news/routes.ts
+      # ist seit 2026-05-17 ein HTTP-Proxy auf diesen Endpoint.
+      MANA_NEWS_POOL_URL: http://mana-news-pool:3079
       MANA_LLM_DEFAULT_MODEL: ${MANA_LLM_DEFAULT_MODEL:-gemma3:4b}
       MANA_SERVICE_KEY: ${MANA_SERVICE_KEY}
       # OpenAI — picture module gpt-image-2 path. Optional: without it,
@@ -1407,12 +1412,12 @@ services:
       start_period: 30s
 
   # ============================================
-  # News Ingester
+  # News-Pool — wurde 2026-05-17 zur Plattform geliftet.
   # ============================================
-  # services/news-ingester — pulls public RSS/JSON feeds into the
-  # news.curated_articles pool every 15 min. The unified mana-api reads
-  # from the same table to serve /api/v1/news/feed; user reading lists
-  # remain client-side in the unified Mana app's local IndexedDB.
+  # Der ehemalige services/news-ingester:3066-Container ist abgeschaltet
+  # zugunsten von `mana-news-pool` (Plattform-Service Port 3079,
+  # ~/projects/mana/services/mana-news-pool/, eigene DB `mana_news_pool`).
+  # mana-api/news/routes.ts proxied auf MANA_NEWS_POOL_URL.
 
 volumes:
   redis_data:

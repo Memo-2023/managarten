@@ -1,98 +1,59 @@
 /**
  * News module — Reads the curated article pool + extracts ad-hoc URLs.
  *
- * Pool population: handled by the standalone `services/news-ingester`
- * Bun service, which writes into `news.curated_articles` on a 15 min
- * loop. This route file just reads from that table.
+ * Pool population: handled by the Plattform-Service `mana-news-pool`
+ * (Port 3079, eigene DB `mana_news_pool`, Schema `pool.curated_articles`).
+ * Cutover am 2026-05-17: ehemals direkter Raw-SQL-Read auf
+ * `mana_platform.news.curated_articles` aus dem `news-ingester:3066`-
+ * Container. Hier nur noch HTTP-Proxy auf den Plattform-Pool.
  *
- * Saved articles (the user's personal reading list) live entirely in
- * the unified Mana app's local-first IndexedDB and sync via mana-sync;
- * this module never sees them.
+ * Saved articles (die persönliche Reading-List eines Users) leben
+ * weiterhin client-side in der IndexedDB der unified Mana-App und
+ * syncen via mana-sync; dieses Modul sieht sie nicht.
  */
 
 import { Hono } from 'hono';
 import { extractFromUrl } from '@mana/shared-rss';
-import { drizzle } from 'drizzle-orm/postgres-js';
-import { sql } from 'drizzle-orm';
-import { getConnection } from '../../lib/db';
 
-// ─── DB Connection (reads from news.curated_articles) ──────
-
-const db = drizzle(getConnection());
+const POOL_URL = process.env.MANA_NEWS_POOL_URL ?? 'http://mana-news-pool:3079';
+const POOL_KEY = process.env.MANA_SERVICE_KEY ?? '';
 
 // ─── Routes ─────────────────────────────────────────────────
 
 const routes = new Hono();
 
-// ─── Feed (reads from news.curated_articles) ───────────────
+// ─── Feed (proxy on mana-news-pool) ────────────────────────
 //
 // Query params:
-//   topics  — comma-separated topic slugs (tech,wissenschaft,…). If
-//             omitted, all topics are returned.
+//   topics  — comma-separated topic slugs (tech,wissenschaft,…)
 //   lang    — 'de' | 'en' | 'all' (default 'all')
-//   since   — ISO timestamp; only articles published after this
+//   since   — ISO timestamp
 //   limit   — default 50, max 200
 //   offset  — default 0
-//
-// Returns the full article body so the client can render the reader
-// without a second round-trip. Curated articles are small (≤30 KB
-// each) and the client caches them locally for offline reading.
 
 routes.get('/feed', async (c) => {
-	const topicsParam = c.req.query('topics');
-	const lang = c.req.query('lang') ?? 'all';
-	const since = c.req.query('since');
-	const limit = Math.min(parseInt(c.req.query('limit') || '50', 10), 200);
-	const offset = parseInt(c.req.query('offset') || '0', 10);
+	const passthrough = ['topics', 'lang', 'since', 'limit', 'offset'] as const;
+	const url = new URL(`${POOL_URL}/feed`);
+	for (const k of passthrough) {
+		const v = c.req.query(k);
+		if (v) url.searchParams.set(k, v);
+	}
 
-	const conditions: ReturnType<typeof sql>[] = [];
-
-	if (topicsParam) {
-		const topics = topicsParam
-			.split(',')
-			.map((t) => t.trim())
-			.filter(Boolean);
-		if (topics.length > 0) {
-			conditions.push(sql`topic = ANY(${topics})`);
+	try {
+		const res = await fetch(url.toString(), {
+			headers: { 'X-Service-Key': POOL_KEY },
+			signal: AbortSignal.timeout(8_000),
+		});
+		if (!res.ok) {
+			console.warn(`[news] pool ${url} → ${res.status}`);
+			return c.json([] as Record<string, unknown>[]);
 		}
+		const data = (await res.json()) as Record<string, unknown>[];
+		return c.json(data);
+	} catch (err) {
+		console.warn('[news] pool fetch failed', err);
+		return c.json([] as Record<string, unknown>[]);
 	}
-	if (lang === 'de' || lang === 'en') {
-		conditions.push(sql`language = ${lang}`);
-	}
-	if (since) {
-		conditions.push(sql`published_at > ${since}`);
-	}
-
-	const whereClause =
-		conditions.length > 0
-			? sql.join([sql`WHERE`, sql.join(conditions, sql` AND `)], sql` `)
-			: sql``;
-
-	const result = await db.execute(sql`
-		SELECT
-			id,
-			original_url   AS "originalUrl",
-			title,
-			excerpt,
-			content,
-			html_content   AS "htmlContent",
-			author,
-			site_name      AS "siteName",
-			source_slug    AS "sourceSlug",
-			image_url      AS "imageUrl",
-			topic,
-			language,
-			word_count     AS "wordCount",
-			reading_time_minutes AS "readingTimeMinutes",
-			published_at   AS "publishedAt",
-			ingested_at    AS "ingestedAt"
-		FROM news.curated_articles
-		${whereClause}
-		ORDER BY published_at DESC NULLS LAST, ingested_at DESC
-		LIMIT ${limit} OFFSET ${offset}
-	`);
-
-	return c.json(result as unknown as Record<string, unknown>[]);
 });
 
 // ─── Extract (content extraction for user-pasted URLs) ─────
