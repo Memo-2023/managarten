@@ -71,6 +71,9 @@ db_user_for_container() {
         nutriphi-postgres)         echo "nutriphi" ;;
         zitare-postgres)           echo "zitare" ;;
         chorportal-prod-postgres)  echo "chorportal" ;;
+        seepuls-postgres)          echo "seepuls" ;;
+        manameme-postgres)         echo "manameme" ;;
+        lesen-postgres)            echo "lesen" ;;
         mana-infra-postgres)       echo "postgres" ;;
         *)                         echo "postgres" ;;
     esac
