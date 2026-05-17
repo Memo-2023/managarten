@@ -18,6 +18,7 @@
 #
 # Removing a hostname: same steps, just delete the lines.
 #
+
 # Catch-all at the bottom returns http_status:404 for any hostname
 # Cloudflare routes here that we don't have an explicit ingress rule
 # for. This is the desired failure mode.
@@ -89,6 +90,12 @@ ingress:
   # Was pointed at :5000 (the unified mana-web) until the standalone spinoff
   # landed. mana.how/cards still serves the in-mana cards module.
   - hostname: cardecky.mana.how
+    service: http://localhost:5181
+  # wordeck.com — Cards-Rebrand (siehe mana/docs/playbooks/WORDECK_REBRAND.md, 2026-05-17).
+  # Zeigt auf denselben cards-web-Container wie cardecky.mana.how (port 5181).
+  - hostname: wordeck.com
+    service: http://localhost:5181
+  - hostname: www.wordeck.com
     service: http://localhost:5181
   - hostname: storage.mana.how
     service: http://localhost:5000
@@ -193,6 +200,8 @@ ingress:
     service: http://localhost:3069
 
   - hostname: cardecky-api.mana.how
+    service: http://localhost:3191
+  - hostname: api.wordeck.com
     service: http://localhost:3191
   - hostname: feedback.mana.how
     service: http://localhost:3064
@@ -352,6 +361,17 @@ ingress:
   # because each Cloudflare DNS CNAME can only point at one tunnel.
 
   # ============================================
+
+  # Werdrobe — Digitaler Kleiderschrank + KI-Try-On (Code/werdrobe/).
+  # ~/projects/werdrobe/ on the Mac Mini.
+  # Ports per mana/docs/PORTS.md: 3097 api / 3098 web. Tier-Gate beta.
+  # Konsumiert mana-me, mana-image-edits, mana-media, mana-credits.
+  # DNS für werdrobe.com + api.werdrobe.com muss Till bei seinem .com-
+  # Registrar als CNAME auf den mana-tunnel zeigen lassen.
+  - hostname: werdrobe.com
+    service: http://localhost:3098
+  - hostname: api.werdrobe.com
+    service: http://localhost:3097
   # Catch-all (returns 404 for any unmapped hostname)
   # ============================================
   - service: http_status:404
