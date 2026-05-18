@@ -126,8 +126,6 @@ ingress:
     service: http://localhost:5000
   - hostname: questions.mana.how
     service: http://localhost:5000
-  - hostname: moodlit.mana.how
-    service: http://localhost:5000
 
   # ============================================
   # Auth (Split: Portal-UI :3042, API :3001)
@@ -392,5 +390,13 @@ ingress:
     service: http://localhost:3111
   - hostname: comicello-api.mana.how
     service: http://localhost:3109
+
+  # Moodlit — Ambient-Lighting + Mood-App (Code/moodlit/).
+  # ~/projects/moodlit/ auf dem Mac Mini. Ports 3105 api / 3106 web
+  # (PORTS.md, manacore-monorepo-Netz). Live ab 2026-05-18.
+  - hostname: moodlit.mana.how
+    service: http://localhost:3106
+  - hostname: moodlit-api.mana.how
+    service: http://localhost:3105
 
   - service: http_status:404
