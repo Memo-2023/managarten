@@ -76,6 +76,8 @@ db_user_for_container() {
         moodlit-postgres)          echo "moodlit" ;;
         herbatrium-postgres)       echo "herbatrium" ;;
         pageta-postgres)           echo "pageta" ;;
+        uload-postgres)            echo "uload" ;;
+        comicello-postgres)        echo "comicello" ;;
         mana-infra-postgres)       echo "postgres" ;;
         *)                         echo "postgres" ;;
     esac
