@@ -343,9 +343,15 @@ ingress:
   # Live seit 2026-05-16 (vormals lesen.mana.how, Rebrand 2026-05-18).
   # Verein-App (Tier-Gate public). Konsumiert mana-news-pool
   # (Plattform-Service Port 3079).
+  # 2026-05-18 Co-Domain pageta.com + api.pageta.com hinzugefügt
+  # (kein Primary-Switch, pageta.mana.how bleibt funktional).
   - hostname: pageta.mana.how
     service: http://localhost:3100
   - hostname: pageta-api.mana.how
+    service: http://localhost:3099
+  - hostname: pageta.com
+    service: http://localhost:3100
+  - hostname: api.pageta.com
     service: http://localhost:3099
 
   # ============================================
