@@ -573,7 +573,14 @@
 		// lets the first paint + interaction land without waiting on
 		// event-bridge wiring or LLM-queue reclaim work.
 		idle(() => {
-			initSharedUload();
+			// uload-Federation: schreibt direkt gegen die föderierte
+			// uload-API (Code/uload/), nicht mehr in lokale Dexie+mana-sync.
+			// Override URL via PUBLIC_ULOAD_API_URL (dev: http://localhost:3107).
+			initSharedUload({
+				apiUrl: import.meta.env.PUBLIC_ULOAD_API_URL ?? 'https://uload-api.mana.how',
+				getAuthToken: () => authStore.getValidToken(),
+				shortUrlOrigin: import.meta.env.PUBLIC_ULOAD_SHORT_ORIGIN ?? 'https://ulo.ad',
+			});
 			startEventStore();
 			initTools();
 			startEventBridge();

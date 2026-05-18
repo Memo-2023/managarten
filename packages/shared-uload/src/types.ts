@@ -1,24 +1,10 @@
-import type { BaseRecord } from '@mana/local-store';
-
-export interface UloadLink extends BaseRecord {
-	shortCode: string;
-	customCode?: string | null;
-	originalUrl: string;
-	title?: string | null;
-	description?: string | null;
-	isActive: boolean;
-	password?: string | null;
-	maxClicks?: number | null;
-	expiresAt?: string | null;
-	clickCount: number;
-	qrCodeUrl?: string | null;
-	utmSource?: string | null;
-	utmMedium?: string | null;
-	utmCampaign?: string | null;
-	folderId?: string | null;
-	order: number;
-	source?: string | null;
-}
+/**
+ * Public-Wire-Types für Cross-App-Share-via-uLoad.
+ *
+ * `UloadLink` (interne Dexie-Repräsentation) ist mit der Federation-
+ * Migration 2026-05-18 entfallen — Caller arbeiten nur noch mit
+ * `CreateShortLinkOptions` + `CreatedLink`.
+ */
 
 export interface CreateShortLinkOptions {
 	url: string;

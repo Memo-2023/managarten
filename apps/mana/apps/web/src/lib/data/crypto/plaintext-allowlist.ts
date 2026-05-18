@@ -105,8 +105,6 @@ export const PLAINTEXT_ALLOWLIST: readonly string[] = [
 	'timeTemplates', // TODO: audit
 	'timeWorldClocks', // TODO: audit
 	'todoProjects', // TODO: audit
-	'uloadFolders', // TODO: audit
-	'uloadTags', // TODO: audit
 	'userSettings', // TODO: audit
 	'wetterLocations', // TODO: audit
 	'wetterSettings', // TODO: audit
