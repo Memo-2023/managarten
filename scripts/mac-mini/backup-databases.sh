@@ -66,13 +66,15 @@ send_notification() {
 # läuft als `postgres`-Superuser.
 db_user_for_container() {
     case "$1" in
-        cards-postgres)            echo "cards" ;;
+        wordeck-postgres)          echo "wordeck" ;;
         manaspur-postgres)         echo "manaspur" ;;
         nutriphi-postgres)         echo "nutriphi" ;;
         zitare-postgres)           echo "zitare" ;;
         chorportal-prod-postgres)  echo "chorportal" ;;
         seepuls-postgres)          echo "seepuls" ;;
         manameme-postgres)         echo "manameme" ;;
+        moodlit-postgres)          echo "moodlit" ;;
+        herbatrium-postgres)       echo "herbatrium" ;;
         pageta-postgres)           echo "pageta" ;;
         mana-infra-postgres)       echo "postgres" ;;
         *)                         echo "postgres" ;;
@@ -106,7 +108,7 @@ for CONTAINER in $CONTAINERS; do
     log "--- Container: $CONTAINER (user: $USER) ---"
 
     # DB-Liste in diesem Container
-    if ! DB_LIST=$(docker exec "$CONTAINER" psql -U "$USER" -t -c "SELECT datname FROM pg_database WHERE datistemplate = false AND datname != 'postgres';" 2>/dev/null | tr -d ' ' | grep -v "^$"); then
+    if ! DB_LIST=$(docker exec "$CONTAINER" psql -U "$USER" -d template1 -t -c "SELECT datname FROM pg_database WHERE datistemplate = false AND datname != 'postgres';" 2>/dev/null | tr -d ' ' | grep -v "^$"); then
         log "  FAILED to list databases in $CONTAINER (user $USER) — skipping"
         FAILED_DBS="$FAILED_DBS ${CONTAINER}:list"
         continue
