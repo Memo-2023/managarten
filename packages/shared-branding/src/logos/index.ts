@@ -2,7 +2,6 @@
  * Pre-configured app logo components
  * These provide convenient shortcuts for each app's logo
  */
-export { default as MemoroLogo } from './MemoroLogo.svelte';
 export { default as ManaLogo } from './ManaLogo.svelte';
 export { default as CardsLogo } from './CardsLogo.svelte';
 export { default as UloadLogo } from './UloadLogo.svelte';

@@ -28,7 +28,6 @@ import {
 	HardDrives,
 	Presentation,
 	Package,
-	Microphone,
 	NumberCircleOne,
 	Binoculars,
 	ArrowsInCardinal,
@@ -103,7 +102,7 @@ import {
 //                     dreams · firsts · lasts · habits · recipes
 //       Places & ev.: places · events
 //       Creative:     picture · music · photos
-//       Tools:        memoro · uload · calc · inventory ·
+//       Tools:        uload · calc · inventory ·
 //                     storage · skilltree · questions
 //       Long-tail:    quotes · automations · companion · wetter ·
 //                     goals · website · spaces · augur ·
@@ -656,17 +655,6 @@ registerApp({
 	views: {
 		list: { load: () => import('$lib/modules/inventory/ListView.svelte') },
 		detail: { load: () => import('$lib/modules/inventory/views/DetailView.svelte') },
-	},
-});
-
-registerApp({
-	id: 'memoro',
-	name: 'Memoro',
-	color: '#F59E0B',
-	icon: Microphone,
-	views: {
-		list: { load: () => import('$lib/modules/memoro/ListView.svelte') },
-		detail: { load: () => import('$lib/modules/memoro/views/DetailView.svelte') },
 	},
 });
 

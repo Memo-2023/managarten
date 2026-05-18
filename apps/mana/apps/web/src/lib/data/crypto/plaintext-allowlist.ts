@@ -66,9 +66,6 @@ export const PLAINTEXT_ALLOWLIST: readonly string[] = [
 	'manaLinks', // TODO: audit
 	'markers', // TODO: audit
 	'mealTags', // TODO: audit
-	'memoSpaces', // TODO: audit
-	'memoTags', // TODO: audit
-	'memoroSpaces', // TODO: audit
 	'moodTags', // TODO: audit
 	'moods', // TODO: audit
 	'mukkeProjects', // TODO: audit
@@ -96,7 +93,6 @@ export const PLAINTEXT_ALLOWLIST: readonly string[] = [
 	'skillTags', // TODO: audit
 	'skills', // TODO: audit
 	'songTags', // TODO: audit
-	'spaceMembers', // TODO: audit
 	'storageFolders', // TODO: audit
 	'taskLabels', // TODO: audit
 	'timeAlarms', // TODO: audit

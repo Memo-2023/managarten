@@ -188,18 +188,6 @@ const TABLES: TableConfig[] = [
 		},
 	},
 	{
-		module: 'memoro',
-		collection: 'memos',
-		moduleLabel: 'Memoro',
-		encrypted: true,
-		title: (r) => asString(r.title ?? r.intro),
-		href: (id) => `/memoro/${id}`,
-		setVisibility: async (id, next) => {
-			const { memosStore } = await import('$lib/modules/memoro/stores/memos.svelte');
-			return memosStore.setVisibility(id, next);
-		},
-	},
-	{
 		module: 'presi',
 		collection: 'presiDecks',
 		moduleLabel: 'Präsentationen',

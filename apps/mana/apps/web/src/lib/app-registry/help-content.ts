@@ -293,21 +293,6 @@ export const MODULE_HELP: Record<string, ModuleHelp> = {
 			'Standorte können verschachtelt sein (Zuhause → Büro → Schreibtisch)',
 		],
 	},
-	memoro: {
-		description:
-			'Sprachnotizen aufnehmen und automatisch transkribieren lassen. Durchsuchbar, zusammengefasst und verschlüsselt.',
-		features: [
-			'Aufnahme mit einem Tap',
-			'AI-Transkription (Whisper — läuft lokal im Browser)',
-			'Automatische Zusammenfassung & Intro',
-			'Durchsuchbare Memos im Volltext',
-			'Verschlüsselter Transkript-Text',
-		],
-		tips: [
-			'Die Transkription läuft direkt im Browser — deine Stimme verlässt nie dein Gerät',
-			'Nutze Memos als schnelle Gedankennotizen unterwegs',
-		],
-	},
 	questions: {
 		description:
 			'Fragen sammeln und Antworten festhalten — ein persönliches Q&A-Archiv für Dinge die du herausfinden möchtest.',

@@ -120,23 +120,6 @@ export const MANA_APPS: ManaApp[] = [
 		requiredTier: 'guest',
 	},
 	{
-		id: 'memoro',
-		name: 'Memoro',
-		description: {
-			de: 'KI Sprachnotizen',
-			en: 'AI Voice Memos',
-		},
-		longDescription: {
-			de: 'Verwandle deine Sprachnotizen in organisiertes, durchsuchbares Wissen mit KI-gestützter Transkription.',
-			en: 'Transform your voice memos into organized, searchable knowledge with AI-powered transcription.',
-		},
-		icon: APP_ICONS.memoro,
-		color: '#f8d62b',
-		comingSoon: false,
-		status: 'published',
-		requiredTier: 'guest',
-	},
-	{
 		id: 'presi',
 		name: 'Presi',
 		description: {

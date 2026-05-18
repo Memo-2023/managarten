@@ -77,7 +77,6 @@ import type { LocalMessage, LocalConversation, LocalTemplate } from '../../modul
 import type { LocalNote } from '../../modules/notes/types';
 import type { LocalDream, LocalDreamSymbol } from '../../modules/dreams/types';
 import type { LocalJournalEntry } from '../../modules/journal/types';
-import type { LocalMemo } from '../../modules/memoro/types';
 import type {
 	LocalInvoice,
 	LocalInvoiceClient,
@@ -140,13 +139,6 @@ export const ENCRYPTION_REGISTRY: Record<string, EncryptionConfig> = {
 	// the user-written `meaning` (which is the actually sensitive part)
 	// is encrypted.
 	dreamSymbols: entry<LocalDreamSymbol>(['meaning']),
-
-	// ─── Memoro ──────────────────────────────────────────────
-	// Voice transcripts are typically the largest plaintext blobs in the
-	// whole app — encrypting them yields the biggest disk-footprint win
-	// of any single field.
-	memos: entry<LocalMemo>(['title', 'intro', 'transcript']),
-	memories: { enabled: true, fields: ['title', 'content'] },
 
 	// ─── Contacts ────────────────────────────────────────────
 	contacts: {

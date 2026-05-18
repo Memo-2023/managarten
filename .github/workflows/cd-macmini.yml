@@ -47,8 +47,6 @@ on:
           - mana-web
           - mana-api
           - manavoxel-web
-          - memoro-server
-          - memoro-audio-server
 
 concurrency:
   group: cd-macmini
@@ -144,8 +142,6 @@ jobs:
             "mana-web|apps/mana/apps/web/ apps/mana/packages/"
             "mana-api|apps/api/"
             "manavoxel-web|apps/manavoxel/apps/web/ apps/manavoxel/packages/"
-            "memoro-server|apps/memoro/apps/server/ apps/memoro/packages/"
-            "memoro-audio-server|apps/memoro/apps/audio-server/"
           )
 
           echo "Changed files (first 40):"
@@ -439,7 +435,6 @@ jobs:
               mana-api)            echo "http://localhost:3060/health" ;;
               mana-web)            echo "http://localhost:5000/health" ;;
               manavoxel-web)       echo "http://localhost:5028/health" ;;
-              memoro-server)       echo "http://localhost:3015/health" ;;
               *)                   echo "" ;;
             esac
           }

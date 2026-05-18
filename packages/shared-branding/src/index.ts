@@ -3,7 +3,7 @@
  *
  * This package provides:
  * - App logos (AppLogo, AppLogoWithName)
- * - Pre-configured app logos (MemoroLogo, ManaLogo, etc.)
+ * - Pre-configured app logos (ManaLogo, etc.)
  * - Mana icon (ManaIcon)
  * - Branding configuration (colors, names, taglines)
  */
@@ -15,7 +15,6 @@ export { default as ManaIcon } from './ManaIcon.svelte';
 
 // Pre-configured App Logos
 export {
-	MemoroLogo,
 	ManaLogo,
 	CardsLogo,
 	UloadLogo,

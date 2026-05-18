@@ -24,7 +24,6 @@ const SPLIT_APP_ID_LIST = [
 	'questions',
 	'uload',
 	'calc',
-	'memoro',
 	'places',
 	'automations',
 	'playground',

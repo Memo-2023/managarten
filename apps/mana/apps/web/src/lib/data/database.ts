@@ -1559,6 +1559,22 @@ db.version(63).stores({
 	whoMessages: null,
 });
 
+// v64 — Memoro module retirement (2026-05-18).
+// Memoro lebt als eigenständiger Stack auf memoro-app.mana.how /
+// memoro-api.mana.how / memoro-audio.mana.how aus Code/memoro/ →
+// ~/projects/memoro-deploy/. Die unified-App-Surface (Modul +
+// memoro-server-Container im managarten-Compose) wird hier gedroppt.
+// dropped: memos, memories, memoTags, memoroSpaces, spaceMembers,
+// memoSpaces.
+db.version(64).stores({
+	memos: null,
+	memories: null,
+	memoTags: null,
+	memoroSpaces: null,
+	spaceMembers: null,
+	memoSpaces: null,
+});
+
 // ─── Sync Routing ──────────────────────────────────────────
 // SYNC_APP_MAP, TABLE_TO_SYNC_NAME, TABLE_TO_APP, SYNC_NAME_TO_TABLE,
 // toSyncName() and fromSyncName() are now derived from per-module

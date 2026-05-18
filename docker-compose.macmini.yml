@@ -923,9 +923,9 @@ services:
       # Per-app HTTP backend URLs (todo-api, calendar-api, contacts-api,
       # chat-api, storage-api, cards-api, music-api,
       # picture-api, presi-api, quotes-api, clock-api, context-api) and
-      # the standalone memoro-server URL were removed in the pre-launch
+      # standalone server URLs were removed in the pre-launch
       # ghost-API cleanup — every product module talks to mana-sync
-      # directly and the unified `memoro` module is fully local-first.
+      # directly via mana-sync.
       # See docs/PRE_LAUNCH_CLEANUP.md for the full rationale.
       PUBLIC_ULOAD_SERVER_URL: http://uload-server:3070
       PUBLIC_ULOAD_SERVER_URL_CLIENT: https://uload-api.mana.how
@@ -987,7 +987,7 @@ services:
   # chat-web, todo-web, quotes-web, calendar-web, clock-web, contacts-web,
   # storage-web, presi-web, cards-web, skilltree-web, photos-web,
   # music-web, picture-web, inventory-web, calc-web, times-web,
-  # uload-web, memoro-web
+  # uload-web
 
   # picture-backend: REMOVED — replaced by Hono server (apps/picture/apps/server)
   # arcade-web: REMOVED — extracted to standalone repo at ~/Documents/Code/arcade
@@ -1079,80 +1079,6 @@ services:
       timeout: 10s
       retries: 3
       start_period: 10s
-
-  memoro-server:
-    build:
-      context: .
-      dockerfile: docker/Dockerfile.hono-server
-      args:
-        APP: memoro
-    image: memoro-server:local
-    container_name: mana-app-memoro-server
-    restart: always
-    mem_limit: 256m
-    depends_on:
-      mana-auth:
-        condition: service_healthy
-    environment:
-      NODE_ENV: production
-      PORT: 3015
-      MANA_AUTH_URL: http://mana-auth:3001
-      CORS_ORIGINS: http://mana-web:5000,https://mana.how,https://memoro.mana.how
-      MEMORO_SUPABASE_URL: ${MEMORO_SUPABASE_URL}
-      MEMORO_SUPABASE_SERVICE_KEY: ${MEMORO_SUPABASE_SERVICE_KEY}
-      SERVICE_KEY: ${MEMORO_SERVICE_KEY}
-      AUDIO_SERVER_URL: http://memoro-audio-server:3016
-      MANA_LLM_URL: http://mana-llm:3025
-      MANA_LLM_MODEL: ${MANA_LLM_MODEL:-ollama/gemma3:12b}
-      GEMINI_API_KEY: ${GEMINI_API_KEY}
-      AZURE_OPENAI_KEY: ${AZURE_OPENAI_KEY}
-      AZURE_OPENAI_ENDPOINT: ${AZURE_OPENAI_ENDPOINT}
-      AZURE_OPENAI_DEPLOYMENT: ${AZURE_OPENAI_DEPLOYMENT}
-      MANA_CREDITS_URL: http://mana-credits:3006
-      MANA_CREDITS_SERVICE_KEY: ${MANA_CREDITS_SERVICE_KEY}
-    ports:
-      - "3015:3015"
-    healthcheck:
-      test: ["CMD", "bun", "-e", "fetch('http://127.0.0.1:3015/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 15s
-
-  memoro-audio-server:
-    build:
-      context: apps/memoro/apps/audio-server
-      dockerfile: Dockerfile
-    image: memoro-audio-server:local
-    container_name: mana-app-memoro-audio-server
-    restart: always
-    mem_limit: 512m
-    environment:
-      NODE_ENV: production
-      PORT: 3016
-      SERVICE_KEY: ${MEMORO_SERVICE_KEY}
-      MEMORO_SERVER_URL: http://memoro-server:3015
-      MEMORO_SUPABASE_URL: ${MEMORO_SUPABASE_URL}
-      MEMORO_SUPABASE_SERVICE_KEY: ${MEMORO_SUPABASE_SERVICE_KEY}
-      AZURE_SPEECH_KEY_1: ${AZURE_SPEECH_KEY_1}
-      AZURE_SPEECH_KEY_2: ${AZURE_SPEECH_KEY_2}
-      AZURE_SPEECH_KEY_3: ${AZURE_SPEECH_KEY_3}
-      AZURE_SPEECH_KEY_4: ${AZURE_SPEECH_KEY_4}
-      AZURE_SPEECH_REGION: ${AZURE_SPEECH_REGION:-germanywestcentral}
-      AZURE_SPEECH_ENDPOINT: ${AZURE_SPEECH_ENDPOINT}
-      AZURE_STORAGE_ACCOUNT_NAME: ${AZURE_STORAGE_ACCOUNT_NAME}
-      AZURE_STORAGE_ACCOUNT_KEY: ${AZURE_STORAGE_ACCOUNT_KEY}
-      AZURE_STORAGE_CONTAINER: ${AZURE_STORAGE_CONTAINER:-memoro-batch-audio}
-      MANA_STT_URL: http://host.docker.internal:3020
-      MANA_STT_API_KEY: ${MANA_STT_API_KEY:-}
-    ports:
-      - "3016:3016"
-    healthcheck:
-      test: ["CMD", "bun", "-e", "fetch('http://127.0.0.1:3016/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 20s
 
   mana-llm:
     build:

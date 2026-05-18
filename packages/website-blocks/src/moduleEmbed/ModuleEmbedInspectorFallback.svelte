@@ -28,7 +28,6 @@
 			<option value="habits.habits">Habits</option>
 			<option value="quiz.quizzes">Quizze</option>
 			<option value="events.socialEvents">Events (RSVP)</option>
-			<option value="memoro.memos">Memoro</option>
 			<option value="cards.decks">Karten (Decks)</option>
 			<option value="presi.decks">Präsentationen</option>
 			<option value="augur.entries">Augur (Omen / Wahrsagungen)</option>

@@ -38,7 +38,6 @@ export const EmbedSourceSchema = z.enum([
 	'habits.habits',
 	'quiz.quizzes',
 	'events.socialEvents',
-	'memoro.memos',
 	'cards.decks',
 	'presi.decks',
 	'augur.entries',

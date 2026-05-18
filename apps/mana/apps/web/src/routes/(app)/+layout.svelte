@@ -71,10 +71,6 @@
 	import { getEffectiveTier } from '$lib/data/scope';
 	import { useLocalStt } from '$lib/components/voice/use-local-stt.svelte';
 	import { Microphone, Stop } from '@mana/shared-icons';
-	import {
-		startMemoroLlmWatcher,
-		stopMemoroLlmWatcher,
-	} from '$lib/modules/memoro/llm-watcher.svelte';
 	import { createUnifiedSync, restoreClientIdFromDexie } from '$lib/data/sync';
 	import { cleanupOrphanMigrationFlags } from '$lib/data/migrations-cleanup';
 	import { bootstrapSingletons } from '$lib/data/bootstrap-singletons';
@@ -587,7 +583,6 @@
 			startFeedbackToaster();
 			initByok();
 			startLlmQueue();
-			startMemoroLlmWatcher();
 			// dashboardStore only drives /dashboard — safe to defer; other
 			// routes don't read from it on first paint.
 			void dashboardStore.initialize();
@@ -761,7 +756,6 @@
 		// will finish in the background and the next page session will
 		// pick up where we left off.
 		void stopLlmQueue();
-		stopMemoroLlmWatcher();
 	});
 
 	// ── Search / Spotlight ───────────────────────────────────

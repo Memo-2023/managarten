@@ -1,9 +1,0 @@
-{
-	"platforms": ["ios", "android"],
-	"ios": {
-		"modules": ["MemoroAudioRecorderModule"]
-	},
-	"android": {
-		"modules": ["expo.modules.memoroaudiorecorder.MemoroAudioRecorderModule"]
-	}
-}

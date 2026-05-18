@@ -33,7 +33,6 @@ import type { LocalComicStory } from '$lib/modules/comic/types';
 import type { LocalHabit, LocalHabitLog } from '$lib/modules/habits/types';
 import type { LocalQuiz } from '$lib/modules/quiz/types';
 import type { LocalSocialEvent } from '$lib/modules/events/types';
-import type { LocalMemo } from '$lib/modules/memoro/types';
 import type { LocalDeck as LocalPresiDeck } from '$lib/modules/presi/types';
 import type { LocalAugurEntry } from '$lib/modules/augur/types';
 import type { LocalTimeBlock } from '$lib/data/time-blocks/types';
@@ -82,9 +81,6 @@ export async function resolveEmbed(props: ModuleEmbedProps): Promise<ResolvedEmb
 				break;
 			case 'events.socialEvents':
 				items = await resolveSocialEvents(props);
-				break;
-			case 'memoro.memos':
-				items = await resolveMemos(props);
 				break;
 			// 'cards.decks' source: dekommissioniert 2026-05-08 (Cards
 			// eigenständig auf cardecky.mana.how, kein Local-Dexie-Embed
@@ -737,53 +733,6 @@ async function resolveSocialEvents(props: ModuleEmbedProps): Promise<EmbedItem[]
 			title: e.title,
 			subtitle: parts.length > 0 ? parts.join(' · ') : undefined,
 			imageUrl: e.coverImage ?? undefined,
-		};
-	});
-}
-
-/**
- * Memoro: voice-memo teaser. Returns memos flipped to 'public' with
- * the first sentence of the intro as subtitle.
- *
- * Whitelist: title + intro (first 140 chars) + audio duration. The
- * full transcript, source-audio paths, and per-utterance speaker
- * data all stay private — those are the user's words verbatim and
- * have a much stronger privacy weight than a curated headline.
- */
-async function resolveMemos(_props: ModuleEmbedProps): Promise<EmbedItem[]> {
-	let memos = await db.table<LocalMemo>('memos').toArray();
-	memos = memos.filter(
-		(m) => !m.deletedAt && !m.isArchived && canEmbedOnWebsite(m.visibility ?? 'private')
-	);
-
-	if (memos.length === 0) return [];
-
-	const decrypted = (await decryptRecords('memos', memos)) as LocalMemo[];
-
-	// Pinned first, then newest.
-	decrypted.sort((a, b) => {
-		const pinA = a.isPinned ? 0 : 1;
-		const pinB = b.isPinned ? 0 : 1;
-		if (pinA !== pinB) return pinA - pinB;
-		return (b.updatedAt ?? '').localeCompare(a.updatedAt ?? '');
-	});
-
-	function durationLabel(ms: number | null): string | null {
-		if (!ms || ms <= 0) return null;
-		const seconds = Math.round(ms / 1000);
-		if (seconds < 60) return `${seconds}s`;
-		const m = Math.floor(seconds / 60);
-		const s = seconds % 60;
-		return s === 0 ? `${m} Min` : `${m}:${String(s).padStart(2, '0')} Min`;
-	}
-
-	return decrypted.map((m) => {
-		const intro = (m.intro ?? '').trim().slice(0, 140);
-		const dur = durationLabel(m.audioDurationMs);
-		const subtitleParts = [intro || null, dur].filter((x): x is string => Boolean(x));
-		return {
-			title: (m.title ?? '').trim() || 'Memo',
-			subtitle: subtitleParts.length > 0 ? subtitleParts.join(' · ') : undefined,
 		};
 	});
 }

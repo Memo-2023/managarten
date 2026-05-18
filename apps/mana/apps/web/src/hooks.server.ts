@@ -35,10 +35,6 @@ const PUBLIC_SYNC_SERVER_URL_CLIENT =
 	process.env.PUBLIC_SYNC_SERVER_URL_CLIENT || process.env.PUBLIC_SYNC_SERVER_URL || '';
 const PUBLIC_ULOAD_SERVER_URL_CLIENT =
 	process.env.PUBLIC_ULOAD_SERVER_URL_CLIENT || process.env.PUBLIC_ULOAD_SERVER_URL || '';
-// memoro-server is intentionally not injected — the unified web app's memoro
-// module is fully local-first (recorder + Dexie + sync) and never calls the
-// standalone server. The memoro-server compose service still exists for the
-// mobile app, but mana.how does not depend on it.
 const PUBLIC_MANA_MEDIA_URL_CLIENT =
 	process.env.PUBLIC_MANA_MEDIA_URL_CLIENT || process.env.PUBLIC_MANA_MEDIA_URL || '';
 const PUBLIC_MANA_LLM_URL_CLIENT =
@@ -158,7 +154,6 @@ const APP_SUBDOMAINS = new Set([
 	'inventory',
 	'times',
 	'uload',
-	'memoro',
 	'questions',
 ]);
 

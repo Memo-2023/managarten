@@ -20,7 +20,6 @@ import { socialEventsTools } from '$lib/modules/events/tools';
 import { musicTools } from '$lib/modules/music/tools';
 import { storageTools } from '$lib/modules/storage/tools';
 import { chatTools } from '$lib/modules/chat/tools';
-import { memoroTools } from '$lib/modules/memoro/tools';
 import { skilltreeTools } from '$lib/modules/skilltree/tools';
 import { periodTools } from '$lib/modules/period/tools';
 import { firstsTools } from '$lib/modules/firsts/tools';
@@ -69,7 +68,6 @@ export function initTools(): void {
 	registerTools(musicTools);
 	registerTools(storageTools);
 	registerTools(chatTools);
-	registerTools(memoroTools);
 	registerTools(skilltreeTools);
 	registerTools(periodTools);
 	registerTools(firstsTools);

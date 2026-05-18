@@ -67,7 +67,6 @@ import { timesModuleConfig } from '$lib/modules/times/module.config';
 import { questionsModuleConfig } from '$lib/modules/questions/module.config';
 import { uloadModuleConfig } from '$lib/modules/uload/module.config';
 import { calcModuleConfig } from '$lib/modules/calc/module.config';
-import { memoroModuleConfig } from '$lib/modules/memoro/module.config';
 import { guidesModuleConfig } from '$lib/modules/guides/module.config';
 import { habitsModuleConfig } from '$lib/modules/habits/module.config';
 import { notesModuleConfig } from '$lib/modules/notes/module.config';
@@ -124,7 +123,6 @@ export const MODULE_CONFIGS: readonly ModuleConfig[] = [
 	questionsModuleConfig,
 	uloadModuleConfig,
 	calcModuleConfig,
-	memoroModuleConfig,
 	guidesModuleConfig,
 	habitsModuleConfig,
 	notesModuleConfig,

@@ -161,7 +161,6 @@ const track = {
 	quotes: createModuleTracker('quotes'),
 	presi: createModuleTracker('presi'),
 	subscription: createModuleTracker('subscription'),
-	memoro: createModuleTracker('memoro'),
 	app: createModuleTracker('app'),
 	calc: createModuleTracker('calc'),
 	inventory: createModuleTracker('inventory'),
@@ -470,39 +469,6 @@ export const SubscriptionEvents = {
 	subscriptionCanceled: (plan: string) => track.subscription('subscription_canceled', { plan }),
 	trialStarted: () => track.subscription('trial_started'),
 	trialEnded: (converted: boolean) => track.subscription('trial_ended', { converted }),
-};
-
-/**
- * Memoro App Events
- */
-export const MemoroEvents = {
-	memoCreated: (mediaType?: string) =>
-		track.memoro('memo_created', mediaType ? { media_type: mediaType } : undefined),
-	memoDeleted: () => track.memoro('memo_deleted'),
-	memoCombined: (count: number) => track.memoro('memo_combined', { memo_count: count }),
-	memoQuestioned: () => track.memoro('memo_questioned'),
-	recordingStarted: () => track.memoro('recording_started'),
-	recordingCompleted: (durationSeconds: number) =>
-		track.memoro('recording_completed', { duration_seconds: durationSeconds }),
-	recordingAppended: () => track.memoro('recording_appended'),
-	transcriptionRetried: () => track.memoro('transcription_retried'),
-	headlineRetried: () => track.memoro('headline_retried'),
-	spaceCreated: () => track.memoro('space_created'),
-	spaceDeleted: () => track.memoro('space_deleted'),
-	spaceLeft: () => track.memoro('space_left'),
-	memoLinkedToSpace: () => track.memoro('memo_linked_to_space'),
-	memoUnlinkedFromSpace: () => track.memoro('memo_unlinked_from_space'),
-	inviteSent: () => track.memoro('invite_sent'),
-	inviteAccepted: () => track.memoro('invite_accepted'),
-	inviteDeclined: () => track.memoro('invite_declined'),
-	meetingBotCreated: (platform: string) => track.memoro('meeting_bot_created', { platform }),
-	meetingBotStopped: () => track.memoro('meeting_bot_stopped'),
-	recordingToMemo: () => track.memoro('recording_to_memo'),
-	blueprintSelected: (blueprintId: string) =>
-		track.memoro('blueprint_selected', { blueprint_id: blueprintId }),
-	playbackStarted: () => track.memoro('playback_started'),
-	settingsUpdated: (setting: string) => track.memoro('settings_updated', { setting }),
-	themeChanged: (theme: string) => track.memoro('theme_changed', { theme }),
 };
 
 /**

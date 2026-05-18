@@ -85,9 +85,9 @@ export const ONBOARDING_TEMPLATES: readonly OnboardingTemplate[] = [
 	{
 		id: 'erinnern',
 		name: 'Erinnern',
-		shortDescription: 'Memoro, Journal, Fotos, Zitate',
+		shortDescription: 'Journal, Fotos, Zitate',
 		iconName: 'Camera',
-		moduleIds: ['memoro', 'journal', 'photos', 'moodlit', 'quotes'],
+		moduleIds: ['journal', 'photos', 'quotes'],
 	},
 ];
 

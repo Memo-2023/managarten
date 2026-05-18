@@ -1,6 +1,0 @@
-{
-	"name": "react-native-worklets",
-	"version": "0.0.1",
-	"description": "Stub package to resolve babel plugin issues",
-	"main": "index.js"
-}

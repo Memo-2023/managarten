@@ -117,11 +117,6 @@ ingress:
     service: http://localhost:5000
   - hostname: uload.mana.how
     service: http://localhost:5000
-  # memoro.mana.how moved off the unified mana web app (5000) to the
-  # Memoro Astro landing container (Code/memoro/apps/landing → :3120) on
-  # 2026-05-06. The standalone Memoro stack lives at memoro-api/audio
-  # below; the landing is the public marketing site.
-  # NB: keep this entry in the Memoro section, not the unified-app block.
   - hostname: context.mana.how
     service: http://localhost:5000
   - hostname: questions.mana.how
@@ -381,8 +376,7 @@ ingress:
   # ============================================
   # Comicello — Text→Comic-Storyboard (Code/comicello/).
   # ~/projects/comicello/ on the Mac Mini.
-  # Ports per mana/docs/PORTS.md: 3109 api / 3110 web (mac-mini-Mapping:
-  # 3111, da 3110 von memoro-server belegt). Tier-Gate beta.
+  # Ports per mana/docs/PORTS.md: 3109 api / 3110 web. Tier-Gate beta.
   # Konsumiert mana-llm, mana-image-edits, mana-media, mana-me, mana-credits.
   # DNS für comicello.com + api.comicello.com kommt sobald Till die
   # .com-Domain registriert hat — bis dahin nur die .mana.how-Routen.
