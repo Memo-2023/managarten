@@ -105,8 +105,6 @@ ingress:
     service: http://localhost:5000
   - hostname: presi.mana.how
     service: http://localhost:5000
-  - hostname: food.mana.how
-    service: http://localhost:5000
   - hostname: photos.mana.how
     service: http://localhost:5000
   - hostname: mukke.mana.how
@@ -114,8 +112,6 @@ ingress:
   - hostname: picture.mana.how
     service: http://localhost:5000
   - hostname: calc.mana.how
-    service: http://localhost:5000
-  - hostname: citycorners.mana.how
     service: http://localhost:5000
   - hostname: inventar.mana.how
     service: http://localhost:5000
@@ -342,13 +338,14 @@ ingress:
   - hostname: docs.mana.how
     service: http://localhost:4400
 
-  # Lesen — Reader-Webapp (Code/lesen/). ~/projects/lesen/ auf dem
+  # Pageta — Reader-Webapp (Code/pageta/). ~/projects/pageta/ auf dem
   # Mac Mini. Ports per mana/docs/PORTS.md: 3099 api / 3100 web.
-  # Live seit 2026-05-16. Verein-App (Tier-Gate public). Konsumiert
-  # mana-news-pool (Plattform-Service Port 3079).
-  - hostname: lesen.mana.how
+  # Live seit 2026-05-16 (vormals lesen.mana.how, Rebrand 2026-05-18).
+  # Verein-App (Tier-Gate public). Konsumiert mana-news-pool
+  # (Plattform-Service Port 3079).
+  - hostname: pageta.mana.how
     service: http://localhost:3100
-  - hostname: lesen-api.mana.how
+  - hostname: pageta-api.mana.how
     service: http://localhost:3099
 
   # ============================================
