@@ -57,8 +57,6 @@ const INTERNAL_TABLES = new Set([
 	// which writes via its module's sync path — proposals themselves never
 	// leave the device.
 	'pendingProposals',
-	// Local-only news feed cache.
-	'newsCachedFeed',
 ]);
 
 // ─── Dexie tables that survive in the schema for backwards-compat with
@@ -232,7 +230,6 @@ describe('module-registry — snapshot', () => {
 			finance: ['transactions', 'financeCategories', 'budgets'],
 			places: ['places', 'locationLogs', 'placeTags'],
 			playground: ['playgroundSnippets', 'playgroundConversations', 'playgroundMessages'],
-			news: ['newsArticles', 'newsCategories', 'newsPreferences', 'newsReactions'],
 			body: [
 				'bodyExercises',
 				'bodyRoutines',
@@ -315,10 +312,6 @@ describe('module-registry — snapshot', () => {
 			playgroundSnippets: 'snippets',
 			playgroundConversations: 'conversations',
 			playgroundMessages: 'messages',
-			newsArticles: 'articles',
-			newsCategories: 'categories',
-			newsPreferences: 'preferences',
-			newsReactions: 'reactions',
 			quizQuestions: 'questions',
 			quizAttempts: 'attempts',
 			articleHighlights: 'highlights',

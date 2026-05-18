@@ -77,7 +77,6 @@ import { eventsModuleConfig } from '$lib/modules/events/module.config';
 import { financeModuleConfig } from '$lib/modules/finance/module.config';
 import { placesModuleConfig } from '$lib/modules/places/module.config';
 import { playgroundModuleConfig } from '$lib/modules/playground/module.config';
-import { newsModuleConfig } from '$lib/modules/news/module.config';
 import { bodyModuleConfig } from '$lib/modules/body/module.config';
 import { firstsModuleConfig } from '$lib/modules/firsts/module.config';
 import { lastsModuleConfig } from '$lib/modules/lasts/module.config';
@@ -133,7 +132,6 @@ export const MODULE_CONFIGS: readonly ModuleConfig[] = [
 	financeModuleConfig,
 	placesModuleConfig,
 	playgroundModuleConfig,
-	newsModuleConfig,
 	bodyModuleConfig,
 	firstsModuleConfig,
 	lastsModuleConfig,

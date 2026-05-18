@@ -414,23 +414,6 @@ export const MANA_APPS: ManaApp[] = [
 		requiredTier: 'guest',
 	},
 	{
-		id: 'news',
-		name: 'News Hub',
-		description: {
-			de: 'Kuratierter Newsfeed',
-			en: 'Curated News Feed',
-		},
-		longDescription: {
-			de: 'Kuratierter Newsfeed aus öffentlichen Quellen mit persönlicher Leseliste — wähle Themen aus, blende Quellen aus und bau dir deinen eigenen Feed.',
-			en: 'Curated news feed from public sources with a personal reading list — pick topics, hide sources, and shape your own feed.',
-		},
-		icon: APP_ICONS.news,
-		color: '#10b981',
-		comingSoon: false,
-		status: 'development',
-		requiredTier: 'guest',
-	},
-	{
 		id: 'news-research',
 		name: 'News Research',
 		description: {

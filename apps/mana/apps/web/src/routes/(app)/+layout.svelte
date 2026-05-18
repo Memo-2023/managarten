@@ -16,7 +16,6 @@
 	import { todoReminderSource } from '$lib/modules/todo/reminder-source';
 	import { startEventStore, stopEventStore } from '$lib/data/events/event-store';
 	import { startMissionTick, stopMissionTick } from '$lib/data/ai/missions/setup';
-	import { runArticlesFromNewsMigration } from '$lib/modules/articles/migrations/from-news';
 	import {
 		startServerIterationExecutor,
 		stopServerIterationExecutor,
@@ -599,10 +598,6 @@
 			// Apply server-planned iterations locally on sync — see
 			// data/ai/missions/server-iteration-executor.ts.
 			startServerIterationExecutor();
-			// One-off migration: legacy news `type='saved'` rows → new
-			// articles module. Sentinel-gated so it runs once per device.
-			// See modules/articles/migrations/from-news.ts.
-			void runArticlesFromNewsMigration();
 		});
 
 		// Restore nav collapsed state (cheap, keep inline)

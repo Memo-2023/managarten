@@ -77,7 +77,6 @@ export const SPACE_MODULE_ALLOWLIST: Record<SpaceType, readonly SpaceModuleId[] 
 		'cards',
 		'picture',
 		'quotes',
-		'news',
 		'news-research',
 		'research-lab',
 		'ai-agents',
@@ -99,7 +98,6 @@ export const SPACE_MODULE_ALLOWLIST: Record<SpaceType, readonly SpaceModuleId[] 
 		'mail',
 		'storage',
 		'uload',
-		'news',
 		'research-lab',
 		'club-members', // future — ClubDesk Paket A
 		'club-finance', // future — ClubDesk Paket B
@@ -152,7 +150,6 @@ export const SPACE_MODULE_ALLOWLIST: Record<SpaceType, readonly SpaceModuleId[] 
 		'mail',
 		'uload',
 		'website',
-		'news',
 		'news-research',
 		'research-lab',
 		'presi',

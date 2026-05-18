@@ -1304,10 +1304,8 @@ services:
       MANA_CREDITS_URL: http://mana-credits:3002
       MANA_MEDIA_URL: http://mana-media:3011
       MANA_CRAWLER_URL: http://mana-crawler:3014
-      # mana-news-pool — Plattform-Service (Lift-B 2026-05-16). Ersetzt
-      # den ehemaligen news-ingester:3066-Container, der direkt in
-      # mana_platform.news.curated_articles schrieb. apps/api/news/routes.ts
-      # ist seit 2026-05-17 ein HTTP-Proxy auf diesen Endpoint.
+      # mana-news-pool — Plattform-Service (Lift-B 2026-05-16). Wird
+      # vom news-research-Modul + von der Pageta-Standalone konsumiert.
       MANA_NEWS_POOL_URL: http://mana-news-pool:3079
       MANA_LLM_DEFAULT_MODEL: ${MANA_LLM_DEFAULT_MODEL:-gemma3:4b}
       MANA_SERVICE_KEY: ${MANA_SERVICE_KEY}

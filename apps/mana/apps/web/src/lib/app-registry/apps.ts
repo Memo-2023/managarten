@@ -36,7 +36,6 @@ import {
 	Calculator,
 	Lightning,
 	PencilRuler,
-	Newspaper,
 	Person,
 	GenderFemale,
 	CalendarStar,
@@ -96,7 +95,7 @@ import {
 //       Daily-use:    habits · notes · journal · myday · drink ·
 //                     mood · sleep · activity · times · finance
 //       Knowledge:    chat · kontext · cards · quiz · guides ·
-//                     news · news-research · research-lab · articles ·
+//                     news-research · research-lab · articles ·
 //                     library · writing · comic · presi
 //       Body & life:  body · meditate · stretch · period ·
 //                     dreams · firsts · lasts · habits · recipes
@@ -753,27 +752,6 @@ registerApp({
 		detail: { load: () => import('$lib/modules/events/views/DetailView.svelte') },
 	},
 	paramKey: 'eventId',
-});
-
-registerApp({
-	id: 'news',
-	name: 'News',
-	color: '#10B981',
-	icon: Newspaper,
-	views: {
-		list: { load: () => import('$lib/modules/news/ListView.svelte') },
-	},
-	contextMenuActions: [
-		{
-			id: 'open-feed',
-			label: 'Feed öffnen',
-			icon: Plus,
-			action: () =>
-				window.dispatchEvent(
-					new CustomEvent('mana:quick-action', { detail: { app: 'news', action: 'open' } })
-				),
-		},
-	],
 });
 
 registerApp({

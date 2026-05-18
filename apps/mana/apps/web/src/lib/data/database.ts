@@ -1575,6 +1575,22 @@ db.version(64).stores({
 	memoSpaces: null,
 });
 
+// v65 — News module retirement (2026-05-18).
+// News-Reader-Surface ist nach Pageta (pageta.mana.how) umgezogen,
+// das mit eigener Postgres-DB + eigenem Article-Store läuft. Der
+// kuratierte Pool selbst lebt im Plattform-Service `mana-news-pool`
+// und wird via news-research (in managarten) + Pageta-Reader (extern)
+// weiterhin genutzt.
+// dropped: newsArticles, newsCategories, newsPreferences, newsReactions,
+//          newsCachedFeed (war NICHT synced, nur local-mirror).
+db.version(65).stores({
+	newsArticles: null,
+	newsCategories: null,
+	newsPreferences: null,
+	newsReactions: null,
+	newsCachedFeed: null,
+});
+
 // ─── Sync Routing ──────────────────────────────────────────
 // SYNC_APP_MAP, TABLE_TO_SYNC_NAME, TABLE_TO_APP, SYNC_NAME_TO_TABLE,
 // toSyncName() and fromSyncName() are now derived from per-module

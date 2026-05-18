@@ -14,14 +14,10 @@
 	import type { ViewProps } from '$lib/app-registry';
 	import { researchSessionStore } from '$lib/modules/news-research/stores/session.svelte';
 	import { articlesStore } from '$lib/modules/articles/stores/articles.svelte';
-	import { preferencesStore } from '$lib/modules/news/stores/preferences.svelte';
-	import { usePreferences } from '$lib/modules/news/queries';
 
 	const {}: ViewProps = $props();
 
 	const store = researchSessionStore;
-	const prefs$ = usePreferences();
-	const pinnedUrls = $derived(new Set((prefs$.value?.customFeeds ?? []).map((f) => f.url)));
 
 	let mode = $state<'query' | 'site'>('query');
 	let query = $state('');
@@ -56,15 +52,6 @@
 		if (!searchQuery.trim()) return;
 		await store.runSearch(searchQuery.trim());
 		feedsOpen = false;
-	}
-
-	async function togglePin(feed: { url: string; title: string | null }) {
-		if (pinnedUrls.has(feed.url)) {
-			const existing = (prefs$.value?.customFeeds ?? []).find((f) => f.url === feed.url);
-			if (existing) await preferencesStore.unpinCustomFeed(existing.id);
-		} else {
-			await preferencesStore.pinCustomFeed({ url: feed.url, title: feed.title ?? feed.url });
-		}
 	}
 
 	async function onSave(articleUrl: string) {
@@ -157,15 +144,6 @@
 								/>
 								<span class="ft">{feed.title ?? feed.url}</span>
 							</label>
-							<button
-								type="button"
-								class="pin"
-								class:pinned={pinnedUrls.has(feed.url)}
-								onclick={() => togglePin(feed)}
-								title={pinnedUrls.has(feed.url) ? 'Abo entfernen' : 'Abonnieren'}
-							>
-								{pinnedUrls.has(feed.url) ? '★' : '☆'}
-							</button>
 						</li>
 					{/each}
 				</ul>
@@ -355,17 +333,6 @@
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
-	}
-	.pin {
-		background: transparent;
-		border: none;
-		cursor: pointer;
-		font-size: 0.95rem;
-		color: hsl(var(--color-muted-foreground));
-		padding: 0 0.25rem;
-	}
-	.pin.pinned {
-		color: hsl(var(--color-primary));
 	}
 	.results-head {
 		display: flex;

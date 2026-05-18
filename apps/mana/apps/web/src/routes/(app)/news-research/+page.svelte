@@ -9,8 +9,6 @@
 	import { goto } from '$app/navigation';
 	import { researchSessionStore } from '$lib/modules/news-research/stores/session.svelte';
 	import { articlesStore } from '$lib/modules/articles/stores/articles.svelte';
-	import { preferencesStore } from '$lib/modules/news/stores/preferences.svelte';
-	import { usePreferences } from '$lib/modules/news/queries';
 	import { RoutePage } from '$lib/components/shell';
 
 	let mode = $state<'query' | 'site'>('query');
@@ -22,20 +20,6 @@
 	let saveError = $state<string | null>(null);
 
 	const store = researchSessionStore;
-	const prefs$ = usePreferences();
-	const pinnedUrls = $derived(new Set((prefs$.value?.customFeeds ?? []).map((f) => f.url)));
-
-	async function togglePin(feed: { url: string; title: string | null }) {
-		if (pinnedUrls.has(feed.url)) {
-			const existing = (prefs$.value?.customFeeds ?? []).find((f) => f.url === feed.url);
-			if (existing) await preferencesStore.unpinCustomFeed(existing.id);
-		} else {
-			await preferencesStore.pinCustomFeed({
-				url: feed.url,
-				title: feed.title ?? feed.url,
-			});
-		}
-	}
 
 	function isUrl(s: string): boolean {
 		try {
@@ -175,18 +159,6 @@
 								<span class="feed-title">{feed.title ?? feed.url}</span>
 								<span class="feed-type">{feed.type}</span>
 								{#if feed.sourceHit}<span class="feed-src">{feed.sourceHit}</span>{/if}
-								<button
-									type="button"
-									class="pin"
-									class:pinned={pinnedUrls.has(feed.url)}
-									onclick={(e) => {
-										e.preventDefault();
-										togglePin(feed);
-									}}
-									title={pinnedUrls.has(feed.url) ? 'Abo entfernen' : 'Als Abo speichern'}
-								>
-									{pinnedUrls.has(feed.url) ? '★ Abonniert' : '☆ Abonnieren'}
-								</button>
 							</label>
 						</li>
 					{/each}
@@ -371,21 +343,6 @@
 	.feed-src {
 		font-size: 0.75rem;
 		color: hsl(var(--color-muted-foreground));
-	}
-	.pin {
-		margin-left: auto;
-		background: transparent;
-		border: 1px solid hsl(var(--color-border));
-		border-radius: 0.35rem;
-		padding: 0.15rem 0.55rem;
-		font-size: 0.75rem;
-		cursor: pointer;
-		color: hsl(var(--color-foreground));
-	}
-	.pin.pinned {
-		background: hsl(var(--color-primary));
-		color: hsl(var(--color-primary-foreground, 0 0% 100%));
-		border-color: transparent;
 	}
 	.result {
 		padding: 0.75rem;

@@ -326,30 +326,6 @@ export const AI_TOOL_CATALOG: readonly ToolSchema[] = [
 		],
 	},
 
-	// ── News ──────────────────────────────────────────────────
-	{
-		name: 'save_news_article',
-		module: 'news',
-		description:
-			'Speichert einen Artikel von einer URL in die Leseliste. URL wird serverseitig per Readability extrahiert.',
-		defaultPolicy: 'propose',
-		parameters: [
-			{ name: 'url', type: 'string', description: 'Die Artikel-URL', required: true },
-			{
-				name: 'title',
-				type: 'string',
-				description: 'Anzeigetitel für den Approval-Dialog (informativ)',
-				required: false,
-			},
-			{
-				name: 'summary',
-				type: 'string',
-				description: 'Kurze Begründung warum dieser Artikel relevant ist',
-				required: false,
-			},
-		],
-	},
-
 	// ── Articles (Pocket-style read-it-later) ───────────────
 	{
 		name: 'list_articles',

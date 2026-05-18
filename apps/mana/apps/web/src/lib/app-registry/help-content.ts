@@ -816,21 +816,6 @@ export const MODULE_HELP: Record<string, ModuleHelp> = {
 		],
 		tips: ['Jedes Modul hat zusätzlich sein eigenes ?-Icon mit kontextueller Hilfe'],
 	},
-	news: {
-		description:
-			'Kuratierter News-Feed aus vertrauenswürdigen Quellen. 7 Themen (Tech, Wissenschaft, Weltgeschehen, Wirtschaft, Kultur, Gesundheit, Politik). Alle 15 Minuten aktualisiert.',
-		features: [
-			'Thema-Filter + Sprachauswahl (DE/EN)',
-			'Eigene Abos über Custom-Feeds',
-			'Artikel in Leseliste speichern (verschlüsselt)',
-			'AI-Tool: `save_news_article`',
-			'Schwester-Modul: /research-lab für tiefere Recherche',
-		],
-		tips: [
-			'Ziehe einen Artikel auf Notizen um eine Zusammenfassung zu erstellen',
-			'Für Nicht-RSS-Quellen: Research Lab mit Deep-Research nutzen',
-		],
-	},
 	profile: {
 		description:
 			'Dein persönliches Profil — der Kontext-Doc, den alle AI-Agents als Basis nutzen. Wer bist du, was willst du, was sollte Mana über dich wissen.',

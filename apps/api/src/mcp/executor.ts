@@ -616,33 +616,6 @@ register('log_habit', async (args, userId) => {
 	return ok(`Habit geloggt.`);
 });
 
-// ── News tools ────────────────────────────────────────────────
-
-register('save_news_article', async (args, userId) => {
-	const articleId = crypto.randomUUID();
-	const now = nowIso();
-	const data = {
-		id: articleId,
-		userId,
-		url: args.url as string,
-		title: (args.title as string) ?? '',
-		summary: (args.summary as string) ?? '',
-		savedAt: now,
-		createdAt: now,
-		updatedAt: now,
-	};
-	await writeRecord(
-		userId,
-		'news',
-		'savedArticles',
-		articleId,
-		'insert',
-		data,
-		fieldTs(Object.keys(data))
-	);
-	return ok(`Artikel gespeichert: "${args.title || args.url}"`, { id: articleId });
-});
-
 // ── Entry point ────────────────────────────────────────────────
 
 /**

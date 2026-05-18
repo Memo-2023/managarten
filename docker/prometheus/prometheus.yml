@@ -251,7 +251,6 @@ scrape_configs:
           - https://mana.how/finance
           - https://mana.how/places
           # mana.how/who: existiert nicht im unified-app — Who läuft als Standalone-Stack auf who.mana.how
-          - https://mana.how/news
           - https://mana.how/mail
           - https://mana.how/playground
           # ─── Standalone Apps / Games (separate Container, eigene Tunnel-Hostnames) ───
