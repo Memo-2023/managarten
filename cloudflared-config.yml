@@ -116,7 +116,7 @@ ingress:
   - hostname: times.mana.how
     service: http://localhost:5000
   - hostname: uload.mana.how
-    service: http://localhost:5000
+    service: http://localhost:3108
   - hostname: context.mana.how
     service: http://localhost:5000
   - hostname: questions.mana.how
@@ -171,7 +171,9 @@ ingress:
   # Standalone microservices
   # ============================================
   - hostname: uload-api.mana.how
-    service: http://localhost:3070
+    service: http://localhost:3107
+  - hostname: ulo.ad
+    service: http://localhost:3107
   - hostname: media.mana.how
     service: http://localhost:3011
   - hostname: llm.mana.how
