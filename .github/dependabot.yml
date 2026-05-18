@@ -98,15 +98,6 @@ updates:
       - "automated"
 
   - package-ecosystem: "docker"
-    directory: "/apps/food/apps/backend"
-    schedule:
-      interval: "weekly"
-    open-pull-requests-limit: 5
-    labels:
-      - "docker"
-      - "automated"
-
-  - package-ecosystem: "docker"
     directory: "/apps/news/apps/api"
     schedule:
       interval: "weekly"

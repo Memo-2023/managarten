@@ -12,7 +12,6 @@ export { default as RecentContactsWidget } from './RecentContactsWidget.svelte';
 export { default as QuoteOfTheDayWidget } from './QuoteOfTheDayWidget.svelte';
 export { default as ActiveTimerWidget } from './ActiveTimerWidget.svelte';
 export { default as RecentChatsWidget } from './RecentChatsWidget.svelte';
-export { default as NutritionProgressWidget } from './NutritionProgressWidget.svelte';
 export { default as PlantWateringWidget } from './PlantWateringWidget.svelte';
 export { default as QuickActionsWidget } from './QuickActionsWidget.svelte';
 export { default as WidgetGrid } from './WidgetGrid.svelte';

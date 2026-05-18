@@ -63,14 +63,11 @@ import { presiModuleConfig } from '$lib/modules/presi/module.config';
 import { inventoryModuleConfig } from '$lib/modules/inventory/module.config';
 import { photosModuleConfig } from '$lib/modules/photos/module.config';
 import { skilltreeModuleConfig } from '$lib/modules/skilltree/module.config';
-import { citycornersModuleConfig } from '$lib/modules/citycorners/module.config';
 import { timesModuleConfig } from '$lib/modules/times/module.config';
 import { questionsModuleConfig } from '$lib/modules/questions/module.config';
-import { foodModuleConfig } from '$lib/modules/food/module.config';
 import { plantsModuleConfig } from '$lib/modules/plants/module.config';
 import { uloadModuleConfig } from '$lib/modules/uload/module.config';
 import { calcModuleConfig } from '$lib/modules/calc/module.config';
-import { moodlitModuleConfig } from '$lib/modules/moodlit/module.config';
 import { memoroModuleConfig } from '$lib/modules/memoro/module.config';
 import { guidesModuleConfig } from '$lib/modules/guides/module.config';
 import { habitsModuleConfig } from '$lib/modules/habits/module.config';
@@ -101,7 +98,6 @@ import { invoicesModuleConfig } from '$lib/modules/invoices/module.config';
 import { broadcastModuleConfig } from '$lib/modules/broadcasts/module.config';
 import { wetterModuleConfig } from '$lib/modules/wetter/module.config';
 import { websiteModuleConfig } from '$lib/modules/website/module.config';
-import { wardrobeModuleConfig } from '$lib/modules/wardrobe/module.config';
 import { writingModuleConfig } from '$lib/modules/writing/module.config';
 import { comicModuleConfig } from '$lib/modules/comic/module.config';
 import { augurModuleConfig } from '$lib/modules/augur/module.config';
@@ -125,14 +121,11 @@ export const MODULE_CONFIGS: readonly ModuleConfig[] = [
 	inventoryModuleConfig,
 	photosModuleConfig,
 	skilltreeModuleConfig,
-	citycornersModuleConfig,
 	timesModuleConfig,
 	questionsModuleConfig,
-	foodModuleConfig,
 	plantsModuleConfig,
 	uloadModuleConfig,
 	calcModuleConfig,
-	moodlitModuleConfig,
 	memoroModuleConfig,
 	guidesModuleConfig,
 	habitsModuleConfig,
@@ -163,7 +156,6 @@ export const MODULE_CONFIGS: readonly ModuleConfig[] = [
 	broadcastModuleConfig,
 	wetterModuleConfig,
 	websiteModuleConfig,
-	wardrobeModuleConfig,
 	writingModuleConfig,
 	comicModuleConfig,
 	augurModuleConfig,

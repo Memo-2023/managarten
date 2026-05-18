@@ -26,7 +26,6 @@ import {
 	MusicNotes,
 	Camera,
 	HardDrives,
-	ForkKnife,
 	Plant,
 	Presentation,
 	Package,
@@ -34,7 +33,6 @@ import {
 	NumberCircleOne,
 	Binoculars,
 	ArrowsInCardinal,
-	SunHorizon,
 	Buildings,
 	DownloadSimple,
 	Calculator,
@@ -76,7 +74,6 @@ import {
 	Flask,
 	Exam,
 	Globe,
-	CoatHanger,
 	NotePencil,
 	FilmStrip,
 	Hourglass,
@@ -103,10 +100,10 @@ import {
 //       Knowledge:    chat · kontext · cards · quiz · guides ·
 //                     news · news-research · research-lab · articles ·
 //                     library · writing · comic · presi
-//       Body & life:  body · food · meditate · stretch · period ·
+//       Body & life:  body · meditate · stretch · period ·
 //                     dreams · firsts · lasts · habits · recipes
-//       Places & ev.: places · citycorners · events · who
-//       Creative:     picture · music · photos · wardrobe · moodlit
+//       Places & ev.: places · events · who
+//       Creative:     picture · music · photos
 //       Tools:        memoro · uload · calc · plants · inventory ·
 //                     storage · skilltree · questions
 //       Long-tail:    quotes · automations · companion · wetter ·
@@ -642,27 +639,6 @@ registerApp({
 });
 
 registerApp({
-	id: 'food',
-	name: 'Food',
-	color: '#22C55E',
-	icon: ForkKnife,
-	views: {
-		list: { load: () => import('$lib/modules/food/ListView.svelte') },
-	},
-	contextMenuActions: [
-		{
-			id: 'new-meal',
-			label: 'Neue Mahlzeit',
-			icon: Plus,
-			action: () =>
-				window.dispatchEvent(
-					new CustomEvent('mana:quick-action', { detail: { app: 'food', action: 'new' } })
-				),
-		},
-	],
-});
-
-registerApp({
 	id: 'plants',
 	name: 'Plants',
 	color: '#16A34A',
@@ -725,27 +701,6 @@ registerApp({
 	views: {
 		list: { load: () => import('$lib/modules/skilltree/ListView.svelte') },
 		detail: { load: () => import('$lib/modules/skilltree/views/DetailView.svelte') },
-	},
-});
-
-registerApp({
-	id: 'moodlit',
-	name: 'Moodlit',
-	color: '#F97316',
-	icon: SunHorizon,
-	views: {
-		list: { load: () => import('$lib/modules/moodlit/ListView.svelte') },
-	},
-});
-
-registerApp({
-	id: 'citycorners',
-	name: 'CityCorners',
-	color: '#14B8A6',
-	icon: Buildings,
-	views: {
-		list: { load: () => import('$lib/modules/citycorners/ListView.svelte') },
-		detail: { load: () => import('$lib/modules/citycorners/views/DetailView.svelte') },
 	},
 });
 
@@ -1331,19 +1286,6 @@ registerApp({
 	icon: HeartHalf,
 	views: {
 		list: { load: () => import('$lib/modules/feedback/ListView.svelte') },
-	},
-});
-
-registerApp({
-	id: 'wardrobe',
-	name: 'Kleiderschrank',
-	color: '#e11d48',
-	icon: CoatHanger,
-	views: {
-		// Detail routes (/wardrobe/garment/[id], /wardrobe/outfit/[id],
-		// /wardrobe/compose/[[outfitId]]) live as SvelteKit routes; the
-		// workbench only needs the list view for the tab-switcher root.
-		list: { load: () => import('$lib/modules/wardrobe/ListView.svelte') },
 	},
 });
 

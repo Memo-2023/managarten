@@ -72,7 +72,9 @@ function scanUsages() {
 	const dynamicPrefixes = new Set();
 
 	for (const f of files) {
-		const src = readFileSync(join(REPO_ROOT, f), 'utf8');
+		const abs = join(REPO_ROOT, f);
+		if (!existsSync(abs)) continue; // tracked but deleted-on-disk (rm without commit)
+		const src = readFileSync(abs, 'utf8');
 
 		// $_('a.b.c')  or  _('a.b.c')
 		for (const m of src.matchAll(/\$?_\(\s*['"]([a-zA-Z][\w.-]*)['"]/g)) {
@@ -177,7 +179,9 @@ function main() {
 	}
 
 	if (violations.length > 0) {
-		console.error(`\n✗ i18n missing-key check FAILED — ${violations.length} file(s) over baseline:\n`);
+		console.error(
+			`\n✗ i18n missing-key check FAILED — ${violations.length} file(s) over baseline:\n`
+		);
 		for (const v of violations.slice(0, 20)) {
 			console.error(`  ${v.file}: ${v.current} (was ${v.baseline}, +${v.delta})`);
 			for (const k of v.keys.slice(0, 3)) console.error(`    - ${k}`);

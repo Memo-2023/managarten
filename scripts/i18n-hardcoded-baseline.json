@@ -54,7 +54,6 @@
 	"apps/mana/apps/web/src/lib/modules/articles/views/HighlightsView.svelte": 4,
 	"apps/mana/apps/web/src/lib/modules/articles/widgets/ArticlesUnreadWidget.svelte": 1,
 	"apps/mana/apps/web/src/lib/modules/augur/SharedAugurEntryView.svelte": 1,
-	"apps/mana/apps/web/src/lib/modules/body/components/CalorieWeightChart.svelte": 1,
 	"apps/mana/apps/web/src/lib/modules/body/components/ExerciseProgressionChart.svelte": 1,
 	"apps/mana/apps/web/src/lib/modules/body/components/PhaseManager.svelte": 1,
 	"apps/mana/apps/web/src/lib/modules/body/components/RoutineManager.svelte": 3,

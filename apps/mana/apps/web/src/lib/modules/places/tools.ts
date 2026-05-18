@@ -27,7 +27,6 @@ export const placesTools: ModuleTool[] = [
 				enum: [
 					'home',
 					'work',
-					'food',
 					'shopping',
 					'sport',
 					'culture',

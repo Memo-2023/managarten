@@ -15,18 +15,17 @@
  *                                     existing story
  *
  * Space scope: stories live in the active space. Character references
- * (meImages face-ref / wardrobe garments) likewise space-scoped after
- * v40. Every tool filters `row.spaceId === ctx.spaceId` client-side
- * mirroring the webapp's scopedForModule behaviour.
+ * (meImages face-ref) are likewise space-scoped after v40. Every tool
+ * filters `row.spaceId === ctx.spaceId` client-side mirroring the
+ * webapp's scopedForModule behaviour.
  *
- * Why generatePanel writes the story update server-side (and
- * wardrobe.tryOn doesn't):
+ * Why generatePanel writes the story update server-side:
  *   A comic panel's value is its position inside a story — leaving
- *   the panel orphan (preview-only in wardrobe style) loses the
- *   story linkage and defeats the tool's purpose. So we pull the
- *   story row, decrypt panelMeta, append, re-encrypt, and push a
- *   field-level update back. A user with the webapp open will see
- *   the new panel via liveQuery within one sync tick.
+ *   the panel orphan loses the story linkage and defeats the tool's
+ *   purpose. So we pull the story row, decrypt panelMeta, append,
+ *   re-encrypt, and push a field-level update back. A user with the
+ *   webapp open will see the new panel via liveQuery within one sync
+ *   tick.
  *
  * Plan: docs/plans/comic-module.md M5.
  */
@@ -199,10 +198,10 @@ export const comicListStories: ToolSpec<typeof listStoriesInput, typeof listStor
 const createStoryInput = z.object({
 	title: z.string().min(1).max(200),
 	style: comicStyle,
-	/** mediaIds of reference images (face-ref first, optional body-ref,
-	 *  optional costume garment photos). Must belong to apps `me` or
-	 *  `wardrobe` — validated server-side by the picture endpoint on the
-	 *  first generatePanel call. Cap 8 (server MAX_REFERENCE_IMAGES). */
+	/** mediaIds of reference images (face-ref first, optional body-ref).
+	 *  Must belong to app `me` — validated server-side by the picture
+	 *  endpoint on the first generatePanel call. Cap 8 (server
+	 *  MAX_REFERENCE_IMAGES). */
 	characterMediaIds: z.array(z.string()).min(1).max(8),
 	description: z.string().max(2000).nullable().default(null),
 	storyContext: z.string().max(2000).nullable().default(null),
@@ -219,7 +218,7 @@ export const comicCreateStory: ToolSpec<typeof createStoryInput, typeof createSt
 	scope: 'user-space',
 	policyHint: 'write',
 	description:
-		'Start a new comic story in the active space. The style and character references are fixed once written — every future `generatePanel` call against this story uses the same refs + style-prefix. Start with 1–8 `characterMediaIds` (face-ref at index 0, body-ref optional, up to 3 garment-ref photos from wardrobe). Returns the empty story; add panels via `comic.generatePanel`.',
+		'Start a new comic story in the active space. The style and character references are fixed once written — every future `generatePanel` call against this story uses the same refs + style-prefix. Start with 1–8 `characterMediaIds` (face-ref at index 0, body-ref optional). Returns the empty story; add panels via `comic.generatePanel`.',
 	input: createStoryInput,
 	output: createStoryOutput,
 	encryptedFields: { table: STORIES_TABLE, fields: [...STORY_ENCRYPTED_FIELDS] },
@@ -400,7 +399,7 @@ export const comicGeneratePanel: ToolSpec<typeof generatePanelInput, typeof gene
 		// shows it alongside other generated images. Uses the same
 		// plaintext-only upload channel mana-sync accepts (picture.images
 		// prompt/negativePrompt are encrypted client-side; MCP path here
-		// pushes plaintext prompts — matches wardrobe.tryOn NOT writing
+		// pushes plaintext prompts — NOT writing
 		// picture.images at all, but we go one step further because the
 		// story needs the panel linkage).
 		const panelImageId = crypto.randomUUID();
@@ -744,7 +743,7 @@ export const comicCreateCharacter: ToolSpec<
 	scope: 'user-space',
 	policyHint: 'write',
 	description:
-		'Create a fresh comic-character row WITHOUT generating any variants yet. Splits creation from rendering so the user can review name/style/source pick before any credits are spent. Use `comic.generateVariant` afterwards (typically n=4) to populate the variant pool. The first generated variant auto-pins; user re-pins via `comic.pinVariant`. Source mediaIds must reference rows owned by the caller in apps `me` (face/body) or `wardrobe` (garment-derived).',
+		'Create a fresh comic-character row WITHOUT generating any variants yet. Splits creation from rendering so the user can review name/style/source pick before any credits are spent. Use `comic.generateVariant` afterwards (typically n=4) to populate the variant pool. The first generated variant auto-pins; user re-pins via `comic.pinVariant`. Source mediaIds must reference rows owned by the caller in app `me` (face/body).',
 	input: createCharacterInput,
 	output: createCharacterOutput,
 	encryptedFields: { table: CHARACTERS_TABLE, fields: [...CHARACTER_ENCRYPTED_FIELDS] },

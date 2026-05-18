@@ -12,7 +12,6 @@
 	import QuoteOfTheDayWidget from './QuoteOfTheDayWidget.svelte';
 	import ActiveTimerWidget from './ActiveTimerWidget.svelte';
 	import RecentChatsWidget from './RecentChatsWidget.svelte';
-	import NutritionProgressWidget from './NutritionProgressWidget.svelte';
 	import PlantWateringWidget from './PlantWateringWidget.svelte';
 	import QuickActionsWidget from './QuickActionsWidget.svelte';
 
@@ -23,7 +22,6 @@
 		{ id: 'quick-actions', component: QuickActionsWidget },
 		{ id: 'recent-chats', component: RecentChatsWidget },
 		{ id: 'recent-contacts', component: RecentContactsWidget },
-		{ id: 'nutrition-progress', component: NutritionProgressWidget },
 		{ id: 'plant-watering', component: PlantWateringWidget },
 		{ id: 'quote-of-the-day', component: QuoteOfTheDayWidget },
 	];

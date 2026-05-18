@@ -9,10 +9,8 @@ import type { ModuleTool } from '$lib/data/tools/types';
 import { db } from '$lib/data/database';
 import { decryptRecords } from '$lib/data/crypto';
 import { DEFAULT_DAILY_GOAL_ML } from '$lib/modules/drink/types';
-import { DEFAULT_DAILY_VALUES } from '$lib/modules/food/constants';
 import type { LocalTask } from '$lib/modules/todo/types';
 import type { LocalDrinkEntry } from '$lib/modules/drink/types';
-import type { LocalMeal, LocalGoal as NutriGoal } from '$lib/modules/food/types';
 import type { LocalPlace } from '$lib/modules/places/types';
 import type { LocalTimeBlock } from '$lib/data/time-blocks/types';
 import type { LocalGoal } from '$lib/companion/goals/types';
@@ -35,21 +33,18 @@ export const mydayTools: ModuleTool[] = [
 			const todayEnd = `${today}T23:59:59`;
 
 			// ── Parallel queries ────────────────────────
-			const [allTasks, blocks, allDrinks, allMeals, foodGoals, allPlaces, streakStates, goals] =
-				await Promise.all([
-					db.table<LocalTask>('tasks').toArray(),
-					db
-						.table<LocalTimeBlock>('timeBlocks')
-						.where('startDate')
-						.between(todayStart, todayEnd + '\uffff')
-						.toArray(),
-					db.table<LocalDrinkEntry>('drinkEntries').toArray(),
-					db.table<LocalMeal>('meals').toArray(),
-					db.table<NutriGoal>('goals').toArray(),
-					db.table<LocalPlace>('places').toArray(),
-					db.table('_streakState').toArray(),
-					db.table<LocalGoal>('companionGoals').toArray(),
-				]);
+			const [allTasks, blocks, allDrinks, allPlaces, streakStates, goals] = await Promise.all([
+				db.table<LocalTask>('tasks').toArray(),
+				db
+					.table<LocalTimeBlock>('timeBlocks')
+					.where('startDate')
+					.between(todayStart, todayEnd + '\uffff')
+					.toArray(),
+				db.table<LocalDrinkEntry>('drinkEntries').toArray(),
+				db.table<LocalPlace>('places').toArray(),
+				db.table('_streakState').toArray(),
+				db.table<LocalGoal>('companionGoals').toArray(),
+			]);
 
 			// ── Filter + decrypt ────────────────────────
 			const activeTasks = allTasks.filter((t) => !t.deletedAt);
@@ -57,13 +52,11 @@ export const mydayTools: ModuleTool[] = [
 				(b) => !b.deletedAt && b.type === 'event' && b.sourceModule === 'calendar'
 			);
 			const todayDrinks = allDrinks.filter((d) => !d.deletedAt && d.date === today);
-			const todayMeals = allMeals.filter((m) => !m.deletedAt && m.date === today);
 
-			const [decTasks, decBlocks, decDrinks, decMeals] = await Promise.all([
+			const [decTasks, decBlocks, decDrinks] = await Promise.all([
 				decryptRecords<LocalTask>('tasks', activeTasks),
 				decryptRecords<LocalTimeBlock>('timeBlocks', eventBlocks),
 				decryptRecords<LocalDrinkEntry>('drinkEntries', todayDrinks),
-				decryptRecords<LocalMeal>('meals', todayMeals),
 			]);
 
 			// ── Tasks ───────────────────────────────────
@@ -97,19 +90,6 @@ export const mydayTools: ModuleTool[] = [
 					coffeeCount++;
 				}
 			}
-
-			// ── Nutrition ───────────────────────────────
-			let totalCalories = 0;
-			let totalProtein = 0;
-			for (const m of decMeals) {
-				const n = m.nutrition as { calories?: number; protein?: number } | null;
-				if (n) {
-					totalCalories += n.calories ?? 0;
-					totalProtein += n.protein ?? 0;
-				}
-			}
-			const activeGoal = foodGoals.find((g) => !g.deletedAt);
-			const calorieGoal = activeGoal?.dailyCalories ?? DEFAULT_DAILY_VALUES.calories;
 
 			// ── Places ──────────────────────────────────
 			const visitedToday = allPlaces.filter(
@@ -168,10 +148,6 @@ export const mydayTools: ModuleTool[] = [
 					coffee: { count: coffeeCount },
 					total: { ml: totalMl, count: decDrinks.length },
 				},
-				nutrition: {
-					meals: decMeals.length,
-					calories: { actual: Math.round(totalCalories), goal: calorieGoal },
-				},
 				places: { visitedToday },
 				streaks,
 				goals: activeGoals,
@@ -184,8 +160,6 @@ export const mydayTools: ModuleTool[] = [
 			if (upcoming.length > 0)
 				parts.push(`${events.length} Termine (naechster: ${upcoming[0].title})`);
 			parts.push(`Wasser: ${waterMl}/${DEFAULT_DAILY_GOAL_ML}ml, ${coffeeCount} Kaffee`);
-			if (decMeals.length > 0)
-				parts.push(`${decMeals.length} Mahlzeiten, ${Math.round(totalCalories)} kcal`);
 			if (activeGoals.length > 0) parts.push(`${activeGoals.length} aktive Ziele`);
 
 			return {

@@ -5,7 +5,7 @@
 import type { BaseRecord } from '@mana/local-store';
 import type { VisibilityLevel } from '@mana/shared-privacy';
 
-export type PlaceCategory = 'home' | 'work' | 'food' | 'shopping' | 'transit' | 'leisure' | 'other';
+export type PlaceCategory = 'home' | 'work' | 'shopping' | 'transit' | 'leisure' | 'other';
 
 export interface LocalPlace extends BaseRecord {
 	name: string;

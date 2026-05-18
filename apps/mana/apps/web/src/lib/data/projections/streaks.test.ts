@@ -131,7 +131,7 @@ describe('Streak Tracker', () => {
 		expect(state.currentStreak).toBe(1);
 	});
 
-	it('tracks multiple streak types independently', async () => {
+	it('tracks task streak on task completed event', async () => {
 		startStreakTracker();
 
 		eventBus.emit({
@@ -147,30 +147,9 @@ describe('Streak Tracker', () => {
 				actor: USER_ACTOR,
 			},
 		});
-		eventBus.emit({
-			type: 'MealLogged',
-			payload: {
-				mealId: '1',
-				mealType: 'lunch',
-				inputType: 'text',
-				description: 'Pasta',
-				date: todayStr(),
-			},
-			meta: {
-				id: '2',
-				timestamp: new Date().toISOString(),
-				appId: 'food',
-				collection: 'meals',
-				recordId: '2',
-				userId: 'u1',
-				actor: USER_ACTOR,
-			},
-		});
 		await flush();
 
 		const tasks = await db.table(TABLE).get('streak-tasks-completed');
-		const meals = await db.table(TABLE).get('streak-meals-logged');
 		expect(tasks?.currentStreak).toBe(1);
-		expect(meals?.currentStreak).toBe(1);
 	});
 });

@@ -5,7 +5,7 @@
 <script lang="ts">
 	import { useDaySnapshot } from '$lib/data/projections/day-snapshot';
 	import { useStreaks } from '$lib/data/projections/streaks';
-	import { CheckCircle, CalendarBlank, Drop, ForkKnife, MapPin, Fire } from '@mana/shared-icons';
+	import { CheckCircle, CalendarBlank, Drop, MapPin, Fire } from '@mana/shared-icons';
 	import { _ } from 'svelte-i18n';
 
 	const day = useDaySnapshot();
@@ -72,26 +72,6 @@
 				{$_('myday.list_view.coffee_count', { values: { n: day.value.drinks.coffee.count } })}
 			</div>
 		{/if}
-	</div>
-
-	<!-- Nutrition -->
-	<div class="section">
-		<div class="section-header">
-			<ForkKnife size={18} weight="bold" />
-			<span>{$_('myday.list_view.section_nutrition')}</span>
-			<span class="badge"
-				>{$_('myday.list_view.meals_count', { values: { n: day.value.nutrition.meals } })}</span
-			>
-		</div>
-		<div class="progress-bar">
-			<div
-				class="progress-fill cal"
-				style:width="{Math.min(day.value.nutrition.calories.percent, 100)}%"
-			></div>
-		</div>
-		<div class="stat">
-			{day.value.nutrition.calories.actual} / {day.value.nutrition.calories.goal} kcal
-		</div>
 	</div>
 
 	<!-- Streaks -->

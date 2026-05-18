@@ -240,14 +240,12 @@ scrape_configs:
           - https://mana.how/picture
           - https://mana.how/storage
           - https://mana.how/presi
-          - https://mana.how/food
           - https://mana.how/plants
           - https://mana.how/calc
           - https://mana.how/quotes
           - https://mana.how/cards
           - https://mana.how/skilltree
           - https://mana.how/music
-          - https://mana.how/citycorners
           - https://mana.how/memoro
           - https://mana.how/moodlit
           # mana.how/context: Modul wurde 2026-04-29 gedropt (Commit 1815139dc) — Probe entfernt

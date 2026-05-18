@@ -52,7 +52,6 @@
 		moodlit: ['Dein Raum, deine Stimmung', 'Quelloffen & unabhängig', 'Privat by Design'],
 		calc: ['Rechnen ohne Ablenkung', 'Quelloffen & unabhängig', 'Privat by Design'],
 		guides: ['Anleitungen, die funktionieren', 'Quelloffen & unabhängig', 'Privat by Design'],
-		citycorners: ['Entdecke deine Stadt', 'Quelloffen & unabhängig', 'Privat by Design'],
 		plants: ['Pflanzenpflege leicht gemacht', 'Quelloffen & unabhängig', 'Privat by Design'],
 		photos: ['Deine Fotos, deine Galerie', 'Quelloffen & unabhängig', 'Privat by Design'],
 		questions: ['Recherche mit System', 'Quelloffen & unabhängig', 'Privat by Design'],
@@ -65,7 +64,6 @@
 		uload: ['Links kürzen & verwalten', 'Quelloffen & unabhängig', 'Privat by Design'],
 		news: ['Nachrichten, kuratiert für dich', 'Quelloffen & unabhängig', 'Privat by Design'],
 		skilltree: ['Dein Fortschritt, sichtbar', 'Quelloffen & unabhängig', 'Privat by Design'],
-		food: ['Ernährung bewusst leben', 'Quelloffen & unabhängig', 'Privat by Design'],
 		wisekeep: ['Wissen bewahren & teilen', 'Quelloffen & unabhängig', 'Privat by Design'],
 		memoro: ['Sprache wird zu Wissen', 'Quelloffen & unabhängig', 'Privat by Design'],
 	};
@@ -84,7 +82,6 @@
 		moodlit: ['Your space, your mood', 'Open-source & independent', 'Private by design'],
 		calc: ['Calculate without distraction', 'Open-source & independent', 'Private by design'],
 		guides: ['Guides that actually work', 'Open-source & independent', 'Private by design'],
-		citycorners: ['Discover your city', 'Open-source & independent', 'Private by design'],
 		plants: ['Plant care made simple', 'Open-source & independent', 'Private by design'],
 		photos: ['Your photos, your gallery', 'Open-source & independent', 'Private by design'],
 		questions: ['Research with structure', 'Open-source & independent', 'Private by design'],
@@ -97,7 +94,6 @@
 		uload: ['Shorten & manage links', 'Open-source & independent', 'Private by design'],
 		news: ['News, curated for you', 'Open-source & independent', 'Private by design'],
 		skilltree: ['Your progress, visualized', 'Open-source & independent', 'Private by design'],
-		food: ['Mindful nutrition tracking', 'Open-source & independent', 'Private by design'],
 		wisekeep: ['Preserve & share knowledge', 'Open-source & independent', 'Private by design'],
 		memoro: ['Voice becomes knowledge', 'Open-source & independent', 'Private by design'],
 	};

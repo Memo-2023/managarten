@@ -120,7 +120,7 @@ export function scopedForModule<T, PK>(
  * space as the second step.
  *
  *   const recent = await scopedAnd(
- *     db.table<LocalMeal>('meals').where('date').aboveOrEqual(since),
+ *     db.table<LocalTask>('tasks').where('updatedAt').aboveOrEqual(since),
  *   ).toArray();
  *
  * The wrapper accepts any Collection so the caller can freely build

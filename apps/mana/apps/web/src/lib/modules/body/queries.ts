@@ -9,7 +9,6 @@ import { deriveUpdatedAt } from '$lib/data/sync';
 import { decryptRecords } from '$lib/data/crypto';
 import { db } from '$lib/data/database';
 import { scopedForModule } from '$lib/data/scope';
-import type { LocalMeal, MealWithNutrition } from '$lib/modules/food/types';
 import type {
 	LocalBodyExercise,
 	LocalBodyRoutine,
@@ -216,48 +215,6 @@ export function useAllBodyPhases() {
 		const decrypted = await decryptRecords('bodyPhases', visible);
 		return decrypted.map(toBodyPhase).sort((a, b) => b.startDate.localeCompare(a.startDate));
 	}, [] as BodyPhase[]);
-}
-
-/**
- * Cross-module read into the food `meals` table for the calorie /
- * weight correlation chart. Lives here (instead of consumers calling
- * food/queries directly) because the body module owns the Body ×
- * Food integration boundary, and putting the cross-table read in
- * one place keeps the import graph from getting circular if food
- * ever wants to reach back the other way.
- *
- * Returns a thinned MealWithNutrition shape — only the fields the
- * correlation chart actually consumes (date + nutrition.calories).
- * `since` is a YYYY-MM-DD lower bound; the chart pulls 8 weeks but
- * the helper is permissive so a future "year view" can extend it.
- */
-export function useFoodMealsSince(since: string) {
-	return useScopedLiveQuery(async () => {
-		const locals = await db.table<LocalMeal>('meals').where('date').aboveOrEqual(since).toArray();
-		const visible = locals.filter((m) => !m.deletedAt);
-		// Encrypted fields (description / portionSize / foods) get unwrapped
-		// before we project. We don't strictly need them for the chart, but
-		// future tooltips with "what did you eat that day" will, and the
-		// decrypt cost on a few hundred rows is negligible.
-		const decrypted = await decryptRecords('meals', visible);
-		return decrypted.map(
-			(m): MealWithNutrition => ({
-				id: m.id,
-				date: m.date,
-				mealType: m.mealType,
-				inputType: m.inputType,
-				description: m.description,
-				portionSize: m.portionSize ?? null,
-				confidence: m.confidence,
-				nutrition: m.nutrition ?? null,
-				photoMediaId: m.photoMediaId ?? null,
-				photoUrl: m.photoUrl ?? null,
-				photoThumbnailUrl: m.photoThumbnailUrl ?? null,
-				foods: m.foods ?? null,
-				createdAt: m.createdAt ?? new Date().toISOString(),
-			})
-		);
-	}, [] as MealWithNutrition[]);
 }
 
 /** Helper: YYYY-MM-DD `n` days ago. */

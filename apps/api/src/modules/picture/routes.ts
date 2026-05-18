@@ -254,11 +254,8 @@ routes.post('/generate', async (c) => {
 // image input natively. Replicate/local fallback is a later milestone.
 
 // OpenAI gpt-image-1 / gpt-image-2 accept up to 16 reference images per
-// edit call. We clamp at 8 to cover the Wardrobe try-on workflow — one
-// face-ref + one body-ref + up to six garment photos (top/bottom/shoes/
-// outerwear + two accessories) — while keeping credit exposure and
-// upload payload size predictable. Pre-wardrobe the cap was 4; bumped
-// in docs/plans/wardrobe-module.md M1.
+// edit call. We clamp at 8 to keep credit exposure and upload payload
+// size predictable.
 const MAX_REFERENCE_IMAGES = 8;
 
 routes.post('/generate-with-reference', async (c) => {
@@ -318,18 +315,14 @@ routes.post('/generate-with-reference', async (c) => {
 	}
 
 	// Ownership check before we spend credits or burn OpenAI quota.
-	// References span three upload tags today:
-	//   - `me`       — face/body portraits from the profile module
-	//   - `wardrobe` — garment photos (M4 try-on flow)
-	//   - `comic`    — comic-specific anchor / backdrop uploads
-	//                  (slot reserved for M6+; no writer lands in
-	//                  this app today, M1 character refs come from
-	//                  me + wardrobe only).
+	// References span two upload tags today:
+	//   - `me`    — face/body portraits from the profile module
+	//   - `comic` — comic-specific anchor / backdrop uploads
 	// Anything outside these apps is treated as not-owned regardless of
 	// mana-media's own view.
 	try {
 		const { verifyMediaOwnership } = await import('../../lib/media');
-		await verifyMediaOwnership(userId, refIds, ['me', 'wardrobe', 'comic']);
+		await verifyMediaOwnership(userId, refIds, ['me', 'comic']);
 	} catch (err) {
 		const e = err as Error & { status?: number; missing?: string[] };
 		if (e.status === 404) {

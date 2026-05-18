@@ -46,7 +46,6 @@ export type TimeBlockSourceModule =
 	| 'places'
 	| 'cards'
 	| 'music'
-	| 'moodlit'
 	| 'presi';
 
 // ─── Local Record Types (Dexie) ──────────────────────────

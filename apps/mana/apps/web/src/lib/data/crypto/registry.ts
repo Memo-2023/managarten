@@ -90,7 +90,6 @@ import type {
 } from '../../modules/broadcasts/types';
 import type { LocalArticle, LocalHighlight } from '../../modules/articles/types';
 import type { LocalMeImage } from '../../modules/profile/types';
-import type { LocalWardrobeGarment, LocalWardrobeOutfit } from '../../modules/wardrobe/types';
 import type {
 	LocalDraft,
 	LocalDraftVersion,
@@ -193,29 +192,6 @@ export const ENCRYPTION_REGISTRY: Record<string, EncryptionConfig> = {
 	// privacy sensitivity as `notes` — encrypt it.
 	periods: { enabled: true, fields: ['notes'] },
 	periodDayLogs: { enabled: true, fields: ['notes', 'mood'] },
-
-	// ─── Food ────────────────────────────────────────────
-	// LocalMeal user-typed / AI-generated content → encrypted:
-	//   - description, portionSize: free-text, same sensitivity tier
-	//   - foods: AI-identified food items (array of {name, quantity,
-	//     calories}). aes.ts JSON-stringifies before wrap, so an array
-	//     value works the same as a string. The food names are user
-	//     content ("Currywurst Pommes mittel") and deserve the same
-	//     protection as `description`.
-	// Plaintext (intentional):
-	//   - mealType / inputType / date / createdAt: structural, used for
-	//     filtering and the daily-summary aggregations + calorie-progress
-	//     widget. Encrypting would force decrypt-then-aggregate on every
-	//     liveQuery refresh.
-	//   - nutrition (object of numbers): same — calorie totals are summed
-	//     in pure $derived helpers; encrypting them would defeat the
-	//     local-first reactive layer.
-	//   - photoMediaId / photoUrl / photoThumbnailUrl: opaque pointers to
-	//     mana-media; the URL alone is not PII (anyone with the URL
-	//     already has the bytes), and CAS-deduped media IDs leak no user
-	//     content. Same rationale plants uses for plantPhotos.
-	//   - confidence (float 0-1): pure metadata about the AI run.
-	meals: { enabled: true, fields: ['description', 'portionSize', 'foods'] },
 
 	// ─── Plants ──────────────────────────────────────────────
 	// `name` is NOT in the schema index for plants (only isActive +
@@ -581,33 +557,6 @@ export const ENCRYPTION_REGISTRY: Record<string, EncryptionConfig> = {
 	// or structural metadata the query layer needs. The image blob itself
 	// lives in MinIO behind owner-RLS, not in Dexie.
 	meImages: entry<LocalMeImage>(['label', 'tags']),
-
-	// ─── Wardrobe (garments + outfits) ───────────────────────
-	// docs/plans/wardrobe-module.md M1. Two space-scoped tables.
-	//
-	// Garments: user-typed clothing metadata is the sensitive surface —
-	// brand names leak purchasing patterns, notes leak preferences,
-	// tags leak categorization intent. `category` stays plaintext
-	// because it's the Category-Tabs filter index; `mediaIds`, dates,
-	// and counters are structural.
-	wardrobeGarments: entry<LocalWardrobeGarment>([
-		'name',
-		'brand',
-		'color',
-		'size',
-		'material',
-		'tags',
-		'notes',
-	]),
-	// Outfits: name + description + tags are user-authored. Occasion
-	// stays plaintext (closed enum, small cardinality — useful to
-	// filter on without decrypt). `garmentIds` is an array of FKs,
-	// plaintext by the standard "IDs are plaintext" rule. `lastTryOn`
-	// is a structural pointer + prompt; the prompt itself isn't
-	// secret (OpenAI already saw it) but lands inside the encrypted
-	// JSON-stringified blob via the `season` array-path anyway — keep
-	// it plaintext and revisit if prompts later carry personal data.
-	wardrobeOutfits: entry<LocalWardrobeOutfit>(['name', 'description', 'tags']),
 
 	// ─── Comic (stories + inline panel metadata) ─────────────
 	// docs/plans/comic-module.md M1. Single space-scoped table.

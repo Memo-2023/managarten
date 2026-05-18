@@ -30,8 +30,6 @@ export type ModuleId =
 	| 'mood'
 	// — M5 (me-images + reference-based image generation) —
 	| 'me'
-	// — Wardrobe M5 (garments + outfits + try-on) —
-	| 'wardrobe'
 	// — Comic M5 (stories + panel generation from cross-module text) —
 	| 'comic'
 	// — Augur M5 (signs / fortunes / hunches + Living Oracle + year recap) —

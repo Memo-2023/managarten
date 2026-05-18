@@ -24,8 +24,6 @@ declare -A LANDINGS=(
     ["presi"]="apps/presi/apps/landing"
     ["clock"]="apps/clock/apps/landing"
     ["cards"]="apps/cards/apps/landing"
-    ["food"]="apps/food/apps/landing"
-    ["citycorners"]="apps/citycorners/apps/landing"
 )
 
 cd "$PROJECT_ROOT"

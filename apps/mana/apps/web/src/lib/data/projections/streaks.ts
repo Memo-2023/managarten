@@ -73,12 +73,6 @@ const STREAK_DEFS: StreakDef[] = [
 		triggerEvents: ['TaskCompleted'],
 	},
 	{
-		id: 'streak-meals-logged',
-		moduleId: 'food',
-		label: 'Mahlzeiten getrackt',
-		triggerEvents: ['MealLogged', 'MealFromPhotoLogged'],
-	},
-	{
 		id: 'streak-workout',
 		moduleId: 'body',
 		label: 'Workout',

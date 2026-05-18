@@ -30,7 +30,7 @@ export type WouldReclaim = 'no' | 'maybe' | 'yes';
  */
 export interface InferredFrom {
 	tool: string; // e.g. 'suggest_lasts'
-	refTable: string; // 'places' | 'contacts' | 'food' | 'habits' | …
+	refTable: string; // 'places' | 'contacts' | 'habits' | …
 	refId: string;
 	frequencyHint?: string; // human-readable: '3x/week → 0 in 18mo'
 	scannedAt: string; // ISO

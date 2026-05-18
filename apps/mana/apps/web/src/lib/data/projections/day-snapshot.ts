@@ -14,12 +14,10 @@ import { useLiveQueryWithDefault } from '@mana/local-store/svelte';
 import { db } from '../database';
 import { decryptRecords } from '../crypto';
 import { DEFAULT_DAILY_GOAL_ML } from '$lib/modules/drink/types';
-import { DEFAULT_DAILY_VALUES } from '$lib/modules/food/constants';
 import { trackingStore } from '$lib/modules/places/stores/tracking.svelte';
 import type { LocalTask } from '$lib/modules/todo/types';
 import type { LocalEvent } from '$lib/modules/calendar/types';
 import type { LocalDrinkEntry } from '$lib/modules/drink/types';
-import type { LocalMeal, LocalGoal as NutriGoal } from '$lib/modules/food/types';
 import type { LocalPlace } from '$lib/modules/places/types';
 import type { LocalTimeBlock } from '../time-blocks/types';
 import type { DaySnapshot, TaskSummary, EventSummary } from './types';
@@ -38,11 +36,6 @@ function emptySnapshot(date: string): DaySnapshot {
 			coffee: { ml: 0, count: 0 },
 			total: { ml: 0, count: 0 },
 		},
-		nutrition: {
-			meals: 0,
-			calories: { actual: 0, goal: DEFAULT_DAILY_VALUES.calories, percent: 0 },
-			protein: null,
-		},
 		places: { visitedToday: 0, tracking: false },
 	};
 }
@@ -53,8 +46,8 @@ async function buildSnapshot(): Promise<DaySnapshot> {
 	const todayStart = `${today}T00:00:00`;
 	const todayEnd = `${today}T23:59:59`;
 
-	// ── Parallel queries — all 5 modules at once ────
-	const [allTasks, blocks, allDrinks, allMeals, foodGoals, allPlaces] = await Promise.all([
+	// ── Parallel queries — all modules at once ──────
+	const [allTasks, blocks, allDrinks, allPlaces] = await Promise.all([
 		db.table<LocalTask>('tasks').toArray(),
 		db
 			.table<LocalTimeBlock>('timeBlocks')
@@ -62,8 +55,6 @@ async function buildSnapshot(): Promise<DaySnapshot> {
 			.between(todayStart, todayEnd + '\uffff')
 			.toArray(),
 		db.table<LocalDrinkEntry>('drinkEntries').toArray(),
-		db.table<LocalMeal>('meals').toArray(),
-		db.table<NutriGoal>('goals').toArray(),
 		db.table<LocalPlace>('places').toArray(),
 	]);
 
@@ -73,13 +64,11 @@ async function buildSnapshot(): Promise<DaySnapshot> {
 		(b) => !b.deletedAt && b.type === 'event' && b.sourceModule === 'calendar'
 	);
 	const todayDrinks = allDrinks.filter((d) => !d.deletedAt && d.date === today);
-	const todayMeals = allMeals.filter((m) => !m.deletedAt && m.date === today);
 
-	const [decryptedTasks, decryptedBlocks, decryptedDrinks, decryptedMeals] = await Promise.all([
+	const [decryptedTasks, decryptedBlocks, decryptedDrinks] = await Promise.all([
 		decryptRecords<LocalTask>('tasks', activeTasks),
 		decryptRecords<LocalTimeBlock>('timeBlocks', eventBlocks),
 		decryptRecords<LocalDrinkEntry>('drinkEntries', todayDrinks),
-		decryptRecords<LocalMeal>('meals', todayMeals),
 	]);
 
 	// ── Tasks ───────────────────────────────────────
@@ -126,20 +115,6 @@ async function buildSnapshot(): Promise<DaySnapshot> {
 		}
 	}
 
-	// ── Nutrition ───────────────────────────────────
-	let totalCalories = 0;
-	let totalProtein = 0;
-	for (const m of decryptedMeals) {
-		const n = m.nutrition as { calories?: number; protein?: number } | null;
-		if (n) {
-			totalCalories += n.calories ?? 0;
-			totalProtein += n.protein ?? 0;
-		}
-	}
-	const activeGoal = foodGoals.find((g) => !g.deletedAt);
-	const calorieGoal = activeGoal?.dailyCalories ?? DEFAULT_DAILY_VALUES.calories;
-	const proteinGoal = activeGoal?.dailyProtein;
-
 	// ── Places ──────────────────────────────────────
 	const visitedToday = allPlaces.filter(
 		(p) => !p.deletedAt && p.lastVisitedAt && (p.lastVisitedAt as string).startsWith(today)
@@ -166,15 +141,6 @@ async function buildSnapshot(): Promise<DaySnapshot> {
 			},
 			coffee: { ml: coffeeMl, count: coffeeCount },
 			total: { ml: totalMl, count: totalCount },
-		},
-		nutrition: {
-			meals: decryptedMeals.length,
-			calories: {
-				actual: Math.round(totalCalories),
-				goal: calorieGoal,
-				percent: Math.min(Math.round((totalCalories / calorieGoal) * 100), 100),
-			},
-			protein: proteinGoal ? { actual: Math.round(totalProtein), goal: proteinGoal } : null,
 		},
 		places: {
 			visitedToday,

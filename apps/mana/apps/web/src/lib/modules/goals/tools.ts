@@ -152,13 +152,13 @@ export const goalsTools: ModuleTool[] = [
 				name: 'eventType',
 				type: 'string',
 				description:
-					'Domain-Event zum Zaehlen (z.B. "DrinkLogged", "TaskCompleted", "MealLogged", "WorkoutFinished")',
+					'Domain-Event zum Zaehlen (z.B. "DrinkLogged", "TaskCompleted", "WorkoutFinished")',
 				required: false,
 			},
 			{
 				name: 'moduleId',
 				type: 'string',
-				description: 'Zugehoeriges Modul (z.B. "drink", "todo", "food", "body")',
+				description: 'Zugehoeriges Modul (z.B. "drink", "todo", "body")',
 				required: false,
 			},
 		],

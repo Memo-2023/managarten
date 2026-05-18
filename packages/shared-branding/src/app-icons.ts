@@ -36,9 +36,6 @@ const wisekeepSvg = `<svg width="1024" height="1024" viewBox="0 0 1024 1024" fil
 // Moodlit icon (colorful gradient circle)
 const moodlitSvg = `<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0)"><rect x="103" y="103" width="819" height="819" rx="409.5" fill="white"/><g filter="url(#filter0)"><circle cx="611" cy="250" r="314" fill="#D10000"/></g><g filter="url(#filter1)"><circle cx="231" cy="393" r="314" fill="#D17A00"/></g><g filter="url(#filter2)"><circle cx="735" cy="625" r="314" fill="#FFEA00"/></g><g filter="url(#filter3)"><circle cx="409" cy="844" r="314" fill="#0033FF"/></g></g><rect x="107" y="107" width="811" height="811" rx="405.5" stroke="white" stroke-opacity="0.2" stroke-width="8"/><defs><filter id="filter0" x="-2" y="-363" width="1226" height="1226" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur stdDeviation="149" result="effect1"/></filter><filter id="filter1" x="-382" y="-220" width="1226" height="1226" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur stdDeviation="149" result="effect1"/></filter><filter id="filter2" x="122" y="12" width="1226" height="1226" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur stdDeviation="149" result="effect1"/></filter><filter id="filter3" x="-204" y="231" width="1226" height="1226" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur stdDeviation="149" result="effect1"/></filter><clipPath id="clip0"><rect x="103" y="103" width="819" height="819" rx="409.5" fill="white"/></clipPath></defs></svg>`;
 
-// Food icon (nutrition/heart with gradient)
-const foodSvg = `<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="130" y="130" width="764" height="764" rx="382" fill="url(#foodGrad)"/><path d="M512 760C512 760 280 600 280 420C280 340 344 280 424 280C472 280 512 308 512 308C512 308 552 280 600 280C680 280 744 340 744 420C744 600 512 760 512 760Z" fill="white"/><path d="M512 280V200" stroke="white" stroke-width="24" stroke-linecap="round"/><path d="M512 200C512 200 560 160 600 180" stroke="white" stroke-width="24" stroke-linecap="round"/><defs><linearGradient id="foodGrad" x1="130" y1="130" x2="894" y2="894" gradientUnits="userSpaceOnUse"><stop stop-color="#10b981"/><stop offset="1" stop-color="#059669"/></linearGradient></defs></svg>`;
-
 // Contacts icon (address book/person with gradient)
 const contactsSvg = `<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="130" y="130" width="764" height="764" rx="382" fill="url(#contactsGrad)"/><circle cx="512" cy="380" r="100" fill="white"/><path d="M320 620C320 540 408 480 512 480C616 480 704 540 704 620V680C704 702.091 685.091 720 663 720H361C338.909 720 320 702.091 320 680V620Z" fill="white"/><rect x="240" y="300" width="24" height="80" rx="12" fill="white" fill-opacity="0.6"/><rect x="240" y="420" width="24" height="80" rx="12" fill="white" fill-opacity="0.6"/><rect x="240" y="540" width="24" height="80" rx="12" fill="white" fill-opacity="0.6"/><defs><linearGradient id="contactsGrad" x1="130" y1="130" x2="894" y2="894" gradientUnits="userSpaceOnUse"><stop stop-color="#3b82f6"/><stop offset="1" stop-color="#2563eb"/></linearGradient></defs></svg>`;
 
@@ -63,9 +60,6 @@ const inventorySvg = `<svg width="1024" height="1024" viewBox="0 0 1024 1024" fi
 // Questions icon (question mark with magnifying glass)
 const questionsSvg = `<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="130" y="130" width="764" height="764" rx="382" fill="url(#questionsGrad)"/><circle cx="480" cy="440" r="180" stroke="white" stroke-width="40"/><path d="M620 580L740 700" stroke="white" stroke-width="48" stroke-linecap="round"/><path d="M440 360C440 332 462 310 490 310C520 310 550 330 550 370C550 420 490 430 490 480" stroke="white" stroke-width="32" stroke-linecap="round"/><circle cx="490" cy="540" r="20" fill="white"/><defs><linearGradient id="questionsGrad" x1="130" y1="130" x2="894" y2="894" gradientUnits="userSpaceOnUse"><stop stop-color="#8b5cf6"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs></svg>`;
 
-// CityCorners icon (map pin with blue gradient)
-const citycornersSvg = `<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="130" y="130" width="764" height="764" rx="382" fill="url(#ccGrad)"/><path d="M512 200C408.3 200 324 284.3 324 388C324 536 512 800 512 800C512 800 700 536 700 388C700 284.3 615.7 200 512 200ZM512 468C467.8 468 432 432.2 432 388C432 343.8 467.8 308 512 308C556.2 308 592 343.8 592 388C592 432.2 556.2 468 512 468Z" fill="white"/><circle cx="512" cy="388" r="60" fill="#2563eb" fill-opacity="0.4"/><defs><linearGradient id="ccGrad" x1="130" y1="130" x2="894" y2="894" gradientUnits="userSpaceOnUse"><stop stop-color="#2563eb"/><stop offset="1" stop-color="#1d4ed8"/></linearGradient></defs></svg>`;
-
 // Taktik icon (clock with play button, amber gradient)
 const timesSvg = `<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="130" y="130" width="764" height="764" rx="382" fill="url(#timesGrad)"/><circle cx="512" cy="480" r="220" stroke="white" stroke-width="40"/><path d="M512 340V480L600 560" stroke="white" stroke-width="36" stroke-linecap="round" stroke-linejoin="round"/><circle cx="512" cy="480" r="20" fill="white"/><path d="M480 700L560 740L480 780Z" fill="white" fill-opacity="0.6"/><defs><linearGradient id="timesGrad" x1="130" y1="130" x2="894" y2="894" gradientUnits="userSpaceOnUse"><stop stop-color="#f59e0b"/><stop offset="1" stop-color="#d97706"/></linearGradient></defs></svg>`;
 
@@ -73,15 +67,8 @@ const timesSvg = `<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="
 const calcSvg = `<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="130" y="130" width="764" height="764" rx="382" fill="url(#calcGrad)"/><rect x="320" y="260" width="384" height="504" rx="32" fill="white"/><rect x="360" y="300" width="304" height="100" rx="16" fill="#ec4899" fill-opacity="0.2"/><rect x="380" y="330" width="200" height="16" rx="4" fill="#ec4899" fill-opacity="0.5"/><rect x="380" y="358" width="120" height="24" rx="4" fill="#ec4899" fill-opacity="0.7"/><rect x="360" y="440" width="64" height="52" rx="12" fill="#ec4899" fill-opacity="0.15"/><rect x="440" y="440" width="64" height="52" rx="12" fill="#ec4899" fill-opacity="0.15"/><rect x="520" y="440" width="64" height="52" rx="12" fill="#ec4899" fill-opacity="0.15"/><rect x="600" y="440" width="64" height="52" rx="12" fill="#ec4899" fill-opacity="0.3"/><rect x="360" y="508" width="64" height="52" rx="12" fill="#ec4899" fill-opacity="0.15"/><rect x="440" y="508" width="64" height="52" rx="12" fill="#ec4899" fill-opacity="0.15"/><rect x="520" y="508" width="64" height="52" rx="12" fill="#ec4899" fill-opacity="0.15"/><rect x="600" y="508" width="64" height="52" rx="12" fill="#ec4899" fill-opacity="0.3"/><rect x="360" y="576" width="64" height="52" rx="12" fill="#ec4899" fill-opacity="0.15"/><rect x="440" y="576" width="64" height="52" rx="12" fill="#ec4899" fill-opacity="0.15"/><rect x="520" y="576" width="64" height="52" rx="12" fill="#ec4899" fill-opacity="0.15"/><rect x="600" y="576" width="64" height="120" rx="12" fill="#ec4899"/><rect x="360" y="644" width="144" height="52" rx="12" fill="#ec4899" fill-opacity="0.15"/><rect x="520" y="644" width="64" height="52" rx="12" fill="#ec4899" fill-opacity="0.15"/><defs><linearGradient id="calcGrad" x1="130" y1="130" x2="894" y2="894" gradientUnits="userSpaceOnUse"><stop stop-color="#ec4899"/><stop offset="1" stop-color="#db2777"/></linearGradient></defs></svg>`;
 
 // Comic icon — speech bubble with a lightning-bolt panel marker on
-// orange→red gradient. Sits warm between Picture (green) and Wardrobe
-// (rose) so the Mana launcher reads as a coherent creative family.
+// orange→red gradient. Warm creative-family tone for the Mana launcher.
 const comicSvg = `<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="130" y="130" width="764" height="764" rx="382" fill="url(#comicGrad)"/><path d="M260 340c0-33 27-60 60-60h384c33 0 60 27 60 60v288c0 33-27 60-60 60H480l-108 90v-90h-52c-33 0-60-27-60-60V340z" fill="white"/><path d="M540 370l-90 156h72l-30 128 108-172h-78l28-112h-10z" fill="#ea580c"/><circle cx="360" cy="460" r="18" fill="#ea580c" fill-opacity="0.35"/><circle cx="410" cy="460" r="18" fill="#ea580c" fill-opacity="0.35"/><circle cx="460" cy="460" r="18" fill="#ea580c" fill-opacity="0.35"/><defs><linearGradient id="comicGrad" x1="130" y1="130" x2="894" y2="894" gradientUnits="userSpaceOnUse"><stop stop-color="#f97316"/><stop offset="1" stop-color="#dc2626"/></linearGradient></defs></svg>`;
-
-// Wardrobe icon — T-shirt on hanger with rose-violet gradient.
-// Rose/violet to sit between Picture (green) and Calc (pink) without
-// clashing; the hanger loop sits on the shoulder line so the silhouette
-// reads as "clothing" at any scale.
-const wardrobeSvg = `<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="130" y="130" width="764" height="764" rx="382" fill="url(#wardrobeGrad)"/><path d="M512 246c-34 0-62 28-62 62 0 15 6 28 15 37l-113 58c-14 7-22 22-22 37v40l-40 28c-10 7-13 20-8 31l20 40c5 10 16 16 27 13l46-12v256c0 18 14 32 32 32h250c18 0 32-14 32-32V580l46 12c11 3 22-3 27-13l20-40c5-11 2-24-8-31l-40-28v-40c0-15-8-30-22-37l-113-58c9-9 15-22 15-37 0-34-28-62-62-62zm0 44c18 0 32 14 32 32s-14 32-32 32-32-14-32-32 14-32 32-32z" fill="white"/><path d="M420 450c0 50 41 90 92 90s92-40 92-90" stroke="#be185d" stroke-width="6" stroke-linecap="round" fill="none" stroke-opacity="0.25"/><defs><linearGradient id="wardrobeGrad" x1="130" y1="130" x2="894" y2="894" gradientUnits="userSpaceOnUse"><stop stop-color="#e11d48"/><stop offset="1" stop-color="#a21caf"/></linearGradient></defs></svg>`;
 
 // Augur icon — open eye with a small star in the iris and three drifting
 // dots ("signs in the air") on indigo→violet gradient. Sits in the cosmic
@@ -109,7 +96,6 @@ export const APP_ICONS = {
 	quotes: svgToDataUrl(quotesSvg),
 	wisekeep: svgToDataUrl(wisekeepSvg),
 	moodlit: svgToDataUrl(moodlitSvg),
-	food: svgToDataUrl(foodSvg),
 	contacts: svgToDataUrl(contactsSvg),
 	calendar: svgToDataUrl(calendarSvg),
 	storage: svgToDataUrl(storageSvg),
@@ -117,11 +103,9 @@ export const APP_ICONS = {
 	todo: svgToDataUrl(todoSvg),
 	mail: svgToDataUrl(mailSvg),
 	inventory: svgToDataUrl(inventorySvg),
-	wardrobe: svgToDataUrl(wardrobeSvg),
 	comic: svgToDataUrl(comicSvg),
 	augur: svgToDataUrl(augurSvg),
 	questions: svgToDataUrl(questionsSvg),
-	citycorners: svgToDataUrl(citycornersSvg),
 	times: svgToDataUrl(timesSvg),
 	calc: svgToDataUrl(calcSvg),
 	uload: svgToDataUrl(
@@ -178,7 +162,7 @@ export const APP_ICONS = {
 	body: svgToDataUrl(
 		// Dumbbell + heart-pulse hybrid: training (barbell) + body (pulse line).
 		// Red→orange gradient to set it apart from the green health-adjacent
-		// modules (plants, food) and the pink period icon.
+		// modules (plants) and the pink period icon.
 		`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="bd" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ef4444"/><stop offset="100%" style="stop-color:#f97316"/></linearGradient></defs><rect width="100" height="100" rx="22" fill="url(#bd)"/><rect x="18" y="42" width="6" height="16" rx="2" fill="white"/><rect x="76" y="42" width="6" height="16" rx="2" fill="white"/><rect x="24" y="46" width="4" height="8" rx="1" fill="white" fill-opacity="0.85"/><rect x="72" y="46" width="4" height="8" rx="1" fill="white" fill-opacity="0.85"/><rect x="28" y="48" width="44" height="4" rx="2" fill="white"/><path d="M30 70h12l4-8 6 16 4-10 6 6h12" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`
 	),
 	firsts: svgToDataUrl(

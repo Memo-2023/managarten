@@ -47,12 +47,6 @@ export interface DaySnapshot {
 		total: { ml: number; count: number };
 	};
 
-	nutrition: {
-		meals: number;
-		calories: { actual: number; goal: number; percent: number };
-		protein: { actual: number; goal: number } | null;
-	};
-
 	places: {
 		visitedToday: number;
 		tracking: boolean;

@@ -31,13 +31,10 @@ import { chatRoutes } from './modules/chat/routes';
 import { notesRoutes } from './modules/notes/routes';
 import { pictureRoutes } from './modules/picture/routes';
 import { profileRoutes } from './modules/profile/routes';
-import { wardrobeRoutes } from './modules/wardrobe/routes';
 import { storageRoutes } from './modules/storage/routes';
 import { todoRoutes } from './modules/todo/routes';
 import { plantsRoutes } from './modules/plants/routes';
-import { foodRoutes } from './modules/food/routes';
 import { guidesRoutes } from './modules/guides/routes';
-import { moodlitRoutes } from './modules/moodlit/routes';
 import { newsRoutes } from './modules/news/routes';
 import { newsResearchRoutes } from './modules/news-research/routes';
 import { articlesRoutes } from './modules/articles/routes';
@@ -100,11 +97,10 @@ app.use('/api/*', authMiddleware());
 // to `beta`+ so that unauthenticated guest fallbacks (tier='public'
 // from a missing claim) can't hit paid infrastructure.
 // Pure CRUD modules (calendar, contacts, music, storage, todo, news,
-// presi, moodlit) rely on authMiddleware alone — users access only
+// presi) rely on authMiddleware alone — users access only
 // their own records.
 const RESOURCE_MODULES = [
 	'chat',
-	'food',
 	'guides',
 	'kontext',
 	'news-research',
@@ -135,13 +131,10 @@ app.route('/api/v1/chat', chatRoutes);
 app.route('/api/v1/notes', notesRoutes);
 app.route('/api/v1/picture', pictureRoutes);
 app.route('/api/v1/profile', profileRoutes);
-app.route('/api/v1/wardrobe', wardrobeRoutes);
 app.route('/api/v1/storage', storageRoutes);
 app.route('/api/v1/todo', todoRoutes);
 app.route('/api/v1/plants', plantsRoutes);
-app.route('/api/v1/food', foodRoutes);
 app.route('/api/v1/guides', guidesRoutes);
-app.route('/api/v1/moodlit', moodlitRoutes);
 app.route('/api/v1/news', newsRoutes);
 app.route('/api/v1/news-research', newsResearchRoutes);
 app.route('/api/v1/articles', articlesRoutes);

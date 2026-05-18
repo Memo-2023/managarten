@@ -498,45 +498,6 @@ export const appConfigs: Record<string, AppConfig> = {
 		dashboardRoute: '/',
 		website: 'https://storage.mana.how',
 	},
-
-	moodlit: {
-		name: 'moodlit',
-		displayName: 'Moodlit',
-		tagline: 'Ambient Lighting & Moods',
-		description:
-			'Erstelle beruhigende Lichtstimmungen mit animierten Farbverläufen für entspannte Atmosphäre.',
-		logoEmoji: '🌈',
-		primaryColor: '#8B5CF6',
-		accentColor: '#A78BFA',
-		features: [
-			{
-				icon: '🌈',
-				title: 'Farbverläufe',
-				description: 'Animierte Ambient-Beleuchtung',
-				color: '#8B5CF6',
-			},
-			{
-				icon: '🎨',
-				title: 'Themes',
-				description: 'Vordefinierte Stimmungen',
-				color: '#EC4899',
-			},
-			{
-				icon: '✨',
-				title: 'Animationen',
-				description: 'Sanfte, beruhigende Bewegungen',
-				color: '#F59E0B',
-			},
-			{
-				icon: '🌙',
-				title: 'Nachtmodus',
-				description: 'Perfekt zum Einschlafen',
-				color: '#6366F1',
-			},
-		],
-		dashboardRoute: '/',
-		website: 'https://moodlit.mana.how',
-	},
 };
 
 /**
@@ -631,6 +592,6 @@ export function getAppsByCategory(): {
 			appConfigs.contacts,
 			appConfigs.finance,
 		],
-		utility: [appConfigs.clock, appConfigs.quotes, appConfigs.storage, appConfigs.moodlit],
+		utility: [appConfigs.clock, appConfigs.quotes, appConfigs.storage],
 	};
 }

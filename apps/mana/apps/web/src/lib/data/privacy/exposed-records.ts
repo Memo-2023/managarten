@@ -140,18 +140,6 @@ const TABLES: TableConfig[] = [
 		},
 	},
 	{
-		module: 'wardrobe',
-		collection: 'wardrobeOutfits',
-		moduleLabel: 'Wardrobe (Outfits)',
-		encrypted: true,
-		title: (r) => asString(r.name),
-		href: () => '/wardrobe',
-		setVisibility: async (id, next) => {
-			const { wardrobeOutfitsStore } = await import('$lib/modules/wardrobe/stores/outfits.svelte');
-			return wardrobeOutfitsStore.setVisibility(id, next);
-		},
-	},
-	{
 		module: 'comic',
 		collection: 'comicStories',
 		moduleLabel: 'Comics',

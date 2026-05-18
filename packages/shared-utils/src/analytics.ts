@@ -154,7 +154,6 @@ const track = {
 	cards: createModuleTracker('cards'),
 	mana: createModuleTracker('mana'),
 	skilltree: createModuleTracker('skilltree'),
-	food: createModuleTracker('food'),
 	plants: createModuleTracker('plants'),
 	questions: createModuleTracker('questions'),
 	photos: createModuleTracker('photos'),
@@ -168,7 +167,6 @@ const track = {
 	calc: createModuleTracker('calc'),
 	inventory: createModuleTracker('inventory'),
 	moodlit: createModuleTracker('moodlit'),
-	citycorners: createModuleTracker('citycorners'),
 };
 
 /**
@@ -359,20 +357,6 @@ export const SkillTreeEvents = {
 	skillDeleted: () => track.skilltree('skill_deleted'),
 	xpAdded: (xp: number, leveledUp: boolean) =>
 		track.skilltree('xp_added', { xp, leveled_up: leveledUp }),
-};
-
-/**
- * Food App Events
- */
-export const FoodEvents = {
-	mealAdded: (mealType: string, inputType: string) =>
-		track.food('meal_added', { meal_type: mealType, input_type: inputType }),
-	mealDeleted: () => track.food('meal_deleted'),
-	photoAnalyzed: () => track.food('photo_analyzed'),
-	textAnalyzed: () => track.food('text_analyzed'),
-	goalsUpdated: () => track.food('goals_updated'),
-	favoriteSaved: () => track.food('favorite_saved'),
-	favoriteUsed: () => track.food('favorite_used'),
 };
 
 /**
@@ -580,11 +564,4 @@ export const MoodlitEvents = {
 	moodFavorited: () => track.moodlit('mood_favorited'),
 	sequenceCreated: () => track.moodlit('sequence_created'),
 	sequenceDeleted: () => track.moodlit('sequence_deleted'),
-};
-
-/**
- * CityCorners App Events
- */
-export const CityCornersEvents = {
-	favoriteToggled: (favorited: boolean) => track.citycorners('favorite_toggled', { favorited }),
 };

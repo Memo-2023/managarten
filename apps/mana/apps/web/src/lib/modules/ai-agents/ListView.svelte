@@ -149,7 +149,7 @@
 	}
 
 	// ── Policy editor ───────────────────────────────────────
-	const POLICY_MODULES = ['todo', 'calendar', 'notes', 'finance', 'drink', 'food'];
+	const POLICY_MODULES = ['todo', 'calendar', 'notes', 'finance', 'drink'];
 	const POLICY_CHOICES: PolicyDecision[] = ['auto', 'propose', 'deny'];
 	function policyLabel(c: PolicyDecision): string {
 		return $_('ai-agents.list_view.policy_label_' + c);
@@ -269,7 +269,7 @@
 			label: $_('ai-agents.list_view.template_aggressive_label'),
 			policy: {
 				...DEFAULT_AI_POLICY,
-				defaultsByModule: { drink: 'auto', food: 'auto' },
+				defaultsByModule: { drink: 'auto' },
 			},
 		},
 	]);

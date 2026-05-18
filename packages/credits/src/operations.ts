@@ -34,9 +34,6 @@ export enum CreditOperationType {
 	AI_RESEARCH_QUICK = 'ai_research_quick',
 	AI_RESEARCH_DEEP = 'ai_research_deep',
 
-	// Food - Food analysis
-	AI_FOOD_ANALYSIS = 'ai_food_analysis',
-
 	// Cards - AI deck generation
 	AI_DECK_GENERATION = 'ai_deck_generation',
 	AI_CARD_GENERATION = 'ai_card_generation',
@@ -94,8 +91,6 @@ export const CREDIT_COSTS: Record<CreditOperationType, number> = {
 
 	[CreditOperationType.AI_RESEARCH_QUICK]: 5,
 	[CreditOperationType.AI_RESEARCH_DEEP]: 25,
-
-	[CreditOperationType.AI_FOOD_ANALYSIS]: 3,
 
 	[CreditOperationType.AI_DECK_GENERATION]: 20,
 	[CreditOperationType.AI_CARD_GENERATION]: 2,
@@ -211,14 +206,6 @@ export const OPERATION_METADATA: Record<CreditOperationType, OperationMetadata> 
 		description: 'Comprehensive research with 30+ sources',
 		category: CreditCategory.AI,
 		app: 'questions',
-	},
-
-	// Food Analysis
-	[CreditOperationType.AI_FOOD_ANALYSIS]: {
-		name: 'Analyze Food Photo',
-		description: 'Analyze nutrition from a food photo',
-		category: CreditCategory.AI,
-		app: 'food',
 	},
 
 	// Deck Generation

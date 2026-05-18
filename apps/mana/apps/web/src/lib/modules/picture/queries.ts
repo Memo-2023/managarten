@@ -48,8 +48,6 @@ export function toImage(local: LocalImage): Image {
 		sourceImageId: local.sourceImageId ?? undefined,
 		referenceImageIds: local.referenceImageIds ?? undefined,
 		generationMode: local.generationMode ?? undefined,
-		wardrobeOutfitId: local.wardrobeOutfitId ?? undefined,
-		wardrobeGarmentId: local.wardrobeGarmentId ?? undefined,
 		comicStoryId: local.comicStoryId ?? undefined,
 		comicPanelIndex: local.comicPanelIndex ?? undefined,
 		comicCharacterId: local.comicCharacterId ?? undefined,

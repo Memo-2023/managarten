@@ -141,45 +141,6 @@ export interface DrinkEntryUndonePayload {
 
 export type DrinkEventType = 'DrinkLogged' | 'DrinkEntryDeleted' | 'DrinkEntryUndone';
 
-// ── Food ────────────────────────────────────────
-
-export interface MealLoggedPayload {
-	mealId: string;
-	mealType: string;
-	inputType: string;
-	description: string;
-	calories?: number;
-	protein?: number;
-	date: string;
-}
-
-export interface MealFromPhotoLoggedPayload {
-	mealId: string;
-	mealType: string;
-	photoMediaId: string;
-	confidence: number;
-	calories?: number;
-}
-
-export interface MealDeletedPayload {
-	mealId: string;
-	mealType: string;
-}
-
-export interface NutritionGoalSetPayload {
-	goalId: string;
-	dailyCalories: number;
-	dailyProtein?: number;
-	dailyCarbs?: number;
-	dailyFat?: number;
-}
-
-export type FoodEventType =
-	| 'MealLogged'
-	| 'MealFromPhotoLogged'
-	| 'MealDeleted'
-	| 'NutritionGoalSet';
-
 // ── Places ──────────────────────────────────────────
 
 export interface PlaceCreatedPayload {
@@ -661,7 +622,6 @@ export type ManaEventType =
 	| TodoEventType
 	| CalendarEventType
 	| DrinkEventType
-	| FoodEventType
 	| PlacesEventType
 	| HabitsEventType
 	| JournalEventType
@@ -717,11 +677,6 @@ export type ManaEvent =
 	| DomainEvent<'DrinkLogged', DrinkLoggedPayload>
 	| DomainEvent<'DrinkEntryDeleted', DrinkEntryDeletedPayload>
 	| DomainEvent<'DrinkEntryUndone', DrinkEntryUndonePayload>
-	// Food
-	| DomainEvent<'MealLogged', MealLoggedPayload>
-	| DomainEvent<'MealFromPhotoLogged', MealFromPhotoLoggedPayload>
-	| DomainEvent<'MealDeleted', MealDeletedPayload>
-	| DomainEvent<'NutritionGoalSet', NutritionGoalSetPayload>
 	// Places
 	| DomainEvent<'PlaceCreated', PlaceCreatedPayload>
 	| DomainEvent<'PlaceDeleted', PlaceDeletedPayload>

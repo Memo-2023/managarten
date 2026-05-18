@@ -243,23 +243,6 @@ export const MANA_APPS: ManaApp[] = [
 		archived: true,
 	},
 	{
-		id: 'food',
-		name: 'Food',
-		description: {
-			de: 'KI Ernährungstracker',
-			en: 'AI Nutrition Tracker',
-		},
-		longDescription: {
-			de: 'Tracke deine Ernährung mit KI-gestützter Foto-Analyse und erhalte detaillierte Nährwertinformationen.',
-			en: 'Track your nutrition with AI-powered photo analysis and get detailed nutritional information.',
-		},
-		icon: APP_ICONS.food,
-		color: '#10b981',
-		comingSoon: false,
-		status: 'development',
-		requiredTier: 'guest',
-	},
-	{
 		id: 'contacts',
 		name: 'Kontakte',
 		description: {
@@ -380,23 +363,6 @@ export const MANA_APPS: ManaApp[] = [
 		requiredTier: 'guest',
 	},
 	{
-		id: 'wardrobe',
-		name: 'Wardrobe',
-		description: {
-			de: 'Dein digitaler Kleiderschrank',
-			en: 'Your digital wardrobe',
-		},
-		longDescription: {
-			de: 'Fotografiere Kleidungsstücke, komponiere Outfits und probiere sie mit KI an dir selbst an — vom eigenen Schrank bis zu Brillen, Vereinstrikots und Merch.',
-			en: 'Photograph garments, compose outfits, and try them on yourself with AI — from your own closet to glasses, club jerseys, and brand merch.',
-		},
-		icon: APP_ICONS.wardrobe,
-		color: '#e11d48',
-		comingSoon: false,
-		status: 'beta',
-		requiredTier: 'guest', // LOCAL TIER PATCH — revert to 'beta' before release
-	},
-	{
 		id: 'comic',
 		name: 'Comic',
 		description: {
@@ -443,23 +409,6 @@ export const MANA_APPS: ManaApp[] = [
 		},
 		icon: APP_ICONS.times,
 		color: '#f59e0b',
-		comingSoon: false,
-		status: 'beta',
-		requiredTier: 'guest',
-	},
-	{
-		id: 'citycorners',
-		name: 'CityCorners',
-		description: {
-			de: 'Stadtführer für Konstanz',
-			en: 'City Guide for Konstanz',
-		},
-		longDescription: {
-			de: 'Entdecke Sehenswürdigkeiten, Restaurants, Museen und Läden in Konstanz am Bodensee.',
-			en: 'Discover sights, restaurants, museums, and shops in Konstanz at Lake Constance.',
-		},
-		icon: APP_ICONS.citycorners,
-		color: '#2563eb',
 		comingSoon: false,
 		status: 'beta',
 		requiredTier: 'guest',

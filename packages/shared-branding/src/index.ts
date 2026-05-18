@@ -21,7 +21,6 @@ export {
 	UloadLogo,
 	ChatLogo,
 	PresiLogo,
-	FoodLogo,
 	QuotesLogo,
 	ContactsLogo,
 	CalendarLogo,
@@ -36,7 +35,6 @@ export {
 	PlantsLogo,
 	LightWriteLogo,
 	MusicLogo,
-	CitycornersLogo,
 } from './logos';
 
 // Configuration

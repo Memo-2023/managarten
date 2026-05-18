@@ -24,7 +24,6 @@ export type WidgetType =
 	| 'music-library' // Music: music library stats
 	| 'presi-decks' // Presi: recent presentations
 	| 'active-timer' // Times: running timer
-	| 'nutrition-progress' // Food: today's calorie progress
 	| 'plant-watering' // Plants: plants due for watering
 	| 'day-timeline' // TimeBlocks: chronological day timeline
 	| 'activity-feed' // TimeBlocks: recent activity across modules
@@ -131,7 +130,6 @@ export interface WidgetMeta {
 		| 'music'
 		| 'presi'
 		| 'times'
-		| 'food'
 		| 'plants'
 		| 'period'
 		| 'body'
@@ -284,15 +282,6 @@ export const WIDGET_REGISTRY: WidgetMeta[] = [
 		defaultSize: 'small',
 		allowMultiple: false,
 		requiredBackend: 'times',
-	},
-	{
-		type: 'nutrition-progress',
-		nameKey: 'dashboard.widgets.nutrition.title',
-		descriptionKey: 'dashboard.widgets.nutrition.description',
-		icon: '🍽️',
-		defaultSize: 'small',
-		allowMultiple: false,
-		requiredBackend: 'food',
 	},
 	{
 		type: 'plant-watering',

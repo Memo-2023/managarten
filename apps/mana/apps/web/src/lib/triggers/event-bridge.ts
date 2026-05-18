@@ -28,7 +28,6 @@ const EVENT_MAP: Record<string, { appId: string; collection: string; op: string 
 	NoteCreated: { appId: 'notes', collection: 'notes', op: 'insert' },
 	ContactCreated: { appId: 'contacts', collection: 'contacts', op: 'insert' },
 	PlaceVisited: { appId: 'places', collection: 'places', op: 'update' },
-	MealLogged: { appId: 'food', collection: 'meals', op: 'insert' },
 };
 
 let unsubscribe: (() => void) | null = null;

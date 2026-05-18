@@ -15,8 +15,6 @@
 		useAllBodyMeasurements,
 		useAllBodyChecks,
 		useAllBodyPhases,
-		useFoodMealsSince,
-		dateNDaysAgo,
 		getActiveWorkout,
 		getActivePhase,
 	} from './queries';
@@ -29,7 +27,6 @@
 	import RoutineManager from './components/RoutineManager.svelte';
 	import PhaseManager from './components/PhaseManager.svelte';
 	import ExerciseProgressionChart from './components/ExerciseProgressionChart.svelte';
-	import CalorieWeightChart from './components/CalorieWeightChart.svelte';
 
 	const exercisesQuery = useAllBodyExercises();
 	const routinesQuery = useAllBodyRoutines();
@@ -38,7 +35,6 @@
 	const measurementsQuery = useAllBodyMeasurements();
 	const checksQuery = useAllBodyChecks();
 	const phasesQuery = useAllBodyPhases();
-	const mealsQuery = useFoodMealsSince(dateNDaysAgo(56));
 
 	let exercises = $derived(exercisesQuery.value);
 	let routines = $derived(routinesQuery.value);
@@ -47,7 +43,6 @@
 	let measurements = $derived(measurementsQuery.value);
 	let checks = $derived(checksQuery.value);
 	let phases = $derived(phasesQuery.value);
-	let meals = $derived(mealsQuery.value);
 
 	let activeWorkout = $derived(getActiveWorkout(workouts));
 	let activePhase = $derived(getActivePhase(phases));
@@ -98,11 +93,6 @@
 		<h2>{$_('body.weight', { default: 'Gewicht' })}</h2>
 		<WeightChart {measurements} />
 		<MeasurementForm />
-	</section>
-
-	<section class="card">
-		<h2>{$_('body.calorieWeight', { default: 'Kalorien × Gewicht' })}</h2>
-		<CalorieWeightChart {measurements} {meals} {activePhase} />
 	</section>
 
 	<section class="card">

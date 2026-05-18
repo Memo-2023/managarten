@@ -6,10 +6,13 @@
  * the matching index in `database.ts` (or vice versa), one of these tests
  * fails loudly instead of letting sync silently drop the table.
  *
- * The "snapshot" tests pin the *exact* registry shape that existed before
- * the refactor. Any intentional change to a module's tables / sync names
- * should update both the module config AND the corresponding entry below
- * in the same commit — this makes such changes visible in code review.
+ * The "snapshot" tests pin the *exact* registry shape that exists today.
+ * Any intentional change to a module's tables / sync names should update
+ * both the module config AND the corresponding entry below in the same
+ * commit — this makes such changes visible in code review.
+ *
+ * Last full snapshot refresh: 2026-05-18 (food + wardrobe module retirement;
+ * citycorners + cards modules already retired before).
  */
 
 import 'fake-indexeddb/auto';
@@ -35,17 +38,73 @@ import {
 import { db } from './database';
 
 // ─── Internal Dexie tables that are intentionally NOT in SYNC_APP_MAP ───
-// These hold local-only state (sync metadata, retry queues, activity log)
-// that must never leave the device.
+// These hold local-only state (sync metadata, retry queues, activity log,
+// AI debug capture, BYOK key material, …) that must never leave the device.
 const INTERNAL_TABLES = new Set([
 	'_pendingChanges',
 	'_syncMeta',
 	'_eventsTombstones',
 	'_activity',
+	'_events',
+	'_memory',
+	'_streakState',
+	'_aiDebugLog',
+	'_byokKeys',
+	'_clientIdentity',
+	'_nudgeOutcomes',
+	'_serverIterationExecutions',
 	// Local-only AI Workbench staging; approvals run the underlying tool
 	// which writes via its module's sync path — proposals themselves never
 	// leave the device.
 	'pendingProposals',
+	// Local-only news feed cache.
+	'newsCachedFeed',
+]);
+
+// ─── Dexie tables that survive in the schema for backwards-compat with
+// existing user databases, but whose owning module has been retired and
+// is no longer expected to register them. These rows are stranded until
+// a future Dexie version() call drops them explicitly. Tracked here so
+// the "every Dexie table is registered" guard doesn't break on legacy
+// schema history.
+const LEGACY_TABLES = new Set([
+	// Cards → wordeck.com (2026-05-17 rebrand)
+	'cardDecks',
+	'cards',
+	'deckTags',
+	'cardReviews',
+	'cardStudyBlocks',
+	// CityCorners → seepuls.mana.how (2026-05 retired)
+	'cities',
+	'ccLocations',
+	'ccFavorites',
+	'ccLocationTags',
+	// Moodlit → mood module split (legacy tables still in Dexie history)
+	'moods',
+	'sequences',
+	'moodTags',
+	// Companion module — surfaces still live but tables predate the
+	// per-module registry refactor; tracked in the agents/missions registry
+	// today.
+	'companionConversations',
+	'companionGoals',
+	'companionMessages',
+	// Rituals — local-only state for the AI Workbench ritual runner; not
+	// yet promoted into a module config but writes happen via the workbench
+	// pathway.
+	'rituals',
+	'ritualSteps',
+	'ritualLogs',
+	// Wishes — module surface exists, registry adoption pending.
+	'wishesItems',
+	'wishesLists',
+	'wishesPriceChecks',
+	// Who — module surface exists, registry adoption pending.
+	'whoGames',
+	'whoMessages',
+	// User-level legacy table from the v40 tag-preset migration; lives
+	// outside the module-registry by design (cross-module shared shape).
+	'userTagPresets',
 ]);
 
 describe('module-registry — structural invariants', () => {
@@ -114,10 +173,11 @@ describe('module-registry — Dexie schema alignment', () => {
 		}
 	});
 
-	it('every Dexie table is either internal or registered with an appId', () => {
+	it('every Dexie table is either internal, legacy, or registered with an appId', () => {
 		const registered = new Set(Object.keys(TABLE_TO_APP));
 		for (const t of db.tables) {
 			if (INTERNAL_TABLES.has(t.name)) continue;
+			if (LEGACY_TABLES.has(t.name)) continue;
 			expect(
 				registered.has(t.name),
 				`Dexie table "${t.name}" is not registered in any module.config.ts — sync will silently skip it`
@@ -128,29 +188,29 @@ describe('module-registry — Dexie schema alignment', () => {
 
 // ─── Snapshot of the registry shape ───────────────────────────────
 //
-// This is the exact set of (appId → tables) and (unified → sync) mappings
-// that the legacy hardcoded blocks in database.ts had pre-refactor. If you
-// intentionally change a module's sync surface, update the matching entry
-// here in the same commit so the change is reviewable.
+// Exact (appId → tables) and (unified → sync) shape of the current registry.
+// If you intentionally change a module's sync surface, update the matching
+// entry here in the same commit so the change is reviewable.
 
-describe('module-registry — pre-refactor snapshot', () => {
-	it('SYNC_APP_MAP matches the legacy hardcoded shape', () => {
+describe('module-registry — snapshot', () => {
+	it('SYNC_APP_MAP matches the current registry shape', () => {
 		expect(SYNC_APP_MAP).toEqual({
-			mana: ['userSettings', 'dashboardConfigs', 'automations'],
+			mana: ['userSettings', 'dashboardConfigs', 'workbenchScenes', 'automations'],
+			tags: ['globalTags', 'tagGroups'],
+			links: ['manaLinks'],
+			timeblocks: ['timeBlocks', 'timeBlockTags'],
 			todo: ['tasks', 'todoProjects', 'taskLabels', 'reminders', 'boardViews'],
 			calendar: ['calendars', 'events', 'eventTags'],
 			contacts: ['contacts', 'contactTags'],
 			chat: ['conversations', 'messages', 'chatTemplates', 'conversationTags'],
 			picture: ['images', 'boards', 'boardItems', 'imageTags'],
-			cards: ['cardDecks', 'cards', 'deckTags'],
-			quotes: ['quotesFavorites', 'quotesLists', 'quotesListTags'],
+			quotes: ['quotesFavorites', 'quotesLists', 'quotesListTags', 'customQuotes'],
 			music: ['songs', 'mukkePlaylists', 'playlistSongs', 'mukkeProjects', 'markers', 'songTags'],
 			storage: ['files', 'storageFolders', 'fileTags'],
 			presi: ['presiDecks', 'slides', 'presiDeckTags'],
 			inventory: ['invCollections', 'invItems', 'invLocations', 'invCategories', 'invItemTags'],
 			photos: ['albums', 'albumItems', 'photoFavorites', 'photoMediaTags'],
 			skilltree: ['skills', 'activities', 'achievements', 'skillTags'],
-			citycorners: ['cities', 'ccLocations', 'ccFavorites', 'ccLocationTags'],
 			times: [
 				'timeClients',
 				'timeProjects',
@@ -163,33 +223,77 @@ describe('module-registry — pre-refactor snapshot', () => {
 				'entryTags',
 			],
 			questions: ['qCollections', 'questions', 'answers', 'questionTags'],
-			food: ['meals', 'goals', 'foodFavorites', 'mealTags'],
 			plants: ['plants', 'plantPhotos', 'wateringSchedules', 'wateringLogs', 'plantTags'],
 			uload: ['links', 'uloadTags', 'uloadFolders', 'linkTags'],
 			calc: ['calculations', 'savedFormulas'],
-			moodlit: ['moods', 'sequences', 'moodTags'],
 			memoro: ['memos', 'memories', 'memoTags', 'memoroSpaces', 'spaceMembers', 'memoSpaces'],
 			guides: ['guides', 'sections', 'steps', 'guideCollections', 'runs', 'guideTags'],
 			habits: ['habits', 'habitLogs'],
 			notes: ['notes', 'noteTags'],
+			journal: ['journalEntries'],
 			dreams: ['dreams', 'dreamSymbols', 'dreamTags'],
 			period: ['periods', 'periodDayLogs', 'periodSymptoms'],
 			events: ['socialEvents', 'eventGuests', 'eventInvitations', 'eventItems'],
 			finance: ['transactions', 'financeCategories', 'budgets'],
 			places: ['places', 'locationLogs', 'placeTags'],
-			tags: ['globalTags', 'tagGroups'],
-			links: ['manaLinks'],
-			timeblocks: ['timeBlocks', 'timeBlockTags'],
+			playground: ['playgroundSnippets', 'playgroundConversations', 'playgroundMessages'],
+			news: ['newsArticles', 'newsCategories', 'newsPreferences', 'newsReactions'],
+			body: [
+				'bodyExercises',
+				'bodyRoutines',
+				'bodyWorkouts',
+				'bodySets',
+				'bodyMeasurements',
+				'bodyChecks',
+				'bodyPhases',
+			],
+			firsts: ['firsts'],
+			lasts: ['lasts', 'lastsCooldown'],
+			drink: ['drinkEntries', 'drinkPresets'],
+			recipes: ['recipes'],
+			stretch: [
+				'stretchExercises',
+				'stretchRoutines',
+				'stretchSessions',
+				'stretchAssessments',
+				'stretchReminders',
+			],
+			mail: ['mailDrafts'],
+			meditate: ['meditatePresets', 'meditateSessions', 'meditateSettings'],
+			sleep: ['sleepEntries', 'sleepHygieneLogs', 'sleepHygieneChecks', 'sleepSettings'],
+			mood: ['moodEntries', 'moodSettings'],
+			quiz: ['quizzes', 'quizQuestions', 'quizAttempts'],
+			profile: ['userContext', 'meImages'],
+			library: ['libraryEntries'],
+			articles: [
+				'articles',
+				'articleHighlights',
+				'articleTags',
+				'articleImportJobs',
+				'articleImportItems',
+				'articleExtractPickup',
+			],
+			invoices: ['invoices', 'invoiceClients', 'invoiceSettings'],
+			broadcasts: ['broadcastCampaigns', 'broadcastTemplates', 'broadcastSettings'],
+			wetter: ['wetterLocations', 'wetterSettings'],
+			website: ['websites', 'websitePages', 'websiteBlocks'],
+			writing: ['writingDrafts', 'writingDraftVersions', 'writingGenerations', 'writingStyles'],
+			comic: ['comicStories', 'comicCharacters'],
+			augur: ['augurEntries'],
+			forms: ['forms', 'formResponses'],
+			ai: ['aiMissions', 'agents', 'agentKontextDocs'],
 		});
 	});
 
-	it('TABLE_TO_SYNC_NAME matches the legacy hardcoded shape', () => {
+	it('TABLE_TO_SYNC_NAME matches the current registry shape', () => {
 		expect(TABLE_TO_SYNC_NAME).toEqual({
+			globalTags: 'tags',
+			manaLinks: 'links',
 			todoProjects: 'projects',
 			chatTemplates: 'templates',
-			cardDecks: 'decks',
 			quotesFavorites: 'favorites',
 			quotesLists: 'lists',
+			customQuotes: 'custom-quotes',
 			mukkePlaylists: 'playlists',
 			mukkeProjects: 'projects',
 			storageFolders: 'folders',
@@ -200,8 +304,6 @@ describe('module-registry — pre-refactor snapshot', () => {
 			invCategories: 'categories',
 			photoFavorites: 'favorites',
 			photoMediaTags: 'photoTags',
-			ccLocations: 'locations',
-			ccFavorites: 'favorites',
 			timeClients: 'clients',
 			timeProjects: 'projects',
 			timeTemplates: 'templates',
@@ -210,18 +312,27 @@ describe('module-registry — pre-refactor snapshot', () => {
 			timeCountdownTimers: 'countdownTimers',
 			timeWorldClocks: 'worldClocks',
 			qCollections: 'collections',
-			foodFavorites: 'favorites',
-			memoroSpaces: 'spaces',
 			uloadTags: 'tags',
 			uloadFolders: 'folders',
+			memoroSpaces: 'spaces',
 			guideCollections: 'collections',
-			financeCategories: 'categories',
 			socialEvents: 'events',
-			globalTags: 'tags',
-			// `tagGroups` is intentionally absent — it has no rename in the registry
-			// (the legacy hardcoded block had a redundant tagGroups→tagGroups entry
-			// which was a no-op; toSyncName() returns the same value either way).
-			manaLinks: 'links',
+			financeCategories: 'categories',
+			playgroundSnippets: 'snippets',
+			playgroundConversations: 'conversations',
+			playgroundMessages: 'messages',
+			newsArticles: 'articles',
+			newsCategories: 'categories',
+			newsPreferences: 'preferences',
+			newsReactions: 'reactions',
+			quizQuestions: 'questions',
+			quizAttempts: 'attempts',
+			articleHighlights: 'highlights',
+			articleImportJobs: 'importJobs',
+			articleImportItems: 'importItems',
+			articleExtractPickup: 'extractPickup',
+			wetterLocations: 'locations',
+			wetterSettings: 'settings',
 		});
 	});
 });

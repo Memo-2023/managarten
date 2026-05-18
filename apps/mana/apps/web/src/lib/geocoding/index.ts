@@ -14,7 +14,7 @@
  * places just happens to be the first consumer.
  */
 
-export type PlaceCategory = 'home' | 'work' | 'food' | 'shopping' | 'transit' | 'leisure' | 'other';
+export type PlaceCategory = 'home' | 'work' | 'shopping' | 'transit' | 'leisure' | 'other';
 
 /**
  * Where to send geocoding requests:

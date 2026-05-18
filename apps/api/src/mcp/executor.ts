@@ -529,44 +529,6 @@ register('undo_drink', async (_args, userId) => {
 	return ok(`Letzter Drink-Eintrag (${last.name}) rückgängig gemacht.`);
 });
 
-// ── Food tools ────────────────────────────────────────────────
-
-register('log_meal', async (args, userId) => {
-	const mealId = crypto.randomUUID();
-	const now = nowIso();
-	const today = now.split('T')[0];
-	const data = {
-		id: mealId,
-		userId,
-		mealType: args.mealType as string,
-		description: args.description as string,
-		calories: (args.calories as number) ?? null,
-		protein: (args.protein as number) ?? null,
-		date: today,
-		createdAt: now,
-		updatedAt: now,
-	};
-	await writeRecord(userId, 'food', 'meals', mealId, 'insert', data, fieldTs(Object.keys(data)));
-	return ok(`${args.mealType}: "${args.description}" geloggt.`, { id: mealId });
-});
-
-register('nutrition_summary', async (_args, userId) => {
-	const records = await readLatestRecords(userId, 'food', 'meals');
-	const today = new Date().toISOString().split('T')[0];
-	const todayMeals = records.filter((r) => r.date === today);
-	let totalCal = 0,
-		totalProtein = 0;
-	for (const m of todayMeals) {
-		totalCal += (m.calories as number) ?? 0;
-		totalProtein += (m.protein as number) ?? 0;
-	}
-	return ok(`Heute: ${todayMeals.length} Mahlzeiten, ${totalCal} kcal, ${totalProtein}g Protein`, {
-		meals: todayMeals.length,
-		calories: totalCal,
-		protein: totalProtein,
-	});
-});
-
 // ── Journal tools ─────────────────────────────────────────────
 
 register('create_journal_entry', async (args, userId) => {

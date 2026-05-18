@@ -267,19 +267,6 @@ export const MODULE_HELP: Record<string, ModuleHelp> = {
 			'Dateinamen sind verschlüsselt, auch im Speicher nicht im Klartext sichtbar',
 		],
 	},
-	food: {
-		description: 'Mahlzeiten tracken mit AI-Unterstützung. Nährwerte werden automatisch erkannt.',
-		features: [
-			'Mahlzeiten per Text beschreiben',
-			'Automatische Nährwertanalyse durch AI',
-			'Tagesübersicht mit Kalorien & Makros',
-			'AI-Tools: Mahlzeiten loggen, Tages-Zusammenfassung',
-		],
-		tips: [
-			'Beschreibe Mahlzeiten natürlich: "2 Scheiben Vollkornbrot mit Käse und Tomate"',
-			'Im Chat: "Was habe ich heute gegessen?"',
-		],
-	},
 	plants: {
 		description:
 			'Pflanzen katalogisieren — Pflege-Notizen, Standort, Bewässerung und Bodentyp. Ideal für Hobbygärtner.',
@@ -356,30 +343,6 @@ export const MODULE_HELP: Record<string, ModuleHelp> = {
 			'Verschlüsselte Inhalte',
 		],
 		tips: ['Definiere Kategorien nach Lebensbereichen für eine gute Übersicht'],
-	},
-	moodlit: {
-		description:
-			'Stimmungslicht und Ambient-Szenen für Fokus und Entspannung. Verwandle deinen Bildschirm in eine Lichtquelle.',
-		features: [
-			'Verschiedene Licht-Szenen & Farbverläufe',
-			'Timer-Funktion für zeitlich begrenzte Sessions',
-			'Farbwechsel & Animationen',
-			'Vollbild-Modus',
-		],
-		tips: ['Kombiniere Moodlit mit Meditate für eine immersive Meditationssession'],
-	},
-	citycorners: {
-		description:
-			'Interessante Ecken in deiner Stadt entdecken und festhalten. Ein persönlicher Stadtführer.',
-		features: [
-			'Orte mit Fotos & Beschreibung',
-			'Kategorien (Café, Street Art, Architektur, ...)',
-			'Standort & Adresse',
-			'Entdeckungs-Feed',
-		],
-		tips: [
-			'Halte Orte fest wenn du sie entdeckst — später erinnerst du dich nicht mehr an die Adresse',
-		],
 	},
 	uload: {
 		description:
@@ -978,23 +941,6 @@ export const MODULE_HELP: Record<string, ModuleHelp> = {
 			'Englische Captions/Dialoge rendern stabiler als deutsche; kurze Sätze funktionieren am besten.',
 			'Style-Wechsel ist nicht möglich nach Story-Create — dafür einfach neue Story anlegen.',
 			'Ab ~8 Panels pro Story wird Character-Konsistenz spürbar schwerer (gpt-image-2-Limit).',
-		],
-	},
-	wardrobe: {
-		description:
-			'Dein digitaler Kleiderschrank — fotografiere Kleidungsstücke und Accessoires, komponiere Outfits, und probiere sie mit KI an dir selbst an. Pro Space ein eigener Schrank: was im Family-Space liegt, taucht im Brand-Space nicht auf.',
-		features: [
-			'Kleidung nach Kategorien (Oberteile, Hosen, Kleider, Jacken, Schuhe, Accessoires …)',
-			'Outfits aus mehreren Stücken komponieren und als Set anprobieren',
-			'Solo-Try-On pro Einzelstück — Accessoire-Modus (Brille, Schmuck, Hut) rendert nur das Gesicht und spart Credits',
-			'Referenzbilder aus „Meine Bilder" (Gesicht + optional Ganzkörper) werden automatisch genutzt',
-			'MCP-Tools: listGarments / listOutfits / createOutfit / tryOn für Agents',
-		],
-		tips: [
-			'Aktive Kategorie oben bestimmt den Typ für neue Uploads — erst die Kategorie wählen, dann die Datei droppen.',
-			'Die Upload-Zone oben akzeptiert Drag-&-Drop direkt aus dem Finder.',
-			'Frontal-Fotos mit hellem Hintergrund liefern die besten Try-On-Ergebnisse.',
-			'Ohne Gesichtsbild kannst du kein Try-On starten — der Banner oben hilft beim Upload in einem Schritt.',
 		],
 	},
 	'research-lab': {

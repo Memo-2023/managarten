@@ -59,14 +59,14 @@ export const ONBOARDING_TEMPLATES: readonly OnboardingTemplate[] = [
 		name: 'Health',
 		shortDescription: 'Gesundheit, Stimmung, Ernährung, Zyklus',
 		iconName: 'Heart',
-		moduleIds: ['habits', 'body', 'mood', 'food', 'period'],
+		moduleIds: ['habits', 'body', 'mood', 'period'],
 	},
 	{
 		id: 'sport',
 		name: 'Sport',
 		shortDescription: 'Training, Ziele, Körper, Ernährung',
 		iconName: 'Barbell',
-		moduleIds: ['habits', 'body', 'food', 'goals', 'stretch'],
+		moduleIds: ['habits', 'body', 'goals', 'stretch'],
 	},
 	{
 		id: 'lernen',
@@ -80,7 +80,7 @@ export const ONBOARDING_TEMPLATES: readonly OnboardingTemplate[] = [
 		name: 'Entdecken',
 		shortDescription: 'Orte, Fotos, Musik, Wetter',
 		iconName: 'Compass',
-		moduleIds: ['places', 'citycorners', 'photos', 'music', 'wetter'],
+		moduleIds: ['places', 'photos', 'music', 'wetter'],
 	},
 	{
 		id: 'erinnern',

@@ -13,7 +13,6 @@ const registry = new Map<string, () => Promise<AdapterModule>>([
 	['/contacts', () => import('$lib/modules/contacts/quick-input-adapter')],
 	['/times', () => import('$lib/modules/times/quick-input-adapter')],
 	['/plants', () => import('$lib/modules/plants/quick-input-adapter')],
-	['/food', () => import('$lib/modules/food/quick-input-adapter')],
 ]);
 
 /**

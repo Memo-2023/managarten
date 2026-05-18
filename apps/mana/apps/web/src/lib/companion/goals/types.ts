@@ -89,22 +89,6 @@ export const GOAL_TEMPLATES: GoalTemplate[] = [
 		target: { value: 5, period: 'day', comparison: 'gte' },
 	},
 	{
-		id: 'tpl-meals-daily',
-		title: 'Alle Mahlzeiten tracken',
-		description: 'Mindestens 3 Mahlzeiten pro Tag erfassen',
-		moduleId: 'food',
-		metric: { source: 'event_count', eventType: 'MealLogged' },
-		target: { value: 3, period: 'day', comparison: 'gte' },
-	},
-	{
-		id: 'tpl-calories-daily',
-		title: 'Kalorien-Ziel einhalten',
-		description: 'Maximal 2000 kcal pro Tag',
-		moduleId: 'food',
-		metric: { source: 'event_sum', eventType: 'MealLogged', sumField: 'calories' },
-		target: { value: 2000, period: 'day', comparison: 'lte' },
-	},
-	{
 		id: 'tpl-places-weekly',
 		title: 'Neue Orte entdecken',
 		description: 'Mindestens 3 verschiedene Orte pro Woche besuchen',

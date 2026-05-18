@@ -326,33 +326,8 @@ const APP_CONFIGS = [
 	},
 
 	// Food Server (Hono/Bun)
-	{
-		path: 'apps/food/apps/server/.env',
-		vars: {
-			NODE_ENV: () => 'development',
-			PORT: (env) => env.FOOD_BACKEND_PORT || '3002',
-			DATABASE_URL: (env) => env.FOOD_DATABASE_URL,
-			MANA_AUTH_URL: (env) => env.MANA_AUTH_URL,
-			GEMINI_API_KEY: (env) => env.FOOD_GEMINI_API_KEY,
-			S3_ENDPOINT: (env) => env.FOOD_S3_ENDPOINT,
-			S3_ACCESS_KEY_ID: (env) => env.FOOD_S3_ACCESS_KEY_ID,
-			S3_SECRET_ACCESS_KEY: (env) => env.FOOD_S3_SECRET_ACCESS_KEY,
-			S3_BUCKET_NAME: (env) => env.FOOD_S3_BUCKET_NAME,
-			S3_REGION: (env) => env.FOOD_S3_REGION,
-			S3_PUBLIC_URL: (env) => env.FOOD_S3_PUBLIC_URL,
-		},
-	},
 
 	// Food Web (SvelteKit)
-	{
-		path: 'apps/food/apps/web/.env',
-		vars: {
-			PUBLIC_BACKEND_URL: (env) => `http://localhost:${env.FOOD_BACKEND_PORT || '3002'}`,
-			PUBLIC_MANA_AUTH_URL: (env) => env.MANA_AUTH_URL,
-			PUBLIC_MIDDLEWARE_APP_ID: (env) => env.FOOD_APP_ID || 'food',
-			PUBLIC_GLITCHTIP_DSN: (env) => env.PUBLIC_GLITCHTIP_DSN || '',
-		},
-	},
 
 	// Quotes Backend: REMOVED — migrated to local-first
 
@@ -590,17 +565,7 @@ const APP_CONFIGS = [
 		},
 	},
 
-	// CityCorners Backend: REMOVED — migrated to local-first
-
-	// CityCorners Web (SvelteKit)
-	{
-		path: 'apps/citycorners/apps/web/.env',
-		vars: {
-			PUBLIC_BACKEND_URL: (env) => `http://localhost:${env.CITYCORNERS_BACKEND_PORT || '3025'}`,
-			PUBLIC_MANA_AUTH_URL: (env) => env.MANA_AUTH_URL,
-			PUBLIC_GLITCHTIP_DSN: (env) => env.PUBLIC_GLITCHTIP_DSN || '',
-		},
-	},
+	// CityCorners: REMOVED — module entfernt 2026-05-18
 
 	// TechBase: REMOVED
 
@@ -785,12 +750,6 @@ const APP_CONFIGS = [
 	},
 
 	// Food Landing
-	{
-		path: 'apps/food/apps/landing/.env',
-		vars: {
-			PUBLIC_UMAMI_WEBSITE_ID: (env) => env.UMAMI_WEBSITE_ID_FOOD_LANDING || '',
-		},
-	},
 
 	// Presi Landing
 	{

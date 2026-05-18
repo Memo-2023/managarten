@@ -52,7 +52,6 @@ describe('WIDGET_REGISTRY', () => {
 			'music',
 			'presi',
 			'mana-auth',
-			'food',
 			'plants',
 			'period',
 			'body',

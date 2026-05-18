@@ -7,7 +7,6 @@ import { registerTools } from './registry';
 import { todoTools } from '$lib/modules/todo/tools';
 import { calendarTools } from '$lib/modules/calendar/tools';
 import { drinkTools } from '$lib/modules/drink/tools';
-import { foodTools } from '$lib/modules/food/tools';
 import { placesTools } from '$lib/modules/places/tools';
 import { habitsTools } from '$lib/modules/habits/tools';
 import { journalTools } from '$lib/modules/journal/tools';
@@ -58,7 +57,6 @@ export function initTools(): void {
 	registerTools(todoTools);
 	registerTools(calendarTools);
 	registerTools(drinkTools);
-	registerTools(foodTools);
 	registerTools(placesTools);
 	registerTools(habitsTools);
 	registerTools(journalTools);

@@ -71,7 +71,6 @@
 	const CATEGORY_VALUES: PlaceCategory[] = [
 		'home',
 		'work',
-		'food',
 		'shopping',
 		'transit',
 		'leisure',

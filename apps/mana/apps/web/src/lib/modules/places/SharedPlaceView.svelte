@@ -7,7 +7,7 @@
   v1.1 may add an opt-in toggle.
 -->
 <script lang="ts">
-	type PlaceCategory = 'home' | 'work' | 'food' | 'shopping' | 'transit' | 'leisure' | 'other';
+	type PlaceCategory = 'home' | 'work' | 'shopping' | 'transit' | 'leisure' | 'other';
 
 	interface PlaceBlob {
 		name: string;
@@ -28,7 +28,6 @@
 	const CATEGORY_LABELS: Record<PlaceCategory, string> = {
 		home: 'Zuhause',
 		work: 'Arbeit',
-		food: 'Essen & Trinken',
 		shopping: 'Einkaufen',
 		transit: 'Transit',
 		leisure: 'Freizeit',
@@ -38,7 +37,6 @@
 	const CATEGORY_EMOJI: Record<PlaceCategory, string> = {
 		home: '🏠',
 		work: '🏢',
-		food: '🍽️',
 		shopping: '🛍️',
 		transit: '🚆',
 		leisure: '🎨',

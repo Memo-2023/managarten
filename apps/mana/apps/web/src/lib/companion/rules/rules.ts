@@ -106,48 +106,10 @@ export const overdueTasksRule: PulseRule = {
 	},
 };
 
-export const mealReminderRule: PulseRule = {
-	id: 'meal-reminder',
-	name: 'Mahlzeit-Erinnerung',
-	trigger: { kind: 'schedule', hours: [12, 19] },
-	check(ctx) {
-		const { meals, calories } = ctx.day.nutrition;
-
-		// Lunch check at 12
-		if (ctx.hour === 12 && meals < 1) {
-			return {
-				id: `meal-lunch-${ctx.day.date}`,
-				type: 'meal_reminder',
-				title: 'Mittagessen tracken',
-				body: 'Noch keine Mahlzeit heute erfasst.',
-				priority: 'low',
-				actionLabel: 'Mahlzeit loggen',
-				actionRoute: '/food',
-			};
-		}
-
-		// Dinner check at 19
-		if (ctx.hour === 19 && meals < 2) {
-			return {
-				id: `meal-dinner-${ctx.day.date}`,
-				type: 'meal_reminder',
-				title: 'Abendessen tracken',
-				body: `Erst ${meals} Mahlzeit(en) heute (${calories.actual} kcal).`,
-				priority: 'low',
-				actionLabel: 'Mahlzeit loggen',
-				actionRoute: '/food',
-			};
-		}
-
-		return null;
-	},
-};
-
 /** All built-in rules */
 export const DEFAULT_RULES: PulseRule[] = [
 	waterReminderRule,
 	streakWarningRule,
 	morningSummaryRule,
 	overdueTasksRule,
-	mealReminderRule,
 ];

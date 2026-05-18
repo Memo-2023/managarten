@@ -247,7 +247,6 @@ export const AI_TOOL_CATALOG: readonly ToolSchema[] = [
 				enum: [
 					'home',
 					'work',
-					'food',
 					'shopping',
 					'sport',
 					'culture',
@@ -324,39 +323,6 @@ export const AI_TOOL_CATALOG: readonly ToolSchema[] = [
 				description: 'Name (z.B. "Latte Macchiato")',
 				required: false,
 			},
-		],
-	},
-
-	// ── Food ──────────────────────────────────────────────────
-	{
-		name: 'nutrition_summary',
-		module: 'food',
-		description:
-			'Gibt die heutige Ernaehrungs-Zusammenfassung zurueck (Mahlzeiten, Kalorien, Protein)',
-		defaultPolicy: 'auto',
-		parameters: [],
-	},
-	{
-		name: 'log_meal',
-		module: 'food',
-		description: 'Loggt eine Mahlzeit mit optionalen Naehrwerten',
-		defaultPolicy: 'auto',
-		parameters: [
-			{
-				name: 'mealType',
-				type: 'string',
-				description: 'Art der Mahlzeit',
-				required: true,
-				enum: ['breakfast', 'lunch', 'dinner', 'snack'],
-			},
-			{
-				name: 'description',
-				type: 'string',
-				description: 'Beschreibung der Mahlzeit',
-				required: true,
-			},
-			{ name: 'calories', type: 'number', description: 'Kalorien (kcal)', required: false },
-			{ name: 'protein', type: 'number', description: 'Protein (g)', required: false },
 		],
 	},
 
@@ -710,13 +676,13 @@ export const AI_TOOL_CATALOG: readonly ToolSchema[] = [
 				name: 'eventType',
 				type: 'string',
 				description:
-					'Domain-Event zum Zaehlen (z.B. "DrinkLogged", "TaskCompleted", "MealLogged", "WorkoutFinished")',
+					'Domain-Event zum Zaehlen (z.B. "DrinkLogged", "TaskCompleted", "WorkoutFinished")',
 				required: false,
 			},
 			{
 				name: 'moduleId',
 				type: 'string',
-				description: 'Zugehoeriges Modul (z.B. "drink", "todo", "food", "body")',
+				description: 'Zugehoeriges Modul (z.B. "drink", "todo", "body")',
 				required: false,
 			},
 		],
@@ -1049,7 +1015,6 @@ export const AI_TOOL_CATALOG: readonly ToolSchema[] = [
 					'art',
 					'tech',
 					'sport',
-					'food',
 					'family',
 					'nature',
 					'education',

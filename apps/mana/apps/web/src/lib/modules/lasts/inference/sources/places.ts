@@ -21,7 +21,6 @@ import type { LastCategory } from '../../types';
 const PLACE_CATEGORY_MAP: Record<PlaceCategory, LastCategory> = {
 	home: 'other',
 	work: 'career',
-	food: 'culinary',
 	shopping: 'other',
 	transit: 'travel',
 	leisure: 'culture',

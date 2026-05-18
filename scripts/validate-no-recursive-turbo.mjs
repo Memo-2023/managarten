@@ -20,7 +20,7 @@
  */
 
 import { execSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
@@ -50,8 +50,9 @@ function validate() {
 
 	for (const rel of paths) {
 		if (rel === rootRel) continue; // root is ALLOWED to orchestrate turbo
-		scanned++;
 		const abs = join(REPO_ROOT, rel);
+		if (!existsSync(abs)) continue; // tracked but deleted-on-disk (rm without commit)
+		scanned++;
 		let pkg;
 		try {
 			pkg = JSON.parse(readFileSync(abs, 'utf8'));

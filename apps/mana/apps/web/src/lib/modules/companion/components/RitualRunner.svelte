@@ -287,12 +287,6 @@
 									.drinks.water.percent}%)
 							</div>
 							<div class="info-item">Gesamt: {day.value.drinks.total.count} Getraenke</div>
-						{:else if currentStep.config.source === 'nutrition_progress'}
-							<div class="info-item">
-								Kalorien: {day.value.nutrition.calories.actual} / {day.value.nutrition.calories
-									.goal} kcal
-							</div>
-							<div class="info-item">Mahlzeiten: {day.value.nutrition.meals}</div>
 						{:else if currentStep.config.source === 'streaks'}
 							{#each streaks.value as s}
 								<div class="info-item">

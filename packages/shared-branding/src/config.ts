@@ -83,19 +83,6 @@ export const APP_BRANDING = {
 		logoStroke: true,
 		logoStrokeWidth: 1.5,
 	},
-	food: {
-		id: 'food',
-		name: 'Food',
-		tagline: 'AI Nutrition Tracker',
-		primaryColor: '#10b981',
-		secondaryColor: '#34d399',
-		// Heart with sparkle for healthy nutrition
-		logoPath:
-			'M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z',
-		logoViewBox: '0 0 24 24',
-		logoStroke: true,
-		logoStrokeWidth: 1.5,
-	},
 	quotes: {
 		id: 'quotes',
 		name: 'Quotes',
@@ -285,19 +272,6 @@ export const APP_BRANDING = {
 		// Music note icon
 		logoPath:
 			'M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3',
-		logoViewBox: '0 0 24 24',
-		logoStroke: true,
-		logoStrokeWidth: 1.5,
-	},
-	citycorners: {
-		id: 'citycorners',
-		name: 'CityCorners',
-		tagline: 'City Guide',
-		primaryColor: '#2563eb',
-		secondaryColor: '#3b82f6',
-		// Map pin / compass icon
-		logoPath:
-			'M15 10.5a3 3 0 11-6 0 3 3 0 016 0z M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z',
 		logoViewBox: '0 0 24 24',
 		logoStroke: true,
 		logoStrokeWidth: 1.5,

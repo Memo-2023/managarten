@@ -75,14 +75,6 @@ export function generateContextDocument(
 		lines.push(`- Kaffee: ${day.drinks.coffee.count}x (${day.drinks.coffee.ml}ml)`);
 	}
 
-	// Nutrition
-	lines.push(
-		`- Ernaehrung: ${day.nutrition.meals} Mahlzeiten, ${day.nutrition.calories.actual} / ${day.nutrition.calories.goal} kcal (${day.nutrition.calories.percent}%)`
-	);
-	if (day.nutrition.protein) {
-		lines.push(`  - Protein: ${day.nutrition.protein.actual}g / ${day.nutrition.protein.goal}g`);
-	}
-
 	// Places
 	if (day.places.visitedToday > 0) {
 		lines.push(`- ${day.places.visitedToday} Orte besucht`);
