@@ -73,7 +73,7 @@ db_user_for_container() {
         chorportal-prod-postgres)  echo "chorportal" ;;
         seepuls-postgres)          echo "seepuls" ;;
         manameme-postgres)         echo "manameme" ;;
-        lesen-postgres)            echo "lesen" ;;
+        pageta-postgres)           echo "pageta" ;;
         mana-infra-postgres)       echo "postgres" ;;
         *)                         echo "postgres" ;;
     esac

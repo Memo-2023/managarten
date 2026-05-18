@@ -170,9 +170,6 @@
 	.progress-fill.water {
 		background: hsl(200 80% 55%);
 	}
-	.progress-fill.cal {
-		background: hsl(var(--color-primary));
-	}
 
 	.stat {
 		font-size: 0.75rem;
