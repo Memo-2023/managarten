@@ -380,23 +380,6 @@ export const MANA_APPS: ManaApp[] = [
 		requiredTier: 'guest',
 	},
 	{
-		id: 'uload',
-		name: 'uLoad',
-		description: {
-			de: 'URL-Shortener & Link-Management',
-			en: 'URL Shortener & Link Management',
-		},
-		longDescription: {
-			de: 'Kürze URLs, tracke Klicks und verwalte deine Links.',
-			en: 'Shorten URLs, track clicks, and manage your links.',
-		},
-		icon: APP_ICONS.uload,
-		color: '#6366f1',
-		comingSoon: false,
-		status: 'beta',
-		requiredTier: 'guest',
-	},
-	{
 		id: 'news-research',
 		name: 'News Research',
 		description: {

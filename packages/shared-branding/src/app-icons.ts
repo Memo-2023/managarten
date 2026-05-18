@@ -99,9 +99,6 @@ export const APP_ICONS = {
 	questions: svgToDataUrl(questionsSvg),
 	times: svgToDataUrl(timesSvg),
 	calc: svgToDataUrl(calcSvg),
-	uload: svgToDataUrl(
-		`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="ug" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#6366f1"/><stop offset="100%" style="stop-color:#818cf8"/></linearGradient></defs><rect width="100" height="100" rx="22" fill="url(#ug)"/><path d="M35 45a10 10 0 0 1 10-10h0a10 10 0 0 1 0 20h0M65 55a10 10 0 0 1-10 10h0a10 10 0 0 1 0-20h0M42 58l16-16" stroke="white" stroke-width="5" stroke-linecap="round" fill="none"/></svg>`
-	),
 	'news-research': svgToDataUrl(
 		`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="nr" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#0891b2"/><stop offset="100%" style="stop-color:#22d3ee"/></linearGradient></defs><rect width="100" height="100" rx="22" fill="url(#nr)"/><path d="M30 30a6 6 0 0 0-6 6v6M30 30a6 6 0 0 1 6 6v0M30 30v0" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="30" cy="30" r="3" fill="white"/><circle cx="52" cy="52" r="18" stroke="white" stroke-width="4" fill="none"/><line x1="65" y1="65" x2="78" y2="78" stroke="white" stroke-width="5" stroke-linecap="round"/><line x1="44" y1="50" x2="58" y2="50" stroke="white" stroke-width="3" stroke-linecap="round"/><line x1="44" y1="56" x2="54" y2="56" stroke="white" stroke-width="3" stroke-linecap="round"/></svg>`
 	),

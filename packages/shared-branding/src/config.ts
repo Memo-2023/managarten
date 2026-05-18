@@ -32,19 +32,6 @@ export const APP_BRANDING = {
 		logoStroke: true,
 		logoStrokeWidth: 1.5,
 	},
-	uload: {
-		id: 'uload',
-		name: 'uLoad',
-		tagline: 'Smart URL Shortener',
-		primaryColor: '#3b82f6',
-		secondaryColor: '#60a5fa',
-		// Link/Chain icon
-		logoPath:
-			'M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1',
-		logoViewBox: '0 0 24 24',
-		logoStroke: true,
-		logoStrokeWidth: 2,
-	},
 	chat: {
 		id: 'chat',
 		name: 'ManaChat',

@@ -192,7 +192,6 @@ export const MANA_APP_INDEX: Record<string, number> = {
 	times: 16,
 	questions: 19,
 	moodlit: 20,
-	uload: 21,
 	calc: 22,
 	mana: 31,
 };

@@ -22,7 +22,6 @@ const SPLIT_APP_ID_LIST = [
 	'skilltree',
 	'times',
 	'questions',
-	'uload',
 	'calc',
 	'places',
 	'automations',

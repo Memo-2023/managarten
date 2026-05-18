@@ -315,17 +315,6 @@ export const MODULE_HELP: Record<string, ModuleHelp> = {
 		],
 		tips: ['Definiere Kategorien nach Lebensbereichen für eine gute Übersicht'],
 	},
-	uload: {
-		description:
-			'Quick-Upload — Dateien schnell hochladen und teilbare Links erstellen. Ideal zum schnellen Teilen.',
-		features: [
-			'Drag & Drop Upload',
-			'Teilbare Download-Links generieren',
-			'Verschiedene Dateitypen unterstützt',
-			'Gespeichert auf deinem eigenen Server',
-		],
-		tips: ['Nutze uload für schnelles Teilen — drag die Datei rein, Link kopieren, fertig'],
-	},
 	calc: {
 		description:
 			'Taschenrechner mit Berechnungsverlauf. Ergebnisse bleiben gespeichert und sind jederzeit abrufbar.',

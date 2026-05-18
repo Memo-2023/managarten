@@ -1614,6 +1614,18 @@ db.version(66)
 			});
 	});
 
+// v67 — uLoad module retirement (2026-05-18).
+// uLoad ist nach Code/uload/ als eigenständiger Hono+Bun-Server
+// auf uload.mana.how + uload-api.mana.how migriert (eigene Postgres-
+// DB im `uload`-Schema, JWKS-Auth). Tabellen werden hier komplett
+// gedroppt.
+db.version(67).stores({
+	links: null,
+	uloadTags: null,
+	uloadFolders: null,
+	linkTags: null,
+});
+
 // ─── Sync Routing ──────────────────────────────────────────
 // SYNC_APP_MAP, TABLE_TO_SYNC_NAME, TABLE_TO_APP, SYNC_NAME_TO_TABLE,
 // toSyncName() and fromSyncName() are now derived from per-module

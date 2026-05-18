@@ -70,7 +70,6 @@ export const SPACE_MODULE_ALLOWLIST: Record<SpaceType, readonly SpaceModuleId[] 
 		'contacts',
 		'calendar',
 		'storage',
-		'uload',
 		'landing', // future
 		'website',
 		'presi',
@@ -97,7 +96,6 @@ export const SPACE_MODULE_ALLOWLIST: Record<SpaceType, readonly SpaceModuleId[] 
 		'events',
 		'mail',
 		'storage',
-		'uload',
 		'research-lab',
 		'club-members', // future — ClubDesk Paket A
 		'club-finance', // future — ClubDesk Paket B
@@ -124,7 +122,6 @@ export const SPACE_MODULE_ALLOWLIST: Record<SpaceType, readonly SpaceModuleId[] 
 		'events',
 		'mail',
 		'storage',
-		'uload',
 		'website',
 		'recipes',
 		'places',
@@ -148,7 +145,6 @@ export const SPACE_MODULE_ALLOWLIST: Record<SpaceType, readonly SpaceModuleId[] 
 		'events',
 		'storage',
 		'mail',
-		'uload',
 		'website',
 		'news-research',
 		'research-lab',
@@ -172,7 +168,6 @@ export const SPACE_MODULE_ALLOWLIST: Record<SpaceType, readonly SpaceModuleId[] 
 		'calendar',
 		'storage',
 		'mail',
-		'uload',
 		'website',
 		'invoices',
 		'finance',

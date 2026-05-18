@@ -85,13 +85,6 @@ scrape_configs:
     scrape_interval: 30s
 
   # ULoad Server
-  - job_name: 'uload-server'
-    static_configs:
-      - targets: ['mana-app-uload-server:3070']
-    metrics_path: '/metrics'
-    scrape_interval: 30s
-
-  # Memoro Server
   - job_name: 'mana-llm'
     static_configs:
       - targets: ['mana-llm:3020']
@@ -237,7 +230,6 @@ scrape_configs:
           - https://mana.how/moodlit
           # mana.how/context: Modul wurde 2026-04-29 gedropt (Commit 1815139dc) — Probe entfernt
           - https://mana.how/questions
-          - https://mana.how/uload
           - https://mana.how/notes
           - https://mana.how/habits
           - https://mana.how/guides

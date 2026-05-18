@@ -927,8 +927,6 @@ services:
       # ghost-API cleanup — every product module talks to mana-sync
       # directly via mana-sync.
       # See docs/PRE_LAUNCH_CLEANUP.md for the full rationale.
-      PUBLIC_ULOAD_SERVER_URL: http://uload-server:3070
-      PUBLIC_ULOAD_SERVER_URL_CLIENT: https://uload-api.mana.how
       PUBLIC_MANA_MEDIA_URL: http://mana-media:3011
       PUBLIC_MANA_MEDIA_URL_CLIENT: https://media.mana.how
       PUBLIC_MANA_LLM_URL: http://mana-llm:3025
@@ -1051,34 +1049,6 @@ services:
       timeout: 10s
       retries: 3
       start_period: 45s
-
-  uload-server:
-    build:
-      context: apps/uload/apps/server
-      dockerfile: Dockerfile
-    image: uload-server:local
-    container_name: mana-app-uload-server
-    restart: always
-    # Tier-3 right-size 2026-04-28: live RSS ~51 MiB (20%). 128m is
-    # 2.5× headroom — enough for spike during multi-file uploads.
-    mem_limit: 128m
-    depends_on:
-      postgres:
-        condition: service_healthy
-    environment:
-      NODE_ENV: production
-      PORT: 3070
-      DATABASE_URL: postgresql://mana:${POSTGRES_PASSWORD:-devpassword}@postgres:5432/mana_sync
-      MANA_AUTH_URL: http://mana-auth:3001
-      CORS_ORIGINS: http://mana-web:5000,https://mana.how,https://uload.mana.how,https://ulo.ad
-    ports:
-      - "3070:3070"
-    healthcheck:
-      test: ["CMD", "bun", "-e", "fetch('http://127.0.0.1:3070/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 10s
 
   mana-llm:
     build:

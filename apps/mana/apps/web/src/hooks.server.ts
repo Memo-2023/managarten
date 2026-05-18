@@ -15,8 +15,6 @@ import { setSecurityHeaders } from '@mana/shared-utils/security-headers';
  *   - Media         → mana-media (CAS / thumbnails)
  *   - LLM           → mana-llm (server-side LLM proxy)
  *   - Events        → mana-events (public RSVP flow)
- *   - Uload server  → standalone short-link redirect/click tracking
- *   - Memoro server → standalone voice memo processing
  *   - Glitchtip DSN → client-side error reporting
  *
  * Per-app HTTP backends (todo-api, calendar-api, contacts-api, chat-api,
@@ -33,8 +31,6 @@ const PUBLIC_GLITCHTIP_DSN = process.env.PUBLIC_GLITCHTIP_DSN || '';
 
 const PUBLIC_SYNC_SERVER_URL_CLIENT =
 	process.env.PUBLIC_SYNC_SERVER_URL_CLIENT || process.env.PUBLIC_SYNC_SERVER_URL || '';
-const PUBLIC_ULOAD_SERVER_URL_CLIENT =
-	process.env.PUBLIC_ULOAD_SERVER_URL_CLIENT || process.env.PUBLIC_ULOAD_SERVER_URL || '';
 const PUBLIC_MANA_MEDIA_URL_CLIENT =
 	process.env.PUBLIC_MANA_MEDIA_URL_CLIENT || process.env.PUBLIC_MANA_MEDIA_URL || '';
 const PUBLIC_MANA_LLM_URL_CLIENT =
@@ -153,7 +149,6 @@ const APP_SUBDOMAINS = new Set([
 	'calc',
 	'inventory',
 	'times',
-	'uload',
 	'questions',
 ]);
 
@@ -222,7 +217,6 @@ export const handle: Handle = async ({ event, resolve }) => {
 window.__PUBLIC_MANA_AUTH_URL__ = ${JSON.stringify(PUBLIC_MANA_AUTH_URL_CLIENT)};
 window.__PUBLIC_AUTH_WEB_URL__ = ${JSON.stringify(PUBLIC_AUTH_WEB_URL_CLIENT)};
 window.__PUBLIC_SYNC_SERVER_URL__ = ${JSON.stringify(PUBLIC_SYNC_SERVER_URL_CLIENT)};
-window.__PUBLIC_ULOAD_SERVER_URL__ = ${JSON.stringify(PUBLIC_ULOAD_SERVER_URL_CLIENT)};
 window.__PUBLIC_MANA_MEDIA_URL__ = ${JSON.stringify(PUBLIC_MANA_MEDIA_URL_CLIENT)};
 window.__PUBLIC_MANA_LLM_URL__ = ${JSON.stringify(PUBLIC_MANA_LLM_URL_CLIENT)};
 window.__PUBLIC_MANA_EVENTS_URL__ = ${JSON.stringify(PUBLIC_MANA_EVENTS_URL_CLIENT)};
@@ -257,7 +251,6 @@ window.__PUBLIC_GLITCHTIP_DSN__ = ${JSON.stringify(PUBLIC_GLITCHTIP_DSN)};
 		connectSrc: [
 			PUBLIC_MANA_AUTH_URL_CLIENT,
 			PUBLIC_SYNC_SERVER_URL_CLIENT,
-			PUBLIC_ULOAD_SERVER_URL_CLIENT,
 			PUBLIC_MANA_MEDIA_URL_CLIENT,
 			PUBLIC_MANA_LLM_URL_CLIENT,
 			PUBLIC_MANA_EVENTS_URL_CLIENT,

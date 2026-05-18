@@ -65,7 +65,6 @@ import { photosModuleConfig } from '$lib/modules/photos/module.config';
 import { skilltreeModuleConfig } from '$lib/modules/skilltree/module.config';
 import { timesModuleConfig } from '$lib/modules/times/module.config';
 import { questionsModuleConfig } from '$lib/modules/questions/module.config';
-import { uloadModuleConfig } from '$lib/modules/uload/module.config';
 import { calcModuleConfig } from '$lib/modules/calc/module.config';
 import { guidesModuleConfig } from '$lib/modules/guides/module.config';
 import { habitsModuleConfig } from '$lib/modules/habits/module.config';
@@ -119,7 +118,6 @@ export const MODULE_CONFIGS: readonly ModuleConfig[] = [
 	skilltreeModuleConfig,
 	timesModuleConfig,
 	questionsModuleConfig,
-	uloadModuleConfig,
 	calcModuleConfig,
 	guidesModuleConfig,
 	habitsModuleConfig,

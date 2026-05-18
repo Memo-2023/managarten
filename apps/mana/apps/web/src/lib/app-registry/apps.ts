@@ -32,7 +32,6 @@ import {
 	Binoculars,
 	ArrowsInCardinal,
 	Buildings,
-	DownloadSimple,
 	Calculator,
 	Lightning,
 	PencilRuler,
@@ -100,7 +99,7 @@ import {
 //                     dreams · firsts · lasts · habits · recipes
 //       Places & ev.: places · events
 //       Creative:     picture · music · photos
-//       Tools:        uload · calc · inventory ·
+//       Tools:        calc · inventory ·
 //                     storage · skilltree · questions
 //       Long-tail:    quotes · automations · companion · wetter ·
 //                     goals · website · spaces · augur ·
@@ -675,17 +674,6 @@ registerApp({
 	views: {
 		list: { load: () => import('$lib/modules/skilltree/ListView.svelte') },
 		detail: { load: () => import('$lib/modules/skilltree/views/DetailView.svelte') },
-	},
-});
-
-registerApp({
-	id: 'uload',
-	name: 'uLoad',
-	color: '#0EA5E9',
-	icon: DownloadSimple,
-	views: {
-		list: { load: () => import('$lib/modules/uload/ListView.svelte') },
-		detail: { load: () => import('$lib/modules/uload/views/DetailView.svelte') },
 	},
 });
 
