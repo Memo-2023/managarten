@@ -32,7 +32,6 @@ export {
 	ClockLogo,
 	QuestionsLogo,
 	SkillTreeLogo,
-	PlantsLogo,
 	LightWriteLogo,
 	MusicLogo,
 } from './logos';

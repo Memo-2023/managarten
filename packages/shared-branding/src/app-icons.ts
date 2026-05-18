@@ -129,9 +129,6 @@ export const APP_ICONS = {
 	photos: svgToDataUrl(
 		`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="ph" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#8b5cf6"/><stop offset="100%" style="stop-color:#7c3aed"/></linearGradient></defs><rect width="100" height="100" rx="22" fill="url(#ph)"/><rect x="20" y="28" width="60" height="44" rx="5" stroke="white" stroke-width="4" fill="none"/><circle cx="40" cy="44" r="6" stroke="white" stroke-width="3" fill="none"/><path d="M20 60l16-14 12 10 14-12 18 16" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`
 	),
-	plants: svgToDataUrl(
-		`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="pl" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#22c55e"/><stop offset="100%" style="stop-color:#16a34a"/></linearGradient></defs><rect width="100" height="100" rx="22" fill="url(#pl)"/><path d="M50 72V42" stroke="white" stroke-width="4" stroke-linecap="round"/><path d="M50 52c-12-2-20-14-18-24 10 0 20 8 18 24z" fill="white" fill-opacity="0.9"/><path d="M50 42c10-4 22-2 24 10-10 2-22-2-24-10z" fill="white" fill-opacity="0.7"/><path d="M38 72h24" stroke="white" stroke-width="4" stroke-linecap="round"/></svg>`
-	),
 	skilltree: svgToDataUrl(
 		`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="sk" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#f59e0b"/><stop offset="100%" style="stop-color:#d97706"/></linearGradient></defs><rect width="100" height="100" rx="22" fill="url(#sk)"/><circle cx="50" cy="30" r="8" fill="white"/><circle cx="30" cy="55" r="7" fill="white" fill-opacity="0.8"/><circle cx="70" cy="55" r="7" fill="white" fill-opacity="0.8"/><circle cx="20" cy="75" r="6" fill="white" fill-opacity="0.5"/><circle cx="42" cy="75" r="6" fill="white" fill-opacity="0.5"/><circle cx="58" cy="75" r="6" fill="white" fill-opacity="0.5"/><circle cx="80" cy="75" r="6" fill="white" fill-opacity="0.5"/><path d="M50 38v0L30 48M50 38L70 48M30 62L20 69M30 62L42 69M70 62L58 69M70 62L80 69" stroke="white" stroke-width="3" stroke-linecap="round"/></svg>`
 	),
@@ -162,7 +159,7 @@ export const APP_ICONS = {
 	body: svgToDataUrl(
 		// Dumbbell + heart-pulse hybrid: training (barbell) + body (pulse line).
 		// Red→orange gradient to set it apart from the green health-adjacent
-		// modules (plants) and the pink period icon.
+		// modules and the pink period icon.
 		`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="bd" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ef4444"/><stop offset="100%" style="stop-color:#f97316"/></linearGradient></defs><rect width="100" height="100" rx="22" fill="url(#bd)"/><rect x="18" y="42" width="6" height="16" rx="2" fill="white"/><rect x="76" y="42" width="6" height="16" rx="2" fill="white"/><rect x="24" y="46" width="4" height="8" rx="1" fill="white" fill-opacity="0.85"/><rect x="72" y="46" width="4" height="8" rx="1" fill="white" fill-opacity="0.85"/><rect x="28" y="48" width="44" height="4" rx="2" fill="white"/><path d="M30 70h12l4-8 6 16 4-10 6 6h12" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`
 	),
 	firsts: svgToDataUrl(

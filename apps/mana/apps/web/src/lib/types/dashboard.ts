@@ -24,7 +24,6 @@ export type WidgetType =
 	| 'music-library' // Music: music library stats
 	| 'presi-decks' // Presi: recent presentations
 	| 'active-timer' // Times: running timer
-	| 'plant-watering' // Plants: plants due for watering
 	| 'day-timeline' // TimeBlocks: chronological day timeline
 	| 'activity-feed' // TimeBlocks: recent activity across modules
 	| 'period' // Period: current phase + days until next period
@@ -130,7 +129,6 @@ export interface WidgetMeta {
 		| 'music'
 		| 'presi'
 		| 'times'
-		| 'plants'
 		| 'period'
 		| 'body'
 		| 'mana-auth';
@@ -282,15 +280,6 @@ export const WIDGET_REGISTRY: WidgetMeta[] = [
 		defaultSize: 'small',
 		allowMultiple: false,
 		requiredBackend: 'times',
-	},
-	{
-		type: 'plant-watering',
-		nameKey: 'dashboard.widgets.plant_watering.title',
-		descriptionKey: 'dashboard.widgets.plant_watering.description',
-		icon: '🌱',
-		defaultSize: 'small',
-		allowMultiple: false,
-		requiredBackend: 'plants',
 	},
 	{
 		type: 'day-timeline',

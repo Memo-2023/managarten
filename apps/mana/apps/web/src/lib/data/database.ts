@@ -1515,6 +1515,50 @@ db.version(61).stores({
 	cardStudyBlocks: 'id, date',
 });
 
+// v62 — Food + Wardrobe module retirement (2026-05-18).
+// Food und Wardrobe sind als Standalone-Apps (Nutriphi, Werdrobe) auf
+// eigene Domains gewandert. Tabellen werden hier komplett gedroppt;
+// dropped: meals, goals, foodFavorites, mealTags, wardrobeGarments,
+// wardrobeOutfits. Picture-Image back-ref-Indices (wardrobeOutfitId /
+// wardrobeGarmentId) werden aus dem `images`-Schema entfernt; der
+// Upgrade-Step strippt die toten FK-Properties aus existierenden
+// Image-Rows, damit kein orphaner FK auf nicht-mehr-existierende
+// Wardrobe-Records zurückbleibt.
+db.version(62)
+	.stores({
+		meals: null,
+		goals: null,
+		foodFavorites: null,
+		mealTags: null,
+		wardrobeGarments: null,
+		wardrobeOutfits: null,
+		images: 'id, isFavorite, isPublic, isArchived, prompt, _updatedAtIndex',
+	})
+	.upgrade(async (tx) => {
+		await tx
+			.table('images')
+			.toCollection()
+			.modify((image) => {
+				if ('wardrobeOutfitId' in image) delete image.wardrobeOutfitId;
+				if ('wardrobeGarmentId' in image) delete image.wardrobeGarmentId;
+			});
+	});
+
+// v63 — Plants + Who module retirement (2026-05-18).
+// Plants → Herbatrium (herbatrium.mana.how) und Who → eigenständiger
+// Bun-Stack auf who.mana.how (außerhalb des managarten-Repos). Beide
+// Modul-Surfaces sind aus dem unified Mana-Web entfernt; die Tabellen
+// werden hier komplett gedroppt.
+db.version(63).stores({
+	plants: null,
+	plantPhotos: null,
+	wateringSchedules: null,
+	wateringLogs: null,
+	plantTags: null,
+	whoGames: null,
+	whoMessages: null,
+});
+
 // ─── Sync Routing ──────────────────────────────────────────
 // SYNC_APP_MAP, TABLE_TO_SYNC_NAME, TABLE_TO_APP, SYNC_NAME_TO_TABLE,
 // toSyncName() and fromSyncName() are now derived from per-module

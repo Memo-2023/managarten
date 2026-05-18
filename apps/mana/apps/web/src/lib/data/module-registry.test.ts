@@ -99,9 +99,6 @@ const LEGACY_TABLES = new Set([
 	'wishesItems',
 	'wishesLists',
 	'wishesPriceChecks',
-	// Who — module surface exists, registry adoption pending.
-	'whoGames',
-	'whoMessages',
 	// User-level legacy table from the v40 tag-preset migration; lives
 	// outside the module-registry by design (cross-module shared shape).
 	'userTagPresets',
@@ -223,7 +220,6 @@ describe('module-registry — snapshot', () => {
 				'entryTags',
 			],
 			questions: ['qCollections', 'questions', 'answers', 'questionTags'],
-			plants: ['plants', 'plantPhotos', 'wateringSchedules', 'wateringLogs', 'plantTags'],
 			uload: ['links', 'uloadTags', 'uloadFolders', 'linkTags'],
 			calc: ['calculations', 'savedFormulas'],
 			memoro: ['memos', 'memories', 'memoTags', 'memoroSpaces', 'spaceMembers', 'memoSpaces'],

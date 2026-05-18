@@ -550,23 +550,6 @@ export const MANA_APPS: ManaApp[] = [
 		requiredTier: 'guest',
 	},
 	{
-		id: 'plants',
-		name: 'Plants',
-		description: {
-			de: 'Pflanzen',
-			en: 'Plant Care',
-		},
-		longDescription: {
-			de: 'Verwalte deine Pflanzen mit Gießplänen, Fotos und Pflegeprotokollen.',
-			en: 'Manage your plants with watering schedules, photos, and care logs.',
-		},
-		icon: APP_ICONS.plants,
-		color: '#22c55e',
-		comingSoon: false,
-		status: 'beta',
-		requiredTier: 'guest',
-	},
-	{
 		id: 'skilltree',
 		name: 'SkillTree',
 		description: {

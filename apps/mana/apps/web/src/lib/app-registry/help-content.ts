@@ -267,20 +267,6 @@ export const MODULE_HELP: Record<string, ModuleHelp> = {
 			'Dateinamen sind verschlüsselt, auch im Speicher nicht im Klartext sichtbar',
 		],
 	},
-	plants: {
-		description:
-			'Pflanzen katalogisieren — Pflege-Notizen, Standort, Bewässerung und Bodentyp. Ideal für Hobbygärtner.',
-		features: [
-			'Pflanzen mit Bild, Name & Beschreibung',
-			'Temperatur, Bodentyp & Lichtbedarf',
-			'Pflege-Notizen pro Pflanze',
-			'Verschlüsselte Notizen & Namen',
-		],
-		tips: [
-			'Halte Pflege-Notizen fest: wann gedüngt, umgetopft, geschnitten',
-			'Nutze die Temperatur-Angabe als Erinnerung wann Pflanzen reingeholt werden müssen',
-		],
-	},
 	presi: {
 		description:
 			'Präsentationen mit Folien erstellen. Markdown-basierter Inhalt, verschlüsselt gespeichert.',

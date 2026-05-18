@@ -149,7 +149,7 @@ services:
     environment:
       MINIO_ROOT_USER: ${MINIO_ACCESS_KEY:-minioadmin}
       MINIO_ROOT_PASSWORD: ${MINIO_SECRET_KEY:-minioadmin}
-      MINIO_API_CORS_ALLOW_ORIGIN: https://music.mana.how,https://mana.how,https://picture.mana.how,https://storage.mana.how,https://plants.mana.how,https://contacts.mana.how,https://chat.mana.how,https://photos.mana.how
+      MINIO_API_CORS_ALLOW_ORIGIN: https://music.mana.how,https://mana.how,https://picture.mana.how,https://storage.mana.how,https://contacts.mana.how,https://chat.mana.how,https://photos.mana.how
     volumes:
       - /Volumes/ManaData/minio:/data
     ports:
@@ -183,12 +183,10 @@ services:
       mc mb --ignore-existing myminio/storage-storage;
       mc mb --ignore-existing myminio/inventory-storage;
       mc mb --ignore-existing myminio/music-storage;
-      mc mb --ignore-existing myminio/plants-storage;
       mc mb --ignore-existing myminio/projectdoc-storage;
       mc mb --ignore-existing myminio/mail-storage;
       mc anonymous set download myminio/mana-storage;
       mc anonymous set download myminio/picture-storage;
-      mc anonymous set download myminio/plants-storage;
       mc anonymous set download myminio/inventory-storage;
       mc ilm rule add --expire-days 90 myminio/chat-storage --prefix 'tmp/' 2>/dev/null || true;
       mc ilm rule add --expire-days 30 myminio/calendar-storage --prefix 'tmp/' 2>/dev/null || true;
@@ -288,7 +286,7 @@ services:
       STRIPE_SECRET_KEY: ${STRIPE_SECRET_KEY:-}
       STRIPE_WEBHOOK_SECRET: ${STRIPE_CREDITS_WEBHOOK_SECRET:-}
       BASE_URL: https://credits.mana.how
-      CORS_ORIGINS: https://mana.how,https://chat.mana.how,https://picture.mana.how,https://todo.mana.how,https://quotes.mana.how,https://calendar.mana.how,https://clock.mana.how,https://contacts.mana.how,https://cardecky.mana.how,https://presi.mana.how,https://storage.mana.how,https://plants.mana.how,https://music.mana.how,https://context.mana.how,https://photos.mana.how,https://questions.mana.how,https://calc.mana.how
+      CORS_ORIGINS: https://mana.how,https://chat.mana.how,https://picture.mana.how,https://todo.mana.how,https://quotes.mana.how,https://calendar.mana.how,https://clock.mana.how,https://contacts.mana.how,https://cardecky.mana.how,https://presi.mana.how,https://storage.mana.how,https://music.mana.how,https://context.mana.how,https://photos.mana.how,https://questions.mana.how,https://calc.mana.how
     ports:
       - "3002:3002"
     healthcheck:
@@ -497,7 +495,7 @@ services:
       DATABASE_URL: postgresql://postgres:${POSTGRES_PASSWORD:-mana123}@postgres:5432/mana_platform
       MANA_AUTH_URL: http://mana-auth:3001
       MANA_SERVICE_KEY: ${MANA_SERVICE_KEY}
-      CORS_ORIGINS: https://mana.how,https://calc.mana.how,https://calendar.mana.how,https://chat.mana.how,https://clock.mana.how,https://contacts.mana.how,https://context.mana.how,https://cardecky.mana.how,https://music.mana.how,https://photos.mana.how,https://picture.mana.how,https://plants.mana.how,https://presi.mana.how,https://questions.mana.how,https://storage.mana.how,https://todo.mana.how,https://quotes.mana.how
+      CORS_ORIGINS: https://mana.how,https://calc.mana.how,https://calendar.mana.how,https://chat.mana.how,https://clock.mana.how,https://contacts.mana.how,https://context.mana.how,https://cardecky.mana.how,https://music.mana.how,https://photos.mana.how,https://picture.mana.how,https://presi.mana.how,https://questions.mana.how,https://storage.mana.how,https://todo.mana.how,https://quotes.mana.how
     ports:
       - "3062:3062"
     healthcheck:
@@ -905,7 +903,7 @@ services:
       PUBLIC_SYNC_SERVER_URL: http://mana-sync:3010
       PUBLIC_SYNC_SERVER_URL_CLIENT: https://sync.mana.how
       # Unified Hono/Bun API server (apps/api) — hosts all 16 product
-      # compute modules (calendar, todo, picture, … who) on port 3060.
+      # compute modules (calendar, todo, picture, …) on port 3060.
       # Browser calls go through https://mana-api.mana.how (cloudflared
       # tunnel route to mana-api:3060). SSR calls inside the docker
       # network use the internal hostname.

@@ -84,8 +84,6 @@ ingress:
     service: http://localhost:5000
   - hostname: skilltree.mana.how
     service: http://localhost:5000
-  - hostname: plants.mana.how
-    service: http://localhost:5000
   # cardecky.mana.how → standalone Cardecky SvelteKit container (apps/cards/apps/web).
   # Was pointed at :5000 (the unified mana-web) until the standalone spinoff
   # landed. mana.how/cards still serves the in-mana cards module.

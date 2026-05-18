@@ -33,7 +33,6 @@ import { pictureRoutes } from './modules/picture/routes';
 import { profileRoutes } from './modules/profile/routes';
 import { storageRoutes } from './modules/storage/routes';
 import { todoRoutes } from './modules/todo/routes';
-import { plantsRoutes } from './modules/plants/routes';
 import { guidesRoutes } from './modules/guides/routes';
 import { newsRoutes } from './modules/news/routes';
 import { newsResearchRoutes } from './modules/news-research/routes';
@@ -44,7 +43,6 @@ import { writingRoutes } from './modules/writing/routes';
 import { comicRoutes } from './modules/comic/routes';
 import { presiRoutes } from './modules/presi/routes';
 import { researchRoutes } from './modules/research/routes';
-import { whoRoutes } from './modules/who/routes';
 import { websiteRoutes } from './modules/website/routes';
 import { websitePublicRoutes } from './modules/website/public-routes';
 import { unlistedRoutes } from './modules/unlisted/routes';
@@ -106,10 +104,8 @@ const RESOURCE_MODULES = [
 	'news-research',
 	'notes',
 	'picture',
-	'plants',
 	'research',
 	'traces',
-	'who',
 	'writing',
 ] as const;
 for (const mod of RESOURCE_MODULES) {
@@ -133,7 +129,6 @@ app.route('/api/v1/picture', pictureRoutes);
 app.route('/api/v1/profile', profileRoutes);
 app.route('/api/v1/storage', storageRoutes);
 app.route('/api/v1/todo', todoRoutes);
-app.route('/api/v1/plants', plantsRoutes);
 app.route('/api/v1/guides', guidesRoutes);
 app.route('/api/v1/news', newsRoutes);
 app.route('/api/v1/news-research', newsResearchRoutes);
@@ -143,7 +138,6 @@ app.route('/api/v1/presi', presiRoutes);
 app.route('/api/v1/research', researchRoutes);
 app.route('/api/v1/website', websiteRoutes);
 app.route('/api/v1/unlisted', unlistedRoutes);
-app.route('/api/v1/who', whoRoutes);
 app.route('/api/v1/writing', writingRoutes);
 app.route('/api/v1/comic', comicRoutes);
 app.route('/api/v1/personas/admin', personasAdminRoutes);

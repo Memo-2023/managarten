@@ -26,7 +26,6 @@ import {
 	MusicNotes,
 	Camera,
 	HardDrives,
-	Plant,
 	Presentation,
 	Package,
 	Microphone,
@@ -102,9 +101,9 @@ import {
 //                     library · writing · comic · presi
 //       Body & life:  body · meditate · stretch · period ·
 //                     dreams · firsts · lasts · habits · recipes
-//       Places & ev.: places · events · who
+//       Places & ev.: places · events
 //       Creative:     picture · music · photos
-//       Tools:        memoro · uload · calc · plants · inventory ·
+//       Tools:        memoro · uload · calc · inventory ·
 //                     storage · skilltree · questions
 //       Long-tail:    quotes · automations · companion · wetter ·
 //                     goals · website · spaces · augur ·
@@ -635,17 +634,6 @@ registerApp({
 	views: {
 		list: { load: () => import('$lib/modules/storage/ListView.svelte') },
 		detail: { load: () => import('$lib/modules/storage/views/DetailView.svelte') },
-	},
-});
-
-registerApp({
-	id: 'plants',
-	name: 'Plants',
-	color: '#16A34A',
-	icon: Plant,
-	views: {
-		list: { load: () => import('$lib/modules/plants/ListView.svelte') },
-		detail: { load: () => import('$lib/modules/plants/views/DetailView.svelte') },
 	},
 });
 

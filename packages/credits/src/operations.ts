@@ -41,9 +41,6 @@ export enum CreditOperationType {
 	// Quotes - AI explanations
 	AI_QUOTE_EXPLANATION = 'ai_quote_explanation',
 
-	// Plants - Plant analysis
-	AI_PLANT_ANALYSIS = 'ai_plant_analysis',
-
 	// Traces - City guide generation
 	AI_GUIDE_GENERATION = 'ai_guide_generation',
 
@@ -97,7 +94,6 @@ export const CREDIT_COSTS: Record<CreditOperationType, number> = {
 
 	[CreditOperationType.AI_QUOTE_EXPLANATION]: 2,
 
-	[CreditOperationType.AI_PLANT_ANALYSIS]: 2,
 	[CreditOperationType.AI_GUIDE_GENERATION]: 5,
 	[CreditOperationType.NOTES_IMPORT_URL]: 1,
 
@@ -228,14 +224,6 @@ export const OPERATION_METADATA: Record<CreditOperationType, OperationMetadata> 
 		description: 'Get an AI explanation of a quote',
 		category: CreditCategory.AI,
 		app: 'quotes',
-	},
-
-	// Plants
-	[CreditOperationType.AI_PLANT_ANALYSIS]: {
-		name: 'Plant Analysis',
-		description: 'Identify and analyze a plant from a photo',
-		category: CreditCategory.AI,
-		app: 'plants',
 	},
 
 	// Traces

@@ -193,12 +193,6 @@ export const ENCRYPTION_REGISTRY: Record<string, EncryptionConfig> = {
 	periods: { enabled: true, fields: ['notes'] },
 	periodDayLogs: { enabled: true, fields: ['notes', 'mood'] },
 
-	// ─── Plants ──────────────────────────────────────────────
-	// `name` is NOT in the schema index for plants (only isActive +
-	// healthStatus), so encrypting it is safe. LocalPlant uses
-	// `careNotes` (no separate `notes`) plus the user-typed metadata.
-	plants: { enabled: true, fields: ['name', 'careNotes', 'temperature', 'soilType'] },
-
 	// ─── Cards ───────────────────────────────────────────────
 	// User-typed content lives in three places on LocalCard:
 	//   - legacy `front`/`back` columns (pre-Phase-0 rows still use them)

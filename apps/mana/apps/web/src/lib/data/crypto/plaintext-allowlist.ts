@@ -78,8 +78,6 @@ export const PLAINTEXT_ALLOWLIST: readonly string[] = [
 	'photoFavorites', // TODO: audit
 	'photoMediaTags', // TODO: audit
 	'placeTags', // TODO: audit
-	'plantPhotos', // TODO: audit
-	'plantTags', // TODO: audit
 	'playlistSongs', // TODO: audit
 	'presiDeckTags', // TODO: audit
 	'qCollections', // TODO: audit
@@ -114,8 +112,6 @@ export const PLAINTEXT_ALLOWLIST: readonly string[] = [
 	'uloadFolders', // TODO: audit
 	'uloadTags', // TODO: audit
 	'userSettings', // TODO: audit
-	'wateringLogs', // TODO: audit
-	'wateringSchedules', // TODO: audit
 	'wetterLocations', // TODO: audit
 	'wetterSettings', // TODO: audit
 	'wishesItems', // TODO: audit

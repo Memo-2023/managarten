@@ -26,7 +26,6 @@ import PresiDecksWidget from './widgets/PresiDecksWidget.svelte';
 // Phase 4: Unified app widgets (direct Dexie queries, internal routing)
 import RecentContactsWidget from '$lib/modules/core/widgets/RecentContactsWidget.svelte';
 import ActiveTimerWidget from '$lib/modules/core/widgets/ActiveTimerWidget.svelte';
-import PlantWateringWidget from '$lib/modules/core/widgets/PlantWateringWidget.svelte';
 import PeriodWidget from '$lib/modules/core/widgets/PeriodWidget.svelte';
 import NewsUnreadWidget from '$lib/modules/news/widgets/NewsUnreadWidget.svelte';
 import ArticlesUnreadWidget from '$lib/modules/articles/widgets/ArticlesUnreadWidget.svelte';
@@ -54,7 +53,6 @@ export const widgetComponents: Record<WidgetType, Component> = {
 	'music-library': MusicLibraryWidget,
 	'presi-decks': PresiDecksWidget,
 	'active-timer': ActiveTimerWidget,
-	'plant-watering': PlantWateringWidget,
 	'day-timeline': DayTimelineWidget,
 	'activity-feed': ActivityFeedWidget,
 	period: PeriodWidget,

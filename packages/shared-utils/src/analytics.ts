@@ -154,7 +154,6 @@ const track = {
 	cards: createModuleTracker('cards'),
 	mana: createModuleTracker('mana'),
 	skilltree: createModuleTracker('skilltree'),
-	plants: createModuleTracker('plants'),
 	questions: createModuleTracker('questions'),
 	photos: createModuleTracker('photos'),
 	storage: createModuleTracker('storage'),
@@ -357,16 +356,6 @@ export const SkillTreeEvents = {
 	skillDeleted: () => track.skilltree('skill_deleted'),
 	xpAdded: (xp: number, leveledUp: boolean) =>
 		track.skilltree('xp_added', { xp, leveled_up: leveledUp }),
-};
-
-/**
- * Plants App Events
- */
-export const PlantsEvents = {
-	plantAnalyzed: () => track.plants('plant_analyzed'),
-	plantCreated: () => track.plants('plant_created'),
-	plantDeleted: () => track.plants('plant_deleted'),
-	plantWatered: () => track.plants('plant_watered'),
 };
 
 /**
