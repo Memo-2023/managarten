@@ -91,10 +91,9 @@ export async function getMediaBufferAsPng(
  * doesn't land in the owned set — the caller turns that into an HTTP
  * response.
  *
- * Accepts a single app string or an array. Comic character-ref flows
- * pass `['me', 'comic']` in one call when both face/body portraits and
- * comic-specific anchors are legitimate inputs for the same
- * `/v1/images/edits` POST.
+ * Accepts a single app string or an array. `['me']` covers the
+ * portrait flow; future apps may extend the list with their own
+ * upload tags.
  *
  * One `list()` round-trip per app. For N apps this is N calls, each
  * capped at 500 rows — far beyond the product's intended per-app shape

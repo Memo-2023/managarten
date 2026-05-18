@@ -140,18 +140,6 @@ const TABLES: TableConfig[] = [
 		},
 	},
 	{
-		module: 'comic',
-		collection: 'comicStories',
-		moduleLabel: 'Comics',
-		encrypted: true,
-		title: (r) => asString(r.title),
-		href: () => '/comic',
-		setVisibility: async (id, next) => {
-			const { comicStoriesStore } = await import('$lib/modules/comic/stores/stories.svelte');
-			return comicStoriesStore.setVisibility(id, next);
-		},
-	},
-	{
 		module: 'habits',
 		collection: 'habits',
 		moduleLabel: 'Habits',

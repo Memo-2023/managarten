@@ -34,7 +34,6 @@ export const EmbedSourceSchema = z.enum([
 	'goals.goals',
 	'places.places',
 	'recipes.recipes',
-	'comic.stories',
 	'habits.habits',
 	'quiz.quizzes',
 	'events.socialEvents',

@@ -346,23 +346,6 @@ export const MANA_APPS: ManaApp[] = [
 		requiredTier: 'guest',
 	},
 	{
-		id: 'comic',
-		name: 'Comic',
-		description: {
-			de: 'Aus Text wird ein Comic',
-			en: 'Turn text into comics',
-		},
-		longDescription: {
-			de: 'Erstelle mehrseitige Comics mit KI. Starte mit einem Tagebuch-Eintrag, einer Notiz oder einem Kalender-Event und generiere Panels in fünf Stilen — Comic, Manga, Cartoon, Graphic Novel oder Webtoon. Du selbst bist der Protagonist.',
-			en: 'Create multi-panel comics with AI. Start from a journal entry, note, or calendar event and generate panels in five styles — comic, manga, cartoon, graphic novel, or webtoon. You are the protagonist.',
-		},
-		icon: APP_ICONS.comic,
-		color: '#f97316',
-		comingSoon: false,
-		status: 'beta',
-		requiredTier: 'guest', // LOCAL TIER PATCH — revert to 'beta' before release
-	},
-	{
 		id: 'questions',
 		name: 'Questions',
 		description: {

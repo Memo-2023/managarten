@@ -24,7 +24,6 @@
 			<option value="places.places">Orte</option>
 			<option value="recipes.recipes">Rezepte</option>
 			<option value="wardrobe.outfits">Wardrobe (Outfits)</option>
-			<option value="comic.stories">Comics</option>
 			<option value="habits.habits">Habits</option>
 			<option value="quiz.quizzes">Quizze</option>
 			<option value="events.socialEvents">Events (RSVP)</option>

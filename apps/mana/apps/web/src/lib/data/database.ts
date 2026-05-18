@@ -1591,6 +1591,29 @@ db.version(65).stores({
 	newsCachedFeed: null,
 });
 
+// v66 — Comic module retirement (2026-05-18).
+// Comic-Surface ist nach Comicello (comicello.mana.how / comicello.com)
+// umgezogen, das mit eigener Postgres-DB läuft. Tabellen werden hier
+// komplett gedroppt; Picture-Image back-ref-Properties (comicStoryId /
+// comicPanelIndex / comicCharacterId) waren nie indiziert und werden
+// per .upgrade() aus alten Image-Rows gestrippt, damit keine orphane
+// FKs auf nicht-mehr-existierende Comic-Records zurückbleiben.
+db.version(66)
+	.stores({
+		comicStories: null,
+		comicCharacters: null,
+	})
+	.upgrade(async (tx) => {
+		await tx
+			.table('images')
+			.toCollection()
+			.modify((image) => {
+				if ('comicStoryId' in image) delete image.comicStoryId;
+				if ('comicPanelIndex' in image) delete image.comicPanelIndex;
+				if ('comicCharacterId' in image) delete image.comicCharacterId;
+			});
+	});
+
 // ─── Sync Routing ──────────────────────────────────────────
 // SYNC_APP_MAP, TABLE_TO_SYNC_NAME, TABLE_TO_APP, SYNC_NAME_TO_TABLE,
 // toSyncName() and fromSyncName() are now derived from per-module

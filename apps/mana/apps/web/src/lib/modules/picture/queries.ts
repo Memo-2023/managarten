@@ -48,9 +48,6 @@ export function toImage(local: LocalImage): Image {
 		sourceImageId: local.sourceImageId ?? undefined,
 		referenceImageIds: local.referenceImageIds ?? undefined,
 		generationMode: local.generationMode ?? undefined,
-		comicStoryId: local.comicStoryId ?? undefined,
-		comicPanelIndex: local.comicPanelIndex ?? undefined,
-		comicCharacterId: local.comicCharacterId ?? undefined,
 		createdAt: local.createdAt ?? new Date().toISOString(),
 		updatedAt: deriveUpdatedAt(local),
 	};

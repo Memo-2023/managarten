@@ -63,10 +63,6 @@ const timesSvg = `<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="
 // Calc icon (calculator with pink gradient)
 const calcSvg = `<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="130" y="130" width="764" height="764" rx="382" fill="url(#calcGrad)"/><rect x="320" y="260" width="384" height="504" rx="32" fill="white"/><rect x="360" y="300" width="304" height="100" rx="16" fill="#ec4899" fill-opacity="0.2"/><rect x="380" y="330" width="200" height="16" rx="4" fill="#ec4899" fill-opacity="0.5"/><rect x="380" y="358" width="120" height="24" rx="4" fill="#ec4899" fill-opacity="0.7"/><rect x="360" y="440" width="64" height="52" rx="12" fill="#ec4899" fill-opacity="0.15"/><rect x="440" y="440" width="64" height="52" rx="12" fill="#ec4899" fill-opacity="0.15"/><rect x="520" y="440" width="64" height="52" rx="12" fill="#ec4899" fill-opacity="0.15"/><rect x="600" y="440" width="64" height="52" rx="12" fill="#ec4899" fill-opacity="0.3"/><rect x="360" y="508" width="64" height="52" rx="12" fill="#ec4899" fill-opacity="0.15"/><rect x="440" y="508" width="64" height="52" rx="12" fill="#ec4899" fill-opacity="0.15"/><rect x="520" y="508" width="64" height="52" rx="12" fill="#ec4899" fill-opacity="0.15"/><rect x="600" y="508" width="64" height="52" rx="12" fill="#ec4899" fill-opacity="0.3"/><rect x="360" y="576" width="64" height="52" rx="12" fill="#ec4899" fill-opacity="0.15"/><rect x="440" y="576" width="64" height="52" rx="12" fill="#ec4899" fill-opacity="0.15"/><rect x="520" y="576" width="64" height="52" rx="12" fill="#ec4899" fill-opacity="0.15"/><rect x="600" y="576" width="64" height="120" rx="12" fill="#ec4899"/><rect x="360" y="644" width="144" height="52" rx="12" fill="#ec4899" fill-opacity="0.15"/><rect x="520" y="644" width="64" height="52" rx="12" fill="#ec4899" fill-opacity="0.15"/><defs><linearGradient id="calcGrad" x1="130" y1="130" x2="894" y2="894" gradientUnits="userSpaceOnUse"><stop stop-color="#ec4899"/><stop offset="1" stop-color="#db2777"/></linearGradient></defs></svg>`;
 
-// Comic icon — speech bubble with a lightning-bolt panel marker on
-// orange→red gradient. Warm creative-family tone for the Mana launcher.
-const comicSvg = `<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="130" y="130" width="764" height="764" rx="382" fill="url(#comicGrad)"/><path d="M260 340c0-33 27-60 60-60h384c33 0 60 27 60 60v288c0 33-27 60-60 60H480l-108 90v-90h-52c-33 0-60-27-60-60V340z" fill="white"/><path d="M540 370l-90 156h72l-30 128 108-172h-78l28-112h-10z" fill="#ea580c"/><circle cx="360" cy="460" r="18" fill="#ea580c" fill-opacity="0.35"/><circle cx="410" cy="460" r="18" fill="#ea580c" fill-opacity="0.35"/><circle cx="460" cy="460" r="18" fill="#ea580c" fill-opacity="0.35"/><defs><linearGradient id="comicGrad" x1="130" y1="130" x2="894" y2="894" gradientUnits="userSpaceOnUse"><stop stop-color="#f97316"/><stop offset="1" stop-color="#dc2626"/></linearGradient></defs></svg>`;
-
 // Augur icon — open eye with a small star in the iris and three drifting
 // dots ("signs in the air") on indigo→violet gradient. Sits in the cosmic
 // family next to Dreams (indigo) and Cards (violet) so the launcher reads
@@ -99,7 +95,6 @@ export const APP_ICONS = {
 	todo: svgToDataUrl(todoSvg),
 	mail: svgToDataUrl(mailSvg),
 	inventory: svgToDataUrl(inventorySvg),
-	comic: svgToDataUrl(comicSvg),
 	augur: svgToDataUrl(augurSvg),
 	questions: svgToDataUrl(questionsSvg),
 	times: svgToDataUrl(timesSvg),

@@ -39,7 +39,6 @@ import { articlesRoutes } from './modules/articles/routes';
 import { startArticleImportWorker } from './modules/articles/import-worker';
 import { tracesRoutes } from './modules/traces/routes';
 import { writingRoutes } from './modules/writing/routes';
-import { comicRoutes } from './modules/comic/routes';
 import { presiRoutes } from './modules/presi/routes';
 import { researchRoutes } from './modules/research/routes';
 import { websiteRoutes } from './modules/website/routes';
@@ -137,7 +136,6 @@ app.route('/api/v1/research', researchRoutes);
 app.route('/api/v1/website', websiteRoutes);
 app.route('/api/v1/unlisted', unlistedRoutes);
 app.route('/api/v1/writing', writingRoutes);
-app.route('/api/v1/comic', comicRoutes);
 app.route('/api/v1/personas/admin', personasAdminRoutes);
 
 // ─── Background Workers ─────────────────────────────────────

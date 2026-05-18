@@ -270,7 +270,6 @@ describe('module-registry — snapshot', () => {
 			wetter: ['wetterLocations', 'wetterSettings'],
 			website: ['websites', 'websitePages', 'websiteBlocks'],
 			writing: ['writingDrafts', 'writingDraftVersions', 'writingGenerations', 'writingStyles'],
-			comic: ['comicStories', 'comicCharacters'],
 			augur: ['augurEntries'],
 			forms: ['forms', 'formResponses'],
 			ai: ['aiMissions', 'agents', 'agentKontextDocs'],

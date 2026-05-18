@@ -14,7 +14,6 @@ import { calmnessTemplate } from './calmness';
 import { fitnessTemplate } from './fitness';
 import { deepWorkTemplate } from './deep-work';
 import { eventScoutTemplate } from './event-scout';
-import { comicAuthorTemplate } from './comic-author';
 
 export type {
 	// Generalised names (T1 of workbench-templates plan):
@@ -41,7 +40,6 @@ export const ALL_TEMPLATES = [
 	fitnessTemplate,
 	deepWorkTemplate,
 	eventScoutTemplate,
-	comicAuthorTemplate,
 ] as const;
 
 export {
@@ -52,7 +50,6 @@ export {
 	fitnessTemplate,
 	deepWorkTemplate,
 	eventScoutTemplate,
-	comicAuthorTemplate,
 };
 
 /** Lookup helper — returns the template matching the given id, or

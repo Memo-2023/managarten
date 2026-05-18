@@ -315,14 +315,12 @@ routes.post('/generate-with-reference', async (c) => {
 	}
 
 	// Ownership check before we spend credits or burn OpenAI quota.
-	// References span two upload tags today:
-	//   - `me`    — face/body portraits from the profile module
-	//   - `comic` — comic-specific anchor / backdrop uploads
-	// Anything outside these apps is treated as not-owned regardless of
-	// mana-media's own view.
+	// Currently only `me` (face/body portraits from the profile module)
+	// is a valid upload tag — anything else is treated as not-owned
+	// regardless of mana-media's own view.
 	try {
 		const { verifyMediaOwnership } = await import('../../lib/media');
-		await verifyMediaOwnership(userId, refIds, ['me', 'comic']);
+		await verifyMediaOwnership(userId, refIds, ['me']);
 	} catch (err) {
 		const e = err as Error & { status?: number; missing?: string[] };
 		if (e.status === 404) {

@@ -72,7 +72,6 @@ import {
 	Exam,
 	Globe,
 	NotePencil,
-	FilmStrip,
 	Hourglass,
 	HeartHalf,
 	Eye,
@@ -96,7 +95,7 @@ import {
 //                     mood · sleep · activity · times · finance
 //       Knowledge:    chat · kontext · cards · quiz · guides ·
 //                     news-research · research-lab · articles ·
-//                     library · writing · comic · presi
+//                     library · writing · presi
 //       Body & life:  body · meditate · stretch · period ·
 //                     dreams · firsts · lasts · habits · recipes
 //       Places & ev.: places · events
@@ -1298,30 +1297,6 @@ registerApp({
 				? `${item.wordCount} Wörter`
 				: undefined,
 	}),
-});
-
-registerApp({
-	id: 'comic',
-	name: 'Comic',
-	color: '#f97316',
-	icon: FilmStrip,
-	views: {
-		// /comic/new (StoryForm) and /comic/[id] (DetailView) live as
-		// SvelteKit routes; the workbench card hosts the ListView root.
-		// Quick-action "Neue Story" navigates to /comic/new directly —
-		// the create flow has its own page, no inline modal in the card.
-		list: { load: () => import('$lib/modules/comic/ListView.svelte') },
-	},
-	contextMenuActions: [
-		{
-			id: 'new-story',
-			label: 'Neue Story',
-			icon: Plus,
-			action: () => {
-				window.location.href = '/comic/new';
-			},
-		},
-	],
 });
 
 registerApp({

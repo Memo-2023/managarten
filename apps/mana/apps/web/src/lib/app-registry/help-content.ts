@@ -881,24 +881,6 @@ export const MODULE_HELP: Record<string, ModuleHelp> = {
 		],
 		tips: ['System-Auto folgt deinem OS-Dark-Mode automatisch zur richtigen Uhrzeit'],
 	},
-	comic: {
-		description:
-			'Aus Text wird ein Comic — Tagebuch-Eintrag, Notiz oder Library-Review als Vorlage, gpt-image-2 oder Nano Banana rendert Panels in fünf Stilen (Comic, Manga, Cartoon, Graphic Novel, Webtoon). Du selbst bist der Protagonist — Face-Ref aus deinem Profil-Modul wird automatisch genutzt.',
-		features: [
-			'Drei Generate-Modi: Einzel-Panel, Batch (2-4 parallel), KI-Storyboard aus existierendem Text',
-			'Fünf Stil-Presets pro Story fix gewählt — alle Panels nutzen denselben Prefix für Konsistenz',
-			'Sprechblasen + Captions werden direkt ins Bild gerendert (kein SVG-Overlay)',
-			'Modell wählbar pro Klick: OpenAI gpt-image-2, Nano Banana Pro, Nano Banana 2',
-			'Cross-Modul-Storyboard: Claude liest Journal/Notes/Library und schlägt 4-6 Panels vor',
-			'MCP-Tools: listStories / createStory / generatePanel / reorderPanels für Agents',
-		],
-		tips: [
-			'Ohne Face-Ref im aktiven Space kein Comic — Banner führt direkt zum Upload.',
-			'Englische Captions/Dialoge rendern stabiler als deutsche; kurze Sätze funktionieren am besten.',
-			'Style-Wechsel ist nicht möglich nach Story-Create — dafür einfach neue Story anlegen.',
-			'Ab ~8 Panels pro Story wird Character-Konsistenz spürbar schwerer (gpt-image-2-Limit).',
-		],
-	},
 	'research-lab': {
 		description:
 			'Web-Research-Anbieter Seite-an-Seite vergleichen: gleiche Query an bis zu fünf Provider parallel, Antworten + Latenz + Kosten nebeneinander. Alle Runs werden serverseitig persistiert für spätere Auswertung.',

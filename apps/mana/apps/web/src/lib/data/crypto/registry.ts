@@ -95,7 +95,6 @@ import type {
 	LocalGeneration,
 	LocalWritingStyle,
 } from '../../modules/writing/types';
-import type { LocalComicStory, LocalComicCharacter } from '../../modules/comic/types';
 import type { LocalAugurEntry } from '../../modules/augur/types';
 import type { LocalForm, LocalFormResponse } from '../../modules/forms/types';
 
@@ -543,47 +542,6 @@ export const ENCRYPTION_REGISTRY: Record<string, EncryptionConfig> = {
 	// or structural metadata the query layer needs. The image blob itself
 	// lives in MinIO behind owner-RLS, not in Dexie.
 	meImages: entry<LocalMeImage>(['label', 'tags']),
-
-	// ─── Comic (stories + inline panel metadata) ─────────────
-	// docs/plans/comic-module.md M1. Single space-scoped table.
-	//
-	// `title`, `description`, `storyContext`, `tags` are user-typed
-	// prose and get the same treatment as journal.title / notes.content.
-	// `panelMeta` is the per-panel sidecar (Record<panelImageId,
-	// {caption, dialogue, promptUsed, sourceInput}>) — aes.ts JSON-
-	// stringifies the whole blob before wrap, same pattern as
-	// food.foods / recipes.ingredients / quiz.options. Caption +
-	// dialogue are prose fragments the user authored; promptUsed is
-	// the reproduce-key (would-be-convenient for regeneration but
-	// leaks story content if plaintext); sourceInput FKs are
-	// low-risk but ship inside the encrypted blob anyway because
-	// splitting the Record per-field would double the storage cost.
-	//
-	// Plaintext (intentional): id, style enum (drives listStories
-	// filter + per-style prompt-prefix lookup), characterMediaIds
-	// (FKs to meImages / wardrobeGarments), panelImageIds (ordered
-	// FKs to picture.images), isFavorite / isArchived / visibility
-	// fields — all needed by the index or query layer.
-	comicStories: entry<LocalComicStory>([
-		'title',
-		'description',
-		'storyContext',
-		'tags',
-		'panelMeta',
-	]),
-
-	// ─── Comic-Characters (variant pool + pinned identity) ────
-	// docs/plans/comic-module.md §11. User-scoped sibling table to
-	// comicStories. Encrypted: `name` (display label), `description`
-	// (optional context), `addPrompt` (the user's free-text prompt
-	// add-on like "freundlicher Ausdruck"), `tags`. Plaintext:
-	// `style` (filter discriminator), `sourceFaceMediaId` /
-	// `sourceBodyMediaId` (FKs to meImages), `variantMediaIds` (FK
-	// array to picture.images), `pinnedVariantId`, booleans.
-	// Same encryption envelope as a wardrobe-outfit — name + free-
-	// text + tags travel encrypted, structural fields stay plaintext
-	// for query/sort.
-	comicCharacters: entry<LocalComicCharacter>(['name', 'description', 'addPrompt', 'tags']),
 
 	// ─── Augur (signs: omens / fortunes / hunches) ───────────
 	// docs/plans/augur-module.md M1. Single space-scoped table.
