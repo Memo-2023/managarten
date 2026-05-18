@@ -381,4 +381,18 @@ ingress:
     service: http://localhost:3097
   # Catch-all (returns 404 for any unmapped hostname)
   # ============================================
+
+  # ============================================
+  # Comicello — Text→Comic-Storyboard (Code/comicello/).
+  # ~/projects/comicello/ on the Mac Mini.
+  # Ports per mana/docs/PORTS.md: 3109 api / 3110 web (mac-mini-Mapping:
+  # 3111, da 3110 von memoro-server belegt). Tier-Gate beta.
+  # Konsumiert mana-llm, mana-image-edits, mana-media, mana-me, mana-credits.
+  # DNS für comicello.com + api.comicello.com kommt sobald Till die
+  # .com-Domain registriert hat — bis dahin nur die .mana.how-Routen.
+  - hostname: comicello.mana.how
+    service: http://localhost:3111
+  - hostname: comicello-api.mana.how
+    service: http://localhost:3109
+
   - service: http_status:404

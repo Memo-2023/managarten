@@ -250,7 +250,7 @@ services:
       # Enforced by services/mana-auth/src/auth/sso-config.spec.ts.
       # All productivity modules now live under mana.how (path-based) —
       # no per-module subdomain entries required here.
-      CORS_ORIGINS: https://mana.how,https://auth.mana.how,https://whopxl.mana.how,https://cardecky.mana.how,https://cardecky-api.mana.how,https://memoro-app.mana.how,https://zitare.mana.how,https://zitare-api.mana.how,https://nutriphi.mana.how,https://nutriphi-api.mana.how,https://manawald.mana.how,https://werdrobe.com,https://api.werdrobe.com,https://pageta.mana.how,https://pageta-api.mana.how,https://pageta.com,https://api.pageta.com,https://herbatrium.mana.how,https://herbatrium-api.mana.how,https://moodlit.mana.how,https://moodlit-api.mana.how
+      CORS_ORIGINS: https://mana.how,https://auth.mana.how,https://whopxl.mana.how,https://cardecky.mana.how,https://cardecky-api.mana.how,https://memoro-app.mana.how,https://zitare.mana.how,https://zitare-api.mana.how,https://nutriphi.mana.how,https://nutriphi-api.mana.how,https://manawald.mana.how,https://werdrobe.com,https://api.werdrobe.com,https://pageta.mana.how,https://pageta-api.mana.how,https://pageta.com,https://api.pageta.com,https://herbatrium.mana.how,https://herbatrium-api.mana.how,https://moodlit.mana.how,https://moodlit-api.mana.how,https://comicello.com,https://api.comicello.com,https://comicello.mana.how,https://comicello-api.mana.how
     ports:
       - "3001:3001"
     healthcheck:
