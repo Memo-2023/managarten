@@ -20,7 +20,6 @@ import QuoteWidget from './widgets/QuoteWidget.svelte';
 import PictureRecentWidget from './widgets/PictureRecentWidget.svelte';
 import ClockTimersWidget from './widgets/ClockTimersWidget.svelte';
 import StorageUsageWidget from './widgets/StorageUsageWidget.svelte';
-import MusicLibraryWidget from './widgets/MusicLibraryWidget.svelte';
 import PresiDecksWidget from './widgets/PresiDecksWidget.svelte';
 
 // Phase 4: Unified app widgets (direct Dexie queries, internal routing)
@@ -49,7 +48,6 @@ export const widgetComponents: Record<WidgetType, Component> = {
 	'picture-recent': PictureRecentWidget,
 	'clock-timers': ClockTimersWidget,
 	'storage-usage': StorageUsageWidget,
-	'music-library': MusicLibraryWidget,
 	'presi-decks': PresiDecksWidget,
 	'active-timer': ActiveTimerWidget,
 	'day-timeline': DayTimelineWidget,

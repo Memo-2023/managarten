@@ -233,7 +233,6 @@ export const dashboardStore = {
 				'chat-recent',
 				'contacts-favorites',
 				'quotes-quote',
-				'music-library',
 				'presi-decks',
 			] as WidgetType[]
 		).filter((type) => {

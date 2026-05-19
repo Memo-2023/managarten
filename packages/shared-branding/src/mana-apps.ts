@@ -448,23 +448,6 @@ export const MANA_APPS: ManaApp[] = [
 		requiredTier: 'guest',
 	},
 	{
-		id: 'music',
-		name: 'Music',
-		description: {
-			de: 'Musikproduktion',
-			en: 'Music Production',
-		},
-		longDescription: {
-			de: 'Erstelle und verwalte Songs, Playlists und Musikprojekte mit Markern und Arrangements.',
-			en: 'Create and manage songs, playlists, and music projects with markers and arrangements.',
-		},
-		icon: APP_ICONS.music,
-		color: '#ec4899',
-		comingSoon: false,
-		status: 'beta',
-		requiredTier: 'guest',
-	},
-	{
 		id: 'photos',
 		name: 'Photos',
 		description: {

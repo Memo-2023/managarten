@@ -144,7 +144,6 @@ const APP_SUBDOMAINS = new Set([
 	'storage',
 	'presi',
 	'photos',
-	'music',
 	'picture',
 	'calc',
 	'inventory',

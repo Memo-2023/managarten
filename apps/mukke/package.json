@@ -1,8 +1,0 @@
-{
-	"name": "mukke",
-	"version": "0.2.0",
-	"private": true,
-	"scripts": {
-		"dev": "pnpm run --filter=@mukke/* --parallel dev"
-	}
-}

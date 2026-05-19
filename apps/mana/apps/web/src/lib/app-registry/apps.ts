@@ -23,7 +23,6 @@ import {
 	Clock,
 	Quotes,
 	Image,
-	MusicNotes,
 	Camera,
 	HardDrives,
 	Presentation,
@@ -598,17 +597,6 @@ registerApp({
 	icon: Image,
 	views: {
 		list: { load: () => import('$lib/modules/picture/ListView.svelte') },
-	},
-});
-
-registerApp({
-	id: 'music',
-	name: 'Music',
-	color: '#F97316',
-	icon: MusicNotes,
-	views: {
-		list: { load: () => import('$lib/modules/music/ListView.svelte') },
-		detail: { load: () => import('$lib/modules/music/views/DetailView.svelte') },
 	},
 });
 

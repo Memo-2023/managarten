@@ -49,7 +49,6 @@ describe('WIDGET_REGISTRY', () => {
 			'cards',
 			'times',
 			'storage',
-			'music',
 			'presi',
 			'mana-auth',
 			'period',
@@ -75,7 +74,6 @@ describe('WIDGET_REGISTRY', () => {
 		expect(types).toContain('picture-recent');
 		expect(types).toContain('clock-timers');
 		expect(types).toContain('storage-usage');
-		expect(types).toContain('music-library');
 		expect(types).toContain('presi-decks');
 	});
 

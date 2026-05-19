@@ -57,7 +57,6 @@ import { contactsModuleConfig } from '$lib/modules/contacts/module.config';
 import { chatModuleConfig } from '$lib/modules/chat/module.config';
 import { pictureModuleConfig } from '$lib/modules/picture/module.config';
 import { quotesModuleConfig } from '$lib/modules/quotes/module.config';
-import { musicModuleConfig } from '$lib/modules/music/module.config';
 import { storageModuleConfig } from '$lib/modules/storage/module.config';
 import { presiModuleConfig } from '$lib/modules/presi/module.config';
 import { inventoryModuleConfig } from '$lib/modules/inventory/module.config';
@@ -110,7 +109,6 @@ export const MODULE_CONFIGS: readonly ModuleConfig[] = [
 	chatModuleConfig,
 	pictureModuleConfig,
 	quotesModuleConfig,
-	musicModuleConfig,
 	storageModuleConfig,
 	presiModuleConfig,
 	inventoryModuleConfig,

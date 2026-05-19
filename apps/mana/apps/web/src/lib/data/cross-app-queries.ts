@@ -17,7 +17,6 @@ import type { LocalFavorite } from '$lib/modules/quotes/types';
 import type { LocalImage } from '$lib/modules/picture/types';
 import type { LocalAlarm, LocalCountdownTimer } from '$lib/modules/times/types';
 import type { LocalFile } from '$lib/modules/storage/types';
-import type { LocalSong, LocalPlaylist } from '$lib/modules/music/types';
 import type { LocalDeck as LocalPresiDeck } from '$lib/modules/presi/types';
 
 // ─── Todo Queries ───────────────────────────────────────────
@@ -219,41 +218,6 @@ export function useStorageStats() {
 			return { totalFiles: active.length, totalSize, recentFiles: recent };
 		},
 		{ totalFiles: 0, totalSize: 0, recentFiles: [] as LocalFile[] }
-	);
-}
-
-// ─── Music Queries ──────────────────────────────────────────
-
-interface MusicStats {
-	totalSongs: number;
-	totalPlaylists: number;
-	favoriteCount: number;
-	recentSongs: LocalSong[];
-}
-
-/** Music library stats + recent songs. */
-export function useMusicStats() {
-	return useLiveQueryWithDefault(
-		async (): Promise<MusicStats> => {
-			const songs = await db.table<LocalSong>('songs').toArray();
-			const playlists = await db.table<LocalPlaylist>('mukkePlaylists').toArray();
-			const activeSongs = songs.filter((s) => !s.deletedAt);
-			const activePlaylists = playlists.filter((p) => !p.deletedAt);
-			// title is encrypted on disk; the dashboard widget renders it
-			// for the recent-songs list, so decrypt the small slice we
-			// surface (counts only need plaintext flags).
-			const recentRaw = activeSongs
-				.sort((a, b) => (b.updatedAt ?? '').localeCompare(a.updatedAt ?? ''))
-				.slice(0, 5);
-			const recent = await decryptRecords('songs', recentRaw);
-			return {
-				totalSongs: activeSongs.length,
-				totalPlaylists: activePlaylists.length,
-				favoriteCount: activeSongs.filter((s) => s.favorite).length,
-				recentSongs: recent,
-			};
-		},
-		{ totalSongs: 0, totalPlaylists: 0, favoriteCount: 0, recentSongs: [] as LocalSong[] }
 	);
 }
 

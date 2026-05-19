@@ -17,7 +17,6 @@ import { financeTools } from '$lib/modules/finance/tools';
 import { dreamsTools } from '$lib/modules/dreams/tools';
 import { timesTools } from '$lib/modules/times/tools';
 import { socialEventsTools } from '$lib/modules/events/tools';
-import { musicTools } from '$lib/modules/music/tools';
 import { storageTools } from '$lib/modules/storage/tools';
 import { chatTools } from '$lib/modules/chat/tools';
 import { skilltreeTools } from '$lib/modules/skilltree/tools';
@@ -63,7 +62,6 @@ export function initTools(): void {
 	registerTools(dreamsTools);
 	registerTools(timesTools);
 	registerTools(socialEventsTools);
-	registerTools(musicTools);
 	registerTools(storageTools);
 	registerTools(chatTools);
 	registerTools(skilltreeTools);

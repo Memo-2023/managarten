@@ -14,7 +14,6 @@ const SPLIT_APP_ID_LIST = [
 	'picture',
 	'cards',
 	'quotes',
-	'music',
 	'storage',
 	'presi',
 	'inventory',

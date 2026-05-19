@@ -200,7 +200,6 @@ describe('module-registry — snapshot', () => {
 			chat: ['conversations', 'messages', 'chatTemplates', 'conversationTags'],
 			picture: ['images', 'boards', 'boardItems', 'imageTags'],
 			quotes: ['quotesFavorites', 'quotesLists', 'quotesListTags', 'customQuotes'],
-			music: ['songs', 'mukkePlaylists', 'playlistSongs', 'mukkeProjects', 'markers', 'songTags'],
 			storage: ['files', 'storageFolders', 'fileTags'],
 			presi: ['presiDecks', 'slides', 'presiDeckTags'],
 			inventory: ['invCollections', 'invItems', 'invLocations', 'invCategories', 'invItemTags'],

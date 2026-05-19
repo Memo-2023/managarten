@@ -21,7 +21,6 @@ export type WidgetType =
 	| 'picture-recent' // Picture API: recent generations
 	| 'clock-timers' // Clock: active timers and alarms
 	| 'storage-usage' // Storage: file storage stats
-	| 'music-library' // Music: music library stats
 	| 'presi-decks' // Presi: recent presentations
 	| 'active-timer' // Times: running timer
 	| 'day-timeline' // TimeBlocks: chronological day timeline
@@ -125,7 +124,6 @@ export interface WidgetMeta {
 		| 'picture'
 		| 'cards'
 		| 'storage'
-		| 'music'
 		| 'presi'
 		| 'times'
 		| 'period'
@@ -243,15 +241,6 @@ export const WIDGET_REGISTRY: WidgetMeta[] = [
 		defaultSize: 'medium',
 		allowMultiple: false,
 		requiredBackend: 'storage',
-	},
-	{
-		type: 'music-library',
-		nameKey: 'dashboard.widgets.music.title',
-		descriptionKey: 'dashboard.widgets.music.description',
-		icon: '🎵',
-		defaultSize: 'medium',
-		allowMultiple: false,
-		requiredBackend: 'music',
 	},
 	{
 		type: 'presi-decks',
