@@ -10,9 +10,16 @@
  * Surviving candidates are written as new `suspected` lasts with the
  * `inferredFrom` provenance set, ready for the Inbox view.
  *
- * M3 ships only the `places` source. `habits` and `contacts` follow in
- * M3.b once those modules expose direct frequency signals (HabitLog
- * timestamps without a timeBlocks join, Contact.lastInteractionAt).
+ * 2026-05-19: `places`-Source mit dem places-Modul dekommissioniert
+ * (viadocu trägt jetzt allein, hat aber keine Visit-Counter pro Place).
+ * `SOURCES` ist absichtlich leer — die Inbox bleibt leer bis eine neue
+ * Source registriert wird. Manuelles `create_last`/`confirm_last` via
+ * Tool oder UI funktioniert unverändert.
+ *
+ * Nächste-Schritte-Kandidaten: habits (HabitLog-Timestamps → "Habit
+ * lange nicht mehr geloggt"), contacts (Contact.lastInteractionAt →
+ * "Person lange nicht mehr getroffen"). Plan in
+ * mana/docs/playbooks/MANAGARTEN_LIFTS_FOLLOWUPS.md.
  */
 
 import { db } from '$lib/data/database';
