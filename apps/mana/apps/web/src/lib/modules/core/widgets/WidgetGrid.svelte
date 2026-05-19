@@ -9,7 +9,6 @@
 	import TasksTodayWidget from './TasksTodayWidget.svelte';
 	import UpcomingEventsWidget from './UpcomingEventsWidget.svelte';
 	import RecentContactsWidget from './RecentContactsWidget.svelte';
-	import QuoteOfTheDayWidget from './QuoteOfTheDayWidget.svelte';
 	import ActiveTimerWidget from './ActiveTimerWidget.svelte';
 	import RecentChatsWidget from './RecentChatsWidget.svelte';
 	import QuickActionsWidget from './QuickActionsWidget.svelte';
@@ -21,7 +20,6 @@
 		{ id: 'quick-actions', component: QuickActionsWidget },
 		{ id: 'recent-chats', component: RecentChatsWidget },
 		{ id: 'recent-contacts', component: RecentContactsWidget },
-		{ id: 'quote-of-the-day', component: QuoteOfTheDayWidget },
 	];
 </script>
 

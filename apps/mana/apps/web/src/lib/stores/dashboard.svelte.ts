@@ -232,7 +232,6 @@ export const dashboardStore = {
 				'calendar-events',
 				'chat-recent',
 				'contacts-favorites',
-				'quotes-quote',
 				'presi-decks',
 			] as WidgetType[]
 		).filter((type) => {

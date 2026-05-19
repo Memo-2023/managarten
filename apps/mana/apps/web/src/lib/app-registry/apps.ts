@@ -21,7 +21,6 @@ import {
 	MapPin,
 	ChatCircle,
 	Clock,
-	Quotes,
 	Image,
 	Camera,
 	HardDrives,
@@ -576,19 +575,10 @@ registerApp({
 	},
 });
 
-registerApp({
-	id: 'quotes',
-	name: 'Quotes',
-	color: '#EC4899',
-	icon: Quotes,
-	views: {
-		list: { load: () => import('$lib/modules/quotes/ListView.svelte') },
-		detail: { load: () => import('$lib/modules/quotes/views/DetailView.svelte') },
-	},
-});
-
 // Cards-Modul: dekommissioniert 2026-05-08, Cards lebt jetzt als
 // standalone-App auf cardecky.mana.how (git.mana.how/till/cards).
+// Quotes-Modul: dekommissioniert 2026-05-19, lebt als zitare standalone
+// auf zitare.mana.how (Code/zitare).
 
 registerApp({
 	id: 'picture',

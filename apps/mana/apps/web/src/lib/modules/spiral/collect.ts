@@ -28,32 +28,15 @@ export async function collectAppSnapshots(): Promise<AppSnapshot[]> {
 	const snapshots: AppSnapshot[] = [];
 
 	// Run all reads in parallel
-	const [
-		tasks,
-		events,
-		contacts,
-		conversations,
-		favorites,
-		images,
-		alarms,
-		files,
-		songs,
-		decks,
-		cardDecks,
-		cards,
-	] = await Promise.all([
+	const [tasks, events, contacts, conversations, images, alarms, files, decks] = await Promise.all([
 		safeGetAll('tasks'),
 		safeGetAll('events'),
 		safeGetAll('contacts'),
 		safeGetAll('conversations'),
-		safeGetAll('quotesFavorites'),
 		safeGetAll('images'),
 		safeGetAll('alarms'),
 		safeGetAll('files'),
-		safeGetAll('songs'),
 		safeGetAll('presiDecks'),
-		safeGetAll('cardDecks'),
-		safeGetAll('cards'),
 	]);
 
 	// Todo
@@ -106,18 +89,6 @@ export async function collectAppSnapshots(): Promise<AppSnapshot[]> {
 		});
 	}
 
-	// Quotes
-	if (favorites.length > 0) {
-		snapshots.push({
-			app: 'Quotes',
-			appIndex: MANA_APP_INDEX.quotes,
-			totalItems: favorites.length,
-			completedItems: 0,
-			favoriteItems: favorites.length,
-			label: `${favorites.length} Favoriten`,
-		});
-	}
-
 	// Picture
 	if (images.length > 0) {
 		const favs = images.filter((i: any) => i.isFavorite).length;
@@ -155,18 +126,6 @@ export async function collectAppSnapshots(): Promise<AppSnapshot[]> {
 		});
 	}
 
-	// Music
-	if (songs.length > 0) {
-		snapshots.push({
-			app: 'Music',
-			appIndex: MANA_APP_INDEX.music,
-			totalItems: songs.length,
-			completedItems: 0,
-			favoriteItems: 0,
-			label: `${songs.length} Songs`,
-		});
-	}
-
 	// Presi
 	if (decks.length > 0) {
 		snapshots.push({
@@ -176,18 +135,6 @@ export async function collectAppSnapshots(): Promise<AppSnapshot[]> {
 			completedItems: 0,
 			favoriteItems: 0,
 			label: `${decks.length} Präsentationen`,
-		});
-	}
-
-	// Cards
-	if (cardDecks.length > 0 || cards.length > 0) {
-		snapshots.push({
-			app: 'Cards',
-			appIndex: MANA_APP_INDEX.cards,
-			totalItems: cards.length,
-			completedItems: 0,
-			favoriteItems: 0,
-			label: `${cardDecks.length} Decks, ${cards.length} Karten`,
 		});
 	}
 

@@ -13,7 +13,6 @@ import type { LocalTask } from '$lib/modules/todo/types';
 import type { LocalTimeBlock } from '$lib/data/time-blocks/types';
 import type { LocalContact } from '$lib/modules/contacts/types';
 import type { LocalConversation } from '$lib/modules/chat/types';
-import type { LocalFavorite } from '$lib/modules/quotes/types';
 import type { LocalImage } from '$lib/modules/picture/types';
 import type { LocalAlarm, LocalCountdownTimer } from '$lib/modules/times/types';
 import type { LocalFile } from '$lib/modules/storage/types';
@@ -137,21 +136,6 @@ export function useRecentConversations(limit = 5) {
 			.limit(limit)
 			.toArray();
 	}, [] as LocalConversation[]);
-}
-
-// ─── Quotes Queries ─────────────────────────────────────────
-
-/** A random favorite quote. */
-export function useRandomFavorite() {
-	return useLiveQueryWithDefault(
-		async () => {
-			const all = await db.table<LocalFavorite>('quotesFavorites').toArray();
-			const active = all.filter((f) => !f.deletedAt);
-			if (active.length === 0) return null;
-			return active[Math.floor(Math.random() * active.length)];
-		},
-		null as LocalFavorite | null
-	);
 }
 
 // ─── Picture Queries ────────────────────────────────────────

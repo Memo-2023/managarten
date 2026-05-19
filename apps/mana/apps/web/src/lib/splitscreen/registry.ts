@@ -13,7 +13,6 @@ const SPLIT_APP_ID_LIST = [
 	'chat',
 	'picture',
 	'cards',
-	'quotes',
 	'storage',
 	'presi',
 	'inventory',

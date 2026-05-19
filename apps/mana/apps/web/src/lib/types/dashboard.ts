@@ -17,7 +17,6 @@ export type WidgetType =
 	| 'chat-recent' // Chat API: recent conversations
 	| 'contacts-favorites' // Contacts API: favorite contacts
 	| 'contacts-recent' // Contacts: recently updated
-	| 'quotes-quote' // Quotes API: daily inspiration quote
 	| 'picture-recent' // Picture API: recent generations
 	| 'clock-timers' // Clock: active timers and alarms
 	| 'storage-usage' // Storage: file storage stats
@@ -120,7 +119,6 @@ export interface WidgetMeta {
 		| 'calendar'
 		| 'chat'
 		| 'contacts'
-		| 'quotes'
 		| 'picture'
 		| 'cards'
 		| 'storage'
@@ -205,15 +203,6 @@ export const WIDGET_REGISTRY: WidgetMeta[] = [
 		defaultSize: 'medium',
 		allowMultiple: false,
 		requiredBackend: 'contacts',
-	},
-	{
-		type: 'quotes-quote',
-		nameKey: 'dashboard.widgets.quotes.title',
-		descriptionKey: 'dashboard.widgets.quotes.description',
-		icon: '💡',
-		defaultSize: 'medium',
-		allowMultiple: false,
-		requiredBackend: 'quotes',
 	},
 	{
 		type: 'picture-recent',

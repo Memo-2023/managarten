@@ -191,23 +191,6 @@ export const MANA_APPS: ManaApp[] = [
 		requiredTier: 'guest',
 	},
 	{
-		id: 'quotes',
-		name: 'Quotes',
-		description: {
-			de: 'Tägliche Inspiration',
-			en: 'Daily Inspiration',
-		},
-		longDescription: {
-			de: 'Entdecke inspirierende Zitate und Weisheiten für jeden Tag.',
-			en: 'Discover inspiring quotes and wisdom for every day.',
-		},
-		icon: APP_ICONS.quotes,
-		color: '#f59e0b',
-		comingSoon: false,
-		status: 'beta',
-		requiredTier: 'guest',
-	},
-	{
 		id: 'wisekeep',
 		name: 'WiseKeep',
 		description: {

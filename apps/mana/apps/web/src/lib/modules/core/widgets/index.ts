@@ -9,7 +9,6 @@
 export { default as TasksTodayWidget } from './TasksTodayWidget.svelte';
 export { default as UpcomingEventsWidget } from './UpcomingEventsWidget.svelte';
 export { default as RecentContactsWidget } from './RecentContactsWidget.svelte';
-export { default as QuoteOfTheDayWidget } from './QuoteOfTheDayWidget.svelte';
 export { default as ActiveTimerWidget } from './ActiveTimerWidget.svelte';
 export { default as RecentChatsWidget } from './RecentChatsWidget.svelte';
 export { default as QuickActionsWidget } from './QuickActionsWidget.svelte';

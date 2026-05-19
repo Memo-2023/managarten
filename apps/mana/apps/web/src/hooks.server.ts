@@ -138,7 +138,6 @@ const APP_SUBDOMAINS = new Set([
 	'chat',
 	'calendar',
 	'contacts',
-	'quotes',
 	'skilltree',
 	'cards',
 	'storage',

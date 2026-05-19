@@ -41,7 +41,6 @@ export const PLAINTEXT_ALLOWLIST: readonly string[] = [
 	'companionMessages', // TODO: audit
 	'contactTags', // TODO: audit
 	'conversationTags', // TODO: audit
-	'customQuotes', // TODO: audit
 	'dashboardConfigs', // TODO: audit
 	'deckTags', // TODO: audit
 	'dreamTags', // TODO: audit
@@ -68,21 +67,16 @@ export const PLAINTEXT_ALLOWLIST: readonly string[] = [
 	'mealTags', // TODO: audit
 	'moodTags', // TODO: audit
 	'moods', // TODO: audit
-	'mukkeProjects', // TODO: audit
 	'newsCachedFeed', // TODO: audit
 	'noteTags', // TODO: audit
 	'periodSymptoms', // TODO: audit
 	'photoFavorites', // TODO: audit
 	'photoMediaTags', // TODO: audit
 	'placeTags', // TODO: audit
-	'playlistSongs', // TODO: audit
 	'presiDeckTags', // TODO: audit
 	'qCollections', // TODO: audit
 	'questionTags', // TODO: audit
 	'quizAttempts', // TODO: audit
-	'quotesFavorites', // TODO: audit
-	'quotesListTags', // TODO: audit
-	'quotesLists', // TODO: audit
 	'reminders', // TODO: audit
 	'ritualLogs', // TODO: audit
 	'ritualSteps', // TODO: audit
@@ -92,7 +86,6 @@ export const PLAINTEXT_ALLOWLIST: readonly string[] = [
 	'sequences', // TODO: audit
 	'skillTags', // TODO: audit
 	'skills', // TODO: audit
-	'songTags', // TODO: audit
 	'storageFolders', // TODO: audit
 	'taskLabels', // TODO: audit
 	'timeAlarms', // TODO: audit
