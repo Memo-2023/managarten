@@ -72,7 +72,6 @@ import { dreamsModuleConfig } from '$lib/modules/dreams/module.config';
 import { periodModuleConfig } from '$lib/modules/period/module.config';
 import { eventsModuleConfig } from '$lib/modules/events/module.config';
 import { financeModuleConfig } from '$lib/modules/finance/module.config';
-import { placesModuleConfig } from '$lib/modules/places/module.config';
 import { playgroundModuleConfig } from '$lib/modules/playground/module.config';
 import { bodyModuleConfig } from '$lib/modules/body/module.config';
 import { firstsModuleConfig } from '$lib/modules/firsts/module.config';
@@ -122,7 +121,6 @@ export const MODULE_CONFIGS: readonly ModuleConfig[] = [
 	periodModuleConfig,
 	eventsModuleConfig,
 	financeModuleConfig,
-	placesModuleConfig,
 	playgroundModuleConfig,
 	bodyModuleConfig,
 	firstsModuleConfig,

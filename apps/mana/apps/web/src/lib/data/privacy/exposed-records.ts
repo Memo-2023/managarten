@@ -116,18 +116,6 @@ const TABLES: TableConfig[] = [
 		},
 	},
 	{
-		module: 'places',
-		collection: 'places',
-		moduleLabel: 'Orte',
-		encrypted: true,
-		title: (r) => asString(r.name),
-		href: (id) => `/places/place/${id}`,
-		setVisibility: async (id, next) => {
-			const { placesStore } = await import('$lib/modules/places/stores/places.svelte');
-			return placesStore.setVisibility(id, next);
-		},
-	},
-	{
 		module: 'recipes',
 		collection: 'recipes',
 		moduleLabel: 'Rezepte',

@@ -27,7 +27,6 @@ import type { LocalEvent } from '$lib/modules/calendar/types';
 import type { LocalTask } from '$lib/modules/todo/types';
 import type { LocalTaskTag } from '$lib/modules/todo/types';
 import type { LocalGoal } from '$lib/companion/goals/types';
-import type { LocalPlace } from '$lib/modules/places/types';
 import type { LocalRecipe } from '$lib/modules/recipes/types';
 import type { LocalHabit, LocalHabitLog } from '$lib/modules/habits/types';
 import type { LocalQuiz } from '$lib/modules/quiz/types';
@@ -62,9 +61,6 @@ export async function resolveEmbed(props: ModuleEmbedProps): Promise<ResolvedEmb
 				break;
 			case 'goals.goals':
 				items = await resolveGoals(props);
-				break;
-			case 'places.places':
-				items = await resolvePlaces(props);
 				break;
 			case 'recipes.recipes':
 				items = await resolveRecipes(props);
@@ -383,49 +379,6 @@ function formatGoalProgress(g: LocalGoal): string {
 	const periodLabel =
 		g.target.period === 'day' ? 'Tag' : g.target.period === 'week' ? 'Woche' : 'Monat';
 	return `${g.currentValue} / ${g.target.value} · ${periodLabel}`;
-}
-
-/**
- * Places: "my favourite cafes" / "rehearsal rooms" / "gyms I train at".
- * Hard-gated on canEmbedOnWebsite.
- *
- * Whitelist (plan §2): title (place name) + subtitle (address only).
- * Latitude/longitude are NOT inlined — 10m precision of a home or
- * workplace can identify someone, and publishing coords by default on
- * a visibility flip would be the classic leak the design explicitly
- * guards against.
- */
-async function resolvePlaces(props: ModuleEmbedProps): Promise<EmbedItem[]> {
-	let places = await db.table<LocalPlace>('places').toArray();
-	places = places.filter(
-		(p) => !p.deletedAt && !p.isArchived && canEmbedOnWebsite(p.visibility ?? 'private')
-	);
-
-	if (props.filter?.kind) {
-		places = places.filter((p) => p.category === props.filter?.kind);
-	}
-	if (props.filter?.isFavorite === true) {
-		places = places.filter((p) => p.isFavorite === true);
-	}
-	if (props.filter?.tagIds?.length) {
-		const wanted = new Set(props.filter.tagIds);
-		places = places.filter((p) => (p.tagIds ?? []).some((t) => wanted.has(t)));
-	}
-
-	const decrypted = (await decryptRecords('places', places)) as LocalPlace[];
-
-	// Favourites first, then alphabetical for a stable order.
-	decrypted.sort((a, b) => {
-		const favA = a.isFavorite ? 0 : 1;
-		const favB = b.isFavorite ? 0 : 1;
-		if (favA !== favB) return favA - favB;
-		return a.name.localeCompare(b.name);
-	});
-
-	return decrypted.map((p) => ({
-		title: p.name,
-		subtitle: p.address ?? undefined,
-	}));
 }
 
 /**

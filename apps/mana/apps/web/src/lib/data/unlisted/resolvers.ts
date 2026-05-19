@@ -19,7 +19,6 @@ import { decryptRecord } from '$lib/data/crypto';
 import { mediaFileUrl } from '$lib/modules/website/upload';
 import type { LocalEvent } from '$lib/modules/calendar/types';
 import type { LocalLibraryEntry } from '$lib/modules/library/types';
-import type { LocalPlace } from '$lib/modules/places/types';
 import type { LocalTimeBlock } from '$lib/data/time-blocks/types';
 import type { LocalAugurEntry } from '$lib/modules/augur/types';
 import type { LocalLast } from '$lib/modules/lasts/types';
@@ -52,8 +51,6 @@ export async function buildUnlistedBlob(
 			return buildEventBlob(recordId);
 		case 'libraryEntries':
 			return buildLibraryEntryBlob(recordId);
-		case 'places':
-			return buildPlaceBlob(recordId);
 		case 'augurEntries':
 			return buildAugurEntryBlob(recordId);
 		case 'lasts':
@@ -155,35 +152,6 @@ async function buildLibraryEntryBlob(recordId: string): Promise<Record<string, u
 		year: decrypted.year ?? null,
 		coverUrl,
 		rating: decrypted.rating ?? null,
-	};
-}
-
-/**
- * Place → snapshot blob.
- *
- * Whitelist: name, address, category.
- *
- * EXPLICITLY NOT inlined:
- *   - latitude, longitude  (10m-precision identifies homes/workplaces;
- *                            the v1 share page renders no map. v1.1
- *                            will add an opt-in toggle if there is
- *                            real demand for embedded maps.)
- *   - description    (free-text, may carry private notes)
- *   - tagIds         (internal organisation)
- *   - visitCount, lastVisitedAt, isFavorite (visit habits)
- */
-async function buildPlaceBlob(recordId: string): Promise<Record<string, unknown>> {
-	const raw = await db.table<LocalPlace>('places').get(recordId);
-	if (!raw || raw.deletedAt) {
-		throw new RecordNotFoundError('places', recordId);
-	}
-
-	const decrypted = (await decryptRecord('places', { ...raw })) as LocalPlace;
-
-	return {
-		name: decrypted.name,
-		address: decrypted.address ?? null,
-		category: decrypted.category ?? 'other',
 	};
 }
 

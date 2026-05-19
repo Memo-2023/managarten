@@ -6,7 +6,6 @@
 <script lang="ts">
 	import SharedEventView from '$lib/modules/calendar/SharedEventView.svelte';
 	import SharedLibraryEntryView from '$lib/modules/library/SharedLibraryEntryView.svelte';
-	import SharedPlaceView from '$lib/modules/places/SharedPlaceView.svelte';
 	import SharedAugurEntryView from '$lib/modules/augur/SharedAugurEntryView.svelte';
 	import SharedLastView from '$lib/modules/lasts/SharedLastView.svelte';
 	import SharedFormView from '$lib/modules/forms/SharedFormView.svelte';
@@ -31,8 +30,6 @@
 	<SharedEventView blob={data.blob} token={data.token} expiresAt={data.expiresAt} />
 {:else if data.collection === 'libraryEntries'}
 	<SharedLibraryEntryView blob={data.blob} token={data.token} expiresAt={data.expiresAt} />
-{:else if data.collection === 'places'}
-	<SharedPlaceView blob={data.blob} token={data.token} expiresAt={data.expiresAt} />
 {:else if data.collection === 'augurEntries'}
 	<SharedAugurEntryView blob={data.blob} token={data.token} expiresAt={data.expiresAt} />
 {:else if data.collection === 'lasts'}

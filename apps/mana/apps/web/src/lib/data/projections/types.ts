@@ -46,11 +46,6 @@ export interface DaySnapshot {
 		coffee: { ml: number; count: number };
 		total: { ml: number; count: number };
 	};
-
-	places: {
-		visitedToday: number;
-		tracking: boolean;
-	};
 }
 
 // ── Streaks ─────────────────────────────────────────

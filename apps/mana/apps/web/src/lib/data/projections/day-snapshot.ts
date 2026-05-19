@@ -14,11 +14,8 @@ import { useLiveQueryWithDefault } from '@mana/local-store/svelte';
 import { db } from '../database';
 import { decryptRecords } from '../crypto';
 import { DEFAULT_DAILY_GOAL_ML } from '$lib/modules/drink/types';
-import { trackingStore } from '$lib/modules/places/stores/tracking.svelte';
 import type { LocalTask } from '$lib/modules/todo/types';
-import type { LocalEvent } from '$lib/modules/calendar/types';
 import type { LocalDrinkEntry } from '$lib/modules/drink/types';
-import type { LocalPlace } from '$lib/modules/places/types';
 import type { LocalTimeBlock } from '../time-blocks/types';
 import type { DaySnapshot, TaskSummary, EventSummary } from './types';
 
@@ -36,7 +33,6 @@ function emptySnapshot(date: string): DaySnapshot {
 			coffee: { ml: 0, count: 0 },
 			total: { ml: 0, count: 0 },
 		},
-		places: { visitedToday: 0, tracking: false },
 	};
 }
 
@@ -47,7 +43,7 @@ async function buildSnapshot(): Promise<DaySnapshot> {
 	const todayEnd = `${today}T23:59:59`;
 
 	// ── Parallel queries — all modules at once ──────
-	const [allTasks, blocks, allDrinks, allPlaces] = await Promise.all([
+	const [allTasks, blocks, allDrinks] = await Promise.all([
 		db.table<LocalTask>('tasks').toArray(),
 		db
 			.table<LocalTimeBlock>('timeBlocks')
@@ -55,7 +51,6 @@ async function buildSnapshot(): Promise<DaySnapshot> {
 			.between(todayStart, todayEnd + '\uffff')
 			.toArray(),
 		db.table<LocalDrinkEntry>('drinkEntries').toArray(),
-		db.table<LocalPlace>('places').toArray(),
 	]);
 
 	// ── Parallel decryption ─────────────────────────
@@ -115,11 +110,6 @@ async function buildSnapshot(): Promise<DaySnapshot> {
 		}
 	}
 
-	// ── Places ──────────────────────────────────────
-	const visitedToday = allPlaces.filter(
-		(p) => !p.deletedAt && p.lastVisitedAt && (p.lastVisitedAt as string).startsWith(today)
-	).length;
-
 	return {
 		date: today,
 		tasks: {
@@ -141,10 +131,6 @@ async function buildSnapshot(): Promise<DaySnapshot> {
 			},
 			coffee: { ml: coffeeMl, count: coffeeCount },
 			total: { ml: totalMl, count: totalCount },
-		},
-		places: {
-			visitedToday,
-			tracking: trackingStore.isTracking,
 		},
 	};
 }

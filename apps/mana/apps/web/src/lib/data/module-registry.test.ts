@@ -225,7 +225,6 @@ describe('module-registry — snapshot', () => {
 			period: ['periods', 'periodDayLogs', 'periodSymptoms'],
 			events: ['socialEvents', 'eventGuests', 'eventInvitations', 'eventItems'],
 			finance: ['transactions', 'financeCategories', 'budgets'],
-			places: ['places', 'locationLogs', 'placeTags'],
 			playground: ['playgroundSnippets', 'playgroundConversations', 'playgroundMessages'],
 			body: [
 				'bodyExercises',

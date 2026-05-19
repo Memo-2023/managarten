@@ -15,7 +15,6 @@
 
 import { tasksStore } from '$lib/modules/todo/stores/tasks.svelte';
 import { eventsStore } from '$lib/modules/calendar/stores/events.svelte';
-import { placesStore } from '$lib/modules/places/stores/places.svelte';
 import { drinkStore } from '$lib/modules/drink/stores/drink.svelte';
 
 export type InverseResult = { readonly ok: true } | { readonly ok: false; readonly reason: string };
@@ -58,13 +57,6 @@ registerInverseOperation('CalendarEventCreated', async (payload) => {
 	const eventId = payload.eventId;
 	if (typeof eventId !== 'string') return { ok: false, reason: 'missing eventId' };
 	await eventsStore.deleteEvent(eventId);
-	return { ok: true };
-});
-
-registerInverseOperation('PlaceCreated', async (payload) => {
-	const placeId = payload.placeId;
-	if (typeof placeId !== 'string') return { ok: false, reason: 'missing placeId' };
-	await placesStore.deletePlace(placeId);
 	return { ok: true };
 });
 

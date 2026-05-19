@@ -68,7 +68,6 @@ export const PLAINTEXT_ALLOWLIST: readonly string[] = [
 	'periodSymptoms', // TODO: audit
 	'photoFavorites', // TODO: audit
 	'photoMediaTags', // TODO: audit
-	'placeTags', // TODO: audit
 	'presiDeckTags', // TODO: audit
 	'qCollections', // TODO: audit
 	'questionTags', // TODO: audit

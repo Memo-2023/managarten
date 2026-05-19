@@ -20,10 +20,11 @@ import { scopedForModule } from '$lib/data/scope';
 import { decryptRecords } from '$lib/data/crypto';
 import { lastsCooldownTable } from '../collections';
 import type { LocalLast, LocalLastsCooldown } from '../types';
-import { placesSource } from './sources/places';
 import { INFERENCE_DEFAULTS, type InferenceCandidate, type InferenceSource } from './types';
 
-const SOURCES: InferenceSource[] = [placesSource];
+// `places` inference source dekommissioniert 2026-05-19 mit places-Modul.
+// habits/contacts-Sources sind in M3.b geplant — kein aktiver Scanner aktuell.
+const SOURCES: InferenceSource[] = [];
 
 /** Read all lasts in the active Space (decrypted). */
 async function loadExistingLasts(): Promise<LocalLast[]> {

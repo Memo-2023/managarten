@@ -290,29 +290,6 @@ export const ENCRYPTION_REGISTRY: Record<string, EncryptionConfig> = {
 	// different storage layout.
 	invItems: { enabled: true, fields: ['description'] },
 
-	// ─── Places ──────────────────────────────────────────────
-	// Location data is GDPR-sensitive PII. The split between the two tables:
-	//   - `places` holds user-named POIs. We encrypt the user-typed text
-	//     (name/description/address) but leave lat/lng plaintext so the
-	//     proximity matcher in tracking.svelte.ts can run without a vault
-	//     unlock during background geolocation logging. lat/lng on a
-	//     handful of saved POIs is far less sensitive than the full
-	//     movement trail in locationLogs below.
-	//   - `locationLogs` IS the movement trail — every coordinate gets
-	//     encrypted. Indexed columns (timestamp, placeId, [placeId+timestamp])
-	//     stay plaintext for the time-range scans in the log view.
-	// `name` on `places` IS schema-indexed but no .where('name') call site
-	// exists (search filters in JS over the decrypted DTO array) — same
-	// rationale as files.name and plants.name above.
-	places: { enabled: true, fields: ['name', 'description', 'address'] },
-	locationLogs: {
-		enabled: true,
-		fields: ['latitude', 'longitude', 'accuracy', 'altitude', 'speed', 'heading'],
-	},
-	// `placeTags` is intentionally NOT in the registry — pure foreign-key
-	// join table (placeId / tagId), zero user-typed content. Same pattern
-	// as manaLinks.
-
 	// ─── Playground ──────────────────────────────────────────
 	// Saved system-prompt snippets. `name` is the user's label and
 	// `systemPrompt` is the actual prompt body — both are user-typed

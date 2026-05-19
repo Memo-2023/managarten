@@ -635,23 +635,6 @@ export const MANA_APPS: ManaApp[] = [
 		requiredTier: 'guest',
 	},
 	{
-		id: 'places',
-		name: 'Places',
-		description: {
-			de: 'Standort-Tracking',
-			en: 'Location Tracking',
-		},
-		longDescription: {
-			de: 'Tracke deinen Standort, erstelle Orte und sieh deine Bewegungshistorie.',
-			en: 'Track your location, create places, and view your movement history.',
-		},
-		icon: APP_ICONS.places,
-		color: '#0ea5e9',
-		comingSoon: false,
-		status: 'development',
-		requiredTier: 'guest',
-	},
-	{
 		id: 'drink',
 		name: 'Drink',
 		description: {

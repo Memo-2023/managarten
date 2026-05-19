@@ -18,7 +18,6 @@ import {
 	Moon,
 	Drop,
 	MoneyWavy,
-	MapPin,
 	ChatCircle,
 	Clock,
 	Image,
@@ -516,40 +515,8 @@ registerApp({
 	},
 });
 
-registerApp({
-	id: 'places',
-	name: 'Places',
-	color: '#0EA5E9',
-	icon: MapPin,
-	views: {
-		list: { load: () => import('$lib/modules/places/ListView.svelte') },
-		detail: { load: () => import('$lib/modules/places/views/DetailView.svelte') },
-	},
-	collection: 'places',
-	paramKey: 'placeId',
-	dragType: 'place',
-	acceptsDropFrom: ['contact'],
-	transformIncoming: {
-		contact: (source) => ({
-			name: `Treffen mit ${[source.firstName, source.lastName].filter(Boolean).join(' ')}`,
-			latitude: 0,
-			longitude: 0,
-		}),
-	},
-	getDisplayData: (item) => ({
-		title: (item.name as string) || 'Ort',
-		subtitle: (item.address as string) ?? undefined,
-	}),
-	createItem: async (data) => {
-		const { placesStore } = await import('$lib/modules/places/stores/places.svelte');
-		const place = await placesStore.createPlace({
-			name: (data.name as string) ?? 'Neuer Ort',
-			latitude: (data.latitude as number) ?? 0,
-			longitude: (data.longitude as number) ?? 0,
-		});
-		return place.id;
-	},
-});
+// Places-Modul: dekommissioniert 2026-05-19, lebt als viadocu standalone
+// auf viadocu-api.mana.how (GPS-Reise-Tracker + Cities/Countries-Stats).
 
 registerApp({
 	id: 'chat',

@@ -75,14 +75,6 @@ export function generateContextDocument(
 		lines.push(`- Kaffee: ${day.drinks.coffee.count}x (${day.drinks.coffee.ml}ml)`);
 	}
 
-	// Places
-	if (day.places.visitedToday > 0) {
-		lines.push(`- ${day.places.visitedToday} Orte besucht`);
-	}
-	if (day.places.tracking) {
-		lines.push('- Standort-Tracking aktiv');
-	}
-
 	// ── Streaks ─────────────────────────────────────
 	const activeStreaks = streaks.filter((s) => s.status === 'active');
 	const atRisk = streaks.filter((s) => s.status === 'at_risk');

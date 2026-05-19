@@ -11,7 +11,6 @@ import { decryptRecords } from '$lib/data/crypto';
 import { DEFAULT_DAILY_GOAL_ML } from '$lib/modules/drink/types';
 import type { LocalTask } from '$lib/modules/todo/types';
 import type { LocalDrinkEntry } from '$lib/modules/drink/types';
-import type { LocalPlace } from '$lib/modules/places/types';
 import type { LocalTimeBlock } from '$lib/data/time-blocks/types';
 import type { LocalGoal } from '$lib/companion/goals/types';
 
@@ -33,7 +32,7 @@ export const mydayTools: ModuleTool[] = [
 			const todayEnd = `${today}T23:59:59`;
 
 			// ── Parallel queries ────────────────────────
-			const [allTasks, blocks, allDrinks, allPlaces, streakStates, goals] = await Promise.all([
+			const [allTasks, blocks, allDrinks, streakStates, goals] = await Promise.all([
 				db.table<LocalTask>('tasks').toArray(),
 				db
 					.table<LocalTimeBlock>('timeBlocks')
@@ -41,7 +40,6 @@ export const mydayTools: ModuleTool[] = [
 					.between(todayStart, todayEnd + '\uffff')
 					.toArray(),
 				db.table<LocalDrinkEntry>('drinkEntries').toArray(),
-				db.table<LocalPlace>('places').toArray(),
 				db.table('_streakState').toArray(),
 				db.table<LocalGoal>('companionGoals').toArray(),
 			]);
@@ -90,11 +88,6 @@ export const mydayTools: ModuleTool[] = [
 					coffeeCount++;
 				}
 			}
-
-			// ── Places ──────────────────────────────────
-			const visitedToday = allPlaces.filter(
-				(p) => !p.deletedAt && p.lastVisitedAt && (p.lastVisitedAt as string).startsWith(today)
-			).length;
 
 			// ── Streaks ─────────────────────────────────
 			const yesterday = new Date();
@@ -148,7 +141,6 @@ export const mydayTools: ModuleTool[] = [
 					coffee: { count: coffeeCount },
 					total: { ml: totalMl, count: decDrinks.length },
 				},
-				places: { visitedToday },
 				streaks,
 				goals: activeGoals,
 			};
