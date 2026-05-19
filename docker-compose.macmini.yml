@@ -248,7 +248,7 @@ services:
       # Enforced by services/mana-auth/src/auth/sso-config.spec.ts.
       # All productivity modules now live under mana.how (path-based) —
       # no per-module subdomain entries required here.
-      CORS_ORIGINS: https://mana.how,https://auth.mana.how,https://whopxl.mana.how,https://cardecky.mana.how,https://cardecky-api.mana.how,https://memoro-app.mana.how,https://zitare.mana.how,https://zitare-api.mana.how,https://nutriphi.mana.how,https://nutriphi-api.mana.how,https://manawald.mana.how,https://werdrobe.com,https://api.werdrobe.com,https://pageta.mana.how,https://pageta-api.mana.how,https://pageta.com,https://api.pageta.com,https://herbatrium.mana.how,https://herbatrium-api.mana.how,https://moodlit.mana.how,https://moodlit-api.mana.how,https://comicello.com,https://api.comicello.com,https://comicello.mana.how,https://comicello-api.mana.how,https://uload.mana.how,https://uload-api.mana.how,https://ulo.ad
+      CORS_ORIGINS: https://mana.how,https://auth.mana.how,https://whopxl.mana.how,https://cardecky.mana.how,https://cardecky-api.mana.how,https://memoro-app.mana.how,https://zitare.mana.how,https://zitare-api.mana.how,https://nutriphi.mana.how,https://nutriphi-api.mana.how,https://manawald.mana.how,https://werdrobe.com,https://api.werdrobe.com,https://pageta.mana.how,https://pageta-api.mana.how,https://pageta.com,https://api.pageta.com,https://herbatrium.mana.how,https://herbatrium-api.mana.how,https://moodlit.mana.how,https://moodlit-api.mana.how,https://comicello.com,https://api.comicello.com,https://comicello.mana.how,https://comicello-api.mana.how,https://uload.mana.how,https://uload-api.mana.how,https://ulo.ad,https://mukke.mana.how,https://mukke-api.mana.how,https://manaclick.mana.how
     ports:
       - "3001:3001"
     healthcheck:
@@ -300,46 +300,6 @@ services:
       - "traefik.http.routers.mana-credits.rule=Host(`credits.mana.how`)"
       - "traefik.http.routers.mana-credits.tls=true"
       - "traefik.http.services.mana-credits.loadbalancer.server.port=3002"
-
-  cards-server:
-    # Cardecky Marketplace + Community backend. See
-    # apps/cards/docs/MARKETPLACE_PLAN.md for the full design.
-    build:
-      context: .
-      dockerfile: services/cards-server/Dockerfile
-    image: cards-server:local
-    container_name: mana-app-cards-server
-    restart: always
-    mem_limit: 128m
-    depends_on:
-      postgres:
-        condition: service_healthy
-      mana-auth:
-        condition: service_healthy
-    environment:
-      NODE_ENV: production
-      PORT: 3072
-      DATABASE_URL: postgresql://postgres:${POSTGRES_PASSWORD:-mana123}@postgres:5432/mana_platform
-      MANA_AUTH_URL: http://mana-auth:3001
-      MANA_CREDITS_URL: http://mana-credits:3002
-      MANA_LLM_URL: http://mana-llm:3025
-      MANA_MEDIA_URL: http://mana-media:3015
-      MANA_NOTIFY_URL: http://mana-notify:3040
-      MANA_SERVICE_KEY: ${MANA_SERVICE_KEY}
-      CORS_ORIGINS: https://cardecky.mana.how,https://mana.how
-      AUTHOR_PAYOUT_STANDARD_BPS: 8000
-      AUTHOR_PAYOUT_VERIFIED_BPS: 9000
-      COMMUNITY_VERIFY_STARS: 500
-      COMMUNITY_VERIFY_FEATURED: 3
-      COMMUNITY_VERIFY_SUBSCRIBERS: 200
-    ports:
-      - "3072:3072"
-    healthcheck:
-      test: ["CMD", "bun", "-e", "fetch('http://127.0.0.1:3072/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
-      interval: 120s
-      timeout: 10s
-      retries: 3
-      start_period: 15s
 
   # mana-research moved to GPU-Box on 2026-05-07 (Phase 2g). Source-of-truth
   # is now managarten/infrastructure/docker-compose.gpu-box.yml. DNS for
@@ -1012,39 +972,6 @@ services:
       - "5028:5028"
     healthcheck:
       test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://127.0.0.1:5028/health"]
-      interval: 180s
-      timeout: 10s
-      retries: 3
-      start_period: 45s
-
-  cards-web:
-    # Standalone Cardecky frontend on cardecky.mana.how — separate SvelteKit
-    # container that consumes the same mana-sync 'cards' app-id as the
-    # in-mana cards module. See apps/cards/GUIDELINES.md.
-    build:
-      context: .
-      dockerfile: apps/cards/apps/web/Dockerfile
-    image: cards-web:local
-    container_name: mana-app-cards-web
-    restart: always
-    mem_limit: 128m
-    depends_on:
-      mana-auth:
-        condition: service_healthy
-    environment:
-      NODE_ENV: production
-      PORT: 5180
-      PUBLIC_MANA_AUTH_URL: http://mana-auth:3001
-      PUBLIC_MANA_AUTH_URL_CLIENT: https://auth.mana.how
-      PUBLIC_MANA_SYNC_URL: http://mana-sync:3050
-      PUBLIC_MANA_SYNC_URL_CLIENT: https://sync.mana.how
-      PUBLIC_MANA_LLM_URL_CLIENT: https://llm.mana.how
-      PUBLIC_MANA_MEDIA_URL_CLIENT: https://media.mana.how
-      PUBLIC_CARDS_API_URL_CLIENT: https://cardecky-api.mana.how
-    ports:
-      - "5180:5180"
-    healthcheck:
-      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://127.0.0.1:5180/"]
       interval: 180s
       timeout: 10s
       retries: 3
