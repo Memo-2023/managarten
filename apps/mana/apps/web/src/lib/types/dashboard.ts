@@ -25,7 +25,6 @@ export type WidgetType =
 	| 'day-timeline' // TimeBlocks: chronological day timeline
 	| 'activity-feed' // TimeBlocks: recent activity across modules
 	| 'period' // Period: current phase + days until next period
-	| 'articles-unread' // Articles: saved read-it-later articles
 	| 'body-stats' // Body: latest weight + active workout summary
 	| 'invoices-open' // Invoices: open/overdue totals + oldest overdue
 	| 'broadcasts' // Broadcast: YTD counts + last sent + next scheduled
@@ -282,14 +281,6 @@ export const WIDGET_REGISTRY: WidgetMeta[] = [
 		defaultSize: 'small',
 		allowMultiple: false,
 		requiredBackend: 'period',
-	},
-	{
-		type: 'articles-unread',
-		nameKey: 'dashboard.widgets.articles_unread.title',
-		descriptionKey: 'dashboard.widgets.articles_unread.description',
-		icon: '📚',
-		defaultSize: 'small',
-		allowMultiple: false,
 	},
 	{
 		type: 'body-stats',

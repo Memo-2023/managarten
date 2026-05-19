@@ -6,9 +6,7 @@
   Ephemeral session — lives in sessionStorage, never touches Dexie.
 -->
 <script lang="ts">
-	import { goto } from '$app/navigation';
 	import { researchSessionStore } from '$lib/modules/news-research/stores/session.svelte';
-	import { articlesStore } from '$lib/modules/articles/stores/articles.svelte';
 	import { RoutePage } from '$lib/components/shell';
 
 	let mode = $state<'query' | 'site'>('query');
@@ -16,8 +14,6 @@
 	let siteUrl = $state('');
 	let searchQuery = $state('');
 	let copyLabel = $state('Als KI-Kontext kopieren');
-	let savingUrl = $state<string | null>(null);
-	let saveError = $state<string | null>(null);
 
 	const store = researchSessionStore;
 
@@ -53,18 +49,6 @@
 			setTimeout(() => (copyLabel = 'Als KI-Kontext kopieren'), 1500);
 		} catch {
 			copyLabel = 'Kopieren fehlgeschlagen';
-		}
-	}
-
-	async function onSave(articleUrl: string) {
-		savingUrl = articleUrl;
-		saveError = null;
-		try {
-			const { article } = await articlesStore.saveFromUrl(articleUrl);
-			goto(`/articles/${article.id}`);
-		} catch (err) {
-			saveError = err instanceof Error ? err.message : 'Speichern fehlgeschlagen';
-			savingUrl = null;
 		}
 	}
 
@@ -189,9 +173,6 @@
 					<h2>Ergebnisse ({store.session.results.length})</h2>
 					<button type="button" class="secondary" onclick={onCopy}>{copyLabel}</button>
 				</div>
-				{#if saveError}
-					<div class="error">{saveError}</div>
-				{/if}
 				<ul class="result-list">
 					{#each store.session.results as article (article.url)}
 						<li class="result">
@@ -208,14 +189,6 @@
 							{#if article.excerpt}
 								<p class="r-excerpt">{article.excerpt}</p>
 							{/if}
-							<button
-								type="button"
-								class="save"
-								disabled={savingUrl === article.url}
-								onclick={() => onSave(article.url)}
-							>
-								{savingUrl === article.url ? 'Speichere…' : 'In Leseliste speichern'}
-							</button>
 						</li>
 					{/each}
 				</ul>
@@ -371,20 +344,6 @@
 		margin: 0.25rem 0 0;
 		color: hsl(var(--color-foreground));
 		font-size: 0.9rem;
-	}
-	.save {
-		align-self: flex-start;
-		background: transparent;
-		border: 1px solid hsl(var(--color-border));
-		border-radius: 0.35rem;
-		padding: 0.25rem 0.65rem;
-		font-size: 0.8rem;
-		cursor: pointer;
-		color: hsl(var(--color-foreground));
-	}
-	.save:disabled {
-		opacity: 0.5;
-		cursor: not-allowed;
 	}
 	.error {
 		background: hsl(var(--color-destructive) / 0.1);

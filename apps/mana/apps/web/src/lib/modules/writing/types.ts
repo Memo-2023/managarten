@@ -50,16 +50,9 @@ export type GenerationProvider = 'mana-ai' | 'mana-llm' | 'local-llm';
 
 export type StyleSource = 'preset' | 'custom-description' | 'sample-trained' | 'self-trained';
 
-export type DraftReferenceKind =
-	| 'article'
-	| 'note'
-	| 'library'
-	| 'kontext'
-	| 'goal'
-	| 'url'
-	| 'me-image';
+export type DraftReferenceKind = 'note' | 'library' | 'kontext' | 'goal' | 'url' | 'me-image';
 
-export type DraftPublishModule = 'website' | 'articles' | 'social-relay' | 'mail' | 'presi';
+export type DraftPublishModule = 'website' | 'social-relay' | 'mail' | 'presi';
 
 // ─── Sub-objects ─────────────────────────────────────────
 

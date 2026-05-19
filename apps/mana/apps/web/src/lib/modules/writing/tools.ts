@@ -11,7 +11,6 @@
  *   - generate_draft_content
  *   - refine_draft_selection
  *   - set_draft_status
- *   - save_draft_as_article
  *
  * All writes delegate to the existing stores so the encryption + events
  * pipeline runs once, no matter whether the call came from the UI,
@@ -23,7 +22,6 @@ import { deriveUpdatedAt } from '$lib/data/sync';
 import { draftsStore } from './stores/drafts.svelte';
 import { generationsStore } from './stores/generations.svelte';
 import { draftTable, draftVersionTable } from './collections';
-import { articlesStore } from '$lib/modules/articles/stores/articles.svelte';
 import { decryptRecords, VaultLockedError } from '$lib/data/crypto';
 import { toDraft, toDraftVersion } from './queries';
 import { STYLE_PRESETS } from './presets/styles';
@@ -463,56 +461,6 @@ export const writingTools: ModuleTool[] = [
 				data: { draftId, status },
 				message: `Status auf "${status}" gesetzt`,
 			};
-		},
-	},
-
-	{
-		name: 'save_draft_as_article',
-		module: 'writing',
-		description:
-			'Veroeffentlicht die aktuelle Version als Read-Later-Artikel im articles-Modul und traegt das Ziel in publishedTo ein.',
-		parameters: [{ name: 'draftId', type: 'string', description: 'ID des Drafts', required: true }],
-		async execute(params) {
-			const draftId = String(params.draftId ?? '');
-			try {
-				const draftLocal = await draftTable.get(draftId);
-				if (!draftLocal || draftLocal.deletedAt) {
-					return { success: false, message: `Draft ${draftId} nicht gefunden` };
-				}
-				const [draftDec] = await decryptRecords('writingDrafts', [draftLocal]);
-				if (!draftDec) return { success: false, message: 'Entschlüsselung fehlgeschlagen' };
-				const draft = toDraft(draftDec);
-
-				let content = '';
-				if (draft.currentVersionId) {
-					const vLocal = await draftVersionTable.get(draft.currentVersionId);
-					if (vLocal && !vLocal.deletedAt) {
-						const [vDec] = await decryptRecords('writingDraftVersions', [vLocal]);
-						if (vDec) content = vDec.content ?? '';
-					}
-				}
-
-				const wordCount = content.trim().split(/\s+/).filter(Boolean).length;
-				const article = await articlesStore.saveFromExtracted({
-					originalUrl: `internal://writing/${draft.id}`,
-					title: draft.title || draft.briefing.topic || 'Unbenannt',
-					excerpt: content.slice(0, 240).trim() || null,
-					content,
-					htmlContent: content,
-					author: null,
-					siteName: 'Writing',
-					wordCount,
-					readingTimeMinutes: Math.max(1, Math.round(wordCount / 200)),
-				});
-				await draftsStore.recordPublish(draft.id, 'articles', article.id);
-				return {
-					success: true,
-					data: { draftId: draft.id, articleId: article.id },
-					message: `Als Artikel gespeichert (id=${article.id})`,
-				};
-			} catch (err) {
-				return { success: false, message: err instanceof Error ? err.message : String(err) };
-			}
 		},
 	},
 ];

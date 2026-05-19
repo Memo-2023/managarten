@@ -26,7 +26,6 @@ import { lastsTools } from '$lib/modules/lasts/tools';
 import { guidesTools } from '$lib/modules/guides/tools';
 import { inventoryTools } from '$lib/modules/inventory/tools';
 import { newsResearchTools } from '$lib/modules/news-research/tools';
-import { articlesTools } from '$lib/modules/articles/tools';
 import { recipesTools } from '$lib/modules/recipes/tools';
 import { questionsTools } from '$lib/modules/questions/tools';
 import { meditateTools } from '$lib/modules/meditate/tools';
@@ -71,7 +70,6 @@ export function initTools(): void {
 	registerTools(guidesTools);
 	registerTools(inventoryTools);
 	registerTools(newsResearchTools);
-	registerTools(articlesTools);
 	registerTools(recipesTools);
 	registerTools(questionsTools);
 	registerTools(meditateTools);

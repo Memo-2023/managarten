@@ -23,7 +23,6 @@ import { cleanupTombstones } from './quota';
 import { pruneActivityLog } from './activity';
 import { SYNC_TELEMETRY_EVENT, type SyncTelemetryDetail } from './sync-telemetry';
 import { installConflictListener } from './conflict-store.svelte';
-import { startArticlePickupConsumer } from '$lib/modules/articles/consume-pickup';
 
 /** How often to run the tombstone cleanup. 24h is a comfortable cadence
  * given that the cutoff is 30 days — runs roughly once per app session. */
@@ -107,12 +106,6 @@ export function installDataLayerListeners(): () => void {
 	// coalescing, auto-dismiss, and the restore-write path.
 	const disposeConflict = installConflictListener();
 
-	// ─── Articles bulk-import: pickup consumer ─────────────────
-	// Drains `articleExtractPickup` rows the server-worker drops for
-	// successful URL extractions. Web-Lock-coordinated for multi-tab
-	// safety. See docs/plans/articles-bulk-import.md.
-	const disposeArticlePickup = startArticlePickupConsumer();
-
 	// ─── Periodic cleanup loop ─────────────────────────────────
 	// Runs once on boot, then daily. Two independent jobs share the
 	// schedule so we never have a third interval competing for the same
@@ -158,6 +151,5 @@ export function installDataLayerListeners(): () => void {
 		window.removeEventListener(SYNC_TELEMETRY_EVENT, handleTelemetry);
 		window.clearInterval(cleanupTimer);
 		disposeConflict();
-		disposeArticlePickup();
 	};
 }

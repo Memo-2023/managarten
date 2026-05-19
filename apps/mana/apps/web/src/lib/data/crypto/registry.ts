@@ -87,7 +87,6 @@ import type {
 	LocalBroadcastTemplate,
 	LocalBroadcastSettings,
 } from '../../modules/broadcasts/types';
-import type { LocalArticle, LocalHighlight } from '../../modules/articles/types';
 import type { LocalMeImage } from '../../modules/profile/types';
 import type {
 	LocalDraft,
@@ -682,20 +681,6 @@ export const ENCRYPTION_REGISTRY: Record<string, EncryptionConfig> = {
 	// and are themselves encrypted. Offsets + color + articleId are
 	// structural — the reader needs them for range scans and rendering.
 	//
-	// articleTags is intentionally NOT registered — pure FK junction
-	// (articleId, tagId), zero user-typed content. Tag names live in
-	// globalTags, which has its own encryption policy. Lives on the
-	// plaintext-allowlist alongside noteTags / eventTags / placeTags.
-	articles: entry<LocalArticle>([
-		'title',
-		'excerpt',
-		'content',
-		'htmlContent',
-		'author',
-		'userNote',
-	]),
-	articleHighlights: entry<LocalHighlight>(['text', 'note', 'contextBefore', 'contextAfter']),
-
 	// ─── Library ─────────────────────────────────────────────
 	// Reading / watching log with a kind discriminator (book / movie /
 	// series / comic) in one table. User-typed text (title, original

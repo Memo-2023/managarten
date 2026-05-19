@@ -393,12 +393,7 @@
 					<span class="published-label">{$_('writing.detail_view.published_label')}</span>
 					{#each draft.publishedTo as target (`${target.module}:${target.targetId}`)}
 						<span class="published-chip" title={formatDateTime(new Date(target.publishedAt))}>
-							{#if target.module === 'articles'}
-								{$_('writing.detail_view.published_articles')}
-								<a href={`/articles/${target.targetId}`}
-									>{$_('writing.detail_view.published_articles_link')}</a
-								>
-							{:else if target.module === 'website'}
+							{#if target.module === 'website'}
 								{$_('writing.detail_view.published_website')}
 							{:else if target.module === 'presi'}
 								{$_('writing.detail_view.published_presi')}
@@ -665,10 +660,6 @@
 		color: #16a34a;
 		border: 1px solid color-mix(in srgb, #22c55e 30%, transparent);
 		font-size: 0.75rem;
-	}
-	.published-chip a {
-		color: inherit;
-		text-decoration: underline;
 	}
 	.status-picker {
 		display: inline-flex;

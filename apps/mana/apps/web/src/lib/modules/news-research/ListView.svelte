@@ -10,10 +10,8 @@
   workbench card and full page keeps results.
 -->
 <script lang="ts">
-	import { goto } from '$app/navigation';
 	import type { ViewProps } from '$lib/app-registry';
 	import { researchSessionStore } from '$lib/modules/news-research/stores/session.svelte';
-	import { articlesStore } from '$lib/modules/articles/stores/articles.svelte';
 
 	const {}: ViewProps = $props();
 
@@ -23,8 +21,6 @@
 	let query = $state('');
 	let siteUrl = $state('');
 	let searchQuery = $state('');
-	let savingUrl = $state<string | null>(null);
-	let saveError = $state<string | null>(null);
 	let copyLabel = $state('Kopieren');
 	let feedsOpen = $state(true);
 
@@ -52,18 +48,6 @@
 		if (!searchQuery.trim()) return;
 		await store.runSearch(searchQuery.trim());
 		feedsOpen = false;
-	}
-
-	async function onSave(articleUrl: string) {
-		savingUrl = articleUrl;
-		saveError = null;
-		try {
-			const { article } = await articlesStore.saveFromUrl(articleUrl);
-			goto(`/articles/${article.id}`);
-		} catch (err) {
-			saveError = err instanceof Error ? err.message : 'Speichern fehlgeschlagen';
-			savingUrl = null;
-		}
 	}
 
 	async function onCopy() {
@@ -174,7 +158,6 @@
 				<span>Treffer ({store.session.results.length})</span>
 				<button type="button" class="ctx" onclick={onCopy}>KI-Kontext: {copyLabel}</button>
 			</div>
-			{#if saveError}<div class="error">{saveError}</div>{/if}
 			<ul class="results">
 				{#each store.session.results as a (a.url)}
 					<li>
@@ -183,14 +166,6 @@
 							<span>{formatDate(a.publishedAt)}</span>
 							<span>·</span>
 							<span>Score {a.score}</span>
-							<button
-								type="button"
-								class="save"
-								disabled={savingUrl === a.url}
-								onclick={() => onSave(a.url)}
-							>
-								{savingUrl === a.url ? '…' : 'Speichern'}
-							</button>
 						</div>
 					</li>
 				{/each}
@@ -375,19 +350,6 @@
 		align-items: center;
 		font-size: 0.7rem;
 		color: hsl(var(--color-muted-foreground));
-	}
-	.save {
-		margin-left: auto;
-		background: transparent;
-		border: 1px solid hsl(var(--color-border));
-		border-radius: 0.25rem;
-		padding: 0.1rem 0.4rem;
-		font-size: 0.7rem;
-		cursor: pointer;
-		color: hsl(var(--color-foreground));
-	}
-	.save:disabled {
-		opacity: 0.5;
 	}
 	.error {
 		background: hsl(var(--color-destructive) / 0.1);

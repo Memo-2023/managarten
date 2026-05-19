@@ -18,10 +18,8 @@
 import { scopedGet, scopedForModule } from '$lib/data/scope';
 import { decryptRecords } from '$lib/data/crypto';
 import { db } from '$lib/data/database';
-import { toArticle } from '$lib/modules/articles/queries';
 import { toNote } from '$lib/modules/notes/queries';
 import { toLibraryEntry } from '$lib/modules/library/queries';
-import type { LocalArticle } from '$lib/modules/articles/types';
 import type { LocalNote } from '$lib/modules/notes/types';
 import type { LocalLibraryEntry } from '$lib/modules/library/types';
 import type { LocalMeImage } from '$lib/modules/profile/types';
@@ -49,24 +47,6 @@ function truncate(text: string, max = MAX_CHARS_PER_REF): string {
 	const trimmed = text.trim();
 	if (trimmed.length <= max) return trimmed;
 	return trimmed.slice(0, max) + TRUNCATION_MARKER;
-}
-
-async function resolveArticle(
-	id: string
-): Promise<Omit<ResolvedReference, 'kind' | 'note'> | null> {
-	const local = await scopedGet<LocalArticle>('articles', id);
-	if (!local || local.deletedAt) return null;
-	const [decrypted] = await decryptRecords('articles', [local]);
-	if (!decrypted) return null;
-	const article = toArticle(decrypted);
-	const siteName = article.siteName ? `${article.siteName} — ` : '';
-	return {
-		sourceLabel: `Artikel: ${siteName}${article.title}`,
-		title: article.title,
-		// `||` (not `??`) so empty-string content falls through to excerpt;
-		// articles with extraction failures often have content === ''.
-		content: truncate(article.content || article.excerpt || ''),
-	};
 }
 
 async function resolveNote(id: string): Promise<Omit<ResolvedReference, 'kind' | 'note'> | null> {
@@ -194,11 +174,6 @@ async function resolveMeImage(
 
 export async function resolveReference(ref: DraftReference): Promise<ResolvedReference | null> {
 	switch (ref.kind) {
-		case 'article': {
-			if (!ref.targetId) return null;
-			const base = await resolveArticle(ref.targetId);
-			return base ? { ...base, kind: 'article', note: ref.note ?? null } : null;
-		}
 		case 'note': {
 			if (!ref.targetId) return null;
 			const base = await resolveNote(ref.targetId);

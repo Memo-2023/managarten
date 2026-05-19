@@ -21,10 +21,6 @@ export const PLAINTEXT_ALLOWLIST: readonly string[] = [
 	'activities', // TODO: audit
 	'albumItems', // TODO: audit
 	'albums', // TODO: audit
-	'articleTags', // FK-only junction into globalTags (articleId, tagId). Tag names live in globalTags.
-	'articleImportJobs', // Bulk-import job header (counters, status, lease metadata). Pure operational state, no user-typed content. See docs/plans/articles-bulk-import.md.
-	'articleImportItems', // One row per URL in a bulk job. URL is plaintext by necessity — server-worker reads it without master-key access (same rationale as articles.originalUrl).
-	'articleExtractPickup', // Short-lived server-write inbox; the client picks up the extracted payload, encrypts it into the articles table, deletes the row. Plaintext by necessity (server has no master key); empty in steady state.
 	'automations', // TODO: audit
 	'boardViews', // TODO: audit
 	'budgets', // TODO: audit

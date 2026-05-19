@@ -25,7 +25,6 @@ import PresiDecksWidget from './widgets/PresiDecksWidget.svelte';
 import RecentContactsWidget from '$lib/modules/core/widgets/RecentContactsWidget.svelte';
 import ActiveTimerWidget from '$lib/modules/core/widgets/ActiveTimerWidget.svelte';
 import PeriodWidget from '$lib/modules/core/widgets/PeriodWidget.svelte';
-import ArticlesUnreadWidget from '$lib/modules/articles/widgets/ArticlesUnreadWidget.svelte';
 import BodyStatsWidget from '$lib/modules/body/widgets/BodyStatsWidget.svelte';
 import InvoicesOpenWidget from '$lib/modules/invoices/widgets/InvoicesOpenWidget.svelte';
 import BroadcastsWidget from '$lib/modules/broadcasts/widgets/BroadcastsWidget.svelte';
@@ -51,7 +50,6 @@ export const widgetComponents: Record<WidgetType, Component> = {
 	'day-timeline': DayTimelineWidget,
 	'activity-feed': ActivityFeedWidget,
 	period: PeriodWidget,
-	'articles-unread': ArticlesUnreadWidget,
 	'body-stats': BodyStatsWidget,
 	'invoices-open': InvoicesOpenWidget,
 	broadcasts: BroadcastsWidget,

@@ -26,9 +26,6 @@ vi.mock('$lib/data/database', () => ({
 	},
 }));
 
-vi.mock('$lib/modules/articles/queries', () => ({
-	toArticle: vi.fn((local) => ({ ...local })),
-}));
 vi.mock('$lib/modules/notes/queries', () => ({
 	toNote: vi.fn((local) => ({ ...local })),
 }));
@@ -61,92 +58,6 @@ beforeEach(() => {
 });
 
 // ── Per-kind resolver tests ──────────────────────────────────────────
-
-describe('resolveReference - article', () => {
-	it('returns sourceLabel + truncated content from a valid article', async () => {
-		mockScopedGet.mockResolvedValue({
-			id: 'a1',
-			title: 'Headline',
-			content: 'Body of the article.',
-			siteName: 'NYT',
-		});
-		mockDecryptRecords.mockResolvedValue([
-			{ id: 'a1', title: 'Headline', content: 'Body of the article.', siteName: 'NYT' },
-		]);
-
-		const ref: DraftReference = { kind: 'article', targetId: 'a1', note: null };
-		const result = await resolveReference(ref);
-		expect(result).not.toBeNull();
-		expect(result?.kind).toBe('article');
-		expect(result?.sourceLabel).toBe('Artikel: NYT — Headline');
-		expect(result?.content).toBe('Body of the article.');
-	});
-
-	it('returns null when the article is deleted', async () => {
-		mockScopedGet.mockResolvedValue({ id: 'a1', deletedAt: '2026-01-01T00:00:00Z' });
-		const result = await resolveReference({ kind: 'article', targetId: 'a1', note: null });
-		expect(result).toBeNull();
-	});
-
-	it('returns null when targetId is missing', async () => {
-		const result = await resolveReference({ kind: 'article', note: null });
-		expect(result).toBeNull();
-	});
-
-	it('returns null when scopedGet returns undefined', async () => {
-		mockScopedGet.mockResolvedValue(undefined);
-		const result = await resolveReference({ kind: 'article', targetId: 'a1', note: null });
-		expect(result).toBeNull();
-	});
-
-	it('truncates content over the per-ref char cap', async () => {
-		const longBody = 'x'.repeat(2000);
-		mockScopedGet.mockResolvedValue({ id: 'a1', title: 'Long', content: longBody });
-		mockDecryptRecords.mockResolvedValue([
-			{ id: 'a1', title: 'Long', content: longBody, siteName: null },
-		]);
-
-		const result = await resolveReference({ kind: 'article', targetId: 'a1', note: null });
-		expect(result?.content.length).toBeLessThan(2000);
-		expect(result?.content).toContain('[… gekürzt …]');
-	});
-
-	it('falls back to excerpt when content is empty', async () => {
-		mockScopedGet.mockResolvedValue({
-			id: 'a1',
-			title: 'X',
-			content: '',
-			excerpt: 'Just a teaser.',
-		});
-		mockDecryptRecords.mockResolvedValue([
-			{ id: 'a1', title: 'X', content: '', excerpt: 'Just a teaser.', siteName: null },
-		]);
-		const result = await resolveReference({ kind: 'article', targetId: 'a1', note: null });
-		expect(result?.content).toBe('Just a teaser.');
-	});
-
-	it('omits the siteName prefix when missing', async () => {
-		mockScopedGet.mockResolvedValue({ id: 'a1', title: 'X', content: 'body' });
-		mockDecryptRecords.mockResolvedValue([
-			{ id: 'a1', title: 'X', content: 'body', siteName: null },
-		]);
-		const result = await resolveReference({ kind: 'article', targetId: 'a1', note: null });
-		expect(result?.sourceLabel).toBe('Artikel: X');
-	});
-
-	it('preserves the user note', async () => {
-		mockScopedGet.mockResolvedValue({ id: 'a1', title: 'X', content: 'body' });
-		mockDecryptRecords.mockResolvedValue([
-			{ id: 'a1', title: 'X', content: 'body', siteName: null },
-		]);
-		const result = await resolveReference({
-			kind: 'article',
-			targetId: 'a1',
-			note: 'wichtig fürs Argument',
-		});
-		expect(result?.note).toBe('wichtig fürs Argument');
-	});
-});
 
 describe('resolveReference - note', () => {
 	it('returns title + content for a valid note', async () => {
@@ -382,8 +293,8 @@ describe('resolveReferences', () => {
 		mockDecryptRecords.mockImplementation(async (_t: string, rows: unknown[]) => rows);
 
 		const refs: DraftReference[] = [
-			{ kind: 'article', targetId: 'a1', note: null },
-			{ kind: 'article', targetId: 'missing', note: null },
+			{ kind: 'note', targetId: 'a1', note: null },
+			{ kind: 'note', targetId: 'missing', note: null },
 		];
 		const out = await resolveReferences(refs);
 		expect(out).toHaveLength(1);
@@ -395,9 +306,9 @@ describe('resolveReferences', () => {
 		mockDecryptRecords.mockImplementation(async (_t: string, rows: unknown[]) => rows);
 
 		const refs: DraftReference[] = [
-			{ kind: 'article', targetId: 'a1', note: null },
-			{ kind: 'article', targetId: 'a2', note: null },
-			{ kind: 'article', targetId: 'a3', note: null },
+			{ kind: 'note', targetId: 'a1', note: null },
+			{ kind: 'note', targetId: 'a2', note: null },
+			{ kind: 'note', targetId: 'a3', note: null },
 		];
 		const out = await resolveReferences(refs);
 		expect(out).toHaveLength(3);
@@ -411,7 +322,7 @@ describe('resolveReferences', () => {
 		mockDecryptRecords.mockImplementation(async (_t: string, rows: unknown[]) => rows);
 
 		const refs: DraftReference[] = Array.from({ length: 8 }, (_, i) => ({
-			kind: 'article' as const,
+			kind: 'note' as const,
 			targetId: `a${i}`,
 			note: null,
 		}));
@@ -435,7 +346,7 @@ describe('resolveReferences', () => {
 		mockScopedGet.mockResolvedValue({ id: 'a', title: 'huge', content: huge });
 		mockDecryptRecords.mockImplementation(async (_t: string, rows: unknown[]) => rows);
 
-		const out = await resolveReferences([{ kind: 'article', targetId: 'a1', note: null }]);
+		const out = await resolveReferences([{ kind: 'note', targetId: 'a1', note: null }]);
 		expect(out).toHaveLength(1);
 	});
 });

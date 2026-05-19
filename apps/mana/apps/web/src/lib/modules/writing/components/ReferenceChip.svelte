@@ -20,7 +20,6 @@
 	} = $props();
 
 	const KIND_ICON: Record<DraftReference['kind'], string> = {
-		article: '📄',
 		note: '📝',
 		library: '📚',
 		kontext: '🗂',
@@ -30,7 +29,6 @@
 	};
 
 	const KIND_LABEL: Record<DraftReference['kind'], string> = {
-		article: 'Artikel',
 		note: 'Notiz',
 		library: 'Library',
 		kontext: 'Kontext',

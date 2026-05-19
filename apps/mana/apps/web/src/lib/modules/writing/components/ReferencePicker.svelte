@@ -2,9 +2,8 @@
   ReferencePicker — inline "Quellen" section inside the briefing form.
   Shows the currently-attached references as ReferenceChip pills (with
   live-resolved display labels) and a "+ Quelle" dropdown for adding
-  new ones. Seven kinds:
+  new ones. Six kinds:
 
-    - article   → searchable list of saved articles
     - note      → searchable list of notes
     - library   → searchable list of library entries
     - url       → freeform URL input + optional context note
@@ -17,7 +16,6 @@
 -->
 <script lang="ts">
 	import { _ } from 'svelte-i18n';
-	import { useAllArticles } from '$lib/modules/articles/queries';
 	import { useAllNotes, useSpaceContextNote } from '$lib/modules/notes/queries';
 	import { useAllEntries as useAllLibraryEntries } from '$lib/modules/library/queries';
 	import { useAllMeImages } from '$lib/modules/profile/queries';
@@ -26,7 +24,6 @@
 	import type { DraftReference, DraftReferenceKind } from '../types';
 
 	const SUPPORTED_KINDS: DraftReferenceKind[] = [
-		'article',
 		'note',
 		'library',
 		'url',
@@ -47,7 +44,6 @@
 		onchange: (next: DraftReference[]) => void;
 	} = $props();
 
-	const articles$ = useAllArticles();
 	const notes$ = useAllNotes();
 	const library$ = useAllLibraryEntries();
 	const kontext$ = useSpaceContextNote();
@@ -55,7 +51,6 @@
 	const goals$ = useAllGoals();
 
 	// Lookup maps so chips can resolve their display label from targetId.
-	const articlesById = $derived(new Map((articles$.value ?? []).map((a) => [a.id, a])));
 	const notesById = $derived(new Map((notes$.value ?? []).map((n) => [n.id, n])));
 	const libraryById = $derived(new Map((library$.value ?? []).map((e) => [e.id, e])));
 	const meImagesById = $derived(new Map((meImages$.value ?? []).map((m) => [m.id, m])));
@@ -66,10 +61,6 @@
 		if (ref.kind === 'url') return ref.url ?? $_('writing.reference_picker.label_url_default');
 		if (ref.kind === 'kontext') return $_('writing.reference_picker.label_kontext');
 		if (!ref.targetId) return $_('writing.reference_picker.label_unknown');
-		if (ref.kind === 'article') {
-			const a = articlesById.get(ref.targetId);
-			return a ? a.title : $_('writing.reference_picker.label_article_missing');
-		}
 		if (ref.kind === 'note') {
 			const n = notesById.get(ref.targetId);
 			return n
@@ -96,15 +87,7 @@
 		return ref.targetId;
 	}
 
-	type PickerMode =
-		| 'closed'
-		| 'article'
-		| 'note'
-		| 'library'
-		| 'url'
-		| 'kontext'
-		| 'goal'
-		| 'me-image';
+	type PickerMode = 'closed' | 'note' | 'library' | 'url' | 'kontext' | 'goal' | 'me-image';
 	let mode = $state<PickerMode>('closed');
 	let searchQuery = $state('');
 	let urlInput = $state('');
@@ -140,17 +123,6 @@
 		urlInput = '';
 		urlNote = '';
 	}
-
-	const filteredArticles = $derived.by(() => {
-		const q = searchQuery.trim().toLowerCase();
-		const all = articles$.value ?? [];
-		if (!q) return all.slice(0, 20);
-		return all
-			.filter(
-				(a) => a.title.toLowerCase().includes(q) || (a.siteName?.toLowerCase().includes(q) ?? false)
-			)
-			.slice(0, 20);
-	});
 
 	const filteredNotes = $derived.by(() => {
 		const q = searchQuery.trim().toLowerCase();
@@ -253,7 +225,7 @@
 		</p>
 	{/if}
 
-	{#if mode === 'article' || mode === 'note' || mode === 'library' || mode === 'goal' || mode === 'me-image'}
+	{#if mode === 'note' || mode === 'library' || mode === 'goal' || mode === 'me-image'}
 		<div class="search">
 			<!-- svelte-ignore a11y_autofocus -->
 			<input
@@ -263,24 +235,7 @@
 				autofocus
 			/>
 			<div class="results">
-				{#if mode === 'article'}
-					{#if filteredArticles.length === 0}
-						<p class="muted small">{$_('writing.reference_picker.no_results')}</p>
-					{:else}
-						{#each filteredArticles as a (a.id)}
-							<button
-								type="button"
-								class="result"
-								onclick={() => addRef({ kind: 'article', targetId: a.id, note: null })}
-							>
-								<strong>{a.title}</strong>
-								{#if a.siteName}
-									<span class="meta">{a.siteName}</span>
-								{/if}
-							</button>
-						{/each}
-					{/if}
-				{:else if mode === 'note'}
+				{#if mode === 'note'}
 					{#if filteredNotes.length === 0}
 						<p class="muted small">{$_('writing.reference_picker.no_results')}</p>
 					{:else}

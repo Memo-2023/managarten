@@ -729,42 +729,8 @@ registerApp({
 	},
 });
 
-registerApp({
-	id: 'articles',
-	name: 'Artikel',
-	color: '#F97316',
-	icon: BookOpen,
-	views: {
-		// ArticlesTabShell enthält intern alle drei Tabs (Übersicht /
-		// Leseliste / Highlights). Im Workbench-Karten-Kontext lassen
-		// sich die Tabs ohne Page-Navigation wechseln. In den direkten
-		// SvelteKit-Routen (/articles, /articles/list, /articles/highlights)
-		// wird dieselbe Shell mit passendem initialTab gemountet.
-		list: { load: () => import('$lib/modules/articles/ArticlesTabShell.svelte') },
-		detail: { load: () => import('$lib/modules/articles/views/DetailView.svelte') },
-	},
-	contextMenuActions: [
-		{
-			id: 'new-article',
-			label: 'URL speichern',
-			icon: Plus,
-			action: () =>
-				window.dispatchEvent(
-					new CustomEvent('mana:quick-action', { detail: { app: 'articles', action: 'new' } })
-				),
-		},
-	],
-	collection: 'articles',
-	paramKey: 'articleId',
-	// dragType: 'article' absichtlich weggelassen — der DragType-Union in
-	// @mana/shared-ui/dnd kennt noch keinen 'article'-Slot. Wenn später
-	// Drag-to-calendar / Drag-to-todo gebraucht wird, erweitern wir den
-	// Union dort und hängen es hier ein.
-	getDisplayData: (item) => ({
-		title: (item.title as string) || 'Artikel',
-		subtitle: (item.siteName as string) || undefined,
-	}),
-});
+// Articles-Modul: dekommissioniert 2026-05-19, lebt als pageta standalone
+// auf pageta.mana.how / pageta.com (Code/pageta).
 
 registerApp({
 	id: 'research-lab',

@@ -35,8 +35,6 @@ import { storageRoutes } from './modules/storage/routes';
 import { todoRoutes } from './modules/todo/routes';
 import { guidesRoutes } from './modules/guides/routes';
 import { newsResearchRoutes } from './modules/news-research/routes';
-import { articlesRoutes } from './modules/articles/routes';
-import { startArticleImportWorker } from './modules/articles/import-worker';
 import { tracesRoutes } from './modules/traces/routes';
 import { writingRoutes } from './modules/writing/routes';
 import { presiRoutes } from './modules/presi/routes';
@@ -129,7 +127,6 @@ app.route('/api/v1/storage', storageRoutes);
 app.route('/api/v1/todo', todoRoutes);
 app.route('/api/v1/guides', guidesRoutes);
 app.route('/api/v1/news-research', newsResearchRoutes);
-app.route('/api/v1/articles', articlesRoutes);
 app.route('/api/v1/traces', tracesRoutes);
 app.route('/api/v1/presi', presiRoutes);
 app.route('/api/v1/research', researchRoutes);
@@ -139,11 +136,6 @@ app.route('/api/v1/writing', writingRoutes);
 app.route('/api/v1/personas/admin', personasAdminRoutes);
 
 // ─── Background Workers ─────────────────────────────────────
-// Articles bulk-import: ticks every 2s, advisory-lock-gated so multiple
-// apps/api replicas never double-process. See
-// docs/plans/articles-bulk-import.md.
-startArticleImportWorker();
-
 // Forms wave-cron (M10d): scans unlisted snapshots with internal_meta
 // for forms-recurrence configs, fires due waves via mana-mail's
 // internal bulk-send route. Advisory-lock-gated. See

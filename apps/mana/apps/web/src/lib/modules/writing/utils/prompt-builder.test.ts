@@ -104,13 +104,6 @@ describe('buildDraftPrompt', () => {
 	it('renders resolved references as a "Quellen" block + flags it in system', () => {
 		const refs: ResolvedReference[] = [
 			{
-				kind: 'article',
-				sourceLabel: 'Artikel: NYT — Headline',
-				title: 'Headline',
-				content: 'Body of the article.',
-				note: 'wichtig fürs Argument',
-			},
-			{
 				kind: 'note',
 				sourceLabel: 'Notiz: Mein Gedanke',
 				title: 'Mein Gedanke',

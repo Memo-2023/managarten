@@ -1,19 +1,15 @@
 <!--
   ExportMenu — drop-down next to the Generate/Checkpoint buttons in the
-  DetailView. Four M10 actions:
+  DetailView. Three actions:
     - Markdown kopieren
     - .md herunterladen
     - Drucken / PDF (uses the browser's native print dialog)
-    - Als Artikel speichern → hand-off to the articles module
 
   The heavy lifting lives in utils/export.ts + the stores; this
   component is just the menu surface + confirmation toasts.
 -->
 <script lang="ts">
 	import { _ } from 'svelte-i18n';
-	import { goto } from '$app/navigation';
-	import { articlesStore } from '$lib/modules/articles/stores/articles.svelte';
-	import { draftsStore } from '../stores/drafts.svelte';
 	import {
 		draftToMarkdown,
 		draftToPlainText,
@@ -34,7 +30,6 @@
 	let open = $state(false);
 	let feedback = $state<string | null>(null);
 	let feedbackTimer: ReturnType<typeof setTimeout> | null = null;
-	let busy = $state(false);
 
 	function flash(msg: string) {
 		feedback = msg;
@@ -72,39 +67,6 @@
 		open = false;
 		if (typeof window !== 'undefined') window.print();
 	}
-
-	async function saveAsArticle() {
-		if (busy) return;
-		busy = true;
-		try {
-			const content = currentVersion?.content ?? '';
-			const wordCount = content.trim().split(/\s+/).filter(Boolean).length;
-			// `internal://` scheme avoids colliding with real URLs in the
-			// articles module's dedupe path while still giving the row a
-			// unique originalUrl — the format `internal://writing/<id>`
-			// doubles as a back-reference to the source draft.
-			const article = await articlesStore.saveFromExtracted({
-				originalUrl: `internal://writing/${draft.id}`,
-				title: draft.title || draft.briefing.topic || $_('writing.detail_view.untitled_fallback'),
-				excerpt: content.slice(0, 240).trim() || null,
-				content,
-				htmlContent: content, // no HTML body yet — the articles reader handles plain text fine
-				author: null,
-				siteName: $_('writing.export_menu.site_name'),
-				wordCount,
-				readingTimeMinutes: Math.max(1, Math.round(wordCount / 200)),
-			});
-			await draftsStore.recordPublish(draft.id, 'articles', article.id);
-			flash($_('writing.export_menu.toast_saved_article'));
-			open = false;
-			// Give the toast a moment before navigating away.
-			setTimeout(() => goto(`/articles/${article.id}`), 600);
-		} catch (err) {
-			flash(err instanceof Error ? err.message : String(err));
-		} finally {
-			busy = false;
-		}
-	}
 </script>
 
 <div class="menu">
@@ -120,21 +82,17 @@
 	</button>
 	{#if open}
 		<div class="dropdown" role="menu">
-			<button type="button" role="menuitem" onclick={copyMd} disabled={busy}>
+			<button type="button" role="menuitem" onclick={copyMd}>
 				{$_('writing.export_menu.copy_md')}
 			</button>
-			<button type="button" role="menuitem" onclick={copyPlain} disabled={busy}>
+			<button type="button" role="menuitem" onclick={copyPlain}>
 				{$_('writing.export_menu.copy_text')}
 			</button>
-			<button type="button" role="menuitem" onclick={downloadMd} disabled={busy}>
+			<button type="button" role="menuitem" onclick={downloadMd}>
 				{$_('writing.export_menu.download_md')}
 			</button>
-			<button type="button" role="menuitem" onclick={printDraft} disabled={busy}>
+			<button type="button" role="menuitem" onclick={printDraft}>
 				{$_('writing.export_menu.print_pdf')}
-			</button>
-			<hr />
-			<button type="button" role="menuitem" onclick={saveAsArticle} disabled={busy}>
-				{$_('writing.export_menu.save_as_article')}
 			</button>
 		</div>
 	{/if}
@@ -201,11 +159,6 @@
 	.dropdown button:disabled {
 		opacity: 0.5;
 		cursor: not-allowed;
-	}
-	.dropdown hr {
-		margin: 0.2rem 0.1rem;
-		border: none;
-		border-top: 1px solid hsl(var(--color-border));
 	}
 	.toast {
 		font-size: 0.8rem;

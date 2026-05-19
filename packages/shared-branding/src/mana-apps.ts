@@ -848,23 +848,6 @@ export const MANA_APPS: ManaApp[] = [
 		requiredTier: 'guest',
 	},
 	{
-		id: 'articles',
-		name: 'Artikel',
-		description: {
-			de: 'Später lesen — offline',
-			en: 'Read later — offline',
-		},
-		longDescription: {
-			de: 'Speichere Web-Artikel und lies sie offline im Reader — mit Highlights, Tags und Notizen. Ein Zuhause für alles, das du später in Ruhe lesen willst.',
-			en: 'Save web articles and read them offline in a distraction-free reader — with highlights, tags and notes. A home for everything you want to read properly later.',
-		},
-		icon: APP_ICONS.articles,
-		color: '#f97316',
-		comingSoon: false,
-		status: 'development',
-		requiredTier: 'guest',
-	},
-	{
 		id: 'writing',
 		name: 'Schreiben',
 		description: {
