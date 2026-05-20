@@ -399,4 +399,20 @@ ingress:
   - hostname: moodlit-api.mana.how
     service: http://localhost:3105
 
+  # Herbatrium — Citizen-Science-Pflanzenbeobachtungen (Code/herbatrium/).
+  # Host-Ports 3103+3104 (statt 3101+3102) wegen memoro-audio-Konflikt
+  # auf 3101. Service-interne Ports bleiben 3101+3000 per PORTS.md.
+  - hostname: herbatrium.mana.how
+    service: http://localhost:3104
+  - hostname: herbatrium-api.mana.how
+    service: http://localhost:3103
+
+  # mana-sync-v2 — Event-Sourcing-Platform (mana/services/mana-sync/).
+  # Container `mana-sync-v2` (Host-Port 3055 → Service 3050). SOT für
+  # alle 9 Verein-Apps (Stand 2026-05-19, manaclick + nutriphi/moodlit/
+  # pageta/herbatrium/werdrobe/comicello/uload/mukke). Co-Existenz mit
+  # Legacy `mana-core-sync` auf sync.mana.how bis Legacy-Removal.
+  - hostname: sync2.mana.how
+    service: http://localhost:3055
+
   - service: http_status:404
