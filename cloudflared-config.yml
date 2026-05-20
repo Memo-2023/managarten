@@ -434,4 +434,12 @@ ingress:
   - hostname: hub.mana.how
     service: http://localhost:3082
 
+  # Kreisel — Loop-Video-App für Verein-Töpfe (Code/kreisel/).
+  # Container manacore-monorepo, Host-Ports 3115 api / 3116 web
+  # (PORTS.md). Live seit 2026-05-20, invite-only via mana-auth-tier.
+  - hostname: kreisel.mana.how
+    service: http://localhost:3116
+  - hostname: kreisel-api.mana.how
+    service: http://localhost:3115
+
   - service: http_status:404
