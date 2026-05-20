@@ -421,4 +421,11 @@ ingress:
   - hostname: sync2.mana.how
     service: http://localhost:3055
 
+  # mana-hub-web — Vereins-Hub-UI (mana/apps/hub-web). SvelteKit-App
+  # mit /timeline (Cross-App-Aggregator), /invites, /aura.
+  # Container exponiert intern 3060, gemappt auf Host-Port 3082
+  # (Konflikt mit unified mana-api auf 3060).
+  - hostname: hub.mana.how
+    service: http://localhost:3082
+
   - service: http_status:404
