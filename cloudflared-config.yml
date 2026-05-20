@@ -408,9 +408,15 @@ ingress:
   # Herbatrium — Citizen-Science-Pflanzenbeobachtungen (Code/herbatrium/).
   # Host-Ports 3103+3104 (statt 3101+3102) wegen memoro-audio-Konflikt
   # auf 3101. Service-interne Ports bleiben 3101+3000 per PORTS.md.
+  # 2026-05-20 Co-Domain herbatrium.com + api.herbatrium.com hinzugefügt
+  # (kein Primary-Switch, herbatrium.mana.how bleibt funktional).
   - hostname: herbatrium.mana.how
     service: http://localhost:3104
   - hostname: herbatrium-api.mana.how
+    service: http://localhost:3103
+  - hostname: herbatrium.com
+    service: http://localhost:3104
+  - hostname: api.herbatrium.com
     service: http://localhost:3103
 
   # mana-sync-v2 — Event-Sourcing-Platform (mana/services/mana-sync/).
