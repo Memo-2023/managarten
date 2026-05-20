@@ -115,8 +115,6 @@ ingress:
     service: http://localhost:5000
   - hostname: times.mana.how
     service: http://localhost:5000
-  - hostname: uload.mana.how
-    service: http://localhost:3108
   - hostname: context.mana.how
     service: http://localhost:5000
   - hostname: questions.mana.how
@@ -172,8 +170,14 @@ ingress:
   # ============================================
   - hostname: uload-api.mana.how
     service: http://localhost:3107
+  # ulo.ad serviert die Web-UI direkt (kanonisch seit 2026-05-20).
+  # Path-Routing: API-Pfade gehen an :3107, alles andere an SvelteKit :3108.
+  # Reihenfolge zählt — spezifische Regeln zuerst.
   - hostname: ulo.ad
+    path: ^/(r|api|public|healthz|readyz|\.well-known)(/.*)?$
     service: http://localhost:3107
+  - hostname: ulo.ad
+    service: http://localhost:3108
   - hostname: media.mana.how
     service: http://localhost:3011
   - hostname: llm.mana.how
