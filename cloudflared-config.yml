@@ -384,8 +384,13 @@ ingress:
   # ~/projects/comicello/ on the Mac Mini.
   # Ports per mana/docs/PORTS.md: 3109 api / 3110 web. Tier-Gate beta.
   # Konsumiert mana-llm, mana-image-edits, mana-media, mana-me, mana-credits.
-  # DNS für comicello.com + api.comicello.com kommt sobald Till die
-  # .com-Domain registriert hat — bis dahin nur die .mana.how-Routen.
+  # Primary-Domain: comicello.com (Cutover 2026-05-20). .mana.how bleibt als Co-Domain.
+  - hostname: comicello.com
+    service: http://localhost:3111
+  - hostname: www.comicello.com
+    service: http://localhost:3111
+  - hostname: api.comicello.com
+    service: http://localhost:3109
   - hostname: comicello.mana.how
     service: http://localhost:3111
   - hostname: comicello-api.mana.how
