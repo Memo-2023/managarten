@@ -236,16 +236,17 @@ ingress:
 
   # ============================================
   # Zitare (Code/zitare, separate repo)
-  # ~/projects/zitare-deploy/ on the Mac Mini (planned — Phase 1.6).
+  # Stand 2026-05-20: zitare.com ist die kanonische Brand-Domain.
+  # zitare.mana.how ist abgeschaltet, zitare-api.mana.how bleibt als
+  # Back-Compat-Surface für externe Tooling.
   # Ports per mana/docs/PORTS.md: 3083 api / 3084 app / 3085 com.
-  # zitare.com is a separate Cloudflare zone; tunnel route for that
-  # hostname must be added via `cloudflared tunnel route dns
-  # 1435166a-0e3f-4222-8de6-744f32cea5c9 zitare.com` (one-time).
   # ============================================
   - hostname: zitare.com
     service: http://localhost:3085
-  - hostname: zitare.mana.how
+  - hostname: app.zitare.com
     service: http://localhost:3084
+  - hostname: api.zitare.com
+    service: http://localhost:3083
   - hostname: zitare-api.mana.how
     service: http://localhost:3083
 
