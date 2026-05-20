@@ -149,3 +149,6 @@ pip-delete-this-directory.txt
 # ML Models (large files, downloaded on demand)
 mlx_models/
 services/mana-sync/server
+
+# NPM Auth — Verdaccio-Token soll nie in git
+.npmrc
