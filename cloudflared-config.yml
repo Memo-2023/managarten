@@ -283,14 +283,15 @@ ingress:
     service: http://localhost:3196
 
   # Seepuls (Event-Aggregator Konstanz/Kreuzlingen, DE+CH) — Code/seepuls.
-  # ~/projects/seepuls/ on the Mac Mini (Deploy pending, Phase β-4).
-  # Ports per mana/docs/PORTS.md: 3095 api / 3096 web. Aggregator-App,
-  # gilt mana/docs/AGGREGATOR_POLICY.md (robots.txt-Pflicht, sichtbare
-  # Attribution, Take-Down ≤ 72h). DNS vorgemerkt, Service liefert 502
-  # bis Container deployed ist.
-  - hostname: seepuls.mana.how
+  # ~/projects/seepuls/ on the Mac Mini. Ports per mana/docs/PORTS.md:
+  # 3095 api / 3096 web. Aggregator-App, gilt mana/docs/AGGREGATOR_POLICY.md
+  # (robots.txt-Pflicht, sichtbare Attribution, Take-Down ≤ 72h).
+  # 2026-05-20 Primary-Switch auf seepuls.com (.mana.how abgeschaltet).
+  - hostname: seepuls.com
     service: http://localhost:3096
-  - hostname: seepuls-api.mana.how
+  - hostname: www.seepuls.com
+    service: http://localhost:3096
+  - hostname: api.seepuls.com
     service: http://localhost:3095
 
   # ============================================
@@ -408,12 +409,7 @@ ingress:
   # Herbatrium — Citizen-Science-Pflanzenbeobachtungen (Code/herbatrium/).
   # Host-Ports 3103+3104 (statt 3101+3102) wegen memoro-audio-Konflikt
   # auf 3101. Service-interne Ports bleiben 3101+3000 per PORTS.md.
-  # 2026-05-20 Co-Domain herbatrium.com + api.herbatrium.com hinzugefügt
-  # (kein Primary-Switch, herbatrium.mana.how bleibt funktional).
-  - hostname: herbatrium.mana.how
-    service: http://localhost:3104
-  - hostname: herbatrium-api.mana.how
-    service: http://localhost:3103
+  # 2026-05-20 Primary-Switch auf herbatrium.com (.mana.how abgeschaltet).
   - hostname: herbatrium.com
     service: http://localhost:3104
   - hostname: api.herbatrium.com
